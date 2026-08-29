@@ -11,24 +11,36 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="logo-icon">📚</span>
+      <span class="logo-text">Tutorial <strong>BelajarPlus</strong></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#pengenalan">Pengenalan</a></li>
+      <li><a href="#cara-pakai">Cara Pakai</a></li>
+      <li><a href="#reader-demo">Book Reader</a></li>
+      <li><a href="#halaman-lain">Halaman</a></li>
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li class="mobile-only"><a href="https://belajarplus.id/library" target="_blank" class="btn-nav">Buka App →</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <a href="https://belajarplus.id/library" target="_blank" class="btn-nav desktop-only">Buka App →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
 
   <!-- Hero -->
   <header class="hero">
-    <nav class="nav">
-      <div class="nav-logo">
-        <span class="logo-icon">📚</span>
-        <span class="logo-text">Tutorial <strong>BelajarPlus</strong></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#pengenalan">Pengenalan</a></li>
-        <li><a href="#cara-pakai">Cara Pakai</a></li>
-        <li><a href="#reader-demo">Book Reader</a></li>
-        <li><a href="#halaman-lain">Halaman</a></li>
-        <li><a href="#tips">Tips</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <a href="https://belajarplus.id/library" target="_blank" class="btn-nav">Buka App →</a>
-    </nav>
 
     <div class="hero-content">
       <div class="hero-badge">📖 Panduan Lengkap 2024</div>
@@ -516,11 +528,11 @@
   </section>
 
   <!-- Progress Checklist -->
-  <section class="section" style="background:#F0F9FF">
+  <section class="section checklist-section">
     <div class="container">
       <div class="section-label">Lacak Progressmu</div>
       <h2 class="section-title">Checklist Penggunaan BelajarPlus</h2>
-      <p style="color:#0369A1;margin-bottom:2rem;font-size:.95rem">Centang setiap langkah yang sudah kamu selesaikan!</p>
+      <p class="checklist-sub">Centang setiap langkah yang sudah kamu selesaikan!</p>
       <div class="checklist-grid">
         <div class="checklist-col">
           <h4 class="cl-group-title">🚀 Memulai</h4>
@@ -706,11 +718,11 @@
   </section>
 
   <!-- ADMIN PANEL -->
-  <section id="admin" class="section" style="background:#0F172A;color:white">
+  <section id="admin" class="section admin-section">
     <div class="container">
-      <div class="section-label" style="color:#F59E0B">🔐 Khusus Staf & Admin</div>
-      <h2 class="section-title" style="color:white">Panduan Panel Admin<br/><span style="background:linear-gradient(135deg,#F59E0B,#EF4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">belajarplus.id/admin</span></h2>
-      <p style="color:#94A3B8;margin-bottom:1rem;max-width:650px;line-height:1.7">Panel admin hanya bisa diakses oleh akun <strong style="color:white">Staf</strong> atau <strong style="color:white">Admin</strong> sekolah. Login normal ke belajarplus.id, lalu tambahkan <code style="background:#1E293B;color:#60A5FA;padding:2px 6px;border-radius:4px">/admin</code> di URL.</p>
+      <div class="section-label admin-label">🔐 Khusus Staf & Admin</div>
+      <h2 class="section-title admin-title">Panduan Panel Admin<br/><span class="admin-gradient-text">belajarplus.id/admin</span></h2>
+      <p class="admin-sub">Panel admin hanya bisa diakses oleh akun <strong>Staf</strong> atau <strong>Admin</strong> sekolah. Login normal ke belajarplus.id, lalu tambahkan <code class="admin-code">/admin</code> di URL.</p>
 
       <!-- Dashboard Stats -->
       <div class="admin-stats">
@@ -737,9 +749,9 @@
       </div>
 
       <!-- Aksi Cepat -->
-      <div class="admin-quick" style="margin-bottom:3rem">
-        <div class="asc-icon" style="font-size:1rem;background:rgba(255,255,255,.05);border-radius:8px;padding:.5rem 1rem;color:#F59E0B;font-weight:700;display:inline-block;margin-bottom:1rem">⚡ Aksi Cepat</div>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <div class="admin-quick">
+        <div class="admin-quick-title">⚡ Aksi Cepat</div>
+        <div class="admin-quick-actions">
           <div class="quick-btn-demo">📚 Kelola buku → Langsung ke Koleksi &amp; Lisensi</div>
           <div class="quick-btn-demo">📊 Lihat hasil siswa → Langsung ke Hasil Siswa</div>
         </div>
