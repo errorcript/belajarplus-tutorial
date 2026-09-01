@@ -160,272 +160,422 @@
     </div>
   </section>
 
-  <!-- Cara Pakai Step by Step -->
+  <!-- Cara Pakai Step by Step Berdasarkan Role -->
   <section id="cara-pakai" class="section">
     <div class="container">
-      <div class="section-label">Panduan Langkah demi Langkah</div>
-      <h2 class="section-title">Cara Menggunakan <br />Perpustakaan Digital</h2>
+      <div class="section-label">Panduan Terstruktur Berdasarkan Akun</div>
+      <h2 class="section-title">Panduan Penggunaan BelajarPlus</h2>
+      <p class="section-sub">Pilih jenis akun kamu di bawah ini untuk melihat panduan urut dan terarah sesuai kebutuhan peranmu.</p>
+
+      <!-- Role Switcher Tabs -->
+      <div class="role-switcher-container">
+        <div class="role-switcher-label">💡 Pilih Peran Akun Anda:</div>
+        <div class="role-switcher-tabs">
+          <button class="role-tab active" data-role="siswa" onclick="switchRole('siswa', this)">
+            <span class="role-icon">👨‍🎓</span>
+            <div class="role-info">
+              <span class="role-title">Akun Siswa</span>
+              <span class="role-desc">Pinjam buku, membaca digital, &amp; kerjakan tugas LJD</span>
+            </div>
+          </button>
+          <button class="role-tab" data-role="guru" onclick="switchRole('guru', this)">
+            <span class="role-icon">👨‍🏫</span>
+            <div class="role-info">
+              <span class="role-title">Akun Guru</span>
+              <span class="role-desc">Kelola kelas, assign tugas LJD, &amp; pantau nilai</span>
+            </div>
+          </button>
+          <button class="role-tab" data-role="kepsek" onclick="switchRole('kepsek', this)">
+            <span class="role-icon">🏫</span>
+            <div class="role-info">
+              <span class="role-title">Kepala Sekolah / Admin</span>
+              <span class="role-desc">Manajemen stok buku, lisensi, &amp; analitik sekolah</span>
+            </div>
+          </button>
+        </div>
+      </div>
 
       <div class="steps-wrapper">
 
-        <div class="step" data-step="1">
-          <div class="step-number">01</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Login ke BelajarPlus</h3>
-              <span class="step-tag">Langkah Pertama</span>
+        <!-- ==================== 1. CONTAINER PANDUAN AKUN SISWA ==================== -->
+        <div class="role-steps-container active" id="steps-siswa">
+          <div class="role-section-header">
+            <div class="rsh-title">👨‍🎓 Panduan Runtut Akun Siswa</div>
+            <span class="rsh-badge badge-siswa">9 Langkah Lengkap</span>
+          </div>
+
+          <div class="step" data-step="1">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Login ke Akun Siswa</h3>
+                <span class="step-tag">Langkah Pertama</span>
+              </div>
+              <p>Buka <a href="https://belajarplus.id" target="_blank" class="link">belajarplus.id</a> di browser. Masukkan alamat email sekolah dan password yang telah didaftarkan oleh sekolah atau guru kamu.</p>
+              <div class="step-note">
+                💡 <strong>Tip:</strong> Pastikan kamu sudah terdaftar di kelas aktif agar bisa langsung mengakses sumber belajar sekolah.
+              </div>
             </div>
-            <p>Buka <a href="https://belajarplus.id" target="_blank" class="link">belajarplus.id</a> di browser kamu. Login menggunakan akun yang sudah didaftarkan oleh sekolah. Biasanya menggunakan email sekolah atau akun yang diberikan guru/admin.</p>
-            <div class="step-note">
-              💡 <strong>Tip:</strong> Belum punya akun? Hubungi admin sekolah atau guru untuk mendapatkan akses ke platform BelajarPlus.
+            <div class="step-visual">
+              <img src="assets/login.png" class="screenshot-img" alt="Login Akun Siswa BelajarPlus" />
             </div>
           </div>
-          <div class="step-visual">
-            <img src="assets/login.png" class="screenshot-img" alt="Login BelajarPlus" />
+
+          <div class="step" data-step="2">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Cari &amp; Filter Koleksi Buku Digital</h3>
+                <span class="step-tag">Perpustakaan</span>
+              </div>
+              <p>Klik menu <strong>"Perpustakaan"</strong> di navigation bar atas. Gunakan kolom pencarian atau filter sidebar kiri untuk menyaring buku berdasarkan Jenjang (Kelas 10, 11, 12) dan Mata Pelajaran.</p>
+              <ul class="step-list">
+                <li><strong>Filter Jenjang</strong> — Saring buku sesuai tingkatan kelasmu</li>
+                <li><strong>Filter Mapel</strong> — Cari buku spesifik (Biologi, Matematika, Antropologi, dll.)</li>
+              </ul>
+              <div class="step-note">
+                📌 Tag filter aktif membantu menyaring ketersediaan buku digital sekolah secara real-time.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/search_filter.png" class="screenshot-img" alt="Filter Buku Digital Siswa" />
+            </div>
+          </div>
+
+          <div class="step" data-step="3">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Pinjam Buku Digital Sekolah</h3>
+                <span class="step-tag">Peminjaman Gratis</span>
+              </div>
+              <p>Klik tombol <strong>"Pinjam buku"</strong> pada kartu buku yang kamu butuhkan. Perhatikan indikator ketersediaan stok buku digital sekolahmu.</p>
+              <ul class="step-list">
+                <li>Badge <span class="badge-green">Tersedia</span> → Buku bisa langsung dipinjam gratis</li>
+                <li>Badge <span class="badge-red">Stok Habis</span> → Buku sedang dipinjam oleh siswa lain</li>
+              </ul>
+              <div class="step-note">
+                ⏰ Peminjaman buku memiliki batas durasi otomatis. Buku akan kembali ke rak secara otomatis setelah masa pinjam berakhir.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/book_detail.png" class="screenshot-img" alt="Detail Peminjaman Buku Siswa" />
+            </div>
+          </div>
+
+          <div class="step" data-step="4">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Baca via Interactive Book Reader</h3>
+                <span class="step-tag">Fitur Membaca</span>
+              </div>
+              <p>Setelah meminjam, klik <strong>"Baca"</strong> untuk membuka reader digital BelajarPlus. Nikmati fitur navigasi modern langsung di browser tanpa perlu instalasi aplikasi tambahan.</p>
+              <ul class="step-list">
+                <li>Gunakan <strong>☰ Daftar Isi</strong> untuk melompat langsung ke Bab pelajaran</li>
+                <li>Pengaturan <strong>A+ / A−</strong> untuk memperbesar/memperkecil teks</li>
+                <li>Mode <strong>Fullscreen (⛶)</strong> agar membaca lebih fokus</li>
+              </ul>
+              <div class="step-note">📖 Kamu juga bisa mencoba simulasi reader di bagian bawah halaman ini!</div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/book_reader.png" class="screenshot-img" alt="Book Reader Digital Siswa" />
+            </div>
+          </div>
+
+          <div class="step" data-step="5">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Akses Tugas &amp; Kuis Kelas Saya</h3>
+                <span class="step-tag">Penugasan Guru</span>
+              </div>
+              <p>Buka tautan kelas kamu (misal: <code>/classes/922a...</code>) lalu klik tab <strong>"Penugasan"</strong> untuk melihat latihan, kuis, atau Tryout TKA yang ditugaskan oleh guru pengajar.</p>
+              <ul class="step-list">
+                <li>Periksa <strong>Tenggat Pengumpulan</strong> (Deadline) tugas</li>
+                <li>Baca instruksi khusus yang diberikan oleh guru</li>
+                <li>Klik tombol <strong>"Kerjakan"</strong> untuk memulai latihan</li>
+              </ul>
+              <div class="step-note">
+                📝 <strong>Penting:</strong> Pastikan kamu sudah meminjam buku acuan tugas di perpustakaan agar akses soal latihan terbuka!
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/class_assignment.png" class="screenshot-img" alt="Penugasan Kelas Siswa" />
+            </div>
+          </div>
+
+          <div class="step" data-step="6">
+            <div class="step-number">06</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Isi &amp; Kirim Lembar Jawab Digital (LJD)</h3>
+                <span class="step-tag">Ujian Real-time</span>
+              </div>
+              <p>Pada tampilan Lembar Jawab Digital (LJD), pilih opsi jawaban untuk tiap nomor soal. Sistem otomatis memantau waktu dan indikator kejujuran (anti-cheat tab focus).</p>
+              <ul class="step-list">
+                <li>Isikan semua jawaban sebelum timer habis</li>
+                <li>Klik <strong>"Kirim lembar jawaban"</strong> setelah selesai meninjau</li>
+                <li>Skor dan rekapitulasi nilai langsung terkirim otomatis ke guru</li>
+              </ul>
+              <div class="step-note">
+                🏆 Nilai persentase ketuntasan dan analisis kompetensi akan langsung muncul di layar setelah dikirim.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/assignment_result.png" class="screenshot-img" alt="Hasil Nilai Lembar Jawab Digital" />
+            </div>
+          </div>
+
+          <div class="step" data-step="7">
+            <div class="step-number">07</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Kelola Rak "Buku Saya"</h3>
+                <span class="step-tag">Manajemen Pinjaman</span>
+              </div>
+              <p>Buka menu <strong>"Buku Saya"</strong> untuk melihat daftar buku yang sedang aktif dipinjam dan riwayat peminjaman yang telah selesai.</p>
+              <div class="step-note">
+                📚 Mengembalikan buku tepat waktu membantu teman sekelasmu mendapatkan akses peminjaman buku yang sama.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/my_books.png" class="screenshot-img" alt="Buku Saya Akun Siswa" />
+            </div>
+          </div>
+
+          <div class="step" data-step="8">
+            <div class="step-number">08</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Pembelian Buku Tambahan di Toko</h3>
+                <span class="step-tag">Toko Digital</span>
+              </div>
+              <p>Jika memerlukan buku referensi pribadi di luar koleksi perpustakaan sekolah, kamu dapat membelinya melalui menu <strong>"Toko"</strong> dan memantau statusnya di menu <strong>"Pesanan"</strong>.</p>
+              <div class="step-note">
+                🛒 Buku yang dibeli dari Toko menjadi milik permanen di akunmu tanpa batas waktu peminjaman.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/shop.png" class="screenshot-img" alt="Toko Buku Digital Siswa" />
+            </div>
+          </div>
+
+          <div class="step" data-step="9">
+            <div class="step-number">09</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Pengaturan Profil Siswa</h3>
+                <span class="step-tag">Data Diri</span>
+              </div>
+              <p>Periksa data diri, asal sekolah, pembagian kelas aktif, dan perbarui nomor WhatsApp terhubung di menu <strong>"Profil"</strong> untuk menerima notifikasi penugasan dari guru.</p>
+              <div class="step-note">
+                👤 Data sekolah dan kelas dikelola secara terpusat oleh admin sekolah.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/profile.png" class="screenshot-img" alt="Profil Akun Siswa" />
+            </div>
           </div>
         </div>
 
-        <div class="step" data-step="2">
-          <div class="step-number">02</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Buka Halaman Perpustakaan</h3>
-              <span class="step-tag">Jelajahi Koleksi</span>
+        <!-- ==================== 2. CONTAINER PANDUAN AKUN GURU ==================== -->
+        <div class="role-steps-container" id="steps-guru">
+          <div class="role-section-header">
+            <div class="rsh-title">👨‍🏫 Panduan Runtut Akun Guru / Pengajar</div>
+            <span class="rsh-badge badge-guru">5 Langkah Kelola Pembelajaran</span>
+          </div>
+
+          <div class="step" data-step="1">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Login &amp; Akses Dashboard Guru</h3>
+                <span class="step-tag">Panel Guru</span>
+              </div>
+              <p>Login menggunakan akun pengajar BelajarPlus yang terdaftar. Masuk ke halaman <strong>Dashboard Pengajar</strong> untuk mengelola kelas dan materi pembelajaran sekolah.</p>
+              <div class="step-note">
+                💡 Guru memiliki wewenang mengelola anggota kelas, membuat penugasan LJD, dan mengatur bobot penilaian.
+              </div>
             </div>
-            <p>Setelah login, klik menu <strong>"Perpustakaan"</strong> di navigation bar atas. Kamu akan melihat halaman <em>"Jelajahi Koleksi"</em> yang menampilkan semua buku digital yang tersedia di sekolahmu.</p>
-            <div class="step-note">
-              📌 Halaman perpustakaan langsung menampilkan semua buku dengan sampul, judul, penulis, kategori, dan jumlah ketersediaan.
+            <div class="step-visual">
+              <img src="assets/admin_dashboard.png" class="screenshot-img" alt="Dashboard Pengajar Guru" />
             </div>
           </div>
-          <div class="step-visual">
-            <img src="assets/library.png" class="screenshot-img" alt="Perpustakaan BelajarPlus" />
+
+          <div class="step" data-step="2">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Buat &amp; Kelola Ruang Kelas</h3>
+                <span class="step-tag">Manajemen Kelas</span>
+              </div>
+              <p>Buka menu <strong>"Kelas Saya"</strong> untuk membuat kelas baru (misal: <em>Kelas 11 Biologi</em> or <em>Kelas 12 TKA Matematika</em>). Tambahkan siswa terdaftar ke dalam rombel kelasmu.</p>
+              <ul class="step-list">
+                <li>Atur nama kelas, tingkatan jenjang, dan mata pelajaran</li>
+                <li>Undang siswa menggunakan Kode Kelas unik atau assign otomatis</li>
+              </ul>
+              <div class="step-note">
+                👥 Siswa yang terdaftar di kelas akan otomatis menerima akses ke tugas dan kuis yang dipublikasikan guru.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/admin_kelas.png" class="screenshot-img" alt="Kelola Kelas Guru" />
+            </div>
+          </div>
+
+          <div class="step" data-step="3">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Hubungkan Buku Acuan Pembelajaran</h3>
+                <span class="step-tag">Sumber Belajar</span>
+              </div>
+              <p>Pada tab <strong>"Sumber Belajar"</strong> di dalam kelas, pilih buku acuan utama dari perpustakaan digital sekolah yang menjadi bahan bacaan wajib siswa.</p>
+              <div class="step-note">
+                📚 Menghubungkan buku acuan memastikan siswa dapat langsung meminjam buku yang relevan dengan materi kuis.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/admin_koleksi.png" class="screenshot-img" alt="Sumber Belajar Kelas Guru" />
+            </div>
+          </div>
+
+          <div class="step" data-step="4">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Buat Penugasan &amp; Lembar Jawab Digital (LJD)</h3>
+                <span class="step-tag">Asesmen &amp; Kuis</span>
+              </div>
+              <p>Buka tab <strong>"Penugasan"</strong> lalu buat penugasan baru. Pilih modul asesmen (Asesmen Formatif, Sumatif, Tryout TKA) dan tentukan tenggat waktu pengumpulan (deadline).</p>
+              <ul class="step-list">
+                <li>Tentukan bobot nilai per aktivitas</li>
+                <li>Aktifkan mode pengawasan kejujuran (anti-cheat focus tracking)</li>
+                <li>Atur tanggal publikasi dan batas waktu pengerjaan</li>
+              </ul>
+              <div class="step-note">
+                ⚡ Lembar Jawab Digital (LJD) mendukung penilaian otomatis tanpa perlu mengoreksi jawaban pilihan ganda secara manual!
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/class_assignment.png" class="screenshot-img" alt="Buat Penugasan Guru" />
+            </div>
+          </div>
+
+          <div class="step" data-step="5">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Pantau Transkrip Nilai &amp; Hasil Belajar Real-time</h3>
+                <span class="step-tag">Gradebook &amp; Analitik</span>
+              </div>
+              <p>Pantau hasil pengerjaan kuis siswa secara real-time di tab <strong>"Hasil Belajar"</strong>. Guru dapat melihat rincian skor per siswa, statistik ketuntasan minimal (KKM), dan analisis komparatif kompetensi bab.</p>
+              <div class="step-note">
+                📊 Data transkrip nilai dapat langsung diunduh dalam bentuk rekapitulasi penilaian sekolah.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/assignment_result.png" class="screenshot-img" alt="Transkrip Nilai Guru" />
+            </div>
           </div>
         </div>
 
-        <div class="step" data-step="3">
-          <div class="step-number">03</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Cari & Filter Buku</h3>
-              <span class="step-tag">Temukan Buku yang Tepat</span>
-            </div>
-            <p>Gunakan fitur <strong>pencarian</strong> di bagian atas untuk mencari berdasarkan judul, penulis, atau mata pelajaran. Atau gunakan <strong>filter di sidebar kiri</strong> untuk menyaring buku:</p>
-            <ul class="step-list">
-              <li><strong>Kategori</strong> — Aktivitas atau Teks Pendamping</li>
-              <li><strong>Jenjang</strong> — Pilih Kelas 10, 11, atau 12</li>
-              <li><strong>Mata Pelajaran</strong> — Antropologi, Biologi, Matematika, dll.</li>
-              <li><strong>Penerbit</strong> — Filter berdasarkan penerbit buku</li>
-            </ul>
-            <div class="step-note">
-              🔄 Filter aktif ditampilkan sebagai tag biru di atas daftar buku. Klik "Reset" untuk menghapus semua filter.
-            </div>
+        <!-- ==================== 3. CONTAINER PANDUAN AKUN KEPSEK / ADMIN ==================== -->
+        <div class="role-steps-container" id="steps-kepsek">
+          <div class="role-section-header">
+            <div class="rsh-title">🏫 Panduan Runtut Akun Kepala Sekolah &amp; Admin</div>
+            <span class="rsh-badge badge-kepsek">5 Langkah Manajemen Ekosistem Sekolah</span>
           </div>
-          <div class="step-visual">
-            <img src="assets/search_filter.png" class="screenshot-img" alt="Pencarian & Filter BelajarPlus" />
-          </div>
-        </div>
 
-        <div class="step" data-step="4">
-          <div class="step-number">04</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Pinjam Buku</h3>
-              <span class="step-tag">Mulai Membaca</span>
+          <div class="step" data-step="1">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Monitoring Dashboard Analitik Sekolah</h3>
+                <span class="step-tag">Executive Summary</span>
+              </div>
+              <p>Login ke akun Admin / Kepala Sekolah untuk memantau ringkasan performa perpustakaan digital dan keaktifan pembelajaran sekolah secara menyeluruh.</p>
+              <ul class="step-list">
+                <li>Total buku digital dipinjam bulan ini</li>
+                <li>Statistik siswa &amp; guru paling aktif</li>
+                <li>Grafik minat baca per jenjang dan mata pelajaran</li>
+              </ul>
+              <div class="step-note">
+                📈 Dashboard eksekutif memberikan gambaran nyata efektivitas literasi digital sekolah.
+              </div>
             </div>
-            <p>Temukan buku yang ingin kamu baca, lalu klik tombol <strong>"Pinjam buku"</strong> yang ada di bawah setiap kartu buku. Pastikan status buku menunjukkan <em>"tersedia"</em> (badge hijau) sebelum meminjam.</p>
-            <ul class="step-list">
-              <li>Badge <span class="badge-green">1 tersedia</span> → Buku bisa dipinjam</li>
-              <li>Badge <span class="badge-red">0 tersedia</span> → Buku sedang dipinjam orang lain</li>
-            </ul>
-            <div class="step-note">
-              ⏰ Setiap buku punya batas waktu peminjaman. Pastikan kamu selesai membaca sebelum masa pinjam habis!
+            <div class="step-visual">
+              <img src="assets/admin_dashboard.png" class="screenshot-img" alt="Dashboard Kepsek BelajarPlus" />
             </div>
           </div>
-          <div class="step-visual">
-            <img src="assets/book_detail.png" class="screenshot-img" alt="Detail Buku BelajarPlus" />
-          </div>
-        </div>
 
-        <div class="step" data-step="5">
-          <div class="step-number">05</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Baca Buku Digital</h3>
-              <span class="step-tag">Nikmati Bacaanmu</span>
+          <div class="step" data-step="2">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Manajemen Lisensi &amp; Koleksi Sekolah</h3>
+                <span class="step-tag">Stok Buku Digital</span>
+              </div>
+              <p>Buka menu <strong>"Koleksi Sekolah"</strong> untuk mengelola jumlah lisensi (eksemplar digital) buku teks dan buku pendamping yang dimiliki sekolah.</p>
+              <div class="step-note">
+                🔑 Admin dapat menambah kuota lisensi buku digital saat memasuki tahun ajaran baru.
+              </div>
             </div>
-            <p>Setelah berhasil meminjam, klik tombol <strong>"Baca"</strong> untuk membuka book reader. BelajarPlus memiliki reader bawaan yang bisa dibuka langsung di browser.</p>
-            <ul class="step-list">
-              <li>Navigasi halaman pakai tombol <strong>◀ ▶</strong> atau keyboard arrow</li>
-              <li>Klik ikon <strong>☰ Daftar Isi</strong> untuk lompat ke bab tertentu</li>
-              <li>Gunakan <strong>zoom in/out</strong> untuk menyesuaikan ukuran teks</li>
-              <li>Mode <strong>fullscreen</strong> untuk fokus membaca</li>
-              <li>Progress halaman terlihat di bar bawah reader</li>
-            </ul>
-            <div class="step-note">📖 Coba simulasi reader interaktif di bawah untuk melihat cara kerjanya!</div>
+            <div class="step-visual">
+              <img src="assets/admin_koleksi.png" class="screenshot-img" alt="Manajemen Koleksi Kepsek" />
+            </div>
           </div>
-          <div class="step-visual">
-            <img src="assets/book_reader.png" class="screenshot-img" alt="Book Reader BelajarPlus" />
-          </div>
-        </div>
 
-        <div class="step" data-step="6">
-          <div class="step-number">06</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Kelola Buku Saya</h3>
-              <span class="step-tag">Riwayat Peminjaman</span>
+          <div class="step" data-step="3">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Pengelolaan Data Pengguna &amp; Pembagian Rombel</h3>
+                <span class="step-tag">User Management</span>
+              </div>
+              <p>Kelola data guru pengajar, akun siswa per kelas, dan staf perpustakaan. Impor data pengguna sekolah secara kolektif menggunakan berkas spreadsheet.</p>
+              <div class="step-note">
+                🏫 Pengelompokan rombel terstruktur memudahkan penugasan lintas tingkat kelas.
+              </div>
             </div>
-            <p>Klik menu <strong>"Buku Saya"</strong> untuk melihat semua buku yang sedang kamu pinjam. Dari sini kamu bisa langsung melanjutkan membaca buku yang sedang aktif, atau melihat riwayat buku yang sudah dikembalikan.</p>
-            <div class="step-note">
-              📚 Pastikan untuk mengembalikan buku setelah selesai agar siswa lain bisa meminjamnya!
+            <div class="step-visual">
+              <img src="assets/admin_kelas.png" class="screenshot-img" alt="Manajemen User Admin Sekolah" />
             </div>
           </div>
-          <div class="step-visual">
-            <img src="assets/my_books.png" class="screenshot-img" alt="Buku Saya BelajarPlus" />
-          </div>
-        </div>
 
-      </div>
+          <div class="step" data-step="4">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Pengadaan Buku via Portal Toko / Penerbit</h3>
+                <span class="step-tag">Pengadaan Buku</span>
+              </div>
+              <p>Buka menu <strong>"Toko / Penerbit"</strong> untuk mengajukan pengadaan judul buku baru atau bekerja sama langsung dengan mitra penerbit resmi.</p>
+              <div class="step-note">
+                🛒 Mempermudah pengadaan buku referensi kurikulum terbaru tanpa proses birokrasi rumit.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/admin_toko.png" class="screenshot-img" alt="Portal Toko Penerbit Kepsek" />
+            </div>
+          </div>
 
-        <!-- Step 7: Detail Buku -->
-        <div class="step" data-step="7">
-          <div class="step-number">07</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Lihat Detail Buku</h3>
-              <span class="step-tag">Info Lengkap</span>
+          <div class="step" data-step="5">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Audit Keamanan &amp; Laporan Evaluasi Periodik</h3>
+                <span class="step-tag">Laporan Eksekutif</span>
+              </div>
+              <p>Unduh laporan bulanan untuk keperluan akreditasi sekolah, audit perpustakaan, dan evaluasi capaian kurikulum digital.</p>
+              <div class="step-note">
+                📋 Berkas laporan terformat standar siap pakai untuk pelaporan dinas pendidikan.
+              </div>
             </div>
-            <p>Klik sampul atau judul buku manapun untuk membuka <strong>halaman detail buku</strong>. Di sini kamu bisa melihat informasi lengkap sebelum memutuskan untuk meminjam.</p>
-            <ul class="step-list">
-              <li><strong>Judul & Penulis</strong> — info lengkap buku</li>
-              <li><strong>Kategori & Jenjang</strong> — cocok untuk kelas berapa</li>
-              <li><strong>Penerbit</strong> — siapa yang menerbitkan</li>
-              <li><strong>Jumlah tersedia</strong> — stok yang bisa dipinjam</li>
-              <li><strong>Deskripsi buku</strong> — sinopsis atau keterangan isi</li>
-            </ul>
-            <div class="step-note">
-              📎 URL halaman detail buku punya ID unik, contoh: <code style="background:#1E293B;color:#60A5FA;padding:2px 6px;border-radius:4px;font-size:.8em">/library/96a6b2e0-...</code>
+            <div class="step-visual">
+              <img src="assets/admin_dashboard.png" class="screenshot-img" alt="Audit & Laporan Kepsek" />
             </div>
-          </div>
-          <div class="step-visual">
-            <img src="assets/book_detail.png" class="screenshot-img" alt="Detail Buku BelajarPlus" />
-          </div>
-        </div>
-
-        <!-- Step 8: Toko -->
-        <div class="step" data-step="8">
-          <div class="step-number">08</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Gunakan Fitur Toko</h3>
-              <span class="step-tag">Beli Buku Tambahan</span>
-            </div>
-            <p>Menu <strong>"Toko"</strong> memungkinkan kamu mendapatkan buku di luar koleksi perpustakaan sekolah. Cocok untuk buku referensi tambahan atau buku yang tidak tersedia di koleksi sekolah.</p>
-            <ul class="step-list">
-              <li>Jelajahi katalog buku yang dijual</li>
-              <li>Pilih buku dan lakukan pembelian</li>
-              <li>Cek status di menu <strong>"Pesanan"</strong></li>
-              <li>Buku yang dibeli langsung masuk ke <strong>"Buku Saya"</strong></li>
-            </ul>
-            <div class="step-note">
-              🛒 Buku yang dibeli di Toko tidak terbatas waktu pinjam — bisa dibaca kapanpun!
-            </div>
-          </div>
-          <div class="step-visual">
-            <img src="assets/shop.png" class="screenshot-img" alt="Toko Buku BelajarPlus" />
-          </div>
-        </div>
-
-        <!-- Step 9: Pesanan saya -->
-        <div class="step" data-step="9">
-          <div class="step-number">09</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Pantau Pesanan Buku</h3>
-              <span class="step-tag">Riwayat Pembelian</span>
-            </div>
-            <p>Menu <strong>"Pesanan"</strong> menampilkan riwayat pembelian buku yang kamu beli melalui fitur Toko. Di sini kamu bisa memantau status pesanan dan melihat kembali buku yang pernah dibeli.</p>
-            <ul class="step-list">
-              <li>Cek status pembayaran pesanan</li>
-              <li>Riwayat transaksi pembelian buku</li>
-              <li>Akses cepat ke buku yang telah dibeli</li>
-            </ul>
-            <div class="step-note">
-              ℹ️ Halaman ini memudahkan pengelolaan buku berbayar di luar peminjaman gratis perpustakaan.
-            </div>
-          </div>
-          <div class="step-visual">
-            <img src="assets/orders.png" class="screenshot-img" alt="Pesanan Saya BelajarPlus" />
-          </div>
-        </div>
-
-        <!-- Step 10: Profil Pengguna -->
-        <div class="step" data-step="10">
-          <div class="step-number">10</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Kelola Profil Akun</h3>
-              <span class="step-tag">Pengaturan Profil</span>
-            </div>
-            <p>Menu <strong>"Profil"</strong> memungkinkan kamu melihat dan memperbarui informasi akunmu. Dari sini kamu dapat memeriksa data personal, kelas yang aktif, asal sekolah, dan nomor WhatsApp terhubung.</p>
-            <ul class="step-list">
-              <li>Lihat nama lengkap dan alamat email terdaftar</li>
-              <li>Pantau data sekolah dan pembagian kelas aktif</li>
-              <li>Perbarui nomor WhatsApp untuk notifikasi</li>
-            </ul>
-            <div class="step-note">
-              👤 Data sekolah otomatis terikat dengan sistem dan hanya dapat diubah melalui kode sekolah atau admin.
-            </div>
-          </div>
-          <div class="step-visual">
-            <img src="assets/profile.png" class="screenshot-img" alt="Profil Pengguna BelajarPlus" />
-          </div>
-        </div>
-
-        <!-- Step 11: Penugasan & Kuis Kelas -->
-        <div class="step" data-step="11">
-          <div class="step-number">11</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Akses Penugasan Kelas</h3>
-              <span class="step-tag">Tugas & Kuis</span>
-            </div>
-            <p>Buka menu <strong>"Kelas Saya"</strong> atau klik tautan kelas yang dibagikan guru (misal: <code>/classes/922a...</code>). Di halaman kelas, klik tab <strong>"Penugasan"</strong> untuk melihat daftar tugas, kuis, atau tryout yang harus dikerjakan.</p>
-            <ul class="step-list">
-              <li>Cek judul tugas dan instruksi khusus dari pengajar</li>
-              <li>Perhatikan <strong>tenggat waktu pengumpulan</strong> (deadline)</li>
-              <li>Klik tombol <strong>"Kerjakan"</strong> untuk langsung membuka latihan</li>
-            </ul>
-            <div class="step-note">
-              📝 <strong>Tip:</strong> Pastikan kamu sudah meminjam buku acuan tugas terlebih dahulu dari perpustakaan digital agar aktivitas latihan dapat langsung dibuka!
-            </div>
-          </div>
-          <div class="step-visual">
-            <img src="assets/class_assignment.png" class="screenshot-img" alt="Penugasan Kelas BelajarPlus" />
-          </div>
-        </div>
-
-        <!-- Step 12: Lembar Jawab Digital (LJD) -->
-        <div class="step" data-step="12">
-          <div class="step-number">12</div>
-          <div class="step-content">
-            <div class="step-header">
-              <h3>Isi & Kirim Lembar Jawab Digital (LJD)</h3>
-              <span class="step-tag">Penilaian Otomatis</span>
-            </div>
-            <p>Saat membuka kuis atau tryout, sistem akan menampilkan <strong>Lembar Jawab Digital (LJD)</strong> interaktif. Isikan jawaban pilihan ganda, Isian, atau Benar/Salah, lalu tinjau dan kirim lembar jawabanmu.</p>
-            <ul class="step-list">
-              <li>Pilih opsi jawaban untuk setiap nomor soal</li>
-              <li>Perhatikan timer dan penghitung anti-cheat di bagian atas</li>
-              <li>Klik <strong>"Kirim lembar jawaban"</strong> setelah selesai</li>
-              <li>Skor, analisis kompetensi, dan rekapitulasi nilai langsung terkirim otomatis ke guru</li>
-            </ul>
-            <div class="step-note">
-              🏆 Skor akhir dan jumlah jawaban benar/salah akan langsung ditampilkan secara real-time setelah pengiriman!
-            </div>
-          </div>
-          <div class="step-visual">
-            <img src="assets/assignment_result.png" class="screenshot-img" alt="Hasil Lembar Jawab Digital LJD" />
           </div>
         </div>
 

@@ -224,3 +224,15 @@ if (themeToggle) {
   });
 }
 
+// === ROLE SWITCHER ===
+function switchRole(role, btn) {
+  document.querySelectorAll('.role-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.role-steps-container').forEach(c => c.classList.remove('active'));
+  const target = document.getElementById(`steps-${role}`);
+  if (target) {
+    target.classList.add('active');
+  }
+}
+
+
