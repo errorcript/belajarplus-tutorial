@@ -1,3 +1,5 @@
+// === BELAJARPLUS TUTORIAL ENGINE ===
+(function() {
 // === SMOOTH SCROLL ===
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -24,7 +26,7 @@ document.querySelectorAll('.step, .card, .feature-card, .tip-card, .page-card').
 });
 
 // === FAQ ACCORDION ===
-function toggleFaq(btn) {
+window.toggleFaq = function(btn) {
   const answer = btn.nextElementSibling;
   const isOpen = btn.classList.contains('open');
   document.querySelectorAll('.faq-q').forEach(q => {
@@ -113,7 +115,7 @@ function renderPage() {
   document.getElementById('pageContent').style.fontSize = currentFontSize + 'rem';
 }
 
-function nextPage() {
+window.nextPage = function() {
   if (currentPage < getTotalPages() - 1) {
     currentPage++;
   } else if (currentChapter < chapters.length - 1) {
@@ -123,7 +125,7 @@ function nextPage() {
   renderPage();
 }
 
-function prevPage() {
+window.prevPage = function() {
   if (currentPage > 0) {
     currentPage--;
   } else if (currentChapter > 0) {
@@ -133,28 +135,28 @@ function prevPage() {
   renderPage();
 }
 
-function goToChapter(idx, el) {
+window.goToChapter = function(idx, el) {
   currentChapter = idx;
   currentPage = 0;
   renderPage();
 }
 
-function toggleToc() {
+window.toggleToc = function() {
   tocVisible = !tocVisible;
   document.getElementById('readerToc').classList.toggle('hidden', !tocVisible);
 }
 
-function zoomIn() {
+window.zoomIn = function() {
   if (currentFontSize < 1.5) { currentFontSize = Math.round((currentFontSize + 0.1) * 10) / 10; }
   document.getElementById('pageContent').style.fontSize = currentFontSize + 'rem';
 }
 
-function zoomOut() {
+window.zoomOut = function() {
   if (currentFontSize > 0.7) { currentFontSize = Math.round((currentFontSize - 0.1) * 10) / 10; }
   document.getElementById('pageContent').style.fontSize = currentFontSize + 'rem';
 }
 
-function toggleFullscreen() {
+window.toggleFullscreen = function() {
   const page = document.getElementById('readerPage');
   if (!document.fullscreenElement) {
     page.requestFullscreen?.().catch(() => {});
@@ -172,7 +174,7 @@ document.addEventListener('keydown', e => {
 renderPage();
 
 // === PROGRESS CHECKLIST ===
-function updateProgress() {
+window.updateProgress = function() {
   const checkboxes = document.querySelectorAll('.cl-item input[type="checkbox"]');
   const checked = [...checkboxes].filter(c => c.checked).length;
   const total = checkboxes.length;
@@ -225,7 +227,7 @@ if (themeToggle) {
 }
 
 // === ROLE SWITCHER ===
-function switchRole(role, btn) {
+window.switchRole = function(role, btn) {
   document.querySelectorAll('.role-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.role-steps-container').forEach(c => c.classList.remove('active'));
@@ -264,7 +266,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-function openImageModal(src, captionText) {
+window.openImageModal = function(src, captionText) {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
   const modalCaption = document.getElementById('modalCaption');
@@ -279,7 +281,7 @@ function openImageModal(src, captionText) {
   }
 }
 
-function closeImageModal(e) {
+window.closeImageModal = function(e) {
   if (e && e.target && e.target.id === 'modalImg') return;
   const modal = document.getElementById('imageModal');
   if (modal) {
@@ -299,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // === PDF GENERATION FOR OFFICIAL FORMAL MODULE (A4) ===
-function downloadRolePDF(role) {
+window.downloadRolePDF = function(role) {
   const roleTitles = {
     siswa: 'AKUN SISWA / PELAJAR (10 LANGKAH OPERASIONAL LENGKAP)',
     guru: 'AKUN GURU / PENGAJAR (6 LANGKAH MANAJEMEN PEMBELAJARAN)',
@@ -615,7 +617,7 @@ let isAudioVOOn = true;
 let videoTimer = null;
 let currentSpeechUtterance = null;
 
-function openVideoPlayer(role) {
+window.openVideoPlayer = function(role) {
   console.log('openVideoPlayer called for:', role);
   currentVideoRole = role || 'siswa';
   currentVideoStepIndex = 0;
@@ -639,7 +641,7 @@ function openVideoPlayer(role) {
   loadVideoStep(0);
 }
 
-function closeVideoModal(e) {
+window.closeVideoModal = function(e) {
   if (e && e.target && e.target.classList.contains('video-modal-container')) return;
   stopVideoPlay();
   const modal = document.getElementById('videoModal');
@@ -673,7 +675,7 @@ document.addEventListener('click', (e) => {
 });
 
 
-function loadVideoStep(index) {
+window.loadVideoStep = function(index) {
   const roleData = videoTutorialData[currentVideoRole];
   if (!roleData || !roleData.steps[index]) return;
 
@@ -694,7 +696,7 @@ function loadVideoStep(index) {
   }
 }
 
-function speakNarration(text) {
+window.speakNarration = function(text) {
   if (!('speechSynthesis' in window)) return;
 
   window.speechSynthesis.cancel(); // Stop current speech
@@ -724,7 +726,7 @@ function speakNarration(text) {
   window.speechSynthesis.speak(currentSpeechUtterance);
 }
 
-function toggleVideoPlay() {
+window.toggleVideoPlay = function() {
   const playBtn = document.getElementById('vpcPlayBtn');
   if (isVideoPlaying) {
     stopVideoPlay();
@@ -739,7 +741,7 @@ function toggleVideoPlay() {
   }
 }
 
-function stopVideoPlay() {
+window.stopVideoPlay = function() {
   isVideoPlaying = false;
   if (videoTimer) clearTimeout(videoTimer);
   if ('speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -747,7 +749,7 @@ function stopVideoPlay() {
   if (playBtn) playBtn.innerHTML = '▶️ Putar Video &amp; VO';
 }
 
-function nextVideoStep() {
+window.nextVideoStep = function() {
   const roleData = videoTutorialData[currentVideoRole];
   if (!roleData) return;
 
@@ -759,13 +761,13 @@ function nextVideoStep() {
   }
 }
 
-function prevVideoStep() {
+window.prevVideoStep = function() {
   if (currentVideoStepIndex > 0) {
     loadVideoStep(currentVideoStepIndex - 1);
   }
 }
 
-function toggleSubtitles() {
+window.toggleSubtitles = function() {
   isSubtitlesOn = !isSubtitlesOn;
   const box = document.getElementById('vpsSubtitleBox');
   const btn = document.getElementById('vpcSubToggle');
@@ -773,7 +775,7 @@ function toggleSubtitles() {
   if (btn) btn.innerHTML = isSubtitlesOn ? '💬 CC: ON' : '💬 CC: OFF';
 }
 
-function toggleAudioVO() {
+window.toggleAudioVO = function() {
   isAudioVOOn = !isAudioVOOn;
   const btn = document.getElementById('vpcAudioToggle');
   if (!isAudioVOOn && 'speechSynthesis' in window) {
@@ -787,3 +789,5 @@ function toggleAudioVO() {
 
 
 
+
+})();
