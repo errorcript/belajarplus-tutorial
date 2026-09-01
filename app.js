@@ -235,4 +235,54 @@ function switchRole(role, btn) {
   }
 }
 
+// === LIGHTBOX IMAGE MODAL ===
+function initImageLightbox() {
+  const images = document.querySelectorAll('.screenshot-img');
+  images.forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openImageModal(img.src, img.alt || 'Gambar Screenshot');
+    });
+  });
+}
+
+function openImageModal(src, captionText) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalCaption = document.getElementById('modalCaption');
+  
+  if (modal && modalImg) {
+    modalImg.src = src;
+    if (modalCaption) {
+      modalCaption.textContent = captionText;
+    }
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeImageModal(e) {
+  if (e && e.target && e.target.id === 'modalImg') return;
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeImageModal();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  initImageLightbox();
+});
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  initImageLightbox();
+}
+
+
 
