@@ -2897,10 +2897,10 @@ body.light-mode .checklist-section {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(11, 15, 25, 0.94);
+  background: rgba(11, 15, 25, 0.96);
   backdrop-filter: blur(12px);
   z-index: 999999;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
@@ -2911,6 +2911,7 @@ body.light-mode .checklist-section {
 }
 
 .video-modal.active {
+  display: flex !important;
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
