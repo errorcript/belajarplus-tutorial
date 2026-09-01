@@ -301,9 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // === PDF GENERATION FOR OFFICIAL FORMAL MODULE (A4) ===
 function downloadRolePDF(role) {
   const roleTitles = {
-    siswa: 'Akun Siswa / Pelajar',
-    guru: 'Akun Guru / Pengajar',
-    kepsek: 'Akun Kepala Sekolah & Admin'
+    siswa: 'AKUN SISWA / PELAJAR (10 LANGKAH OPERASIONAL LENGKAP)',
+    guru: 'AKUN GURU / PENGAJAR (6 LANGKAH MANAJEMEN PEMBELAJARAN)',
+    kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (6 LANGKAH MANAJEMEN EKOSISTEM)'
   };
 
   const targetContainer = document.getElementById(`steps-${role}`);
@@ -315,51 +315,103 @@ function downloadRolePDF(role) {
   const triggerBtn = event ? event.currentTarget : null;
   const originalText = triggerBtn ? triggerBtn.innerHTML : '';
   if (triggerBtn) {
-    triggerBtn.innerHTML = '⏳ Menyiapkan Dokumen PDF...';
+    triggerBtn.innerHTML = '⏳ Memproses Berkas PDF...';
     triggerBtn.disabled = true;
   }
 
-  // Create temporary div formatted as official school module paper
-  const tempDiv = document.createElement('div');
-  tempDiv.className = 'pdf-export-document';
-  tempDiv.style.padding = '20px 25px';
-  tempDiv.style.background = '#ffffff';
-  tempDiv.style.color = '#0f172a';
-  tempDiv.style.fontFamily = "'Inter', sans-serif";
+  // Dedicated single-column print wrapper for pixel-perfect PDF rendering
+  const pdfWrapper = document.createElement('div');
+  pdfWrapper.style.width = '720px';
+  pdfWrapper.style.padding = '15px';
+  pdfWrapper.style.margin = '0 auto';
+  pdfWrapper.style.background = '#ffffff';
+  pdfWrapper.style.color = '#0f172a';
+  pdfWrapper.style.fontFamily = "'Inter', Arial, sans-serif";
+  pdfWrapper.style.boxSizing = 'border-box';
 
-  // Official Kop Header
-  const kopHeader = `
-    <div style="border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between;">
-      <div>
-        <div style="font-size: 10px; font-weight: 800; color: #2563eb; text-transform: uppercase; letter-spacing: 1px;">MODUL PANDUAN PENGGUNAAN RESMI</div>
-        <h1 style="font-size: 18px; font-weight: 800; color: #1e3a8a; margin: 4px 0 0 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS</h1>
-        <h2 style="font-size: 13px; font-weight: 700; color: #334155; margin: 2px 0 0 0;">Panduan Operasional: ${roleTitles[role] || 'Panduan Penggunaan'}</h2>
-      </div>
-      <div style="text-align: right; font-size: 10px; color: #64748b;">
-        <div style="font-weight: 700; color: #1e293b;">BelajarPlus ID</div>
-        <div>Tgl Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+  // Kop Header
+  let pdfHTML = `
+    <div style="border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; text-align: left;">
+      <div style="font-size: 10px; font-weight: 800; color: #2563eb; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI PANDUAN PENGGUNAAN</div>
+      <h1 style="font-size: 19px; font-weight: 900; color: #1e3a8a; margin: 4px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
+      <div style="font-size: 12px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
+      <div style="font-size: 9.5px; color: #64748b; margin-top: 6px;">
+        Dokumen Modul Resmi Sekolah • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
       </div>
     </div>
   `;
 
-  // Clone target steps container
-  const clone = targetContainer.cloneNode(true);
-  clone.style.display = 'block';
+  // Parse each step item into clean block elements
+  const steps = targetContainer.querySelectorAll('.step');
+  steps.forEach((step, idx) => {
+    const stepNum = step.querySelector('.step-number')?.innerText || (idx + 1);
+    const stepTitle = step.querySelector('.step-header h3')?.innerText || '';
+    const stepTag = step.querySelector('.step-tag')?.innerText || '';
+    const stepParagraph = step.querySelector('p')?.innerText || '';
+    
+    // List items
+    const listItems = step.querySelectorAll('.step-list li');
+    let listHTML = '';
+    if (listItems.length > 0) {
+      listHTML += `<ul style="margin: 8px 0; padding-left: 20px; font-size: 11px; color: #334155; line-height: 1.6;">`;
+      listItems.forEach(li => {
+        listHTML += `<li style="margin-bottom: 4px;">${li.innerHTML}</li>`;
+      });
+      listHTML += `</ul>`;
+    }
 
-  // Remove interactive buttons inside clone
-  const pdfBtns = clone.querySelectorAll('.btn-pdf-download');
-  pdfBtns.forEach(b => b.remove());
+    // Step note
+    const stepNote = step.querySelector('.step-note')?.innerHTML || '';
+    let noteHTML = '';
+    if (stepNote) {
+      noteHTML = `
+        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; margin-top: 8px; font-size: 10.5px; color: #1e40af; border-radius: 4px;">
+          ${stepNote}
+        </div>
+      `;
+    }
 
-  tempDiv.innerHTML = kopHeader + clone.innerHTML + `
-    <div style="margin-top: 30px; border-top: 1px solid #cbd5e1; padding-top: 12px; text-align: center; font-size: 10px; color: #64748b;">
-      © ${new Date().getFullYear()} BelajarPlus.id — Dokumen Resmi Panduan Operasional Perpustakaan Digital Sekolah.
+    // Screenshot Image
+    const stepImgSrc = step.querySelector('.screenshot-img')?.src || '';
+    let imgHTML = '';
+    if (stepImgSrc) {
+      imgHTML = `
+        <div style="margin-top: 10px; text-align: center;">
+          <img src="${stepImgSrc}" style="max-width: 320px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+        </div>
+      `;
+    }
+
+    // Clean A4 step card block
+    pdfHTML += `
+      <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 20px; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fafafa;">
+        <div style="margin-bottom: 6px;">
+          <span style="display: inline-block; background: #1e3a8a; color: #ffffff; font-weight: 800; font-size: 10.5px; padding: 2px 8px; border-radius: 4px; margin-right: 8px;">LANGKAH ${stepNum}</span>
+          <span style="font-size: 14px; font-weight: 800; color: #0f172a;">${stepTitle}</span>
+          ${stepTag ? `<span style="font-size: 9.5px; background: #e2e8f0; color: #475569; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: 600;">${stepTag}</span>` : ''}
+        </div>
+        <div style="font-size: 11px; color: #334155; line-height: 1.5; margin-bottom: 6px;">
+          ${stepParagraph}
+        </div>
+        ${listHTML}
+        ${noteHTML}
+        ${imgHTML}
+      </div>
+    `;
+  });
+
+  // Footer
+  pdfHTML += `
+    <div style="margin-top: 24px; border-top: 1px solid #cbd5e1; padding-top: 10px; text-align: center; font-size: 9.5px; color: #64748b;">
+      © ${new Date().getFullYear()} BelajarPlus.id — Hak Cipta Dilindungi. Modul Resmi Operasional Perpustakaan Digital Sekolah.
     </div>
   `;
 
-  document.body.appendChild(tempDiv);
+  pdfWrapper.innerHTML = pdfHTML;
+  document.body.appendChild(pdfWrapper);
 
   const opt = {
-    margin:       [8, 10, 10, 10],
+    margin:       [8, 8, 10, 8],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
     html2canvas:  { scale: 2, useCORS: true, logging: false },
@@ -368,18 +420,18 @@ function downloadRolePDF(role) {
   };
 
   if (window.html2pdf) {
-    window.html2pdf().set(opt).from(tempDiv).save().then(() => {
-      if (document.body.contains(tempDiv)) {
-        document.body.removeChild(tempDiv);
+    window.html2pdf().set(opt).from(pdfWrapper).save().then(() => {
+      if (document.body.contains(pdfWrapper)) {
+        document.body.removeChild(pdfWrapper);
       }
       if (triggerBtn) {
         triggerBtn.innerHTML = originalText;
         triggerBtn.disabled = false;
       }
     }).catch(err => {
-      console.error('PDF error:', err);
-      if (document.body.contains(tempDiv)) {
-        document.body.removeChild(tempDiv);
+      console.error('PDF generation error:', err);
+      if (document.body.contains(pdfWrapper)) {
+        document.body.removeChild(pdfWrapper);
       }
       if (triggerBtn) {
         triggerBtn.innerHTML = originalText;
@@ -388,8 +440,8 @@ function downloadRolePDF(role) {
       window.print();
     });
   } else {
-    if (document.body.contains(tempDiv)) {
-      document.body.removeChild(tempDiv);
+    if (document.body.contains(pdfWrapper)) {
+      document.body.removeChild(pdfWrapper);
     }
     if (triggerBtn) {
       triggerBtn.innerHTML = originalText;
@@ -398,6 +450,7 @@ function downloadRolePDF(role) {
     window.print();
   }
 }
+
 
 
 
