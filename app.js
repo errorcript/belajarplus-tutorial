@@ -319,11 +319,13 @@ function downloadRolePDF(role) {
     triggerBtn.disabled = true;
   }
 
-  // Dedicated single-column print wrapper for pixel-perfect PDF rendering
+  // Dedicated offscreen container for html2canvas capture to prevent blank pages and scroll offsets
   const pdfWrapper = document.createElement('div');
-  pdfWrapper.style.width = '720px';
-  pdfWrapper.style.padding = '15px';
-  pdfWrapper.style.margin = '0 auto';
+  pdfWrapper.style.position = 'absolute';
+  pdfWrapper.style.left = '-9999px';
+  pdfWrapper.style.top = '0px';
+  pdfWrapper.style.width = '700px';
+  pdfWrapper.style.padding = '20px';
   pdfWrapper.style.background = '#ffffff';
   pdfWrapper.style.color = '#0f172a';
   pdfWrapper.style.fontFamily = "'Inter', Arial, sans-serif";
@@ -411,12 +413,12 @@ function downloadRolePDF(role) {
   document.body.appendChild(pdfWrapper);
 
   const opt = {
-    margin:       [8, 8, 10, 8],
+    margin:       [10, 8, 12, 8],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false },
+    html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    pagebreak:    { mode: ['css', 'legacy'] }
   };
 
   if (window.html2pdf) {
