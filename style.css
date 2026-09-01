@@ -2729,3 +2729,48 @@ body.light-mode .checklist-section {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Mobile Responsiveness for Lightbox Modal */
+@media (max-width: 768px) {
+  .image-modal {
+    padding: 0.8rem;
+  }
+
+  .image-modal-content {
+    max-width: 98vw;
+    max-height: 94vh;
+  }
+
+  .image-modal-content img {
+    max-height: 78vh;
+    border-radius: 12px;
+  }
+
+  .image-modal-close {
+    top: 15px;
+    right: 15px;
+    position: fixed;
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+    z-index: 100000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+
+  .image-modal-caption {
+    font-size: 0.82rem;
+    padding: 0.5rem 1rem;
+    max-width: 90%;
+    margin-top: 0.8rem;
+  }
+
+  .step-visual::after {
+    opacity: 0.9;
+    transform: translateY(0);
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+

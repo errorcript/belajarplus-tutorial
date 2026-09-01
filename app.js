@@ -235,16 +235,34 @@ function switchRole(role, btn) {
   }
 }
 
-// === LIGHTBOX IMAGE MODAL ===
+// === UNIVERSAL LIGHTBOX IMAGE MODAL (ALL IMAGES & MOBILE SUPPORT) ===
 function initImageLightbox() {
-  const images = document.querySelectorAll('.screenshot-img');
+  // Target ALL images in document except the lightbox modal image itself
+  const images = document.querySelectorAll('img:not(#modalImg)');
   images.forEach(img => {
-    img.addEventListener('click', (e) => {
+    img.style.cursor = 'zoom-in';
+    
+    // Desktop click & mobile touch
+    const handleZoom = (e) => {
       e.stopPropagation();
-      openImageModal(img.src, img.alt || 'Gambar Screenshot');
-    });
+      e.preventDefault();
+      openImageModal(img.src, img.alt || 'Gambar BelajarPlus');
+    };
+
+    img.removeEventListener('click', img._zoomHandler);
+    img._zoomHandler = handleZoom;
+    img.addEventListener('click', handleZoom);
   });
 }
+
+// Global Event Delegation fallback for dynamically rendered images
+document.addEventListener('click', (e) => {
+  const targetImg = e.target.closest('img:not(#modalImg)');
+  if (targetImg && !targetImg._zoomHandler) {
+    e.stopPropagation();
+    openImageModal(targetImg.src, targetImg.alt || 'Gambar BelajarPlus');
+  }
+});
 
 function openImageModal(src, captionText) {
   const modal = document.getElementById('imageModal');
