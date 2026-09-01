@@ -2766,88 +2766,92 @@ body.light-mode .checklist-section {
 }
 
 /* === ULTRA MODERN ACTION BUTTONS === */
+button.btn-pdf-download, button.btn-video-play,
 .btn-pdf-download, .btn-video-play {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.35rem;
-  font-size: 0.88rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  padding: 0.75rem 1.35rem !important;
+  font-size: 0.88rem !important;
+  font-weight: 800 !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: 0.3px !important;
   color: #ffffff !important;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-  outline: none;
-  text-decoration: none;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  cursor: pointer !important;
+  outline: none !important;
+  text-decoration: none !important;
+  overflow: hidden !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* Siswa PDF: Neon Blue/Cyan Gradient */
-.btn-pdf-download {
-  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
-  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
+button.btn-pdf-download, .btn-pdf-download {
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%) !important;
+  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35) !important;
 }
 
 .btn-pdf-download:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.55);
-  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.btn-pdf-guru {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+button.btn-pdf-guru, .btn-pdf-guru {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35) !important;
 }
 
 .btn-pdf-guru:hover {
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.55);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.55) !important;
+  transform: translateY(-3px) scale(1.02) !important;
 }
 
-.btn-pdf-kepsek {
-  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
-  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35);
+button.btn-pdf-kepsek, .btn-pdf-kepsek {
+  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%) !important;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35) !important;
 }
 
 .btn-pdf-kepsek:hover {
-  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.55);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.55) !important;
+  transform: translateY(-3px) scale(1.02) !important;
 }
 
 /* Siswa Video Play: Pink Electric Gradient */
-.btn-video-play {
-  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
-  box-shadow: 0 4px 18px rgba(236, 72, 153, 0.4);
+button.btn-video-play, .btn-video-play {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%) !important;
+  box-shadow: 0 4px 18px rgba(236, 72, 153, 0.4) !important;
 }
 
 .btn-video-play:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
-  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.btn-video-guru {
-  background: linear-gradient(135deg, #059669 0%, #34d399 100%);
-  box-shadow: 0 4px 18px rgba(52, 211, 153, 0.4);
+button.btn-video-guru, .btn-video-guru {
+  background: linear-gradient(135deg, #059669 0%, #34d399 100%) !important;
+  box-shadow: 0 4px 18px rgba(52, 211, 153, 0.4) !important;
 }
 
 .btn-video-guru:hover {
-  box-shadow: 0 8px 25px rgba(52, 211, 153, 0.6);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(52, 211, 153, 0.6) !important;
+  transform: translateY(-3px) scale(1.02) !important;
 }
 
-.btn-video-kepsek {
-  background: linear-gradient(135deg, #6d28d9 0%, #d946ef 100%);
-  box-shadow: 0 4px 18px rgba(217, 70, 239, 0.4);
+button.btn-video-kepsek, .btn-video-kepsek {
+  background: linear-gradient(135deg, #6d28d9 0%, #d946ef 100%) !important;
+  box-shadow: 0 4px 18px rgba(217, 70, 239, 0.4) !important;
 }
 
 .btn-video-kepsek:hover {
-  box-shadow: 0 8px 25px rgba(217, 70, 239, 0.6);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(217, 70, 239, 0.6) !important;
+  transform: translateY(-3px) scale(1.02) !important;
 }
 
 /* ==================== VIDEO TUTORIAL & VOICEOVER MODAL ==================== */

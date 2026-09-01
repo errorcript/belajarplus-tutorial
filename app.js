@@ -354,12 +354,15 @@ window.downloadRolePDF = async function(role) {
     triggerBtn.disabled = true;
   }
 
-  // Dedicated container for html2canvas capture to prevent blank pages
+  // Scroll to top temporarily to ensure html2canvas captures 100% full coordinates without scroll crop
+  const savedScrollY = window.scrollY || window.pageYOffset || 0;
+  window.scrollTo(0, 0);
+
+  // Dedicated container at top of document for clean html2canvas capture
   const pdfWrapper = document.createElement('div');
   pdfWrapper.id = 'pdfRenderContainer';
-  pdfWrapper.style.position = 'fixed';
-  pdfWrapper.style.top = '0px';
-  pdfWrapper.style.left = '0px';
+  pdfWrapper.style.position = 'relative';
+  pdfWrapper.style.margin = '0 auto';
   pdfWrapper.style.width = '800px';
   pdfWrapper.style.zIndex = '99999999';
   pdfWrapper.style.background = '#ffffff';
@@ -449,7 +452,7 @@ window.downloadRolePDF = async function(role) {
   `;
 
   pdfWrapper.innerHTML = pdfHTML;
-  document.body.appendChild(pdfWrapper);
+  document.body.insertBefore(pdfWrapper, document.body.firstChild);
 
   // Pre-load all images into Base64 to guarantee html2canvas never outputs blank rectangles
   await preparePdfImages(pdfWrapper);
@@ -458,7 +461,7 @@ window.downloadRolePDF = async function(role) {
     margin:       [10, 10, 12, 10],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, windowWidth: 800 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
     pagebreak:    { mode: ['css', 'legacy'] }
   };
@@ -472,6 +475,7 @@ window.downloadRolePDF = async function(role) {
       triggerBtn.innerHTML = originalText;
       triggerBtn.disabled = false;
     }
+    window.scrollTo(0, savedScrollY);
   };
 
   if (window.html2pdf) {
