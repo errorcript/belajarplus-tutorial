@@ -2765,129 +2765,89 @@ body.light-mode .checklist-section {
   flex-wrap: wrap;
 }
 
-.btn-pdf-download {
+/* === ULTRA MODERN ACTION BUTTONS === */
+.btn-pdf-download, .btn-video-play {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.2rem;
-  background: var(--blue);
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 0.6rem;
+  padding: 0.75rem 1.35rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #ffffff !important;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-  transition: var(--transition);
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Siswa PDF: Neon Blue/Cyan Gradient */
+.btn-pdf-download {
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
 }
 
 .btn-pdf-download:hover {
-  background: var(--blue-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.55);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-pdf-guru {
-  background: #059669;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
 }
 
 .btn-pdf-guru:hover {
-  background: #047857;
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.55);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .btn-pdf-kepsek {
-  background: #7c3aed;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  background: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35);
 }
 
 .btn-pdf-kepsek:hover {
-  background: #6d28d9;
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.55);
+  transform: translateY(-3px) scale(1.02);
 }
 
-/* Document / Printable PDF Export Styles */
-.pdf-export-document {
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: #0f172a !important;
-  background: #ffffff !important;
-}
-
-.pdf-export-document .step {
-  margin-bottom: 24px;
-  padding: 18px;
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  border-radius: 12px;
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.pdf-export-document .step-number {
-  color: #1e3a8a !important;
-  font-weight: 900;
-}
-
-.pdf-export-document h3 {
-  color: #0f172a !important;
-}
-
-.pdf-export-document .step-note {
-  background: #eff6ff !important;
-  border: 1px solid #bfdbfe !important;
-  color: #1e40af !important;
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin-top: 10px;
-}
-
-.pdf-export-document .screenshot-img {
-  max-width: 280px !important;
-  border: 1px solid #cbd5e1 !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
-}
-
-.rsh-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
+/* Siswa Video Play: Pink Electric Gradient */
 .btn-video-play {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.2rem;
-  background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
-  transition: var(--transition);
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  box-shadow: 0 4px 18px rgba(236, 72, 153, 0.4);
 }
 
 .btn-video-play:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
-  filter: brightness(1.1);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-video-guru {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+  box-shadow: 0 4px 18px rgba(52, 211, 153, 0.4);
+}
+
+.btn-video-guru:hover {
+  box-shadow: 0 8px 25px rgba(52, 211, 153, 0.6);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .btn-video-kepsek {
-  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+  background: linear-gradient(135deg, #6d28d9 0%, #d946ef 100%);
+  box-shadow: 0 4px 18px rgba(217, 70, 239, 0.4);
+}
+
+.btn-video-kepsek:hover {
+  box-shadow: 0 8px 25px rgba(217, 70, 239, 0.6);
+  transform: translateY(-3px) scale(1.02);
 }
 
 /* ==================== VIDEO TUTORIAL & VOICEOVER MODAL ==================== */

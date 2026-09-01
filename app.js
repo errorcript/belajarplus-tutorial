@@ -314,32 +314,37 @@ window.downloadRolePDF = function(role) {
     return;
   }
 
-  const triggerBtn = event ? event.currentTarget : null;
+  const currentEvt = (typeof event !== 'undefined') ? event : (window.event || null);
+  const triggerBtn = (currentEvt && currentEvt.currentTarget) ? currentEvt.currentTarget : null;
   const originalText = triggerBtn ? triggerBtn.innerHTML : '';
   if (triggerBtn) {
     triggerBtn.innerHTML = '⏳ Memproses Berkas PDF...';
     triggerBtn.disabled = true;
   }
 
-  // Dedicated offscreen container for html2canvas capture to prevent blank pages and scroll offsets
+  // Dedicated container for html2canvas capture to prevent blank pages
   const pdfWrapper = document.createElement('div');
-  pdfWrapper.style.position = 'absolute';
-  pdfWrapper.style.left = '-9999px';
+  pdfWrapper.id = 'pdfRenderContainer';
+  pdfWrapper.style.position = 'fixed';
   pdfWrapper.style.top = '0px';
-  pdfWrapper.style.width = '700px';
-  pdfWrapper.style.padding = '20px';
+  pdfWrapper.style.left = '0px';
+  pdfWrapper.style.width = '800px';
+  pdfWrapper.style.zIndex = '99999999';
   pdfWrapper.style.background = '#ffffff';
   pdfWrapper.style.color = '#0f172a';
   pdfWrapper.style.fontFamily = "'Inter', Arial, sans-serif";
+  pdfWrapper.style.padding = '32px';
   pdfWrapper.style.boxSizing = 'border-box';
+  pdfWrapper.style.opacity = '1';
+  pdfWrapper.style.visibility = 'visible';
 
   // Kop Header
   let pdfHTML = `
-    <div style="border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; text-align: left;">
+    <div style="border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; text-align: left; background: #ffffff;">
       <div style="font-size: 10px; font-weight: 800; color: #2563eb; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI PANDUAN PENGGUNAAN</div>
-      <h1 style="font-size: 19px; font-weight: 900; color: #1e3a8a; margin: 4px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
-      <div style="font-size: 12px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
-      <div style="font-size: 9.5px; color: #64748b; margin-top: 6px;">
+      <h1 style="font-size: 20px; font-weight: 900; color: #1e3a8a; margin: 4px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
+      <div style="font-size: 13px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
+      <div style="font-size: 10px; color: #64748b; margin-top: 6px;">
         Dokumen Modul Resmi Sekolah • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
       </div>
     </div>
@@ -357,7 +362,7 @@ window.downloadRolePDF = function(role) {
     const listItems = step.querySelectorAll('.step-list li');
     let listHTML = '';
     if (listItems.length > 0) {
-      listHTML += `<ul style="margin: 8px 0; padding-left: 20px; font-size: 11px; color: #334155; line-height: 1.6;">`;
+      listHTML += `<ul style="margin: 8px 0; padding-left: 20px; font-size: 11.5px; color: #334155; line-height: 1.6;">`;
       listItems.forEach(li => {
         listHTML += `<li style="margin-bottom: 4px;">${li.innerHTML}</li>`;
       });
@@ -369,7 +374,7 @@ window.downloadRolePDF = function(role) {
     let noteHTML = '';
     if (stepNote) {
       noteHTML = `
-        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; margin-top: 8px; font-size: 10.5px; color: #1e40af; border-radius: 4px;">
+        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #1e40af; border-radius: 4px;">
           ${stepNote}
         </div>
       `;
@@ -381,20 +386,20 @@ window.downloadRolePDF = function(role) {
     if (stepImgSrc) {
       imgHTML = `
         <div style="margin-top: 10px; text-align: center;">
-          <img src="${stepImgSrc}" style="max-width: 320px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+          <img src="${stepImgSrc}" style="max-width: 450px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
         </div>
       `;
     }
 
     // Clean A4 step card block
     pdfHTML += `
-      <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 20px; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fafafa;">
-        <div style="margin-bottom: 6px;">
-          <span style="display: inline-block; background: #1e3a8a; color: #ffffff; font-weight: 800; font-size: 10.5px; padding: 2px 8px; border-radius: 4px; margin-right: 8px;">LANGKAH ${stepNum}</span>
-          <span style="font-size: 14px; font-weight: 800; color: #0f172a;">${stepTitle}</span>
-          ${stepTag ? `<span style="font-size: 9.5px; background: #e2e8f0; color: #475569; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: 600;">${stepTag}</span>` : ''}
+      <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 22px; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff;">
+        <div style="margin-bottom: 8px;">
+          <span style="display: inline-block; background: #1e3a8a; color: #ffffff; font-weight: 800; font-size: 11px; padding: 3px 10px; border-radius: 4px; margin-right: 8px;">LANGKAH ${stepNum}</span>
+          <span style="font-size: 15px; font-weight: 800; color: #0f172a;">${stepTitle}</span>
+          ${stepTag ? `<span style="font-size: 10px; background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-weight: 600;">${stepTag}</span>` : ''}
         </div>
-        <div style="font-size: 11px; color: #334155; line-height: 1.5; margin-bottom: 6px;">
+        <div style="font-size: 12px; color: #334155; line-height: 1.6; margin-bottom: 6px;">
           ${stepParagraph}
         </div>
         ${listHTML}
@@ -406,7 +411,7 @@ window.downloadRolePDF = function(role) {
 
   // Footer
   pdfHTML += `
-    <div style="margin-top: 24px; border-top: 1px solid #cbd5e1; padding-top: 10px; text-align: center; font-size: 9.5px; color: #64748b;">
+    <div style="margin-top: 24px; border-top: 1px solid #cbd5e1; padding-top: 12px; text-align: center; font-size: 10px; color: #64748b; background: #ffffff;">
       © ${new Date().getFullYear()} BelajarPlus.id — Hak Cipta Dilindungi. Modul Resmi Operasional Perpustakaan Digital Sekolah.
     </div>
   `;
@@ -415,35 +420,15 @@ window.downloadRolePDF = function(role) {
   document.body.appendChild(pdfWrapper);
 
   const opt = {
-    margin:       [10, 8, 12, 8],
+    margin:       [10, 10, 12, 10],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, windowWidth: 800 },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
     pagebreak:    { mode: ['css', 'legacy'] }
   };
 
-  if (window.html2pdf) {
-    window.html2pdf().set(opt).from(pdfWrapper).save().then(() => {
-      if (document.body.contains(pdfWrapper)) {
-        document.body.removeChild(pdfWrapper);
-      }
-      if (triggerBtn) {
-        triggerBtn.innerHTML = originalText;
-        triggerBtn.disabled = false;
-      }
-    }).catch(err => {
-      console.error('PDF generation error:', err);
-      if (document.body.contains(pdfWrapper)) {
-        document.body.removeChild(pdfWrapper);
-      }
-      if (triggerBtn) {
-        triggerBtn.innerHTML = originalText;
-        triggerBtn.disabled = false;
-      }
-      window.print();
-    });
-  } else {
+  const cleanup = () => {
     if (document.body.contains(pdfWrapper)) {
       document.body.removeChild(pdfWrapper);
     }
@@ -451,9 +436,19 @@ window.downloadRolePDF = function(role) {
       triggerBtn.innerHTML = originalText;
       triggerBtn.disabled = false;
     }
+  };
+
+  if (window.html2pdf) {
+    window.html2pdf().set(opt).from(pdfWrapper).save().then(cleanup).catch(err => {
+      console.error('PDF generation error:', err);
+      cleanup();
+      window.print();
+    });
+  } else {
+    cleanup();
     window.print();
   }
-}
+};
 
 // === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
 const videoTutorialData = {
