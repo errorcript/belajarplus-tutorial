@@ -298,9 +298,107 @@ document.addEventListener('DOMContentLoaded', () => {
   initImageLightbox();
 });
 
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  initImageLightbox();
+// === PDF GENERATION FOR OFFICIAL FORMAL MODULE (A4) ===
+function downloadRolePDF(role) {
+  const roleTitles = {
+    siswa: 'Akun Siswa / Pelajar',
+    guru: 'Akun Guru / Pengajar',
+    kepsek: 'Akun Kepala Sekolah & Admin'
+  };
+
+  const targetContainer = document.getElementById(`steps-${role}`);
+  if (!targetContainer) {
+    alert('Konten panduan tidak ditemukan!');
+    return;
+  }
+
+  const triggerBtn = event ? event.currentTarget : null;
+  const originalText = triggerBtn ? triggerBtn.innerHTML : '';
+  if (triggerBtn) {
+    triggerBtn.innerHTML = '⏳ Menyiapkan Dokumen PDF...';
+    triggerBtn.disabled = true;
+  }
+
+  // Create temporary div formatted as official school module paper
+  const tempDiv = document.createElement('div');
+  tempDiv.className = 'pdf-export-document';
+  tempDiv.style.padding = '20px 25px';
+  tempDiv.style.background = '#ffffff';
+  tempDiv.style.color = '#0f172a';
+  tempDiv.style.fontFamily = "'Inter', sans-serif";
+
+  // Official Kop Header
+  const kopHeader = `
+    <div style="border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between;">
+      <div>
+        <div style="font-size: 10px; font-weight: 800; color: #2563eb; text-transform: uppercase; letter-spacing: 1px;">MODUL PANDUAN PENGGUNAAN RESMI</div>
+        <h1 style="font-size: 18px; font-weight: 800; color: #1e3a8a; margin: 4px 0 0 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS</h1>
+        <h2 style="font-size: 13px; font-weight: 700; color: #334155; margin: 2px 0 0 0;">Panduan Operasional: ${roleTitles[role] || 'Panduan Penggunaan'}</h2>
+      </div>
+      <div style="text-align: right; font-size: 10px; color: #64748b;">
+        <div style="font-weight: 700; color: #1e293b;">BelajarPlus ID</div>
+        <div>Tgl Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+      </div>
+    </div>
+  `;
+
+  // Clone target steps container
+  const clone = targetContainer.cloneNode(true);
+  clone.style.display = 'block';
+
+  // Remove interactive buttons inside clone
+  const pdfBtns = clone.querySelectorAll('.btn-pdf-download');
+  pdfBtns.forEach(b => b.remove());
+
+  tempDiv.innerHTML = kopHeader + clone.innerHTML + `
+    <div style="margin-top: 30px; border-top: 1px solid #cbd5e1; padding-top: 12px; text-align: center; font-size: 10px; color: #64748b;">
+      © ${new Date().getFullYear()} BelajarPlus.id — Dokumen Resmi Panduan Operasional Perpustakaan Digital Sekolah.
+    </div>
+  `;
+
+  document.body.appendChild(tempDiv);
+
+  const opt = {
+    margin:       [8, 10, 10, 10],
+    filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+
+  if (window.html2pdf) {
+    window.html2pdf().set(opt).from(tempDiv).save().then(() => {
+      if (document.body.contains(tempDiv)) {
+        document.body.removeChild(tempDiv);
+      }
+      if (triggerBtn) {
+        triggerBtn.innerHTML = originalText;
+        triggerBtn.disabled = false;
+      }
+    }).catch(err => {
+      console.error('PDF error:', err);
+      if (document.body.contains(tempDiv)) {
+        document.body.removeChild(tempDiv);
+      }
+      if (triggerBtn) {
+        triggerBtn.innerHTML = originalText;
+        triggerBtn.disabled = false;
+      }
+      window.print();
+    });
+  } else {
+    if (document.body.contains(tempDiv)) {
+      document.body.removeChild(tempDiv);
+    }
+    if (triggerBtn) {
+      triggerBtn.innerHTML = originalText;
+      triggerBtn.disabled = false;
+    }
+    window.print();
+  }
 }
+
 
 
 

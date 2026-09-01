@@ -2758,19 +2758,123 @@ body.light-mode .checklist-section {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   }
 
-  .image-modal-caption {
-    font-size: 0.82rem;
-    padding: 0.5rem 1rem;
-    max-width: 90%;
-    margin-top: 0.8rem;
+.rsh-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-pdf-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  background: var(--blue);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: var(--transition);
+}
+
+.btn-pdf-download:hover {
+  background: var(--blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+.btn-pdf-guru {
+  background: #059669;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+}
+
+.btn-pdf-guru:hover {
+  background: #047857;
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
+}
+
+.btn-pdf-kepsek {
+  background: #7c3aed;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+
+.btn-pdf-kepsek:hover {
+  background: #6d28d9;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+}
+
+/* Document / Printable PDF Export Styles */
+.pdf-export-document {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a !important;
+  background: #ffffff !important;
+}
+
+.pdf-export-document .step {
+  margin-bottom: 24px;
+  padding: 18px;
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export-document .step-number {
+  color: #1e3a8a !important;
+  font-weight: 900;
+}
+
+.pdf-export-document h3 {
+  color: #0f172a !important;
+}
+
+.pdf-export-document .step-note {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  color: #1e40af !important;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+}
+
+.pdf-export-document .screenshot-img {
+  max-width: 280px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+/* Native Print Stylesheet */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
   }
 
-  .step-visual::after {
-    opacity: 0.9;
-    transform: translateY(0);
-    font-size: 0.65rem;
-    padding: 0.25rem 0.6rem;
+  .nav, .theme-toggle, .btn-pdf-download, .image-modal, .footer, .cta-section, .role-switcher-container {
+    display: none !important;
+  }
+
+  .role-steps-container {
+    display: block !important;
+  }
+
+  .step {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    margin-bottom: 2rem;
   }
 }
+
 
 

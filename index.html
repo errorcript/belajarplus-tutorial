@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- html2pdf.js for Generating Official A4 PDF Documents -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <nav class="nav">
@@ -26,9 +28,9 @@
       <li class="mobile-only"><a href="https://belajarplus.id/library" target="_blank" class="btn-nav">Buka App →</a></li>
     </ul>
     <div class="nav-right">
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
-        <span class="sun-icon">☀️</span>
-        <span class="moon-icon">🌙</span>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle Mode Tampilan">
+        <span class="sun-icon">📄 Mode Dokumen Resmi</span>
+        <span class="moon-icon">🌙 Mode Dark Modern</span>
       </button>
       <a href="https://belajarplus.id/library" target="_blank" class="btn-nav desktop-only">Buka App →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
@@ -200,8 +202,13 @@
         <!-- ==================== 1. CONTAINER PANDUAN AKUN SISWA ==================== -->
         <div class="role-steps-container active" id="steps-siswa">
           <div class="role-section-header">
-            <div class="rsh-title">👨‍🎓 Panduan Runtut Akun Siswa</div>
-            <span class="rsh-badge badge-siswa">10 Langkah Lengkap</span>
+            <div class="rsh-left">
+              <div class="rsh-title">👨‍🎓 Panduan Runtut Akun Siswa</div>
+              <span class="rsh-badge badge-siswa">10 Langkah Lengkap</span>
+            </div>
+            <button class="btn-pdf-download" onclick="downloadRolePDF('siswa')">
+              📥 Unduh Modul PDF Resmi (A4)
+            </button>
           </div>
 
           <div class="step" data-step="1">
@@ -405,8 +412,13 @@
         <!-- ==================== 2. CONTAINER PANDUAN AKUN GURU ==================== -->
         <div class="role-steps-container" id="steps-guru">
           <div class="role-section-header">
-            <div class="rsh-title">👨‍🏫 Panduan Runtut Akun Guru / Pengajar</div>
-            <span class="rsh-badge badge-guru">6 Langkah Kelola Pembelajaran</span>
+            <div class="rsh-left">
+              <div class="rsh-title">👨‍🏫 Panduan Runtut Akun Guru / Pengajar</div>
+              <span class="rsh-badge badge-guru">6 Langkah Kelola Pembelajaran</span>
+            </div>
+            <button class="btn-pdf-download btn-pdf-guru" onclick="downloadRolePDF('guru')">
+              📥 Unduh Modul PDF Resmi (A4)
+            </button>
           </div>
 
           <div class="step" data-step="1">
@@ -530,8 +542,13 @@
         <!-- ==================== 3. CONTAINER PANDUAN AKUN KEPSEK / ADMIN ==================== -->
         <div class="role-steps-container" id="steps-kepsek">
           <div class="role-section-header">
-            <div class="rsh-title">🏫 Panduan Runtut Akun Kepala Sekolah &amp; Admin</div>
-            <span class="rsh-badge badge-kepsek">6 Langkah Manajemen Ekosistem Sekolah</span>
+            <div class="rsh-left">
+              <div class="rsh-title">🏫 Panduan Runtut Akun Kepala Sekolah &amp; Admin</div>
+              <span class="rsh-badge badge-kepsek">6 Langkah Manajemen Ekosistem Sekolah</span>
+            </div>
+            <button class="btn-pdf-download btn-pdf-kepsek" onclick="downloadRolePDF('kepsek')">
+              📥 Unduh Modul PDF Resmi (A4)
+            </button>
           </div>
 
           <div class="step" data-step="1">
