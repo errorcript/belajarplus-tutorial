@@ -616,19 +616,24 @@ let videoTimer = null;
 let currentSpeechUtterance = null;
 
 function openVideoPlayer(role) {
+  console.log('openVideoPlayer called for:', role);
   currentVideoRole = role || 'siswa';
   currentVideoStepIndex = 0;
   isVideoPlaying = false;
 
   const roleData = videoTutorialData[currentVideoRole] || videoTutorialData['siswa'];
   
-  document.getElementById('videoRoleTitle').textContent = roleData.roleTitle;
-  document.getElementById('videoRoleSub').textContent = roleData.roleSub;
+  const titleElem = document.getElementById('videoRoleTitle');
+  const subElem = document.getElementById('videoRoleSub');
+  if (titleElem) titleElem.textContent = roleData.roleTitle;
+  if (subElem) subElem.textContent = roleData.roleSub;
 
   const modal = document.getElementById('videoModal');
   if (modal) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+  } else {
+    alert('Video Modal tidak ditemukan. Silakan refresh halaman.');
   }
 
   loadVideoStep(0);
@@ -643,6 +648,30 @@ function closeVideoModal(e) {
     document.body.style.overflow = '';
   }
 }
+
+// Global Event Delegation Fail-safe for Video and PDF buttons
+document.addEventListener('click', (e) => {
+  const videoBtn = e.target.closest('.btn-video-play');
+  if (videoBtn) {
+    e.preventDefault();
+    let role = 'siswa';
+    if (videoBtn.classList.contains('btn-video-guru')) role = 'guru';
+    if (videoBtn.classList.contains('btn-video-kepsek')) role = 'kepsek';
+    openVideoPlayer(role);
+    return;
+  }
+
+  const pdfBtn = e.target.closest('.btn-pdf-download');
+  if (pdfBtn) {
+    e.preventDefault();
+    let role = 'siswa';
+    if (pdfBtn.classList.contains('btn-pdf-guru')) role = 'guru';
+    if (pdfBtn.classList.contains('btn-pdf-kepsek')) role = 'kepsek';
+    downloadRolePDF(role);
+    return;
+  }
+});
+
 
 function loadVideoStep(index) {
   const roleData = videoTutorialData[currentVideoRole];
