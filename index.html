@@ -382,6 +382,53 @@
           </div>
         </div>
 
+        <!-- Step 11: Penugasan & Kuis Kelas -->
+        <div class="step" data-step="11">
+          <div class="step-number">11</div>
+          <div class="step-content">
+            <div class="step-header">
+              <h3>Akses Penugasan Kelas</h3>
+              <span class="step-tag">Tugas & Kuis</span>
+            </div>
+            <p>Buka menu <strong>"Kelas Saya"</strong> atau klik tautan kelas yang dibagikan guru (misal: <code>/classes/922a...</code>). Di halaman kelas, klik tab <strong>"Penugasan"</strong> untuk melihat daftar tugas, kuis, atau tryout yang harus dikerjakan.</p>
+            <ul class="step-list">
+              <li>Cek judul tugas dan instruksi khusus dari pengajar</li>
+              <li>Perhatikan <strong>tenggat waktu pengumpulan</strong> (deadline)</li>
+              <li>Klik tombol <strong>"Kerjakan"</strong> untuk langsung membuka latihan</li>
+            </ul>
+            <div class="step-note">
+              📝 <strong>Tip:</strong> Pastikan kamu sudah meminjam buku acuan tugas terlebih dahulu dari perpustakaan digital agar aktivitas latihan dapat langsung dibuka!
+            </div>
+          </div>
+          <div class="step-visual">
+            <img src="assets/class_assignment.png" class="screenshot-img" alt="Penugasan Kelas BelajarPlus" />
+          </div>
+        </div>
+
+        <!-- Step 12: Lembar Jawab Digital (LJD) -->
+        <div class="step" data-step="12">
+          <div class="step-number">12</div>
+          <div class="step-content">
+            <div class="step-header">
+              <h3>Isi & Kirim Lembar Jawab Digital (LJD)</h3>
+              <span class="step-tag">Penilaian Otomatis</span>
+            </div>
+            <p>Saat membuka kuis atau tryout, sistem akan menampilkan <strong>Lembar Jawab Digital (LJD)</strong> interaktif. Isikan jawaban pilihan ganda, Isian, atau Benar/Salah, lalu tinjau dan kirim lembar jawabanmu.</p>
+            <ul class="step-list">
+              <li>Pilih opsi jawaban untuk setiap nomor soal</li>
+              <li>Perhatikan timer dan penghitung anti-cheat di bagian atas</li>
+              <li>Klik <strong>"Kirim lembar jawaban"</strong> setelah selesai</li>
+              <li>Skor, analisis kompetensi, dan rekapitulasi nilai langsung terkirim otomatis ke guru</li>
+            </ul>
+            <div class="step-note">
+              🏆 Skor akhir dan jumlah jawaban benar/salah akan langsung ditampilkan secara real-time setelah pengiriman!
+            </div>
+          </div>
+          <div class="step-visual">
+            <img src="assets/assignment_result.png" class="screenshot-img" alt="Hasil Lembar Jawab Digital LJD" />
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -465,10 +512,15 @@
           <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Lihat riwayat di Pesanan</span></label>
           <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Update profil akun</span></label>
         </div>
+        <div class="checklist-col">
+          <h4 class="cl-group-title">📝 Tugas &amp; Ujian</h4>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Buka tab Penugasan Kelas</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Isi Lembar Jawab Digital (LJD)</span></label>
+        </div>
       </div>
       <div class="cl-progress-wrap">
         <div class="cl-progress-bar"><div class="cl-progress-fill" id="clProgressFill"></div></div>
-        <span class="cl-progress-label" id="clProgressLabel">0 / 12 selesai</span>
+        <span class="cl-progress-label" id="clProgressLabel">0 / 14 selesai</span>
       </div>
     </div>
   </section>
