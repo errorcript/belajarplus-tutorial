@@ -239,8 +239,8 @@ window.switchRole = function(role, btn) {
 
 // === UNIVERSAL LIGHTBOX IMAGE MODAL (ALL IMAGES & MOBILE SUPPORT) ===
 function initImageLightbox() {
-  // Target ALL images in document except the lightbox modal image itself
-  const images = document.querySelectorAll('img:not(#modalImg)');
+  // Target ALL images in document except modal preview images
+  const images = document.querySelectorAll('img:not(#modalImg):not(#vpsImage)');
   images.forEach(img => {
     img.style.cursor = 'zoom-in';
     
@@ -259,7 +259,7 @@ function initImageLightbox() {
 
 // Global Event Delegation fallback for dynamically rendered images
 document.addEventListener('click', (e) => {
-  const targetImg = e.target.closest('img:not(#modalImg)');
+  const targetImg = e.target.closest('img:not(#modalImg):not(#vpsImage)');
   if (targetImg && !targetImg._zoomHandler) {
     e.stopPropagation();
     openImageModal(targetImg.src, targetImg.alt || 'Gambar BelajarPlus');
@@ -300,8 +300,39 @@ document.addEventListener('DOMContentLoaded', () => {
   initImageLightbox();
 });
 
+// Helper to convert images inside container to Base64 Data URIs to prevent html2canvas blank page bug
+async function preparePdfImages(container) {
+  const imgs = container.querySelectorAll('img');
+  const promises = Array.from(imgs).map(img => {
+    return new Promise((resolve) => {
+      if (!img.src) return resolve();
+      const tempImg = new Image();
+      tempImg.crossOrigin = 'anonymous';
+      tempImg.onload = () => {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = tempImg.naturalWidth || 600;
+          canvas.height = tempImg.naturalHeight || 400;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(tempImg, 0, 0);
+          img.src = canvas.toDataURL('image/png');
+        } catch (e) {
+          console.warn('Canvas dataURL fallback:', e);
+        }
+        resolve();
+      };
+      tempImg.onerror = () => resolve();
+      tempImg.src = img.src;
+    });
+  });
+  await Promise.all(promises);
+}
+
 // === PDF GENERATION FOR OFFICIAL FORMAL MODULE (A4) ===
-window.downloadRolePDF = function(role) {
+window.downloadRolePDF = async function(role) {
+  if (window.isGeneratingPDF) return;
+  window.isGeneratingPDF = true;
+
   const roleTitles = {
     siswa: 'AKUN SISWA / PELAJAR (10 LANGKAH OPERASIONAL LENGKAP)',
     guru: 'AKUN GURU / PENGAJAR (6 LANGKAH MANAJEMEN PEMBELAJARAN)',
@@ -311,6 +342,7 @@ window.downloadRolePDF = function(role) {
   const targetContainer = document.getElementById(`steps-${role}`);
   if (!targetContainer) {
     alert('Konten panduan tidak ditemukan!');
+    window.isGeneratingPDF = false;
     return;
   }
 
@@ -419,6 +451,9 @@ window.downloadRolePDF = function(role) {
   pdfWrapper.innerHTML = pdfHTML;
   document.body.appendChild(pdfWrapper);
 
+  // Pre-load all images into Base64 to guarantee html2canvas never outputs blank rectangles
+  await preparePdfImages(pdfWrapper);
+
   const opt = {
     margin:       [10, 10, 12, 10],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
@@ -429,6 +464,7 @@ window.downloadRolePDF = function(role) {
   };
 
   const cleanup = () => {
+    window.isGeneratingPDF = false;
     if (document.body.contains(pdfWrapper)) {
       document.body.removeChild(pdfWrapper);
     }
@@ -647,29 +683,6 @@ window.closeVideoModal = function(e) {
 }
 
 // Global Event Delegation Fail-safe for Video and PDF buttons
-document.addEventListener('click', (e) => {
-  const videoBtn = e.target.closest('.btn-video-play');
-  if (videoBtn) {
-    e.preventDefault();
-    let role = 'siswa';
-    if (videoBtn.classList.contains('btn-video-guru')) role = 'guru';
-    if (videoBtn.classList.contains('btn-video-kepsek')) role = 'kepsek';
-    openVideoPlayer(role);
-    return;
-  }
-
-  const pdfBtn = e.target.closest('.btn-pdf-download');
-  if (pdfBtn) {
-    e.preventDefault();
-    let role = 'siswa';
-    if (pdfBtn.classList.contains('btn-pdf-guru')) role = 'guru';
-    if (pdfBtn.classList.contains('btn-pdf-kepsek')) role = 'kepsek';
-    downloadRolePDF(role);
-    return;
-  }
-});
-
-
 window.loadVideoStep = function(index) {
   const roleData = videoTutorialData[currentVideoRole];
   if (!roleData || !roleData.steps[index]) return;
