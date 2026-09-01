@@ -658,6 +658,12 @@ window.openVideoPlayer = function(role) {
   currentVideoStepIndex = 0;
   isVideoPlaying = false;
 
+  // If on index page, open dedicated standalone video tab
+  if (window.location.pathname.indexOf('video.html') === -1) {
+    const videoWin = window.open(`video.html?role=${currentVideoRole}`, '_blank');
+    if (videoWin) return;
+  }
+
   const roleData = videoTutorialData[currentVideoRole] || videoTutorialData['siswa'];
   
   const titleElem = document.getElementById('videoRoleTitle');
@@ -669,8 +675,6 @@ window.openVideoPlayer = function(role) {
   if (modal) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-  } else {
-    alert('Video Modal tidak ditemukan. Silakan refresh halaman.');
   }
 
   loadVideoStep(0);

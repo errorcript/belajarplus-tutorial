@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Tutorial Interactive — BelajarPlus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #090d16;
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-page-header {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .vph-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+    .vph-roles {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .vph-role-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94a3b8;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .vph-role-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #3b82f6;
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+    }
+    .vph-back {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .vph-back:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Main Grid Layout */
+    .video-page-body {
+      max-width: 1400px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2rem;
+      flex: 1;
+    }
+
+    /* Theater Player */
+    .theater-player {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .theater-screen-container {
+      position: relative;
+      background: #000000;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .theater-screen-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+    .theater-step-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(37, 99, 235, 0.9);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.5px;
+    }
+    .theater-subtitle-box {
+      position: absolute;
+      bottom: 1rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      padding: 0.85rem 1.25rem;
+      border-radius: 10px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    /* Controls Bar */
+    .theater-controls {
+      background: #1e293b;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #06b6d4);
+      transition: width 0.3s ease;
+    }
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .controls-main {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .ctrl-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .ctrl-btn-play {
+      background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+      border: none;
+      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);
+    }
+    .ctrl-btn-play:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(236, 72, 153, 0.6);
+    }
+    .ctrl-status {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    /* Playlist Sidebar */
+    .playlist-sidebar {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .playlist-header {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.8rem;
+    }
+    .playlist-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 0.3rem;
+    }
+    .playlist-item {
+      display: flex;
+      gap: 0.8rem;
+      padding: 0.6rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .playlist-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .playlist-item.active {
+      background: rgba(37, 99, 235, 0.2);
+      border-color: #3b82f6;
+    }
+    .playlist-thumb {
+      width: 80px;
+      height: 48px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #1e293b;
+    }
+    .playlist-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.2rem;
+      overflow: hidden;
+    }
+    .playlist-step-num {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #3b82f6;
+      text-transform: uppercase;
+    }
+    .playlist-step-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Diagnostics Box */
+    .diag-card {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+    }
+    .diag-title {
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .diag-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      color: #cbd5e1;
+    }
+    .diag-val {
+      font-weight: 700;
+      color: #4ade80;
+    }
+
+    @media (max-width: 900px) {
+      .video-page-body {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="video-page-header">
+    <a href="index.html" class="vph-brand">
+      📚 BelajarPlus Video Player
+    </a>
+    <div class="vph-roles">
+      <button class="vph-role-btn active" id="vph-siswa" onclick="switchVideoRole('siswa')">👨‍🎓 Akun Siswa</button>
+      <button class="vph-role-btn" id="vph-guru" onclick="switchVideoRole('guru')">👨‍🏫 Akun Guru</button>
+      <button class="vph-role-btn" id="vph-kepsek" onclick="switchVideoRole('kepsek')">🏫 Akun Kepsek</button>
+    </div>
+    <a href="index.html" class="vph-back">← Kembali ke Panduan</a>
+  </header>
+
+  <!-- Main Grid -->
+  <div class="video-page-body">
+    <!-- Theater Left -->
+    <div class="theater-player">
+      <div class="theater-screen-container">
+        <span class="theater-step-badge" id="vpsStepBadge">LANGKAH 01 / 10</span>
+        <img id="vpsImage" class="theater-screen-img" src="assets/register_siswa.png" alt="Langkah Tutorial" />
+        <div class="theater-subtitle-box" id="vpsSubtitleBox">
+          <span id="vpsSubtitleText">"Langkah 1: Buka portal belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa."</span>
+        </div>
+      </div>
+
+      <div class="theater-controls">
+        <div class="progress-bar-container" onclick="seekVideo(event)">
+          <div class="progress-bar-fill" id="vpcProgressFill"></div>
+        </div>
+
+        <div class="controls-row">
+          <div class="controls-main">
+            <button class="ctrl-btn" onclick="prevVideoStep()">⏮️ Prev</button>
+            <button class="ctrl-btn ctrl-btn-play" id="vpcPlayBtn" onclick="toggleVideoPlay()">▶️ Putar Video &amp; VO</button>
+            <button class="ctrl-btn" onclick="nextVideoStep()">Next ⏭️</button>
+          </div>
+          <div class="controls-main">
+            <button class="ctrl-btn" id="vpcSubToggle" onclick="toggleSubtitles()">💬 CC: ON</button>
+            <button class="ctrl-btn" id="vpcAudioToggle" onclick="toggleAudioVO()">🔊 VO: ON</button>
+          </div>
+        </div>
+        <div class="ctrl-status" id="vpcStepIndicator">Langkah 1 dari 10: Pendaftaran &amp; Aktivasi Akun Siswa</div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="playlist-sidebar">
+      <div class="playlist-header">
+        <span id="sidebarRoleTitle">Daftar Langkah (10)</span>
+        <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Auto-advance ON</span>
+      </div>
+
+      <div class="playlist-items" id="playlistItems">
+        <!-- Dynamic JS Step Cards -->
+      </div>
+
+      <!-- Diagnostics Panel -->
+      <div class="diag-card">
+        <div class="diag-title">🛠️ Panel Diagnostik Perangkat</div>
+        <div class="diag-item">
+          <span>Koneksi Internet:</span>
+          <span class="diag-val" id="diagOnline">Online (Aktif)</span>
+        </div>
+        <div class="diag-item">
+          <span>Web Speech Voiceover:</span>
+          <span class="diag-val" id="diagSpeech">Mendukung (id-ID)</span>
+        </div>
+        <div class="diag-item">
+          <span>Status Gambar Assets:</span>
+          <span class="diag-val" id="diagAssets">100% Loaded</span>
+        </div>
+        <div class="diag-item">
+          <span>Kecepatan VO:</span>
+          <span class="diag-val">0.95x Soft</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize role from URL query param e.g. video.html?role=guru
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlRole = params.get('role') || 'siswa';
+      switchVideoRole(urlRole);
+
+      // Check browser speech synthesis diagnostics
+      const speechVal = document.getElementById('diagSpeech');
+      if ('speechSynthesis' in window) {
+        if (speechVal) speechVal.textContent = 'Ready (id-ID Engine)';
+      } else {
+        if (speechVal) {
+          speechVal.textContent = 'Mode fallback timer';
+          speechVal.style.color = '#fbbf24';
+        }
+      }
+    });
+
+    function switchVideoRole(role) {
+      document.querySelectorAll('.vph-role-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`vph-${role}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      if (typeof openVideoPlayer === 'function') {
+        currentVideoRole = role;
+        currentVideoStepIndex = 0;
+        isVideoPlaying = false;
+        loadVideoStep(0);
+        renderPlaylist();
+      }
+    }
+
+    function renderPlaylist() {
+      const container = document.getElementById('playlistItems');
+      if (!container || typeof videoTutorialData === 'undefined') return;
+
+      const roleData = videoTutorialData[currentVideoRole];
+      if (!roleData) return;
+
+      document.getElementById('sidebarRoleTitle').textContent = `Daftar Langkah (${roleData.steps.length})`;
+
+      let html = '';
+      roleData.steps.forEach((step, idx) => {
+        const isActive = idx === currentVideoStepIndex;
+        html += `
+          <div class="playlist-item ${isActive ? 'active' : ''}" onclick="selectStep(${idx})">
+            <img src="${step.image}" class="playlist-thumb" alt="${step.title}" />
+            <div class="playlist-info">
+              <span class="playlist-step-num">Langkah ${String(idx + 1).padStart(2, '0')}</span>
+              <span class="playlist-step-title">${step.title}</span>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function selectStep(index) {
+      if (typeof loadVideoStep === 'function') {
+        loadVideoStep(index);
+        renderPlaylist();
+      }
+    }
+
+    function seekVideo(e) {
+      const bar = e.currentTarget;
+      const rect = bar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      const pct = clickX / width;
+      
+      const roleData = videoTutorialData[currentVideoRole];
+      if (roleData) {
+        const targetStep = Math.floor(pct * roleData.steps.length);
+        selectStep(Math.min(targetStep, roleData.steps.length - 1));
+      }
+    }
+  </script>
+</body>
+</html>
