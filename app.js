@@ -451,6 +451,8 @@ function downloadRolePDF(role) {
     }
     window.print();
   }
+}
+
 // === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
 const videoTutorialData = {
   siswa: {
