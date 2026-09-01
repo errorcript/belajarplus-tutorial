@@ -2851,30 +2851,288 @@ body.light-mode .checklist-section {
   box-shadow: none !important;
 }
 
-/* Native Print Stylesheet */
-@media print {
-  body {
-    background: #ffffff !important;
-    color: #0f172a !important;
-  }
+.rsh-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
 
-  .nav, .theme-toggle, .btn-pdf-download, .image-modal, .footer, .cta-section, .role-switcher-container {
-    display: none !important;
-  }
+.btn-video-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+  transition: var(--transition);
+}
 
-  .role-steps-container {
-    display: block !important;
-  }
+.btn-video-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+  filter: brightness(1.1);
+}
 
-  .step {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    border: 1px solid #cbd5e1 !important;
-    background: #ffffff !important;
-    box-shadow: none !important;
-    margin-bottom: 2rem;
+.btn-video-guru {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.btn-video-kepsek {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+}
+
+/* ==================== VIDEO TUTORIAL & VOICEOVER MODAL ==================== */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.video-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-modal-container {
+  width: 100%;
+  max-width: 900px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.6rem;
+  background: rgba(30, 41, 59, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vmh-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vmh-icon {
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem;
+  border-radius: 12px;
+}
+
+.vmh-title h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.vmh-title p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0.1rem 0 0 0;
+}
+
+.video-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.video-modal-close:hover {
+  color: #ffffff;
+}
+
+.video-player-screen {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.vps-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.video-player-screen img {
+  max-width: 90%;
+  max-height: 85%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* Subtitle Overlay Box */
+.vps-subtitle-container {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 760px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(234, 179, 8, 0.5);
+  border-radius: 14px;
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 20;
+}
+
+.vps-subtitle-badge {
+  background: #eab308;
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.vps-subtitle-text {
+  color: #fef08a;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Controls */
+.video-player-controls {
+  background: #1e293b;
+  padding: 1rem 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vpc-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.vpc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #ec4899);
+  border-radius: 3px;
+  transition: width 0.3s linear;
+}
+
+.vpc-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.vpc-left, .vpc-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.vpc-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vpc-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.vpc-btn-play {
+  background: #2563eb;
+  border-color: #3b82f6;
+}
+
+.vpc-btn-play:hover {
+  background: #1d4ed8;
+}
+
+.vpc-center {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .video-player-screen {
+    height: 280px;
+  }
+  .vps-subtitle-text {
+    font-size: 0.78rem;
+  }
+  .vpc-center {
+    width: 100%;
+    text-align: center;
   }
 }
+
 
 
 

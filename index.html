@@ -206,9 +206,14 @@
               <div class="rsh-title">👨‍🎓 Panduan Runtut Akun Siswa</div>
               <span class="rsh-badge badge-siswa">10 Langkah Lengkap</span>
             </div>
-            <button class="btn-pdf-download" onclick="downloadRolePDF('siswa')">
-              📥 Unduh Modul PDF Resmi (A4)
-            </button>
+            <div class="rsh-actions">
+              <button class="btn-video-play" onclick="openVideoPlayer('siswa')">
+                ▶️ Putar Video Tutorial &amp; VO
+              </button>
+              <button class="btn-pdf-download" onclick="downloadRolePDF('siswa')">
+                📥 Unduh Modul PDF Resmi (A4)
+              </button>
+            </div>
           </div>
 
           <div class="step" data-step="1">
@@ -416,9 +421,14 @@
               <div class="rsh-title">👨‍🏫 Panduan Runtut Akun Guru / Pengajar</div>
               <span class="rsh-badge badge-guru">6 Langkah Kelola Pembelajaran</span>
             </div>
-            <button class="btn-pdf-download btn-pdf-guru" onclick="downloadRolePDF('guru')">
-              📥 Unduh Modul PDF Resmi (A4)
-            </button>
+            <div class="rsh-actions">
+              <button class="btn-video-play btn-video-guru" onclick="openVideoPlayer('guru')">
+                ▶️ Putar Video Tutorial &amp; VO
+              </button>
+              <button class="btn-pdf-download btn-pdf-guru" onclick="downloadRolePDF('guru')">
+                📥 Unduh Modul PDF Resmi (A4)
+              </button>
+            </div>
           </div>
 
           <div class="step" data-step="1">
@@ -546,9 +556,14 @@
               <div class="rsh-title">🏫 Panduan Runtut Akun Kepala Sekolah &amp; Admin</div>
               <span class="rsh-badge badge-kepsek">6 Langkah Manajemen Ekosistem Sekolah</span>
             </div>
-            <button class="btn-pdf-download btn-pdf-kepsek" onclick="downloadRolePDF('kepsek')">
-              📥 Unduh Modul PDF Resmi (A4)
-            </button>
+            <div class="rsh-actions">
+              <button class="btn-video-play btn-video-kepsek" onclick="openVideoPlayer('kepsek')">
+                ▶️ Putar Video Tutorial &amp; VO
+              </button>
+              <button class="btn-pdf-download btn-pdf-kepsek" onclick="downloadRolePDF('kepsek')">
+                📥 Unduh Modul PDF Resmi (A4)
+              </button>
+            </div>
           </div>
 
           <div class="step" data-step="1">
@@ -1123,6 +1138,56 @@
       <button class="image-modal-close" onclick="closeImageModal()">&times;</button>
       <img src="" id="modalImg" alt="Gambar Screenshot BelajarPlus" />
       <div class="image-modal-caption" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <!-- Video Tutorial & Voiceover Modal -->
+  <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+    <div class="video-modal-container" onclick="event.stopPropagation()">
+      <div class="video-modal-header">
+        <div class="vmh-title">
+          <span class="vmh-icon">🎬</span>
+          <div>
+            <h3 id="videoRoleTitle">Video Tutorial Interaktif — Akun Siswa</h3>
+            <p id="videoRoleSub">Lengkap dengan Voiceover AI Bahasa Indonesia &amp; Subtitle Teks Berjalan</p>
+          </div>
+        </div>
+        <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+      </div>
+
+      <div class="video-player-screen" id="videoPlayerScreen">
+        <div class="vps-badge" id="vpsStepBadge">LANGKAH 01 / 10</div>
+        <img id="vpsImage" src="assets/register_siswa.png" alt="Video Screen Tutorial" />
+        <div class="vps-overlay-highlight" id="vpsHighlight"></div>
+        
+        <!-- Animated Subtitle Box -->
+        <div class="vps-subtitle-container" id="vpsSubtitleBox">
+          <div class="vps-subtitle-badge">💬 SUBTITLE</div>
+          <div class="vps-subtitle-text" id="vpsSubtitleText">
+            "Langkah pertama: Buka portal registrasi belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa..."
+          </div>
+        </div>
+      </div>
+
+      <div class="video-player-controls">
+        <div class="vpc-progress-bar">
+          <div class="vpc-progress-fill" id="vpcProgressFill" style="width: 10%;"></div>
+        </div>
+        <div class="vpc-bottom-row">
+          <div class="vpc-left">
+            <button class="vpc-btn" id="vpcPrevBtn" onclick="prevVideoStep()">⏮️ Prev</button>
+            <button class="vpc-btn vpc-btn-play" id="vpcPlayBtn" onclick="toggleVideoPlay()">▶️ Putar Video &amp; VO</button>
+            <button class="vpc-btn" id="vpcNextBtn" onclick="nextVideoStep()">Next ⏭️</button>
+          </div>
+          <div class="vpc-center">
+            <span id="vpcStepIndicator">Langkah 1: Pendaftaran &amp; Aktivasi Akun Siswa</span>
+          </div>
+          <div class="vpc-right">
+            <button class="vpc-btn vpc-btn-sub" id="vpcSubToggle" onclick="toggleSubtitles()">💬 CC: ON</button>
+            <button class="vpc-btn vpc-btn-audio" id="vpcAudioToggle" onclick="toggleAudioVO()">🔊 VO: ON</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

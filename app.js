@@ -451,7 +451,306 @@ function downloadRolePDF(role) {
     }
     window.print();
   }
+// === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
+const videoTutorialData = {
+  siswa: {
+    roleTitle: 'Video Panduan Akun Siswa',
+    roleSub: 'Langkah demi langkah penggunaan Perpustakaan Digital untuk Pelajar',
+    steps: [
+      {
+        title: 'Pendaftaran & Aktivasi Akun Siswa',
+        image: 'assets/register_siswa.png',
+        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa. Masukkan Kode Sekolah Mitra dari gurumu agar terhubung ke kuota buku gratis.',
+        subtitle: 'Langkah 1: Buka portal belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa. Masukkan Kode Sekolah Mitra.'
+      },
+      {
+        title: 'Login ke Akun Siswa',
+        image: 'assets/login.png',
+        narration: 'Langkah kedua: Masuk menggunakan alamat email dan kata sandi yang telah terdaftar, lalu klik tombol Masuk untuk membuka Dashboard Pembelajaran.',
+        subtitle: 'Langkah 2: Masuk menggunakan email dan password terdaftar untuk membuka Dashboard Pembelajaran.'
+      },
+      {
+        title: 'Cari & Filter Koleksi Buku Digital',
+        image: 'assets/search_filter.png',
+        narration: 'Langkah ketiga: Buka menu Perpustakaan. Gunakan filter di sebelah kiri untuk menyaring buku berdasarkan Jenjang Kelas dan Mata Pelajaran.',
+        subtitle: 'Langkah 3: Buka menu Perpustakaan. Gunakan filter sidebar untuk memilih Jenjang Kelas dan Mata Pelajaran.'
+      },
+      {
+        title: 'Pinjam Buku Digital Sekolah',
+        image: 'assets/book_detail.png',
+        narration: 'Langkah keempat: Klik kartu buku yang kamu butuhkan dan pilih Pinjam Buku. Peminjaman berlaku gratis selama 14 hari.',
+        subtitle: 'Langkah 4: Klik detail buku dan pilih Pinjam Buku secara gratis untuk masa peminjaman 14 hari.'
+      },
+      {
+        title: 'Membaca via Interactive Reader',
+        image: 'assets/book_reader.png',
+        narration: 'Langkah kelima: Klik Buka Reader untuk mulai membaca. Kamu bisa mengatur ukuran teks, menggunakan Daftar Isi, dan mode Fullscreen.',
+        subtitle: 'Langkah 5: Buka reader digital. Atur ukuran font, gunakan Daftar Isi, dan mode Fullscreen untuk membaca.'
+      },
+      {
+        title: 'Akses Tugas & Kuis Kelas',
+        image: 'assets/class_assignment.png',
+        narration: 'Langkah keenam: Masuk ke menu Kelas Saya, pilih tab Penugasan untuk melihat latihan kuis yang diberikan oleh guru pengajar.',
+        subtitle: 'Langkah 6: Masuk ke menu Kelas Saya -> Penugasan untuk melihat daftar kuis dari guru.'
+      },
+      {
+        title: 'Isi & Kirim Lembar Jawab Digital (LJD)',
+        image: 'assets/assignment_result.png',
+        narration: 'Langkah ketujuh: Jawab seluruh soal kuis sebelum timer habis. Setelah selesai, klik Kirim Lembar Jawaban untuk melihat skor hasil belajar.',
+        subtitle: 'Langkah 7: Jawab soal pada Lembar Jawab Digital (LJD), lalu kirim jawaban untuk melihat transkrip skor real-time.'
+      },
+      {
+        title: 'Manajemen Rak Buku Saya',
+        image: 'assets/my_books.png',
+        narration: 'Langkah kedelapan: Buka menu Buku Saya untuk mengelola pinjaman aktif atau mengembalikan buku yang sudah selesai dibaca.',
+        subtitle: 'Langkah 8: Buka menu Buku Saya untuk memantau sisa masa pinjam dan mengembalikan buku.'
+      },
+      {
+        title: 'Pembelian Buku di Toko',
+        image: 'assets/shop.png',
+        narration: 'Langkah kesembilan: Untuk memiliki buku referensi pribadi permanen, kamu dapat membelinya melalui menu Toko BelajarPlus.',
+        subtitle: 'Langkah 9: Menu Toko menyediakan buku referensi pribadi permanen tanpa batas waktu peminjaman.'
+      },
+      {
+        title: 'Pengaturan Profil Siswa',
+        image: 'assets/profile.png',
+        narration: 'Langkah kesepuluh: Perbarui data diri, nomor WhatsApp notifikasi, dan kata sandi kamu di menu Profil.',
+        subtitle: 'Langkah 10: Perbarui nomor WhatsApp dan data akun kamu di menu Profil.'
+      }
+    ]
+  },
+  guru: {
+    roleTitle: 'Video Panduan Akun Guru / Pengajar',
+    roleSub: 'Langkah pengelolaan kelas, penugasan LJD, dan penilaian siswa',
+    steps: [
+      {
+        title: 'Pendaftaran & Verifikasi Akun Guru',
+        image: 'assets/register_guru.png',
+        narration: 'Langkah pertama: Daftar akun Pengajar di portal BelajarPlus dengan memasukkan Kode Sekolah Mitra dan nomor WhatsApp aktif.',
+        subtitle: 'Langkah 1: Daftar akun Guru dengan Kode Sekolah Mitra dan nomor WhatsApp terverifikasi.'
+      },
+      {
+        title: 'Akses Dashboard Pengajar',
+        image: 'assets/admin_dashboard.png',
+        narration: 'Langkah kedua: Buka Dashboard Guru untuk memantau ruang kelas, anggota siswa, dan penugasan aktif.',
+        subtitle: 'Langkah 2: Masuk ke Dashboard Pengajar untuk mengelola kelas dan materi pelajaran.'
+      },
+      {
+        title: 'Menghubungkan Buku Teks Acuan',
+        image: 'assets/admin_koleksi.png',
+        narration: 'Langkah ketiga: Pilih buku teks utama dari koleksi perpustakaan sekolah untuk ditautkan sebagai bahan acuan siswa.',
+        subtitle: 'Langkah 3: Tautkan buku teks utama perpustakaan sekolah ke dalam materi kelas.'
+      },
+      {
+        title: 'Penyusunan Tugas LJD',
+        image: 'assets/class_assignment.png',
+        narration: 'Langkah keempat: Buat penugasan Lembar Jawab Digital, atur tenggat waktu, dan aktifkan mode pengawasan kejujuran anti-cheat.',
+        subtitle: 'Langkah 4: Buat kuis LJD, atur deadline, bobot skor, dan fitur proteksi anti-cheat.'
+      },
+      {
+        title: 'Transkrip Nilai Automatis',
+        image: 'assets/assignment_result.png',
+        narration: 'Langkah kelima: Tinjau rekapitulasi nilai kuis siswa secara otomatis lengkap dengan statistik ketuntasan KKM.',
+        subtitle: 'Langkah 5: Pantau transkrip nilai kuis siswa dan grafik pencapaian KKM kelas.'
+      },
+      {
+        title: 'Ekspor Data Evaluasi Pembelajaran',
+        image: 'assets/admin_dashboard.png',
+        narration: 'Langkah keenam: Unduh laporan rekapitulasi nilai kelas dalam format spreadsheet untuk evaluasi semester.',
+        subtitle: 'Langkah 6: Unduh rekapitulasi nilai dan laporan evaluasi pembelajaran kelas.'
+      }
+    ]
+  },
+  kepsek: {
+    roleTitle: 'Video Panduan Kepala Sekolah & Admin',
+    roleSub: 'Manajemen ekosistem digital, lisensi stok buku, dan laporan dinas',
+    steps: [
+      {
+        title: 'Registrasi Instansi & Kode Sekolah Mitra',
+        image: 'assets/register_guru.png',
+        narration: 'Langkah pertama: Daftarkan instansi sekolah untuk memperoleh Kode Sekolah Mitra resmi bagi seluruh guru dan siswa.',
+        subtitle: 'Langkah 1: Aktivasi Kode Sekolah Mitra resmi untuk integrasi ekosistem perpustakaan digital.'
+      },
+      {
+        title: 'Monitoring Executive Dashboard',
+        image: 'assets/admin_dashboard.png',
+        narration: 'Langkah kedua: Pantau statistik grafik minat baca, jumlah buku dipinjam, dan keaktifan kelas melalui Dashboard Eksekutif.',
+        subtitle: 'Langkah 2: Pantau statistik minat baca sekolah dan keaktifan belajar secara real-time.'
+      },
+      {
+        title: 'Manajemen Stok & Lisensi Buku Digital',
+        image: 'assets/admin_koleksi.png',
+        narration: 'Langkah ketiga: Kelola kuota eksemplar digital sekolah dan tambahkan judul buku baru sesuai kebutuhan kurikulum.',
+        subtitle: 'Langkah 3: Kelola jumlah lisensi eksemplar buku digital sekolah.'
+      },
+      {
+        title: 'Pengelolaan Data Pengguna & Rombel',
+        image: 'assets/admin_kelas.png',
+        narration: 'Langkah keempat: Impor data siswa dan guru secara kolektif serta atur struktur rombel tiap tingkatan kelas.',
+        subtitle: 'Langkah 4: Kelola akun pengguna sekolah dan pembagian rombel per jenjang.'
+      },
+      {
+        title: 'Pengadaan Buku via Portal Toko Penerbit',
+        image: 'assets/admin_toko.png',
+        narration: 'Langkah kelima: Ajukan pengadaan buku kurikulum terbaru secara langsung melalui portal kemitraan penerbit.',
+        subtitle: 'Langkah 5: Lakukan pengadaan buku teks dan pengayaan via portal penerbit resmi.'
+      },
+      {
+        title: 'Audit Keamanan & Laporan Akreditasi',
+        image: 'assets/admin_dashboard.png',
+        narration: 'Langkah keenam: Unduh laporan evaluasi berkala perpustakaan digital untuk berkas akreditasi dan dinas pendidikan.',
+        subtitle: 'Langkah 6: Unduh laporan resmi bulanan untuk akreditasi sekolah.'
+      }
+    ]
+  }
+};
+
+let currentVideoRole = 'siswa';
+let currentVideoStepIndex = 0;
+let isVideoPlaying = false;
+let isSubtitlesOn = true;
+let isAudioVOOn = true;
+let videoTimer = null;
+let currentSpeechUtterance = null;
+
+function openVideoPlayer(role) {
+  currentVideoRole = role || 'siswa';
+  currentVideoStepIndex = 0;
+  isVideoPlaying = false;
+
+  const roleData = videoTutorialData[currentVideoRole] || videoTutorialData['siswa'];
+  
+  document.getElementById('videoRoleTitle').textContent = roleData.roleTitle;
+  document.getElementById('videoRoleSub').textContent = roleData.roleSub;
+
+  const modal = document.getElementById('videoModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  loadVideoStep(0);
 }
+
+function closeVideoModal(e) {
+  if (e && e.target && e.target.classList.contains('video-modal-container')) return;
+  stopVideoPlay();
+  const modal = document.getElementById('videoModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function loadVideoStep(index) {
+  const roleData = videoTutorialData[currentVideoRole];
+  if (!roleData || !roleData.steps[index]) return;
+
+  currentVideoStepIndex = index;
+  const step = roleData.steps[index];
+  const total = roleData.steps.length;
+
+  document.getElementById('vpsStepBadge').textContent = `LANGKAH ${String(index + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+  document.getElementById('vpsImage').src = step.image;
+  document.getElementById('vpsSubtitleText').textContent = `"${step.subtitle}"`;
+  document.getElementById('vpcStepIndicator').textContent = `Langkah ${index + 1} dari ${total}: ${step.title}`;
+  
+  const pct = ((index + 1) / total) * 100;
+  document.getElementById('vpcProgressFill').style.width = `${pct}%`;
+
+  if (isAudioVOOn && isVideoPlaying) {
+    speakNarration(step.narration);
+  }
+}
+
+function speakNarration(text) {
+  if (!('speechSynthesis' in window)) return;
+
+  window.speechSynthesis.cancel(); // Stop current speech
+
+  currentSpeechUtterance = new SpeechSynthesisUtterance(text);
+  currentSpeechUtterance.lang = 'id-ID';
+  currentSpeechUtterance.rate = 0.95;
+  currentSpeechUtterance.pitch = 1.0;
+
+  currentSpeechUtterance.onend = () => {
+    if (isVideoPlaying) {
+      videoTimer = setTimeout(() => {
+        nextVideoStep();
+      }, 1500);
+    }
+  };
+
+  currentSpeechUtterance.onerror = (err) => {
+    console.warn('Speech error fallback:', err);
+    if (isVideoPlaying) {
+      videoTimer = setTimeout(() => {
+        nextVideoStep();
+      }, 5000);
+    }
+  };
+
+  window.speechSynthesis.speak(currentSpeechUtterance);
+}
+
+function toggleVideoPlay() {
+  const playBtn = document.getElementById('vpcPlayBtn');
+  if (isVideoPlaying) {
+    stopVideoPlay();
+    if (playBtn) playBtn.innerHTML = '▶️ Putar Video &amp; VO';
+  } else {
+    isVideoPlaying = true;
+    if (playBtn) playBtn.innerHTML = '⏸️ Jeda Video';
+    const roleData = videoTutorialData[currentVideoRole];
+    if (roleData && roleData.steps[currentVideoStepIndex]) {
+      speakNarration(roleData.steps[currentVideoStepIndex].narration);
+    }
+  }
+}
+
+function stopVideoPlay() {
+  isVideoPlaying = false;
+  if (videoTimer) clearTimeout(videoTimer);
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  const playBtn = document.getElementById('vpcPlayBtn');
+  if (playBtn) playBtn.innerHTML = '▶️ Putar Video &amp; VO';
+}
+
+function nextVideoStep() {
+  const roleData = videoTutorialData[currentVideoRole];
+  if (!roleData) return;
+
+  if (currentVideoStepIndex < roleData.steps.length - 1) {
+    loadVideoStep(currentVideoStepIndex + 1);
+  } else {
+    stopVideoPlay();
+    alert('🎉 Video tutorial selesai diputar!');
+  }
+}
+
+function prevVideoStep() {
+  if (currentVideoStepIndex > 0) {
+    loadVideoStep(currentVideoStepIndex - 1);
+  }
+}
+
+function toggleSubtitles() {
+  isSubtitlesOn = !isSubtitlesOn;
+  const box = document.getElementById('vpsSubtitleBox');
+  const btn = document.getElementById('vpcSubToggle');
+  if (box) box.style.display = isSubtitlesOn ? 'flex' : 'none';
+  if (btn) btn.innerHTML = isSubtitlesOn ? '💬 CC: ON' : '💬 CC: OFF';
+}
+
+function toggleAudioVO() {
+  isAudioVOOn = !isAudioVOOn;
+  const btn = document.getElementById('vpcAudioToggle');
+  if (!isAudioVOOn && 'speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+  if (btn) btn.innerHTML = isAudioVOOn ? '🔊 VO: ON' : '🔇 VO: OFF';
+}
+
 
 
 
