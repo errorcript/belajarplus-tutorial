@@ -991,14 +991,20 @@ async function generateDynamicVideoDownload(role) {
   }
   progressModal.style.display = 'flex';
   progressModal.innerHTML = `
-    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 2.5rem; max-width: 480px; width: 90%; box-shadow: 0 25px 50px rgba(0,0,0,0.8);">
+    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 2.5rem; max-width: 500px; width: 90%; box-shadow: 0 25px 50px rgba(0,0,0,0.8);">
       <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
-      <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; color: #38bdf8;">Merekam Video Tutorial (${role.toUpperCase()})</h3>
-      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;" id="veStatus">Memproses slide tutorial 1 / ${roleData.steps.length}...</p>
-      <div style="width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden;">
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; color: #38bdf8;">Merekam Video Presentation (${role.toUpperCase()})</h3>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.2rem;" id="veStatus">Memproses slide tutorial 1 / ${roleData.steps.length}...</p>
+      <div style="width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden; margin-bottom: 1.2rem;">
         <div id="veProgressBar" style="width: 5%; height: 100%; background: linear-gradient(90deg, #3b82f6, #ec4899); transition: width 0.2s;"></div>
       </div>
-      <p style="font-size: 0.75rem; color: #64748b; margin-top: 1rem;">Video otomatis diunduh setelah selesai diproses dalam hitungan detik.</p>
+      <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 10px; padding: 0.8rem 1rem; text-align: left; font-size: 0.8rem; color: #cbd5e1;">
+        <strong style="color: #38bdf8;">💡 Catatan Perekaman Browser:</strong>
+        <ul style="margin: 0.4rem 0 0 1.2rem; padding: 0;">
+          <li>Video hasil download berisi <strong>Visual HD 1280x720 + Subtitle CC Kuning</strong>.</li>
+          <li>Untuk mendengar <strong>Suara Voiceover Indonesia Live (ResponsiveVoice)</strong>, putar langsung di Player Interaktif Web!</li>
+        </ul>
+      </div>
     </div>
   `;
 
