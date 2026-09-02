@@ -504,7 +504,7 @@ window.downloadRolePDF = async function(role) {
 // === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
 const videoTutorialData = {
   siswa: {
-    roleTitle: 'Video Panduan Akun Siswa — Panduan Runtut 10 Langkah',
+    roleTitle: 'Video Panduan Akun Siswa — Panduan Runtut 12 Langkah',
     roleSub: 'Lengkap dengan Voiceover AI Bahasa Indonesia & Subtitle Teks Berjalan Interaktif',
     steps: [
       {
