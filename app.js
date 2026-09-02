@@ -904,10 +904,63 @@ window.toggleSubtitles = function() {
 window.toggleAudioVO = function() {
   isAudioVOOn = !isAudioVOOn;
   const btn = document.getElementById('vpcAudioToggle');
-  if (!isAudioVOOn && 'speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
+  if (!isAudioVOOn) {
+    if (typeof ttsAudioPlayer !== 'undefined' && ttsAudioPlayer) ttsAudioPlayer.pause();
+    if (typeof responsiveVoice !== 'undefined') responsiveVoice.cancel();
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
   }
   if (btn) btn.innerHTML = isAudioVOOn ? '🔊 VO: ON' : '🔇 VO: OFF';
+}
+
+window.toggleVideoFullscreen = function() {
+  const container = document.getElementById('videoModalContainer') || document.getElementById('videoModal');
+  const btn = document.getElementById('vpcFsToggle');
+
+  const isFS = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+
+  if (!isFS) {
+    if (container.requestFullscreen) {
+      container.requestFullscreen();
+    } else if (container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    } else if (container.mozRequestFullScreen) {
+      container.mozRequestFullScreen();
+    } else if (container.msRequestFullscreen) {
+      container.msRequestFullscreen();
+    }
+    container.classList.add('is-fullscreen');
+    if (btn) btn.innerHTML = '🗗 Keluar Fullscreen';
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+    container.classList.remove('is-fullscreen');
+    if (btn) btn.innerHTML = '⛶ Fullscreen';
+  }
+}
+
+document.addEventListener('fullscreenchange', handleFsChange);
+document.addEventListener('webkitfullscreenchange', handleFsChange);
+document.addEventListener('mozfullscreenchange', handleFsChange);
+document.addEventListener('MSFullscreenChange', handleFsChange);
+
+function handleFsChange() {
+  const container = document.getElementById('videoModalContainer') || document.getElementById('videoModal');
+  const btn = document.getElementById('vpcFsToggle');
+  const isFS = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+  
+  if (container) {
+    container.classList.toggle('is-fullscreen', isFS);
+  }
+  if (btn) {
+    btn.innerHTML = isFS ? '🗗 Keluar Fullscreen' : '⛶ Fullscreen';
+  }
 }
 
 

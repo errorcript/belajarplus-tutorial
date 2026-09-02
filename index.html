@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=40" />
+  <link rel="stylesheet" href="style.css?v=45" />
   <!-- ResponsiveVoice JS for Native Indonesian Female Voiceover -->
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
   <!-- html2pdf.js for Generating Official A4 PDF Documents -->
@@ -1147,7 +1147,7 @@
 
   <!-- Video Tutorial & Voiceover Modal -->
   <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
-    <div class="video-modal-container" onclick="event.stopPropagation()">
+    <div class="video-modal-container" id="videoModalContainer" onclick="event.stopPropagation()">
       <div class="video-modal-header">
         <div class="vmh-title">
           <span class="vmh-icon">🎬</span>
@@ -1189,12 +1189,13 @@
           <div class="vpc-right">
             <button class="vpc-btn vpc-btn-sub" id="vpcSubToggle" onclick="toggleSubtitles()">💬 CC: ON</button>
             <button class="vpc-btn vpc-btn-audio" id="vpcAudioToggle" onclick="toggleAudioVO()">🔊 VO: ON</button>
+            <button class="vpc-btn vpc-btn-fs" id="vpcFsToggle" onclick="toggleVideoFullscreen()">⛶ Fullscreen</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="app.js?v=40"></script>
+  <script src="app.js?v=45"></script>
 </body>
 </html>
