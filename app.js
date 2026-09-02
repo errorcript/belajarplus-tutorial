@@ -422,15 +422,19 @@ window.downloadRolePDF = async function(role) {
       `;
     }
 
-    // Screenshot Image
-    const stepImgSrc = step.querySelector('.screenshot-img')?.src || '';
+    // Screenshot Images (Supports multiple images per step, e.g. Registration + OTP Verification)
+    const stepImgs = Array.from(step.querySelectorAll('.step-visual img, .screenshot-img'));
+    const uniqueSrcs = Array.from(new Set(stepImgs.map(img => img.src).filter(Boolean)));
+    
     let imgHTML = '';
-    if (stepImgSrc) {
-      imgHTML = `
-        <div style="margin-top: 10px; text-align: center;">
-          <img src="${stepImgSrc}" style="max-width: 450px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
-        </div>
-      `;
+    if (uniqueSrcs.length > 0) {
+      imgHTML = `<div style="margin-top: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">`;
+      uniqueSrcs.forEach(src => {
+        imgHTML += `
+          <img src="${src}" style="max-width: 440px; width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+        `;
+      });
+      imgHTML += `</div>`;
     }
 
     // Clean A4 step card block
