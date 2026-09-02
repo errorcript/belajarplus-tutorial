@@ -375,17 +375,21 @@ window.downloadRolePDF = async function(role) {
 
   // Kop Header
   let pdfHTML = `
-    <div style="border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; text-align: left; background: #ffffff; display: flex; align-items: center; justify-content: space-between;">
-      <div>
-        <div style="font-size: 10px; font-weight: 800; color: #2563eb; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI PANDUAN PENGGUNAAN</div>
-        <h1 style="font-size: 20px; font-weight: 900; color: #1e3a8a; margin: 4px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
-        <div style="font-size: 13px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
-        <div style="font-size: 10px; color: #64748b; margin-top: 6px;">
-          Dokumen Modul Resmi Sekolah • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </div>
-      </div>
-      <img src="https://belajarplus.id/__l5e/assets-v1/d9939019-4126-4f98-8393-eabbbd975ef4/belajar-plus-logo.png" style="height: 48px; width: auto; object-fit: contain;" />
-    </div>
+    <table style="width: 100%; border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 24px; background: #ffffff; border-collapse: collapse; table-layout: fixed;">
+      <tr>
+        <td style="vertical-align: middle; text-align: left;">
+          <div style="font-size: 10px; font-weight: 800; color: #2563eb; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI PANDUAN PENGGUNAAN</div>
+          <h1 style="font-size: 19px; font-weight: 900; color: #1e3a8a; margin: 4px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
+          <div style="font-size: 12px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 4px;">
+            Dokumen Modul Resmi Sekolah • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
+        </td>
+        <td style="vertical-align: middle; text-align: right; width: 170px;">
+          <img src="https://belajarplus.id/__l5e/assets-v1/d9939019-4126-4f98-8393-eabbbd975ef4/belajar-plus-logo.png" style="width: 145px; height: auto; display: block; margin-left: auto;" />
+        </td>
+      </tr>
+    </table>
   `;
 
   // Parse each step item into clean block elements
