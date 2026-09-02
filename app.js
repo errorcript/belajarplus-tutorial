@@ -965,27 +965,190 @@ function handleFsChange() {
 
 window.downloadVideoMP4 = function(role) {
   const roleName = role || currentVideoRole || 'siswa';
-  const roleTitles = {
-    siswa: 'Tutorial_BelajarPlus_Akun_Siswa.mp4',
-    guru: 'Tutorial_BelajarPlus_Akun_Guru.mp4',
-    kepsek: 'Tutorial_BelajarPlus_Akun_Kepsek.mp4'
-  };
-  const fileName = roleTitles[roleName] || 'Tutorial_BelajarPlus.mp4';
-  const fileUrl = `assets/${roleName}_tutorial.mp4`;
-
-  const a = document.createElement('a');
-  a.href = fileUrl;
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-
-  alert(`📥 Pengunduhan Video MP4 (${roleName.toUpperCase()}) Dimulai!\n\nVideo tutorial resmi BelajarPlus format .mp4 siap disimpan.`);
+  generateDynamicVideoDownload(roleName);
 };
 
 window.downloadCurrentVideoMP4 = function() {
   downloadVideoMP4(currentVideoRole);
 };
+
+async function generateDynamicVideoDownload(role) {
+  const roleData = videoTutorialData[role];
+  if (!roleData || !roleData.steps || roleData.steps.length === 0) return;
+
+  // 1. Show Progress Modal Overlay
+  let progressModal = document.getElementById('videoExportModal');
+  if (!progressModal) {
+    progressModal = document.createElement('div');
+    progressModal.id = 'videoExportModal';
+    progressModal.style.cssText = `
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(15, 23, 42, 0.95); z-index: 1000000;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #ffffff; font-family: 'Inter', sans-serif; text-align: center; padding: 2rem;
+    `;
+    document.body.appendChild(progressModal);
+  }
+  progressModal.style.display = 'flex';
+  progressModal.innerHTML = `
+    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 2.5rem; max-width: 480px; width: 90%; box-shadow: 0 25px 50px rgba(0,0,0,0.8);">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
+      <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem; color: #38bdf8;">Merekam Video Tutorial (${role.toUpperCase()})</h3>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;" id="veStatus">Memproses slide tutorial 1 / ${roleData.steps.length}...</p>
+      <div style="width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden;">
+        <div id="veProgressBar" style="width: 5%; height: 100%; background: linear-gradient(90deg, #3b82f6, #ec4899); transition: width 0.2s;"></div>
+      </div>
+      <p style="font-size: 0.75rem; color: #64748b; margin-top: 1rem;">Video otomatis diunduh setelah selesai diproses dalam hitungan detik.</p>
+    </div>
+  `;
+
+  // 2. Offscreen Canvas setup
+  const canvas = document.createElement('canvas');
+  canvas.width = 1280;
+  canvas.height = 720;
+  const ctx = canvas.getContext('2d');
+
+  const loadImage = (src) => new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+
+  // Setup MediaRecorder
+  let recordedChunks = [];
+  let stream = canvas.captureStream(30);
+  
+  let mimeType = 'video/webm';
+  if (typeof MediaRecorder !== 'undefined') {
+    if (MediaRecorder.isTypeSupported('video/mp4;codecs=h264')) {
+      mimeType = 'video/mp4;codecs=h264';
+    } else if (MediaRecorder.isTypeSupported('video/mp4')) {
+      mimeType = 'video/mp4';
+    }
+  }
+
+  let mediaRecorder;
+  try {
+    mediaRecorder = new MediaRecorder(stream, { mimeType });
+  } catch (e) {
+    mediaRecorder = new MediaRecorder(stream);
+  }
+
+  mediaRecorder.ondataavailable = (e) => {
+    if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+  };
+
+  mediaRecorder.onstop = () => {
+    const blob = new Blob(recordedChunks, { type: mimeType });
+    const ext = mimeType.includes('mp4') ? 'mp4' : 'webm';
+    const fileName = `Tutorial_BelajarPlus_${role.toUpperCase()}.${ext}`;
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 200);
+
+    progressModal.style.display = 'none';
+  };
+
+  mediaRecorder.start();
+
+  // 3. Render steps into canvas
+  for (let i = 0; i < roleData.steps.length; i++) {
+    const step = roleData.steps[i];
+    const pct = Math.round(((i + 1) / roleData.steps.length) * 100);
+    const statusEl = document.getElementById('veStatus');
+    const barEl = document.getElementById('veProgressBar');
+    if (statusEl) statusEl.innerText = `Memproses slide ${i + 1} dari ${roleData.steps.length}: ${step.title}`;
+    if (barEl) barEl.style.width = `${pct}%`;
+
+    const img = await loadImage(step.image);
+
+    // Draw frame for ~1.5 seconds (45 frames at 30fps) for fast generation
+    for (let frame = 0; frame < 45; frame++) {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, 1280, 720);
+
+      // Header Banner
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(0, 0, 1280, 70);
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = 'bold 24px Inter, sans-serif';
+      ctx.fillText(`🎬 BelajarPlus Tutorial — ${roleData.roleTitle}`, 30, 44);
+
+      // Step Badge
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 18px Inter, sans-serif';
+      ctx.fillText(`LANGKAH ${String(i + 1).padStart(2, '0')} / ${String(roleData.steps.length).padStart(2, '0')} : ${step.title}`, 30, 110);
+
+      // Draw Screenshot Image
+      if (img) {
+        const maxImgW = 1000;
+        const maxImgH = 460;
+        let imgW = img.width;
+        let imgH = img.height;
+        const scale = Math.min(maxImgW / imgW, maxImgH / imgH);
+        imgW = imgW * scale;
+        imgH = imgH * scale;
+        const imgX = (1280 - imgW) / 2;
+        const imgY = 130 + (maxImgH - imgH) / 2;
+
+        ctx.save();
+        ctx.shadowColor = 'rgba(0,0,0,0.6)';
+        ctx.shadowBlur = 20;
+        ctx.drawImage(img, imgX, imgY, imgW, imgH);
+        ctx.restore();
+      }
+
+      // Subtitle Box Container
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+      ctx.strokeStyle = '#eab308';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(60, 610, 1160, 85, 12);
+      } else {
+        ctx.rect(60, 610, 1160, 85);
+      }
+      ctx.fill();
+      ctx.stroke();
+
+      // Subtitle Badge
+      ctx.fillStyle = '#eab308';
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(80, 625, 90, 24, 6);
+      } else {
+        ctx.rect(80, 625, 90, 24);
+      }
+      ctx.fill();
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 12px Inter, sans-serif';
+      ctx.fillText('💬 SUBTITLE', 88, 641);
+
+      // Subtitle Text
+      ctx.fillStyle = '#fef08a';
+      ctx.font = 'bold 15px Inter, sans-serif';
+      const subText = step.subtitle || step.narration || '';
+      const displaySub = subText.length > 105 ? subText.substring(0, 105) + '...' : subText;
+      ctx.fillText(`"${displaySub}"`, 185, 641);
+
+      await new Promise((r) => setTimeout(r, 20));
+    }
+  }
+
+  setTimeout(() => {
+    mediaRecorder.stop();
+  }, 300);
+}
 
 
 
