@@ -1016,9 +1016,27 @@ async function generateDynamicVideoDownload(role) {
     img.src = src;
   });
 
-  // Setup MediaRecorder
+  // Setup MediaRecorder & Web Audio Stream
   let recordedChunks = [];
-  let stream = canvas.captureStream(30);
+  let canvasStream = canvas.captureStream(30);
+
+  let audioCtx = null;
+  let audioDest = null;
+  let stream = canvasStream;
+
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtx = new AudioContextClass();
+      audioDest = audioCtx.createMediaStreamDestination();
+      stream = new MediaStream([
+        ...canvasStream.getVideoTracks(),
+        ...audioDest.stream.getAudioTracks()
+      ]);
+    }
+  } catch (e) {
+    console.warn('AudioContext stream mixing fallback:', e);
+  }
   
   let mimeType = 'video/webm';
   if (typeof MediaRecorder !== 'undefined') {
