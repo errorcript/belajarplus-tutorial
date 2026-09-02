@@ -566,6 +566,18 @@ const videoTutorialData = {
         image: 'assets/profile.png',
         narration: 'Langkah kesepuluh: Masuk ke menu Profil untuk memeriksa dan memperbarui informasi akun kamu. Pastikan nomor WhatsApp yang terdaftar aktif agar kamu otomatis menerima notifikasi penugasan baru dari guru pengajar. Kamu juga dapat memperbarui kata sandi secara berkala demi keamanan akun.',
         subtitle: 'Langkah 10: Masuk ke menu "Profil" untuk memperbarui data diri, nomor WhatsApp terhubung agar menerima notifikasi penugasan dari guru, serta mengganti kata sandi akun.'
+      },
+      {
+        title: 'Kelas & Aturan Lembar Jawab Digital (LJD)',
+        image: 'assets/assignment_list.png',
+        narration: 'Langkah kesebelas: Akses menu Kelas Saya untuk masuk ke ruang kelas spesifik gurumu. Di sana terdapat tiga tab utama: Pengumuman Kelas, Sumber Belajar, dan Aktivitas Belajar. Saat menekan tombol Mulai Ujian, layar akan terkunci pada mode Lembar Jawab Digital. Jangan berpindah tab atau menekan Back selama ujian berlangsung karena sistem anti-cheat akan men-submit jawabanmu secara otomatis.',
+        subtitle: 'Langkah 11: Buka "Kelas Saya" untuk akses ruang kelas. Kerjakan LJD dari tab Aktivitas Belajar. Jangan pindah tab atau tekan Back saat ujian karena sistem anti-cheat aktif memantau.'
+      },
+      {
+        title: 'Eksplorasi Toko & Riwayat Pesanan',
+        image: 'assets/orders_history.png',
+        narration: 'Langkah kedua belas: Jika kuota buku sekolah habis, gunakan menu Toko untuk membeli lisensi buku secara pribadi atau paket Tryout Premium SNBT dan UTBK. Setelah pembayaran melalui QRIS atau Virtual Account berhasil, cek status invoice dan aktivasi produk secara real-time di menu Pesanan Saya. Ingat, selalu gunakan tombol sidebar untuk mengakses Pesanan — jangan ketik URL langsung di address bar karena dapat menyebabkan redirect loop.',
+        subtitle: 'Langkah 12: Beli buku tambahan atau Tryout Premium lewat menu "Toko". Pantau status pembayaran & invoice di menu "Pesanan Saya". Selalu akses via tombol sidebar, bukan ketik URL manual.'
       }
     ]
   },
