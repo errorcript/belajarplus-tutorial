@@ -1023,23 +1023,12 @@ async function generateDynamicVideoDownload(role) {
   let audioCtx = null;
   let audioDest = null;
   let stream = canvasStream;
-  let ttsAudio = new Audio();
-  ttsAudio.crossOrigin = 'anonymous';
 
   try {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
     if (AudioContextClass) {
       audioCtx = new AudioContextClass();
       audioDest = audioCtx.createMediaStreamDestination();
-      
-      try {
-        const audioSourceNode = audioCtx.createMediaElementSource(ttsAudio);
-        audioSourceNode.connect(audioDest);
-        audioSourceNode.connect(audioCtx.destination);
-      } catch (errNode) {
-        console.warn('AudioSourceNode connect note:', errNode);
-      }
-
       stream = new MediaStream([
         ...canvasStream.getVideoTracks(),
         ...audioDest.stream.getAudioTracks()
@@ -1090,7 +1079,7 @@ async function generateDynamicVideoDownload(role) {
 
   mediaRecorder.start();
 
-  // 3. Render steps into canvas synchronized with Indonesian VO Audio
+  // 3. Render steps into canvas synchronized with Indonesian VO Audio (SILENT SPEAKERS, AUDIO TO RECORDER ONLY)
   for (let i = 0; i < roleData.steps.length; i++) {
     const step = roleData.steps[i];
     const pct = Math.round(((i + 1) / roleData.steps.length) * 100);
@@ -1101,7 +1090,7 @@ async function generateDynamicVideoDownload(role) {
 
     const img = await loadImage(step.image);
 
-    // Play Indonesian Voiceover Audio for this step
+    // Clean text for TTS
     const cleanText = (step.narration || step.subtitle || '')
       .replace(/BLJ-[A-Z0-9]+/g, 'B L J')
       .replace(/SKL-[A-Z0-9]+/g, 'S K L')
@@ -1113,19 +1102,24 @@ async function generateDynamicVideoDownload(role) {
 
     const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(cleanText)}&tl=id&client=tw-ob`;
     
-    let audioDurationSec = 6; // default 6s per slide
-    try {
-      ttsAudio.src = ttsUrl;
-      const playPromise = ttsAudio.play();
-      if (playPromise !== undefined) {
-        await playPromise;
-        if (ttsAudio.duration && !isNaN(ttsAudio.duration)) {
-          audioDurationSec = Math.max(ttsAudio.duration + 1, 6);
+    let audioDurationSec = 7; // default 7s per slide
+
+    if (audioCtx && audioDest) {
+      try {
+        const resp = await fetch(ttsUrl);
+        if (resp.ok) {
+          const buf = await resp.arrayBuffer();
+          const decodedAudio = await audioCtx.decodeAudioData(buf);
+          audioDurationSec = Math.max(decodedAudio.duration + 0.8, 6);
+
+          const bufferSource = audioCtx.createBufferSource();
+          bufferSource.buffer = decodedAudio;
+          // Connect ONLY to recorder stream (audioDest), NOT to user speakers!
+          bufferSource.connect(audioDest);
+          bufferSource.start(0);
         }
-      }
-    } catch (audioErr) {
-      if (typeof responsiveVoice !== 'undefined' && responsiveVoice.speak) {
-        responsiveVoice.speak(cleanText, "Indonesian Female");
+      } catch (audioFetchErr) {
+        console.warn('Audio fetch/decode fallback note:', audioFetchErr);
       }
     }
 
