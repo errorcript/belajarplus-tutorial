@@ -436,7 +436,7 @@
       }
     }
 
-    function renderPlaylist() {
+    window.renderPlaylist = function renderPlaylist() {
       const container = document.getElementById('playlistItems');
       if (!container || typeof videoTutorialData === 'undefined') return;
 
