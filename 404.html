@@ -8,211 +8,324 @@
   <link rel="icon" type="image/png" href="/assets/belajar-plus-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background: #090d16;
-      color: #f8fafc;
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
+    :root {
+      --bg: #07090f;
+      --surface: #0d1117;
+      --border: rgba(255,255,255,0.08);
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
     }
 
-    /* Background blur blobs */
-    .blob {
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    /* Subtle grid background */
+    body::before {
+      content: '';
       position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.15;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
       z-index: 0;
     }
-    .blob-1 { width: 500px; height: 500px; background: #3b82f6; top: -100px; left: -100px; }
-    .blob-2 { width: 400px; height: 400px; background: #8b5cf6; bottom: -80px; right: -80px; }
 
-    .container {
+    .wrap {
       position: relative;
       z-index: 1;
-      text-align: center;
-      max-width: 540px;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .logo-wrap {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 900px;
+      width: 100%;
       align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 2.5rem;
-      text-decoration: none;
     }
-    .logo-wrap img { height: 32px; width: auto; }
-    .logo-badge {
-      background: rgba(37,99,235,.2);
-      border: 1px solid #3b82f6;
+
+    /* Left: text content */
+    .left {
+      animation: fadeLeft 0.5s ease both;
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(59,130,246,0.25);
       color: #60a5fa;
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
       font-size: 0.75rem;
-      font-weight: 800;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-
-    .error-code {
-      font-size: clamp(7rem, 20vw, 10rem);
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -4px;
-      margin-bottom: 0.5rem;
-      user-select: none;
-    }
-
-    .error-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: wobble 2s ease-in-out infinite;
-    }
-    @keyframes wobble {
-      0%, 100% { transform: rotate(-8deg); }
-      50%       { transform: rotate(8deg); }
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
-      font-size: 1.6rem;
+      font-size: clamp(2rem, 5vw, 2.6rem);
       font-weight: 800;
-      color: #f1f5f9;
-      margin-bottom: 0.75rem;
+      line-height: 1.15;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--blue-light);
     }
 
     p {
-      font-size: 1rem;
-      color: #94a3b8;
-      line-height: 1.7;
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.75;
       margin-bottom: 2rem;
     }
 
     .btn-group {
       display: flex;
       gap: 0.75rem;
-      justify-content: center;
       flex-wrap: wrap;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+    .btn-home {
+      background: var(--blue);
       color: #fff;
       font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 14px rgba(37,99,235,.35);
+      transition: background 0.2s, transform 0.15s;
+      border: 1px solid transparent;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37,99,235,.5);
+    .btn-home:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: #cbd5e1;
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
       font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
       text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.14);
-      border-color: rgba(255,255,255,.25);
-      color: #fff;
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.2);
+      color: var(--text);
     }
 
-    .quick-links {
-      margin-top: 3rem;
+    /* Right: 404 visual */
+    .right {
+      animation: fadeRight 0.5s ease 0.1s both;
       display: flex;
-      gap: 0.5rem;
+      flex-direction: column;
+      align-items: center;
+    }
+    @keyframes fadeRight {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .error-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* top accent bar */
+    .error-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), #06b6d4);
+    }
+
+    /* Glitch 404 */
+    .glitch {
+      font-size: 6rem;
+      font-weight: 900;
+      color: #f8fafc;
+      line-height: 1;
+      letter-spacing: -4px;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.25rem;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: '404';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .glitch::before {
+      color: #2563eb;
+      animation: glitch1 3.5s infinite;
+      clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    }
+    .glitch::after {
+      color: #06b6d4;
+      animation: glitch2 3.5s infinite;
+      clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+    }
+    @keyframes glitch1 {
+      0%,90%,100% { transform: none; opacity: 0; }
+      91%  { transform: translateX(-3px); opacity: 0.7; }
+      93%  { transform: translateX(3px);  opacity: 0.7; }
+      95%  { transform: translateX(-2px); opacity: 0.7; }
+      97%  { transform: translateX(0);    opacity: 0; }
+    }
+    @keyframes glitch2 {
+      0%,90%,100% { transform: none; opacity: 0; }
+      92%  { transform: translateX(3px);  opacity: 0.7; }
+      94%  { transform: translateX(-3px); opacity: 0.7; }
+      96%  { transform: translateX(2px);  opacity: 0.7; }
+      98%  { transform: translateX(0);    opacity: 0; }
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* breadcrumb-like path */
+    .error-path {
+      display: flex;
+      align-items: center;
       justify-content: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-family: 'Courier New', monospace;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .error-path .slash { color: rgba(255,255,255,0.2); }
+    .error-path .page  { color: #f87171; }
+
+    /* mini stat pills */
+    .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
       flex-wrap: wrap;
     }
-    .quick-link {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-      color: #94a3b8;
-      font-size: 0.82rem;
+    .stat-pill {
+      font-size: 0.75rem;
       font-weight: 600;
-      padding: 0.4rem 0.9rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
       border-radius: 20px;
-      text-decoration: none;
-      transition: all 0.2s;
     }
-    .quick-link:hover {
-      background: rgba(59,130,246,.15);
-      border-color: rgba(59,130,246,.4);
-      color: #60a5fa;
-    }
+    .stat-pill.ok { color: #4ade80; border-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.06); }
+    .stat-pill.err { color: #f87171; border-color: rgba(248,113,113,0.2); background: rgba(248,113,113,0.06); }
 
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-      border-radius: 2px;
-      margin: 2rem auto 0;
+    /* bottom nav */
+    .nav-back {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .nav-back a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back a:hover { color: var(--blue-light); }
+    .nav-back span { color: var(--border); }
+
+    @media (max-width: 680px) {
+      .wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .right { order: -1; }
     }
   </style>
 </head>
 <body>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-
-  <div class="container">
-    <a href="/" class="logo-wrap">
-      <img src="/assets/belajar-plus-logo.png" alt="BelajarPlus Logo" />
-      <span class="logo-badge">Tutorial</span>
-    </a>
-
-    <div class="error-code">404</div>
-    <div class="error-icon">📚</div>
-
-    <h1>Halaman Tidak Ditemukan</h1>
-    <p>
-      Sepertinya buku yang kamu cari tidak ada di rak ini.<br />
-      URL mungkin salah ketik atau halaman sudah dipindahkan.
-    </p>
-
-    <div class="btn-group">
-      <a href="/" class="btn-primary">🏠 Kembali ke Beranda</a>
-      <a href="https://belajarplus.id/library" target="_blank" class="btn-secondary">Buka BelajarPlus ↗</a>
+  <div class="wrap">
+    <div class="left">
+      <div class="tag">Error 404</div>
+      <h1>Buku ini nggak<br />ada di <em>rak kami</em>.</h1>
+      <p>URL yang kamu ketik mungkin salah, atau halaman ini sudah dihapus. Tapi tenang — panduan BelajarPlus-nya masih ada kok.</p>
+      <div class="btn-group">
+        <a href="/" class="btn-home">← Balik ke Beranda</a>
+        <a href="https://belajarplus.id/library" target="_blank" class="btn-ghost">Buka App ↗</a>
+      </div>
     </div>
 
-    <div class="quick-links">
-      <a href="/#pengenalan" class="quick-link">📖 Pengenalan</a>
-      <a href="/#cara-pakai" class="quick-link">🚀 Cara Pakai</a>
-      <a href="/#reader-demo" class="quick-link">📗 Book Reader</a>
-      <a href="/#faq" class="quick-link">❓ FAQ</a>
-    </div>
+    <div class="right">
+      <div class="error-card">
+        <div class="card-label">HTTP Response</div>
+        <div class="glitch">404</div>
+        <p style="font-size:0.8rem; color:#475569; margin: 0.5rem 0 1.25rem;">Not Found</p>
 
-    <div class="divider"></div>
+        <div class="error-path">
+          <span>belajarplus-tutorial.vercel.app</span>
+          <span class="slash">/</span>
+          <span class="page" id="pathDisplay">???</span>
+        </div>
+
+        <div class="stat-row">
+          <span class="stat-pill ok">✓ Server OK</span>
+          <span class="stat-pill ok">✓ DNS OK</span>
+          <span class="stat-pill err">✗ Page Missing</span>
+        </div>
+      </div>
+
+      <div class="nav-back">
+        <a href="/#cara-pakai">Cara Pakai</a>
+        <span>·</span>
+        <a href="/#reader-demo">Book Reader</a>
+        <span>·</span>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </div>
   </div>
+
+  <script>
+    // Show the actual path user tried to access
+    const path = window.location.pathname.replace('/', '') || '???';
+    document.getElementById('pathDisplay').textContent = path.length > 18 ? path.slice(0, 18) + '…' : path;
+  </script>
 </body>
 </html>
