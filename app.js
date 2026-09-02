@@ -669,6 +669,10 @@ window.openVideoPlayer = function(role) {
 
   const modal = document.getElementById('videoModal');
   if (modal) {
+    modal.style.setProperty('display', 'flex', 'important');
+    modal.style.setProperty('opacity', '1', 'important');
+    modal.style.setProperty('visibility', 'visible', 'important');
+    modal.style.setProperty('pointer-events', 'auto', 'important');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -681,6 +685,10 @@ window.closeVideoModal = function(e) {
   stopVideoPlay();
   const modal = document.getElementById('videoModal');
   if (modal) {
+    modal.style.setProperty('display', 'none', 'important');
+    modal.style.setProperty('opacity', '0', 'important');
+    modal.style.setProperty('visibility', 'hidden', 'important');
+    modal.style.setProperty('pointer-events', 'none', 'important');
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
