@@ -1114,6 +1114,13 @@ async function generateDynamicVideoDownload(role) {
 
     // 150 frames at 30fps = 5.0 seconds per slide (50 seconds total video duration)
     const frameCount = 150;
+    const fullSubText = step.subtitle || step.narration || '';
+
+    // Simulated mouse cursor target positions for app interaction recording feel
+    const cursorStartX = 150 + Math.random() * 100;
+    const cursorStartY = 550;
+    const cursorTargetX = 640 + (i % 3 - 1) * 150;
+    const cursorTargetY = 320 + (i % 2) * 80;
 
     for (let frame = 0; frame < frameCount; frame++) {
       ctx.fillStyle = '#0f172a';
@@ -1124,7 +1131,7 @@ async function generateDynamicVideoDownload(role) {
       ctx.fillRect(0, 0, 1280, 70);
       ctx.fillStyle = '#f8fafc';
       ctx.font = 'bold 24px Inter, sans-serif';
-      ctx.fillText(`🎬 BelajarPlus Tutorial — ${roleData.roleTitle}`, 30, 44);
+      ctx.fillText(`🎬 BelajarPlus Interactive Simulation — ${roleData.roleTitle}`, 30, 44);
 
       // Step Badge
       ctx.fillStyle = '#38bdf8';
@@ -1149,6 +1156,41 @@ async function generateDynamicVideoDownload(role) {
         ctx.drawImage(img, imgX, imgY, imgW, imgH);
         ctx.restore();
       }
+
+      // Simulated Smooth Mouse Cursor Pointer Animation
+      const progress = frame / frameCount;
+      const easeProgress = Math.sin((progress * Math.PI) / 2); // Easing curve
+      const currentCursorX = cursorStartX + (cursorTargetX - cursorStartX) * easeProgress;
+      const currentCursorY = cursorStartY + (cursorTargetY - cursorStartY) * easeProgress;
+
+      // Draw Click Ripple Animation at 60-80% progress
+      if (progress >= 0.6 && progress <= 0.85) {
+        const rippleRadius = (progress - 0.6) * 120;
+        const rippleAlpha = 1 - (progress - 0.6) / 0.25;
+        ctx.strokeStyle = `rgba(56, 189, 248, ${Math.max(rippleAlpha, 0)})`;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(cursorTargetX, cursorTargetY, rippleRadius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Draw Mouse Cursor Pointer Icon
+      ctx.save();
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(currentCursorX, currentCursorY);
+      ctx.lineTo(currentCursorX + 14, currentCursorY + 28);
+      ctx.lineTo(currentCursorX + 20, currentCursorY + 20);
+      ctx.lineTo(currentCursorX + 28, currentCursorY + 32);
+      ctx.lineTo(currentCursorX + 32, currentCursorY + 28);
+      ctx.lineTo(currentCursorX + 24, currentCursorY + 16);
+      ctx.lineTo(currentCursorX + 32, currentCursorY + 14);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
 
       // Subtitle Box Container
       ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
@@ -1176,14 +1218,19 @@ async function generateDynamicVideoDownload(role) {
       ctx.font = 'bold 12px Inter, sans-serif';
       ctx.fillText('💬 SUBTITLE', 88, 641);
 
-      // Subtitle Text
+      // Typewriter Subtitle Text Effect ("Ketik 1 per 1")
+      const charsToShow = Math.min(Math.floor((frame / (frameCount * 0.75)) * fullSubText.length), fullSubText.length);
+      let typedSub = fullSubText.substring(0, charsToShow);
+      if (charsToShow < fullSubText.length && Math.floor(frame / 6) % 2 === 0) {
+        typedSub += ' ▌'; // Blinking typewriter cursor
+      }
+
       ctx.fillStyle = '#fef08a';
       ctx.font = 'bold 15px Inter, sans-serif';
-      const subText = step.subtitle || step.narration || '';
-      const displaySub = subText.length > 105 ? subText.substring(0, 105) + '...' : subText;
+      const displaySub = typedSub.length > 105 ? typedSub.substring(0, 105) + '...' : typedSub;
       ctx.fillText(`"${displaySub}"`, 185, 641);
 
-      await new Promise((r) => setTimeout(r, 30));
+      await new Promise((r) => setTimeout(r, 15));
     }
   }
 
