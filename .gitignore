@@ -1,0 +1,6 @@
+.vercel
+.env*
+node_modules/
+test_*.js
+*.png
+!assets/**/*.png

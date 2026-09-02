@@ -239,8 +239,8 @@ window.switchRole = function(role, btn) {
 
 // === UNIVERSAL LIGHTBOX IMAGE MODAL (ALL IMAGES & MOBILE SUPPORT) ===
 function initImageLightbox() {
-  // Target ALL images in document except modal preview images
-  const images = document.querySelectorAll('img:not(#modalImg):not(#vpsImage)');
+  // Target ALL images in document except modal preview images and playlist thumbnails
+  const images = document.querySelectorAll('img:not(#modalImg):not(#vpsImage):not(.playlist-thumb)');
   images.forEach(img => {
     img.style.cursor = 'zoom-in';
     
@@ -259,7 +259,7 @@ function initImageLightbox() {
 
 // Global Event Delegation fallback for dynamically rendered images
 document.addEventListener('click', (e) => {
-  const targetImg = e.target.closest('img:not(#modalImg):not(#vpsImage)');
+  const targetImg = e.target.closest('img:not(#modalImg):not(#vpsImage):not(.playlist-thumb)');
   if (targetImg && !targetImg._zoomHandler) {
     e.stopPropagation();
     openImageModal(targetImg.src, targetImg.alt || 'Gambar BelajarPlus');
@@ -499,8 +499,8 @@ const videoTutorialData = {
       {
         title: 'Pendaftaran & Aktivasi Akun Siswa',
         image: 'assets/register_siswa.png',
-        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa. Masukkan Kode Sekolah Mitra dari gurumu agar terhubung ke kuota buku gratis.',
-        subtitle: 'Langkah 1: Buka portal belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa. Masukkan Kode Sekolah Mitra.'
+        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa. Masukkan Kode Sekolah Mitra dari gurumu agar terhubung ke kuota buku gratis. Pastikan email yang didaftarkan aktif, lalu cek kotak masuk untuk verifikasi email.',
+        subtitle: 'Langkah 1: Buka belajarplus.id/auth, daftar dengan email aktif, dan cek kotak masuk untuk Verifikasi Email.'
       },
       {
         title: 'Login ke Akun Siswa',
@@ -709,6 +709,11 @@ window.loadVideoStep = function(index) {
 
   if (isAudioVOOn && isVideoPlaying) {
     speakNarration(step.narration);
+  }
+
+  // Update standalone video.html playlist UI if it exists
+  if (typeof renderPlaylist === 'function') {
+    renderPlaylist();
   }
 }
 
