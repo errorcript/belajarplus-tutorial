@@ -3229,35 +3229,39 @@ button.btn-mp4-kepsek, .btn-mp4-kepsek {
 
 /* --- PRINT STYLES FOR NATIVE BROWSER PDF --- */
 @media print {
-  /* Hide all UI elements that shouldn't be in the PDF */
-  .nav, .hero, .role-switcher-container, .checklist-section, #pengenalan, #reader-demo, #fitur, footer, .stat-divider, .hero-stats {
+  /* Hide all top level elements in body EXCEPT the section with our steps */
+  body > *:not(#cara-pakai) {
     display: none !important;
   }
   
-  /* Hide action buttons (video, pdf download) */
+  /* Inside #cara-pakai, hide everything EXCEPT the .steps-wrapper's container */
+  #cara-pakai > .container > *:not(.steps-wrapper) {
+    display: none !important;
+  }
+  
+  /* Hide the action buttons inside steps wrapper */
   .rsh-actions {
     display: none !important;
   }
 
-  /* Only show the currently active role steps */
+  /* Only show active tabs */
   .role-steps-container:not(.active) {
     display: none !important;
   }
-
-  /* Force background to white for ink saving */
-  body, .section, .section-dark, .section-gradient {
-    background: #ffffff !important;
-    color: #000000 !important;
+  
+  /* Reset backgrounds */
+  body, .section {
+    background: #fff !important;
+    color: #000 !important;
   }
 
-  /* Layout resets for full width */
   .container {
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
   }
 
-  /* Prevent page breaks inside steps and images */
+  /* Prevent page breaks */
   .step, .step-visual img {
     page-break-inside: avoid;
     break-inside: avoid;
