@@ -669,6 +669,7 @@ window.openVideoPlayer = function(role) {
 
   const modal = document.getElementById('videoModal');
   if (modal) {
+    modal.style.display = 'flex';
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -681,6 +682,7 @@ window.closeVideoModal = function(e) {
   stopVideoPlay();
   const modal = document.getElementById('videoModal');
   if (modal) {
+    modal.style.display = 'none';
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
