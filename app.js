@@ -386,7 +386,7 @@ window.downloadRolePDF = async function(role) {
           </div>
         </td>
         <td style="vertical-align: middle; text-align: right; width: 170px;">
-          <img src="https://belajarplus.id/__l5e/assets-v1/d9939019-4126-4f98-8393-eabbbd975ef4/belajar-plus-logo.png" style="width: 145px; height: auto; display: block; margin-left: auto;" />
+          <img src="assets/belajar-plus-logo.png" style="width: 140px; height: auto; display: block; margin-left: auto;" />
         </td>
       </tr>
     </table>
@@ -1093,7 +1093,7 @@ async function generateDynamicVideoDownload(role) {
   mediaRecorder.start();
 
   // 3. Render steps into canvas (6 seconds per slide = 60s total HD tutorial video)
-  const logoImg = await loadImage('https://belajarplus.id/__l5e/assets-v1/d9939019-4126-4f98-8393-eabbbd975ef4/belajar-plus-logo.png');
+  const logoImg = await loadImage('assets/belajar-plus-logo.png');
 
   for (let i = 0; i < roleData.steps.length; i++) {
     const step = roleData.steps[i];
