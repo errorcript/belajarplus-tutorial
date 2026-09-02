@@ -334,7 +334,7 @@ window.downloadRolePDF = async function(role) {
   window.isGeneratingPDF = true;
 
   const roleTitles = {
-    siswa: 'AKUN SISWA / PELAJAR (11 LANGKAH OPERASIONAL LENGKAP)',
+    siswa: 'AKUN SISWA / PELAJAR (7 LANGKAH OPERASIONAL LENGKAP)',
     guru: 'AKUN GURU / PENGAJAR (6 LANGKAH MANAJEMEN PEMBELAJARAN)',
     kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (6 LANGKAH MANAJEMEN EKOSISTEM)'
   };
