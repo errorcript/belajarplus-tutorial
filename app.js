@@ -1079,7 +1079,7 @@ async function generateDynamicVideoDownload(role) {
 
   mediaRecorder.start();
 
-  // 3. Render steps into canvas synchronized with Indonesian VO Audio (SILENT SPEAKERS, AUDIO TO RECORDER ONLY)
+  // 3. Render steps into canvas (6 seconds per slide = 60s total HD tutorial video)
   for (let i = 0; i < roleData.steps.length; i++) {
     const step = roleData.steps[i];
     const pct = Math.round(((i + 1) / roleData.steps.length) * 100);
@@ -1090,40 +1090,24 @@ async function generateDynamicVideoDownload(role) {
 
     const img = await loadImage(step.image);
 
-    // Clean text for TTS
-    const cleanText = (step.narration || step.subtitle || '')
-      .replace(/BLJ-[A-Z0-9]+/g, 'B L J')
-      .replace(/SKL-[A-Z0-9]+/g, 'S K L')
-      .replace(/\(/g, '')
-      .replace(/\)/g, '')
-      .replace(/\//g, ' atau ')
-      .replace(/-/g, ' ')
-      .substring(0, 180);
-
-    const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(cleanText)}&tl=id&client=tw-ob`;
-    
-    let audioDurationSec = 7; // default 7s per slide
-
+    // Generate subtle audio harmonic ping for step change on Web Audio stream
     if (audioCtx && audioDest) {
       try {
-        const resp = await fetch(ttsUrl);
-        if (resp.ok) {
-          const buf = await resp.arrayBuffer();
-          const decodedAudio = await audioCtx.decodeAudioData(buf);
-          audioDurationSec = Math.max(decodedAudio.duration + 0.8, 6);
-
-          const bufferSource = audioCtx.createBufferSource();
-          bufferSource.buffer = decodedAudio;
-          // Connect ONLY to recorder stream (audioDest), NOT to user speakers!
-          bufferSource.connect(audioDest);
-          bufferSource.start(0);
-        }
-      } catch (audioFetchErr) {
-        console.warn('Audio fetch/decode fallback note:', audioFetchErr);
-      }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 note
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+        osc.connect(gain);
+        gain.connect(audioDest);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.5);
+      } catch (e) {}
     }
 
-    const frameCount = Math.round(audioDurationSec * 30);
+    // 150 frames at 30fps = 5.0 seconds per slide (50 seconds total video duration)
+    const frameCount = 150;
 
     for (let frame = 0; frame < frameCount; frame++) {
       ctx.fillStyle = '#0f172a';
