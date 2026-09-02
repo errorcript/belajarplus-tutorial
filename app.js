@@ -493,152 +493,152 @@ window.downloadRolePDF = async function(role) {
 // === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
 const videoTutorialData = {
   siswa: {
-    roleTitle: 'Video Panduan Akun Siswa',
-    roleSub: 'Langkah demi langkah penggunaan Perpustakaan Digital untuk Pelajar',
+    roleTitle: 'Video Panduan Akun Siswa — Panduan Runtut 10 Langkah',
+    roleSub: 'Lengkap dengan Voiceover AI Bahasa Indonesia & Subtitle Teks Berjalan Interaktif',
     steps: [
       {
         title: 'Pendaftaran & Aktivasi Akun Siswa',
         image: 'assets/register_siswa.png',
-        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth, pilih tab Daftar dan pilih peran Siswa. Masukkan Kode Sekolah Mitra dari gurumu agar terhubung ke kuota buku gratis. Pastikan email yang didaftarkan aktif, lalu cek kotak masuk untuk verifikasi email.',
-        subtitle: 'Langkah 1: Buka belajarplus.id/auth, daftar dengan email aktif, dan cek kotak masuk untuk Verifikasi Email.'
+        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth dan pilih tab Daftar. Tentukan peran sebagai Siswa. Jika sekolahmu mitra BelajarPlus, masukkan Kode Sekolah SKL-XXXXX dari admin sekolah agar otomatis mengaitkan akun ke kuota buku gratis. Jika mendaftar mandiri, pilih opsi Umum. Pilih Jenjang pendidikan, Kelas 10 sampai 12, dan Rombel. Masukkan Kode Kelas Guru BLJ-XXXXXX jika ada. Pastikan email yang didaftarkan aktif, lalu buka kotak masuk email kamu untuk melakukan Verifikasi Email.',
+        subtitle: 'Langkah 1: Buka portal registrasi belajarplus.id/auth, pilih tab "Daftar", dan tentukan peran Siswa. Masukkan Kode Sekolah (SKL-XXXXX) dari admin sekolah atau opsi Umum. Pilih Jenjang (SD/SMP/SMA/SMK), Kelas (10, 11, 12), Rombel, serta masukkan Kode Kelas Guru (BLJ-XXXXXX). Pastikan email aktif, lalu cek kotak masuk untuk Verifikasi Email.'
       },
       {
         title: 'Login ke Akun Siswa',
         image: 'assets/login.png',
-        narration: 'Langkah kedua: Masuk menggunakan alamat email dan kata sandi yang telah terdaftar, lalu klik tombol Masuk untuk membuka Dashboard Pembelajaran.',
-        subtitle: 'Langkah 2: Masuk menggunakan email dan password terdaftar untuk membuka Dashboard Pembelajaran.'
+        narration: 'Langkah kedua: Setelah akun terverifikasi melalui email, buka halaman login di belajarplus.id/auth. Masukkan alamat email terdaftar dan kata sandi kamu, lalu klik tombol Masuk untuk masuk ke dashboard utama Pembelajaran Saya. Simpan kredensial kamu dengan aman.',
+        subtitle: 'Langkah 2: Setelah verifikasi email berhasil, login di portal belajarplus.id/auth menggunakan email terdaftar dan password kamu. Masuk ke halaman utama Pembelajaran Saya.'
       },
       {
         title: 'Cari & Filter Koleksi Buku Digital',
         image: 'assets/search_filter.png',
-        narration: 'Langkah ketiga: Buka menu Perpustakaan. Gunakan filter di sebelah kiri untuk menyaring buku berdasarkan Jenjang Kelas dan Mata Pelajaran.',
-        subtitle: 'Langkah 3: Buka menu Perpustakaan. Gunakan filter sidebar untuk memilih Jenjang Kelas dan Mata Pelajaran.'
+        narration: 'Langkah ketiga: Klik menu Perpustakaan pada navigasi atas. Temukan buku pelajaran yang kamu butuhkan dengan cepat menggunakan kolom pencarian, atau manfaatkan filter multi-dimensi pada sidebar kiri untuk menyaring buku berdasarkan Jenjang Kelas 10, 11, 12, serta Mata Pelajaran spesifik seperti Antropologi, Biologi, dan Matematika.',
+        subtitle: 'Langkah 3: Buka menu Perpustakaan di navbar atas. Gunakan kolom pencarian cepat atau saring buku lewat filter sidebar berdasarkan Jenjang (Kelas 10–12), Mata Pelajaran (Biologi, Matematika, Antropologi), dan Kategori.'
       },
       {
         title: 'Pinjam Buku Digital Sekolah',
         image: 'assets/book_detail.png',
-        narration: 'Langkah keempat: Klik kartu buku yang kamu butuhkan dan pilih Pinjam Buku. Peminjaman berlaku gratis selama 14 hari.',
-        subtitle: 'Langkah 4: Klik detail buku dan pilih Pinjam Buku secara gratis untuk masa peminjaman 14 hari.'
+        narration: 'Langkah keempat: Klik kartu buku yang kamu pilih untuk membuka detail peminjaman. Perhatikan indikator ketersediaan stok buku digital sekolahmu. Jika statusnya Tersedia, klik tombol Pinjam Buku. Peminjaman ini gratis 100% dan berlaku untuk durasi peminjaman otomatis sebelum kembali ke rak digital.',
+        subtitle: 'Langkah 4: Klik pada kartu buku yang diinginkan untuk melihat detail. Periksa indikator ketersediaan stok digital sekolah, lalu klik "Pinjam Buku" secara gratis.'
       },
       {
-        title: 'Membaca via Interactive Reader',
+        title: 'Membaca via Interactive Book Reader',
         image: 'assets/book_reader.png',
-        narration: 'Langkah kelima: Klik Buka Reader untuk mulai membaca. Kamu bisa mengatur ukuran teks, menggunakan Daftar Isi, dan mode Fullscreen.',
-        subtitle: 'Langkah 5: Buka reader digital. Atur ukuran font, gunakan Daftar Isi, dan mode Fullscreen untuk membaca.'
+        narration: 'Langkah kelima: Setelah meminjam buku, klik tombol Baca untuk membuka Interactive Book Reader langsung di browser. Nikmati fitur navigasi modern: gunakan panel Daftar Isi untuk melompat langsung ke Bab pelajaran, sesuaikan ukuran huruf dengan tombol A plus dan A minus, serta aktifkan Mode Fullscreen untuk pengalaman membaca yang lebih fokus.',
+        subtitle: 'Langkah 5: Klik tombol "Baca" untuk membuka reader digital BelajarPlus. Gunakan Daftar Isi untuk melompat antar Bab, tombol A+ dan A− untuk Zoom Teks, serta Mode Fullscreen (⛶) untuk membaca fokus.'
       },
       {
-        title: 'Akses Tugas & Kuis Kelas',
+        title: 'Akses Tugas & Kuis Kelas Saya',
         image: 'assets/class_assignment.png',
-        narration: 'Langkah keenam: Masuk ke menu Kelas Saya, pilih tab Penugasan untuk melihat latihan kuis yang diberikan oleh guru pengajar.',
-        subtitle: 'Langkah 6: Masuk ke menu Kelas Saya -> Penugasan untuk melihat daftar kuis dari guru.'
+        narration: 'Langkah keenam: Akses ruang kelas kamu melalui menu Kelas Saya, lalu pilih tab Penugasan. Di sini kamu dapat melihat daftar soal latihan, kuis harian, maupun Tryout TKA yang diberikan oleh guru pengajar. Periksa tenggat waktu pengumpulan dan baca instruksi khusus sebelum mulai mengerjakan.',
+        subtitle: 'Langkah 6: Buka menu "Kelas Saya", lalu pilih tab "Penugasan" untuk melihat daftar latihan, kuis harian, atau Tryout TKA yang ditugaskan oleh guru pengajar lengkap dengan tenggat waktu.'
       },
       {
         title: 'Isi & Kirim Lembar Jawab Digital (LJD)',
         image: 'assets/assignment_result.png',
-        narration: 'Langkah ketujuh: Jawab seluruh soal kuis sebelum timer habis. Setelah selesai, klik Kirim Lembar Jawaban untuk melihat skor hasil belajar.',
-        subtitle: 'Langkah 7: Jawab soal pada Lembar Jawab Digital (LJD), lalu kirim jawaban untuk melihat transkrip skor real-time.'
+        narration: 'Langkah ketujuh: Kerjakan soal pada tampilan Lembar Jawab Digital atau LJD. Pilih opsi jawaban yang tepat untuk setiap nomor soal. Perhatikan hitungan mundur timer ujian serta indikator sistem pengawas kejujuran anti-cheat. Setelah selesai, klik Kirim Lembar Jawaban untuk melihat persentase skor dan rekapitulasi nilai kamu secara real-time.',
+        subtitle: 'Langkah 7: Pada layar Lembar Jawab Digital (LJD), pilih opsi jawaban untuk tiap nomor soal. Perhatikan timer ujian dan fitur pemantau kejujuran anti-cheat. Klik "Kirim Lembar Jawaban" untuk melihat hasil real-time.'
       },
       {
-        title: 'Manajemen Rak Buku Saya',
+        title: 'Kelola Rak "Buku Saya"',
         image: 'assets/my_books.png',
-        narration: 'Langkah kedelapan: Buka menu Buku Saya untuk mengelola pinjaman aktif atau mengembalikan buku yang sudah selesai dibaca.',
-        subtitle: 'Langkah 8: Buka menu Buku Saya untuk memantau sisa masa pinjam dan mengembalikan buku.'
+        narration: 'Langkah kedelapan: Buka menu Buku Saya untuk memantau semua buku digital yang sedang aktif kamu pinjam. Kamu bisa melihat sisa durasi peminjaman dan mengembalikan buku yang sudah selesai dibaca agar salinan digital tersebut dapat dipinjam oleh teman sekelasmu.',
+        subtitle: 'Langkah 8: Buka menu "Buku Saya" di navigasi atas untuk melihat daftar buku yang sedang aktif dipinjam, sisa durasi masa pinjam, dan mengembalikan buku tepat waktu.'
       },
       {
-        title: 'Pembelian Buku di Toko',
+        title: 'Pembelian Buku Tambahan di Toko',
         image: 'assets/shop.png',
-        narration: 'Langkah kesembilan: Untuk memiliki buku referensi pribadi permanen, kamu dapat membelinya melalui menu Toko BelajarPlus.',
-        subtitle: 'Langkah 9: Menu Toko menyediakan buku referensi pribadi permanen tanpa batas waktu peminjaman.'
+        narration: 'Langkah kesembilan: Apabila kamu memerlukan buku referensi pribadi yang ingin dimiliki secara permanen tanpa batas waktu peminjaman, kamu dapat membelinya melalui menu Toko BelajarPlus. Riwayat dan status transaksi dapat dipantau di menu Pesanan.',
+        subtitle: 'Langkah 9: Jika membutuhkan buku referensi pribadi permanen di luar perpustakaan sekolah, beli melalui menu "Toko" dan pantau status transaksi di menu "Pesanan".'
       },
       {
         title: 'Pengaturan Profil Siswa',
         image: 'assets/profile.png',
-        narration: 'Langkah kesepuluh: Perbarui data diri, nomor WhatsApp notifikasi, dan kata sandi kamu di menu Profil.',
-        subtitle: 'Langkah 10: Perbarui nomor WhatsApp dan data akun kamu di menu Profil.'
+        narration: 'Langkah kesepuluh: Masuk ke menu Profil untuk memeriksa dan memperbarui informasi akun kamu. Pastikan nomor WhatsApp yang terdaftar aktif agar kamu otomatis menerima notifikasi penugasan baru dari guru pengajar. Kamu juga dapat memperbarui kata sandi secara berkala demi keamanan akun.',
+        subtitle: 'Langkah 10: Masuk ke menu "Profil" untuk memperbarui data diri, nomor WhatsApp terhubung agar menerima notifikasi penugasan dari guru, serta mengganti kata sandi akun.'
       }
     ]
   },
   guru: {
-    roleTitle: 'Video Panduan Akun Guru / Pengajar',
+    roleTitle: 'Video Panduan Akun Guru / Pengajar — 6 Langkah Kelola Pembelajaran',
     roleSub: 'Langkah pengelolaan kelas, penugasan LJD, dan penilaian siswa',
     steps: [
       {
         title: 'Pendaftaran & Verifikasi Akun Guru',
         image: 'assets/register_guru.png',
-        narration: 'Langkah pertama: Daftar akun Pengajar di portal BelajarPlus dengan memasukkan Kode Sekolah Mitra dan nomor WhatsApp aktif.',
-        subtitle: 'Langkah 1: Daftar akun Guru dengan Kode Sekolah Mitra dan nomor WhatsApp terverifikasi.'
+        narration: 'Langkah pertama: Akses portal pendaftaran di belajarplus.id/auth, pilih tab Daftar, dan pilih peran Guru atau Pengajar. Masukkan Kode Sekolah Mitra SKL-XXXXX dari admin sekolah serta nomor WhatsApp aktif kamu untuk verifikasi akun pengajar.',
+        subtitle: 'Langkah 1: Buka registrasi belajarplus.id/auth, pilih tab "Daftar", dan tentukan peran Guru/Pengajar. Masukkan Kode Sekolah Mitra (SKL-XXXXX) dan nomor WhatsApp aktif.'
       },
       {
-        title: 'Akses Dashboard Pengajar',
+        title: 'Akses & Kelola Ruang Kelas Saya',
         image: 'assets/admin_dashboard.png',
-        narration: 'Langkah kedua: Buka Dashboard Guru untuk memantau ruang kelas, anggota siswa, dan penugasan aktif.',
-        subtitle: 'Langkah 2: Masuk ke Dashboard Pengajar untuk mengelola kelas dan materi pelajaran.'
+        narration: 'Langkah kedua: Masuk ke menu Kelas Saya di dashboard pengajar. Di sini kamu dapat membuat ruang kelas baru, menentukan jenjang serta mata pelajaran, dan membagikan Kode Kelas BLJ-XXXXXX kepada para siswa agar mereka dapat bergabung.',
+        subtitle: 'Langkah 2: Buka menu "Kelas Saya" untuk menambah kelas baru, memilih jenjang dan mata pelajaran, serta membagikan Kode Kelas (BLJ-XXXXXX) kepada siswa.'
       },
       {
-        title: 'Menghubungkan Buku Teks Acuan',
+        title: 'Tautkan Buku Teks Acuan Sekolah',
         image: 'assets/admin_koleksi.png',
-        narration: 'Langkah ketiga: Pilih buku teks utama dari koleksi perpustakaan sekolah untuk ditautkan sebagai bahan acuan siswa.',
-        subtitle: 'Langkah 3: Tautkan buku teks utama perpustakaan sekolah ke dalam materi kelas.'
+        narration: 'Langkah ketiga: Tautkan buku teks pelajaran dari koleksi e-library sekolah ke dalam ruang kelas kamu. Hal ini memudahkan siswa mengakses referensi materi yang wajib dipinjam dan dibaca sebelum mengerjakan soal latihan.',
+        subtitle: 'Langkah 3: Pilih judul buku teks pelajaran dari katalog koleksi digital sekolah untuk ditautkan sebagai bahan acuan utama penugasan siswa.'
       },
       {
-        title: 'Penyusunan Tugas LJD',
+        title: 'Penyusunan Penugasan & Kuis LJD',
         image: 'assets/class_assignment.png',
-        narration: 'Langkah keempat: Buat penugasan Lembar Jawab Digital, atur tenggat waktu, dan aktifkan mode pengawasan kejujuran anti-cheat.',
-        subtitle: 'Langkah 4: Buat kuis LJD, atur deadline, bobot skor, dan fitur proteksi anti-cheat.'
+        narration: 'Langkah keempat: Buat penugasan baru berupa Lembar Jawab Digital atau LJD. Atur jumlah soal, bobot nilai, tentukan tenggat waktu pengumpulan, serta aktifkan fitur proteksi anti-cheat untuk memantau aktivitas fokus tab siswa saat ujian berlangsung.',
+        subtitle: 'Langkah 4: Buat penugasan Lembar Jawab Digital (LJD), atur bobot soal, tentukan deadline pengumpulan, dan aktifkan fitur pengawas kejujuran anti-cheat tab focus.'
       },
       {
-        title: 'Transkrip Nilai Automatis',
+        title: 'Monitoring Real-time & Transkrip Nilai',
         image: 'assets/assignment_result.png',
-        narration: 'Langkah kelima: Tinjau rekapitulasi nilai kuis siswa secara otomatis lengkap dengan statistik ketuntasan KKM.',
-        subtitle: 'Langkah 5: Pantau transkrip nilai kuis siswa dan grafik pencapaian KKM kelas.'
+        narration: 'Langkah kelima: Pantau pengerjaan tugas siswa secara real-time. Sistem BelajarPlus secara otomatis menghitung skor, menampilkan rekapitulasi nilai, serta menyediakan analisis ketercapaian KKM dan materi yang perlu diremediasi.',
+        subtitle: 'Langkah 5: Pantau status pengerjaan kuis siswa secara real-time. Tinjau rekapitulasi nilai otomatis, grafik ketuntasan KKM kelas, dan analisis jawaban.'
       },
       {
-        title: 'Ekspor Data Evaluasi Pembelajaran',
+        title: 'Ekspor Laporan Evaluasi Pembelajaran',
         image: 'assets/admin_dashboard.png',
-        narration: 'Langkah keenam: Unduh laporan rekapitulasi nilai kelas dalam format spreadsheet untuk evaluasi semester.',
-        subtitle: 'Langkah 6: Unduh rekapitulasi nilai dan laporan evaluasi pembelajaran kelas.'
+        narration: 'Langkah keenam: Ekspor rekapitulasi nilai dan laporan evaluasi belajar siswa ke dalam format CSV atau Excel dengan satu kali klik. Berkas ini siap digunakan untuk pengisian nilai rapor semester maupun pelaporan dinas.',
+        subtitle: 'Langkah 6: Unduh rekapitulasi nilai kelas dan laporan analisis kompetensi siswa dalam format CSV atau Excel untuk berkas evaluasi rapor.'
       }
     ]
   },
   kepsek: {
-    roleTitle: 'Video Panduan Kepala Sekolah & Admin',
+    roleTitle: 'Video Panduan Kepala Sekolah & Admin — 6 Langkah Manajemen Ekosistem',
     roleSub: 'Manajemen ekosistem digital, lisensi stok buku, dan laporan dinas',
     steps: [
       {
-        title: 'Registrasi Instansi & Kode Sekolah Mitra',
+        title: 'Registrasi Instansi & Aktivasi Kode Sekolah',
         image: 'assets/register_guru.png',
-        narration: 'Langkah pertama: Daftarkan instansi sekolah untuk memperoleh Kode Sekolah Mitra resmi bagi seluruh guru dan siswa.',
-        subtitle: 'Langkah 1: Aktivasi Kode Sekolah Mitra resmi untuk integrasi ekosistem perpustakaan digital.'
+        narration: 'Langkah pertama: Registrasikan instansi sekolah kamu pada portal BelajarPlus untuk mengaktifkan Kode Sekolah Mitra resmi. Kode ini akan digunakan oleh seluruh guru dan siswa saat mendaftar agar terhubung ke ekosistem e-library sekolah.',
+        subtitle: 'Langkah 1: Daftarkan instansi sekolah ke portal BelajarPlus untuk mengaktifkan Kode Sekolah Mitra (SKL-XXXXX) resmi bagi seluruh civitas sekolah.'
       },
       {
         title: 'Monitoring Executive Dashboard',
         image: 'assets/admin_dashboard.png',
-        narration: 'Langkah kedua: Pantau statistik grafik minat baca, jumlah buku dipinjam, dan keaktifan kelas melalui Dashboard Eksekutif.',
-        subtitle: 'Langkah 2: Pantau statistik minat baca sekolah dan keaktifan belajar secara real-time.'
+        narration: 'Langkah kedua: Akses Dashboard Eksekutif di portal admin sekolah /admin. Pantau indikator utama perpustakaan digital secara real-time, meliputi grafik intensitas membaca siswa, total eksemplar terpinjam, keaktifan penugasan kelas, dan ringkasan pengguna.',
+        subtitle: 'Langkah 2: Pantau statistik grafik minat baca siswa, total eksemplar buku terpinjam, keaktifan kelas, dan ringkasan aktivitas pengguna di /admin.'
       },
       {
-        title: 'Manajemen Stok & Lisensi Buku Digital',
+        title: 'Manajemen Koleksi & Lisensi Buku Digital',
         image: 'assets/admin_koleksi.png',
-        narration: 'Langkah ketiga: Kelola kuota eksemplar digital sekolah dan tambahkan judul buku baru sesuai kebutuhan kurikulum.',
-        subtitle: 'Langkah 3: Kelola jumlah lisensi eksemplar buku digital sekolah.'
+        narration: 'Langkah ketiga: Kelola koleksi e-library melalui menu Koleksi dan Lisensi. Admin dapat menambahkan judul buku teks kurikulum terbaru, mengatur jumlah lisensi salinan digital yang dapat dipinjam bersamaan, serta memantau masa aktif lisensi.',
+        subtitle: 'Langkah 3: Buka menu "Koleksi & Lisensi" untuk mengatur kuota eksemplar buku digital, memantau masa aktif lisensi, dan menambah judul buku baru.'
       },
       {
         title: 'Pengelolaan Data Pengguna & Rombel',
         image: 'assets/admin_kelas.png',
-        narration: 'Langkah keempat: Impor data siswa dan guru secara kolektif serta atur struktur rombel tiap tingkatan kelas.',
-        subtitle: 'Langkah 4: Kelola akun pengguna sekolah dan pembagian rombel per jenjang.'
+        narration: 'Langkah keempat: Akses menu Siswa dan Guru untuk mengelola akun pengguna sekolah. Admin dapat mengimpor data pengajar dan peserta didik secara massal via CSV, membagikan rombel kelas, serta membantu reset password akun.',
+        subtitle: 'Langkah 4: Impor data siswa dan guru secara kolektif via CSV, kelola pembagian rombel per jenjang kelas, serta lakukan reset password jika diperlukan.'
       },
       {
         title: 'Pengadaan Buku via Portal Toko Penerbit',
         image: 'assets/admin_toko.png',
-        narration: 'Langkah kelima: Ajukan pengadaan buku kurikulum terbaru secara langsung melalui portal kemitraan penerbit.',
-        subtitle: 'Langkah 5: Lakukan pengadaan buku teks dan pengayaan via portal penerbit resmi.'
+        narration: 'Langkah kelima: Gunakan fitur Toko dan Kemitraan Penerbit untuk mengajukan pengadaan judul buku teks pelajaran atau buku bacaan pengayaan terbaru secara langsung dari penerbit resmi demi memperluas koleksi e-library sekolah.',
+        subtitle: 'Langkah 5: Lakukan pengadaan buku teks dan pengayaan tambahan langsung dari portal penerbit resmi mitra BelajarPlus untuk memperkaya e-library.'
       },
       {
         title: 'Audit Keamanan & Laporan Akreditasi',
         image: 'assets/admin_dashboard.png',
-        narration: 'Langkah keenam: Unduh laporan evaluasi berkala perpustakaan digital untuk berkas akreditasi dan dinas pendidikan.',
-        subtitle: 'Langkah 6: Unduh laporan resmi bulanan untuk akreditasi sekolah.'
+        narration: 'Langkah keenam: Pantau sistem keamanan platform melalui menu Aktivitas Mencurigakan untuk mendeteksi anomali penggunaan akun. Unduh laporan rekapitulasi kinerja perpustakaan digital secara berkala sebagai dokumen pendukung akreditasi sekolah dan dinas pendidikan.',
+        subtitle: 'Langkah 6: Pantau log aktivitas anomali pada menu Aktivasi Mencurigakan, serta unduh laporan evaluasi perpustakaan digital resmi untuk berkas akreditasi sekolah.'
       }
     ]
   }
@@ -656,9 +656,7 @@ window.openVideoPlayer = function(role) {
   console.log('openVideoPlayer called for:', role);
   currentVideoRole = role || 'siswa';
   currentVideoStepIndex = 0;
-  isVideoPlaying = false;
-
-
+  isVideoPlaying = true; // Auto-play video & narration on open!
 
   const roleData = videoTutorialData[currentVideoRole] || videoTutorialData['siswa'];
   
@@ -666,6 +664,9 @@ window.openVideoPlayer = function(role) {
   const subElem = document.getElementById('videoRoleSub');
   if (titleElem) titleElem.textContent = roleData.roleTitle;
   if (subElem) subElem.textContent = roleData.roleSub;
+
+  const playBtn = document.getElementById('vpcPlayBtn');
+  if (playBtn) playBtn.innerHTML = '⏸️ Jeda Video';
 
   const modal = document.getElementById('videoModal');
   if (modal) {
@@ -726,29 +727,50 @@ window.speakNarration = function(text) {
 
   window.speechSynthesis.cancel(); // Stop current speech
 
-  currentSpeechUtterance = new SpeechSynthesisUtterance(text);
-  currentSpeechUtterance.lang = 'id-ID';
-  currentSpeechUtterance.rate = 0.95;
-  currentSpeechUtterance.pitch = 1.0;
+  const speakAction = () => {
+    currentSpeechUtterance = new SpeechSynthesisUtterance(text);
+    currentSpeechUtterance.lang = 'id-ID';
+    currentSpeechUtterance.rate = 0.93;
+    currentSpeechUtterance.pitch = 1.0;
 
-  currentSpeechUtterance.onend = () => {
-    if (isVideoPlaying) {
-      videoTimer = setTimeout(() => {
-        nextVideoStep();
-      }, 1500);
+    const voices = window.speechSynthesis.getVoices();
+    const indonesianVoice = voices.find(v => 
+      v.lang === 'id-ID' || 
+      v.lang === 'id_ID' || 
+      v.lang.toLowerCase().startsWith('id') || 
+      v.name.toLowerCase().includes('indonesi') || 
+      v.name.toLowerCase().includes('gadis') ||
+      v.name.toLowerCase().includes('andika')
+    );
+
+    if (indonesianVoice) {
+      currentSpeechUtterance.voice = indonesianVoice;
     }
+
+    currentSpeechUtterance.onend = () => {
+      if (isVideoPlaying) {
+        videoTimer = setTimeout(() => {
+          nextVideoStep();
+        }, 1500);
+      }
+    };
+
+    currentSpeechUtterance.onerror = (err) => {
+      console.warn('Speech error fallback:', err);
+      if (isVideoPlaying) {
+        videoTimer = setTimeout(() => {
+          nextVideoStep();
+        }, 6000);
+      }
+    };
+
+    window.speechSynthesis.speak(currentSpeechUtterance);
   };
 
-  currentSpeechUtterance.onerror = (err) => {
-    console.warn('Speech error fallback:', err);
-    if (isVideoPlaying) {
-      videoTimer = setTimeout(() => {
-        nextVideoStep();
-      }, 5000);
-    }
-  };
-
-  window.speechSynthesis.speak(currentSpeechUtterance);
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.onvoiceschanged = speakAction;
+  }
+  speakAction();
 }
 
 window.toggleVideoPlay = function() {
