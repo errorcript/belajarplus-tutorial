@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -795,6 +794,404 @@
           <h4 class="cl-group-title">🚀 Memulai</h4>
           <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Registrasi / Aktivasi Akun</span></label>
           <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Login ke belajarplus.id</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Mengenal Dashboard Siswa</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Buka halaman Perpustakaan</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Coba fitur pencarian buku</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Pakai filter Jenjang/Mapel</span></label>
+        </div>
+        <div class="checklist-col">
+          <h4 class="cl-group-title">📚 Meminjam &amp; Membaca</h4>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Buka halaman detail buku</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Pinjam buku pertama</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Buka book reader</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Pakai Daftar Isi di reader</span></label>
+        </div>
+        <div class="checklist-col">
+          <h4 class="cl-group-title">⚙️ Fitur Lanjutan</h4>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Cek menu Buku Saya</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Jelajahi halaman Toko</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Lihat riwayat di Pesanan</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Update profil akun</span></label>
+        </div>
+        <div class="checklist-col">
+          <h4 class="cl-group-title">📝 Tugas &amp; Ujian</h4>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Buka tab Penugasan Kelas</span></label>
+          <label class="cl-item"><input type="checkbox" onchange="updateProgress()"><span>Isi Lembar Jawab Digital (LJD)</span></label>
+        </div>
+      </div>
+      <div class="cl-progress-wrap">
+        <div class="cl-progress-bar"><div class="cl-progress-fill" id="clProgressFill"></div></div>
+        <span class="cl-progress-label" id="clProgressLabel">0 / 14 selesai</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fitur -->
+  <section id="fitur" class="section section-gradient">
+    <div class="container">
+      <div class="section-label">Fitur Unggulan</div>
+      <h2 class="section-title">Semua yang Bisa Kamu Lakukan</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h4>Pencarian Cerdas</h4>
+          <p>Cari buku berdasarkan judul, penulis, atau mata pelajaran dengan cepat dan akurat.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏷️</div>
+          <h4>Filter Multi-Dimensi</h4>
+          <p>Filter buku berdasarkan kategori, jenjang kelas, mata pelajaran, dan penerbit sekaligus.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h4>Status Ketersediaan</h4>
+          <p>Langsung tahu berapa salinan buku yang tersedia dan bisa dipinjam saat ini.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h4>Reader Terintegrasi</h4>
+          <p>Baca buku langsung di browser tanpa perlu install aplikasi apapun.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛒</div>
+          <h4>Toko Buku</h4>
+          <p>Temukan dan dapatkan buku tambahan di luar koleksi sekolah melalui fitur Toko.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h4>Akses Multi-Device</h4>
+          <p>Akses perpustakaan dari komputer, tablet, maupun smartphone kapanpun dan dimanapun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Halaman Lain -->
+  <section id="halaman-lain" class="section section-dark">
+    <div class="container">
+      <div class="section-label">Jelajahi Semua Halaman</div>
+      <h2 class="section-title">Panduan Per Halaman</h2>
+      <div class="pages-grid">
+        <div class="page-card">
+          <div class="page-icon">🏠</div>
+          <h4>Beranda</h4>
+          <p>Tampilan awal setelah login. Berisi rekomendasi buku terbaru, koleksi unggulan, dan akses cepat ke perpustakaan.</p>
+          <a href="https://belajarplus.id" target="_blank" class="page-link">belajarplus.id →</a>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">📚</div>
+          <h4>Perpustakaan</h4>
+          <p>Halaman utama koleksi buku. Filter by kategori, jenjang, mapel, penerbit. Sortir A-Z atau sesuai kebutuhan.</p>
+          <a href="https://belajarplus.id/library" target="_blank" class="page-link">belajarplus.id/library →</a>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">📖</div>
+          <h4>Buku Saya</h4>
+          <p>Daftar semua buku yang sedang aktif dipinjam. Langsung klik "Baca" untuk melanjutkan membaca dari posisi terakhir.</p>
+          <a href="https://belajarplus.id/my-books" target="_blank" class="page-link">belajarplus.id/my-books →</a>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">🛒</div>
+          <h4>Toko</h4>
+          <p>Beli buku tambahan di luar koleksi sekolah. Buku yang dibeli tidak ada batas waktu dan bisa dibaca selamanya.</p>
+          <a href="https://belajarplus.id/shop" target="_blank" class="page-link">belajarplus.id/shop →</a>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">📦</div>
+          <h4>Pesanan</h4>
+          <p>Riwayat semua pesanan/pembelian buku di Toko. Cek status pembayaran dan detail transaksi di sini.</p>
+          <a href="https://belajarplus.id/orders" target="_blank" class="page-link">belajarplus.id/orders →</a>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">👤</div>
+          <h4>Profil</h4>
+          <p>Kelola data diri, ubah password, lihat riwayat aktivitas, dan pengaturan notifikasi akun kamu.</p>
+          <a href="https://belajarplus.id/profile" target="_blank" class="page-link">belajarplus.id/profile →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips" class="section">
+    <div class="container">
+      <div class="section-label">Pro Tips</div>
+      <h2 class="section-title">Tips & Trik Menggunakan BelajarPlus</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-num">01</div>
+          <h4>Manfaatkan Sortir A-Z</h4>
+          <p>Gunakan dropdown sortir "Judul A-Z" untuk menemukan buku dengan nama tertentu lebih cepat.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">02</div>
+          <h4>Kombinasikan Filter</h4>
+          <p>Pilih Kelas 11 + Biologi sekaligus untuk langsung mendapat daftar buku Biologi kelas 11 saja.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">03</div>
+          <h4>Cek "Buku Saya" Rutin</h4>
+          <p>Pantau sisa waktu pinjam buku kamu agar tidak terlewat dan tidak mengganggu siswa lain.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">04</div>
+          <h4>Pinjam Sebelum Habis</h4>
+          <p>Kalau buku populer sering habis, pinjam segera setelah ketersediaan muncul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-label">Pertanyaan Umum</div>
+      <h2 class="section-title">FAQ & Troubleshooting</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara mendapatkan akun BelajarPlus? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Akun BelajarPlus diberikan oleh admin sekolah atau guru. Hubungi pihak sekolah kamu untuk mendapatkan email dan password akses ke platform.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Kenapa tombol "Pinjam buku" tidak bisa diklik? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Ada dua kemungkinan: (1) Semua salinan buku sedang dipinjam siswa lain — tunggu hingga ada yang mengembalikan. (2) Kamu sudah mencapai batas maksimum peminjaman — kembalikan dulu buku yang sudah selesai dibaca.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Berapa lama batas waktu meminjam buku? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Batas waktu peminjaman ditentukan oleh kebijakan sekolah masing-masing. Cek di halaman "Buku Saya" untuk melihat sisa waktu pinjam setiap buku yang aktif.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Apakah bisa mengakses BelajarPlus dari HP? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Ya! BelajarPlus bisa diakses dari browser di HP (Chrome, Firefox, Safari). Buka belajarplus.id dan login seperti biasa. Tidak ada aplikasi khusus yang perlu didownload.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Buku tidak bisa dibuka / error saat membaca? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Coba langkah ini: (1) Refresh halaman (F5), (2) Bersihkan cache browser, (3) Coba browser lain (Chrome direkomendasikan), (4) Pastikan koneksi internet stabil. Jika masih error, hubungi admin sekolah.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Bedanya "Perpustakaan" dan "Toko"? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Perpustakaan berisi buku yang disediakan sekolah — gratis dipinjam tapi ada batas waktu. Toko berisi buku yang bisa dibeli secara mandiri — tidak gratis tapi tidak ada batas waktu baca setelah dibeli.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara mengembalikan buku? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Buka halaman "Buku Saya", cari buku yang ingin dikembalikan, lalu klik tombol "Kembalikan" atau "Return". Buku akan otomatis tersedia kembali untuk dipinjam siswa lain.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN PANEL -->
+  <section id="admin" class="section admin-section">
+    <div class="container">
+      <div class="section-label admin-label">🔐 Khusus Staf & Admin</div>
+      <h2 class="section-title admin-title">Panduan Panel Admin<br/><span class="admin-gradient-text">belajarplus.id/admin</span></h2>
+      <p class="admin-sub">Panel admin hanya bisa diakses oleh akun <strong>Staf</strong> atau <strong>Admin</strong> sekolah. Login normal to belajarplus.id, lalu tambahkan <code class="admin-code">/admin</code> di URL.</p>
+
+      <!-- Dashboard Preview -->
+      <div class="admin-dashboard-preview" style="margin: 2.5rem auto; max-width: 1000px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--glass-shadow); transition: var(--transition); cursor: pointer;">
+        <img src="assets/admin_dashboard.png" class="screenshot-img zoomable-img" alt="Admin Dashboard BelajarPlus" style="width: 100%; display: block; height: auto;" />
+      </div>
+
+      <!-- Dashboard Stats -->
+      <div class="admin-stats">
+        <div class="admin-stat-card">
+          <div class="asc-icon">📚</div>
+          <div class="asc-label">BUKU</div>
+          <div class="asc-desc">Total buku yang sudah ditambahkan ke koleksi perpustakaan sekolah</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="asc-icon">📝</div>
+          <div class="asc-label">LATIHAN</div>
+          <div class="asc-desc">Jumlah soal latihan / penugasan yang sudah dibuat oleh guru</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="asc-icon">📊</div>
+          <div class="asc-label">HASIL SISWA</div>
+          <div class="asc-desc">Rekapitulasi nilai dan hasil pengerjaan latihan oleh siswa</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="asc-icon">👨‍🎓</div>
+          <div class="asc-label">SISWA</div>
+          <div class="asc-desc">Total akun siswa yang terdaftar di sekolah pada platform ini</div>
+        </div>
+      </div>
+
+      <!-- Aksi Cepat -->
+      <div class="admin-quick">
+        <div class="admin-quick-title">⚡ Aksi Cepat</div>
+        <div class="admin-quick-actions">
+          <div class="quick-btn-demo">📚 Kelola buku → Langsung ke Koleksi &amp; Lisensi</div>
+          <div class="quick-btn-demo">📊 Lihat hasil siswa → Langsung ke Hasil Siswa</div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu Grid -->
+      <div class="admin-group-title">📋 E-LEARNING</div>
+      <div class="admin-menu-grid">
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">🏫</span><span class="amc-name">Kelas Saya</span></div>
+          <p class="amc-desc">Daftar kelas yang dikelola oleh Staf. Dari sini bisa menambah kelas baru, melihat daftar siswa per kelas, dan mengatur konfigurasi kelas (nama, jenjang, mata pelajaran).</p>
+          <ul class="amc-list">
+            <li>Tambah / edit / hapus kelas</li>
+            <li>Lihat daftar siswa per kelas</li>
+            <li>Assign guru ke kelas</li>
+          </ul>
+          <img src="assets/admin_kelas.png" class="screenshot-img" alt="Kelola Kelas Saya" style="margin-top: 1rem;" />
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">📋</span><span class="amc-name">Penugasan</span></div>
+          <p class="amc-desc">Kelola tugas dan soal latihan yang diberikan ke siswa. Admin/guru bisa membuat, mengedit, dan memantau penugasan beserta deadline-nya.</p>
+          <ul class="amc-list">
+            <li>Buat soal latihan / kuis</li>
+            <li>Set deadline pengumpulan</li>
+            <li>Assign ke kelas tertentu</li>
+            <li>Pantau status pengerjaan siswa</li>
+          </ul>
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">👨‍🎓</span><span class="amc-name">Siswa</span></div>
+          <p class="amc-desc">Manajemen akun seluruh siswa yang terdaftar di sekolah. Admin bisa menambah, mengedit, menonaktifkan, atau menghapus akun siswa.</p>
+          <ul class="amc-list">
+            <li>Tambah / impor data siswa</li>
+            <li>Edit profil &amp; email siswa</li>
+            <li>Reset password siswa</li>
+            <li>Kelola akses per kelas</li>
+          </ul>
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">👨‍🏫</span><span class="amc-name">Guru</span></div>
+          <p class="amc-desc">Manajemen akun guru yang terdaftar di sekolah. Admin bisa menambah guru baru, assign mata pelajaran, dan mengatur hak akses masing-masing guru.</p>
+          <ul class="amc-list">
+            <li>Tambah akun guru baru</li>
+            <li>Assign mapel &amp; kelas ke guru</li>
+            <li>Atur level akses (Staf/Guru)</li>
+          </ul>
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">📊</span><span class="amc-name">Hasil Siswa</span></div>
+          <p class="amc-desc">Rekap nilai dan hasil pengerjaan latihan semua siswa. Admin dan guru bisa memfilter per kelas, per mapel, atau per siswa tertentu untuk evaluasi belajar.</p>
+          <ul class="amc-list">
+            <li>Lihat nilai per siswa / kelas</li>
+            <li>Filter per penugasan / mapel</li>
+            <li>Export data nilai ke CSV/Excel</li>
+            <li>Pantau progress belajar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="admin-group-title" style="margin-top:2.5rem">📚 PERPUSTAKAAN</div>
+      <div class="admin-menu-grid">
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">📈</span><span class="amc-name">Ringkasan</span></div>
+          <p class="amc-desc">Dashboard utama panel admin. Menampilkan statistik keseluruhan: jumlah buku, latihan, hasil siswa, dan total siswa terdaftar dalam satu tampilan.</p>
+          <ul class="amc-list">
+            <li>Stat cards: Buku, Latihan, Hasil, Siswa</li>
+            <li>Tombol aksi cepat (shortcut)</li>
+            <li>Overview aktivitas terkini</li>
+          </ul>
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">📦</span><span class="amc-name">Koleksi &amp; Lisensi</span></div>
+          <p class="amc-desc">Inti dari manajemen perpustakaan digital. Di sini admin mengelola koleksi buku yang tersedia, mengatur jumlah lisensi (salinan), dan menambah buku baru ke perpustakaan sekolah.</p>
+          <ul class="amc-list">
+            <li>Tambah buku dari katalog penerbit</li>
+            <li>Atur jumlah salinan / lisensi per buku</li>
+            <li>Aktifkan / nonaktifkan buku dari koleksi</li>
+            <li>Lihat status ketersediaan tiap buku</li>
+            <li>Kelola masa aktif lisensi</li>
+          </ul>
+          <div class="amc-badge">🔑 Halaman terpenting untuk admin perpustakaan</div>
+          <img src="assets/admin_koleksi.png" class="screenshot-img" alt="Kelola Koleksi & Lisensi" style="margin-top: 1rem;" />
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">🎁</span><span class="amc-name">Bagikan Buku Digital</span></div>
+          <p class="amc-desc">Fitur untuk mendistribusikan akses buku secara khusus ke siswa atau kelas tertentu. Berguna jika ada buku yang hanya boleh diakses oleh kelas tertentu saja.</p>
+          <ul class="amc-list">
+            <li>Share akses buku ke kelas spesifik</li>
+            <li>Batasi akses buku per siswa</li>
+            <li>Atur periode akses (tanggal mulai-selesai)</li>
+            <li>Distribusi massal ke seluruh sekolah</li>
+          </ul>
+        </div>
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">🎨</span><span class="amc-name">Tampilan Sekolah</span></div>
+          <p class="amc-desc">Kustomisasi tampilan halaman perpustakaan sesuai identitas sekolah. Admin bisa mengupload logo sekolah, mengatur banner, dan menyesuaikan branding platform.</p>
+          <ul class="amc-list">
+            <li>Upload logo dan banner sekolah</li>
+            <li>Atur nama sekolah yang tampil</li>
+            <li>Kustomisasi warna / tema tampilan</li>
+            <li>Preview perubahan sebelum publish</li>
+          </ul>
+        </div>
+        <div class="admin-menu-card amc-warning">
+          <div class="amc-header"><span class="amc-icon">🚨</span><span class="amc-name">Aktivitas Mencurigakan</span></div>
+          <p class="amc-desc">Sistem monitoring untuk mendeteksi perilaku tidak wajar dalam penggunaan platform — seperti akun yang login dari banyak device sekaligus, atau pola baca yang tidak normal.</p>
+          <ul class="amc-list">
+            <li>Log akses yang dianggap anomali</li>
+            <li>Deteksi sharing akun antar siswa</li>
+            <li>Riwayat IP login per akun</li>
+            <li>Blokir / tandai akun mencurigakan</li>
+          </ul>
+          <div class="amc-badge" style="background:rgba(239,68,68,.15);color:#FCA5A5;border-color:rgba(239,68,68,.2)">⚠️ Fitur keamanan — pantau rutin</div>
+        </div>
+      </div>
+
+      <div class="admin-group-title" style="margin-top:2.5rem">🛒 TOKO</div>
+      <div class="admin-menu-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="admin-menu-card">
+          <div class="amc-header"><span class="amc-icon">📉</span><span class="amc-name">Rekap</span></div>
+          <p class="amc-desc">Laporan rekapitulasi transaksi penjualan buku di halaman Toko. Admin bisa melihat total pendapatan, buku terlaris, dan riwayat pembelian siswa.</p>
+          <ul class="amc-list">
+            <li>Rekap total transaksi Toko</li>
+            <li>Daftar buku yang paling banyak dibeli</li>
+            <li>Riwayat pembelian per siswa</li>
+            <li>Filter per periode (harian/bulanan)</li>
+          </ul>
+          <img src="assets/admin_toko.png" class="screenshot-img" alt="Rekap Transaksi Toko" style="margin-top: 1rem;" />
+        </div>
+        <div class="admin-menu-card" style="background:rgba(59,130,246,.05);border-color:rgba(59,130,246,.2)">
+          <div class="amc-header"><span class="amc-icon">👤</span><span class="amc-name">Role Akses Admin</span></div>
+          <p class="amc-desc">BelajarPlus memiliki dua level akses admin:</p>
+          <ul class="amc-list">
+            <li><strong style="color:#60A5FA">Staf</strong> — akses terbatas, bisa kelola perpustakaan &amp; e-learning</li>
+            <li><strong style="color:#A78BFA">Admin Penuh</strong> — akses semua fitur termasuk pengaturan sekolah &amp; billing</li>
+            <li>Role bisa diatur di menu Guru &gt; edit akun</li>
+          </ul>
+          <div class="amc-badge">ℹ️ Screenshot menunjukkan role: Staf</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Siap Mulai Membaca?</h2>
+      <p>Buka BelajarPlus sekarang dan akses koleksi perpustakaan digital sekolahmu.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="https://belajarplus.id/library" target="_blank" class="btn-primary btn-large">Buka Perpustakaan ↗</a>
+        <a href="https://belajarplus.id/admin" target="_blank" class="btn-primary btn-large" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3)">Panel Admin ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Tutorial ini dibuat berdasarkan platform <a href="https://belajarplus.id" target="_blank">BelajarPlus</a> — Perpustakaan Digital Indonesia.</p>
+      <p style="font-size:0.82rem; color: var(--text-muted, #64748b); margin-top: 0.5rem;">
+        &copy; <span id="footerYear">2026</span> BelajarPlus.id — Hak Cipta Dilindungi &nbsp;|&nbsp;
+        <a href="https://github.com/errorcript/belajarplus-tutorial" target="_blank" style="color: inherit; text-decoration: underline;">GitHub Repo</a>
+      </p>
+    </div>
+  </footer>
+  <script>try{document.getElementById('footerYear').textContent=new Date().getFullYear();}catch(e){}</script>
+
+  <!-- Lightbox Image Modal -->
+  <div class="image-modal" id="imageModal" onclick="closeImageModal(event)">
+    <div class="image-modal-content" onclick="event.stopPropagation()">
+      <button class="image-modal-close" onclick="closeImageModal()">&times;</button>
+      <img src="" id="modalImg" alt="Gambar Screenshot BelajarPlus" />
       <div class="image-modal-caption" id="modalCaption"></div>
     </div>
   </div>
