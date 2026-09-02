@@ -660,8 +660,8 @@ window.openVideoPlayer = function(role) {
 
   // If on index page, open dedicated standalone video tab
   if (window.location.pathname.indexOf('video.html') === -1) {
-    const videoWin = window.open(`video.html?role=${currentVideoRole}`, '_blank');
-    if (videoWin) return;
+    window.location.href = `video.html?role=${currentVideoRole}`;
+    return;
   }
 
   const roleData = videoTutorialData[currentVideoRole] || videoTutorialData['siswa'];
