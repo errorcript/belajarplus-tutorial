@@ -363,12 +363,12 @@ window.downloadRolePDF = async function(role) {
   pdfWrapper.id = 'pdfRenderContainer';
   pdfWrapper.style.position = 'relative';
   pdfWrapper.style.margin = '0 auto';
-  pdfWrapper.style.width = '800px';
+  pdfWrapper.style.width = '700px';
   pdfWrapper.style.zIndex = '99999999';
   pdfWrapper.style.background = '#ffffff';
   pdfWrapper.style.color = '#0f172a';
   pdfWrapper.style.fontFamily = "'Inter', Arial, sans-serif";
-  pdfWrapper.style.padding = '32px';
+  pdfWrapper.style.padding = '24px';
   pdfWrapper.style.boxSizing = 'border-box';
   pdfWrapper.style.opacity = '1';
   pdfWrapper.style.visibility = 'visible';
@@ -379,14 +379,14 @@ window.downloadRolePDF = async function(role) {
       <tr>
         <td style="vertical-align: middle; text-align: left;">
           <div style="font-size: 10px; font-weight: 800; color: #2563eb; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI PANDUAN PENGGUNAAN</div>
-          <h1 style="font-size: 19px; font-weight: 900; color: #1e3a8a; margin: 4px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
-          <div style="font-size: 12px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
-          <div style="font-size: 10px; color: #64748b; margin-top: 4px;">
+          <h1 style="font-size: 18px; font-weight: 900; color: #1e3a8a; margin: 3px 0 2px 0;">PERPUSTAKAAN DIGITAL BELAJARPLUS ID</h1>
+          <div style="font-size: 11px; font-weight: 700; color: #334155; text-transform: uppercase;">${roleTitles[role] || 'PANDUAN OPERASIONAL'}</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 4px;">
             Dokumen Modul Resmi Sekolah • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
           </div>
         </td>
-        <td style="vertical-align: middle; text-align: right; width: 170px;">
-          <img src="assets/belajar-plus-logo.png" style="width: 140px; height: auto; display: block; margin-left: auto;" />
+        <td style="vertical-align: middle; text-align: right; width: 140px; padding-right: 6px;">
+          <img src="assets/belajar-plus-logo.png" style="width: 120px; height: auto; display: block; margin-left: auto;" />
         </td>
       </tr>
     </table>
@@ -465,7 +465,7 @@ window.downloadRolePDF = async function(role) {
   await preparePdfImages(pdfWrapper);
 
   const opt = {
-    margin:       [10, 10, 12, 10],
+    margin:       [6, 6, 8, 6],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
     html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
