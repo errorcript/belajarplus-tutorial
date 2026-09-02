@@ -722,55 +722,104 @@ window.loadVideoStep = function(index) {
   }
 }
 
+let ttsAudioPlayer = null;
+
 window.speakNarration = function(text) {
+  // Stop current audio and speech synthesis
+  if (ttsAudioPlayer) {
+    ttsAudioPlayer.pause();
+    ttsAudioPlayer = null;
+  }
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+  if (videoTimer) {
+    clearTimeout(videoTimer);
+    videoTimer = null;
+  }
+
+  if (!isAudioVOOn || !isVideoPlaying) return;
+
+  // Clean text for natural Indonesian speech reading
+  const cleanText = text
+    .replace(/BLJ-[A-Z0-9]+/g, 'B L J')
+    .replace(/SKL-[A-Z0-9]+/g, 'S K L')
+    .replace(/\(/g, '')
+    .replace(/\)/g, '')
+    .replace(/\//g, ' atau ')
+    .replace(/-/g, ' ');
+
+  // Take first 180 characters for smooth Google TTS natural voice response
+  const encodedText = encodeURIComponent(cleanText.substring(0, 180));
+  const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodedText}&tl=id&client=tw-ob`;
+
+  try {
+    ttsAudioPlayer = new Audio(ttsUrl);
+    ttsAudioPlayer.playbackRate = 1.0;
+    
+    ttsAudioPlayer.onended = () => {
+      if (isVideoPlaying) {
+        videoTimer = setTimeout(() => {
+          nextVideoStep();
+        }, 1200);
+      }
+    };
+
+    ttsAudioPlayer.onerror = (err) => {
+      console.warn('Google TTS audio failed, falling back to browser WebSpeech:', err);
+      fallbackWebSpeech(cleanText);
+    };
+
+    const playPromise = ttsAudioPlayer.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.warn('Audio play auto-blocked by browser gesture requirement, fallback to WebSpeech:', err);
+        fallbackWebSpeech(cleanText);
+      });
+    }
+  } catch (err) {
+    fallbackWebSpeech(cleanText);
+  }
+}
+
+function fallbackWebSpeech(text) {
   if (!('speechSynthesis' in window)) return;
 
-  window.speechSynthesis.cancel(); // Stop current speech
+  currentSpeechUtterance = new SpeechSynthesisUtterance(text);
+  currentSpeechUtterance.lang = 'id-ID';
+  currentSpeechUtterance.rate = 0.95;
+  currentSpeechUtterance.pitch = 1.0;
 
-  const speakAction = () => {
-    currentSpeechUtterance = new SpeechSynthesisUtterance(text);
-    currentSpeechUtterance.lang = 'id-ID';
-    currentSpeechUtterance.rate = 0.93;
-    currentSpeechUtterance.pitch = 1.0;
+  const voices = window.speechSynthesis.getVoices();
+  const indonesianVoice = voices.find(v => 
+    v.lang === 'id-ID' || 
+    v.lang === 'id_ID' || 
+    v.lang.toLowerCase().startsWith('id') || 
+    v.name.toLowerCase().includes('indonesi')
+  );
 
-    const voices = window.speechSynthesis.getVoices();
-    const indonesianVoice = voices.find(v => 
-      v.lang === 'id-ID' || 
-      v.lang === 'id_ID' || 
-      v.lang.toLowerCase().startsWith('id') || 
-      v.name.toLowerCase().includes('indonesi') || 
-      v.name.toLowerCase().includes('gadis') ||
-      v.name.toLowerCase().includes('andika')
-    );
+  if (indonesianVoice) {
+    currentSpeechUtterance.voice = indonesianVoice;
+  }
 
-    if (indonesianVoice) {
-      currentSpeechUtterance.voice = indonesianVoice;
+  currentSpeechUtterance.onend = () => {
+    if (isVideoPlaying) {
+      videoTimer = setTimeout(() => {
+        nextVideoStep();
+      }, 1500);
     }
-
-    currentSpeechUtterance.onend = () => {
-      if (isVideoPlaying) {
-        videoTimer = setTimeout(() => {
-          nextVideoStep();
-        }, 1500);
-      }
-    };
-
-    currentSpeechUtterance.onerror = (err) => {
-      console.warn('Speech error fallback:', err);
-      if (isVideoPlaying) {
-        videoTimer = setTimeout(() => {
-          nextVideoStep();
-        }, 6000);
-      }
-    };
-
-    window.speechSynthesis.speak(currentSpeechUtterance);
   };
 
-  if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.onvoiceschanged = speakAction;
-  }
-  speakAction();
+  currentSpeechUtterance.onerror = (err) => {
+    console.warn('WebSpeech error fallback:', err);
+    if (isVideoPlaying) {
+      videoTimer = setTimeout(() => {
+        nextVideoStep();
+      }, 5000);
+    }
+  };
+
+  window.speechSynthesis.speak(currentSpeechUtterance);
 }
 
 window.toggleVideoPlay = function() {

@@ -2757,6 +2757,61 @@ body.light-mode .checklist-section {
     z-index: 100000;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   }
+
+  /* Mobile Video Player Modal Adjustments */
+  .video-modal {
+    padding: 0.5rem !important;
+  }
+  .video-modal-container {
+    max-height: 96vh !important;
+    overflow-y: auto !important;
+    border-radius: 14px !important;
+  }
+  .video-player-screen {
+    height: 220px !important;
+    max-height: 38vh !important;
+  }
+  .video-player-screen img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+  .vps-subtitle-container {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    background: rgba(15, 23, 42, 0.98) !important;
+    padding: 0.5rem 0.8rem !important;
+    gap: 0.6rem !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 1px solid rgba(234, 179, 8, 0.4) !important;
+  }
+  .vps-subtitle-text {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+  }
+  .vps-subtitle-badge {
+    font-size: 0.55rem !important;
+    padding: 0.15rem 0.4rem !important;
+  }
+  .vpc-bottom-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+  }
+  .vpc-left, .vpc-right {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .vpc-center {
+    text-align: center !important;
+    font-size: 0.8rem !important;
+  }
 }
 
 .rsh-left {
