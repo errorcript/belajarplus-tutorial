@@ -725,13 +725,15 @@ window.loadVideoStep = function(index) {
 let ttsAudioPlayer = null;
 
 window.speakNarration = function(text) {
-  // Stop current audio and speech synthesis
   if (ttsAudioPlayer) {
     ttsAudioPlayer.pause();
     ttsAudioPlayer = null;
   }
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
+  }
+  if (typeof responsiveVoice !== 'undefined' && responsiveVoice.speak) {
+    responsiveVoice.cancel();
   }
   if (videoTimer) {
     clearTimeout(videoTimer);
@@ -749,8 +751,29 @@ window.speakNarration = function(text) {
     .replace(/\//g, ' atau ')
     .replace(/-/g, ' ');
 
-  // Take first 180 characters for smooth Google TTS natural voice response
-  const encodedText = encodeURIComponent(cleanText.substring(0, 180));
+  const shortText = cleanText.substring(0, 190);
+
+  // Strategy 1: ResponsiveVoice API (Crystal clear native Indonesian Female Cloud Voice)
+  if (typeof responsiveVoice !== 'undefined' && responsiveVoice.speak) {
+    responsiveVoice.speak(shortText, "Indonesian Female", {
+      rate: 0.92,
+      pitch: 1.0,
+      onend: function() {
+        if (isVideoPlaying) {
+          videoTimer = setTimeout(() => {
+            nextVideoStep();
+          }, 1200);
+        }
+      },
+      onerror: function() {
+        fallbackWebSpeech(shortText);
+      }
+    });
+    return;
+  }
+
+  // Strategy 2: Google TTS Audio Fallback
+  const encodedText = encodeURIComponent(shortText);
   const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodedText}&tl=id&client=tw-ob`;
 
   try {
@@ -765,61 +788,68 @@ window.speakNarration = function(text) {
       }
     };
 
-    ttsAudioPlayer.onerror = (err) => {
-      console.warn('Google TTS audio failed, falling back to browser WebSpeech:', err);
-      fallbackWebSpeech(cleanText);
+    ttsAudioPlayer.onerror = () => {
+      fallbackWebSpeech(shortText);
     };
 
     const playPromise = ttsAudioPlayer.play();
     if (playPromise !== undefined) {
-      playPromise.catch(err => {
-        console.warn('Audio play auto-blocked by browser gesture requirement, fallback to WebSpeech:', err);
-        fallbackWebSpeech(cleanText);
+      playPromise.catch(() => {
+        fallbackWebSpeech(shortText);
       });
     }
   } catch (err) {
-    fallbackWebSpeech(cleanText);
+    fallbackWebSpeech(shortText);
   }
 }
 
 function fallbackWebSpeech(text) {
   if (!('speechSynthesis' in window)) return;
 
-  currentSpeechUtterance = new SpeechSynthesisUtterance(text);
-  currentSpeechUtterance.lang = 'id-ID';
-  currentSpeechUtterance.rate = 0.95;
-  currentSpeechUtterance.pitch = 1.0;
+  const speakAction = () => {
+    const voices = window.speechSynthesis.getVoices();
+    const indonesianVoice = voices.find(v => 
+      v.lang === 'id-ID' || 
+      v.lang === 'id_ID' || 
+      v.lang.toLowerCase().startsWith('id') || 
+      v.name.toLowerCase().includes('indonesi') ||
+      v.name.toLowerCase().includes('gadis') ||
+      v.name.toLowerCase().includes('andika')
+    );
 
-  const voices = window.speechSynthesis.getVoices();
-  const indonesianVoice = voices.find(v => 
-    v.lang === 'id-ID' || 
-    v.lang === 'id_ID' || 
-    v.lang.toLowerCase().startsWith('id') || 
-    v.name.toLowerCase().includes('indonesi')
-  );
+    // CRITICAL FIX: ONLY speak if an Indonesian voice is installed on device OS!
+    // NEVER allow falling back to English voice synthesizer!
+    if (!indonesianVoice) {
+      console.warn('No native Indonesian voice pack on OS. Skipping WebSpeech English accent fallback.');
+      if (isVideoPlaying) {
+        videoTimer = setTimeout(() => {
+          nextVideoStep();
+        }, 5000);
+      }
+      return;
+    }
 
-  if (indonesianVoice) {
+    currentSpeechUtterance = new SpeechSynthesisUtterance(text);
+    currentSpeechUtterance.lang = 'id-ID';
+    currentSpeechUtterance.rate = 0.93;
+    currentSpeechUtterance.pitch = 1.0;
     currentSpeechUtterance.voice = indonesianVoice;
+
+    currentSpeechUtterance.onend = () => {
+      if (isVideoPlaying) {
+        videoTimer = setTimeout(() => {
+          nextVideoStep();
+        }, 1500);
+      }
+    };
+
+    window.speechSynthesis.speak(currentSpeechUtterance);
+  };
+
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.onvoiceschanged = speakAction;
   }
-
-  currentSpeechUtterance.onend = () => {
-    if (isVideoPlaying) {
-      videoTimer = setTimeout(() => {
-        nextVideoStep();
-      }, 1500);
-    }
-  };
-
-  currentSpeechUtterance.onerror = (err) => {
-    console.warn('WebSpeech error fallback:', err);
-    if (isVideoPlaying) {
-      videoTimer = setTimeout(() => {
-        nextVideoStep();
-      }, 5000);
-    }
-  };
-
-  window.speechSynthesis.speak(currentSpeechUtterance);
+  speakAction();
 }
 
 window.toggleVideoPlay = function() {
