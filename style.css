@@ -2864,7 +2864,7 @@ button.btn-video-kepsek, .btn-video-kepsek {
   background: rgba(11, 15, 25, 0.96);
   backdrop-filter: blur(12px);
   z-index: 999999;
-  display: none;
+  display: none !important;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
