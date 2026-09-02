@@ -963,6 +963,30 @@ function handleFsChange() {
   }
 }
 
+window.downloadVideoMP4 = function(role) {
+  const roleName = role || currentVideoRole || 'siswa';
+  const roleTitles = {
+    siswa: 'Tutorial_BelajarPlus_Akun_Siswa.mp4',
+    guru: 'Tutorial_BelajarPlus_Akun_Guru.mp4',
+    kepsek: 'Tutorial_BelajarPlus_Akun_Kepsek.mp4'
+  };
+  const fileName = roleTitles[roleName] || 'Tutorial_BelajarPlus.mp4';
+  const fileUrl = `assets/${roleName}_tutorial.mp4`;
+
+  const a = document.createElement('a');
+  a.href = fileUrl;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  alert(`📥 Pengunduhan Video MP4 (${roleName.toUpperCase()}) Dimulai!\n\nVideo tutorial resmi BelajarPlus format .mp4 siap disimpan.`);
+};
+
+window.downloadCurrentVideoMP4 = function() {
+  downloadVideoMP4(currentVideoRole);
+};
+
 
 
 

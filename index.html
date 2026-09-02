@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=45" />
+  <link rel="stylesheet" href="style.css?v=50" />
   <!-- ResponsiveVoice JS for Native Indonesian Female Voiceover -->
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
   <!-- html2pdf.js for Generating Official A4 PDF Documents -->
@@ -214,6 +214,9 @@
               </button>
               <button class="btn-pdf-download" onclick="downloadRolePDF('siswa')">
                 📥 Unduh Modul PDF Resmi (A4)
+              </button>
+              <button class="btn-mp4-download" onclick="downloadVideoMP4('siswa')">
+                🎥 Unduh Video (.mp4)
               </button>
             </div>
           </div>
@@ -432,6 +435,9 @@
               <button class="btn-pdf-download btn-pdf-guru" onclick="downloadRolePDF('guru')">
                 📥 Unduh Modul PDF Resmi (A4)
               </button>
+              <button class="btn-mp4-download btn-mp4-guru" onclick="downloadVideoMP4('guru')">
+                🎥 Unduh Video (.mp4)
+              </button>
             </div>
           </div>
 
@@ -566,6 +572,9 @@
               </button>
               <button class="btn-pdf-download btn-pdf-kepsek" onclick="downloadRolePDF('kepsek')">
                 📥 Unduh Modul PDF Resmi (A4)
+              </button>
+              <button class="btn-mp4-download btn-mp4-kepsek" onclick="downloadVideoMP4('kepsek')">
+                🎥 Unduh Video (.mp4)
               </button>
             </div>
           </div>
@@ -1190,12 +1199,13 @@
             <button class="vpc-btn vpc-btn-sub" id="vpcSubToggle" onclick="toggleSubtitles()">💬 CC: ON</button>
             <button class="vpc-btn vpc-btn-audio" id="vpcAudioToggle" onclick="toggleAudioVO()">🔊 VO: ON</button>
             <button class="vpc-btn vpc-btn-fs" id="vpcFsToggle" onclick="toggleVideoFullscreen()">⛶ Fullscreen</button>
+            <button class="vpc-btn vpc-btn-mp4" onclick="downloadCurrentVideoMP4()">🎥 Unduh .mp4</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="app.js?v=45"></script>
+  <script src="app.js?v=50"></script>
 </body>
 </html>
