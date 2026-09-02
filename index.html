@@ -28,16 +28,20 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/belajar-plus-logo.png" />
   <link rel="apple-touch-icon" href="assets/belajar-plus-logo.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2563eb" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="style.css?v=52" />
   <!-- ResponsiveVoice JS for Native Indonesian Female Voiceover -->
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
   <!-- html2pdf.js for Generating Official A4 PDF Documents -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
   <nav class="nav">
     <div class="nav-logo">
       <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" style="height: 32px; width: auto; object-fit: contain;" />
@@ -1247,6 +1251,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Back to Top Button -->
+  <button id="btnBackToTop" class="back-to-top" aria-label="Kembali ke atas" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Kembali ke atas">↑</button>
 
   <script src="app.js?v=52"></script>
 </body>

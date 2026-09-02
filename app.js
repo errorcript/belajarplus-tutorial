@@ -8,6 +8,25 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// === SCROLL PROGRESS BAR & BACK TO TOP ===
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+  const progBar = document.getElementById('scrollProgressBar');
+  if (progBar) progBar.style.width = scrollPct + '%';
+
+  const backBtn = document.getElementById('btnBackToTop');
+  if (backBtn) {
+    if (scrollTop > 450) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  }
+}, { passive: true });
+
 // === SCROLL ANIMATIONS ===
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
