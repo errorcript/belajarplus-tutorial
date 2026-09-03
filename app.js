@@ -615,10 +615,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 4: Pantau tugas lewat indikator warna — abu-abu (belum), kuning (mepet deadline), hijau (selesai). Klik "Kerjakan" hanya saat sudah siap karena timer LJD langsung aktif.'
       },
       {
-        title: 'Bergabung ke Kelas Saya',
+        title: 'Manajemen Kelas Saya & Multi-Mapel',
         image: 'assets/ss_kelas.png',
-        narration: 'Langkah kelima: Fitur Kelas Saya digunakan untuk mendaftarkan akunmu ke rombongan belajar gurumu. Tanpa masuk kelas, kamu tidak akan menerima tugas privat dari guru. Masukkan Kode Kelas Unik 6 digit yang diberikan guru, contohnya BLJ-X9A2B, ke dalam kolom input lalu klik tombol panah. Kelas yang berhasil ditambahkan langsung muncul di daftar dengan nama guru pengampunya.',
-        subtitle: 'Langkah 5: Masukkan Kode Kelas Unik (contoh: BLJ-X9A2B) dari gurumu di kolom "Kelas Saya" untuk bergabung ke rombel. Wajib dilakukan agar bisa menerima tugas privat.'
+        narration: 'Langkah kelima: Fitur Kelas Saya digunakan untuk mendaftarkan akunmu ke rombongan belajar setiap guru mata pelajaran. Masukkan Kode Kelas Unik 6 digit berawalan BLJ yang diberikan oleh gurumu, lalu klik tombol panah. Kamu bisa memasukkan beberapa kode kelas sekaligus untuk semua mata pelajaranmu di semester ini. Setiap kartu kelas menampilkan nama mapel dan guru pengampu. Jika kode kelas gagal atau salah kelas, hubungi guru pengajar untuk bantuan verifikasi.',
+        subtitle: 'Langkah 5: Masukkan Kode Kelas Unik (BLJ-XXXXXX) dari tiap guru mata pelajaranmu. Kamu bisa bergabung ke banyak kelas sekaligus. Klik kartu kelas untuk membuka materi dan tugas.'
       },
       {
         title: 'Latihan Mandiri & Analisa Hasil',

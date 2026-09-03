@@ -343,11 +343,38 @@
             <div class="step-number">05</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Manajemen "Kelas Saya" (Bergabung ke Rombel)</h3>
-                <span class="step-tag">Dashboard</span>
+                <h3>Manajemen "Kelas Saya" (Bergabung ke Rombel &amp; Multi-Mapel)</h3>
+                <span class="step-tag">Dashboard &amp; Kelas</span>
               </div>
-              <p>Fitur <strong>Kelas Saya</strong> berfungsi untuk mendaftarkan akunmu ke dalam rombongan belajar (Rombel) yang diampu oleh gurumu. Tanpa masuk ke dalam kelas, kamu tidak akan bisa menerima tugas spesifik yang diberikan secara *private* oleh guru mata pelajaran.</p>
-              <p>Untuk bergabung dengan kelas baru, cukup ketikkan <strong>Kode Kelas Unik</strong> (6 digit alfanumerik, misal: <code>BLJ-X9A2B</code>) yang diberikan oleh guru ke dalam kolom input, lalu klik tombol panah. Setelah berhasil, kelas tersebut akan langsung muncul di daftar kelas aktif di bagian bawah layar beserta nama guru pengampunya.</p>
+              <p>Fitur <strong>Kelas Saya</strong> berfungsi untuk mendaftarkan akunmu ke dalam rombongan belajar (Rombel) yang diampu oleh bapak/ibu guru. Tanpa masuk ke dalam kelas, kamu <strong>tidak akan menerima penugasan privat, materi bahan ajar acuan, maupun jadwal kuis/ujian</strong> dari guru mata pelajaran yang bersangkutan.</p>
+
+              <ul class="step-list">
+                <li>
+                  <strong>1. Masukkan Kode Kelas Unik (`BLJ-XXXXXX`)</strong> — Minta 6 digit kode kelas resmi kepada guru pengajar atau wali kelasmu. Ketikkan persis (huruf besar kapital tanpa spasi) pada kotak input, lalu klik tombol tanda panah / "Gabung".
+                </li>
+                <li>
+                  <strong>2. Gabung ke Banyak Kelas Sekaligus (Multi-Mapel)</strong> — Siswa SMA/SMK mengikuti banyak mata pelajaran (Matematika, Biologi, Sejarah, Bahasa Inggris, dll). Ulangi proses memasukkan kode kelas untuk setiap guru mata pelajaran hingga seluruh kartu kelas semester aktif muncul di dashboard-mu.
+                </li>
+                <li>
+                  <strong>3. Membaca Informasi pada Kartu Kelas</strong> — Setiap kartu kelas yang berhasil ditambahkan akan memuat rincian penting: <em>Nama Mata Pelajaran</em>, <em>Tingkat Kelas &amp; Rombel</em>, <em>Nama Lengkap Guru Pengampu</em>, serta indikator jumlah siswa aktif.
+                </li>
+                <li>
+                  <strong>4. Masuk ke Ruang Kelas Virtual</strong> — Klik langsung pada kartu kelas untuk membuka ruang belajar khusus. Di dalamnya kamu bisa mengakses 3 area: <em>Pengumuman Guru</em>, <em>Buku Acuan Belajar</em>, dan <em>Lembar Jawab Digital (LJD)</em>.
+                </li>
+              </ul>
+
+              <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 0.85rem 1rem; margin: 1rem 0;">
+                <strong style="color: #fbbf24;">🔍 Troubleshooting &amp; Bantuan Siswa/Orang Tua:</strong>
+                <ul style="margin: 0.4rem 0 0.2rem 1.2rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+                  <li><strong>Kode Tidak Valid / Error:</strong> Pastikan tanda strip (<code>-</code>) tetap disertakan (contoh: <code>BLJ-X9A2B</code>) dan tidak ada spasi di awal atau akhir.</li>
+                  <li><strong>Kartu Belum Muncul:</strong> Lakukan refresh (F5). Jika masih kosong, pastikan akunmu sudah melengkapi Verifikasi OTP Email pada Langkah 1.</li>
+                  <li><strong>Salah Masuk Kelas:</strong> Siswa tidak bisa menghapus kelas sendiri demi menjaga riwayat absensi &amp; nilai. Jika salah rombel, segera hubungi guru pengajar untuk dikeluarkan manual melalui menu anggota kelas guru.</li>
+                </ul>
+              </div>
+
+              <div class="step-note">
+                💡 <strong>Catatan Saat Pendaftaran:</strong> Jika saat registrasi awal di Langkah 1 kamu sudah memasukkan Kode Kelas, kelas tersebut otomatis langsung aktif di sini tanpa perlu diketik ulang.
+              </div>
             </div>
             <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
               <img src="assets/ss_kelas.png" class="screenshot-img" alt="Detail Kelas Saya" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
