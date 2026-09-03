@@ -586,74 +586,74 @@ const videoTutorialData = {
       {
         title: 'Pendaftaran & Aktivasi Akun Siswa',
         image: 'assets/register_siswa.png',
-        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth dan pilih tab Daftar. Tentukan peran sebagai Siswa. Jika sekolahmu mitra BelajarPlus, masukkan Kode Sekolah SKL-XXXXX dari admin sekolah agar otomatis mengaitkan akun ke kuota buku gratis. Jika mendaftar mandiri, pilih opsi Umum. Pilih Jenjang pendidikan, Kelas 10 sampai 12, dan Rombel. Masukkan Kode Kelas Guru BLJ-XXXXXX jika ada. Pastikan email yang didaftarkan aktif, lalu buka kotak masuk email kamu untuk melakukan Verifikasi Email.',
-        subtitle: 'Langkah 1: Buka portal registrasi belajarplus.id/auth, pilih tab "Daftar", dan tentukan peran Siswa. Masukkan Kode Sekolah (SKL-XXXXX) dari admin sekolah atau opsi Umum. Pilih Jenjang (SD/SMP/SMA/SMK), Kelas (10, 11, 12), Rombel, serta masukkan Kode Kelas Guru (BLJ-XXXXXX). Pastikan email aktif, lalu cek kotak masuk untuk Verifikasi Email.'
+        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth dan pilih tab Daftar. Tentukan peran sebagai Siswa. Jika sekolahmu mitra BelajarPlus, masukkan Kode Sekolah SKL-XXXXX dari admin sekolah agar otomatis mengaitkan akun ke kuota buku gratis. Jika mendaftar mandiri, pilih opsi Umum. Pilih Jenjang pendidikan, Kelas 10 sampai 12, dan Rombel. Masukkan Kode Kelas Guru BLJ-XXXXXX jika ada. Pastikan email yang didaftarkan aktif, lalu buka kotak masuk email kamu untuk melakukan Verifikasi OTP Email agar akun aktif sepenuhnya.',
+        subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar", dan peran Siswa. Masukkan Kode Sekolah (SKL-XXXXX), Jenjang, Kelas, dan Rombel. Verifikasi OTP Email agar akun aktif.'
       },
       {
-        title: 'Login ke Akun Siswa',
+        title: 'Login & Cara Reset Password',
         image: 'assets/login.png',
-        narration: 'Langkah kedua: Setelah akun terverifikasi melalui email, buka halaman login di belajarplus.id/auth. Masukkan alamat email terdaftar dan kata sandi kamu, lalu klik tombol Masuk untuk masuk ke dashboard utama Pembelajaran Saya. Simpan kredensial kamu dengan aman.',
-        subtitle: 'Langkah 2: Setelah verifikasi email berhasil, login di portal belajarplus.id/auth menggunakan email terdaftar dan password kamu. Masuk ke halaman utama Pembelajaran Saya.'
+        narration: 'Langkah kedua: Setelah akun terverifikasi, buka belajarplus.id/auth dan pilih tab Masuk. Gunakan email terdaftar dan password yang sensitif huruf besar kecil. Pastikan tidak ada spasi di awal email. Jika lupa password, klik tautan Lupa kata sandi di bawah tombol Masuk, masukkan email terdaftar, dan klik link reset yang dikirimkan ke inbox dalam waktu 15 menit sebelum kadaluarsa. Jika email tidak muncul, cek folder Spam atau Junk. Jika anak tidak bisa akses email, orang tua dapat meminta reset password manual ke admin atau guru sekolah melalui panel admin BelajarPlus.',
+        subtitle: 'Langkah 2: Login di belajarplus.id/auth. Lupa password? Klik "Lupa kata sandi?", masukkan email, dan klik link reset dalam 15 menit. Tidak ada email? Cek Spam atau hubungi admin sekolah.'
       },
       {
-        title: 'Cari & Filter Koleksi Buku Digital',
-        image: 'assets/search_filter.png',
-        narration: 'Langkah ketiga: Klik menu Perpustakaan pada navigasi atas. Temukan buku pelajaran yang kamu butuhkan dengan cepat menggunakan kolom pencarian, atau manfaatkan filter multi-dimensi pada sidebar kiri untuk menyaring buku berdasarkan Jenjang Kelas 10, 11, 12, serta Mata Pelajaran spesifik seperti Antropologi, Biologi, dan Matematika.',
-        subtitle: 'Langkah 3: Buka menu Perpustakaan di navbar atas. Gunakan kolom pencarian cepat atau saring buku lewat filter sidebar berdasarkan Jenjang (Kelas 10–12), Mata Pelajaran (Biologi, Matematika, Antropologi), dan Kategori.'
+        title: 'Mengenal Dashboard Siswa',
+        image: 'assets/dashboard_siswa.png',
+        narration: 'Langkah ketiga: Setelah login, kamu akan masuk ke halaman Dashboard Pembelajaran Saya. Halaman ini adalah pusat kendali semua kegiatan belajarmu. Di bagian atas, kamu dapat melihat ringkasan statistik aktivitas terbaru. Gunakan navigasi sidebar di sebelah kiri untuk berpindah menu utama, dan perhatikan ikon lonceng di sudut kanan atas untuk melihat pemberitahuan sistem atau pengumuman dari admin sekolah.',
+        subtitle: 'Langkah 3: Dashboard adalah pusat kendali belajarmu. Cek ringkasan statistik, gunakan sidebar untuk navigasi, dan pantau notifikasi lonceng di pojok kanan atas.'
       },
       {
-        title: 'Pinjam Buku Digital Sekolah',
-        image: 'assets/book_detail.png',
-        narration: 'Langkah keempat: Klik kartu buku yang kamu pilih untuk membuka detail peminjaman. Perhatikan indikator ketersediaan stok buku digital sekolahmu. Jika statusnya Tersedia, klik tombol Pinjam Buku. Peminjaman ini gratis 100% dan berlaku untuk durasi peminjaman otomatis sebelum kembali ke rak digital.',
-        subtitle: 'Langkah 4: Klik pada kartu buku yang diinginkan untuk melihat detail. Periksa indikator ketersediaan stok digital sekolah, lalu klik "Pinjam Buku" secara gratis.'
+        title: 'Tugas dari Guru & Manajemen Waktu',
+        image: 'assets/ss_tugas.png',
+        narration: 'Langkah keempat: Kolom Tugas dari Guru menampilkan semua kewajiban akademismu. Perhatikan indikator warna: abu-abu artinya tugas baru belum dikerjakan, kuning artinya waktu hampir habis, dan hijau artinya tugas sudah selesai. Klik tombol Kerjakan saat kamu sudah siap karena timer LJD langsung berjalan mundur begitu diklik. Jika timer menyentuh nol, jawabanmu tersimpan otomatis.',
+        subtitle: 'Langkah 4: Pantau tugas lewat indikator warna — abu-abu (belum), kuning (mepet deadline), hijau (selesai). Klik "Kerjakan" hanya saat sudah siap karena timer LJD langsung aktif.'
       },
       {
-        title: 'Membaca via Interactive Book Reader',
+        title: 'Bergabung ke Kelas Saya',
+        image: 'assets/ss_kelas.png',
+        narration: 'Langkah kelima: Fitur Kelas Saya digunakan untuk mendaftarkan akunmu ke rombongan belajar gurumu. Tanpa masuk kelas, kamu tidak akan menerima tugas privat dari guru. Masukkan Kode Kelas Unik 6 digit yang diberikan guru, contohnya BLJ-X9A2B, ke dalam kolom input lalu klik tombol panah. Kelas yang berhasil ditambahkan langsung muncul di daftar dengan nama guru pengampunya.',
+        subtitle: 'Langkah 5: Masukkan Kode Kelas Unik (contoh: BLJ-X9A2B) dari gurumu di kolom "Kelas Saya" untuk bergabung ke rombel. Wajib dilakukan agar bisa menerima tugas privat.'
+      },
+      {
+        title: 'Latihan Mandiri & Analisa Hasil',
+        image: 'assets/ss_latihan.png',
+        narration: 'Langkah keenam: Kamu bisa belajar proaktif melalui menu Latihan Tersedia tanpa perlu menunggu tugas dari guru. Cari topik atau mata pelajaran di bilah pencarian untuk memulai kuis singkat. Setelah selesai, cek modul Hasil Terbaru untuk melihat persentase ketuntasan dan detail soal yang salah dijawab.',
+        subtitle: 'Langkah 6: Gunakan menu "Latihan Tersedia" untuk belajar mandiri. Cek hasil di modul "Hasil Terbaru" untuk melihat skor, persentase KKM, dan detail soal yang salah.'
+      },
+      {
+        title: 'Mencari Buku di Perpustakaan Digital',
+        image: 'assets/library_search.png',
+        narration: 'Langkah ketujuh: Buka menu Perpustakaan untuk mengakses koleksi e-book dan modul digital sekolah. Gunakan kombinasi Filter Jenjang dan Filter Mata Pelajaran di sidebar kiri untuk hasil pencarian yang paling relevan. Hindari mengandalkan kolom search teks saja karena terkadang ada bug reset parameter — selalu gunakan sidebar filter agar hasil stabil.',
+        subtitle: 'Langkah 7: Buka Perpustakaan dan gunakan Filter Jenjang + Mata Pelajaran di sidebar kiri. Hindari ketik di search bar langsung karena bisa reset — selalu pakai sidebar filter.'
+      },
+      {
+        title: 'Menavigasi E-Reader Interaktif',
         image: 'assets/book_reader.png',
-        narration: 'Langkah kelima: Setelah meminjam buku, klik tombol Baca untuk membuka Interactive Book Reader langsung di browser. Nikmati fitur navigasi modern: gunakan panel Daftar Isi untuk melompat langsung ke Bab pelajaran, sesuaikan ukuran huruf dengan tombol A plus dan A minus, serta aktifkan Mode Fullscreen untuk pengalaman membaca yang lebih fokus.',
-        subtitle: 'Langkah 5: Klik tombol "Baca" untuk membuka reader digital BelajarPlus. Gunakan Daftar Isi untuk melompat antar Bab, tombol A+ dan A− untuk Zoom Teks, serta Mode Fullscreen (⛶) untuk membaca fokus.'
+        narration: 'Langkah kedelapan: Setelah menemukan buku yang tepat, klik sampulnya untuk melihat sinopsis dan detail penerbit. Tekan tombol Baca Buku untuk membuka E-Reader Web. Gunakan tombol panah kiri dan kanan di keyboard atau slider layar bawah untuk berpindah halaman. Progress membaca tersimpan otomatis di Cloud sehingga saat kamu membuka kembali besok, e-reader langsung melompat ke halaman terakhir.',
+        subtitle: 'Langkah 8: Klik "Baca Buku" untuk membuka E-Reader. Navigasi pakai tombol panah keyboard atau slider. Progress halaman tersimpan otomatis di Cloud.'
       },
       {
-        title: 'Akses Tugas & Kuis Kelas Saya',
-        image: 'assets/class_assignment.png',
-        narration: 'Langkah keenam: Akses ruang kelas kamu melalui menu Kelas Saya, lalu pilih tab Penugasan. Di sini kamu dapat melihat daftar soal latihan, kuis harian, maupun Tryout TKA yang diberikan oleh guru pengajar. Periksa tenggat waktu pengumpulan dan baca instruksi khusus sebelum mulai mengerjakan.',
-        subtitle: 'Langkah 6: Buka menu "Kelas Saya", lalu pilih tab "Penugasan" untuk melihat daftar latihan, kuis harian, atau Tryout TKA yang ditugaskan oleh guru pengajar lengkap dengan tenggat waktu.'
-      },
-      {
-        title: 'Isi & Kirim Lembar Jawab Digital (LJD)',
-        image: 'assets/assignment_result.png',
-        narration: 'Langkah ketujuh: Kerjakan soal pada tampilan Lembar Jawab Digital atau LJD. Pilih opsi jawaban yang tepat untuk setiap nomor soal. Perhatikan hitungan mundur timer ujian serta indikator sistem pengawas kejujuran anti-cheat. Setelah selesai, klik Kirim Lembar Jawaban untuk melihat persentase skor dan rekapitulasi nilai kamu secara real-time.',
-        subtitle: 'Langkah 7: Pada layar Lembar Jawab Digital (LJD), pilih opsi jawaban untuk tiap nomor soal. Perhatikan timer ujian dan fitur pemantau kejujuran anti-cheat. Klik "Kirim Lembar Jawaban" untuk melihat hasil real-time.'
-      },
-      {
-        title: 'Kelola Rak "Buku Saya"',
-        image: 'assets/my_books.png',
-        narration: 'Langkah kedelapan: Buka menu Buku Saya untuk memantau semua buku digital yang sedang aktif kamu pinjam. Kamu bisa melihat sisa durasi peminjaman dan mengembalikan buku yang sudah selesai dibaca agar salinan digital tersebut dapat dipinjam oleh teman sekelasmu.',
-        subtitle: 'Langkah 8: Buka menu "Buku Saya" di navigasi atas untuk melihat daftar buku yang sedang aktif dipinjam, sisa durasi masa pinjam, dan mengembalikan buku tepat waktu.'
-      },
-      {
-        title: 'Pembelian Buku Tambahan di Toko',
-        image: 'assets/shop.png',
-        narration: 'Langkah kesembilan: Apabila kamu memerlukan buku referensi pribadi yang ingin dimiliki secara permanen tanpa batas waktu peminjaman, kamu dapat membelinya melalui menu Toko BelajarPlus. Riwayat dan status transaksi dapat dipantau di menu Pesanan.',
-        subtitle: 'Langkah 9: Jika membutuhkan buku referensi pribadi permanen di luar perpustakaan sekolah, beli melalui menu "Toko" dan pantau status transaksi di menu "Pesanan".'
-      },
-      {
-        title: 'Pengaturan Profil Siswa',
-        image: 'assets/profile.png',
-        narration: 'Langkah kesepuluh: Masuk ke menu Profil untuk memeriksa dan memperbarui informasi akun kamu. Pastikan nomor WhatsApp yang terdaftar aktif agar kamu otomatis menerima notifikasi penugasan baru dari guru pengajar. Kamu juga dapat memperbarui kata sandi secara berkala demi keamanan akun.',
-        subtitle: 'Langkah 10: Masuk ke menu "Profil" untuk memperbarui data diri, nomor WhatsApp terhubung agar menerima notifikasi penugasan dari guru, serta mengganti kata sandi akun.'
+        title: 'Manajemen Buku Saya (Pinjaman & Antrean)',
+        image: 'assets/my_books_list.png',
+        narration: 'Langkah kesembilan: Di halaman Buku Saya, kamu bisa melacak status semua buku yang dipinjam. Jika kuota buku perpustakaan habis, buku pilihanmu masuk ke tab Antrean dan otomatis berpindah ke tab Dipinjam begitu siswa lain mengembalikan. Jangan lupa klik Kembalikan setelah selesai membaca agar teman lain bisa bergantian meminjam.',
+        subtitle: 'Langkah 9: Pantau status buku di menu "Buku Saya". Jika penuh, buku masuk antrean otomatis. Klik "Kembalikan" setelah selesai agar teman lain bisa meminjam.'
       },
       {
         title: 'Kelas & Aturan Lembar Jawab Digital (LJD)',
         image: 'assets/assignment_list.png',
-        narration: 'Langkah kesebelas: Akses menu Kelas Saya untuk masuk ke ruang kelas spesifik gurumu. Di sana terdapat tiga tab utama: Pengumuman Kelas, Sumber Belajar, dan Aktivitas Belajar. Saat menekan tombol Mulai Ujian, layar akan terkunci pada mode Lembar Jawab Digital. Jangan berpindah tab atau menekan Back selama ujian berlangsung karena sistem anti-cheat akan men-submit jawabanmu secara otomatis.',
-        subtitle: 'Langkah 11: Buka "Kelas Saya" untuk akses ruang kelas. Kerjakan LJD dari tab Aktivitas Belajar. Jangan pindah tab atau tekan Back saat ujian karena sistem anti-cheat aktif memantau.'
+        narration: 'Langkah kesepuluh: Masuk ke ruang kelas spesifik untuk melihat tiga tab utama: Pengumuman Kelas, Sumber Belajar, dan Aktivitas Belajar. Saat menekan tombol Mulai Ujian, layar terkunci pada mode Lembar Jawab Digital. Jangan berpindah tab browser, menutup aplikasi, atau menekan Back karena sistem anti-cheat akan men-submit jawabanmu secara paksa.',
+        subtitle: 'Langkah 10: Buka ruang kelas untuk akses 3 tab — Pengumuman, Sumber Belajar, dan Aktivitas. Jangan pindah tab atau tekan Back saat ujian LJD berlangsung.'
       },
       {
         title: 'Beli Buku di Toko & Pembayaran Transfer Manual',
         image: 'assets/detail_pesanan_transfer.png',
-        narration: 'Langkah kedua belas: Jika butuh buku tambahan atau paket tryout, beli langsung lewat menu Toko. Pilih varian Digital atau Cetak lalu selesaikan Checkout. Pembayaran menggunakan Transfer Bank Manual. Wajib cantumkan Nomor Pesanan pada berita transfer, lalu unggah foto bukti struk pembayaran agar pesanan segera diverifikasi admin dan buku otomatis muncul di menu Buku Saya.',
-        subtitle: 'Langkah 12: Beli buku di Toko, transfer manual, cantumkan Nomor Pesanan, dan unggah foto bukti struk agar buku segera diaktifkan admin.'
+        narration: 'Langkah kesebelas: Jika kuota perpustakaan penuh atau butuh buku tambahan, beli lewat menu Toko. Pilih varian Digital, Cetak, atau Digital plus Cetak. Selesaikan Checkout dan verifikasi data siswa. Pembayaran menggunakan Transfer Bank Manual — wajib cantumkan Nomor Pesanan pada berita transfer, lalu unggah foto bukti struk. Buku aktif di Buku Saya setelah admin verifikasi.',
+        subtitle: 'Langkah 11: Beli buku di Toko, pilih varian, checkout, lalu transfer manual dan cantumkan Nomor Pesanan. Unggah foto struk agar admin verifikasi dan buku segera aktif.'
+      },
+      {
+        title: 'Pengaturan Akun & Profil Saya',
+        image: 'assets/user_profile.png',
+        narration: 'Langkah kedua belas: Buka menu Profil Saya untuk melengkapi identitas digitalmu. Isi Foto Avatar, Nama Lengkap, NISN, dan Nomor WhatsApp aktif. Data profil yang akurat penting untuk sinkronisasi otomatis dengan Data Pokok Pendidikan Dapodik dari admin sekolah. Kamu juga bisa mengganti password akun di sini kapan saja untuk menjaga keamanan.',
+        subtitle: 'Langkah 12: Lengkapi Profil Saya — Foto, Nama, NISN, dan WhatsApp aktif. Data ini digunakan untuk sinkronisasi Dapodik sekolah. Ganti password berkala untuk keamanan akun.'
       }
     ]
   },
