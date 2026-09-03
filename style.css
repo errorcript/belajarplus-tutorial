@@ -982,6 +982,11 @@ body.light-mode .step-note {
   background: rgba(99, 102, 241, 0.03);
 }
 
+/* PDF Group sub-sections — hidden on web, read by PDF generator via DOM */
+.pdf-group {
+  display: none;
+}
+
 .link {
   color: var(--blue);
   font-weight: 600;

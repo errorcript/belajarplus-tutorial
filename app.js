@@ -415,61 +415,120 @@ window.downloadRolePDF = async function(role) {
     const stepNum = step.querySelector('.step-number')?.innerText || (idx + 1);
     const stepTitle = step.querySelector('.step-header h3')?.innerText || '';
     const stepTag = step.querySelector('.step-tag')?.innerText || '';
-    const stepParagraph = step.querySelector('p')?.innerText || '';
-    
-    // List items
-    const listItems = step.querySelectorAll('.step-list li');
+    const stepContent = step.querySelector('.step-content');
+
+    // ── Step header row ──
+    const headerHTML = `
+      <div style="margin-bottom: 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">
+        <span style="display: inline-block; background: #1e3a8a; color: #ffffff; font-weight: 800; font-size: 11px; padding: 3px 10px; border-radius: 4px; margin-right: 8px;">LANGKAH ${stepNum}</span>
+        <span style="font-size: 15px; font-weight: 800; color: #0f172a;">${stepTitle}</span>
+        ${stepTag ? `<span style="font-size: 10px; background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-weight: 600;">${stepTag}</span>` : ''}
+      </div>
+    `;
+
+    // ── Intro paragraph (first <p> in step-content) ──
+    const introP = stepContent ? stepContent.querySelector('p')?.innerText || '' : '';
+    const introHTML = introP ? `<div style="font-size: 12px; color: #334155; line-height: 1.7; margin-bottom: 8px;">${introP}</div>` : '';
+
+    // ── List items from step-content ──
+    const listItems = stepContent ? Array.from(stepContent.querySelectorAll('.step-list li')) : [];
     let listHTML = '';
     if (listItems.length > 0) {
-      listHTML += `<ul style="margin: 8px 0; padding-left: 20px; font-size: 11.5px; color: #334155; line-height: 1.6;">`;
+      listHTML = `<ul style="margin: 6px 0 8px 0; padding-left: 20px; font-size: 11.5px; color: #334155; line-height: 1.7;">`;
       listItems.forEach(li => {
-        listHTML += `<li style="margin-bottom: 4px;">${li.innerHTML}</li>`;
+        listHTML += `<li style="margin-bottom: 5px;">${li.innerHTML}</li>`;
       });
       listHTML += `</ul>`;
     }
 
-    // Step note
-    const stepNote = step.querySelector('.step-note')?.innerHTML || '';
-    let noteHTML = '';
-    if (stepNote) {
-      noteHTML = `
-        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #1e40af; border-radius: 4px;">
-          ${stepNote}
+    // ── Step note ──
+    const stepNote = stepContent ? stepContent.querySelector('.step-note')?.innerHTML || '' : '';
+    const noteHTML = stepNote ? `
+      <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #1e40af; border-radius: 4px;">
+        ${stepNote}
+      </div>` : '';
+
+    // ── Check if step has pdf-group sub-sections ──
+    const pdfGroups = Array.from(step.querySelectorAll('.pdf-group'));
+
+    if (pdfGroups.length > 0) {
+      // === MULTI-GROUP STEP (e.g. Step 11): render header+intro once, then each group as [text→images] ===
+      pdfHTML += `
+        <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 22px; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff;">
+          ${headerHTML}
+          ${introHTML}
+          ${listHTML}
+          ${noteHTML}
+        </div>
+      `;
+
+      pdfGroups.forEach(group => {
+        const label = group.getAttribute('data-pdf-label') || '';
+        const groupTextEl = group.querySelector('.pdf-group-text');
+        const groupText = groupTextEl ? groupTextEl.innerHTML : '';
+
+        // Collect images from this group only
+        const groupImgs = Array.from(group.querySelectorAll('.pdf-img, img'));
+        const uniqueSrcs = Array.from(new Set(groupImgs.map(img => img.src).filter(Boolean)));
+        let groupImgHTML = '';
+        if (uniqueSrcs.length > 0) {
+          // Render 2 images side-by-side if pair, else stacked
+          if (uniqueSrcs.length === 2) {
+            groupImgHTML = `
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+                <img src="${uniqueSrcs[0]}" style="width: 100%; height: auto; border-radius: 6px; border: 1px solid #cbd5e1;" />
+                <img src="${uniqueSrcs[1]}" style="width: 100%; height: auto; border-radius: 6px; border: 1px solid #cbd5e1;" />
+              </div>`;
+          } else {
+            groupImgHTML = `<div style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">`;
+            uniqueSrcs.forEach(src => {
+              groupImgHTML += `<img src="${src}" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #cbd5e1;" />`;
+            });
+            groupImgHTML += `</div>`;
+          }
+        }
+
+        pdfHTML += `
+          <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 14px; padding: 14px 16px; border: 1px solid #e2e8f0; border-left: 3px solid #3b82f6; border-radius: 8px; background: #f8fafc;">
+            <div style="font-size: 11.5px; color: #334155; line-height: 1.7; margin-bottom: 6px;">${groupText}</div>
+            ${groupImgHTML}
+          </div>
+        `;
+      });
+
+    } else {
+      // === NORMAL STEP: render as single block [text → image] ===
+      // Images from .step-visual or .screenshot-img (exclude pdf-img to avoid duplicates)
+      const stepImgs = Array.from(step.querySelectorAll('.step-visual img, .screenshot-img:not(.pdf-img)'));
+      const uniqueSrcs = Array.from(new Set(stepImgs.map(img => img.src).filter(Boolean)));
+
+      let imgHTML = '';
+      if (uniqueSrcs.length > 0) {
+        if (uniqueSrcs.length === 2) {
+          imgHTML = `
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
+              <img src="${uniqueSrcs[0]}" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+              <img src="${uniqueSrcs[1]}" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+            </div>`;
+        } else {
+          imgHTML = `<div style="margin-top: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">`;
+          uniqueSrcs.forEach(src => {
+            imgHTML += `<img src="${src}" style="max-width: 460px; width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />`;
+          });
+          imgHTML += `</div>`;
+        }
+      }
+
+      pdfHTML += `
+        <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 22px; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff;">
+          ${headerHTML}
+          ${introHTML}
+          ${listHTML}
+          ${noteHTML}
+          ${imgHTML}
         </div>
       `;
     }
-
-    // Screenshot Images (Supports multiple images per step, e.g. Registration + OTP Verification)
-    const stepImgs = Array.from(step.querySelectorAll('.step-visual img, .screenshot-img'));
-    const uniqueSrcs = Array.from(new Set(stepImgs.map(img => img.src).filter(Boolean)));
-    
-    let imgHTML = '';
-    if (uniqueSrcs.length > 0) {
-      imgHTML = `<div style="margin-top: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">`;
-      uniqueSrcs.forEach(src => {
-        imgHTML += `
-          <img src="${src}" style="max-width: 440px; width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
-        `;
-      });
-      imgHTML += `</div>`;
-    }
-
-    // Clean A4 step card block
-    pdfHTML += `
-      <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 22px; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff;">
-        <div style="margin-bottom: 8px;">
-          <span style="display: inline-block; background: #1e3a8a; color: #ffffff; font-weight: 800; font-size: 11px; padding: 3px 10px; border-radius: 4px; margin-right: 8px;">LANGKAH ${stepNum}</span>
-          <span style="font-size: 15px; font-weight: 800; color: #0f172a;">${stepTitle}</span>
-          ${stepTag ? `<span style="font-size: 10px; background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-weight: 600;">${stepTag}</span>` : ''}
-        </div>
-        <div style="font-size: 12px; color: #334155; line-height: 1.6; margin-bottom: 6px;">
-          ${stepParagraph}
-        </div>
-        ${listHTML}
-        ${noteHTML}
-        ${imgHTML}
-      </div>
-    `;
   });
 
   // Footer
@@ -488,8 +547,8 @@ window.downloadRolePDF = async function(role) {
   const opt = {
     margin:       [6, 6, 8, 6],
     filename:     `Panduan_BelajarPlus_${role.toUpperCase()}_Resmi.pdf`,
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
+    image:        { type: 'jpeg', quality: 1.0 },
+    html2canvas:  { scale: 3, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
     pagebreak:    { mode: ['css', 'legacy'] }
   };
@@ -591,10 +650,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 11: Buka "Kelas Saya" untuk akses ruang kelas. Kerjakan LJD dari tab Aktivitas Belajar. Jangan pindah tab atau tekan Back saat ujian karena sistem anti-cheat aktif memantau.'
       },
       {
-        title: 'Eksplorasi Toko & Riwayat Pesanan',
-        image: 'assets/orders_history.png',
-        narration: 'Langkah kedua belas: Jika kuota buku sekolah habis, gunakan menu Toko untuk membeli lisensi buku secara pribadi atau paket Tryout Premium SNBT dan UTBK. Setelah pembayaran melalui QRIS atau Virtual Account berhasil, cek status invoice dan aktivasi produk secara real-time di menu Pesanan Saya. Ingat, selalu gunakan tombol sidebar untuk mengakses Pesanan — jangan ketik URL langsung di address bar karena dapat menyebabkan redirect loop.',
-        subtitle: 'Langkah 12: Beli buku tambahan atau Tryout Premium lewat menu "Toko". Pantau status pembayaran & invoice di menu "Pesanan Saya". Selalu akses via tombol sidebar, bukan ketik URL manual.'
+        title: 'Beli Buku di Toko & Pembayaran Transfer Manual',
+        image: 'assets/detail_pesanan_transfer.png',
+        narration: 'Langkah kedua belas: Jika butuh buku tambahan atau paket tryout, beli langsung lewat menu Toko. Pilih varian Digital atau Cetak lalu selesaikan Checkout. Pembayaran menggunakan Transfer Bank Manual. Wajib cantumkan Nomor Pesanan pada berita transfer, lalu unggah foto bukti struk pembayaran agar pesanan segera diverifikasi admin dan buku otomatis muncul di menu Buku Saya.',
+        subtitle: 'Langkah 12: Beli buku di Toko, transfer manual, cantumkan Nomor Pesanan, dan unggah foto bukti struk agar buku segera diaktifkan admin.'
       }
     ]
   },

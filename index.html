@@ -432,18 +432,117 @@
             <div class="step-number">11</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Eksplorasi Toko &amp; Riwayat Pesanan Mandiri</h3>
-                <span class="step-tag">Marketplace</span>
+                <h3>Beli Buku di Toko &amp; Panduan Pembayaran Manual</h3>
+                <span class="step-tag">Toko &amp; Pembayaran</span>
               </div>
-              <p>Bagaimana jika kuota buku sekolah sudah penuh, namun kamu sangat membutuhkan buku tersebut untuk ujian besok? BelajarPlus menyediakan menu <strong>Toko (Marketplace)</strong>. Melalui menu ini, kamu bisa membeli lisensi buku secara pribadi atau membeli paket Tryout Premium khusus SNBT/UTBK.</p>
-              <p>Pilih produk yang kamu inginkan, masukkan ke keranjang belanja, dan lakukan proses *Checkout* menggunakan *payment gateway* (QRIS, Virtual Account, dsb). Setelah pembayaran sukses terkonfirmasi, kamu bisa mengecek *invoice* (faktur digital) dan status resi aktivasi produkmu secara real-time di menu <strong>Pesanan Saya</strong>.</p>
+              <p>Bagaimana jika kuota buku perpustakaan sekolah sudah penuh atau kamu butuh buku teks pendamping serta paket Tryout SNBT? Siswa dan orang tua/wali murid dapat membeli buku mandiri langsung melalui menu <strong>Toko (Shop)</strong>.</p>
+              
+              <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #3b82f6; border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0 1.5rem;">
+                <h4 style="margin: 0 0 0.5rem 0; color: #60a5fa; font-size: 0.95rem;">👨‍👩‍👧 Catatan Khusus Orang Tua / Wali Murid:</h4>
+                <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #cbd5e1;">
+                  Pembayaran di BelajarPlus saat ini menggunakan sistem <strong>Transfer Manual</strong> (bukan payment gateway / QRIS otomatis) dan <strong>wajib mengunggah foto bukti transfer</strong> agar pesanan diverifikasi oleh admin sekolah. Ikuti 5 langkah terpadu berikut:
+                </p>
+              </div>
+
+              <ul class="step-list">
+                <li>
+                  <strong>1. Buka Menu Toko &amp; Pilih Varian Buku</strong> — Klik menu <strong>Toko</strong> di navigasi atas. Pilih judul buku yang diinginkan, lalu tentukan varian:
+                  <ul style="margin: 0.4rem 0 0.4rem 1.2rem; list-style-type: circle;">
+                    <li><strong style="color:#60a5fa">Digital</strong>: Buku digital untuk langsung dibaca di laptop/HP siswa via e-reader.</li>
+                    <li><strong style="color:#34d399">Cetak</strong>: Buku fisik yang akan dikirimkan ke alamat rumah.</li>
+                    <li><strong style="color:#fbbf24">Digital + Cetak</strong>: Paket lengkap mendapatkan kedua versi.</li>
+                  </ul>
+                  Setelah memilih varian, klik tombol biru <strong>"+ Keranjang"</strong> atau <strong>"Beli sekarang"</strong>.
+                </li>
+                <li>
+                  <strong>2. Cek Keranjang Belanja (`/cart`)</strong> — Klik ikon <strong>Keranjang</strong> di pojok kanan atas. Pastikan judul buku, jenjang kelas, dan jumlah eksemplar sudah sesuai, lalu klik tombol biru <strong>"Lanjut ke checkout"</strong>.
+                </li>
+                <li>
+                  <strong>3. Halaman Checkout &amp; Verifikasi Data Siswa (`/checkout`)</strong> — Pastikan kolom Identitas Siswa (Nama, Sekolah, Kelas, dan Rombel) sudah cocok. Jika memilih varian Cetak, isi nama penerima dan alamat pengiriman dengan lengkap. Klik tombol <strong>"Buat pesanan"</strong>.
+                </li>
+                <li>
+                  <strong>4. Halaman Detail Pesanan &amp; Transfer Bank Manual</strong> — Layar akan menampilkan <strong>Nomor Pesanan Unik</strong> (contoh: <code>BPLUS-20260903-CA1606</code>).
+                  <br />
+                  <span style="color:#f87171; font-weight: 700;">⚠️ PENTING:</span> Lakukan transfer via ATM atau mobile banking sesuai total nominal. <strong>Wajib cantumkan Nomor Pesanan pada kolom Berita/Catatan Transfer</strong> agar admin dapat mencocokkan pembayaranmu.
+                  <br />
+                  <span style="font-size: 0.85rem; color: #94a3b8;">*Catatan: Jika rincian rekening tujuan tertulis strip (<code>-</code>), segera konfirmasikan nomor rekening resmi ke bendahara / pihak sekolahmu.</span>
+                </li>
+                <li>
+                  <strong>5. Unggah Bukti Struk &amp; Aktivasi Buku</strong> — Foto struk ATM atau screenshot bukti mutasi m-banking (format JPG/PNG/PDF, ukuran maks 5 MB). Klik <strong>"Pilih file"</strong> lalu tekan tombol <strong>"Unggah bukti &amp; konfirmasi"</strong>. Status pesanan akan menjadi <em>Menunggu konfirmasi</em>. Begitu disetujui admin, buku digital otomatis langsung aktif di menu <strong>Buku Saya</strong>!
+                </li>
+              </ul>
+
               <div class="step-note">
-                🔄 <strong>Isu Navigasi (Redirection Loop):</strong> Demi keamanan *session*, jangan mengetikkan URL <code>belajarplus.id/orders</code> secara manual di *address bar* browsermu. Melakukan hal tersebut (meskipun statusmu masih login) akan membuat sistem keliru mendeteksi *session* dan melemparmu kembali ke halaman *Login* secara berulang-ulang (*looping*). Selalu gunakan tombol menu di sidebar!
+                🔄 <strong>Tips Akses Menu Pesanan:</strong> Selalu buka riwayat transaksi lewat tombol menu <strong>"Pesanan"</strong> di navigasi atas. Hindari mengetikkan URL <code>belajarplus.id/orders</code> secara manual di bilah alamat browser untuk menghindari kendala sesi login berulang (redirect loop).
               </div>
             </div>
-            <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
-              <img src="assets/orders_history.png" class="screenshot-img" alt="Riwayat Pesanan" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; margin-bottom: 1.5rem;" />
-              <img src="assets/store_page.png" class="screenshot-img" alt="Toko BelajarPlus" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
+
+            <!-- Web-only visual: semua 6 screenshot di kolom kanan -->
+            <div class="step-visual">
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <div style="font-size: 0.7rem; font-weight: 700; color: #60a5fa; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.25rem;">📸 Tahap 1–2: Toko & Varian</div>
+                <img src="assets/toko_buku.png" class="screenshot-img" alt="Katalog Toko Buku" style="width:100%; border-radius:6px;" />
+                <img src="assets/detail_produk.png" class="screenshot-img" alt="Pilih Varian Produk" style="width:100%; border-radius:6px;" />
+
+                <div style="font-size: 0.7rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem; margin-bottom: 0.25rem;">📸 Tahap 3: Checkout</div>
+                <img src="assets/keranjang_belanja.png" class="screenshot-img" alt="Keranjang Belanja" style="width:100%; border-radius:6px;" />
+                <img src="assets/checkout_pesanan.png" class="screenshot-img" alt="Formulir Checkout" style="width:100%; border-radius:6px;" />
+
+                <div style="font-size: 0.7rem; font-weight: 700; color: #fbbf24; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem; margin-bottom: 0.25rem;">📸 Tahap 4–5: Transfer & Upload</div>
+                <img src="assets/detail_pesanan_transfer.png" class="screenshot-img" alt="Detail Pesanan Transfer" style="width:100%; border-radius:6px;" />
+                <img src="assets/daftar_pesanan.png" class="screenshot-img" alt="Riwayat Pesanan" style="width:100%; border-radius:6px;" />
+              </div>
+            </div>
+
+            <!-- PDF Group 1: Toko & Pilih Varian -->
+            <div class="pdf-group" data-pdf-label="Tahap 1 &amp; 2: Toko Buku, Pilihan Varian &amp; Keranjang">
+              <div class="pdf-group-text">
+                <strong>Tahap 1 &amp; 2: Buka Toko → Pilih Varian → Masuk Keranjang</strong><br/>
+                Buka menu <strong>Toko</strong> di navigasi atas. Pilih judul buku lalu tentukan varian (<em>Digital</em>, <em>Cetak</em>, atau <em>Digital + Cetak</em>). Klik <strong>"+ Keranjang"</strong> lalu buka ikon keranjang di pojok kanan atas dan klik <strong>"Lanjut ke checkout"</strong>.
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #60a5fa; margin-bottom: 0.5rem;">📸 Tahap 1 &amp; 2: Toko Buku, Pilihan Varian &amp; Keranjang</div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <img src="assets/toko_buku.png" class="screenshot-img pdf-img" alt="Katalog Toko Buku BelajarPlus" style="width: 100%; border-radius: 6px;" />
+                    <img src="assets/detail_produk.png" class="screenshot-img pdf-img" alt="Pilih Varian Produk Cetak atau Digital" style="width: 100%; border-radius: 6px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PDF Group 2: Checkout -->
+            <div class="pdf-group" data-pdf-label="Tahap 3: Halaman Checkout &amp; Verifikasi Data Siswa">
+              <div class="pdf-group-text">
+                <strong>Tahap 3: Checkout &amp; Verifikasi Data Siswa</strong><br/>
+                Di halaman Checkout, pastikan kolom Identitas Siswa (Nama, Sekolah, Kelas, Rombel) sudah benar. Jika memilih varian Cetak, isi alamat pengiriman lengkap. Klik <strong>"Buat pesanan"</strong> untuk lanjut.
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #34d399; margin-bottom: 0.5rem;">📸 Tahap 3: Halaman Checkout &amp; Data Siswa</div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <img src="assets/keranjang_belanja.png" class="screenshot-img pdf-img" alt="Keranjang Belanja BelajarPlus" style="width: 100%; border-radius: 6px;" />
+                    <img src="assets/checkout_pesanan.png" class="screenshot-img pdf-img" alt="Formulir Checkout BelajarPlus" style="width: 100%; border-radius: 6px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PDF Group 3: Transfer & Upload -->
+            <div class="pdf-group" data-pdf-label="Tahap 4 &amp; 5: Transfer Manual &amp; Upload Bukti Struk">
+              <div class="pdf-group-text">
+                <strong>Tahap 4 &amp; 5: Transfer Manual → Upload Bukti Struk</strong><br/>
+                Catat <strong>Nomor Pesanan Unik</strong> (contoh: <code>BPLUS-20260903-CA1606</code>). Transfer nominal tepat via ATM/m-Banking, wajib cantumkan Nomor Pesanan di kolom Berita Transfer. Foto struk/screenshot mutasi (JPG/PNG/PDF, maks 5 MB) lalu klik <strong>"Unggah bukti &amp; konfirmasi"</strong>. Buku aktif di <strong>Buku Saya</strong> setelah admin verifikasi. Jika rekening tujuan masih strip (—), hubungi bendahara sekolah.
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">📸 Tahap 4 &amp; 5: Detail Pesanan, Transfer Manual &amp; Unggah Bukti Struk</div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <img src="assets/detail_pesanan_transfer.png" class="screenshot-img pdf-img" alt="Detail Pesanan dan Form Upload Bukti Transfer" style="width: 100%; border-radius: 6px;" />
+                    <img src="assets/daftar_pesanan.png" class="screenshot-img pdf-img" alt="Daftar Riwayat Pesanan Saya" style="width: 100%; border-radius: 6px;" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
