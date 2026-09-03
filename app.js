@@ -639,16 +639,16 @@ const videoTutorialData = {
         subtitle: 'Langkah 8: Klik "Baca Buku" untuk membuka E-Reader. Navigasi pakai tombol panah keyboard atau slider. Progress halaman tersimpan otomatis di Cloud.'
       },
       {
-        title: 'Manajemen Buku Saya (Pinjaman & Antrean)',
+        title: 'Manajemen Buku Saya (Masa Pinjam & Antrean)',
         image: 'assets/my_books_list.png',
-        narration: 'Langkah kesembilan: Di halaman Buku Saya, kamu bisa melacak status semua buku yang dipinjam. Jika kuota buku perpustakaan habis, buku pilihanmu masuk ke tab Antrean dan otomatis berpindah ke tab Dipinjam begitu siswa lain mengembalikan. Jangan lupa klik Kembalikan setelah selesai membaca agar teman lain bisa bergantian meminjam.',
-        subtitle: 'Langkah 9: Pantau status buku di menu "Buku Saya". Jika penuh, buku masuk antrean otomatis. Klik "Kembalikan" setelah selesai agar teman lain bisa meminjam.'
+        narration: 'Langkah kesembilan: Di halaman Buku Saya, kamu bisa memantau status buku di tab Dipinjam, Antrean, dan Riwayat. Setiap buku memiliki masa pinjam otomatis 7 hingga 14 hari. Jika kuota perpustakaan penuh, buku masuk ke antrean dan otomatis aktif saat tersedia. Jangan lupa klik tombol Kembalikan jika sudah selesai membaca agar teman lain bisa meminjam.',
+        subtitle: 'Langkah 9: Pantau buku di tab Dipinjam, Antrean, dan Riwayat. Masa pinjam 7–14 hari. Klik "Kembalikan" jika sudah selesai agar lisensi buku bisa dipakai teman lain.'
       },
       {
-        title: 'Kelas & Aturan Lembar Jawab Digital (LJD)',
+        title: 'Kelas & SOP Ujian Lembar Jawab Digital (LJD)',
         image: 'assets/assignment_list.png',
-        narration: 'Langkah kesepuluh: Masuk ke ruang kelas spesifik untuk melihat tiga tab utama: Pengumuman Kelas, Sumber Belajar, dan Aktivitas Belajar. Saat menekan tombol Mulai Ujian, layar terkunci pada mode Lembar Jawab Digital. Jangan berpindah tab browser, menutup aplikasi, atau menekan Back karena sistem anti-cheat akan men-submit jawabanmu secara paksa.',
-        subtitle: 'Langkah 10: Buka ruang kelas untuk akses 3 tab — Pengumuman, Sumber Belajar, dan Aktivitas. Jangan pindah tab atau tekan Back saat ujian LJD berlangsung.'
+        narration: 'Langkah kesepuluh: Masuk ke ruang kelas untuk mengakses tab Pengumuman, Sumber Belajar, dan Aktivitas Belajar. Saat ujian LJD berlangsung, sistem anti-cheat aktif memantau, jangan pernah pindah tab browser. Jika timer habis, jawaban otomatis tersimpan. Jika internet tiba-tiba terputus, jangan tutup browser, segera sambungkan kembali atau laporkan ke guru pengawas kelas.',
+        subtitle: 'Langkah 10: Ujian LJD diawasi sistem anti-cheat, jangan pindah tab. Timer habis otomatis auto-submit. Jika internet putus, jangan tutup browser, segera hubungi guru pengawas.'
       },
       {
         title: 'Beli Buku di Toko & Pembayaran Transfer Manual',
@@ -657,10 +657,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 11: Beli buku di Toko, pilih varian, checkout, lalu transfer manual dan cantumkan Nomor Pesanan. Unggah foto struk agar admin verifikasi dan buku segera aktif.'
       },
       {
-        title: 'Pengaturan Akun & Profil Saya',
+        title: 'Pengaturan Akun, Profil & Logout',
         image: 'assets/user_profile.png',
-        narration: 'Langkah kedua belas: Buka menu Profil Saya untuk melengkapi identitas digitalmu. Isi Foto Avatar, Nama Lengkap, NISN, dan Nomor WhatsApp aktif. Data profil yang akurat penting untuk sinkronisasi otomatis dengan Data Pokok Pendidikan Dapodik dari admin sekolah. Kamu juga bisa mengganti password akun di sini kapan saja untuk menjaga keamanan.',
-        subtitle: 'Langkah 12: Lengkapi Profil Saya — Foto, Nama, NISN, dan WhatsApp aktif. Data ini digunakan untuk sinkronisasi Dapodik sekolah. Ganti password berkala untuk keamanan akun.'
+        narration: 'Langkah kedua belas: Buka menu Profil Saya untuk melengkapi data dasar seperti Foto Avatar, Nama Lengkap, NISN, dan Nomor Telepon untuk sinkronisasi Dapodik sekolah. Kamu juga bisa memperbarui kata sandi secara berkala. Selalu klik opsi Keluar atau Logout di menu avatar jika kamu mengakses BelajarPlus menggunakan komputer umum atau komputer perpustakaan sekolah.',
+        subtitle: 'Langkah 12: Lengkapi Profil Saya — Foto, Nama, NISN, dan Telepon. Ganti password berkala. Selalu klik "Keluar" (Logout) jika menggunakan komputer lab/perpustakaan sekolah.'
       }
     ]
   },

@@ -434,13 +434,25 @@
             <div class="step-number">09</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Manajemen "Buku Saya" (Pinjaman &amp; Antrean)</h3>
+                <h3>Manajemen "Buku Saya" (Masa Pinjam, Antrean &amp; Pengembalian)</h3>
                 <span class="step-tag">Koleksi Siswa</span>
               </div>
-              <p>Di halaman <strong>Buku Saya</strong>, kamu bisa melacak status semua buku digital yang sedang aktif di akunmu. Karena lisensi buku digital sekolah mungkin terbatas (misalnya sekolah hanya punya 50 eksemplar digital untuk buku fisika), maka sistem memberlakukan masa pinjam (umumnya 7 - 14 hari).</p>
-              <p>Jika kuota buku di perpustakaan habis dipinjam siswa lain, buku yang kamu pilih akan masuk ke tab <strong>Antrean</strong>. Begitu siswa lain mengembalikan bukunya, buku tersebut otomatis masuk ke tab <strong>Dipinjam</strong> kamu. Jangan lupa klik "Kembalikan" jika kamu sudah selesai membaca sebelum masa tenggang habis agar adik kelas atau temanmu bisa bergantian meminjam.</p>
+              <p>Di halaman <strong>Buku Saya</strong>, kamu bisa memantau dan mengelola seluruh buku digital sekolah yang sedang aktif di akunmu. Halaman ini terbagi menjadi 3 tab utama: <strong>Dipinjam</strong>, <strong>Antrean</strong>, dan <strong>Riwayat</strong>.</p>
+
+              <ul class="step-list">
+                <li>
+                  <strong>Masa Aktif Peminjaman (7–14 Hari)</strong> — Setiap buku pinjaman memiliki batas waktu baca otomatis. Begitu masa tenggang habis, hak akses baca akan <em>terkunci otomatis oleh sistem</em> dan kuota lisensi kembali ke perpustakaan sekolah.
+                </li>
+                <li>
+                  <strong>Sistem Antrean Otomatis</strong> — Jika kuota eksemplar digital di perpustakaan sedang habis dipinjam siswa lain, buku yang kamu pilih masuk ke tab <strong>Antrean</strong>. Begitu siswa lain mengembalikan, buku otomatis berpindah ke tab <strong>Dipinjam</strong> dan siap kamu baca!
+                </li>
+                <li>
+                  <strong>Pentingnya Tombol "Kembalikan"</strong> — Jika kamu sudah selesai membaca sebelum tanggal jatuh tempo, selalu klik tombol merah <strong>"Kembalikan"</strong> pada kartu buku. Tindakan ini membuka kesempatan bagi teman sekelasmu yang sedang menunggu di daftar antrean.
+                </li>
+              </ul>
+
               <div class="step-note">
-                💡 <strong>Isu Interface:</strong> Terkadang angka notifikasi jumlah buku di *tab header* atas mengalami <em>delay</em> sinkronisasi dengan jumlah daftar kartu buku aktual di layar bawah. Ini hanya isu tampilan sementara, cukup klik refresh (F5).
+                💡 <strong>Catatan Sinkronisasi:</strong> Jika angka jumlah buku di judul tab atas berbeda dengan kartu di layar bawah, lakukan refresh halaman (F5) untuk memperbarui data cache browser.
               </div>
             </div>
             <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
@@ -452,13 +464,23 @@
             <div class="step-number">10</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Kelas &amp; Aturan Ketat Lembar Jawab Digital (LJD)</h3>
+                <h3>Kelas &amp; SOP Ujian Lembar Jawab Digital (LJD)</h3>
                 <span class="step-tag">Penugasan &amp; Ujian</span>
               </div>
-              <p>Masuk ke menu ruang kelas secara spesifik akan menampilkan 3 tab utama: <strong>Pengumuman Kelas</strong> (pesan dari guru), <strong>Sumber Belajar</strong> (buku teks wajib yang di-<em>pin</em> oleh guru), dan <strong>Aktivitas Belajar</strong>.</p>
-              <p>Saat kamu menekan tombol "Mulai Ujian" di tab Aktivitas, layar akan terkunci pada mode LJD (Lembar Jawab Digital). Sangat disarankan untuk tidak berpindah tab browser, menutup aplikasi, atau menekan tombol <em>Back</em> di browser karena sistem keamanan *anti-cheat* bisa mendeteksinya sebagai pelanggaran dan men-<em>submit</em> ujianmu secara paksa (nilai hangus).</p>
+              <p>Masuk ke menu ruang kelas spesifik akan menampilkan 3 tab utama: <strong>Pengumuman Kelas</strong> (catatan guru), <strong>Sumber Belajar</strong> (buku teks wajib yang disematkan guru), dan <strong>Aktivitas Belajar</strong> (daftar tugas harian, kuis, dan ujian).</p>
+
+              <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0;">
+                <h4 style="margin: 0 0 0.4rem 0; color: #f87171; font-size: 0.95rem;">🚨 SOP &amp; Aturan Ketat Saat Mengerjakan Ujian LJD:</h4>
+                <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.88rem; color: #cbd5e1; line-height: 1.65;">
+                  <li><strong>Sistem Pengawas Anti-Cheat Aktif:</strong> Jangan berpindah tab browser, membuka aplikasi lain, atau menekan tombol <em>Back / Refresh</em>. Sistem keamanan dapat mendeteksi aktivitas mencurigakan dan melakukan *auto-submit* paksa (ujian ditutup seketika).</li>
+                  <li><strong>Timer Habis (00:00) = Auto-Submit:</strong> Jawaban yang sudah kamu pilih tersimpan otomatis saat waktu habis. Tidak perlu panik jika belum sempat menekan tombol "Kirim Lembar Jawaban".</li>
+                  <li><strong>Jika Internet Terputus / Wi-Fi Mati di Tengah Ujian:</strong> <em>JANGAN TUTUP BROWSER!</em> Tetap berada di halaman ujian, sambungkan kembali koneksi internetmu secepatnya. Jika layar macet, segera lapor langsung ke bapak/ibu guru pengawas kelas agar waktu/akses ujian dapat di-reset melalui panel guru.</li>
+                  <li><strong>Rekomendasi Perangkat:</strong> Sangat disarankan mengerjakan ujian LJD menggunakan <strong>Laptop / Komputer PC / Tablet</strong> agar teks soal panjang, tabel data, dan gambar soal terlihat jelas tanpa terpotong layar kecil HP.</li>
+                </ul>
+              </div>
+
               <div class="step-note">
-                🚨 <strong>Bug Kritis Server:</strong> Jika seorang guru secara tidak sengaja mem-<em>publish</em> tugas ujian namun bank soalnya kosong (0 soal terlampir), tombol "Mulai" akan menyebabkan layar perangkatmu mengalami <strong>Infinite Loading (Macet/Stuck muter-muter)</strong>. Tidak ada tombol close atau back yang muncul. Jika ini terjadi, tutup langsung tab browser-mu dan laporkan ke admin IT sekolah.
+                ⚠️ <strong>Perhatian Guru / Kasus Bank Soal Kosong:</strong> Jika guru tidak sengaja merilis ujian dengan 0 soal, menekan tombol "Mulai" dapat memicu *infinite loading* (layar berputar tanpa henti). Jika ini terjadi, tutup tab browser dan segera hubungi guru pengajar untuk memperbaiki paket soal.
               </div>
             </div>
             <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
@@ -588,11 +610,26 @@
             <div class="step-number">12</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Pengaturan Akun &amp; Profil Saya</h3>
-                <span class="step-tag">Akun</span>
+                <h3>Pengaturan Akun, Profil &amp; Keamanan Sesi</h3>
+                <span class="step-tag">Akun &amp; Privasi</span>
               </div>
-              <p>Langkah terakhir namun tidak kalah penting adalah mengatur identitas digitalmu. Buka menu <strong>Profil Saya</strong> (biasanya dari *dropdown* avatar di sudut kanan atas). Di sini kamu wajib mengisi dan melengkapi data dasar seperti Foto Avatar (wajah jelas), Nama Lengkap, Nomor Induk Siswa Nasional (NISN), dan Nomor WhatsApp aktif.</p>
-              <p>Data profil yang akurat sangat krusial karena server BelajarPlus akan melakukan sinkronisasi otomatis (*auto-sync*) dengan Data Pokok Pendidikan (Dapodik) dari pusat admin sekolah. Kamu juga bisa mengganti kata sandi (password) akunmu di menu ini kapan saja untuk menjaga keamanan privasi belajarmu.</p>
+              <p>Langkah terakhir namun tidak kalah penting adalah melengkapi identitas digitalmu. Buka menu <strong>Profil Saya</strong> (melalui *dropdown* avatar di sudut kanan atas layar). Di sini kamu wajib mengisi dan melengkapi data dasar seperti Foto Avatar (wajah jelas), Nama Lengkap, Nomor Induk Siswa Nasional (NISN), dan Nomor Telepon/WhatsApp aktif.</p>
+              
+              <ul class="step-list">
+                <li>
+                  <strong>Sinkronisasi Data Sekolah &amp; Dapodik:</strong> Pastikan ejaan Nama Lengkap dan NISN sesuai dengan data rapor/Dapodik sekolah agar rekapitulasi nilai tugas LJD tidak tertukar dengan siswa lain.
+                </li>
+                <li>
+                  <strong>Ganti Kata Sandi (Password):</strong> Kamu dapat memperbarui password akunmu secara berkala di menu ini demi menjaga privasi belajarmu.
+                </li>
+                <li>
+                  <strong>Cara Logout / Keluar Akun:</strong> Untuk keluar dari aplikasi, klik avatar profilmu di sudut kanan atas lalu pilih opsi <strong>"Keluar" / "Logout"</strong>.
+                </li>
+              </ul>
+
+              <div class="step-note">
+                🔒 <strong>Penting untuk Komputer Lab / Perpustakaan Sekolah:</strong> Jika mengakses BelajarPlus menggunakan komputer umum atau laptop milik teman, <strong>wajib selalu klik Keluar (Logout)</strong> setelah selesai belajar agar riwayat jawaban kuis dan akunmu tidak disalahgunakan orang lain.
+              </div>
             </div>
             <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
               <img src="assets/user_profile.png" class="screenshot-img" alt="Profil Pengguna" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
@@ -1112,6 +1149,10 @@
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Bedanya "Perpustakaan" dan "Toko"? <span class="faq-arrow">▼</span></button>
           <div class="faq-a">Perpustakaan berisi buku yang disediakan sekolah — gratis dipinjam tapi ada batas waktu. Toko berisi buku yang bisa dibeli secara mandiri — tidak gratis tapi tidak ada batas waktu baca setelah dibeli.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana jika internet putus saat sedang ujian LJD? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a"><strong>Jangan panik dan jangan tutup tab browser!</strong> Segera sambungkan kembali Wi-Fi atau kuota internetmu. Jawaban yang sudah sempat kamu klik tersimpan di server. Jika waktu ujian habis (00:00) saat offline, sistem akan auto-submit jawaban terakhir. Jika terjadi kendala macet total, segera lapor ke guru pengawas agar akses ujianmu bisa di-reset melalui panel admin guru.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara mengembalikan buku? <span class="faq-arrow">▼</span></button>
