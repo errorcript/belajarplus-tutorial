@@ -472,24 +472,27 @@ window.downloadRolePDF = async function(role) {
         const uniqueSrcs = Array.from(new Set(groupImgs.map(img => img.src).filter(Boolean)));
         let groupImgHTML = '';
         if (uniqueSrcs.length > 0) {
-          // Render 2 images side-by-side if pair, else stacked
           if (uniqueSrcs.length === 2) {
             groupImgHTML = `
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
-                <img src="${uniqueSrcs[0]}" style="width: 100%; height: auto; border-radius: 6px; border: 1px solid #cbd5e1;" />
-                <img src="${uniqueSrcs[1]}" style="width: 100%; height: auto; border-radius: 6px; border: 1px solid #cbd5e1;" />
+              <div style="display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin-top: 10px; page-break-inside: avoid;">
+                <div style="flex: 1; text-align: center;">
+                  <img src="${uniqueSrcs[0]}" style="max-width: 100%; height: auto; max-height: 280px; width: auto; border-radius: 6px; border: 1px solid #cbd5e1; display: inline-block;" />
+                </div>
+                <div style="flex: 1; text-align: center;">
+                  <img src="${uniqueSrcs[1]}" style="max-width: 100%; height: auto; max-height: 280px; width: auto; border-radius: 6px; border: 1px solid #cbd5e1; display: inline-block;" />
+                </div>
               </div>`;
           } else {
-            groupImgHTML = `<div style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">`;
+            groupImgHTML = `<div style="margin-top: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; page-break-inside: avoid;">`;
             uniqueSrcs.forEach(src => {
-              groupImgHTML += `<img src="${src}" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #cbd5e1;" />`;
+              groupImgHTML += `<img src="${src}" style="max-width: 480px; width: auto; height: auto; max-height: 320px; border-radius: 6px; border: 1px solid #cbd5e1;" />`;
             });
             groupImgHTML += `</div>`;
           }
         }
 
         pdfHTML += `
-          <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 14px; padding: 14px 16px; border: 1px solid #e2e8f0; border-left: 3px solid #3b82f6; border-radius: 8px; background: #f8fafc;">
+          <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 16px; padding: 14px 16px; border: 1px solid #e2e8f0; border-left: 3px solid #3b82f6; border-radius: 8px; background: #f8fafc;">
             <div style="font-size: 11.5px; color: #334155; line-height: 1.7; margin-bottom: 6px;">${groupText}</div>
             ${groupImgHTML}
           </div>
@@ -506,14 +509,18 @@ window.downloadRolePDF = async function(role) {
       if (uniqueSrcs.length > 0) {
         if (uniqueSrcs.length === 2) {
           imgHTML = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
-              <img src="${uniqueSrcs[0]}" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
-              <img src="${uniqueSrcs[1]}" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+            <div style="display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin-top: 12px; page-break-inside: avoid;">
+              <div style="flex: 1; text-align: center;">
+                <img src="${uniqueSrcs[0]}" style="max-width: 100%; height: auto; max-height: 280px; width: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08); display: inline-block;" />
+              </div>
+              <div style="flex: 1; text-align: center;">
+                <img src="${uniqueSrcs[1]}" style="max-width: 100%; height: auto; max-height: 280px; width: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08); display: inline-block;" />
+              </div>
             </div>`;
         } else {
-          imgHTML = `<div style="margin-top: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">`;
+          imgHTML = `<div style="margin-top: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; page-break-inside: avoid;">`;
           uniqueSrcs.forEach(src => {
-            imgHTML += `<img src="${src}" style="max-width: 460px; width: 100%; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />`;
+            imgHTML += `<img src="${src}" style="max-width: 480px; width: auto; height: auto; max-height: 320px; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />`;
           });
           imgHTML += `</div>`;
         }
