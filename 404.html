@@ -177,26 +177,48 @@
       margin: 0.75rem 0;
     }
 
-    /* STAMP */
+    /* STAMP WITH SLAM ANIMATION */
     .lc-stamp {
       position: absolute;
       top: 1.2rem;
       right: 0.8rem;
       border: 3px solid #dc2626;
       color: #dc2626;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.3rem 0.5rem;
-      border-radius: 3px;
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
       transform: rotate(12deg);
-      opacity: 0.85;
-      line-height: 1.4;
+      line-height: 1.35;
       text-align: center;
+      background: rgba(220, 38, 38, 0.05);
+      animation: stampSlam 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.25) 0.3s both;
+      transform-origin: center;
+      box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.2);
+    }
+    @keyframes stampSlam {
+      0% {
+        opacity: 0;
+        transform: scale(3.5) rotate(-25deg);
+        filter: blur(5px);
+      }
+      65% {
+        opacity: 1;
+        transform: scale(0.92) rotate(14deg);
+        filter: blur(0);
+      }
+      82% {
+        transform: scale(1.06) rotate(11deg);
+      }
+      100% {
+        opacity: 0.9;
+        transform: scale(1) rotate(12deg);
+      }
     }
 
-    /* barcode at bottom */
+    /* barcode at bottom with red laser beam */
     .lc-barcode {
       padding: 0.75rem 1rem;
       border-top: 1px dashed rgba(0,0,0,0.15);
@@ -204,6 +226,24 @@
       flex-direction: column;
       align-items: center;
       gap: 0.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .lc-laser {
+      position: absolute;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: #ef4444;
+      box-shadow: 0 0 8px 1.5px rgba(239, 68, 68, 0.8);
+      animation: scanLaser 2.2s ease-in-out infinite alternate;
+      pointer-events: none;
+      border-radius: 2px;
+    }
+    @keyframes scanLaser {
+      0% { top: 10px; opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { top: 38px; opacity: 0.2; }
     }
     .lc-bars {
       display: flex;
@@ -214,10 +254,15 @@
     .lc-bar {
       width: 2px;
       background: #1a1a1a;
-      opacity: 0.7;
+      opacity: 0.75;
+      transition: height 0.2s ease;
     }
     .lc-barcode-num {
       font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: #64748b;
+      font-family: 'Space Mono', monospace;
+    }
       letter-spacing: 0.2em;
       color: #64748b;
       font-family: 'Space Mono', monospace;
@@ -379,6 +424,7 @@
           </div>
         </div>
         <div class="lc-barcode">
+          <div class="lc-laser"></div>
           <div class="lc-bars" id="lcBars"></div>
           <div class="lc-barcode-num">0000 0000 0404 0000</div>
         </div>
@@ -420,6 +466,30 @@
       b.style.height = h + 'px';
       bars.appendChild(b);
     });
+
+    // 3D Parallax Tilt Physics on Card
+    const cardWrap = document.querySelector('.lib-card-wrap');
+    const card = document.querySelector('.lib-card');
+    if (cardWrap && card) {
+      cardWrap.style.perspective = '1000px';
+      let targetRotX = 0, targetRotY = 0;
+      let currentRotX = 0, currentRotY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        targetRotY = ((e.clientX - cx) / cx) * 14;
+        targetRotX = -((e.clientY - cy) / cy) * 14;
+      });
+
+      function animateTilt() {
+        currentRotX += (targetRotX - currentRotX) * 0.08;
+        currentRotY += (targetRotY - currentRotY) * 0.08;
+        card.style.transform = `rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) rotate(-2deg)`;
+        requestAnimationFrame(animateTilt);
+      }
+      requestAnimationFrame(animateTilt);
+    }
   </script>
 </body>
 </html>
