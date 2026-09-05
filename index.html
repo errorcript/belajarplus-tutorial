@@ -333,6 +333,13 @@
               <div class="step-note">
                 ⏰ <strong>Tip Pro:</strong> Jika timer LJD (Lembar Jawab Digital) menyentuh angka 00:00, jawabanmu akan tersimpan dan tertutup otomatis oleh sistem. Jangan biarkan layar idle terlalu lama!
               </div>
+
+              <div style="background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; border-radius: 8px; padding: 0.85rem 1rem; margin: 1rem 0;">
+                <strong style="color: #60a5fa;">📝 Mau lihat tampilan layar saat mengerjakan soal?</strong>
+                <p style="margin: 0.4rem 0 0 0; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+                  Begitu tombol <strong>"Kerjakan"</strong> ditekan, kamu akan masuk ke antarmuka Lembar Jawab Digital (LJD) dengan pengawas anti-cheat, palet nomor soal, tombol ragu-ragu, dan halaman tinjau sebelum submit. Pelajari panduan visual detailnya di <a href="#step-10" class="link" style="font-weight: 600; text-decoration: underline;">Langkah 10: Alur Pengerjaan Ujian LJD</a>.
+                </p>
+              </div>
             </div>
             <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
               <img src="assets/ss_tugas.png" class="screenshot-img" alt="Detail Tugas dari Guru" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
@@ -460,22 +467,53 @@
             </div>
           </div>
 
-          <div class="step" data-step="10">
+          <div class="step" data-step="10" id="step-10">
             <div class="step-number">10</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Kelas &amp; SOP Ujian Lembar Jawab Digital (LJD)</h3>
-                <span class="step-tag">Penugasan &amp; Ujian</span>
+                <h3>Alur Pengerjaan Tugas &amp; Ujian Lembar Jawab Digital (LJD)</h3>
+                <span class="step-tag">Penugasan &amp; Ujian LJD</span>
               </div>
-              <p>Masuk ke menu ruang kelas spesifik akan menampilkan 3 tab utama: <strong>Pengumuman Kelas</strong> (catatan guru), <strong>Sumber Belajar</strong> (buku teks wajib yang disematkan guru), dan <strong>Aktivitas Belajar</strong> (daftar tugas harian, kuis, dan ujian).</p>
+              <p>Pengerjaan tugas, kuis, maupun ujian di BelajarPlus menggunakan sistem <strong>Lembar Jawab Digital (LJD)</strong> berbasis web yang terintegrasi langsung dengan bank soal guru serta sistem pengawas kejujuran otomatis. Ikuti 4 tahap terpadu berikut saat mengerjakan:</p>
+
+              <ul class="step-list">
+                <li>
+                  <strong>1. Akses Tugas &amp; Mulai Pengerjaan</strong> — Buka menu <em>Kelas Saya</em>, pilih ruang kelas guru yang bersangkutan, lalu buka tab <strong>"Penugasan"</strong> (atau klik langsung kartu tugas di dashboard). Perhatikan instruksi, batas tenggat waktu, lalu tekan tombol biru <strong>"Kerjakan"</strong> untuk membuka layar ujian.
+                </li>
+                <li>
+                  <strong>2. Antarmuka Soal, Stimulus &amp; Pengawas Anti-Cheat</strong> — Begitu layar LJD terbuka:
+                  <ul style="margin: 0.4rem 0 0.4rem 1.2rem; list-style-type: circle;">
+                    <li><strong>Header Pengawas:</strong> Menampilkan nama siswa, nomor soal aktif (contoh: <code>Soal 1/30</code>), progress bar (<em>Terjawab X / Total</em>), dan indikator merah <strong>Pelanggaran Anti-Cheat</strong> (mencatat otomatis jika kamu berpindah tab atau keluar dari layar pengerjaan).</li>
+                    <li><strong>Kartu Soal &amp; Stimulus:</strong> Baca teks bacaan, narasi stimulus, tabel, atau grafik. Jika ragu-ragu dengan jawabanmu, klik tombol <strong>"🚩 Tandai"</strong> di sudut kanan atas kartu soal.</li>
+                    <li><strong>Memilih Jawaban:</strong> Klik opsi jawaban yang tersedia (Pilihan Ganda, Benar/Salah, atau PGK). Gunakan tombol <strong>"&lt; Sebelumnya"</strong> dan <strong>"Berikutnya &gt;"</strong> untuk berpindah nomor secara teratur.</li>
+                    <li><strong>Navigator Soal (1–30):</strong> Grid nomor soal di bagian bawah memungkinkanmu melompat langsung ke butir nomor mana pun secara instan.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>3. Halaman Tinjau Jawaban Sebelum Submit</strong> — Sebelum mengakhiri ujian, klik tombol biru <strong>"Ke halaman tinjau"</strong> di bawah navigator nomor:
+                  <ul style="margin: 0.4rem 0 0.4rem 1.2rem; list-style-type: circle;">
+                    <li>Sistem otomatis menampilkan rekap peringatan jika masih ada butir kosong: <em>"X soal belum dijawab"</em>.</li>
+                    <li>Status setiap nomor ditampilkan transparan: tanda strip (<code>—</code>) jika belum diisi, atau tanda centang/simbol jika sudah terisi.</li>
+                    <li>Ketuk nomor apa pun pada daftar untuk langsung kembali dan memperbaiki jawaban sebelum menekan kirim akhir.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>4. Pengumpulan Lembar Jawaban, Skor Instan &amp; Analisis Kompetensi</strong> — Tekan tombol konfirmasi kirim pada halaman tinjau (atau sistem melakukan <em>auto-submit</em> otomatis jika timer ujian menyentuh 00:00). Layar langsung menampilkan evaluasi hasil belajarmu:
+                  <ul style="margin: 0.4rem 0 0.4rem 1.2rem; list-style-type: circle;">
+                    <li>Ringkasan <strong>Skor Persentase</strong> (contoh: <strong>93.33%</strong>), total jawaban <strong>Benar</strong>, dan total <strong>Salah</strong>.</li>
+                    <li>Konfirmasi pengiriman: <em>"🏆 Laporan dikirim ke guru [Nama Guru Pengampu]"</em>.</li>
+                    <li>Grafik batang <strong>Analisis Kompetensi</strong> yang memetakan tingkat penguasaanmu pada setiap indikator kompetensi dasar.</li>
+                  </ul>
+                </li>
+              </ul>
 
               <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0;">
                 <h4 style="margin: 0 0 0.4rem 0; color: #f87171; font-size: 0.95rem;">🚨 SOP &amp; Aturan Ketat Saat Mengerjakan Ujian LJD:</h4>
                 <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.88rem; color: #cbd5e1; line-height: 1.65;">
-                  <li><strong>Sistem Pengawas Anti-Cheat Aktif:</strong> Jangan berpindah tab browser, membuka aplikasi lain, atau menekan tombol <em>Back / Refresh</em>. Sistem keamanan dapat mendeteksi aktivitas mencurigakan dan melakukan *auto-submit* paksa (ujian ditutup seketika).</li>
+                  <li><strong>Sistem Pengawas Anti-Cheat Aktif:</strong> Jangan berpindah tab browser, membuka aplikasi lain, atau menekan tombol <em>Back / Refresh</em>. Sistem keamanan mencatat jumlah pelanggaran dan dapat melakukan *auto-submit* paksa (ujian ditutup seketika).</li>
                   <li><strong>Timer Habis (00:00) = Auto-Submit:</strong> Jawaban yang sudah kamu pilih tersimpan otomatis saat waktu habis. Tidak perlu panik jika belum sempat menekan tombol "Kirim Lembar Jawaban".</li>
-                  <li><strong>Jika Internet Terputus / Wi-Fi Mati di Tengah Ujian:</strong> <em>JANGAN TUTUP BROWSER!</em> Tetap berada di halaman ujian, sambungkan kembali koneksi internetmu secepatnya. Jika layar macet, segera lapor langsung ke bapak/ibu guru pengawas kelas agar waktu/akses ujian dapat di-reset melalui panel guru.</li>
-                  <li><strong>Rekomendasi Perangkat:</strong> Sangat disarankan mengerjakan ujian LJD menggunakan <strong>Laptop / Komputer PC / Tablet</strong> agar teks soal panjang, tabel data, dan gambar soal terlihat jelas tanpa terpotong layar kecil HP.</li>
+                  <li><strong>Jika Internet Terputus / Wi-Fi Mati di Tengah Ujian:</strong> <em>JANGAN TUTUP BROWSER!</em> Tetap berada di halaman ujian, sambungkan kembali koneksi internetmu secepatnya. Jika layar macet, segera lapor langsung ke bapak/ibu guru pengawas kelas agar akses ujian dapat di-reset melalui panel guru.</li>
+                  <li><strong>Rekomendasi Perangkat:</strong> Sangat disarankan mengerjakan ujian LJD menggunakan <strong>Laptop / Komputer PC / Tablet</strong> agar teks soal panjang, tabel data, dan gambar stimulus terlihat jelas tanpa terpotong layar kecil HP.</li>
                 </ul>
               </div>
 
@@ -483,8 +521,57 @@
                 ⚠️ <strong>Perhatian Guru / Kasus Bank Soal Kosong:</strong> Jika guru tidak sengaja merilis ujian dengan 0 soal, menekan tombol "Mulai" dapat memicu *infinite loading* (layar berputar tanpa henti). Jika ini terjadi, tutup tab browser dan segera hubungi guru pengajar untuk memperbaiki paket soal.
               </div>
             </div>
-            <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
-              <img src="assets/assignment_list.png" class="screenshot-img" alt="Detail Kelas dan Ujian" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
+
+            <!-- Web-only visual: Galeri tangkapan layar alur LJD -->
+            <div class="step-visual">
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="font-size: 0.7rem; font-weight: 700; color: #60a5fa; letter-spacing: 0.05em; text-transform: uppercase;">📸 Tahap 1: Akses Tugas di Kelas</div>
+                <img src="assets/class_assignment.png" class="screenshot-img" alt="Menu Penugasan di Ruang Kelas" style="width:100%; border-radius:6px;" />
+
+                <div style="font-size: 0.7rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Tahap 2: Layar Pengerjaan LJD &amp; Lembar Pilihan</div>
+                <img src="assets/ljd_soal_stimulus.png" class="screenshot-img" alt="Stimulus Bacaan dan Anti-cheat LJD" style="width:100%; border-radius:6px;" />
+                <img src="assets/ljd_lembar_jawaban.png" class="screenshot-img" alt="Pilihan Jawaban dan Navigator Soal LJD" style="width:100%; border-radius:6px;" />
+
+                <div style="font-size: 0.7rem; font-weight: 700; color: #fbbf24; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Tahap 3: Halaman Tinjau Jawaban</div>
+                <img src="assets/ljd_tinjau_jawaban.png" class="screenshot-img" alt="Halaman Tinjau Jawaban LJD" style="width:100%; border-radius:6px;" />
+
+                <div style="font-size: 0.7rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Tahap 4: Skor Hasil &amp; Analisis Kompetensi</div>
+                <img src="assets/assignment_result.png" class="screenshot-img" alt="Skor Hasil Pengerjaan dan Analisis Kompetensi" style="width:100%; border-radius:6px;" />
+              </div>
+            </div>
+
+            <!-- PDF Group 1: Memulai Tugas & Antarmuka LJD -->
+            <div class="pdf-group" data-pdf-label="Tahap 1 &amp; 2: Memulai Tugas &amp; Antarmuka Lembar Jawab Digital (LJD)">
+              <div class="pdf-group-text">
+                <strong>Tahap 1 &amp; 2: Buka Tugas di Ruang Kelas → Masuk Antarmuka LJD</strong><br/>
+                Buka menu <strong>Kelas Saya</strong> lalu klik tab <strong>Penugasan</strong>. Klik tombol biru <strong>"Kerjakan"</strong> untuk meluncurkan antarmuka ujian LJD. Perhatikan indikator merah <em>Pelanggaran Anti-Cheat</em> di bagian atas yang mendeteksi perpindahan tab browser. Baca teks stimulus, gunakan tombol <strong>"🚩 Tandai"</strong> untuk nomor ragu-ragu, dan lompat nomor dengan cepat lewat kotak <strong>Navigator Soal (1–30)</strong> di bagian bawah.
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #60a5fa; margin-bottom: 0.5rem;">📸 Tahap 1 &amp; 2: Daftar Tugas Kelas &amp; Antarmuka Pengerjaan Soal LJD</div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <img src="assets/class_assignment.png" class="screenshot-img pdf-img" alt="Daftar Penugasan Kelas" style="width: 100%; border-radius: 6px;" />
+                    <img src="assets/ljd_lembar_jawaban.png" class="screenshot-img pdf-img" alt="Antarmuka Pengerjaan Soal LJD BelajarPlus" style="width: 100%; border-radius: 6px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PDF Group 2: Tinjau Jawaban & Skor Hasil -->
+            <div class="pdf-group" data-pdf-label="Tahap 3 &amp; 4: Halaman Tinjau Jawaban &amp; Lembar Skor Hasil Pengerjaan">
+              <div class="pdf-group-text">
+                <strong>Tahap 3 &amp; 4: Halaman Tinjau Jawaban → Pengumpulan &amp; Lembar Hasil Nilai</strong><br/>
+                Sebelum mengirim lembar ujian, klik tombol <strong>"Ke halaman tinjau"</strong> untuk memastikan tidak ada soal yang terlewat (sistem menampilkan notifikasi <em>"X soal belum dijawab"</em>). Setelah dikumpulkan atau saat waktu 00:00 berakhir (auto-submit), sistem langsung menampilkan <strong>Skor Persentase</strong>, total <strong>Benar/Salah</strong>, konfirmasi pengiriman ke guru, serta grafik <strong>Analisis Kompetensi</strong> penguasaan materi.
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #34d399; margin-bottom: 0.5rem;">📸 Tahap 3 &amp; 4: Halaman Tinjau Jawaban &amp; Analisis Skor Hasil Ujian</div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <img src="assets/ljd_tinjau_jawaban.png" class="screenshot-img pdf-img" alt="Halaman Tinjau Jawaban Sebelum Pengiriman" style="width: 100%; border-radius: 6px;" />
+                    <img src="assets/assignment_result.png" class="screenshot-img pdf-img" alt="Lembar Hasil Skor dan Analisis Kompetensi Siswa" style="width: 100%; border-radius: 6px;" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

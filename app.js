@@ -645,10 +645,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 9: Pantau buku di tab Dipinjam, Antrean, dan Riwayat. Masa pinjam 7–14 hari. Klik "Kembalikan" jika sudah selesai agar lisensi buku bisa dipakai teman lain.'
       },
       {
-        title: 'Kelas & SOP Ujian Lembar Jawab Digital (LJD)',
-        image: 'assets/assignment_list.png',
-        narration: 'Langkah kesepuluh: Masuk ke ruang kelas untuk mengakses tab Pengumuman, Sumber Belajar, dan Aktivitas Belajar. Saat ujian LJD berlangsung, sistem anti-cheat aktif memantau, jangan pernah pindah tab browser. Jika timer habis, jawaban otomatis tersimpan. Jika internet tiba-tiba terputus, jangan tutup browser, segera sambungkan kembali atau laporkan ke guru pengawas kelas.',
-        subtitle: 'Langkah 10: Ujian LJD diawasi sistem anti-cheat, jangan pindah tab. Timer habis otomatis auto-submit. Jika internet putus, jangan tutup browser, segera hubungi guru pengawas.'
+        title: 'Alur Pengerjaan Tugas & Ujian LJD',
+        image: 'assets/ljd_lembar_jawaban.png',
+        narration: 'Langkah kesepuluh: Saat mengerjakan tugas atau ujian LJD, klik tombol Kerjakan dari ruang kelas. Di layar ujian, perhatikan indikator Pelanggaran anti-cheat di header atas yang mencatat jika kamu berpindah tab. Baca stimulus soal, gunakan tombol Tandai untuk nomor ragu-ragu, dan navigasikan nomor lewat palet soal di bawah. Sebelum mengumpulkan, klik tombol Ke halaman tinjau untuk memeriksa nomor yang belum dijawab. Setelah dikirim, skor persentase, jumlah benar-salah, dan analisis kompetensi langsung terkirim otomatis ke gurumu.',
+        subtitle: 'Langkah 10: Kerjakan LJD dengan jujur (anti-cheat mendeteksi tab switch). Gunakan tombol Tandai & Navigator Soal, cek halaman tinjau sebelum submit, lalu pantau skor serta analisis kompetensi.'
       },
       {
         title: 'Beli Buku di Toko & Pembayaran Transfer Manual',

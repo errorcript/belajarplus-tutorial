@@ -2,7 +2,7 @@
 
 ## 1. Tambahan Screenshot Pelengkap Akun Siswa (Optional Polish)
 - [ ] **Layar / Popup "Lupa Kata Sandi" (Langkah 02)**: Tangkapan layar formulir input email reset password agar orang tua/siswa awam langsung paham posisinya.
-- [ ] **Layar Ujian LJD Sedang Berjalan (Langkah 10)**: Tampilan asli soal pilihan ganda, tombol ragu-ragu/selesai, dan timer hitung mundur anti-cheat di pojok atas.
+- [x] **Layar Ujian LJD Sedang Berjalan (Langkah 10)**: Tampilan asli pengerjaan soal (stimulus & lembar pilihan), navigator nomor, tombol tandai, halaman tinjau jawaban, serta skor hasil & analisis kompetensi (`assets/ljd_*.png` & `assets/assignment_result.png`).
 - [ ] **Modal Konfirmasi Berhasil Masuk Kelas (Langkah 05)**: Tangkapan layar respons sukses setelah input kode `BLJ-XXXXXX`.
 
 ---
