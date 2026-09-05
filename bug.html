@@ -319,29 +319,29 @@
       <div class="bh-meta-grid">
         <div class="bh-meta-item">
           <div class="bh-meta-label">Total Temuan</div>
-          <div class="bh-meta-val" style="color: #60a5fa;">7 Isu Teridentifikasi</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">15 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">Tingkat Kritis / Tinggi</div>
-          <div class="bh-meta-val" style="color: #f87171;">2 Isu</div>
+          <div class="bh-meta-val" style="color: #f87171;">4 Isu</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">Tingkat Sedang (Medium)</div>
-          <div class="bh-meta-val" style="color: #fbbf24;">4 Isu</div>
+          <div class="bh-meta-val" style="color: #fbbf24;">8 Isu</div>
         </div>
         <div class="bh-meta-item">
-          <div class="bh-meta-label">Tingkat Rendah / Typo</div>
-          <div class="bh-meta-val" style="color: #34d399;">1 Isu</div>
+          <div class="bh-meta-label">Tingkat Rendah / Typo / UX</div>
+          <div class="bh-meta-val" style="color: #34d399;">3 Isu</div>
         </div>
       </div>
     </header>
 
     <!-- Filter Buttons -->
     <div class="filter-bar">
-      <button class="filter-chip active" onclick="filterBugs('all', this)">Semua (7)</button>
-      <button class="filter-chip" onclick="filterBugs('high', this)">Tinggi / Kritis (2)</button>
-      <button class="filter-chip" onclick="filterBugs('medium', this)">Sedang (4)</button>
-      <button class="filter-chip" onclick="filterBugs('low', this)">Rendah / Typo (1)</button>
+      <button class="filter-chip active" onclick="filterBugs('all', this)">Semua (15)</button>
+      <button class="filter-chip" onclick="filterBugs('high', this)">Tinggi / Kritis (4)</button>
+      <button class="filter-chip" onclick="filterBugs('medium', this)">Sedang (8)</button>
+      <button class="filter-chip" onclick="filterBugs('low', this)">Rendah / UX / Typo (3)</button>
     </div>
 
     <!-- LIST OF BUGS -->
@@ -654,6 +654,358 @@
       </div>
     </div>
 
+    <!-- BUG 8: Whiteboard Kehilangan Data -->
+    <div class="bug-card" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-008</span>
+          <h3 class="bc-title">Coretan &amp; Catatan Whiteboard E-Reader Tidak Tersimpan (Data Loss saat Tab Ditutup)</h3>
+        </div>
+        <span class="bc-severity sev-high">High / Data Loss</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> E-Reader Web (`/library/reader/[id]`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Guru</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Ketika siswa mencatat rumus, coretan pembahasan guru, atau memberi stabilo pada halaman e-book menggunakan fitur <strong>Whiteboard</strong>, kanvas gambar tidak memiliki mekanisme penyimpanan ke database profil akun ataupun localStorage browser. Saat halaman di-refresh atau browser ditutup, seluruh coretan hilang permanen dan memaksa pengguna mengunduh file secara manual satu per satu.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka e-reader pada buku apa saja, klik ikon "Whiteboard" di toolbar bawah.</li>
+                <li>Buat coretan penjelasan atau stabilo teks materi pada halaman 5.</li>
+                <li>Lakukan refresh browser (F5) atau tutup tab lalu buka kembali.</li>
+                <li>Coretan kanvas hilang total tanpa jejak.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Serialisasikan koordinat vektor kanvas (format JSON/SVG Fabric.js) dan simpan otomatis dengan debounce 2 detik ke endpoint API user-annotation atau `localStorage` dengan key `bp_wb_[bookId]_[pageNum]`.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/reader_toolbar.png" alt="Fitur Whiteboard E-Reader" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/reader_toolbar.png (Toolbar bawah: Whiteboard)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 9: Tidak Bisa Keluar Kelas -->
+    <div class="bug-card" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-009</span>
+          <h3 class="bc-title">Siswa Tidak Memiliki Opsi Mandiri untuk Keluar dari Kelas yang Salah Rombel</h3>
+        </div>
+        <span class="bc-severity sev-high">High / UX Lock-in</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Manajemen Kelas Saya (`/classes`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Jika seorang siswa salah mengetikkan 6-digit Kode Kelas (contoh: siswa 12-IPA salah memasukkan kode kelas 12-IPS), <strong>tidak ada tombol "Tinggalkan Kelas" atau "Batal Bergabung"</strong> pada kartu kelas siswa. Siswa terjebak di kelas yang salah, otomatis menerima tugas dan jadwal ujian yang tidak sesuai, serta merepotkan guru karena harus dikeluarkan manual dari dashboard guru.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Input kode kelas `BLJ-XXXXXX` milik rombel kelas lain.</li>
+                <li>Kartu kelas muncul di dashboard siswa.</li>
+                <li>Buka kartu kelas / opsi menu: tidak ditemukan opsi keluar atau batalkan kelas.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Sediakan tombol <em>"Batal Bergabung"</em> dengan konfirmasi modal pop-up, khusus bagi siswa yang belum memiliki riwayat pengumpulan nilai tugas/ujian aktif di kelas tersebut.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/ss_kelas.png" alt="Kartu Kelas Saya Siswa" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/ss_kelas.png (Kartu rombel tanpa tombol leave)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 10: Countdown Timer LJD Hilang di Halaman Tinjau -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-010</span>
+          <h3 class="bc-title">Countdown Timer Menghilang pada Halaman Tinjau Jawaban LJD</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / UX Confusion</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Ujian LJD Halaman Tinjau (`/exam/review`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Ketika siswa menekan tombol <strong>"Ke halaman tinjau"</strong> untuk memeriksa butir-butir soal yang masih kosong sebelum pengiriman akhir, indikator hitung mundur waktu (countdown timer) tidak ditampilkan di bilah header atas (hanya tertulis nama siswa dan posisi soal). Siswa yang sedang memeriksa sisa nomor tidak menyadari waktu tersisa, sehingga rawan terkena auto-submit paksa secara mendadak.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Kerjakan ujian LJD, jawab beberapa soal.</li>
+                <li>Klik tombol biru "Ke halaman tinjau" di bawah kotak navigator nomor.</li>
+                <li>Amati header halaman tinjau: countdown jam/menit/detik tidak terpasang.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Pertahankan komponen sticky floating timer di header global seluruh siklus pengerjaan LJD, termasuk saat berada di rute/view `/review`.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/ljd_tinjau_jawaban.png" alt="Halaman Tinjau Jawaban LJD" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/ljd_tinjau_jawaban.png (Header tanpa sisa timer)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 11: Buku Berlisensi Gratis Masih Dijual di Toko Tanpa Notif -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-011</span>
+          <h3 class="bc-title">Katalog Toko Tetap Menawarkan Buku yang Sebenarnya Tersedia Gratis di Perpustakaan Sekolah</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Commercial Ethics</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Toko Buku (`/shop`) vs Perpustakaan (`/library`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Orang Tua</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Banyak buku pelajaran dan modul TKA yang kuota lisensi digitalnya telah dibayar oleh sekolah mitra dan dapat dipinjam 100% gratis oleh siswa di menu Perpustakaan. Namun saat siswa membuka menu Toko, buku yang sama tetap dipajang untuk dibeli tanpa ada peringatan: <em>"Buku ini sudah tersedia gratis di perpustakaan sekolahmu"</em>. Ini memicu potensi orang tua mengeluarkan biaya yang tidak perlu.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Cari buku wajib sekolah di menu `/library` (status: Tersedia untuk dipinjam gratis).</li>
+                <li>Buka menu `/shop`, cari judul buku yang sama.</li>
+                <li>Tombol "+ Keranjang" dan "Beli Sekarang" tetap aktif tanpa banner deteksi lisensi sekolah.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Cek relasi `school_licenses` pengguna aktif pada kartu produk Toko. Jika terdaftar, sematkan badge hijau: <em>"Tersedia Gratis via Sekolah Mitra"</em> dengan tombol shortcut langsung pinjam di Perpustakaan.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/toko_buku.png" alt="Katalog Toko Buku BelajarPlus" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/toko_buku.png (Katalog toko tanpa cross-check sekolah)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 12: Tidak Ada Validasi Client-Side Upload Struk Transfer -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-012</span>
+          <h3 class="bc-title">Ketiadaan Validasi Client-Side Format &amp; Ukuran File Bukti Pembayaran</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Validation Gap</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Upload Bukti Struk Transfer (`/orders/[id]`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Orang Tua</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Form unggah bukti transfer manual di halaman detail pesanan tidak membatasi ekstensi file pada tag input (`accept`) dan tidak memverifikasi ukuran berkas sebelum tombol diklik. Pengguna HP yang memotret struk dengan resolusi tinggi (> 5 MB) atau format HEIC baru mendapati proses gagal setelah menunggu lama (*HTTP 413 Payload Too Large* atau *Internal Server Error*).
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buat pesanan transfer manual di Toko.</li>
+                <li>Pada tombol "Pilih file", pilih file gambar mentah kamera ponsel (> 6 MB).</li>
+                <li>Klik "Unggah bukti &amp; konfirmasi". Tidak ada pesan validasi instan, request langsung macet/gagal.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Tambahkan atribut `accept=".jpg,.jpeg,.png,.pdf"` dan lakukan kompresi otomatis di sisi browser (via Canvas API) atau tolak langsung berkas jika melebihi 5 MB sebelum request `multipart/form-data` dikirimkan ke server.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/detail_pesanan_transfer.png" alt="Form Upload Bukti Transfer" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/detail_pesanan_transfer.png (Form upload bukti)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 13: Shortcut Kembalikan Buku di Akhir Reader Absen -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-013</span>
+          <h3 class="bc-title">Ketiadaan Shortcut "Kembalikan Buku" saat Siswa Selesai Membaca Halaman Terakhir</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Circulation Bottleneck</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> E-Reader BelajarPlus (`/library/reader/[id]`)</span>
+        <span><strong>Peran Terkena:</strong> Seluruh Siswa Sekolah</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Saat siswa selesai membaca e-book sampai halaman terakhir (misal: halaman `98/98`), e-reader tidak menampilkan pop-up konfirmasi: <em>"Bagus! Kamu sudah menyelesaikan buku ini. Kembalikan sekarang agar teman lain bisa meminjam?"</em>. Siswa harus keluar ke dashboard, buka menu Buku Saya, cari kartu buku, lalu klik tombol Kembalikan. Karena alurnya berbelit, mayoritas siswa membiarkan buku begitu saja hingga masa 14 hari kedaluwarsa, memicu antrean pinjam menumpuk di sekolah.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka e-reader dan geser slider ke halaman terakhir buku (misal: hal 98).</li>
+                <li>Tombol panah "Selanjutnya" hanya berstatus disabled tanpa opsi tindakan lanjutan.</li>
+                <li>Tidak tersedia jalan pintas untuk mengembalikan buku dari dalam e-reader.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Tampilkan modal congratulatory di akhir buku dengan tombol aksi: <em>"Kembalikan ke Perpustakaan"</em> yang langsung mengeksekusi mutasi API pengembalian buku.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/reader_toolbar.png" alt="E-Reader Halaman Akhir" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/reader_toolbar.png (Navigasi reader lembar akhir)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 14: Batang Analisis Kompetensi Tanpa Label Indikator -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-014</span>
+          <h3 class="bc-title">Grafik Analisis Kompetensi Hasil Ujian Tidak Memiliki Label Indikator Soal</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Analytics Gap</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Laporan Evaluasi Ujian LJD (`/assignment/result`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Guru</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada lembar evaluasi hasil pengerjaan ujian LJD, grafik batang <strong>"Analisis kompetensi"</strong> hanya menyajikan 8 bar vertikal warna biru persentase 0-100% tanpa keterangan teks label Kompetensi Dasar (KD) ataupun tooltip hover. Siswa dan guru tidak bisa mengetahui materi atau indikator soal mana yang diwakili oleh batang bar yang nilainya jeblok.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka transkrip nilai hasil pengerjaan LJD siswa.</li>
+                <li>Scroll ke bawah ke panel <em>"Analisis kompetensi"</em>.</li>
+                <li>Arahkan kursor atau klik pada batang grafik: tidak ada label teks materi maupun tooltip rincian indikator.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Sematkan label sumbu-X (misal: "Pemahaman Narasi", "Struktur Kalimat", dll) dan tooltip interaktif yang merinci nomor soal yang masuk ke dalam kategori kompetensi tersebut.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/assignment_result.png" alt="Grafik Analisis Kompetensi Tanpa Label" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/assignment_result.png (Grafik kompetensi kosong label)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 15: Password Strength Meter Absen -->
+    <div class="bug-card" data-severity="low">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-015</span>
+          <h3 class="bc-title">Ketiadaan Indikator Kekuatan Kata Sandi (Password Strength Meter) saat Registrasi</h3>
+        </div>
+        <span class="bc-severity sev-low">Low / Usability</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Registrasi Akun Siswa &amp; Guru (`/auth`)</span>
+        <span><strong>Peran Terkena:</strong> Pengguna Baru</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada formulir pendaftaran akun baru, kotak isian Kata Sandi tidak memiliki petunjuk kriteria kompleksitas yang valid (apakah wajib ada angka, huruf kapital, atau tanda baca simbol) serta tidak ada bar indikator kekuatan password secara realtime. Calon pengguna sering mengalami frustrasi karena formulir ditolak oleh server berulang kali tanpa kejelasan aturan password.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka halaman `/auth` tab "Daftar".</li>
+                <li>Ketik password di kolom kata sandi.</li>
+                <li>Tidak ada checklist atau bar warna yang menunjukkan apakah password memenuhi kriteria sebelum tombol submit ditekan.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Tambahkan komponen checklist realtime di bawah input password (minimal 8 karakter, huruf kapital, dan angka) dengan ikon centang hijau dinamis saat pengguna mengetik.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/register_siswa.png" alt="Form Registrasi Siswa" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/register_siswa.png (Form registrasi tanpa meter password)</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Lightbox Image Modal Reusable -->
