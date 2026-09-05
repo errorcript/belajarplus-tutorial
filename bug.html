@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Bug & Audit Teknis | BelajarPlus.id</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="assets/belajar-plus-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=53" />
+  <style>
+    :root {
+      --font-code: 'JetBrains Mono', monospace;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #090d16;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .bug-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+    .bug-header {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .bug-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6);
+    }
+    .bh-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .bh-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .bh-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0.5rem 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .bh-desc {
+      color: #94a3b8;
+      font-size: 1rem;
+      max-width: 780px;
+      margin: 0;
+    }
+    .bh-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .bh-meta-item {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+    .bh-meta-label {
+      font-size: 0.75rem;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .bh-meta-val {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 0.2rem;
+    }
+
+    /* Filters */
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-chip:hover, .filter-chip.active {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      color: #ffffff;
+    }
+
+    /* Bug Cards */
+    .bug-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .bug-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+    }
+    .bc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .bc-id-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .bc-id {
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+    .bc-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .bc-severity {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .sev-critical { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .sev-high { background: rgba(249, 115, 22, 0.2); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.4); }
+    .sev-medium { background: rgba(234, 179, 8, 0.2); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.4); }
+    .sev-low { background: rgba(59, 130, 246, 0.2); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.4); }
+
+    .bc-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .bc-meta span strong {
+      color: #cbd5e1;
+    }
+
+    .bc-body {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 900px) {
+      .bc-body { grid-template-columns: 1fr; }
+    }
+
+    .bc-info-block {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      margin-bottom: 1rem;
+    }
+    .bc-info-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .bc-info-desc {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      margin: 0;
+    }
+    .bc-info-desc ol, .bc-info-desc ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.2rem;
+    }
+    .bc-info-desc li {
+      margin-bottom: 0.35rem;
+    }
+
+    .bc-solution {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid #10b981;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #a7f3d0;
+    }
+    .bc-solution strong {
+      color: #34d399;
+    }
+
+    .bc-screenshot-wrap {
+      background: #020617;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 0.75rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .bc-screenshot-wrap img {
+      max-width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 8px;
+      cursor: zoom-in;
+      transition: transform 0.2s ease;
+    }
+    .bc-screenshot-wrap img:hover {
+      transform: scale(1.02);
+    }
+    .bc-screenshot-label {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 0.5rem;
+      font-family: var(--font-code);
+    }
+
+    .nav-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s ease;
+    }
+    .nav-back-home:hover {
+      color: #93c5fd;
+    }
+  </style>
+</head>
+<body>
+  <div class="bug-container">
+    <a href="/" class="nav-back-home">← Kembali ke Panduan Utama</a>
+
+    <!-- Header Audit -->
+    <header class="bug-header">
+      <div class="bh-top">
+        <div>
+          <div class="bh-badge">🔒 Dokumen Internal Audit QA</div>
+          <h1 class="bh-title">Laporan Temuan Bug &amp; Rekomendasi UX</h1>
+          <p class="bh-desc">
+            Kompilasi temuan bug fungsional, celah UI/UX, dan kendala teknis yang ditemukan selama pengujian menyeluruh pada platform <strong>BelajarPlus.id</strong>. Dilengkapi dengan langkah reproduksi, tingkat keparahan (*severity*), dan rekomendasi perbaikan teknis untuk tim developer.
+          </p>
+        </div>
+        <button onclick="window.print()" class="btn-pdf-download" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+          🖨️ Cetak / Simpan Laporan
+        </button>
+      </div>
+
+      <div class="bh-meta-grid">
+        <div class="bh-meta-item">
+          <div class="bh-meta-label">Total Temuan</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">7 Isu Teridentifikasi</div>
+        </div>
+        <div class="bh-meta-item">
+          <div class="bh-meta-label">Tingkat Kritis / Tinggi</div>
+          <div class="bh-meta-val" style="color: #f87171;">2 Isu</div>
+        </div>
+        <div class="bh-meta-item">
+          <div class="bh-meta-label">Tingkat Sedang (Medium)</div>
+          <div class="bh-meta-val" style="color: #fbbf24;">4 Isu</div>
+        </div>
+        <div class="bh-meta-item">
+          <div class="bh-meta-label">Tingkat Rendah / Typo</div>
+          <div class="bh-meta-val" style="color: #34d399;">1 Isu</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-chip active" onclick="filterBugs('all', this)">Semua (7)</button>
+      <button class="filter-chip" onclick="filterBugs('high', this)">Tinggi / Kritis (2)</button>
+      <button class="filter-chip" onclick="filterBugs('medium', this)">Sedang (4)</button>
+      <button class="filter-chip" onclick="filterBugs('low', this)">Rendah / Typo (1)</button>
+    </div>
+
+    <!-- LIST OF BUGS -->
+
+    <!-- BUG 1: Rekening Strip -->
+    <div class="bug-card" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-001</span>
+          <h3 class="bc-title">Nomor Rekening Bank Ditampilkan Strip (—) pada Rincian Transfer Manual</h3>
+        </div>
+        <span class="bc-severity sev-high">High / Blocking</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Toko &amp; Pembayaran (`/orders`, `/checkout`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Orang Tua / Wali Murid</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Ketika siswa/orang tua memilih buku dan melakukan checkout metode Transfer Bank Manual, kartu detail pesanan memuat rincian nominal dan nomor pesanan, tetapi <strong>kolom nama bank dan nomor rekening tujuan hanya menampilkan tanda strip (<code>—</code>)</strong>. Akibatnya, orang tua tidak dapat mentransfer uang dan pesanan buku tertahan tanpa ada kejelasan kontak.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka menu <code>/shop</code>, pilih varian buku (misal Cetak atau Digital), masukkan keranjang.</li>
+                <li>Lanjutkan checkout hingga tahap konfirmasi pesanan (`/orders/[id]`).</li>
+                <li>Amati kartu <em>"Informasi Rekening Pembayaran"</em>. Field Rekening hanya berisi teks strip (<code>-</code>).</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Validasi keberadaan data rekening mitra sekolah di backend. Jika sekolah belum mengisi data bank, tampilkan fallback rekening escrow pusat BelajarPlus atau tampilkan banner peringatan dinamis: <em>"Hubungi bendahara sekolah di nomor [WhatsApp Sekolah] untuk nomor rekening resmi."</em>
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/detail_pesanan_transfer.png" alt="Bukti Bug Rekening Strip" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/detail_pesanan_transfer.png (Kolom rekening: —)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 2: Infinite Loading Bank Soal Kosong -->
+    <div class="bug-card" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-002</span>
+          <h3 class="bc-title">Infinite Loading Spinner saat Menjalankan Ujian dengan 0 Soal</h3>
+        </div>
+        <span class="bc-severity sev-high">High / Crash UX</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Ujian LJD &amp; Ruang Kelas (`/classes/[id]/assignment`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Jika seorang guru mempublikasikan penugasan/ujian LJD yang bank soalnya masih kosong (0 butir soal), siswa yang mengklik tombol <strong>"Kerjakan"</strong> akan mengalami <em>infinite loading</em>. Halaman hanya menampilkan spinner berputar terus-menerus tanpa batas waktu (timeout) dan tidak ada tombol kembali, memaksa siswa menutup paksa browser.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Guru membuat paket tugas tanpa menginput butir soal.</li>
+                <li>Siswa masuk ke tab Penugasan kelas dan klik tombol "Kerjakan".</li>
+                <li>Layar memuat `ljd_engine` dan berputar tanpa henti tanpa memunculkan pesan error.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Tambahkan guard clause pada komponen controller LJD: jika respon API `questions.length === 0`, hentikan spinner dan munculkan modal dialog informatif: <em>"Paket soal belum diisi oleh pengajar. Silakan konfirmasi ke guru Anda."</em> sertakan tombol kembali ke dashboard.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/assignment_list.png" alt="Daftar Tugas Ujian LJD" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/assignment_list.png (Trigger penugasan kelas)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 3: Search Bar Reset -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-003</span>
+          <h3 class="bc-title">Search Bar Perpustakaan Me-reset Teks Saat Menekan Tombol Dropdown</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Annoying UX</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Perpustakaan Digital (`/library`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Guru, Umum</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Saat pengguna mengetik kata kunci pencarian judul buku di kolom search bar navigasi atas, lalu mengeklik tombol aksi *"Jelajahi &amp; filter"* pada dropdown pop-up yang muncul, nilai input teks di kolom pencarian tiba-tiba hilang (ter-reset menjadi kosong) sehingga hasil pencarian tidak terfilter dengan tepat.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka halaman <code>/library</code>.</li>
+                <li>Ketik kata kunci (misal: "Biologi" atau "Antropologi") di kotak pencarian atas.</li>
+                <li>Klik tombol pop-up saran / "Jelajahi &amp; filter".</li>
+                <li>Teks yang diketik hilang dan filter URL gagal mengambil nilai query.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Pastikan event listener pada elemen tombol dropdown memanggil `preventDefault()` dan mengikat nilai input saat ini ke parameter URL (`router.push('/library?q=' + encodeURIComponent(inputValue))`) alih-alih me-reset state input form.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/library_search.png" alt="Bug Search Bar Perpustakaan" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/library_search.png (Bilah search perpustakaan)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 4: Anti-Cheat Tolerance Overlap -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-004</span>
+          <h3 class="bc-title">Indikator Pelanggaran Anti-Cheat Melampaui Batas Toleransi Tanpa Konsekuensi Eksplisit</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Logic Inconsistency</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Ujian LJD Antarmuka Siswa</span>
+        <span><strong>Peran Terkena:</strong> Siswa</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Sistem pengawas anti-cheat BelajarPlus menampilkan indikator pelanggaran di header atas dengan format rasio (contoh: <code>Pelanggaran 8/3</code>). Secara logika, angka 3 adalah batas maksimal toleransi. Namun sistem membiarkan angka menembus hingga 8 tanpa auto-submit atau warning dialog yang jelas, membuat siswa bingung apakah status ujiannya sah atau sudah didiskualifikasi.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka ujian LJD yang memiliki proteksi tab focus aktif.</li>
+                <li>Pindah tab atau buka aplikasi lain beberapa kali.</li>
+                <li>Counter pelanggaran terus bertambah melampaui denominator (contoh: 8/3) tanpa interupsi sistem.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Terapkan batas tegas (*hard cap*). Pada pelanggaran ke-1 dan ke-2, tampilkan modal peringatan interupsi layar. Jika menyentuh 3/3, jalankan fungsi `submitExamImmediately()` dengan status catatan *“Selesai otomatis: Melebihi batas pelanggaran pengawas”*.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/ljd_soal_stimulus.png" alt="Bukti Pelanggaran 8/3" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/ljd_soal_stimulus.png (Header: Pelanggaran 8/3)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 5: Desinkronisasi Tab Buku Saya -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-005</span>
+          <h3 class="bc-title">Desinkronisasi Badge Jumlah Tab dengan Daftar Kartu Buku di "Buku Saya"</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Cache Issue</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Koleksi Buku Saya (`/my-books`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada menu <em>Buku Saya</em>, angka badge di tab (contoh: tab <strong>"Dipinjam (3)"</strong>) terkadang tidak cocok dengan jumlah kartu buku yang ter-render di bagian bawah (hanya muncul 2 buku). Hal ini terjadi karena *optimistic UI update* atau *stale cache* yang tidak me-refresh daftar koleksi saat ada buku yang baru dikembalikan atau habis masa pinjamnya.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Pinjam atau kembalikan buku dari reader/koleksi.</li>
+                <li>Navigasi ke menu `/my-books`.</li>
+                <li>Angka indikator tab tidak sinkron dengan kartu di container bawah sebelum pengguna melakukan refresh manual (F5).</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Panggil re-fetch query/cache invalidation (misal: `queryClient.invalidateQueries(['my-books'])`) setelah callback aksi mutasi pengembalian atau peminjaman selesai.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/my_books_list.png" alt="Desinkronisasi Buku Saya" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/my_books_list.png (Tab Dipinjam vs Kartu)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 6: Redirect Loop Direct URL Orders -->
+    <div class="bug-card" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-006</span>
+          <h3 class="bc-title">Redirect Loop Sesi Login saat Mengakses Tautan Langsung `/orders`</h3>
+        </div>
+        <span class="bc-severity sev-medium">Medium / Routing Auth</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Router &amp; Middleware Auth (`/orders`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Orang Tua</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fde047;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Ketika pengguna yang sudah berada dalam status login mencoba mengetikkan URL <code>belajarplus.id/orders</code> langsung di bilah alamat browser atau me-refresh halaman tersebut, middleware autentikasi terkadang menganggap sesi belum ter-inisialisasi dan me-redirect ke halaman `/auth`, lalu kembali ke `/orders` secara berulang (redirect loop).
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Login sebagai siswa di BelajarPlus.</li>
+                <li>Buka tab baru atau ketikkan `belajarplus.id/orders` langsung di URL bar.</li>
+                <li>Browser mengalami kedip reload beberapa kali antara `/auth` dan `/orders`.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Pastikan pemeriksaan token/cookie sesi selesai secara synchronous sebelum middleware navigasi mengambil keputusan redirect ke `/auth`.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/daftar_pesanan.png" alt="Halaman Daftar Pesanan" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/daftar_pesanan.png (Routing halaman pesanan)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 7: Typo UI Sumlasi TKA -->
+    <div class="bug-card" data-severity="low">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-007</span>
+          <h3 class="bc-title">Typo Penulisan Judul Ujian ("Sumlasi TKA 2") pada Layar Skor Evaluasi</h3>
+        </div>
+        <span class="bc-severity sev-low">Low / Cosmetic Typo</span>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Lembar Hasil Penugasan LJD (`/assignment/result`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Guru</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada halaman transkrip hasil pengerjaan LJD siswa, judul paket simulasi tertulis typo secara baku: <strong>"Sumlasi TKA 2"</strong> (kurang huruf <em>'i'</em> untuk kata <em>Simulasi</em>). Walaupun tidak merusak fungsi tombol, hal ini mengurangi kredibilitas dan kerapian estetika platform di mata sekolah mitra.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Selesaikan penugasan atau buka riwayat hasil penugasan LJD.</li>
+                <li>Perhatikan judul besar di bawah rekap nama siswa. Tertulis: <em>"Sumlasi TKA 2"</em>.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Koreksi string data seeder / database template paket soal dari <code>"Sumlasi TKA 2"</code> menjadi <code>"Simulasi TKA 2"</code>.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <img src="assets/assignment_result.png" alt="Bukti Typo Sumlasi TKA" onclick="openImageModal(this.src, this.alt)" />
+          <div class="bc-screenshot-label">assets/assignment_result.png (Header: "Sumlasi TKA 2")</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lightbox Image Modal Reusable -->
+  <div class="image-modal" id="imageModal" onclick="closeImageModal(event)">
+    <div class="image-modal-content" onclick="event.stopPropagation()">
+      <button class="image-modal-close" onclick="closeImageModal()">&times;</button>
+      <img src="" id="modalImg" alt="Gambar Screenshot" />
+      <div class="image-modal-caption" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    function filterBugs(severity, btn) {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.bug-card');
+      cards.forEach(card => {
+        if (severity === 'all') {
+          card.style.display = 'block';
+        } else {
+          card.style.display = card.getAttribute('data-severity') === severity ? 'block' : 'none';
+        }
+      });
+    }
+
+    function openImageModal(src, caption) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      if (modal && modalImg) {
+        modalImg.src = src;
+        if (modalCaption) modalCaption.textContent = caption || '';
+        modal.classList.add('active');
+      }
+    }
+
+    function closeImageModal(e) {
+      const modal = document.getElementById('imageModal');
+      if (modal) modal.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
