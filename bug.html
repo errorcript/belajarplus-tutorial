@@ -1336,6 +1336,12 @@
       pdfWrapper.style.padding = '22px 24px';
       pdfWrapper.style.boxSizing = 'border-box';
 
+      // ── Waktu Generate ──
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+      const formattedTime = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0') + ' WIB';
+      const fullDateTime = `${formattedDate}, ${formattedTime}`;
+
       // ── Kop Header Laporan ──
       let pdfHTML = `
         <table style="width: 100%; border-bottom: 2px solid #cbd5e1; padding-bottom: 12px; margin-bottom: 16px; background: #ffffff; border-collapse: collapse; table-layout: fixed;">
@@ -1343,8 +1349,8 @@
             <td style="vertical-align: middle; text-align: left;">
               <h1 style="font-size: 18px; font-weight: 900; color: #1e3a8a; margin: 0 0 4px 0;">Laporan Temuan Bug &amp; Rekomendasi UX</h1>
               <div style="font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase;">Platform BelajarPlus.id</div>
-              <div style="font-size: 9px; color: #64748b; margin-top: 4px;">
-                Tanggal: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+              <div style="font-size: 9.5px; color: #64748b; margin-top: 4px;">
+                Tanggal: <strong>${fullDateTime}</strong>
               </div>
             </td>
             <td style="vertical-align: middle; text-align: right; width: 140px; padding-right: 6px;">
