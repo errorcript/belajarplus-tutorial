@@ -190,6 +190,156 @@ document.addEventListener('keydown', e => {
 
 renderPage();
 
+// === E-READER INTERACTIVE ACTION TOOLBAR LOGIC ===
+window.openInteractiveModalDemo = function() {
+  const modal = document.getElementById('interactiveModalOverlay');
+  if (modal) modal.classList.add('active');
+};
+
+window.closeInteractiveModalDemo = function(e) {
+  if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('imc-close')) return;
+  const modal = document.getElementById('interactiveModalOverlay');
+  if (modal) modal.classList.remove('active');
+};
+
+window.startDemoQuiz = function(id) {
+  const box = document.getElementById(`demoQuizBox${id}`);
+  if (box) {
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+  }
+};
+
+window.checkDemoAnswer = function(id, isCorrect, btn) {
+  const fb = document.getElementById(`demoQuizFeedback${id}`);
+  if (!fb) return;
+  const parent = btn.parentElement;
+  parent.querySelectorAll('button').forEach(b => {
+    b.style.background = '';
+    b.style.borderColor = '';
+  });
+
+  if (isCorrect) {
+    btn.style.background = 'rgba(16, 185, 129, 0.2)';
+    btn.style.borderColor = '#10b981';
+    fb.innerHTML = '<span style="color: #34d399; font-weight: 700;">✓ Jawaban Benar!</span> Antropologi mengkaji manusia secara holistik.';
+  } else {
+    btn.style.background = 'rgba(239, 68, 68, 0.2)';
+    btn.style.borderColor = '#ef4444';
+    fb.innerHTML = '<span style="color: #f87171; font-weight: 700;">✗ Kurang tepat.</span> Coba periksa kembali definisi di halaman bab 1.';
+  }
+  fb.style.display = 'block';
+};
+
+window.toggleUnitDone = function(btn) {
+  btn.classList.toggle('completed');
+  if (btn.classList.contains('completed')) {
+    btn.textContent = '✓ Selesai';
+  } else {
+    btn.textContent = 'Tandai selesai';
+  }
+};
+
+let isDemoBookmarked = false;
+window.toggleBookmarkDemo = function() {
+  isDemoBookmarked = !isDemoBookmarked;
+  const icon = document.getElementById('ratBookmarkIcon');
+  const label = document.getElementById('ratBookmarkLabel');
+  const btn = document.getElementById('btnRatBookmark');
+  if (isDemoBookmarked) {
+    if (icon) icon.textContent = '⭐';
+    if (label) label.textContent = 'Tersimpan';
+    if (btn) {
+      btn.style.borderColor = '#eab308';
+      btn.style.color = '#fef08a';
+    }
+  } else {
+    if (icon) icon.textContent = '🔖';
+    if (label) label.textContent = 'Bookmark';
+    if (btn) {
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }
+  }
+};
+
+window.toggleReaderSettings = function() {
+  alert('⚙️ Pengaturan E-Reader:\n\n- Mode Tampilan: 1 Halaman / 2 Halaman (Buku Terbuka)\n- Warna Latar: Gelap / Terang / Sepia\n- Jarak Baris & Margin Membaca');
+};
+
+// Whiteboard Drawing Logic
+let isWhiteboardActive = false;
+let wbDrawing = false;
+let wbColor = '#ef4444';
+
+window.toggleWhiteboardDemo = function() {
+  isWhiteboardActive = !isWhiteboardActive;
+  const canvas = document.getElementById('whiteboardCanvas');
+  const toolbar = document.getElementById('whiteboardToolbar');
+  const btn = document.getElementById('btnRatWhiteboard');
+
+  if (!canvas || !toolbar) return;
+
+  if (isWhiteboardActive) {
+    canvas.classList.add('active');
+    toolbar.classList.add('active');
+    if (btn) btn.style.color = '#38bdf8';
+    initWhiteboardCanvas(canvas);
+  } else {
+    canvas.classList.remove('active');
+    toolbar.classList.remove('active');
+    if (btn) btn.style.color = '';
+  }
+};
+
+window.setWbColor = function(color) {
+  wbColor = color;
+};
+
+window.clearWhiteboard = function() {
+  const canvas = document.getElementById('whiteboardCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+};
+
+function initWhiteboardCanvas(canvas) {
+  const page = document.getElementById('readerPage');
+  if (!page) return;
+  canvas.width = page.clientWidth;
+  canvas.height = page.clientHeight;
+  const ctx = canvas.getContext('2d');
+
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  canvas.onmousedown = canvas.ontouchstart = function(e) {
+    wbDrawing = true;
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+    ctx.strokeStyle = wbColor;
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+  };
+
+  canvas.onmousemove = canvas.ontouchmove = function(e) {
+    if (!wbDrawing) return;
+    const pos = getPos(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    e.preventDefault();
+  };
+
+  canvas.onmouseup = canvas.ontouchend = function() {
+    wbDrawing = false;
+  };
+}
+
 // === PROGRESS CHECKLIST ===
 window.updateProgress = function() {
   const checkboxes = document.querySelectorAll('.cl-item input[type="checkbox"]');
@@ -633,10 +783,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 7: Buka Perpustakaan dan gunakan Filter Jenjang + Mata Pelajaran di sidebar kiri. Hindari ketik di search bar langsung karena bisa reset — selalu pakai sidebar filter.'
       },
       {
-        title: 'Menavigasi E-Reader Interaktif',
-        image: 'assets/book_reader.png',
-        narration: 'Langkah kedelapan: Setelah menemukan buku yang tepat, klik sampulnya untuk melihat sinopsis dan detail penerbit. Tekan tombol Baca Buku untuk membuka E-Reader Web. Gunakan tombol panah kiri dan kanan di keyboard atau slider layar bawah untuk berpindah halaman. Progress membaca tersimpan otomatis di Cloud sehingga saat kamu membuka kembali besok, e-reader langsung melompat ke halaman terakhir.',
-        subtitle: 'Langkah 8: Klik "Baca Buku" untuk membuka E-Reader. Navigasi pakai tombol panah keyboard atau slider. Progress halaman tersimpan otomatis di Cloud.'
+        title: 'Menavigasi E-Reader & Fitur Interaktif Buku',
+        image: 'assets/reader_toolbar.png',
+        narration: 'Langkah kedelapan: E-Reader BelajarPlus dilengkapi toolbar bawah lengkap. Gunakan slider untuk lompat halaman, atur zoom di Pengaturan, buka Daftar Isi, simpan Bookmark, dan gunakan Whiteboard untuk mencoret catatan. Klik tombol bintang Interaktif untuk membuka kuis latihan soal per bab dan Simulasi TKA terintegrasi yang bisa dikerjakan langsung. Selain itu, sistem proteksi DRM anti-bajak akan mengaburkan layar otomatis jika mendeteksi screenshot.',
+        subtitle: 'Langkah 8: Buka E-Reader dengan toolbar lengkap: Slider, Pengaturan, Daftar Isi, Bookmark, Whiteboard, dan tombol Interaktif (latihan soal & simulasi TKA). Dilengkapi proteksi DRM anti-screenshot.'
       },
       {
         title: 'Manajemen Buku Saya (Masa Pinjam & Antrean)',

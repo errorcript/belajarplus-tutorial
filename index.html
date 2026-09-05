@@ -422,18 +422,97 @@
             </div>
           </div>
 
-          <div class="step" data-step="8">
+          <div class="step" data-step="8" id="step-08">
             <div class="step-number">08</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Menavigasi E-Reader Interaktif</h3>
-                <span class="step-tag">Perpustakaan</span>
+                <h3>Menavigasi E-Reader &amp; Fitur Interaktif Buku</h3>
+                <span class="step-tag">E-Reader &amp; Pengayaan</span>
               </div>
-              <p>Setelah menemukan buku yang tepat, klik sampulnya untuk membaca sinopsis, data penerbit, dan ISBN. Jika tertarik, tekan tombol <strong>"Baca Buku"</strong> untuk meluncurkan antarmuka <em>E-Reader Web</em> canggih milik BelajarPlus.</p>
-              <p>E-Reader ini didesain agar mata tidak cepat lelah. Kamu dapat menggunakan tombol panah Kiri/Kanan di keyboard atau slider di layar bawah untuk berpindah halaman secara instan. Sistem kami menggunakan sinkronisasi Cloud—artinya, progress halaman yang sedang kamu baca akan disimpan otomatis. Jika kamu menutup browser dan membukanya lagi esok hari, e-reader akan langsung melompat ke halaman terakhir yang kamu tinggalkan.</p>
+              <p>Setelah menemukan buku yang diinginkan di Perpustakaan atau menu Buku Saya, tekan tombol <strong>"Baca Buku"</strong> untuk membuka antarmuka <em>E-Reader Interaktif</em> BelajarPlus. Di sini kamu tidak hanya membaca teks statis, melainkan dapat berinteraksi langsung dengan materi.</p>
+
+              <h4 style="margin: 1.2rem 0 0.5rem 0; color: #60a5fa; font-size: 0.95rem;">🛠️ Anatomi Toolbar Bawah E-Reader:</h4>
+              <ul class="step-list">
+                <li>
+                  <strong>1. Slider Navigasi &amp; Nomor Halaman (`<`, Slider, `>`, `1 / 98`)</strong> — Geser titik slider untuk melompat ratusan halaman secara instan, atau gunakan tombol panah kiri/kanan di layar atau keyboard untuk membaca halaman per halaman.
+                </li>
+                <li>
+                  <strong>2. ⚙️ Pengaturan (Display Mode)</strong> — Kustomisasi kenyamanan membaca mata: mengatur perbesaran (zoom in/out), mode tampilan halaman tunggal (*Single Page*) atau dua halaman bersebelahan layaknya membuka buku cetak fisik (*Two Pages*).
+                </li>
+                <li>
+                  <strong>3. 📑 Daftar Isi (Table of Contents)</strong> — Menampilkan struktur hierarki bab, unit, dan sub-tema materi. Cukup klik judul bab yang diinginkan untuk melompat seketika tanpa perlu scrolling manual.
+                </li>
+                <li>
+                  <strong>4. ✨ Interaktif (Interactive Activity Hub)</strong> — <em>Fitur unggulan pengayaan digital BelajarPlus!</em> Mengklik tombol bintang ini akan membuka jendela pop-up <strong>"Konten Interaktif"</strong> yang berisi:
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li><strong>Latihan Soal Per Unit</strong> (contoh: <em>Unit 1: Pemahaman Tekstual</em>, <em>Unit 3: Evaluasi dan Apresiasi</em>).</li>
+                    <li>Tombol <strong>"Kerjakan"</strong> untuk langsung meluncurkan kuis interaktif tanpa keluar dari buku.</li>
+                    <li>Tombol <strong>"Tandai selesai"</strong> untuk mencatat rekam jejak progres mandirimu.</li>
+                    <li>Modul <strong>Simulasi TKA Paket 1 &amp; 2</strong> terintegrasi lengkap dengan kunci dan pembahasan.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>5. 🔖 Bookmark</strong> — Menyematkan penanda halaman favorit atau rumus krusial agar mudah dibuka kembali di sesi belajar berikutnya.
+                </li>
+                <li>
+                  <strong>6. ✏️ Whiteboard (Papan Coret Digital)</strong> — Mengubah lembar buku menjadi kanvas gambar interaktif! Siswa atau guru dapat mencoret, menuliskan coretan rumus matematika, atau memberi highlight warna catatan langsung di atas halaman buku.
+                </li>
+              </ul>
+
+              <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0;">
+                <h4 style="margin: 0 0 0.4rem 0; color: #fbbf24; font-size: 0.92rem;">🔒 Fitur Toolbar Atas &amp; Sistem Proteksi DRM Anti-Piracy:</h4>
+                <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
+                  <li><strong>Pencarian Kata Kunci (`🔍`):</strong> Ketikkan istilah atau konsep sulit untuk mencari letak pembahasannya di seluruh lembar buku.</li>
+                  <li><strong>Keamanan Hak Cipta DRM:</strong> E-Reader dilengkapi sistem anti-bajak. Jika sistem mendeteksi tangkapan layar (screenshot) atau perekam layar aktif, muncul notifikasi <em>"⚠️ Tangkapan layar terdeteksi. Konten disamarkan."</em> dan teks materi otomatis dikaburkan untuk menjaga hak cipta penerbit.</li>
+                </ul>
+              </div>
+
+              <div class="step-note">
+                ☁️ <strong>Cloud Progress Sync:</strong> Posisi halaman terakhir dan coretan bookmark tersimpan otomatis ke akunmu. Tutup browser dan buka kembali esok hari, reader akan langsung melanjutkan dari titik terakhir!
+              </div>
             </div>
-            <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
-              <img src="assets/book_reader.png" class="screenshot-img" alt="E-Reader BelajarPlus" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
+
+            <!-- Web Visual: Toolbar & Pop-up Fitur Interaktif -->
+            <div class="step-visual">
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="font-size: 0.7rem; font-weight: 700; color: #60a5fa; letter-spacing: 0.05em; text-transform: uppercase;">📸 Toolbar Bawah E-Reader &amp; Proteksi DRM</div>
+                <img src="assets/reader_toolbar.png" class="screenshot-img" alt="Toolbar Lengkap E-Reader BelajarPlus" style="width:100%; border-radius:6px;" />
+
+                <div style="font-size: 0.7rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Pop-up Fitur "Interaktif" (Latihan Per Bab &amp; Simulasi)</div>
+                <img src="assets/reader_modal_interaktif.png" class="screenshot-img" alt="Pop-up Konten Interaktif E-Reader" style="width:100%; border-radius:6px;" />
+              </div>
+            </div>
+
+            <!-- PDF Group 1: Toolbar E-Reader -->
+            <div class="pdf-group" data-pdf-label="Tahap 1: Toolbar Bawah E-Reader &amp; Pengaturan Navigasi">
+              <div class="pdf-group-text">
+                <strong>Toolbar Bawah E-Reader: Navigasi, Pengaturan &amp; Proteksi DRM</strong><br/>
+                Toolbar bawah E-Reader menyediakan navigasi cepat: <strong>Slider Halaman</strong>, tombol panah, <strong>Pengaturan</strong> (zoom &amp; mode 1/2 halaman), <strong>Daftar Isi</strong> bab, <strong>Bookmark</strong> penanda halaman, dan <strong>Whiteboard</strong> untuk coret-coret catatan. E-Reader juga memproteksi konten dengan sistem anti-screenshot DRM (konten otomatis disamarkan jika screenshot terdeteksi).
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #60a5fa; margin-bottom: 0.5rem;">📸 Toolbar Lengkap Bawah E-Reader &amp; Deteksi DRM</div>
+                  <div style="text-align: center;">
+                    <img src="assets/reader_toolbar.png" class="screenshot-img pdf-img" alt="Toolbar E-Reader BelajarPlus" style="max-width: 100%; height: auto; max-height: 280px; width: auto; border-radius: 6px; display: inline-block;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PDF Group 2: Modal Interaktif -->
+            <div class="pdf-group" data-pdf-label="Tahap 2: Pop-up Konten Interaktif, Latihan Soal &amp; Simulasi">
+              <div class="pdf-group-text">
+                <strong>Fitur Unggulan "Interaktif": Kuis &amp; Simulasi TKA Terintegrasi</strong><br/>
+                Klik tombol bintang <strong>"Interaktif"</strong> pada toolbar bawah untuk membuka modul latihan per bab. Siswa dapat langsung mengklik <strong>"Kerjakan"</strong> untuk menjawab kuis pemahaman tekstual, evaluasi apresiasi, atau menjalankan <strong>Simulasi TKA Paket 1 &amp; 2</strong> tanpa perlu keluar dari buku bacaan. Klik <strong>"Tandai selesai"</strong> untuk melacak progress belajar mandiri.
+              </div>
+              <div class="pdf-group-images">
+                <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 0.75rem; margin-top: 1rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #38bdf8; margin-bottom: 0.5rem;">📸 Pop-up Konten Interaktif: Latihan Unit &amp; Simulasi TKA</div>
+                  <div style="text-align: center;">
+                    <img src="assets/reader_modal_interaktif.png" class="screenshot-img pdf-img" alt="Pop-up Konten Interaktif BelajarPlus" style="max-width: 100%; height: auto; max-height: 280px; width: auto; border-radius: 6px; display: inline-block;" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1024,8 +1103,20 @@
               <button class="tb-btn" onclick="toggleFullscreen()">⛶</button>
             </div>
           </div>
-          <div class="reader-page" id="readerPage">
-            <div class="page-content" id="pageContent"></div>
+          <div class="reader-page-wrapper">
+            <div class="reader-page" id="readerPage">
+              <div class="page-content" id="pageContent"></div>
+            </div>
+            <!-- Canvas Whiteboard Overlay Demo -->
+            <canvas id="whiteboardCanvas" class="whiteboard-canvas"></canvas>
+            <div id="whiteboardToolbar" class="whiteboard-toolbar">
+              <span style="font-size: 0.72rem; color: #fbbf24; font-weight: 700; margin-right: 4px;">✏️ Whiteboard Aktif</span>
+              <button class="wb-btn" onclick="setWbColor('#ef4444')">🔴</button>
+              <button class="wb-btn" onclick="setWbColor('#3b82f6')">🔵</button>
+              <button class="wb-btn" onclick="setWbColor('#eab308')">🟡</button>
+              <button class="wb-btn" onclick="clearWhiteboard()">Hapus</button>
+              <button class="wb-btn" onclick="toggleWhiteboardDemo()" style="color: #f87171;">✕ Tutup</button>
+            </div>
           </div>
           <div class="reader-bottombar">
             <button class="nav-btn" id="btnPrev" onclick="prevPage()" disabled>◀ Sebelumnya</button>
@@ -1035,18 +1126,133 @@
             </div>
             <button class="nav-btn" id="btnNext" onclick="nextPage()">Selanjutnya ▶</button>
           </div>
+
+          <!-- Action Toolbar Bawah BelajarPlus -->
+          <div class="reader-action-toolbar">
+            <button class="rat-btn" onclick="toggleReaderSettings()" title="Pengaturan Tampilan">
+              <span>⚙️</span>
+              <span>Pengaturan</span>
+            </button>
+            <button class="rat-btn" onclick="toggleToc()" title="Buka Daftar Isi">
+              <span>📑</span>
+              <span>Daftar Isi</span>
+            </button>
+            <button class="rat-btn rat-btn-interactive" onclick="openInteractiveModalDemo()" title="Fitur Interaktif Buku">
+              <span>✨</span>
+              <span>Interaktif</span>
+              <span class="rat-badge">Latihan</span>
+            </button>
+            <button class="rat-btn" id="btnRatBookmark" onclick="toggleBookmarkDemo()" title="Simpan Bookmark">
+              <span id="ratBookmarkIcon">🔖</span>
+              <span id="ratBookmarkLabel">Bookmark</span>
+            </button>
+            <button class="rat-btn" id="btnRatWhiteboard" onclick="toggleWhiteboardDemo()" title="Papan Coret Whiteboard">
+              <span>✏️</span>
+              <span>Whiteboard</span>
+            </button>
+          </div>
         </div>
       </div>
+
+      <!-- Fitur Utama Toolbar E-Reader Grid -->
       <div class="reader-features">
-        <div class="rf-item"><span class="rf-key">☰</span><span class="rf-desc">Daftar Isi — navigasi per bab</span></div>
-        <div class="rf-item"><span class="rf-key">A+ A−</span><span class="rf-desc">Zoom teks</span></div>
-        <div class="rf-item"><span class="rf-key">◀ ▶</span><span class="rf-desc">Navigasi halaman</span></div>
-        <div class="rf-item"><span class="rf-key">⛶</span><span class="rf-desc">Mode fullscreen</span></div>
-        <div class="rf-item"><span class="rf-key">━━</span><span class="rf-desc">Progress bar posisi buku</span></div>
-        <div class="rf-item"><span class="rf-key">⌨️</span><span class="rf-desc">Keyboard ← → navigasi cepat</span></div>
+        <div class="rf-item">
+          <span class="rf-key">✨ Interaktif</span>
+          <span class="rf-desc">Kuis latihan soal per bab &amp; Simulasi TKA yang bisa dikerjakan langsung</span>
+        </div>
+        <div class="rf-item">
+          <span class="rf-key">⚙️ Pengaturan</span>
+          <span class="rf-desc">Mode 1 atau 2 halaman bersebelahan, perbesaran (zoom) &amp; kenyamanan baca</span>
+        </div>
+        <div class="rf-item">
+          <span class="rf-key">📑 Daftar Isi</span>
+          <span class="rf-desc">Navigasi hierarki bab &amp; unit materi secara instan tanpa scrolling</span>
+        </div>
+        <div class="rf-item">
+          <span class="rf-key">🔖 Bookmark</span>
+          <span class="rf-desc">Tandai halaman penting &amp; sinkronisasi Cloud otomatis antar-perangkat</span>
+        </div>
+        <div class="rf-item">
+          <span class="rf-key">✏️ Whiteboard</span>
+          <span class="rf-desc">Kanvas coret-coret rumus &amp; highlight catatan langsung di atas lembar buku</span>
+        </div>
+        <div class="rf-item">
+          <span class="rf-key">🔒 Proteksi DRM</span>
+          <span class="rf-desc">Anti-bajak hak cipta: konten otomatis dikaburkan saat tangkapan layar terdeteksi</span>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Modal Pop-up Konten Interaktif Reader Demo -->
+  <div class="interactive-modal-overlay" id="interactiveModalOverlay" onclick="closeInteractiveModalDemo(event)">
+    <div class="interactive-modal-card" onclick="event.stopPropagation()">
+      <div class="imc-header">
+        <div class="imc-title">
+          <span>✨</span>
+          <span>Konten Interaktif Buku</span>
+        </div>
+        <button class="imc-close" onclick="closeInteractiveModalDemo()">&times;</button>
+      </div>
+      <div class="imc-body">
+        <p style="font-size: 0.85rem; color: #94a3b8; margin: 0 0 0.5rem 0;">
+          Modul latihan dan simulasi yang disematkan langsung oleh penerbit di dalam e-book ini:
+        </p>
+
+        <div class="imc-unit-card">
+          <div class="imc-unit-tag">BAB 1 — UNIT 1 : PEMAHAMAN TEKSTUAL (1 SOAL)</div>
+          <div class="imc-unit-row">
+            <div class="imc-unit-title">Latihan Soal: Mengidentifikasi Konsep Dasar Budaya &amp; Nilai Sosial</div>
+            <div class="imc-actions">
+              <button class="imc-btn-start" onclick="startDemoQuiz(1)">Kerjakan</button>
+              <button class="imc-btn-done" id="btnDoneUnit1" onclick="toggleUnitDone(this)">Tandai selesai</button>
+            </div>
+          </div>
+          <!-- Quiz Container Mini -->
+          <div id="demoQuizBox1" style="display:none; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed rgba(255,255,255,0.1);">
+            <p style="font-size: 0.85rem; color: #f1f5f9; margin-bottom: 0.5rem;"><strong>Pertanyaan:</strong> Ilmu yang mempelajari manusia secara holistik dari segi fisik dan kebudayaan disebut...</p>
+            <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.82rem;">
+              <button class="tb-btn" onclick="checkDemoAnswer(1, false, this)" style="text-align:left;">A. Sosiologi Murni</button>
+              <button class="tb-btn" onclick="checkDemoAnswer(1, true, this)" style="text-align:left;">B. Antropologi</button>
+              <button class="tb-btn" onclick="checkDemoAnswer(1, false, this)" style="text-align:left;">C. Arkeologi Klasik</button>
+            </div>
+            <div id="demoQuizFeedback1" style="margin-top: 0.6rem; font-size: 0.82rem; display: none;"></div>
+          </div>
+        </div>
+
+        <div class="imc-unit-card">
+          <div class="imc-unit-tag">BAB 2 — UNIT 2 : UNSUR KEBUDAYAAN (3 SOAL)</div>
+          <div class="imc-unit-row">
+            <div class="imc-unit-title">Latihan Soal: 7 Unsur Kebudayaan Universal Clyde Kluckhohn</div>
+            <div class="imc-actions">
+              <button class="imc-btn-start" onclick="startDemoQuiz(2)">Kerjakan</button>
+              <button class="imc-btn-done" id="btnDoneUnit2" onclick="toggleUnitDone(this)">Tandai selesai</button>
+            </div>
+          </div>
+          <div id="demoQuizBox2" style="display:none; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed rgba(255,255,255,0.1);">
+            <p style="font-size: 0.85rem; color: #f1f5f9; margin-bottom: 0.5rem;"><strong>Pertanyaan:</strong> Manakah yang BUKAN merupakan unsur kebudayaan universal menurut Kluckhohn?</p>
+            <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.82rem;">
+              <button class="tb-btn" onclick="checkDemoAnswer(2, false, this)" style="text-align:left;">A. Sistem bahasa dan komunikasi</button>
+              <button class="tb-btn" onclick="checkDemoAnswer(2, true, this)" style="text-align:left;">B. Sistem kepemilikan saham bursa efek</button>
+              <button class="tb-btn" onclick="checkDemoAnswer(2, false, this)" style="text-align:left;">C. Sistem religi dan upacara keagamaan</button>
+            </div>
+            <div id="demoQuizFeedback2" style="margin-top: 0.6rem; font-size: 0.82rem; display: none;"></div>
+          </div>
+        </div>
+
+        <div class="imc-unit-card">
+          <div class="imc-unit-tag">BAB 13 — SIMULASI UJIAN (PAKET 1)</div>
+          <div class="imc-unit-row">
+            <div class="imc-unit-title">Simulasi TKA Paket 1: Tes Kemampuan Akademik Terintegrasi</div>
+            <div class="imc-actions">
+              <button class="imc-btn-start" style="background: linear-gradient(135deg, #6366f1, #a855f7);" onclick="alert('Membuka antarmuka Ujian LJD untuk Simulasi TKA Paket 1!')">Mulai Simulasi ↗</button>
+              <button class="imc-btn-done" onclick="toggleUnitDone(this)">Tandai selesai</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Progress Checklist -->
   <section class="section checklist-section">
