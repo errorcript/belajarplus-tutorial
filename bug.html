@@ -540,14 +540,13 @@
     <header class="bug-header">
       <div class="bh-top">
         <div>
-          <div class="bh-badge">🔒 Dokumen Internal Audit QA</div>
           <h1 class="bh-title">Laporan Temuan Bug &amp; Rekomendasi UX</h1>
           <p class="bh-desc">
-            Kompilasi temuan bug fungsional, celah UI/UX, dan kendala teknis yang ditemukan selama pengujian menyeluruh pada platform <strong>BelajarPlus.id</strong>. Dilengkapi dengan langkah reproduksi, tingkat keparahan (*severity*), dan rekomendasi perbaikan teknis untuk tim developer.
+            Kompilasi temuan bug fungsional, celah UI/UX, dan kendala teknis yang ditemukan selama pengujian pada platform <strong>BelajarPlus.id</strong>. Dilengkapi dengan langkah reproduksi, tingkat keparahan (*severity*), dan rekomendasi perbaikan.
           </p>
         </div>
         <button onclick="downloadBugAuditPDF()" class="btn-pdf-download" id="btnDownloadBugPDF" style="padding: 0.75rem 1.4rem; font-size: 0.9rem; font-weight: 800;">
-          📥 Unduh Laporan PDF Resmi (A4)
+          📥 Unduh Laporan PDF (A4)
         </button>
       </div>
 
@@ -1337,16 +1336,15 @@
       pdfWrapper.style.padding = '22px 24px';
       pdfWrapper.style.boxSizing = 'border-box';
 
-      // ── Kop Resmi Audit ──
+      // ── Kop Header Laporan ──
       let pdfHTML = `
-        <table style="width: 100%; border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 16px; background: #ffffff; border-collapse: collapse; table-layout: fixed;">
+        <table style="width: 100%; border-bottom: 2px solid #cbd5e1; padding-bottom: 12px; margin-bottom: 16px; background: #ffffff; border-collapse: collapse; table-layout: fixed;">
           <tr>
             <td style="vertical-align: middle; text-align: left;">
-              <div style="font-size: 9px; font-weight: 800; color: #dc2626; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI AUDIT QA &amp; EVALUASI TEKNIS</div>
-              <h1 style="font-size: 17px; font-weight: 900; color: #1e3a8a; margin: 3px 0 2px 0;">LAPORAN TEMUAN BUG &amp; REKOMENDASI SISTEM</h1>
-              <div style="font-size: 11px; font-weight: 700; color: #334155; text-transform: uppercase;">PLATFORM PERPUSTAKAAN DIGITAL BELAJARPLUS.ID</div>
+              <h1 style="font-size: 18px; font-weight: 900; color: #1e3a8a; margin: 0 0 4px 0;">Laporan Temuan Bug &amp; Rekomendasi UX</h1>
+              <div style="font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase;">Platform BelajarPlus.id</div>
               <div style="font-size: 9px; color: #64748b; margin-top: 4px;">
-                Klasifikasi: Dokumen Internal Terbatas • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Tanggal: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
             </td>
             <td style="vertical-align: middle; text-align: right; width: 140px; padding-right: 6px;">
@@ -1463,10 +1461,10 @@
         `;
       });
 
-      // ── Footer Resmi ──
+      // ── Footer Laporan ──
       pdfHTML += `
         <div style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 8px; text-align: center; font-size: 8.5px; color: #64748b; background: #ffffff;">
-          © ${new Date().getFullYear()} BelajarPlus.id — Dokumen Rahasia &amp; Tertutup untuk Tim Pengembang &amp; Manajemen.
+          © ${new Date().getFullYear()} BelajarPlus.id — Kompilasi Temuan &amp; Masukan Teknis.
         </div>
       `;
 
@@ -1477,7 +1475,7 @@
 
       const opt = {
         margin:       [8, 8, 10, 8],
-        filename:     'Laporan_Audit_Bug_BelajarPlus_ID.pdf',
+        filename:     'Temuan_Bug_BelajarPlus.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
         html2canvas:  { scale: 3, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
