@@ -455,10 +455,8 @@
       }
 
       .bc-body {
-        display: grid !important;
-        grid-template-columns: 1.4fr 1fr !important;
-        gap: 12px !important;
-        margin-top: 6px !important;
+        display: block !important;
+        margin-top: 8px !important;
       }
 
       .bc-info-block {
@@ -499,6 +497,7 @@
         font-size: 8pt !important;
         color: #166534 !important;
         line-height: 1.4 !important;
+        margin-bottom: 8px !important;
       }
 
       .bc-solution strong {
@@ -509,20 +508,26 @@
         background: #f8fafc !important;
         border: 1px solid #cbd5e1 !important;
         border-radius: 6px !important;
-        padding: 6px !important;
-        max-height: 160px !important;
+        padding: 8px !important;
+        max-height: none !important;
+        text-align: center !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-top: 8px !important;
       }
 
       .bc-screenshot-wrap img {
-        max-height: 130px !important;
+        max-height: 420px !important;
         width: auto !important;
+        max-width: 100% !important;
         object-fit: contain !important;
+        border-radius: 4px !important;
       }
 
       .bc-screenshot-label {
-        font-size: 6.5pt !important;
+        font-size: 7pt !important;
         color: #64748b !important;
-        margin-top: 3px !important;
+        margin-top: 5px !important;
       }
     }
   </style>
@@ -1424,43 +1429,36 @@
         let screenshotBlockHTML = '';
         if (imgSrc) {
           screenshotBlockHTML = `
-            <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 5px; text-align: center;">
-              <img src="${imgSrc}" style="max-height: 130px; max-width: 100%; width: auto; height: auto; object-fit: contain; border-radius: 4px; border: 1px solid #e2e8f0; display: inline-block;" />
-              <div style="font-size: 7px; color: #64748b; margin-top: 3px; word-break: break-all;">${imgLabel}</div>
+            <div style="margin-top: 10px; text-align: center; page-break-inside: avoid; break-inside: avoid;">
+              <img src="${imgSrc}" style="max-height: 420px; max-width: 100%; width: auto; height: auto; object-fit: contain; border-radius: 6px; border: 1px solid #cbd5e1; display: inline-block; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" />
+              <div style="font-size: 8px; color: #64748b; margin-top: 5px; font-weight: 600;">Bukti Screenshot: ${imgLabel}</div>
             </div>
           `;
         }
 
         pdfHTML += `
-          <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 12px; padding: 10px 12px; border: 1px solid #cbd5e1; border-left: 4px solid ${borderLeftColor}; border-radius: 6px; background: #ffffff;">
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 5px;">
+          <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 18px; padding: 14px 16px; border: 1px solid #cbd5e1; border-left: 5px solid ${borderLeftColor}; border-radius: 8px; background: #ffffff;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 6px;">
               <tr>
                 <td style="text-align: left; vertical-align: middle;">
-                  <span style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; font-weight: 800; font-size: 8.5px; padding: 2px 5px; border-radius: 3px; margin-right: 5px;">${bugId}</span>
-                  <span style="font-size: 11px; font-weight: 800; color: #0f172a;">${bugTitle}</span>
+                  <span style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; font-weight: 800; font-size: 9px; padding: 2px 6px; border-radius: 4px; margin-right: 6px;">${bugId}</span>
+                  <span style="font-size: 12.5px; font-weight: 800; color: #0f172a;">${bugTitle}</span>
                 </td>
-                <td style="text-align: right; vertical-align: middle; width: 120px;">
-                  <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeBorder}; font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 3px; text-transform: uppercase;">${severityText}</span>
+                <td style="text-align: right; vertical-align: middle; width: 130px;">
+                  <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeBorder}; font-size: 8.5px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">${severityText}</span>
                 </td>
               </tr>
             </table>
 
-            <div style="font-size: 8px; color: #64748b; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #f1f5f9;">
+            <div style="font-size: 8.5px; color: #64748b; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid #f1f5f9;">
               ${metaSpans}
             </div>
 
-            <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
-              <tr>
-                <td style="vertical-align: top; width: ${imgSrc ? '63%' : '100%'}; padding-right: ${imgSrc ? '8px' : '0'};">
-                  ${blocksHTML}
-                  ${solutionHTML}
-                </td>
-                ${imgSrc ? `
-                <td style="vertical-align: top; width: 37%;">
-                  ${screenshotBlockHTML}
-                </td>` : ''}
-              </tr>
-            </table>
+            <div>
+              ${blocksHTML}
+              ${solutionHTML}
+              ${screenshotBlockHTML}
+            </div>
           </div>
         `;
       });
