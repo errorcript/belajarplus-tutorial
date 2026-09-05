@@ -295,6 +295,235 @@
     .nav-back-home:hover {
       color: #93c5fd;
     }
+
+    /* === PRINT OPTIMIZATION (EXECUTIVE AUDIT REPORT FORMAT) === */
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+
+    @media print {
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html, body {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 9pt !important;
+        line-height: 1.35 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .nav-back-home,
+      .filter-bar,
+      .btn-pdf-download,
+      .image-modal,
+      .back-to-top,
+      .zoom-hint {
+        display: none !important;
+      }
+
+      .bug-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .bug-header {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        border-left: 5px solid #2563eb !important;
+        border-radius: 8px !important;
+        padding: 14px 18px !important;
+        margin-bottom: 16px !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .bug-header::before {
+        display: none !important;
+      }
+
+      .bh-top {
+        margin-bottom: 8px !important;
+      }
+
+      .bh-badge {
+        background: #fee2e2 !important;
+        border: 1px solid #fca5a5 !important;
+        color: #b91c1c !important;
+        font-size: 7.5pt !important;
+        padding: 2px 8px !important;
+      }
+
+      .bh-title {
+        font-size: 16pt !important;
+        color: #0f172a !important;
+        margin: 4px 0 !important;
+        line-height: 1.2 !important;
+      }
+
+      .bh-desc {
+        color: #475569 !important;
+        font-size: 8.5pt !important;
+        line-height: 1.4 !important;
+      }
+
+      .bh-meta-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #e2e8f0 !important;
+      }
+
+      .bh-meta-item {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 6px !important;
+        padding: 6px 8px !important;
+      }
+
+      .bh-meta-label {
+        font-size: 6.5pt !important;
+        color: #64748b !important;
+      }
+
+      .bh-meta-val {
+        font-size: 10pt !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        margin-top: 2px !important;
+      }
+
+      /* Compact Bug Cards Anti-Cut */
+      .bug-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+        padding: 12px 14px !important;
+        margin-bottom: 12px !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .bc-header {
+        margin-bottom: 6px !important;
+      }
+
+      .bc-id {
+        background: #f1f5f9 !important;
+        color: #334155 !important;
+        border: 1px solid #cbd5e1 !important;
+        font-size: 8pt !important;
+        padding: 1px 5px !important;
+      }
+
+      .bc-title {
+        font-size: 11pt !important;
+        color: #0f172a !important;
+        line-height: 1.3 !important;
+      }
+
+      .bc-severity {
+        font-size: 7pt !important;
+        padding: 2px 6px !important;
+      }
+
+      .sev-critical { background: #fee2e2 !important; color: #991b1b !important; border: 1px solid #f87171 !important; }
+      .sev-high { background: #ffedd5 !important; color: #9a3412 !important; border: 1px solid #fb923c !important; }
+      .sev-medium { background: #fef9c3 !important; color: #854d0e !important; border: 1px solid #facc15 !important; }
+      .sev-low { background: #dbeafe !important; color: #1e40af !important; border: 1px solid #60a5fa !important; }
+
+      .bc-meta {
+        font-size: 8pt !important;
+        color: #64748b !important;
+        margin-bottom: 8px !important;
+        gap: 12px !important;
+      }
+
+      .bc-meta span strong {
+        color: #1e293b !important;
+      }
+
+      .bc-body {
+        display: grid !important;
+        grid-template-columns: 1.4fr 1fr !important;
+        gap: 12px !important;
+        margin-top: 6px !important;
+      }
+
+      .bc-info-block {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 6px !important;
+        padding: 8px 10px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .bc-info-title {
+        font-size: 7.5pt !important;
+        margin-bottom: 3px !important;
+        color: #1e293b !important;
+      }
+
+      .bc-info-desc {
+        font-size: 8pt !important;
+        color: #334155 !important;
+        line-height: 1.4 !important;
+      }
+
+      .bc-info-desc ol, .bc-info-desc ul {
+        margin: 2px 0 0 !important;
+        padding-left: 14px !important;
+      }
+
+      .bc-info-desc li {
+        margin-bottom: 2px !important;
+      }
+
+      .bc-solution {
+        background: #f0fdf4 !important;
+        border: 1px solid #bbf7d0 !important;
+        border-left: 3px solid #16a34a !important;
+        padding: 6px 10px !important;
+        border-radius: 6px !important;
+        font-size: 8pt !important;
+        color: #166534 !important;
+        line-height: 1.4 !important;
+      }
+
+      .bc-solution strong {
+        color: #15803d !important;
+      }
+
+      .bc-screenshot-wrap {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 6px !important;
+        padding: 6px !important;
+        max-height: 160px !important;
+      }
+
+      .bc-screenshot-wrap img {
+        max-height: 130px !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+
+      .bc-screenshot-label {
+        font-size: 6.5pt !important;
+        color: #64748b !important;
+        margin-top: 3px !important;
+      }
+    }
   </style>
 </head>
 <body>
