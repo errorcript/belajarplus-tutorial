@@ -46,6 +46,7 @@
 }
 
 /* Light Theme Variables Override */
+:root.light-mode,
 body.light-mode {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;

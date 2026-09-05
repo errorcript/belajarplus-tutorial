@@ -376,22 +376,48 @@ if (navToggle && navLinks) {
   });
 }
 
-// === DARK & LIGHT THEME TOGGLE ===
-const themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  
-  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-    document.body.classList.add('light-mode');
+// === DARK & LIGHT THEME ENGINE (SYSTEM PREFERENCE DEFAULT + REALTIME LISTENER) ===
+(function initThemeEngine() {
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+  const themeToggle = document.getElementById('themeToggle');
+
+  function applyTheme(isLight) {
+    if (isLight) {
+      document.documentElement.classList.add('light-mode');
+      document.body.classList.add('light-mode');
+    } else {
+      document.documentElement.classList.remove('light-mode');
+      document.body.classList.remove('light-mode');
+    }
   }
 
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    const currentTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
-    localStorage.setItem('theme', currentTheme);
+  // 1. Initial State: check localStorage, otherwise strictly default to system preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    applyTheme(true);
+  } else if (savedTheme === 'dark') {
+    applyTheme(false);
+  } else {
+    applyTheme(mediaQuery.matches);
+  }
+
+  // 2. Real-time Listener: automatically adapt if user changes their OS theme without manual override
+  mediaQuery.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches);
+    }
   });
-}
+
+  // 3. User manual toggle button
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isCurrentlyLight = document.body.classList.contains('light-mode');
+      const newTheme = isCurrentlyLight ? 'dark' : 'light';
+      applyTheme(!isCurrentlyLight);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+})();
 
 // === ROLE SWITCHER ===
 window.switchRole = function(role, btn) {

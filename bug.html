@@ -9,7 +9,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=53" />
+  <link rel="stylesheet" href="style.css?v=54" />
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+          document.documentElement.classList.add('light-mode');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     :root {
@@ -297,6 +308,98 @@
       color: #93c5fd;
     }
 
+    /* === LIGHT THEME OVERRIDES FOR /BUG === */
+    :root.light-mode,
+    body.light-mode {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    body.light-mode .nav-back-home {
+      color: #2563eb;
+    }
+    body.light-mode .nav-back-home:hover {
+      color: #1d4ed8;
+    }
+    body.light-mode .bug-header {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    body.light-mode .bh-title {
+      color: #0f172a;
+    }
+    body.light-mode .bh-desc {
+      color: #475569;
+    }
+    body.light-mode .bh-meta-grid {
+      border-top-color: #e2e8f0;
+    }
+    body.light-mode .bh-meta-item {
+      background: #f1f5f9;
+      border-color: #e2e8f0;
+    }
+    body.light-mode .bh-meta-label {
+      color: #64748b;
+    }
+    body.light-mode .bh-meta-val {
+      color: #0f172a;
+    }
+    body.light-mode .filter-chip {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      color: #475569;
+    }
+    body.light-mode .filter-chip:hover,
+    body.light-mode .filter-chip.active {
+      background: #eff6ff;
+      border-color: #2563eb;
+      color: #1d4ed8;
+    }
+    body.light-mode .bug-card {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    body.light-mode .bug-card:hover {
+      border-color: #3b82f6;
+    }
+    body.light-mode .bc-title {
+      color: #0f172a;
+    }
+    body.light-mode .bc-id {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+    body.light-mode .bc-meta {
+      color: #64748b;
+    }
+    body.light-mode .bc-meta span strong {
+      color: #1e293b;
+    }
+    body.light-mode .bc-info-block {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+    body.light-mode .bc-info-desc {
+      color: #334155;
+    }
+    body.light-mode .bc-solution {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #166534;
+    }
+    body.light-mode .bc-solution strong {
+      color: #15803d;
+    }
+    body.light-mode .bc-screenshot-wrap {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+    body.light-mode .bc-screenshot-label {
+      color: #64748b;
+    }
+
     /* === PRINT OPTIMIZATION (EXECUTIVE AUDIT REPORT FORMAT) === */
     @page {
       size: A4 portrait;
@@ -545,9 +648,15 @@
             Kompilasi temuan bug fungsional, celah UI/UX, dan kendala teknis yang ditemukan selama pengujian pada platform <strong>BelajarPlus.id</strong>. Dilengkapi dengan langkah reproduksi, tingkat keparahan (*severity*), dan rekomendasi perbaikan.
           </p>
         </div>
-        <button onclick="downloadBugAuditPDF()" class="btn-pdf-download" id="btnDownloadBugPDF" style="padding: 0.75rem 1.4rem; font-size: 0.9rem; font-weight: 800;">
-          📥 Unduh Laporan PDF (A4)
-        </button>
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <button id="themeToggle" class="theme-toggle" aria-label="Ganti Mode Tampilan" title="Ganti Mode Gelap / Terang">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+          </button>
+          <button onclick="downloadBugAuditPDF()" class="btn-pdf-download" id="btnDownloadBugPDF" style="padding: 0.75rem 1.4rem; font-size: 0.9rem; font-weight: 800;">
+            📥 Unduh Laporan PDF (A4)
+          </button>
+        </div>
       </div>
 
       <div class="bh-meta-grid">
@@ -1511,6 +1620,45 @@
         window.print();
       }
     };
+
+    // === THEME ENGINE (SYSTEM PREFERENCE DEFAULT + REALTIME LISTENER) ===
+    (function initBugTheme() {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+      const themeBtn = document.getElementById('themeToggle');
+
+      function applyTheme(isLight) {
+        if (isLight) {
+          document.documentElement.classList.add('light-mode');
+          document.body.classList.add('light-mode');
+        } else {
+          document.documentElement.classList.remove('light-mode');
+          document.body.classList.remove('light-mode');
+        }
+      }
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        applyTheme(true);
+      } else if (savedTheme === 'dark') {
+        applyTheme(false);
+      } else {
+        applyTheme(mediaQuery.matches);
+      }
+
+      mediaQuery.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          applyTheme(e.matches);
+        }
+      });
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const isLight = document.body.classList.contains('light-mode');
+          applyTheme(!isLight);
+          localStorage.setItem('theme', !isLight ? 'light' : 'dark');
+        });
+      }
+    })();
   </script>
 </body>
 </html>
