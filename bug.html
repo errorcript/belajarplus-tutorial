@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=53" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     :root {
       --font-code: 'JetBrains Mono', monospace;
@@ -540,8 +541,8 @@
             Kompilasi temuan bug fungsional, celah UI/UX, dan kendala teknis yang ditemukan selama pengujian menyeluruh pada platform <strong>BelajarPlus.id</strong>. Dilengkapi dengan langkah reproduksi, tingkat keparahan (*severity*), dan rekomendasi perbaikan teknis untuk tim developer.
           </p>
         </div>
-        <button onclick="window.print()" class="btn-pdf-download" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
-          🖨️ Cetak / Simpan Laporan
+        <button onclick="downloadBugAuditPDF()" class="btn-pdf-download" id="btnDownloadBugPDF" style="padding: 0.75rem 1.4rem; font-size: 0.9rem; font-weight: 800;">
+          📥 Unduh Laporan PDF Resmi (A4)
         </button>
       </div>
 
@@ -1275,6 +1276,239 @@
       const modal = document.getElementById('imageModal');
       if (modal) modal.classList.remove('active');
     }
+
+    // Convert images to Base64 to prevent html2canvas blank image renders
+    async function preparePdfImages(container) {
+      const imgs = container.querySelectorAll('img');
+      const promises = Array.from(imgs).map(img => {
+        return new Promise((resolve) => {
+          if (!img.src) return resolve();
+          const tempImg = new Image();
+          tempImg.crossOrigin = 'anonymous';
+          tempImg.onload = () => {
+            try {
+              const canvas = document.createElement('canvas');
+              canvas.width = tempImg.naturalWidth || 600;
+              canvas.height = tempImg.naturalHeight || 400;
+              const ctx = canvas.getContext('2d');
+              ctx.drawImage(tempImg, 0, 0);
+              img.src = canvas.toDataURL('image/png');
+            } catch (e) {
+              console.warn('Canvas dataURL fallback:', e);
+            }
+            resolve();
+          };
+          tempImg.onerror = () => resolve();
+          tempImg.src = img.src;
+        });
+      });
+      await Promise.all(promises);
+    }
+
+    // === OFFICIAL CLIENT-SIDE PDF GENERATOR (MATCHING TUTORIAL SISWA) ===
+    window.downloadBugAuditPDF = async function() {
+      if (window.isGeneratingPDF) return;
+      window.isGeneratingPDF = true;
+
+      const triggerBtn = document.getElementById('btnDownloadBugPDF');
+      const originalText = triggerBtn ? triggerBtn.innerHTML : '';
+      if (triggerBtn) {
+        triggerBtn.innerHTML = '⏳ Memproses Berkas PDF...';
+        triggerBtn.disabled = true;
+      }
+
+      const savedScrollY = window.scrollY || window.pageYOffset || 0;
+      window.scrollTo(0, 0);
+
+      const pdfWrapper = document.createElement('div');
+      pdfWrapper.id = 'pdfBugRenderContainer';
+      pdfWrapper.style.position = 'relative';
+      pdfWrapper.style.margin = '0 auto';
+      pdfWrapper.style.width = '700px';
+      pdfWrapper.style.zIndex = '99999999';
+      pdfWrapper.style.background = '#ffffff';
+      pdfWrapper.style.color = '#0f172a';
+      pdfWrapper.style.fontFamily = "'Inter', Arial, sans-serif";
+      pdfWrapper.style.padding = '22px 24px';
+      pdfWrapper.style.boxSizing = 'border-box';
+
+      // ── Kop Resmi Audit ──
+      let pdfHTML = `
+        <table style="width: 100%; border-bottom: 3px double #1e3a8a; padding-bottom: 12px; margin-bottom: 16px; background: #ffffff; border-collapse: collapse; table-layout: fixed;">
+          <tr>
+            <td style="vertical-align: middle; text-align: left;">
+              <div style="font-size: 9px; font-weight: 800; color: #dc2626; letter-spacing: 1.5px; text-transform: uppercase;">DOKUMEN RESMI AUDIT QA &amp; EVALUASI TEKNIS</div>
+              <h1 style="font-size: 17px; font-weight: 900; color: #1e3a8a; margin: 3px 0 2px 0;">LAPORAN TEMUAN BUG &amp; REKOMENDASI SISTEM</h1>
+              <div style="font-size: 11px; font-weight: 700; color: #334155; text-transform: uppercase;">PLATFORM PERPUSTAKAAN DIGITAL BELAJARPLUS.ID</div>
+              <div style="font-size: 9px; color: #64748b; margin-top: 4px;">
+                Klasifikasi: Dokumen Internal Terbatas • Tanggal Cetak: ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </div>
+            </td>
+            <td style="vertical-align: middle; text-align: right; width: 140px; padding-right: 6px;">
+              <img src="assets/belajar-plus-logo.png" style="width: 120px; height: auto; display: block; margin-left: auto;" />
+            </td>
+          </tr>
+        </table>
+
+        <!-- Ringkasan Eksekutif -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; background: #ffffff;">
+          <tr style="background: #f8fafc; font-size: 8.5px; font-weight: 800; color: #475569; text-transform: uppercase;">
+            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center;">TOTAL TEMUAN</td>
+            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center; color: #b91c1c;">TINGKAT TINGGI / KRITIS</td>
+            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center; color: #b45309;">TINGKAT SEDANG (MEDIUM)</td>
+            <td style="padding: 7px 10px; width: 25%; text-align: center; color: #15803d;">TINGKAT RENDAH / UX</td>
+          </tr>
+          <tr style="background: #ffffff; font-size: 11px; font-weight: 800; color: #0f172a;">
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">15 Isu Teridentifikasi</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">4 Isu</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #d97706;">8 Isu</td>
+            <td style="padding: 6px 10px; text-align: center; color: #16a34a;">3 Isu</td>
+          </tr>
+        </table>
+      `;
+
+      // ── Daftar Kartu Temuan Bug ──
+      const cards = document.querySelectorAll('.bug-card');
+      cards.forEach(card => {
+        if (card.style.display === 'none') return;
+
+        const bugId = card.querySelector('.bc-id')?.innerText || '';
+        const bugTitle = card.querySelector('.bc-title')?.innerText || '';
+        const severityEl = card.querySelector('.bc-severity');
+        const severityText = severityEl ? severityEl.innerText : '';
+        const severityClass = severityEl ? severityEl.className : '';
+
+        let borderLeftColor = '#3b82f6';
+        let badgeBg = '#dbeafe';
+        let badgeColor = '#1e40af';
+        let badgeBorder = '#93c5fd';
+
+        if (severityClass.includes('sev-critical') || severityClass.includes('sev-high')) {
+          borderLeftColor = '#dc2626';
+          badgeBg = '#fee2e2';
+          badgeColor = '#991b1b';
+          badgeBorder = '#fca5a5';
+        } else if (severityClass.includes('sev-medium')) {
+          borderLeftColor = '#f59e0b';
+          badgeBg = '#fef3c7';
+          badgeColor = '#92400e';
+          badgeBorder = '#fcd34d';
+        }
+
+        const metaSpans = Array.from(card.querySelectorAll('.bc-meta span')).map(s => s.innerHTML).join(' &nbsp;•&nbsp; ');
+
+        const infoBlocks = card.querySelectorAll('.bc-info-block');
+        let blocksHTML = '';
+        infoBlocks.forEach(b => {
+          const title = b.querySelector('.bc-info-title')?.innerHTML || '';
+          const desc = b.querySelector('.bc-info-desc')?.innerHTML || '';
+          blocksHTML += `
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 6px 8px; margin-bottom: 5px;">
+              <div style="font-size: 9px; font-weight: 800; margin-bottom: 2px; color: #1e293b;">${title}</div>
+              <div style="font-size: 9px; color: #334155; line-height: 1.45;">${desc}</div>
+            </div>
+          `;
+        });
+
+        const solutionEl = card.querySelector('.bc-solution');
+        const solutionHTML = solutionEl ? `
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 3px solid #16a34a; border-radius: 4px; padding: 6px 8px; font-size: 9px; color: #166534; line-height: 1.45;">
+            ${solutionEl.innerHTML}
+          </div>
+        ` : '';
+
+        const imgEl = card.querySelector('.bc-screenshot-wrap img');
+        const imgSrc = imgEl ? imgEl.src : '';
+        const imgLabel = card.querySelector('.bc-screenshot-label')?.innerText || '';
+
+        let screenshotBlockHTML = '';
+        if (imgSrc) {
+          screenshotBlockHTML = `
+            <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 5px; text-align: center;">
+              <img src="${imgSrc}" style="max-height: 130px; max-width: 100%; width: auto; height: auto; object-fit: contain; border-radius: 4px; border: 1px solid #e2e8f0; display: inline-block;" />
+              <div style="font-size: 7px; color: #64748b; margin-top: 3px; word-break: break-all;">${imgLabel}</div>
+            </div>
+          `;
+        }
+
+        pdfHTML += `
+          <div style="page-break-inside: avoid; break-inside: avoid; margin-bottom: 12px; padding: 10px 12px; border: 1px solid #cbd5e1; border-left: 4px solid ${borderLeftColor}; border-radius: 6px; background: #ffffff;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 5px;">
+              <tr>
+                <td style="text-align: left; vertical-align: middle;">
+                  <span style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; font-weight: 800; font-size: 8.5px; padding: 2px 5px; border-radius: 3px; margin-right: 5px;">${bugId}</span>
+                  <span style="font-size: 11px; font-weight: 800; color: #0f172a;">${bugTitle}</span>
+                </td>
+                <td style="text-align: right; vertical-align: middle; width: 120px;">
+                  <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeBorder}; font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 3px; text-transform: uppercase;">${severityText}</span>
+                </td>
+              </tr>
+            </table>
+
+            <div style="font-size: 8px; color: #64748b; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #f1f5f9;">
+              ${metaSpans}
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+              <tr>
+                <td style="vertical-align: top; width: ${imgSrc ? '63%' : '100%'}; padding-right: ${imgSrc ? '8px' : '0'};">
+                  ${blocksHTML}
+                  ${solutionHTML}
+                </td>
+                ${imgSrc ? `
+                <td style="vertical-align: top; width: 37%;">
+                  ${screenshotBlockHTML}
+                </td>` : ''}
+              </tr>
+            </table>
+          </div>
+        `;
+      });
+
+      // ── Footer Resmi ──
+      pdfHTML += `
+        <div style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 8px; text-align: center; font-size: 8.5px; color: #64748b; background: #ffffff;">
+          © ${new Date().getFullYear()} BelajarPlus.id — Dokumen Rahasia &amp; Tertutup untuk Tim Pengembang &amp; Manajemen.
+        </div>
+      `;
+
+      pdfWrapper.innerHTML = pdfHTML;
+      document.body.insertBefore(pdfWrapper, document.body.firstChild);
+
+      await preparePdfImages(pdfWrapper);
+
+      const opt = {
+        margin:       [8, 8, 10, 8],
+        filename:     'Laporan_Audit_Bug_BelajarPlus_ID.pdf',
+        image:        { type: 'jpeg', quality: 1.0 },
+        html2canvas:  { scale: 3, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['css', 'legacy'] }
+      };
+
+      const cleanup = () => {
+        window.isGeneratingPDF = false;
+        if (document.body.contains(pdfWrapper)) {
+          document.body.removeChild(pdfWrapper);
+        }
+        if (triggerBtn) {
+          triggerBtn.innerHTML = originalText;
+          triggerBtn.disabled = false;
+        }
+        window.scrollTo(0, savedScrollY);
+      };
+
+      if (window.html2pdf) {
+        window.html2pdf().set(opt).from(pdfWrapper).save().then(cleanup).catch(err => {
+          console.error('PDF generation error:', err);
+          cleanup();
+          window.print();
+        });
+      } else {
+        cleanup();
+        window.print();
+      }
+    };
   </script>
 </body>
 </html>
