@@ -760,6 +760,34 @@ window.downloadRolePDF = async function(role) {
   }
 };
 
+// === GOOGLE DRIVE AUTHENTIC SCREEN RECORDING VIDEO DATA ===
+const driveVideoData = {
+  siswa: [
+    { part: 1, title: 'Part 1: Pembuatan Akun Siswa', id: '1Q3xoPLtK4DL4XVuJyrmO6Q2703ME2lvz', desc: 'Tutorial registrasi akun siswa, input kode sekolah mitra, dan aktivasi OTP' },
+    { part: 2, title: 'Part 2: Pembelajaran Saya', id: '1QJUDgRB91FIBpjUOeCIpkq9nVIn7Tjz2', desc: 'Pengenalan dashboard siswa, daftar tugas, dan integrasi kelas' },
+    { part: 3, title: 'Part 3: Perpustakaan Digital', id: '1nSDEn9s2rPNUj351S3pb99JoYcGXvAqq', desc: 'Cara mencari koleksi buku, filter jenjang & mapel, dan pinjam online' },
+    { part: 4, title: 'Part 4: Toko Buku', id: '131SvXqG-SqAgvd7FCHGvpiXHi1pr-LgF', desc: 'Alur pembelian buku cetak/digital & konfirmasi transfer manual' }
+  ],
+  guru: [
+    { part: 1, title: 'Part 1: Penggunaan Aplikasi', id: '1y8QfUENPfe-ySaJXuHXxhoun_4l4Z1Ce', desc: 'Pengenalan antarmuka dan alur kerja guru BelajarPlus' },
+    { part: 2, title: 'Part 2: Menu Perpustakaan', id: '1_DxGTqDEq9C9NEDx5ZaldVjSdI9cBom1', desc: 'Navigasi katalog e-library dan seleksi acuan mata pelajaran' },
+    { part: 3, title: 'Part 3: Cara Membuat Kelas', id: '1G5J1RPPvtLqBXXq6Yot4s2nezkWDZW7L', desc: 'Pembuatan ruang kelas, kode unik BLJ, dan assign rombel siswa' },
+    { part: 4, title: 'Part 4: Aktivitas Belajar', id: '13ZGpI_6VpKti5FT6L_OQVs2gq0U2H8dl', desc: 'Penyusunan modul materi dan alur belajar siswa' },
+    { part: 5, title: 'Part 5: Cara Membuat Penugasan', id: '1tBv7Cmwl8R_f_VYnaa5JlDlKSwuYnP_p', desc: 'Pembuatan tugas Lembar Jawab Digital (LJD) dan pengaturan bobot' },
+    { part: 6, title: 'Part 6: Penugasan Sumber Belajar', id: '1NrL2-q2lnkaBoNsUrSEEP5kH-RCgknjp', desc: 'Menghubungkan tugas LJD dengan buku materi perpustakaan' },
+    { part: 7, title: 'Part 7: Pengaturan Hasil Belajar', id: '1hPSY-gyZx7HF6VG1N17OXRdbrVVHyFe8', desc: 'Konfigurasi ambang kelulusan KKM dan bobot nilai' },
+    { part: 8, title: 'Part 8: Unduh Hasil Pengerjaan', id: '1Muda5C0hJ6VDEWSFCBcj9z5pdi219ppc', desc: 'Ekspor transkrip nilai siswa ke format file evaluasi/rapor' },
+    { part: 9, title: 'Part 9: Cara Memesan Buku', id: '16DxT5YpnWaMijhuMNlmzbLa3EXDVnf0P', desc: 'Panduan pengadaan dan pemesanan buku kurikulum pegangan guru' }
+  ],
+  kepsek: [
+    { part: 1, title: 'Part 1: Registrasi & Navigasi Admin', id: '10FjbPa4LobChZ_y4VYXqDXuk9izaFo7O', desc: 'Aktivasi kode sekolah dan pengenalan portal kepsek' },
+    { part: 2, title: 'Part 2: Dashboard Analitik', id: '1B_HW269ZU2ikQL4--AhLrdu1mFyGNuK-', desc: 'Monitoring intensitas baca siswa dan aktivitas kelas sekolah' },
+    { part: 3, title: 'Part 3: Koleksi & Lisensi Buku', id: '1GXSnlk8__j_y5Rub7CaCUuzdHaJDfBCZ', desc: 'Pengaturan kuota eksemplar digital dan stok perpustakaan' },
+    { part: 4, title: 'Part 4: Pengelolaan User & Rombel', id: '1S4RSvqp-glM_eMebgA5u7np_OLPi6Pv8', desc: 'Manajemen data guru, rombel siswa, dan penugasan staf' },
+    { part: 5, title: 'Part 5: Audit & Laporan Dinas', id: '1hZTWw4WY8cGpvswggrW4vqb8dZ0Etifo', desc: 'Laporan eksekutif akreditasi sekolah & log keamanan sistem' }
+  ]
+};
+
 // === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
 const videoTutorialData = {
   siswa: {
@@ -928,27 +956,98 @@ const videoTutorialData = {
 
 let currentVideoRole = 'siswa';
 let currentVideoStepIndex = 0;
+let currentVideoMode = 'drive'; // 'drive' or 'sim'
+let currentDrivePart = 1;
 let isVideoPlaying = false;
 let isSubtitlesOn = true;
 let isAudioVOOn = true;
 let videoTimer = null;
 let currentSpeechUtterance = null;
 
-window.openVideoPlayer = function(role) {
-  console.log('openVideoPlayer called for:', role);
-  currentVideoRole = role || 'siswa';
-  currentVideoStepIndex = 0;
-  isVideoPlaying = true; // Auto-play video & narration on open!
+// Switch between authentic Google Drive recordings and Simulation
+window.switchVideoMode = function(mode) {
+  currentVideoMode = mode;
+  const tabDrive = document.getElementById('tabModeDrive');
+  const tabSim = document.getElementById('tabModeSim');
+  const driveScreen = document.getElementById('drivePlayerScreen');
+  const simScreen = document.getElementById('videoPlayerScreen');
+  const simControls = document.getElementById('videoPlayerControls');
+  const driveIframe = document.getElementById('driveVideoIframe');
 
-  const roleData = videoTutorialData[currentVideoRole] || videoTutorialData['siswa'];
-  
+  if (mode === 'drive') {
+    if (tabDrive) tabDrive.classList.add('active');
+    if (tabSim) tabSim.classList.remove('active');
+    if (driveScreen) driveScreen.style.display = 'flex';
+    if (simScreen) simScreen.style.display = 'none';
+    if (simControls) simControls.style.display = 'none';
+
+    stopVideoPlay(); // Stop simulation voiceover
+    renderDrivePlaylist();
+    loadDriveVideo(currentVideoRole, currentDrivePart);
+  } else {
+    if (tabDrive) tabDrive.classList.remove('active');
+    if (tabSim) tabSim.classList.add('active');
+    if (driveScreen) driveScreen.style.display = 'none';
+    if (simScreen) simScreen.style.display = 'block';
+    if (simControls) simControls.style.display = 'flex';
+
+    if (driveIframe) driveIframe.src = ''; // stop drive video sound
+    loadVideoStep(currentVideoStepIndex || 0);
+  }
+};
+
+window.renderDrivePlaylist = function() {
+  const bar = document.getElementById('drivePlaylistBar');
+  if (!bar) return;
+  const list = driveVideoData[currentVideoRole] || driveVideoData['siswa'];
+  let html = '';
+  list.forEach(v => {
+    const isActive = v.part === currentDrivePart;
+    html += `
+      <button class="drive-part-chip ${isActive ? 'active' : ''}" onclick="loadDriveVideo('${currentVideoRole}', ${v.part})">
+        <span>▶️</span> ${v.title}
+      </button>
+    `;
+  });
+  bar.innerHTML = html;
+};
+
+window.loadDriveVideo = function(role, partNumber) {
+  currentVideoRole = role || currentVideoRole;
+  currentDrivePart = partNumber || 1;
+  const list = driveVideoData[currentVideoRole] || driveVideoData['siswa'];
+  const video = list.find(v => v.part === currentDrivePart) || list[0];
+  if (!video) return;
+
+  const driveIframe = document.getElementById('driveVideoIframe');
+  if (driveIframe) {
+    const previewUrl = `https://drive.google.com/file/d/${video.id}/preview`;
+    if (driveIframe.src !== previewUrl) {
+      driveIframe.src = previewUrl;
+    }
+  }
+
+  // Update header text
   const titleElem = document.getElementById('videoRoleTitle');
   const subElem = document.getElementById('videoRoleSub');
-  if (titleElem) titleElem.textContent = roleData.roleTitle;
-  if (subElem) subElem.textContent = roleData.roleSub;
+  const roleNames = { siswa: 'Akun Siswa', guru: 'Akun Guru', kepsek: 'Kepala Sekolah & Admin' };
+  if (titleElem) titleElem.textContent = `${video.title} (${roleNames[currentVideoRole] || currentVideoRole})`;
+  if (subElem) subElem.textContent = video.desc || 'Rekaman panduan layar resmi BelajarPlus';
 
-  const playBtn = document.getElementById('vpcPlayBtn');
-  if (playBtn) playBtn.innerHTML = '⏸️ Jeda Video';
+  // Highlight active chip
+  const chips = document.querySelectorAll('.drive-part-chip');
+  chips.forEach((c, idx) => {
+    if (list[idx] && list[idx].part === currentDrivePart) {
+      c.classList.add('active');
+    } else {
+      c.classList.remove('active');
+    }
+  });
+};
+
+window.playDriveVideo = function(role, partNumber) {
+  currentVideoRole = role || 'siswa';
+  currentDrivePart = partNumber || 1;
 
   const modal = document.getElementById('videoModal');
   if (modal) {
@@ -960,12 +1059,35 @@ window.openVideoPlayer = function(role) {
     document.body.style.overflow = 'hidden';
   }
 
-  loadVideoStep(0);
-}
+  switchVideoMode('drive');
+};
+
+window.openVideoPlayer = function(role) {
+  console.log('openVideoPlayer called for:', role);
+  currentVideoRole = role || 'siswa';
+  currentDrivePart = 1;
+
+  const modal = document.getElementById('videoModal');
+  if (modal) {
+    modal.style.setProperty('display', 'flex', 'important');
+    modal.style.setProperty('opacity', '1', 'important');
+    modal.style.setProperty('visibility', 'visible', 'important');
+    modal.style.setProperty('pointer-events', 'auto', 'important');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Default to real Drive video recordings
+  switchVideoMode('drive');
+};
 
 window.closeVideoModal = function(e) {
   if (e && e.target && e.target.classList.contains('video-modal-container')) return;
   stopVideoPlay();
+  const driveIframe = document.getElementById('driveVideoIframe');
+  if (driveIframe) {
+    driveIframe.src = ''; // immediately stop audio & video playback
+  }
   const modal = document.getElementById('videoModal');
   if (modal) {
     modal.style.setProperty('display', 'none', 'important');
@@ -975,7 +1097,7 @@ window.closeVideoModal = function(e) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
-}
+};
 
 // Global Event Delegation Fail-safe for Video and PDF buttons
 window.loadVideoStep = function(index) {
