@@ -1093,11 +1093,11 @@
       <div class="bh-meta-grid">
         <div class="bh-meta-item">
           <div class="bh-meta-label">Total Temuan</div>
-          <div class="bh-meta-val" style="color: #60a5fa;">20 Isu Teridentifikasi</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">22 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🐛 System Bug (Teknis / Logic)</div>
-          <div class="bh-meta-val" style="color: #f87171;">12 Isu</div>
+          <div class="bh-meta-val" style="color: #f87171;">14 Isu</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🎨 UI/UX &amp; Alur Produk</div>
@@ -1210,8 +1210,8 @@
     <div class="filter-section">
       <div class="filter-group filter-group-cat">
         <span class="filter-label">Kategori Masalah:</span>
-        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (20)</button>
-        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (12)</button>
+        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (22)</button>
+        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (14)</button>
         <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (7)</button>
         <button class="filter-chip" onclick="filterCategory('content', this)">✏️ Typo &amp; Copy (1)</button>
       </div>
@@ -1219,8 +1219,8 @@
         <span class="filter-label">Tingkat Urgensi:</span>
         <button class="filter-chip active" onclick="filterPriority('all', this)">Semua Urgensi</button>
         <button class="filter-chip chip-p0" onclick="filterPriority('p0', this)">🔴 P0 - Blocker (2)</button>
-        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (8)</button>
-        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (8)</button>
+        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (9)</button>
+        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (9)</button>
         <button class="filter-chip chip-p3" onclick="filterPriority('p3', this)">🟢 P3 - Low / Typo (2)</button>
       </div>
     </div>
@@ -2232,6 +2232,121 @@
             <div style="color: #94a3b8;">&lt;meta name="description" content="Pantau beban antrian penilaian..."&gt;</div>
           </div>
           <div class="bc-screenshot-label">Bukti Response SSR Head Bocor Tanpa Login</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 21: Celah Keamanan Integritas Ujian: Pengacakan Soal di Sisi Client -->
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-021</span>
+          <h3 class="bc-title">Celah Integritas Ujian: Pengacakan Soal &amp; Pilihan Dilakukan di Browser Siswa (Client-Side PRNG)</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Anti-Cheat / Logic)</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Ujian &amp; Penilaian Interaktif (`/answer/$exerciseId`, `exam-mode-C-ml8bTA.js`)</span>
+        <span><strong>Peran Terkena:</strong> Guru, Pengawas Ujian, Sekolah</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Sistem ujian BelajarPlus dilengkapi fitur anti-curang seperti deteksi fullscreen dan deteksi ganti tab (*detect leave*). Namun, mekanisme pengacakan nomor soal (*shuffle questions*) dan pengacakan pilihan ganda (*shuffle options*) <strong>dijalankan seutuhnya di sisi client browser siswa</strong> menggunakan algoritma SplitMix32 / MurmurHash3 deterministik dengan seed statis string:
+              <br><code>${submissionId}:questions</code> dan <code>${submissionId}:options:${itemId}</code>.
+              <br><br>
+              <strong>Dampak Integritas:</strong> Siswa atau pihak ketiga dapat dengan mudah merekonstruksi kembali urutan nomor soal asli dan urutan opsi pilihan aslinya langsung dari DevTools browser. Kunci jawaban antar-siswa dalam satu ruang ujian dapat dicocokkan kembali secara deterministik tanpa perlu membobol server.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Bukti Kode Sumber Client Shuffling:</div>
+            <div class="bc-info-desc">
+              Di file chunk <code>exam-mode-C-ml8bTA.js</code>:
+              <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #fbbf24;">
+                function o(e,t,n){let r=[...e].sort((e,t)=>e-t);return!n||!t?r:a(r,`${t}:questions`)}<br>
+                function s(e,t,r,i,o){return!r||!t||!n.has(o)?e:a(e,`${t}:options:${i}`)}
+              </div>
+              Proses pengacakan (Fisher-Yates) sepenuhnya terjadi di JavaScript runtime siswa, bukan merupakan representasi data yang diacak secara aman di layer database Supabase.
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Pindahkan proses pengacakan soal dan opsi ke layer server (Supabase Edge Function atau PostgreSQL Stored Procedure saat sesi ujian dibuat). Server hanya boleh mengirimkan urutan soal yang sudah teracak tanpa menyertakan referensi index asli di browser siswa.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #0f172a; color: #f8fafc; padding: 1.25rem 1rem; border-radius: 8px; border: 1px solid #334155; font-family: monospace; font-size: 0.73rem; text-align: left; line-height: 1.5;">
+            <div style="color: #38bdf8; font-weight: 700;">// Deterministic Client Seed</div>
+            <div style="color: #fca5a5;">seed = `${submissionId}:questions`</div>
+            <div style="color: #fca5a5;">optSeed = `${submissionId}:options:${itemId}`</div>
+            <div style="color: #fbbf24; margin-top: 0.4rem;">PRNG: SplitMix32 (Reversible via Console)</div>
+          </div>
+          <div class="bc-screenshot-label">Bukti Logika Pengacakan Soal di Frontend</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 22: Kebocoran Konten Video Reader Tanpa Enkripsi DRM -->
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-022</span>
+          <h3 class="bc-title">Kebocoran Konten Video Pembelajaran: Tag Native HTML5 Video Memungkinkan Pengunduhan Bebas Tanpa DRM</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Proteksi Konten)</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Pembaca Buku Digital &amp; Konten Video (`/library/reader/$loanId`)</span>
+        <span><strong>Peran Terkena:</strong> Penerbit Buku, Pemilik Hak Cipta Video</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada antarmuka pembaca buku digital (Reader Shell) terdapat klaim resmi: <em>"Buku ditampilkan dalam mode terlindungi. Berkas asli tidak dapat diunduh atau dibagikan."</em>
+              <br><br>
+              Namun, pada materi video interaktif bab (<code>source_type === 'file'</code>), video disajikan menggunakan tag native HTML5 standar tanpa enkripsi DRM (seperti HLS AES-128 atau tokenized stream):
+              <br><code>&lt;video src={videoUrl} controls class="mt-3 w-full rounded-md"&gt;&lt;/video&gt;</code>.
+              <br><br>
+              Siswa maupun pengguna umum dapat mengklik kanan video dan memilih opsi <strong>"Save video as..."</strong> atau menyalin URL berkas asli dari Cloudflare R2, memungkinkan pembajakan dan redistribusi aset materi digital milik penerbit secara bebas.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Bukti Kode Sumber Reader:</div>
+            <div class="bc-info-desc">
+              Di file chunk <code>reader._loanId-C96tHZZ_.js</code>:
+              <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #fbbf24;">
+                t &amp;&amp; e.source_type === `file` &amp;&amp; r &amp;&amp; (0,b.jsx)(`video`,{src:r,controls:!0,className:`mt-3 w-full rounded-md`})
+              </div>
+              Atribut <code>controls</code> dibiarkan aktif tanpa batasan <code>controlsList="nodownload"</code> dan tidak menggunakan media player terkontrol (seperti Video.js / Hls.js encrypted stream).
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            <ol style="margin: 4px 0 0; padding-left: 18px;">
+              <li>Sematkan atribut <code>controlsList="nodownload"</code> dan matikan menu context klik kanan pada video reader.</li>
+              <li>Konversi video materi pelajaran ke format streaming adaptif bersegmen (HLS / m3u8) dengan proteksi token berdurasi singkat (time-limited presigned token).</li>
+            </ol>
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #000000; color: #ffffff; padding: 1.5rem 1rem; border-radius: 8px; border: 1px solid #334155; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.25rem;">🎬 ▶️</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; font-family: monospace;">&lt;video src="..." controls&gt;</div>
+            <div style="font-size: 0.75rem; color: #f87171; margin-top: 0.5rem; font-weight: 700;">"Save video as..." Aktif</div>
+          </div>
+          <div class="bc-screenshot-label">Video Player Native Tanpa Proteksi Unduhan</div>
         </div>
       </div>
     </div>
