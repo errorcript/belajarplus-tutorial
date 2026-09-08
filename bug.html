@@ -1064,6 +1064,234 @@
         line-height: 1.3 !important;
       }
     }
+
+    /* === MODERN SEARCH & STICKY CONTROLS === */
+    .filter-section {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease;
+    }
+
+    .filter-search-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      color: #64748b;
+      font-size: 0.95rem;
+      pointer-events: none;
+    }
+
+    #bugSearchInput {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.65rem 2.6rem 0.65rem 2.6rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: #f8fafc;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    #bugSearchInput:focus {
+      border-color: #3b82f6;
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 0.85rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #94a3b8;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .clear-search-btn:hover {
+      background: rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+
+    .search-stats-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+    }
+
+    .search-stats-badge span {
+      color: #38bdf8;
+      font-family: var(--font-code);
+    }
+
+    /* === CARD PRIORITY LEFT BORDERS & GLOW === */
+    .bug-card[data-priority="p0"] {
+      border-left: 5px solid #ef4444;
+    }
+    .bug-card[data-priority="p1"] {
+      border-left: 5px solid #f97316;
+    }
+    .bug-card[data-priority="p2"] {
+      border-left: 5px solid #eab308;
+    }
+    .bug-card[data-priority="p3"] {
+      border-left: 5px solid #64748b;
+    }
+
+    .bc-id {
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .bc-id:hover {
+      background: rgba(59, 130, 246, 0.25);
+      color: #93c5fd;
+      border-color: #3b82f6;
+      transform: scale(1.04);
+    }
+    .bc-id::after {
+      content: '🔗';
+      font-size: 0.65rem;
+      margin-left: 0.3rem;
+      opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+    .bc-id:hover::after {
+      opacity: 1;
+    }
+
+    /* === TOAST NOTIFICATION === */
+    .toast-pill {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100px);
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      padding: 0.65rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      z-index: 999999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* === BACK TO TOP BUTTON === */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: all 0.3s ease;
+    }
+    .back-to-top-btn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+    }
+
+    /* === LIGHT MODE OVERRIDES FOR NEW ELEMENTS === */
+    body.light-mode .filter-section {
+      background: rgba(255, 255, 255, 0.92);
+      border-color: #cbd5e1;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+    body.light-mode .filter-search-row {
+      border-bottom-color: #e2e8f0;
+    }
+    body.light-mode #bugSearchInput {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #0f172a;
+    }
+    body.light-mode #bugSearchInput:focus {
+      background: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    body.light-mode .search-stats-badge {
+      background: #f1f5f9;
+      border-color: #e2e8f0;
+      color: #475569;
+    }
+    body.light-mode .search-stats-badge span {
+      color: #2563eb;
+    }
+    body.light-mode .toast-pill {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #93c5fd;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    }
+
   </style>
 </head>
 <body>
@@ -1216,6 +1444,16 @@
 
     <!-- Filter Section: Dual-Classification (Kategori Masalah & Tingkat Urgensi) -->
     <div class="filter-section">
+      <div class="filter-search-row">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="bugSearchInput" placeholder="Cari ID (BUG-001), judul, modul, atau kata kunci (Xendit, video, rekening, anti-cheat)..." oninput="handleSearch(this.value)" autocomplete="off" />
+          <button type="button" id="clearSearchBtn" class="clear-search-btn" onclick="clearSearch()" style="display: none;" title="Hapus pencarian">✕</button>
+        </div>
+        <div class="search-stats-badge" id="searchStatsBadge">
+          Menampilkan <span id="filteredCount">23</span> dari 23 Temuan
+        </div>
+      </div>
       <div class="filter-group filter-group-cat">
         <span class="filter-label">Kategori Masalah:</span>
         <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (23)</button>
@@ -1241,10 +1479,10 @@
     <!-- LIST OF BUGS -->
 
     <!-- BUG 1: Rekening Strip -->
-    <div class="bug-card" data-category="system" data-priority="p0" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p0" data-severity="high" id="bug-001">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-001</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-001', event)" title="Klik untuk menyalin tautan BUG-001">BUG-001</span>
           <h3 class="bc-title">Nomor Rekening Bank Ditampilkan Strip (—) pada Rincian Transfer Manual</h3>
         </div>
         <div class="bc-badges">
@@ -1301,10 +1539,10 @@
     </div>
 
     <!-- BUG 2: Infinite Loading Bank Soal Kosong -->
-    <div class="bug-card" data-category="system" data-priority="p0" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p0" data-severity="high" id="bug-002">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-002</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-002', event)" title="Klik untuk menyalin tautan BUG-002">BUG-002</span>
           <h3 class="bc-title">Infinite Loading Spinner saat Menjalankan Ujian dengan 0 Soal</h3>
         </div>
         <div class="bc-badges">
@@ -1348,10 +1586,10 @@
     </div>
 
     <!-- BUG 3: Search Bar Reset -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-003">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-003</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-003', event)" title="Klik untuk menyalin tautan BUG-003">BUG-003</span>
           <h3 class="bc-title">Search Bar Perpustakaan Me-reset Teks Saat Menekan Tombol Dropdown</h3>
         </div>
         <div class="bc-badges">
@@ -1396,10 +1634,10 @@
     </div>
 
     <!-- BUG 4: Anti-Cheat Tolerance Overlap -->
-    <div class="bug-card" data-category="system" data-priority="p1" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="medium" id="bug-004">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-004</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-004', event)" title="Klik untuk menyalin tautan BUG-004">BUG-004</span>
           <h3 class="bc-title">Indikator Pelanggaran Anti-Cheat Melampaui Batas Toleransi Tanpa Konsekuensi Eksplisit</h3>
         </div>
         <div class="bc-badges">
@@ -1443,10 +1681,10 @@
     </div>
 
     <!-- BUG 5: Desinkronisasi Tab Buku Saya -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-005">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-005</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-005', event)" title="Klik untuk menyalin tautan BUG-005">BUG-005</span>
           <h3 class="bc-title">Desinkronisasi Badge Jumlah Tab dengan Daftar Kartu Buku di "Buku Saya"</h3>
         </div>
         <div class="bc-badges">
@@ -1490,10 +1728,10 @@
     </div>
 
     <!-- BUG 6: Redirect Loop Direct URL Orders -->
-    <div class="bug-card" data-category="system" data-priority="p1" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="medium" id="bug-006">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-006</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-006', event)" title="Klik untuk menyalin tautan BUG-006">BUG-006</span>
           <h3 class="bc-title">Redirect Loop Sesi Login saat Mengakses Tautan Langsung `/orders`</h3>
         </div>
         <div class="bc-badges">
@@ -1537,10 +1775,10 @@
     </div>
 
     <!-- BUG 7: Typo UI Sumlasi TKA -->
-    <div class="bug-card" data-category="content" data-priority="p3" data-severity="low">
+    <div class="bug-card" data-category="content" data-priority="p3" data-severity="low" id="bug-007">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-007</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-007', event)" title="Klik untuk menyalin tautan BUG-007">BUG-007</span>
           <h3 class="bc-title">Typo Penulisan Judul Ujian ("Sumlasi TKA 2") pada Layar Skor Evaluasi</h3>
         </div>
         <div class="bc-badges">
@@ -1583,10 +1821,10 @@
     </div>
 
     <!-- BUG 8: Whiteboard Kehilangan Data -->
-    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high" id="bug-008">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-008</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-008', event)" title="Klik untuk menyalin tautan BUG-008">BUG-008</span>
           <h3 class="bc-title">Coretan &amp; Catatan Whiteboard E-Reader Tidak Tersimpan (Data Loss saat Tab Ditutup)</h3>
         </div>
         <div class="bc-badges">
@@ -1631,10 +1869,10 @@
     </div>
 
     <!-- BUG 9: Countdown Timer LJD Hilang di Halaman Tinjau -->
-    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium" id="bug-009">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-009</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-009', event)" title="Klik untuk menyalin tautan BUG-009">BUG-009</span>
           <h3 class="bc-title">Countdown Timer Menghilang pada Halaman Tinjau Jawaban LJD</h3>
         </div>
         <div class="bc-badges">
@@ -1678,10 +1916,10 @@
     </div>
 
     <!-- BUG 10: Buku Berlisensi Gratis Masih Dijual di Toko Tanpa Notif -->
-    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="medium" id="bug-010">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-010</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-010', event)" title="Klik untuk menyalin tautan BUG-010">BUG-010</span>
           <h3 class="bc-title">Katalog Toko Tetap Menawarkan Buku yang Sebenarnya Tersedia Gratis di Perpustakaan Sekolah</h3>
         </div>
         <div class="bc-badges">
@@ -1725,10 +1963,10 @@
     </div>
 
     <!-- BUG 11: Tidak Ada Validasi Client-Side Upload Struk Transfer -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-011">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-011</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-011', event)" title="Klik untuk menyalin tautan BUG-011">BUG-011</span>
           <h3 class="bc-title">Ketiadaan Validasi Client-Side Format &amp; Ukuran File Bukti Pembayaran</h3>
         </div>
         <div class="bc-badges">
@@ -1772,10 +2010,10 @@
     </div>
 
     <!-- BUG 12: Shortcut Kembalikan Buku di Akhir Reader Absen -->
-    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium" id="bug-012">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-012</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-012', event)" title="Klik untuk menyalin tautan BUG-012">BUG-012</span>
           <h3 class="bc-title">Ketiadaan Shortcut "Kembalikan Buku" saat Siswa Selesai Membaca Halaman Terakhir</h3>
         </div>
         <div class="bc-badges">
@@ -1819,10 +2057,10 @@
     </div>
 
     <!-- BUG 13: Batang Analisis Kompetensi Tanpa Label Indikator -->
-    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium" id="bug-013">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-013</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-013', event)" title="Klik untuk menyalin tautan BUG-013">BUG-013</span>
           <h3 class="bc-title">Grafik Analisis Kompetensi Hasil Ujian Tidak Memiliki Label Indikator Soal</h3>
         </div>
         <div class="bc-badges">
@@ -1866,10 +2104,10 @@
     </div>
 
     <!-- BUG 14: Password Strength Meter Absen -->
-    <div class="bug-card" data-category="uiux" data-priority="p3" data-severity="low">
+    <div class="bug-card" data-category="uiux" data-priority="p3" data-severity="low" id="bug-014">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-014</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-014', event)" title="Klik untuk menyalin tautan BUG-014">BUG-014</span>
           <h3 class="bc-title">Ketiadaan Indikator Kekuatan Kata Sandi (Password Strength Meter) saat Registrasi</h3>
         </div>
         <div class="bc-badges">
@@ -1913,10 +2151,10 @@
     </div>
 
     <!-- BUG 15: Broken OpenGraph Metadata (Lovable.app 404 Artifact) -->
-    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high" id="bug-015">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-015</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-015', event)" title="Klik untuk menyalin tautan BUG-015">BUG-015</span>
           <h3 class="bc-title">Broken OpenGraph Social Share Asset (Tag og:image Masih Mengarah ke R2 Lovable yang Error 404)</h3>
         </div>
         <div class="bc-badges">
@@ -1966,10 +2204,10 @@
     </div>
 
     <!-- BUG 16: Kanibalisasi SEO & Duplikasi Domain (.com vs .id Tanpa 301 Redirect) -->
-    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high" id="bug-016">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-016</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-016', event)" title="Klik untuk menyalin tautan BUG-016">BUG-016</span>
           <h3 class="bc-title">Kanibalisasi SEO &amp; Duplikasi Domain Tanpa 301 Redirect (belajarplus.com vs belajarplus.id)</h3>
         </div>
         <div class="bc-badges">
@@ -2027,10 +2265,10 @@
     </div>
 
     <!-- BUG 17: Komponen Banner Penutup Kosong Melompong -->
-    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="high">
+    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="high" id="bug-017">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-017</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-017', event)" title="Klik untuk menyalin tautan BUG-017">BUG-017</span>
           <h3 class="bc-title">Komponen Banner Penutup Kosong Melompong pada Landing Page Kerjasama Sekolah &amp; Kirim Naskah</h3>
         </div>
         <div class="bc-badges">
@@ -2085,10 +2323,10 @@
     </div>
 
     <!-- BUG 18: Silent Failure Tanpa Validasi Feedback pada Input Scan QR Soal -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-018">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-018</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-018', event)" title="Klik untuk menyalin tautan BUG-018">BUG-018</span>
           <h3 class="bc-title">Silent Failure Tanpa Validasi Feedback pada Form Input Scan QR Soal</h3>
         </div>
         <div class="bc-badges">
@@ -2142,10 +2380,10 @@
     </div>
 
     <!-- BUG 19: Information Disclosure Metadata Route Admin di SSR Head -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-019">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-019</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-019', event)" title="Klik untuk menyalin tautan BUG-019">BUG-019</span>
           <h3 class="bc-title">Information Disclosure: Metadata Rute Internal Admin Ter-render di SSR Head Publik</h3>
         </div>
         <div class="bc-badges">
@@ -2198,10 +2436,10 @@
     </div>
 
     <!-- BUG 20: Celah Keamanan Integritas Ujian: Pengacakan Soal di Sisi Client -->
-    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high" id="bug-020">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-020</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-020', event)" title="Klik untuk menyalin tautan BUG-020">BUG-020</span>
           <h3 class="bc-title">Celah Integritas Ujian: Pengacakan Soal &amp; Pilihan Dilakukan di Browser Siswa (Client-Side PRNG)</h3>
         </div>
         <div class="bc-badges">
@@ -2254,10 +2492,10 @@
     </div>
 
     <!-- BUG 21: Kebocoran Konten Video Reader Tanpa Enkripsi DRM -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-021">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-021</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-021', event)" title="Klik untuk menyalin tautan BUG-021">BUG-021</span>
           <h3 class="bc-title">Kebocoran Konten Video Pembelajaran: Tag Native HTML5 Video Memungkinkan Pengunduhan Bebas Tanpa DRM</h3>
         </div>
         <div class="bc-badges">
@@ -2313,10 +2551,10 @@
     </div>
 
     <!-- BUG 22: Security Theater & False DRM Claims di Reader Buku Digital -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-022">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-022</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-022', event)" title="Klik untuk menyalin tautan BUG-022">BUG-022</span>
           <h3 class="bc-title">Security Theater &amp; Celah Watermark Klien: Klaim Proteksi Rekaman Layar Palsu Tanpa Deteksi Aktif</h3>
         </div>
         <div class="bc-badges">
@@ -2376,10 +2614,10 @@
     </div>
 
     <!-- BUG 23: Kebocoran Multi-Tenant White-Label SaaS via Public PWA Manifest -->
-    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium" id="bug-023">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-023</span>
+          <span class="bc-id" onclick="copyBugLink('BUG-023', event)" title="Klik untuk menyalin tautan BUG-023">BUG-023</span>
           <h3 class="bc-title">Ekspos Multi-Tenant SaaS &amp; Sub-Tenant Routing via Public PWA Manifest Parameter</h3>
         </div>
         <div class="bc-badges">
@@ -2448,6 +2686,68 @@
   <script>
     let currentCategory = 'all';
     let currentPriority = 'all';
+    let currentSearchTerm = '';
+
+    function handleSearch(term) {
+      currentSearchTerm = term.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) {
+        clearBtn.style.display = currentSearchTerm ? 'flex' : 'none';
+      }
+      applyFilters();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('bugSearchInput');
+      if (input) {
+        input.value = '';
+        handleSearch('');
+        input.focus();
+      }
+    }
+
+    function copyBugLink(bugId, event) {
+      if (event) event.stopPropagation();
+      const url = window.location.origin + window.location.pathname + '#' + bugId.toLowerCase();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast('🔗 Tautan ' + bugId + ' disalin ke clipboard!');
+        }).catch(() => {
+          showToast('ID ' + bugId + ' tersalin');
+        });
+      } else {
+        showToast('ID ' + bugId + ' tersalin');
+      }
+    }
+
+    function showToast(msg, icon = '📋') {
+      const toast = document.getElementById('toastPill');
+      const toastMsg = document.getElementById('toastMsg');
+      const toastIcon = document.getElementById('toastIcon');
+      if (toast && toastMsg) {
+        toastMsg.textContent = msg;
+        if (toastIcon) toastIcon.textContent = icon;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTopBtn');
+      if (btn) {
+        if (window.scrollY > 350) {
+          btn.classList.add('show');
+        } else {
+          btn.classList.remove('show');
+        }
+      }
+    });
 
     function filterCategory(cat, btn) {
       currentCategory = cat;
@@ -2474,17 +2774,22 @@
       cards.forEach(card => {
         const cat = card.getAttribute('data-category') || 'system';
         const pri = card.getAttribute('data-priority') || 'p2';
+        const textContent = card.innerText.toLowerCase();
 
         const matchCat = (currentCategory === 'all' || cat === currentCategory);
         const matchPri = (currentPriority === 'all' || pri === currentPriority);
+        const matchSearch = (!currentSearchTerm || textContent.includes(currentSearchTerm));
 
-        if (matchCat && matchPri) {
+        if (matchCat && matchPri && matchSearch) {
           card.style.display = 'block';
           visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
+
+      const countEl = document.getElementById('filteredCount');
+      if (countEl) countEl.textContent = visibleCount;
 
       const emptyMsg = document.getElementById('emptyFilterMsg');
       if (emptyMsg) {
@@ -2810,5 +3115,16 @@
       }
     })();
   </script>
+
+  <!-- Toast Notification -->
+  <div id="toastPill" class="toast-pill">
+    <span id="toastIcon">📋</span>
+    <span id="toastMsg">Tautan disalin ke clipboard</span>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()" title="Kembali ke atas">
+    ↑
+  </button>
 </body>
 </html>
