@@ -776,11 +776,11 @@
       <div class="bh-meta-grid">
         <div class="bh-meta-item">
           <div class="bh-meta-label">Total Temuan</div>
-          <div class="bh-meta-val" style="color: #60a5fa;">15 Isu Teridentifikasi</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">16 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🐛 System Bug (Teknis / Logic)</div>
-          <div class="bh-meta-val" style="color: #f87171;">8 Isu</div>
+          <div class="bh-meta-val" style="color: #f87171;">9 Isu</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🎨 UI/UX &amp; Alur Produk</div>
@@ -797,8 +797,8 @@
     <div class="filter-section">
       <div class="filter-group filter-group-cat">
         <span class="filter-label">Kategori Masalah:</span>
-        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (15)</button>
-        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (8)</button>
+        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (16)</button>
+        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (9)</button>
         <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (6)</button>
         <button class="filter-chip" onclick="filterCategory('content', this)">✏️ Typo &amp; Copy (1)</button>
       </div>
@@ -806,7 +806,7 @@
         <span class="filter-label">Tingkat Urgensi:</span>
         <button class="filter-chip active" onclick="filterPriority('all', this)">Semua Urgensi</button>
         <button class="filter-chip chip-p0" onclick="filterPriority('p0', this)">🔴 P0 - Blocker (2)</button>
-        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (5)</button>
+        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (6)</button>
         <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (6)</button>
         <button class="filter-chip chip-p3" onclick="filterPriority('p3', this)">🟢 P3 - Low / Typo (2)</button>
       </div>
@@ -1524,6 +1524,59 @@
         </div>
       </div>
     </div>
+
+    <!-- BUG 16: Broken OpenGraph Metadata (Lovable.app 404 Artifact) -->
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-016</span>
+          <h3 class="bc-title">Broken OpenGraph Social Share Asset (Tag og:image Masih Mengarah ke R2 Lovable yang Error 404)</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (SEO / Deploy)</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> HTML Head Metadata &amp; Social Sharing (`/dashboard`, `__root__`)</span>
+        <span><strong>Peran Terkena:</strong> Seluruh Pengguna, Sekolah Mitra, Publik</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production (`belajarplus.id`)</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada kode sumber halaman live production <code>https://belajarplus.id/dashboard</code>, meta tag <code>&lt;meta property="og:image"&gt;</code> dan <code>&lt;meta name="twitter:image"&gt;</code> masih mengarah ke URL internal temporary Cloudflare R2 bawaan staging platform Lovable (<code>https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/.../id-preview-67bb22aa--8324ac6d-6544-4005-bd15-e11747c942a6.lovable.app-1788770350892.png</code>). 
+              <br><br>
+              File preview tersebut telah berstatus <strong>HTTP 404 Object Not Found</strong>. Akibatnya, saat tautan platform dibagikan melalui WhatsApp, Telegram, Facebook, maupun media sosial resmi sekolah mitra, <strong>thumbnail gambar preview rusak / blank</strong>, merusak kredibilitas profesional platform di hadapan instansi pendidikan.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka URL live <code>https://belajarplus.id/dashboard</code> lalu periksa <em>Page Source</em>.</li>
+                <li>Cari tag <code>og:image</code>: URL mengarah ke bucket <code>pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev</code> dengan domain staging <code>*.lovable.app</code>.</li>
+                <li>Akses langsung URL gambar tersebut di browser: Server mengembalikan halaman error <code>404 Object not found</code>.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Perbarui konfigurasi SEO metatag di TanStack Start / Lovable export: ganti URL <code>og:image</code> dengan URL aset permanen resmi platform (misal: <code>https://belajarplus.id/assets/belajar-plus-og-banner.png</code>) dan pastikan aset tersebut di-host secara mandiri pada CDN production.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #ffffff; color: #0f172a; padding: 1.5rem 1rem; border-radius: 8px; border: 1px solid #cbd5e1; font-family: sans-serif; text-align: center;">
+            <div style="font-size: 2rem; font-weight: 900; color: #334155; margin-bottom: 0.25rem;">Error 404</div>
+            <div style="font-size: 1rem; font-weight: 700; color: #64748b; margin-bottom: 0.75rem;">Object not found</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; line-height: 1.4; max-width: 280px; margin: 0 auto;">This object does not exist or is not publicly accessible at this URL (Cloudflare R2 Lovable.app).</div>
+          </div>
+          <div class="bc-screenshot-label">Bukti Respon 404: pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Lightbox Image Modal Reusable -->
@@ -1685,8 +1738,8 @@
             <td style="padding: 7px 10px; width: 25%; text-align: center; color: #047857;">✏️ CONTENT / TYPO</td>
           </tr>
           <tr style="background: #ffffff; font-size: 11px; font-weight: 800; color: #0f172a;">
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">15 Isu Teridentifikasi</td>
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">8 Isu Teknis</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">16 Isu Teridentifikasi</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">9 Isu Teknis</td>
             <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">6 Rekomendasi Alur</td>
             <td style="padding: 6px 10px; text-align: center; color: #16a34a;">1 Perbaikan Teks</td>
           </tr>
