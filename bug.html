@@ -1255,21 +1255,34 @@
             <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
             <p class="bc-info-desc">
               Ketika siswa/orang tua memilih buku dan melakukan checkout metode Transfer Bank Manual, kartu detail pesanan memuat rincian nominal dan nomor pesanan, tetapi <strong>kolom nama bank dan nomor rekening tujuan hanya menampilkan tanda strip (<code>—</code>)</strong>. Akibatnya, orang tua tidak dapat mentransfer uang dan pesanan buku tertahan tanpa ada kejelasan kontak.
+              <br><br>
+              <strong>🔬 Bukti Forensik Database Supabase:</strong><br>
+              Investigasi langsung ke backend Supabase production (<code>jpmfsldnzptdgfhvdqpb.supabase.co</code>) mengungkap akar masalahnya: pemanggilan API PostgREST ke tabel <code>public.payment_settings</code> mengembalikan <strong>array kosong <code>[]</code> (Zero Rows)</strong>. Pengembang tidak melakukan initial database seeding data rekening atau policy Row Level Security (RLS) <code>SELECT</code> belum diberikan izin baca ke publik/anon role.
             </p>
           </div>
           <div class="bc-info-block">
-            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi &amp; Verifikasi API:</div>
             <div class="bc-info-desc">
               <ol>
                 <li>Buka menu <code>/shop</code>, pilih varian buku (misal Cetak atau Digital), masukkan keranjang.</li>
                 <li>Lanjutkan checkout hingga tahap konfirmasi pesanan (`/orders/[id]`).</li>
-                <li>Amati kartu <em>"Informasi Rekening Pembayaran"</em>. Field Rekening hanya berisi teks strip (<code>-</code>).</li>
+                <li>Amati kartu <em>"Informasi Rekening Pembayaran"</em>: Field Rekening hanya berisi teks strip (<code>—</code>).</li>
+                <li>Verifikasi forensik via PostgREST endpoint:
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #38bdf8;">
+                    curl -s -H "apikey: sb_publishable_..." "https://jpmfsldnzptdgfhvdqpb.supabase.co/rest/v1/payment_settings?select=*"<br>
+                    <span style="color: #fbbf24;">Response: [] (Array Kosong / Seed Data Belum Dimasukkan)</span>
+                  </div>
+                </li>
               </ol>
             </div>
           </div>
           <div class="bc-solution">
             <strong>💡 Rekomendasi Solusi Teknis:</strong>
-            Validasi keberadaan data rekening mitra sekolah di backend. Jika sekolah belum mengisi data bank, tampilkan fallback rekening escrow pusat BelajarPlus atau tampilkan banner peringatan dinamis: <em>"Hubungi bendahara sekolah di nomor [WhatsApp Sekolah] untuk nomor rekening resmi."</em>
+            <ol style="margin: 4px 0 0; padding-left: 18px;">
+              <li>Lakukan seeding baris default ke tabel <code>public.payment_settings</code> (misal: <code>bank_name</code>, <code>account_number</code>, <code>account_holder</code>).</li>
+              <li>Periksa policy RLS Supabase: pastikan ada rule <code>CREATE POLICY "Allow public read payment settings" ON public.payment_settings FOR SELECT USING (true);</code>.</li>
+              <li>Pada frontend TanStack Start, pasang guard clause: sembunyikan opsi Transfer Manual jika tabel <code>payment_settings</code> kosong atau tampilkan banner darurat nomor WhatsApp bendahara.</li>
+            </ol>
           </div>
         </div>
         <div class="bc-screenshot-wrap">
