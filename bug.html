@@ -1180,10 +1180,18 @@
         </div>
 
         <div class="arch-item">
-          <div class="arch-item-label">🌐 Domain Mirroring</div>
-          <div class="arch-item-val">belajarplus.com &amp; belajarplus.id</div>
+          <div class="arch-item-label">🌐 Domain Registrar vs Server Real</div>
+          <div class="arch-item-val">IDwebhost (.id) &amp; Name.com (.com)</div>
           <p class="arch-item-desc">
-            Keduanya resolve ke IP <code>185.158.133.1</code> (<code>lovable-app-cd-1-4.p.l5e.io</code>) dengan deployment hash identik, namun belum ada 301 Canonical Redirect, memicu kanibalisasi SEO.
+            Domain <code>.id</code> dibeli via <strong>IDwebhost</strong> (NS: <code>ns1.idwebhost.id</code>) dan <code>.com</code> via <strong>Name.com</strong>. Namun, di IDwebhost <strong>hanya DNS A-Record yang diarahkan ke luar</strong> (tidak ada hosting cPanel / web server di sana). Server aplikasi sebenarnya 100% serverless di-host pada <strong>Lovable Cloud / Cloudflare Edge</strong> (<code>185.158.133.1</code>).
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🗄️ Database Cloud Instance</div>
+          <div class="arch-item-val">Supabase (AWS Cloud Managed)</div>
+          <p class="arch-item-desc">
+            Instance database PostgreSQL beralamat di <code>https://jpmfsldnzptdgfhvdqpb.supabase.co</code> (AWS us-east / Cloudflare proxy), terintegrasi langsung dengan PostgREST API client-side JWT token.
           </p>
         </div>
       </div>
