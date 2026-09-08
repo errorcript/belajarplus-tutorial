@@ -1093,11 +1093,11 @@
       <div class="bh-meta-grid">
         <div class="bh-meta-item">
           <div class="bh-meta-label">Total Temuan</div>
-          <div class="bh-meta-val" style="color: #60a5fa;">22 Isu Teridentifikasi</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">24 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🐛 System Bug (Teknis / Logic)</div>
-          <div class="bh-meta-val" style="color: #f87171;">14 Isu</div>
+          <div class="bh-meta-val" style="color: #f87171;">16 Isu</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🎨 UI/UX &amp; Alur Produk</div>
@@ -1194,6 +1194,14 @@
             Instance database PostgreSQL beralamat di <code>https://jpmfsldnzptdgfhvdqpb.supabase.co</code> (AWS us-east / Cloudflare proxy), terintegrasi langsung dengan PostgREST API client-side JWT token.
           </p>
         </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🏢 Multi-Tenant SaaS Cluster</div>
+          <div class="arch-item-val">DigiAksi White-Label Engine</div>
+          <p class="arch-item-desc">
+            BelajarPlus berjalan sebagai sub-tenant (<code>/?tenant=belajarplus.id</code>) pada klaster SaaS multi-tenant DigiAksi (terlihat dari kunci cart <code>aksi.cart.v2</code>, fallback alert <code>admin@digiaksi.id</code>, dan manifest dynamic injection).
+          </p>
+        </div>
       </div>
 
       <div class="arch-diagnosis">
@@ -1210,8 +1218,8 @@
     <div class="filter-section">
       <div class="filter-group filter-group-cat">
         <span class="filter-label">Kategori Masalah:</span>
-        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (22)</button>
-        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (14)</button>
+        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (24)</button>
+        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (16)</button>
         <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (7)</button>
         <button class="filter-chip" onclick="filterCategory('content', this)">✏️ Typo &amp; Copy (1)</button>
       </div>
@@ -1220,7 +1228,7 @@
         <button class="filter-chip active" onclick="filterPriority('all', this)">Semua Urgensi</button>
         <button class="filter-chip chip-p0" onclick="filterPriority('p0', this)">🔴 P0 - Blocker (2)</button>
         <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (9)</button>
-        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (9)</button>
+        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (11)</button>
         <button class="filter-chip chip-p3" onclick="filterPriority('p3', this)">🟢 P3 - Low / Typo (2)</button>
       </div>
     </div>
@@ -2350,6 +2358,129 @@
         </div>
       </div>
     </div>
+
+    <!-- BUG 23: Security Theater & False DRM Claims di Reader Buku Digital -->
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-023</span>
+          <h3 class="bc-title">Security Theater &amp; Celah Watermark Klien: Klaim Proteksi Rekaman Layar Palsu Tanpa Deteksi Aktif</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Security / Integrity)</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Pembaca Buku Digital (`/library/reader/$loanId`, `reader._loanId-C96tHZZ_.js`)</span>
+        <span><strong>Peran Terkena:</strong> Penerbit Buku, Penulis, Manajemen Konten</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Saat pertama kali membuka buku di reader, sistem memunculkan toast info resmi:
+              <br><em>"Buku ini dilindungi hak cipta. Setiap halaman diberi watermark identitas Anda; tangkapan layar &amp; perekaman tercatat."</em>
+              <br><br>
+              <strong>Hasil Audit Forensik Kode Sumber:</strong>
+              Inspeksi terhadap seluruh bundle JavaScript membuktikan bahwa <strong>tidak ada satu pun listener atau telemetri perekaman layar aktif</strong> (pencarian API <code>getDisplayMedia</code>, <code>screenshot</code>, <code>beforeprint</code>, maupun <code>contextmenu</code> menghasilkan 0 temuan). Klaim bahwa "perekaman tercatat" adalah murni <em>security theater</em> (bluffing psikologis).
+              <br><br>
+              Selain itu, watermark identitas pengguna dirender secara telanjang di layer front-end React sebagai elemen DOM biasa (bukan di-rasterize/dibakar langsung ke dalam kanvas atau image PDF di sisi server). Siswa atau pembajak dapat menghapus watermark secara permanen hanya dengan menjalankan satu baris perintah di browser DevTools:
+              <br><code>document.querySelectorAll('[class*="watermark"]').forEach(e =&gt; e.remove())</code>, lalu mengambil tangkapan layar buku beresolusi tinggi tanpa jejak identitas sama sekali.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Bukti Kode Sumber Reader:</div>
+            <div class="bc-info-desc">
+              Di file chunk <code>reader._loanId-C96tHZZ_.js</code>:
+              <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #fbbf24;">
+                sessionStorage.getItem(`bplus-reader-notice`)||(sessionStorage.setItem(`bplus-reader-notice`,`1`),m.info(`Buku ini dilindungi hak cipta. Setiap halaman diberi watermark identitas Anda; tangkapan layar &amp; perekaman tercatat.`,{duration:6e3}))
+              </div>
+              Pesan toast hanya disimpan statusnya di <code>sessionStorage</code> tanpa ada webhook log pencatatan audit ke server Supabase ketika event blur/print/shortcut tombol PrtScn ditekan.
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            <ol style="margin: 4px 0 0; padding-left: 18px;">
+              <li>Terapkan server-side watermarking dinamis (menggabungkan nama/email pengguna langsung ke piksel gambar halaman sebelum dikirimkan ke klien).</li>
+              <li>Tambahkan proteksi dasar di sisi peramban seperti penanganan <code>onContextMenu</code>, listener <code>window.onbeforeprint</code>, dan pemblokiran drag-and-drop teks.</li>
+              <li>Perbaiki salinan teks agar tidak memberikan garansi keamanan palsu kepada pihak penerbit buku.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #0f172a; color: #f8fafc; padding: 1.25rem 1rem; border-radius: 8px; border: 1px solid #334155; font-family: monospace; font-size: 0.73rem; text-align: left; line-height: 1.5;">
+            <div style="color: #38bdf8; font-weight: 700;">// Telemetry Scanner Result</div>
+            <div style="color: #f87171;">getDisplayMedia: 0 matches</div>
+            <div style="color: #f87171;">screen_recording_log: 0 matches</div>
+            <div style="color: #4ade80; margin-top: 0.4rem;">Watermark: Client-Side DOM Only ($0.remove())</div>
+          </div>
+          <div class="bc-screenshot-label">Bukti False DRM &amp; Client-Side Watermark</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 24: Kebocoran Multi-Tenant White-Label SaaS via Public PWA Manifest -->
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-024</span>
+          <h3 class="bc-title">Ekspos Multi-Tenant SaaS &amp; Sub-Tenant Routing via Public PWA Manifest Parameter</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Arsitektur / Info Leak)</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Konfigurasi PWA &amp; Multi-Tenant Routing (`/api/public/manifest`, `index-BQimx93i.js`)</span>
+        <span><strong>Peran Terkena:</strong> Administrator Platform, Keamanan Tenant</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Endpoint manifest publik PWA di <code>https://belajarplus.id/api/public/manifest</code> mengembalikan konfigurasi aplikasi yang membocorkan arsitektur multi-tenant:
+              <br><code>{"id":"/?tenant=belajarplus.id","name":"Belajar Plus","start_url":"/","display":"standalone",...}</code>.
+              <br><br>
+              <strong>Dampak Arsitektural:</strong>
+              Ini mengonfirmasi bahwa BelajarPlus bukan infrastruktur mandiri (standalone codebase), melainkan satu instans *white-label tenant* yang menumpang pada klaster multi-tenant SaaS induk (DigiAksi).
+              <br><br>
+              Tereksposnya parameter <code>tenant=belajarplus.id</code> ke publik membuka celah pengujian parameter tampering (mengubah nilai tenant ke domain atau sekolah mitra DigiAksi lain) untuk melihat kebocoran konfigurasi, logo instansi, atau penetrasi cross-tenant pada API edge Cloudflare Workers jika validasi Host header tidak dikunci secara ketat.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Bukti Respons API &amp; Client Query:</div>
+            <div class="bc-info-desc">
+              Respons langsung dari <code>GET /api/public/manifest</code>:
+              <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #38bdf8;">
+                {"id":"/?tenant=belajarplus.id","name":"Belajar Plus","short_name":"Belajar Plus","description":"Perpustakaan Digital dan E-Learning Untuk Kita Semua"}
+              </div>
+              Dan kode di <code>index-BQimx93i.js</code>:
+              <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #fbbf24;">
+                queryKey:[`tenant-pwa`,e??`host`],queryFn:()=&gt;Vc({data:{...e?{slug:...
+              </div>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Sembunyikan parameter <code>tenant=...</code> dari URL <code>id</code> manifest publik. Resolusi tenant harus sepenuhnya dilakukan secara implisit di sisi server (Cloudflare Worker) dengan mencocokkan header <code>Host</code> secara aman tanpa mengekspos identifier internal tenant ke browser pengguna.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #0f172a; color: #f8fafc; padding: 1.25rem 1rem; border-radius: 8px; border: 1px solid #334155; font-family: monospace; font-size: 0.73rem; text-align: left; line-height: 1.5;">
+            <div style="color: #38bdf8; font-weight: 700;">// GET /api/public/manifest</div>
+            <div style="color: #fca5a5;">"id": "/?tenant=belajarplus.id"</div>
+            <div style="color: #fbbf24; margin-top: 0.4rem;">Multi-Tenant SaaS Cluster: DigiAksi Engine</div>
+          </div>
+          <div class="bc-screenshot-label">Bukti Parameter Tenant pada PWA Manifest</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Lightbox Image Modal Reusable -->
@@ -2511,9 +2642,9 @@
             <td style="padding: 7px 10px; width: 25%; text-align: center; color: #047857;">✏️ CONTENT / TYPO</td>
           </tr>
           <tr style="background: #ffffff; font-size: 11px; font-weight: 800; color: #0f172a;">
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">16 Isu Teridentifikasi</td>
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">9 Isu Teknis</td>
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">6 Rekomendasi Alur</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">24 Isu Teridentifikasi</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">16 Isu Teknis</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">7 Rekomendasi Alur</td>
             <td style="padding: 6px 10px; text-align: center; color: #16a34a;">1 Perbaikan Teks</td>
           </tr>
         </table>
