@@ -121,28 +121,70 @@
       margin-top: 0.2rem;
     }
 
-    /* Filters */
-    .filter-bar {
+    /* Dual Filters */
+    .filter-section {
       display: flex;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2.25rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
       flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      min-width: 150px;
     }
     .filter-chip {
       background: rgba(30, 41, 59, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: #94a3b8;
-      padding: 0.5rem 1.1rem;
+      padding: 0.45rem 0.95rem;
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
     .filter-chip:hover, .filter-chip.active {
       background: rgba(59, 130, 246, 0.2);
       border-color: #3b82f6;
       color: #ffffff;
+    }
+    .filter-chip.chip-p0:hover, .filter-chip.chip-p0.active {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: #ef4444;
+      color: #fecaca;
+    }
+    .filter-chip.chip-p1:hover, .filter-chip.chip-p1.active {
+      background: rgba(249, 115, 22, 0.25);
+      border-color: #f97316;
+      color: #fed7aa;
+    }
+    .filter-chip.chip-p2:hover, .filter-chip.chip-p2.active {
+      background: rgba(234, 179, 8, 0.25);
+      border-color: #eab308;
+      color: #fef08a;
+    }
+    .filter-chip.chip-p3:hover, .filter-chip.chip-p3.active {
+      background: rgba(148, 163, 184, 0.2);
+      border-color: #94a3b8;
+      color: #f1f5f9;
     }
 
     /* Bug Cards */
@@ -171,6 +213,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      flex-wrap: wrap;
     }
     .bc-id {
       font-family: var(--font-code);
@@ -187,6 +230,42 @@
       color: #f8fafc;
       margin: 0;
     }
+    
+    /* Dual Badges (Category & Priority) */
+    .bc-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .bc-type {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.28rem 0.65rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .type-system { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .type-uiux { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .type-content { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+
+    .bc-priority {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+    }
+    .pri-p0 { background: rgba(239, 68, 68, 0.25); color: #fecaca; border: 1px solid #ef4444; }
+    .pri-p1 { background: rgba(249, 115, 22, 0.2); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.45); }
+    .pri-p2 { background: rgba(234, 179, 8, 0.2); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.45); }
+    .pri-p3 { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+
+    /* Legacy severity for backward-compatibility */
     .bc-severity {
       font-size: 0.75rem;
       font-weight: 700;
@@ -344,8 +423,16 @@
     body.light-mode .bh-meta-val {
       color: #0f172a;
     }
-    body.light-mode .filter-chip {
+    body.light-mode .filter-section {
       background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+    body.light-mode .filter-label {
+      color: #64748b;
+    }
+    body.light-mode .filter-chip {
+      background: #f8fafc;
       border-color: #cbd5e1;
       color: #475569;
     }
@@ -355,6 +442,33 @@
       border-color: #2563eb;
       color: #1d4ed8;
     }
+    body.light-mode .filter-chip.chip-p0:hover, body.light-mode .filter-chip.chip-p0.active {
+      background: #fee2e2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+    body.light-mode .filter-chip.chip-p1:hover, body.light-mode .filter-chip.chip-p1.active {
+      background: #ffedd5;
+      border-color: #f97316;
+      color: #9a3412;
+    }
+    body.light-mode .filter-chip.chip-p2:hover, body.light-mode .filter-chip.chip-p2.active {
+      background: #fef9c3;
+      border-color: #eab308;
+      color: #854d0e;
+    }
+    body.light-mode .filter-chip.chip-p3:hover, body.light-mode .filter-chip.chip-p3.active {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+      color: #334155;
+    }
+    body.light-mode .type-system { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+    body.light-mode .type-uiux { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+    body.light-mode .type-content { background: #d1fae5; color: #065f46; border-color: #6ee7b7; }
+    body.light-mode .pri-p0 { background: #fee2e2; color: #b91c1c; border-color: #ef4444; }
+    body.light-mode .pri-p1 { background: #ffedd5; color: #c2410c; border-color: #f97316; }
+    body.light-mode .pri-p2 { background: #fef9c3; color: #a16207; border-color: #eab308; }
+    body.light-mode .pri-p3 { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
     body.light-mode .bug-card {
       background: #ffffff;
       border-color: #cbd5e1;
@@ -665,38 +779,57 @@
           <div class="bh-meta-val" style="color: #60a5fa;">15 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
-          <div class="bh-meta-label">Tingkat Kritis / Tinggi</div>
-          <div class="bh-meta-val" style="color: #f87171;">4 Isu</div>
+          <div class="bh-meta-label">🐛 System Bug (Teknis / Logic)</div>
+          <div class="bh-meta-val" style="color: #f87171;">8 Isu</div>
         </div>
         <div class="bh-meta-item">
-          <div class="bh-meta-label">Tingkat Sedang (Medium)</div>
-          <div class="bh-meta-val" style="color: #fbbf24;">8 Isu</div>
+          <div class="bh-meta-label">🎨 UI/UX &amp; Alur Produk</div>
+          <div class="bh-meta-val" style="color: #38bdf8;">6 Rekomendasi</div>
         </div>
         <div class="bh-meta-item">
-          <div class="bh-meta-label">Tingkat Rendah / Typo / UX</div>
-          <div class="bh-meta-val" style="color: #34d399;">3 Isu</div>
+          <div class="bh-meta-label">✏️ Content / Typo (Copy)</div>
+          <div class="bh-meta-val" style="color: #34d399;">1 Isu Trivial</div>
         </div>
       </div>
     </header>
 
-    <!-- Filter Buttons -->
-    <div class="filter-bar">
-      <button class="filter-chip active" onclick="filterBugs('all', this)">Semua (15)</button>
-      <button class="filter-chip" onclick="filterBugs('high', this)">Tinggi / Kritis (4)</button>
-      <button class="filter-chip" onclick="filterBugs('medium', this)">Sedang (8)</button>
-      <button class="filter-chip" onclick="filterBugs('low', this)">Rendah / UX / Typo (3)</button>
+    <!-- Filter Section: Dual-Classification (Kategori Masalah & Tingkat Urgensi) -->
+    <div class="filter-section">
+      <div class="filter-group filter-group-cat">
+        <span class="filter-label">Kategori Masalah:</span>
+        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (15)</button>
+        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (8)</button>
+        <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (6)</button>
+        <button class="filter-chip" onclick="filterCategory('content', this)">✏️ Typo &amp; Copy (1)</button>
+      </div>
+      <div class="filter-group filter-group-pri">
+        <span class="filter-label">Tingkat Urgensi:</span>
+        <button class="filter-chip active" onclick="filterPriority('all', this)">Semua Urgensi</button>
+        <button class="filter-chip chip-p0" onclick="filterPriority('p0', this)">🔴 P0 - Blocker (2)</button>
+        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (5)</button>
+        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (6)</button>
+        <button class="filter-chip chip-p3" onclick="filterPriority('p3', this)">🟢 P3 - Low / Typo (2)</button>
+      </div>
+    </div>
+
+    <div id="emptyFilterMsg" style="display: none; text-align: center; padding: 2.5rem 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 14px; margin-bottom: 2rem; color: #94a3b8;">
+      <p style="font-size: 1.05rem; font-weight: 700; color: #f1f5f9; margin: 0 0 0.4rem;">Tidak ada temuan yang cocok dengan filter</p>
+      <p style="margin: 0; font-size: 0.85rem;">Silakan pilih kombinasi kategori dan tingkat urgensi lainnya.</p>
     </div>
 
     <!-- LIST OF BUGS -->
 
     <!-- BUG 1: Rekening Strip -->
-    <div class="bug-card" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p0" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-001</span>
           <h3 class="bc-title">Nomor Rekening Bank Ditampilkan Strip (—) pada Rincian Transfer Manual</h3>
         </div>
-        <span class="bc-severity sev-high">High / Blocking</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p0">P0 - Blocker</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Toko &amp; Pembayaran (`/orders`, `/checkout`)</span>
@@ -734,13 +867,16 @@
     </div>
 
     <!-- BUG 2: Infinite Loading Bank Soal Kosong -->
-    <div class="bug-card" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p0" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-002</span>
           <h3 class="bc-title">Infinite Loading Spinner saat Menjalankan Ujian dengan 0 Soal</h3>
         </div>
-        <span class="bc-severity sev-high">High / Crash UX</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p0">P0 - Blocker</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Ujian LJD &amp; Ruang Kelas (`/classes/[id]/assignment`)</span>
@@ -778,13 +914,16 @@
     </div>
 
     <!-- BUG 3: Search Bar Reset -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-003</span>
           <h3 class="bc-title">Search Bar Perpustakaan Me-reset Teks Saat Menekan Tombol Dropdown</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Annoying UX</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Perpustakaan Digital (`/library`)</span>
@@ -823,13 +962,16 @@
     </div>
 
     <!-- BUG 4: Anti-Cheat Tolerance Overlap -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-004</span>
           <h3 class="bc-title">Indikator Pelanggaran Anti-Cheat Melampaui Batas Toleransi Tanpa Konsekuensi Eksplisit</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Logic Inconsistency</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Ujian LJD Antarmuka Siswa</span>
@@ -867,13 +1009,16 @@
     </div>
 
     <!-- BUG 5: Desinkronisasi Tab Buku Saya -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-005</span>
           <h3 class="bc-title">Desinkronisasi Badge Jumlah Tab dengan Daftar Kartu Buku di "Buku Saya"</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Cache Issue</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Koleksi Buku Saya (`/my-books`)</span>
@@ -911,13 +1056,16 @@
     </div>
 
     <!-- BUG 6: Redirect Loop Direct URL Orders -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-006</span>
           <h3 class="bc-title">Redirect Loop Sesi Login saat Mengakses Tautan Langsung `/orders`</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Routing Auth</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Router &amp; Middleware Auth (`/orders`)</span>
@@ -955,13 +1103,16 @@
     </div>
 
     <!-- BUG 7: Typo UI Sumlasi TKA -->
-    <div class="bug-card" data-severity="low">
+    <div class="bug-card" data-category="content" data-priority="p3" data-severity="low">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-007</span>
           <h3 class="bc-title">Typo Penulisan Judul Ujian ("Sumlasi TKA 2") pada Layar Skor Evaluasi</h3>
         </div>
-        <span class="bc-severity sev-low">Low / Cosmetic Typo</span>
+        <div class="bc-badges">
+          <span class="bc-type type-content">✏️ Content / Typo</span>
+          <span class="bc-priority pri-p3">P3 - Trivial</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Lembar Hasil Penugasan LJD (`/assignment/result`)</span>
@@ -998,13 +1149,16 @@
     </div>
 
     <!-- BUG 8: Whiteboard Kehilangan Data -->
-    <div class="bug-card" data-severity="high">
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-008</span>
           <h3 class="bc-title">Coretan &amp; Catatan Whiteboard E-Reader Tidak Tersimpan (Data Loss saat Tab Ditutup)</h3>
         </div>
-        <span class="bc-severity sev-high">High / Data Loss</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Data Loss)</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> E-Reader Web (`/library/reader/[id]`)</span>
@@ -1043,13 +1197,16 @@
     </div>
 
     <!-- BUG 9: Tidak Bisa Keluar Kelas -->
-    <div class="bug-card" data-severity="high">
+    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-009</span>
           <h3 class="bc-title">Siswa Tidak Memiliki Opsi Mandiri untuk Keluar dari Kelas yang Salah Rombel</h3>
         </div>
-        <span class="bc-severity sev-high">High / UX Lock-in</span>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 UI/UX &amp; Feature Gap</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Manajemen Kelas Saya (`/classes`)</span>
@@ -1087,13 +1244,16 @@
     </div>
 
     <!-- BUG 10: Countdown Timer LJD Hilang di Halaman Tinjau -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-010</span>
           <h3 class="bc-title">Countdown Timer Menghilang pada Halaman Tinjau Jawaban LJD</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / UX Confusion</span>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 UI/UX Experience</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Ujian LJD Halaman Tinjau (`/exam/review`)</span>
@@ -1131,13 +1291,16 @@
     </div>
 
     <!-- BUG 11: Buku Berlisensi Gratis Masih Dijual di Toko Tanpa Notif -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-011</span>
           <h3 class="bc-title">Katalog Toko Tetap Menawarkan Buku yang Sebenarnya Tersedia Gratis di Perpustakaan Sekolah</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Commercial Ethics</span>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 Business Logic &amp; UX</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Toko Buku (`/shop`) vs Perpustakaan (`/library`)</span>
@@ -1175,13 +1338,16 @@
     </div>
 
     <!-- BUG 12: Tidak Ada Validasi Client-Side Upload Struk Transfer -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-012</span>
           <h3 class="bc-title">Ketiadaan Validasi Client-Side Format &amp; Ukuran File Bukti Pembayaran</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Validation Gap</span>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Upload Bukti Struk Transfer (`/orders/[id]`)</span>
@@ -1219,13 +1385,16 @@
     </div>
 
     <!-- BUG 13: Shortcut Kembalikan Buku di Akhir Reader Absen -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-013</span>
           <h3 class="bc-title">Ketiadaan Shortcut "Kembalikan Buku" saat Siswa Selesai Membaca Halaman Terakhir</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Circulation Bottleneck</span>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 UI/UX Flow</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> E-Reader BelajarPlus (`/library/reader/[id]`)</span>
@@ -1263,13 +1432,16 @@
     </div>
 
     <!-- BUG 14: Batang Analisis Kompetensi Tanpa Label Indikator -->
-    <div class="bug-card" data-severity="medium">
+    <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-014</span>
           <h3 class="bc-title">Grafik Analisis Kompetensi Hasil Ujian Tidak Memiliki Label Indikator Soal</h3>
         </div>
-        <span class="bc-severity sev-medium">Medium / Analytics Gap</span>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 UI/UX Visualization</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Laporan Evaluasi Ujian LJD (`/assignment/result`)</span>
@@ -1307,13 +1479,16 @@
     </div>
 
     <!-- BUG 15: Password Strength Meter Absen -->
-    <div class="bug-card" data-severity="low">
+    <div class="bug-card" data-category="uiux" data-priority="p3" data-severity="low">
       <div class="bc-header">
         <div class="bc-id-title">
           <span class="bc-id">BUG-015</span>
           <h3 class="bc-title">Ketiadaan Indikator Kekuatan Kata Sandi (Password Strength Meter) saat Registrasi</h3>
         </div>
-        <span class="bc-severity sev-low">Low / Usability</span>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 UI/UX Usability</span>
+          <span class="bc-priority pri-p3">P3 - Low</span>
+        </div>
       </div>
       <div class="bc-meta">
         <span><strong>Modul:</strong> Registrasi Akun Siswa &amp; Guru (`/auth`)</span>
@@ -1361,17 +1536,50 @@
   </div>
 
   <script>
-    function filterBugs(severity, btn) {
-      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    let currentCategory = 'all';
+    let currentPriority = 'all';
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.filter-group-cat .filter-chip').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
+      applyFilters();
+    }
+
+    function filterPriority(pri, btn) {
+      currentPriority = pri;
+      document.querySelectorAll('.filter-group-pri .filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function filterBugs(severity, btn) {
+      // Backward-compatible alias
+      filterPriority(severity, btn);
+    }
+
+    function applyFilters() {
       const cards = document.querySelectorAll('.bug-card');
+      let visibleCount = 0;
       cards.forEach(card => {
-        if (severity === 'all') {
+        const cat = card.getAttribute('data-category') || 'system';
+        const pri = card.getAttribute('data-priority') || 'p2';
+
+        const matchCat = (currentCategory === 'all' || cat === currentCategory);
+        const matchPri = (currentPriority === 'all' || pri === currentPriority);
+
+        if (matchCat && matchPri) {
           card.style.display = 'block';
+          visibleCount++;
         } else {
-          card.style.display = card.getAttribute('data-severity') === severity ? 'block' : 'none';
+          card.style.display = 'none';
         }
       });
+
+      const emptyMsg = document.getElementById('emptyFilterMsg');
+      if (emptyMsg) {
+        emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
     }
 
     function openImageModal(src, caption) {
@@ -1472,15 +1680,15 @@
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; background: #ffffff;">
           <tr style="background: #f8fafc; font-size: 8.5px; font-weight: 800; color: #475569; text-transform: uppercase;">
             <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center;">TOTAL TEMUAN</td>
-            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center; color: #b91c1c;">TINGKAT TINGGI / KRITIS</td>
-            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center; color: #b45309;">TINGKAT SEDANG (MEDIUM)</td>
-            <td style="padding: 7px 10px; width: 25%; text-align: center; color: #15803d;">TINGKAT RENDAH / UX</td>
+            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center; color: #b91c1c;">🐛 SYSTEM BUGS (TEKNIS)</td>
+            <td style="padding: 7px 10px; border-right: 1px solid #e2e8f0; width: 25%; text-align: center; color: #1d4ed8;">🎨 UI/UX &amp; FEATURE GAPS</td>
+            <td style="padding: 7px 10px; width: 25%; text-align: center; color: #047857;">✏️ CONTENT / TYPO</td>
           </tr>
           <tr style="background: #ffffff; font-size: 11px; font-weight: 800; color: #0f172a;">
             <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">15 Isu Teridentifikasi</td>
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">4 Isu</td>
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #d97706;">8 Isu</td>
-            <td style="padding: 6px 10px; text-align: center; color: #16a34a;">3 Isu</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">8 Isu Teknis</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">6 Rekomendasi Alur</td>
+            <td style="padding: 6px 10px; text-align: center; color: #16a34a;">1 Perbaikan Teks</td>
           </tr>
         </table>
       `;
@@ -1492,25 +1700,56 @@
 
         const bugId = card.querySelector('.bc-id')?.innerText || '';
         const bugTitle = card.querySelector('.bc-title')?.innerText || '';
-        const severityEl = card.querySelector('.bc-severity');
-        const severityText = severityEl ? severityEl.innerText : '';
-        const severityClass = severityEl ? severityEl.className : '';
+        
+        const typeEl = card.querySelector('.bc-type');
+        const typeText = typeEl ? typeEl.innerText : '';
+        const priorityEl = card.querySelector('.bc-priority');
+        const priorityText = priorityEl ? priorityEl.innerText : '';
+        const priorityClass = priorityEl ? priorityEl.className : '';
 
         let borderLeftColor = '#3b82f6';
-        let badgeBg = '#dbeafe';
-        let badgeColor = '#1e40af';
-        let badgeBorder = '#93c5fd';
+        let priBadgeBg = '#dbeafe';
+        let priBadgeColor = '#1e40af';
+        let priBadgeBorder = '#93c5fd';
 
-        if (severityClass.includes('sev-critical') || severityClass.includes('sev-high')) {
+        if (priorityClass.includes('pri-p0')) {
           borderLeftColor = '#dc2626';
-          badgeBg = '#fee2e2';
-          badgeColor = '#991b1b';
-          badgeBorder = '#fca5a5';
-        } else if (severityClass.includes('sev-medium')) {
-          borderLeftColor = '#f59e0b';
-          badgeBg = '#fef3c7';
-          badgeColor = '#92400e';
-          badgeBorder = '#fcd34d';
+          priBadgeBg = '#fee2e2';
+          priBadgeColor = '#991b1b';
+          priBadgeBorder = '#ef4444';
+        } else if (priorityClass.includes('pri-p1')) {
+          borderLeftColor = '#ea580c';
+          priBadgeBg = '#ffedd5';
+          priBadgeColor = '#9a3412';
+          priBadgeBorder = '#f97316';
+        } else if (priorityClass.includes('pri-p2')) {
+          borderLeftColor = '#ca8a04';
+          priBadgeBg = '#fef9c3';
+          priBadgeColor = '#854d0e';
+          priBadgeBorder = '#eab308';
+        } else {
+          borderLeftColor = '#64748b';
+          priBadgeBg = '#f1f5f9';
+          priBadgeColor = '#334155';
+          priBadgeBorder = '#cbd5e1';
+        }
+
+        let typeBadgeBg = '#f1f5f9';
+        let typeBadgeColor = '#334155';
+        let typeBadgeBorder = '#cbd5e1';
+        const cardCat = card.getAttribute('data-category');
+        if (cardCat === 'system') {
+          typeBadgeBg = '#fee2e2';
+          typeBadgeColor = '#991b1b';
+          typeBadgeBorder = '#fca5a5';
+        } else if (cardCat === 'uiux') {
+          typeBadgeBg = '#dbeafe';
+          typeBadgeColor = '#1e40af';
+          typeBadgeBorder = '#93c5fd';
+        } else if (cardCat === 'content') {
+          typeBadgeBg = '#d1fae5';
+          typeBadgeColor = '#065f46';
+          typeBadgeBorder = '#6ee7b7';
         }
 
         const metaSpans = Array.from(card.querySelectorAll('.bc-meta span')).map(s => s.innerHTML).join(' &nbsp;•&nbsp; ');
@@ -1557,8 +1796,9 @@
                   <span style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; font-weight: 800; font-size: 9px; padding: 2px 6px; border-radius: 4px; margin-right: 6px;">${bugId}</span>
                   <span style="font-size: 12.5px; font-weight: 800; color: #0f172a;">${bugTitle}</span>
                 </td>
-                <td style="text-align: right; vertical-align: middle; width: 130px;">
-                  <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeBorder}; font-size: 8.5px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">${severityText}</span>
+                <td style="text-align: right; vertical-align: middle; white-space: nowrap; width: 220px;">
+                  <span style="background: ${typeBadgeBg}; color: ${typeBadgeColor}; border: 1px solid ${typeBadgeBorder}; font-size: 8px; font-weight: 800; padding: 2.5px 6px; border-radius: 4px; margin-right: 4px;">${typeText}</span>
+                  <span style="background: ${priBadgeBg}; color: ${priBadgeColor}; border: 1px solid ${priBadgeBorder}; font-size: 8px; font-weight: 800; padding: 2.5px 7px; border-radius: 4px; text-transform: uppercase;">${priorityText}</span>
                 </td>
               </tr>
             </table>
