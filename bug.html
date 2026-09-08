@@ -1093,7 +1093,7 @@
       <div class="bh-meta-grid">
         <div class="bh-meta-item">
           <div class="bh-meta-label">Total Temuan</div>
-          <div class="bh-meta-val" style="color: #60a5fa;">24 Isu Teridentifikasi</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">23 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🐛 System Bug (Teknis / Logic)</div>
@@ -1101,7 +1101,7 @@
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🎨 UI/UX &amp; Alur Produk</div>
-          <div class="bh-meta-val" style="color: #38bdf8;">7 Rekomendasi</div>
+          <div class="bh-meta-val" style="color: #38bdf8;">6 Rekomendasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">✏️ Content / Typo (Copy)</div>
@@ -1218,16 +1218,16 @@
     <div class="filter-section">
       <div class="filter-group filter-group-cat">
         <span class="filter-label">Kategori Masalah:</span>
-        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (24)</button>
+        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (23)</button>
         <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (16)</button>
-        <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (7)</button>
+        <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (6)</button>
         <button class="filter-chip" onclick="filterCategory('content', this)">✏️ Typo &amp; Copy (1)</button>
       </div>
       <div class="filter-group filter-group-pri">
         <span class="filter-label">Tingkat Urgensi:</span>
         <button class="filter-chip active" onclick="filterPriority('all', this)">Semua Urgensi</button>
         <button class="filter-chip chip-p0" onclick="filterPriority('p0', this)">🔴 P0 - Blocker (2)</button>
-        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (9)</button>
+        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (8)</button>
         <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (11)</button>
         <button class="filter-chip chip-p3" onclick="filterPriority('p3', this)">🟢 P3 - Low / Typo (2)</button>
       </div>
@@ -1630,58 +1630,11 @@
       </div>
     </div>
 
-    <!-- BUG 9: Tidak Bisa Keluar Kelas -->
-    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="high">
-      <div class="bc-header">
-        <div class="bc-id-title">
-          <span class="bc-id">BUG-009</span>
-          <h3 class="bc-title">Siswa Tidak Memiliki Opsi Mandiri untuk Keluar dari Kelas yang Salah Rombel</h3>
-        </div>
-        <div class="bc-badges">
-          <span class="bc-type type-uiux">🎨 UI/UX &amp; Feature Gap</span>
-          <span class="bc-priority pri-p1">P1 - High</span>
-        </div>
-      </div>
-      <div class="bc-meta">
-        <span><strong>Modul:</strong> Manajemen Kelas Saya (`/classes`)</span>
-        <span><strong>Peran Terkena:</strong> Siswa</span>
-        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
-      </div>
-      <div class="bc-body">
-        <div>
-          <div class="bc-info-block">
-            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
-            <p class="bc-info-desc">
-              Jika seorang siswa salah mengetikkan 6-digit Kode Kelas (contoh: siswa 12-IPA salah memasukkan kode kelas 12-IPS), <strong>tidak ada tombol "Tinggalkan Kelas" atau "Batal Bergabung"</strong> pada kartu kelas siswa. Siswa terjebak di kelas yang salah, otomatis menerima tugas dan jadwal ujian yang tidak sesuai, serta merepotkan guru karena harus dikeluarkan manual dari dashboard guru.
-            </p>
-          </div>
-          <div class="bc-info-block">
-            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi (Steps to Reproduce):</div>
-            <div class="bc-info-desc">
-              <ol>
-                <li>Input kode kelas `BLJ-XXXXXX` milik rombel kelas lain.</li>
-                <li>Kartu kelas muncul di dashboard siswa.</li>
-                <li>Buka kartu kelas / opsi menu: tidak ditemukan opsi keluar atau batalkan kelas.</li>
-              </ol>
-            </div>
-          </div>
-          <div class="bc-solution">
-            <strong>💡 Rekomendasi Solusi Teknis:</strong>
-            Sediakan tombol <em>"Batal Bergabung"</em> dengan konfirmasi modal pop-up, khusus bagi siswa yang belum memiliki riwayat pengumpulan nilai tugas/ujian aktif di kelas tersebut.
-          </div>
-        </div>
-        <div class="bc-screenshot-wrap">
-          <img src="assets/ss_kelas.png" alt="Kartu Kelas Saya Siswa" onclick="openImageModal(this.src, this.alt)" />
-          <div class="bc-screenshot-label">assets/ss_kelas.png (Kartu rombel tanpa tombol leave)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BUG 10: Countdown Timer LJD Hilang di Halaman Tinjau -->
+    <!-- BUG 9: Countdown Timer LJD Hilang di Halaman Tinjau -->
     <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-010</span>
+          <span class="bc-id">BUG-009</span>
           <h3 class="bc-title">Countdown Timer Menghilang pada Halaman Tinjau Jawaban LJD</h3>
         </div>
         <div class="bc-badges">
@@ -1724,11 +1677,11 @@
       </div>
     </div>
 
-    <!-- BUG 11: Buku Berlisensi Gratis Masih Dijual di Toko Tanpa Notif -->
+    <!-- BUG 10: Buku Berlisensi Gratis Masih Dijual di Toko Tanpa Notif -->
     <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-011</span>
+          <span class="bc-id">BUG-010</span>
           <h3 class="bc-title">Katalog Toko Tetap Menawarkan Buku yang Sebenarnya Tersedia Gratis di Perpustakaan Sekolah</h3>
         </div>
         <div class="bc-badges">
@@ -1771,11 +1724,11 @@
       </div>
     </div>
 
-    <!-- BUG 12: Tidak Ada Validasi Client-Side Upload Struk Transfer -->
+    <!-- BUG 11: Tidak Ada Validasi Client-Side Upload Struk Transfer -->
     <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-012</span>
+          <span class="bc-id">BUG-011</span>
           <h3 class="bc-title">Ketiadaan Validasi Client-Side Format &amp; Ukuran File Bukti Pembayaran</h3>
         </div>
         <div class="bc-badges">
@@ -1818,11 +1771,11 @@
       </div>
     </div>
 
-    <!-- BUG 13: Shortcut Kembalikan Buku di Akhir Reader Absen -->
+    <!-- BUG 12: Shortcut Kembalikan Buku di Akhir Reader Absen -->
     <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-013</span>
+          <span class="bc-id">BUG-012</span>
           <h3 class="bc-title">Ketiadaan Shortcut "Kembalikan Buku" saat Siswa Selesai Membaca Halaman Terakhir</h3>
         </div>
         <div class="bc-badges">
@@ -1865,11 +1818,11 @@
       </div>
     </div>
 
-    <!-- BUG 14: Batang Analisis Kompetensi Tanpa Label Indikator -->
+    <!-- BUG 13: Batang Analisis Kompetensi Tanpa Label Indikator -->
     <div class="bug-card" data-category="uiux" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-014</span>
+          <span class="bc-id">BUG-013</span>
           <h3 class="bc-title">Grafik Analisis Kompetensi Hasil Ujian Tidak Memiliki Label Indikator Soal</h3>
         </div>
         <div class="bc-badges">
@@ -1912,11 +1865,11 @@
       </div>
     </div>
 
-    <!-- BUG 15: Password Strength Meter Absen -->
+    <!-- BUG 14: Password Strength Meter Absen -->
     <div class="bug-card" data-category="uiux" data-priority="p3" data-severity="low">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-015</span>
+          <span class="bc-id">BUG-014</span>
           <h3 class="bc-title">Ketiadaan Indikator Kekuatan Kata Sandi (Password Strength Meter) saat Registrasi</h3>
         </div>
         <div class="bc-badges">
@@ -1959,11 +1912,11 @@
       </div>
     </div>
 
-    <!-- BUG 16: Broken OpenGraph Metadata (Lovable.app 404 Artifact) -->
+    <!-- BUG 15: Broken OpenGraph Metadata (Lovable.app 404 Artifact) -->
     <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-016</span>
+          <span class="bc-id">BUG-015</span>
           <h3 class="bc-title">Broken OpenGraph Social Share Asset (Tag og:image Masih Mengarah ke R2 Lovable yang Error 404)</h3>
         </div>
         <div class="bc-badges">
@@ -2012,11 +1965,11 @@
       </div>
     </div>
 
-    <!-- BUG 17: Kanibalisasi SEO & Duplikasi Domain (.com vs .id Tanpa 301 Redirect) -->
+    <!-- BUG 16: Kanibalisasi SEO & Duplikasi Domain (.com vs .id Tanpa 301 Redirect) -->
     <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-017</span>
+          <span class="bc-id">BUG-016</span>
           <h3 class="bc-title">Kanibalisasi SEO &amp; Duplikasi Domain Tanpa 301 Redirect (belajarplus.com vs belajarplus.id)</h3>
         </div>
         <div class="bc-badges">
@@ -2073,11 +2026,11 @@
       </div>
     </div>
 
-    <!-- BUG 18: Komponen Banner Penutup Kosong Melompong -->
+    <!-- BUG 17: Komponen Banner Penutup Kosong Melompong -->
     <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-018</span>
+          <span class="bc-id">BUG-017</span>
           <h3 class="bc-title">Komponen Banner Penutup Kosong Melompong pada Landing Page Kerjasama Sekolah &amp; Kirim Naskah</h3>
         </div>
         <div class="bc-badges">
@@ -2131,11 +2084,11 @@
       </div>
     </div>
 
-    <!-- BUG 19: Silent Failure Tanpa Validasi Feedback pada Input Scan QR Soal -->
+    <!-- BUG 18: Silent Failure Tanpa Validasi Feedback pada Input Scan QR Soal -->
     <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-019</span>
+          <span class="bc-id">BUG-018</span>
           <h3 class="bc-title">Silent Failure Tanpa Validasi Feedback pada Form Input Scan QR Soal</h3>
         </div>
         <div class="bc-badges">
@@ -2188,11 +2141,11 @@
       </div>
     </div>
 
-    <!-- BUG 20: Information Disclosure Metadata Route Admin di SSR Head -->
+    <!-- BUG 19: Information Disclosure Metadata Route Admin di SSR Head -->
     <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-020</span>
+          <span class="bc-id">BUG-019</span>
           <h3 class="bc-title">Information Disclosure: Metadata Rute Internal Admin Ter-render di SSR Head Publik</h3>
         </div>
         <div class="bc-badges">
@@ -2244,11 +2197,11 @@
       </div>
     </div>
 
-    <!-- BUG 21: Celah Keamanan Integritas Ujian: Pengacakan Soal di Sisi Client -->
+    <!-- BUG 20: Celah Keamanan Integritas Ujian: Pengacakan Soal di Sisi Client -->
     <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-021</span>
+          <span class="bc-id">BUG-020</span>
           <h3 class="bc-title">Celah Integritas Ujian: Pengacakan Soal &amp; Pilihan Dilakukan di Browser Siswa (Client-Side PRNG)</h3>
         </div>
         <div class="bc-badges">
@@ -2300,11 +2253,11 @@
       </div>
     </div>
 
-    <!-- BUG 22: Kebocoran Konten Video Reader Tanpa Enkripsi DRM -->
+    <!-- BUG 21: Kebocoran Konten Video Reader Tanpa Enkripsi DRM -->
     <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-022</span>
+          <span class="bc-id">BUG-021</span>
           <h3 class="bc-title">Kebocoran Konten Video Pembelajaran: Tag Native HTML5 Video Memungkinkan Pengunduhan Bebas Tanpa DRM</h3>
         </div>
         <div class="bc-badges">
@@ -2359,11 +2312,11 @@
       </div>
     </div>
 
-    <!-- BUG 23: Security Theater & False DRM Claims di Reader Buku Digital -->
+    <!-- BUG 22: Security Theater & False DRM Claims di Reader Buku Digital -->
     <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-023</span>
+          <span class="bc-id">BUG-022</span>
           <h3 class="bc-title">Security Theater &amp; Celah Watermark Klien: Klaim Proteksi Rekaman Layar Palsu Tanpa Deteksi Aktif</h3>
         </div>
         <div class="bc-badges">
@@ -2422,11 +2375,11 @@
       </div>
     </div>
 
-    <!-- BUG 24: Kebocoran Multi-Tenant White-Label SaaS via Public PWA Manifest -->
+    <!-- BUG 23: Kebocoran Multi-Tenant White-Label SaaS via Public PWA Manifest -->
     <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
       <div class="bc-header">
         <div class="bc-id-title">
-          <span class="bc-id">BUG-024</span>
+          <span class="bc-id">BUG-023</span>
           <h3 class="bc-title">Ekspos Multi-Tenant SaaS &amp; Sub-Tenant Routing via Public PWA Manifest Parameter</h3>
         </div>
         <div class="bc-badges">
@@ -2642,9 +2595,9 @@
             <td style="padding: 7px 10px; width: 25%; text-align: center; color: #047857;">✏️ CONTENT / TYPO</td>
           </tr>
           <tr style="background: #ffffff; font-size: 11px; font-weight: 800; color: #0f172a;">
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">24 Isu Teridentifikasi</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">23 Isu Teridentifikasi</td>
             <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #dc2626;">16 Isu Teknis</td>
-            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">7 Rekomendasi Alur</td>
+            <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0; text-align: center; color: #2563eb;">6 Rekomendasi Alur</td>
             <td style="padding: 6px 10px; text-align: center; color: #16a34a;">1 Perbaikan Teks</td>
           </tr>
         </table>
