@@ -187,6 +187,104 @@
       color: #f1f5f9;
     }
 
+    /* Architecture Profile Card */
+    .arch-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      border-radius: 18px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .arch-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+    }
+    .arch-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .arch-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .arch-tag {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c4b5fd;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .arch-item {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+    }
+    .arch-item-label {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .arch-item-val {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .arch-item-desc {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .arch-diagnosis {
+      background: rgba(139, 92, 246, 0.08);
+      border-left: 4px solid #8b5cf6;
+      border-radius: 10px;
+      padding: 1.1rem 1.35rem;
+      font-size: 0.88rem;
+      color: #ddd6fe;
+      line-height: 1.65;
+    }
+    .arch-diagnosis strong {
+      color: #f3e8ff;
+    }
+
     /* Bug Cards */
     .bug-card {
       background: rgba(15, 23, 42, 0.8);
@@ -387,6 +485,122 @@
       color: #93c5fd;
     }
 
+    /* === ARCHITECTURE FORENSIC CARD === */
+    .arch-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .arch-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #6366f1, #3b82f6, #06b6d4, #10b981);
+    }
+    .arch-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .arch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .arch-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin: 0.35rem 0 0.25rem;
+    }
+    .arch-subtitle {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .arch-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 1rem;
+      transition: all 0.2s ease;
+    }
+    .arch-item:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      background: rgba(30, 41, 59, 0.6);
+    }
+    .arch-item-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #818cf8;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .arch-item-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.35rem;
+      font-family: var(--font-code);
+    }
+    .arch-item-desc {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .arch-diagnosis {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-left: 4px solid #f59e0b;
+      border-radius: 8px;
+    }
+    .arch-diagnosis-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fbbf24;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .arch-diagnosis-desc {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin: 0;
+    }
+
     /* === LIGHT THEME OVERRIDES FOR /BUG === */
     :root.light-mode,
     body.light-mode {
@@ -512,6 +726,52 @@
     }
     body.light-mode .bc-screenshot-label {
       color: #64748b;
+    }
+
+    /* Architecture Card Light Mode */
+    body.light-mode .arch-card {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+    body.light-mode .arch-title {
+      color: #0f172a;
+    }
+    body.light-mode .arch-subtitle {
+      color: #475569;
+    }
+    body.light-mode .arch-badge {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #1d4ed8;
+    }
+    body.light-mode .arch-item {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+    body.light-mode .arch-item:hover {
+      border-color: #93c5fd;
+      background: #f1f5f9;
+    }
+    body.light-mode .arch-item-label {
+      color: #4338ca;
+    }
+    body.light-mode .arch-item-val {
+      color: #0f172a;
+    }
+    body.light-mode .arch-item-desc {
+      color: #475569;
+    }
+    body.light-mode .arch-diagnosis {
+      background: #fffbeb;
+      border-color: #fde68a;
+      border-left-color: #d97706;
+    }
+    body.light-mode .arch-diagnosis-title {
+      color: #92400e;
+    }
+    body.light-mode .arch-diagnosis-desc {
+      color: #78350f;
     }
 
     /* === PRINT OPTIMIZATION (EXECUTIVE AUDIT REPORT FORMAT) === */
@@ -746,6 +1006,63 @@
         color: #64748b !important;
         margin-top: 5px !important;
       }
+
+      .arch-card {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+        padding: 12px 14px !important;
+        margin-bottom: 14px !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+      }
+      .arch-title {
+        color: #0f172a !important;
+        font-size: 11pt !important;
+      }
+      .arch-subtitle {
+        color: #475569 !important;
+        font-size: 8pt !important;
+      }
+      .arch-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+        margin-top: 8px !important;
+      }
+      .arch-item {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        padding: 6px 8px !important;
+      }
+      .arch-item-label {
+        font-size: 6.5pt !important;
+        color: #4338ca !important;
+      }
+      .arch-item-val {
+        font-size: 8pt !important;
+        color: #0f172a !important;
+      }
+      .arch-item-desc {
+        font-size: 7pt !important;
+        color: #475569 !important;
+        line-height: 1.3 !important;
+      }
+      .arch-diagnosis {
+        background: #fffbeb !important;
+        border: 1px solid #fde68a !important;
+        border-left: 3px solid #d97706 !important;
+        padding: 6px 8px !important;
+        margin-top: 8px !important;
+      }
+      .arch-diagnosis-title {
+        color: #92400e !important;
+        font-size: 7.5pt !important;
+      }
+      .arch-diagnosis-desc {
+        color: #78350f !important;
+        font-size: 7pt !important;
+        line-height: 1.3 !important;
+      }
     }
   </style>
 </head>
@@ -792,6 +1109,78 @@
         </div>
       </div>
     </header>
+
+    <!-- Architecture & Tech Stack Forensic Card -->
+    <section class="arch-card" id="techStackSection">
+      <div class="arch-header">
+        <div>
+          <span class="arch-badge">🔬 Tech Stack &amp; Forensic Analysis</span>
+          <h2 class="arch-title">Profil Arsitektur Sistem BelajarPlus.id</h2>
+          <p class="arch-subtitle">
+            Hasil rekayasa balik (reverse-engineering) dan inspeksi runtime terhadap infrastruktur, framework, dan data layer yang mendasari platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="arch-grid">
+        <div class="arch-item">
+          <div class="arch-item-label">⚡ Platform &amp; Code Generator</div>
+          <div class="arch-item-val">Lovable.app (AI Fullstack)</div>
+          <p class="arch-item-desc">
+            Seluruh basis kode front-end di-generate menggunakan AI prompt builder Lovable. Terverifikasi dari asset bundle dan referensi OpenGraph image yang mengarah langsung ke bucket preview Lovable (<code>id-preview-*.lovable.app</code>).
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">⚛️ Frontend Framework</div>
+          <div class="arch-item-val">TanStack Start + React 18/19</div>
+          <p class="arch-item-desc">
+            Menggunakan fullstack SSR routing berbasis <strong>TanStack Start</strong> &amp; <strong>TanStack Router</strong> (bundling <code>__tsr</code> chunk). Menangani file-based route seperti <code>/dashboard</code>, <code>/orders/$id</code>, dan <code>/settings</code>.
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🔄 State &amp; Cache Layer</div>
+          <div class="arch-item-val">TanStack Query (React Query)</div>
+          <p class="arch-item-desc">
+            Pengelolaan remote state, cache invalidation, dan query re-fetching saat mutasi data dilakukan melalui asynchronous query client.
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🗄️ Backend &amp; Database</div>
+          <div class="arch-item-val">Supabase (PostgreSQL + PostgREST)</div>
+          <p class="arch-item-desc">
+            BaaS berbasis PostgreSQL dengan Row-Level Security (RLS), autodelegasi API PostgREST via client JWT token, serta Realtime WebSockets untuk event listener notifikasi live.
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">☁️ Edge Hosting &amp; Storage</div>
+          <div class="arch-item-val">Cloudflare Workers + R2 Storage</div>
+          <p class="arch-item-desc">
+            Deployment server edge dijalankan di atas Cloudflare Workers, sementara aset statis, preview, dan file upload ditampung di Cloudflare R2 Object Storage (<code>*.r2.dev</code>).
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🎨 UI System &amp; Primitives</div>
+          <div class="arch-item-val">Tailwind CSS + Shadcn / Radix UI</div>
+          <p class="arch-item-desc">
+            Komponen UI headless dari Radix UI (Dialog, Dropdown, Accordion) yang dibungkus dengan Tailwind CSS utilities khas ekosistem Shadcn UI.
+          </p>
+        </div>
+      </div>
+
+      <div class="arch-diagnosis">
+        <div class="arch-diagnosis-title">
+          <span>⚠️ Analisa Akar Masalah (Root-Cause Architecture Diagnostic)</span>
+        </div>
+        <p class="arch-diagnosis-desc">
+          Banyaknya bug validasi batas (boundary logic), nilai counter minus tanpa limit, nomor rekening strip (<code>—</code>), dan error 404 pada aset OpenGraph berakar dari sifat <strong>AI-generated code (Happy-Path Bias)</strong>. Platform AI builder mengasumsikan alur selalu ideal sehingga sering melewatkan <em>defensive guard clauses</em>, migrasi/seeding default database Supabase, dan pergantian asset CDN temporary ke domain production permanen.
+        </p>
+      </div>
+    </section>
 
     <!-- Filter Section: Dual-Classification (Kategori Masalah & Tingkat Urgensi) -->
     <div class="filter-section">
