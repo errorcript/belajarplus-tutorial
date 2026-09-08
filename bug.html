@@ -1093,15 +1093,15 @@
       <div class="bh-meta-grid">
         <div class="bh-meta-item">
           <div class="bh-meta-label">Total Temuan</div>
-          <div class="bh-meta-val" style="color: #60a5fa;">16 Isu Teridentifikasi</div>
+          <div class="bh-meta-val" style="color: #60a5fa;">20 Isu Teridentifikasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🐛 System Bug (Teknis / Logic)</div>
-          <div class="bh-meta-val" style="color: #f87171;">9 Isu</div>
+          <div class="bh-meta-val" style="color: #f87171;">12 Isu</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">🎨 UI/UX &amp; Alur Produk</div>
-          <div class="bh-meta-val" style="color: #38bdf8;">6 Rekomendasi</div>
+          <div class="bh-meta-val" style="color: #38bdf8;">7 Rekomendasi</div>
         </div>
         <div class="bh-meta-item">
           <div class="bh-meta-label">✏️ Content / Typo (Copy)</div>
@@ -1170,6 +1170,22 @@
             Komponen UI headless dari Radix UI (Dialog, Dropdown, Accordion) yang dibungkus dengan Tailwind CSS utilities khas ekosistem Shadcn UI.
           </p>
         </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🏢 Induk Platform &amp; Whitelabel</div>
+          <div class="arch-item-val">DigiAksi (digiaksi.id)</div>
+          <p class="arch-item-desc">
+            BelajarPlus merupakan multi-tenant / whitelabel dari platform <strong>DigiAksi</strong>. Terbukti dari placeholder email peringatan admin (<code>admin@digiaksi.id</code>), route pohon ujian, dan backend scoring worker yang identik.
+          </p>
+        </div>
+
+        <div class="arch-item">
+          <div class="arch-item-label">🌐 Domain Mirroring</div>
+          <div class="arch-item-val">belajarplus.com &amp; belajarplus.id</div>
+          <p class="arch-item-desc">
+            Keduanya resolve ke IP <code>185.158.133.1</code> (<code>lovable-app-cd-1-4.p.l5e.io</code>) dengan deployment hash identik, namun belum ada 301 Canonical Redirect, memicu kanibalisasi SEO.
+          </p>
+        </div>
       </div>
 
       <div class="arch-diagnosis">
@@ -1186,17 +1202,17 @@
     <div class="filter-section">
       <div class="filter-group filter-group-cat">
         <span class="filter-label">Kategori Masalah:</span>
-        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (16)</button>
-        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (9)</button>
-        <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (6)</button>
+        <button class="filter-chip active" onclick="filterCategory('all', this)">Semua Kategori (20)</button>
+        <button class="filter-chip" onclick="filterCategory('system', this)">🐛 System Bug (12)</button>
+        <button class="filter-chip" onclick="filterCategory('uiux', this)">🎨 UI/UX &amp; Feature Gap (7)</button>
         <button class="filter-chip" onclick="filterCategory('content', this)">✏️ Typo &amp; Copy (1)</button>
       </div>
       <div class="filter-group filter-group-pri">
         <span class="filter-label">Tingkat Urgensi:</span>
         <button class="filter-chip active" onclick="filterPriority('all', this)">Semua Urgensi</button>
         <button class="filter-chip chip-p0" onclick="filterPriority('p0', this)">🔴 P0 - Blocker (2)</button>
-        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (6)</button>
-        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (6)</button>
+        <button class="filter-chip chip-p1" onclick="filterPriority('p1', this)">🟠 P1 - High (8)</button>
+        <button class="filter-chip chip-p2" onclick="filterPriority('p2', this)">🟡 P2 - Medium (8)</button>
         <button class="filter-chip chip-p3" onclick="filterPriority('p3', this)">🟢 P3 - Low / Typo (2)</button>
       </div>
     </div>
@@ -1963,6 +1979,238 @@
             <div style="font-size: 0.75rem; color: #94a3b8; line-height: 1.4; max-width: 280px; margin: 0 auto;">This object does not exist or is not publicly accessible at this URL (Cloudflare R2 Lovable.app).</div>
           </div>
           <div class="bc-screenshot-label">Bukti Respon 404: pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 17: Kanibalisasi SEO & Duplikasi Domain (.com vs .id Tanpa 301 Redirect) -->
+    <div class="bug-card" data-category="system" data-priority="p1" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-017</span>
+          <h3 class="bc-title">Kanibalisasi SEO &amp; Duplikasi Domain Tanpa 301 Redirect (belajarplus.com vs belajarplus.id)</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Infrastruktur)</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> DNS, Domain Routing &amp; Edge Cloudflare</span>
+        <span><strong>Peran Terkena:</strong> Mesin Pencari (Googlebot), Pengguna Web</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pihak pengelola telah membeli domain internasional <code>belajarplus.com</code> (via registrar Name.com) berdampingan dengan domain utama <code>belajarplus.id</code> (IDwebhost). Kedua domain tersebut mengarah ke IP edge yang sama persis (<code>185.158.133.1</code>, PTR: <code>lovable-app-cd-1-4.p.l5e.io</code>) dan menyajikan response aplikasi <code>HTTP 200 OK</code> dengan deployment hash yang identik (<code>psr2.d768ce3e...</code>).
+              <br><br>
+              Namun, server Cloudflare Edge <strong>tidak menerapkan 301 Permanent Redirect</strong> dari <code>belajarplus.com</code> ke <code>belajarplus.id</code>. Akibatnya:
+              <br>• <strong>Duplicate Content Penalty:</strong> Google mengindeks dua domain kembar dengan isi identik, memecah reputasi ranking SEO dan skor PageRank.
+              <br>• <strong>Desinkronisasi Sesi Autentikasi:</strong> Cookie sesi login diisolasi pada domain spesifik (<code>Domain=belajarplus.com</code> vs <code>Domain=belajarplus.id</code>), sehingga pengguna yang login di versi .com tidak akan terautentikasi saat membuka link .id.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi &amp; Bukti Forensik:</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Periksa DNS A-Record dan PTR:
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #38bdf8;">belajarplus.com  -> A 185.158.133.1 (NS: Name.com)<br>belajarplus.id   -> A 185.158.133.1 (NS: IDwebhost)<br>PTR Lookup       -> lovable-app-cd-1-4.p.l5e.io</div>
+                </li>
+                <li>Lakukan request HTTP Head: <code>curl -I https://belajarplus.com</code>
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #a5b4fc;">HTTP/1.1 200 OK<br>x-deployment-id: psr2.d768ce3e-9a16-4310-b69a-2ee7ad7a293b...<br>Set-Cookie: ... Domain=belajarplus.com</div>
+                </li>
+                <li>Server mengembalikan 200 OK independen, membuktikan ketiadaan <code>301 Moved Permanently</code> ke <code>belajarplus.id</code>.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Pasang Redirect Rule di Cloudflare Edge: Semua request ke hostname <code>belajarplus.com</code> dan <code>www.belajarplus.com</code> harus di-redirect dengan status <strong>301 Moved Permanently</strong> ke target <code>https://belajarplus.id${path}</code>.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #0f172a; color: #f8fafc; padding: 1.25rem 1rem; border-radius: 8px; border: 1px solid #334155; font-family: monospace; font-size: 0.75rem; text-align: left; line-height: 1.5;">
+            <div style="color: #38bdf8; font-weight: 700; margin-bottom: 0.4rem;">$ Resolve-DnsName belajarplus.com</div>
+            <div style="color: #94a3b8;">Type: A | IP: 185.158.133.1</div>
+            <div style="color: #38bdf8; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0.4rem;">$ Resolve-DnsName belajarplus.id</div>
+            <div style="color: #94a3b8;">Type: A | IP: 185.158.133.1</div>
+            <div style="color: #fbbf24; margin-top: 0.5rem; padding-top: 0.4rem; border-top: 1px dashed #334155;">Status: Keduanya HTTP 200 OK (Tanpa 301 Redirect)</div>
+          </div>
+          <div class="bc-screenshot-label">Bukti DNS &amp; Status 200 OK Bersamaan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 18: Komponen Banner Penutup Kosong Melompong -->
+    <div class="bug-card" data-category="uiux" data-priority="p1" data-severity="high">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-018</span>
+          <h3 class="bc-title">Komponen Banner Penutup Kosong Melompong pada Landing Page Kerjasama Sekolah &amp; Kirim Naskah</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-uiux">🎨 UI/UX (Landing Page)</span>
+          <span class="bc-priority pri-p1">P1 - High</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Landing Pages (`/kerjasama-sekolah`, `/kirim-naskah`)</span>
+        <span><strong>Peran Terkena:</strong> Calon Sekolah Mitra, Guru, Penulis Buku</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Di bagian paling bawah halaman <code>/kerjasama-sekolah</code> dan <code>/kirim-naskah</code> (setelah form input pengajuan), terdapat kartu banner call-to-action (CTA) besar berlatar gradasi biru-ungu. Namun, <strong>judul <code>&lt;h2&gt;</code> dan paragraf deskripsi di dalamnya kosong melompong</strong> (hanya ada tombol mengambang <em>"Mulai Kerja Sama"</em> atau <em>"Kirim Naskah Anda"</em>).
+              <br><br>
+              Tampilan ini memberikan impresi bahwa halaman web belum selesai dikerjakan atau rusak (*half-baked template*), menurunkan kredibilitas profesional di hadapan kepala sekolah atau calon penulis naskah.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi &amp; Bukti Kode Sumber:</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka live URL <code>https://belajarplus.id/kerjasama-sekolah</code> atau <code>https://belajarplus.id/kirim-naskah</code>, scroll ke paling bawah.</li>
+                <li>Periksa elemen DOM yang ter-render:
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #f87171;">&lt;h2 class="text-2xl font-extrabold"&gt;&lt;/h2&gt;<br>&lt;div class="mx-auto mt-3 max-w-xl space-y-2 text-sm opacity-90"&gt;&lt;/div&gt;<br>&lt;button type="button" ...&gt;Mulai Kerja Sama&lt;/button&gt;</div>
+                </li>
+                <li>Bukti kode JS (chunk <code>kerjasama-sekolah-CT5fc_wm.js</code>):
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #fbbf24;">(0,p.jsx)("h2", { children: n.closing?.title }),<br>(0,p.jsx)("div", { children: (n.closing?.paragraphs??[]).map(...) })</div>
+                  Ketika properti CMS <code>closing</code> bernilai <code>undefined</code>, generator kode tidak menyertakan fallback text.
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Sertakan default string fallback pada komponen: <code>children: n.closing?.title || "Siap Bertransformasi Digital Bersama BelajarPlus?"</code> dan sertakan deskripsi default agar kartu banner tidak kosong melompong.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; padding: 1.5rem 1rem; border-radius: 12px; text-align: center;">
+            <div style="height: 18px; width: 140px; background: rgba(255,255,255,0.2); border-radius: 4px; margin: 0 auto 0.5rem; border: 1px dashed rgba(255,255,255,0.5);"></div>
+            <div style="height: 12px; width: 220px; background: rgba(255,255,255,0.15); border-radius: 4px; margin: 0 auto 1rem; border: 1px dashed rgba(255,255,255,0.4);"></div>
+            <div style="display: inline-block; background: #ffffff; color: #0f172a; font-weight: 700; font-size: 0.8rem; padding: 6px 16px; border-radius: 9999px;">Mulai Kerja Sama</div>
+          </div>
+          <div class="bc-screenshot-label">Representasi DOM Render Kosong (Missing Closing Content)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 19: Silent Failure Tanpa Validasi Feedback pada Input Scan QR Soal -->
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-019</span>
+          <h3 class="bc-title">Silent Failure Tanpa Validasi Feedback pada Form Input Scan QR Soal</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Input / Logic)</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> Widget Scan QR Buku (`/`, `/scan`)</span>
+        <span><strong>Peran Terkena:</strong> Siswa, Guru</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Pada homepage (<code>/</code>) dan halaman <code>/scan</code> terdapat formulir <em>"Punya Buku Belajar+? Tempel tautan atau kode dari QR"</em>. Ketika siswa mengetikkan kode singkat manual atau menempelkan format teks yang bukan UUID (misal salah salin link atau typo), tombol <strong>"Buka Kode"</strong> sama sekali tidak merespon (*silent dead click*).
+              <br><br>
+              Pengguna mengira tombol atau sistem macet karena tidak ada outline merah, pesan teks error, maupun notifikasi toast yang menginformasikan format yang diharapkan.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi &amp; Bukti Kode Sumber:</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Buka <code>https://belajarplus.id/</code>, gulir ke section <em>"Punya Buku Belajar+?"</em>.</li>
+                <li>Ketik sembarang teks (misal: <code>KODE-LATIHAN-01</code>), lalu klik tombol <strong>"Buka Kode"</strong>.</li>
+                <li>Halaman diam membisu tanpa reaksi apa pun.</li>
+                <li>Bukti kode JS (chunk <code>school-landing-Dl9q7ni0.js</code>):
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #fbbf24;">onSubmit: t => {<br>&nbsp;&nbsp;t.preventDefault();<br>&nbsp;&nbsp;let n = e.trim().match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);<br>&nbsp;&nbsp;n &amp;&amp; r({ to: `/e/$exerciseId`, params: { exerciseId: n[0] } });<br>&nbsp;&nbsp;// Jika n bernilai null, fungsi langsung selesai tanpa feedback ke UI!<br>}</div>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Tambahkan blok penanganan <code>else</code> pada event handler submit:
+            <code>if (n) { r({ to: `/e/$exerciseId`, params: { exerciseId: n[0] } }); } else { toast.error("Format tautan atau kode QR tidak valid. Pastikan Anda menyalin URL latihan lengkap."); }</code>.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #1e293b; color: #f8fafc; padding: 1.25rem 1rem; border-radius: 8px; border: 1px solid #475569; text-align: center;">
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">Input Form Scan QR:</div>
+            <div style="background: #0f172a; border: 1px solid #64748b; border-radius: 9999px; padding: 6px 14px; font-family: monospace; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 0.6rem;">KODE-LATIHAN-123</div>
+            <div style="background: #2563eb; color: #ffffff; border-radius: 9999px; padding: 6px 16px; font-weight: 700; font-size: 0.8rem; display: inline-block;">Buka Kode (Mati Gaya)</div>
+          </div>
+          <div class="bc-screenshot-label">Dead-Click Tanpa Toast Error Feedback</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUG 20: Information Disclosure Metadata Route Admin di SSR Head -->
+    <div class="bug-card" data-category="system" data-priority="p2" data-severity="medium">
+      <div class="bc-header">
+        <div class="bc-id-title">
+          <span class="bc-id">BUG-020</span>
+          <h3 class="bc-title">Information Disclosure: Metadata Rute Internal Admin Ter-render di SSR Head Publik</h3>
+        </div>
+        <div class="bc-badges">
+          <span class="bc-type type-system">🐛 System Bug (Security / SSR)</span>
+          <span class="bc-priority pri-p2">P2 - Medium</span>
+        </div>
+      </div>
+      <div class="bc-meta">
+        <span><strong>Modul:</strong> TanStack Start SSR &amp; Rute Internal Admin (`/_authenticated/admin/*`)</span>
+        <span><strong>Peran Terkena:</strong> Pengunjung Publik, Web Crawler</span>
+        <span><strong>Status:</strong> Terkonfirmasi di Production</span>
+      </div>
+      <div class="bc-body">
+        <div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #fca5a5;">⚠️ Deskripsi Gejala &amp; Dampak:</div>
+            <p class="bc-info-desc">
+              Meskipun rute panel admin (seperti <code>/admin/health</code>, <code>/admin/peran</code>, <code>/admin/payments</code>) memerlukan sesi login dan me-redirect pengunjung biasa di browser, engine SSR TanStack Start tetap melakukan **pre-render terhadap tag <code>&lt;head&gt;</code> HTML**.
+              <br><br>
+              Pengunjung anonim tanpa hak akses dapat melakukan request HTTP mentah (via <code>curl</code>) dan membaca judul halaman rahasia, deskripsi beban arsitektur server, serta preload bundle script admin internal (seperti <code>health-CGM3mnUR.js</code>). Ini membuka informasi sensitif arsitektur internal (*information reconnaissance*) ke publik.
+            </p>
+          </div>
+          <div class="bc-info-block">
+            <div class="bc-info-title" style="color: #93c5fd;">🔁 Langkah Reproduksi &amp; Bukti Response SSR:</div>
+            <div class="bc-info-desc">
+              <ol>
+                <li>Kirim request HTTP tanpa session cookie: <code>curl -s -i "https://belajarplus.id/admin/health"</code></li>
+                <li>Periksa payload HTML head yang dikembalikan server:
+                  <div style="background: rgba(15,23,42,0.6); padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 4px 0; color: #f87171;">&lt;title&gt;Kesehatan Server — Belajar Plus&lt;/title&gt;<br>&lt;meta name="description" content="Pantau beban antrian penilaian, koneksi database, dan rekomendasi ukuran instance Belajar Plus."/&gt;<br>&lt;link rel="modulepreload" href="/assets/health-CGM3mnUR.js"/&gt;</div>
+                </li>
+                <li>Server merespon <code>HTTP 200 OK</code> lengkap dengan metadata admin internal sebelum otentikasi divalidasi.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="bc-solution">
+            <strong>💡 Rekomendasi Solusi Teknis:</strong>
+            Pindahkan validasi otentikasi JWT ke tingkat server loader (<code>beforeLoad</code> pada SSR parent route): jika token tidak valid atau tidak memiliki peran admin, segera lakukan <code>throw redirect({ to: '/auth', statusCode: 307 })</code> langsung di server sebelum proses SSR rendering siklus <code>&lt;head&gt;</code> dimulai.
+          </div>
+        </div>
+        <div class="bc-screenshot-wrap">
+          <div style="background: #0f172a; color: #f8fafc; padding: 1.25rem 1rem; border-radius: 8px; border: 1px solid #334155; font-family: monospace; font-size: 0.73rem; text-align: left; line-height: 1.5;">
+            <div style="color: #38bdf8; font-weight: 700;">GET /admin/health HTTP/1.1</div>
+            <div style="color: #4ade80;">HTTP/1.1 200 OK</div>
+            <div style="color: #fbbf24; margin-top: 0.4rem;">&lt;title&gt;Kesehatan Server&lt;/title&gt;</div>
+            <div style="color: #94a3b8;">&lt;meta name="description" content="Pantau beban antrian penilaian..."&gt;</div>
+          </div>
+          <div class="bc-screenshot-label">Bukti Response SSR Head Bocor Tanpa Login</div>
         </div>
       </div>
     </div>
