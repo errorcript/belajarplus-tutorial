@@ -1,9 +1,13 @@
 # 📌 Catatan Rencana Pengembangan Berikutnya (Next Sprint)
 
-## 1. Tambahan Screenshot Pelengkap Akun Siswa (Optional Polish)
-- [ ] **Layar / Popup "Lupa Kata Sandi" (Langkah 02)**: Tangkapan layar formulir input email reset password agar orang tua/siswa awam langsung paham posisinya.
+## 1. Pembaruan Screenshot & Fitur Akun Siswa v2.0 (Selesai Dilaksanakan)
+- [x] **Layar / Popup "Lupa Kata Sandi" (Langkah 02)**: Tangkapan layar formulir input email reset password (`assets/lupa_password.png`).
 - [x] **Layar Ujian LJD Sedang Berjalan (Langkah 10)**: Tampilan asli pengerjaan soal (stimulus & lembar pilihan), navigator nomor, tombol tandai, halaman tinjau jawaban, serta skor hasil & analisis kompetensi (`assets/ljd_*.png` & `assets/assignment_result.png`).
-- [ ] **Modal Konfirmasi Berhasil Masuk Kelas (Langkah 05)**: Tangkapan layar respons sukses setelah input kode `BLJ-XXXXXX`.
+- [x] **Layar Pemilihan Institusi / Multi-Tenant Selector (Langkah 03)**: Tampilan switcher institusi pasca-login (`assets/pilih_institusi.png`).
+- [x] **Dashboard Siswa Baru & Sidebar V2 (Langkah 03 & 04)**: Tampilan menu Komunitas, Agenda, Pengumuman, 4 kartu ringkasan aktivitas, dan tugas aktif (`assets/dashboard_siswa.png` & `assets/ss_tugas.png`).
+- [x] **Aksi Cepat & Pindai QR Scanner (Langkah 06)**: Tangkapan layar scanner kamera QR lembar kuis / presensi absensi (`assets/scan_page.png` & `assets/ss_latihan.png`).
+- [x] **Manajemen Kelas Saya & Fitur Keluar Mandiri (Langkah 05)**: Opsi keluar kelas jika salah rombel (`assets/ss_kelas.png`).
+- [x] **Laporan Audit Teknis Bug v2.0**: Dokumentasi audit teknis 6 temuan di halaman `/bug2` (`bug2.html`).
 
 ---
 

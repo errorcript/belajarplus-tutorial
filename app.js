@@ -797,38 +797,38 @@ const videoTutorialData = {
       {
         title: 'Pendaftaran & Aktivasi Akun Siswa',
         image: 'assets/register_siswa.png',
-        narration: 'Langkah pertama: Buka portal registrasi belajarplus.id/auth dan pilih tab Daftar. Tentukan peran sebagai Siswa. Jika sekolahmu mitra BelajarPlus, masukkan Kode Sekolah SKL-XXXXX dari admin sekolah agar otomatis mengaitkan akun ke kuota buku gratis. Jika mendaftar mandiri, pilih opsi Umum. Pilih Jenjang pendidikan, Kelas 10 sampai 12, dan Rombel. Masukkan Kode Kelas Guru BLJ-XXXXXX jika ada. Pastikan email yang didaftarkan aktif, lalu buka kotak masuk email kamu untuk melakukan Verifikasi OTP Email agar akun aktif sepenuhnya.',
+        narration: 'Langkah pertama: Buka portal belajarplus.id/auth. Pada antarmuka terbaru, tab Masuk dan Daftar berada dalam satu switcher praktis. Pilih tab Daftar dan tentukan peran Siswa. Masukkan Kode Sekolah SKL-XXXXX jika dari sekolah mitra atau pilih Umum. Isi Jenjang, Kelas, dan Rombel. Lakukan Verifikasi OTP Email yang masuk ke inbox email kamu agar akun aktif sepenuhnya.',
         subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar", dan peran Siswa. Masukkan Kode Sekolah (SKL-XXXXX), Jenjang, Kelas, dan Rombel. Verifikasi OTP Email agar akun aktif.'
       },
       {
-        title: 'Login & Cara Reset Password',
+        title: 'Login & Pemulihan Kata Sandi',
         image: 'assets/login.png',
-        narration: 'Langkah kedua: Setelah akun terverifikasi, buka belajarplus.id/auth dan pilih tab Masuk. Gunakan email terdaftar dan password yang sensitif huruf besar kecil. Pastikan tidak ada spasi di awal email. Jika lupa password, klik tautan Lupa kata sandi di bawah tombol Masuk, masukkan email terdaftar, dan klik link reset yang dikirimkan ke inbox dalam waktu 15 menit sebelum kadaluarsa. Jika email tidak muncul, cek folder Spam atau Junk. Jika anak tidak bisa akses email, orang tua dapat meminta reset password manual ke admin atau guru sekolah melalui panel admin BelajarPlus.',
-        subtitle: 'Langkah 2: Login di belajarplus.id/auth. Lupa password? Klik "Lupa kata sandi?", masukkan email, dan klik link reset dalam 15 menit. Tidak ada email? Cek Spam atau hubungi admin sekolah.'
+        narration: 'Langkah kedua: Buka tab Masuk di belajarplus.id/auth. Masukkan email dan password, serta gunakan centang Tampilkan Password agar tidak salah ketik. Jika lupa password, klik tautan Lupa kata sandi di bawah tombol Masuk, masukkan email terdaftar, dan ikuti link reset password yang dikirim ke inbox dalam waktu 15 menit.',
+        subtitle: 'Langkah 2: Login di tab "Masuk" dengan email & password. Gunakan opsi Tampilkan Password. Jika lupa kata sandi, klik tautan Lupa kata sandi untuk reset email.'
       },
       {
-        title: 'Mengenal Dashboard Siswa',
+        title: 'Pilih Institusi & Dashboard Pembelajaran Saya',
         image: 'assets/dashboard_siswa.png',
-        narration: 'Langkah ketiga: Setelah login, kamu akan masuk ke halaman Dashboard Pembelajaran Saya. Halaman ini adalah pusat kendali semua kegiatan belajarmu. Di bagian atas, kamu dapat melihat ringkasan statistik aktivitas terbaru. Gunakan navigasi sidebar di sebelah kiri untuk berpindah menu utama, dan perhatikan ikon lonceng di sudut kanan atas untuk melihat pemberitahuan sistem atau pengumuman dari admin sekolah.',
-        subtitle: 'Langkah 3: Dashboard adalah pusat kendali belajarmu. Cek ringkasan statistik, gunakan sidebar untuk navigasi, dan pantau notifikasi lonceng di pojok kanan atas.'
+        narration: 'Langkah ketiga: Pada antarmuka baru, pilih institusi sekolah atau peran Siswa untuk masuk ke dashboard utama Pembelajaran Saya. Di header atas terdapat switcher Institusi aktif untuk berpindah sekolah tanpa logout. Menu sidebar kiri kini memuat Pengumuman, Komunitas, dan Agenda, serta 4 kartu statistik live aktivitas belajarmu.',
+        subtitle: 'Langkah 3: Pilih institusi sekolah pada layar awal. Gunakan switcher Institusi aktif di header, jelajahi menu baru Komunitas & Agenda di sidebar, dan pantau 4 kartu ringkasan.'
       },
       {
-        title: 'Tugas dari Guru & Manajemen Waktu',
+        title: 'Tugas dari Guru & Pemantauan Tenggat',
         image: 'assets/ss_tugas.png',
-        narration: 'Langkah keempat: Kolom Tugas dari Guru menampilkan semua kewajiban akademismu. Perhatikan indikator warna: abu-abu artinya tugas baru belum dikerjakan, kuning artinya waktu hampir habis, dan hijau artinya tugas sudah selesai. Klik tombol Kerjakan saat kamu sudah siap karena timer LJD langsung berjalan mundur begitu diklik. Jika timer menyentuh nol, jawabanmu tersimpan otomatis.',
-        subtitle: 'Langkah 4: Pantau tugas lewat indikator warna — abu-abu (belum), kuning (mepet deadline), hijau (selesai). Klik "Kerjakan" hanya saat sudah siap karena timer LJD langsung aktif.'
+        narration: 'Langkah keempat: Bagian Tugas dari guru menyajikan kewajiban akademik beserta progres kegiatan, peringatan tenggat waktu, dan tombol aksi Baca atau Kerjakan. Tekan tombol Kerjakan hanya saat sudah siap karena timer ujian LJD akan langsung menghitung mundur.',
+        subtitle: 'Langkah 4: Pantau tugas aktif, jumlah progres kegiatan, dan tenggat waktu. Klik "Baca" untuk materi atau "Kerjakan" untuk langsung meluncurkan lembar jawab ujian LJD.'
       },
       {
-        title: 'Manajemen Kelas Saya & Multi-Mapel',
+        title: 'Kelas Saya & Fitur Keluar Kelas Mandiri',
         image: 'assets/ss_kelas.png',
-        narration: 'Langkah kelima: Fitur Kelas Saya digunakan untuk mendaftarkan akunmu ke rombongan belajar setiap guru mata pelajaran. Masukkan Kode Kelas Unik 6 digit berawalan BLJ yang diberikan oleh gurumu, lalu klik tombol panah. Kamu bisa memasukkan beberapa kode kelas sekaligus untuk semua mata pelajaranmu di semester ini. Setiap kartu kelas menampilkan nama mapel dan guru pengampu. Jika kode kelas gagal atau salah kelas, hubungi guru pengajar untuk bantuan verifikasi.',
-        subtitle: 'Langkah 5: Masukkan Kode Kelas Unik (BLJ-XXXXXX) dari tiap guru mata pelajaranmu. Kamu bisa bergabung ke banyak kelas sekaligus. Klik kartu kelas untuk membuka materi dan tugas.'
+        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ dari bapak ibu guru lewat tombol Gabung kelas agar terhubung ke rombel mata pelajaran. Pada UI terbaru, siswa dapat menekan tombol Keluar secara mandiri jika salah masuk kelas tanpa harus menunggu admin atau guru.',
+        subtitle: 'Langkah 5: Klik tombol "Gabung kelas" dan ketikkan kode unik (BLJ-XXXXXX). Siswa kini bisa keluar mandiri jika salah rombel dengan tombol "Keluar" di kartu kelas.'
       },
       {
-        title: 'Latihan Mandiri & Analisa Hasil',
-        image: 'assets/ss_latihan.png',
-        narration: 'Langkah keenam: Kamu bisa belajar proaktif melalui menu Latihan Tersedia tanpa perlu menunggu tugas dari guru. Cari topik atau mata pelajaran di bilah pencarian untuk memulai kuis singkat. Setelah selesai, cek modul Hasil Terbaru untuk melihat persentase ketuntasan dan detail soal yang salah dijawab.',
-        subtitle: 'Langkah 6: Gunakan menu "Latihan Tersedia" untuk belajar mandiri. Cek hasil di modul "Hasil Terbaru" untuk melihat skor, persentase KKM, dan detail soal yang salah.'
+        title: 'Aksi Cepat, Pindai QR & Hasil Belajar',
+        image: 'assets/scan_page.png',
+        narration: 'Langkah keenam: Manfaatkan baris Aksi Cepat di dashboard atau tombol scan QR di navigasi smartphone. Fitur Pindai QR memudahkanmu membuka lembar soal kuis atau absensi guru langsung dengan kamera. Pantau skor persentase ketuntasan belajarmu di kolom Hasil Terbaru.',
+        subtitle: 'Langkah 6: Gunakan "Aksi Cepat" atau Pindai QR kamera untuk presensi dan latihan instan. Cek analisis skor persentase ketuntasan di modul "Hasil Terbaru".'
       },
       {
         title: 'Mencari Buku di Perpustakaan Digital',

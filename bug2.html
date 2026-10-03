@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Audit Teknis &amp; Rekayasa Sistem v2.0 | BelajarPlus.id</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="assets/belajar-plus-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('bp_doc_theme');
+        const isDark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    :root {
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+      
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --border: #e2e8f0;
+      --border-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #64748b;
+      --code-bg: #f1f5f9;
+      --code-border: #cbd5e1;
+      
+      --p0-bg: #fef2f2;
+      --p0-text: #991b1b;
+      --p0-border: #fca5a5;
+      
+      --p1-bg: #fff7ed;
+      --p1-text: #9a3412;
+      --p1-border: #fdba74;
+      
+      --p2-bg: #fefce8;
+      --p2-text: #854d0e;
+      --p2-border: #fde047;
+      
+      --p3-bg: #f1f5f9;
+      --p3-text: #334155;
+      --p3-border: #cbd5e1;
+
+      --blue-accent: #0284c7;
+      --green-accent: #15803d;
+      --green-bg: #f0fdf4;
+    }
+
+    html.dark-mode {
+      --bg: #090d16;
+      --paper: #0f172a;
+      --border: #1e293b;
+      --border-subtle: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --code-bg: #020617;
+      --code-border: #334155;
+
+      --p0-bg: #450a0a;
+      --p0-text: #fca5a5;
+      --p0-border: #7f1d1d;
+
+      --p1-bg: #431407;
+      --p1-text: #fdba74;
+      --p1-border: #7c2d12;
+
+      --p2-bg: #422006;
+      --p2-text: #fde047;
+      --p2-border: #713f12;
+
+      --p3-bg: #1e293b;
+      --p3-text: #cbd5e1;
+      --p3-border: #334155;
+
+      --blue-accent: #38bdf8;
+      --green-accent: #4ade80;
+      --green-bg: #052e16;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .doc-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-action:hover {
+      border-color: var(--text-subtle);
+      background: var(--border-subtle);
+    }
+
+    .doc-header {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .doc-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .doc-org-info {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+    .doc-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0 0 0.5rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0;
+      max-width: 800px;
+    }
+    .doc-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .doc-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 1.75rem;
+    }
+    .doc-spec-cell {
+      background: var(--paper);
+      padding: 0.75rem 1rem;
+    }
+    .doc-spec-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+    }
+    .doc-spec-val {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .doc-section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 2.25rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .doc-section-title span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .metric-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+    .metric-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .metric-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Filter & Search Bar */
+    .filter-search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search-input-box {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+    .search-input-box input {
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .search-input-box input:focus {
+      border-color: var(--blue-accent);
+    }
+    .filter-pills {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-pill.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* Standard Bug Card */
+    .bug-entry {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      scroll-margin-top: 2rem;
+    }
+    .bug-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .bug-entry-id-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex: 1;
+      min-width: 280px;
+    }
+    .bug-id-tag {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .bug-id-tag:hover {
+      color: var(--blue-accent);
+      border-color: var(--blue-accent);
+    }
+    .bug-entry-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.35;
+    }
+    .bug-badges-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .badge-p0 { background: var(--p0-bg); color: var(--p0-text); border-color: var(--p0-border); }
+    .badge-p1 { background: var(--p1-bg); color: var(--p1-text); border-color: var(--p1-border); }
+    .badge-p2 { background: var(--p2-bg); color: var(--p2-text); border-color: var(--p2-border); }
+    .badge-p3 { background: var(--p3-bg); color: var(--p3-text); border-color: var(--p3-border); }
+    .badge-cat { background: var(--code-bg); color: var(--text-muted); border-color: var(--border); }
+
+    .bug-meta-strip {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .bug-meta-strip strong { color: var(--text); font-weight: 600; }
+
+    .bug-block { margin-bottom: 1.15rem; }
+    .bug-block:last-child { margin-bottom: 0; }
+    .bug-block-heading {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-subtle);
+      margin-bottom: 0.35rem;
+    }
+    .bug-block p { margin: 0 0 0.5rem; font-size: 0.9rem; }
+    .bug-block ul, .bug-block ol { margin: 0 0 0.5rem 1.25rem; padding: 0; font-size: 0.9rem; }
+    .bug-block li { margin-bottom: 0.35rem; }
+
+    .code-box {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      overflow-x: auto;
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0.5rem 0;
+    }
+    .code-box.code-solution {
+      border-left: 4px solid var(--green-accent);
+      background: var(--green-bg);
+    }
+
+    .visual-attachment {
+      margin-top: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000000;
+      text-align: center;
+      cursor: pointer;
+    }
+    .visual-attachment img {
+      max-width: 100%;
+      height: auto;
+      max-height: 380px;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.2s ease;
+    }
+    .visual-attachment:hover img {
+      transform: scale(1.01);
+    }
+    .visual-caption {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      background: #090d16;
+      border-top: 1px solid #1e293b;
+      text-align: left;
+    }
+
+    /* Modal Backdrop for Image Zoom */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal-backdrop img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Toast */
+    .toast-box {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--text);
+      color: var(--bg);
+      padding: 0.6rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      z-index: 1001;
+    }
+    .toast-box.show { opacity: 1; transform: translateY(0); }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .top-toolbar, .filter-search-bar { display: none !important; }
+      .doc-container { padding: 0 !important; max-width: 100% !important; }
+      .bug-entry { page-break-inside: avoid; border: 1px solid #ccc !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+    
+    <!-- Top Action Toolbar -->
+    <div class="top-toolbar">
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <a href="/" class="btn-action">← Kembali ke Panduan Utama</a>
+        <a href="/bug" class="btn-action">📂 Laporan Audit v1.0</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button class="btn-action" onclick="toggleDocTheme()">
+          🌓 <span id="themeBtnText">Mode Gelap</span>
+        </button>
+        <button class="btn-action" onclick="printReport()">
+          🖨️ Cetak / Ekspor PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Whitepaper Header -->
+    <div class="doc-header">
+      <div class="doc-meta-top">
+        <div>
+          <div class="doc-org-info">Security &amp; Software Engineering Advisory — Laporan Sesi v2.0</div>
+          <h1 class="doc-title">Laporan Audit Teknis &amp; Rekayasa UX BelajarPlus.id</h1>
+          <p class="doc-subtitle">Evaluasi menyeluruh antarmuka terbaru ekosistem Siswa pasca-redesign: Auth state handling, multi-tenant selector, alur scan QR mobile, dan integritas data dashboard.</p>
+        </div>
+        <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="doc-logo" />
+      </div>
+
+      <div class="doc-spec-grid">
+        <div class="doc-spec-cell">
+          <div class="doc-spec-label">Target Ekosistem</div>
+          <div class="doc-spec-val">BelajarPlus.id (Web &amp; PWA)</div>
+        </div>
+        <div class="doc-spec-cell">
+          <div class="doc-spec-label">Sesi Pengujian</div>
+          <div class="doc-spec-val">Oktober 2026 (Live Audit)</div>
+        </div>
+        <div class="doc-spec-cell">
+          <div class="doc-spec-label">Akun Uji Coba</div>
+          <div class="doc-spec-val">henrisusilo00@gmail.com</div>
+        </div>
+        <div class="doc-spec-cell">
+          <div class="doc-spec-label">Status Audit</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">6 Temuan Aktif</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics Summary -->
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-num" style="color: #64748b;">6</div>
+        <div class="metric-label">Total Temuan</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #ef4444;">0</div>
+        <div class="metric-label">P0 (Critical Blocker)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #f97316;">1</div>
+        <div class="metric-label">P1 (High Functional)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #eab308;">4</div>
+        <div class="metric-label">P2 (Medium / UX Risk)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" style="color: #3b82f6;">1</div>
+        <div class="metric-label">P3 (Minor Polish)</div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Live Toolbar -->
+    <div class="filter-search-bar">
+      <div class="search-input-box">
+        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'form', 'scan', 'typo', 'keluar')..." oninput="filterBugsLive()" />
+      </div>
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (6)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (1)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (4)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
+      </div>
+    </div>
+
+    <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
+      Menampilkan 6 temuan audit teknis
+    </div>
+
+    <div id="bugListContainer">
+
+      <!-- BUG 1 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-01">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-01" class="bug-id-tag" onclick="copyAnchor('bug-bp2-01', event)">#BUG-BP2-01</a>
+            <h2 class="bug-entry-title">Typo Typographic String Literal "Mmatematika Kelas 12" pada Card Rombel Dashboard</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">Data Integrity / Sanitization</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Dashboard Siswa &gt; Kelas saya</div>
+          <div><strong>Endpoint:</strong> <code>GET /api/school-members/classes</code></div>
+          <div><strong>Lingkungan:</strong> Production (Web &amp; PWA)</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Pada kartu kelas siswa di antarmuka dashboard Pembelajaran Saya, nama rombel mata pelajaran Matematika tertera dengan huruf 'M' ganda: <code>"Mmatematika Kelas 12"</code> (Guru: Rumaisha' Al Mawaddah). String ini dirender langsung tanpa proses sanitasi/normalisasi teks di layer presentasi.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Mengurangi kredibilitas profesionalitas platform di mata sekolah, siswa, dan orang tua murid. Mengindikasikan ketiadaan filter validasi nama kelas saat guru atau sistem seeding menginput rombel kelas.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Login menggunakan akun siswa (<code>henrisusilo00@gmail.com</code>).</li>
+            <li>Pilih institusi <em>Belajar Plus (Siswa)</em> untuk masuk ke <code>/dashboard</code>.</li>
+            <li>Scroll ke bawah menuju section <strong>"Kelas saya"</strong>.</li>
+            <li>Amati judul kartu kelas pertama yang menampilkan teks <code>"Mmatematika Kelas 12"</code>.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Tambahkan sanitasi regex di form input nama kelas admin/guru serta normalisasi teks di utilitas helper frontend:</p>
+          <div class="code-box code-solution">// src/utils/formatters.ts
+export function sanitizeClassName(name: string): string {
+  if (!name) return '';
+  // Normalisasi spasi dan perbaiki double initial character hasil kesalahan ketik
+  return name.trim().replace(/^([a-zA-Z])\1([a-z]+)/i, (match, p1, p2) => {
+    return p1.toUpperCase() + p2;
+  });
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/ss_kelas.png')">
+          <img src="assets/ss_kelas.png" alt="Bukti Bug Mmatematika" />
+          <div class="visual-caption">📸 Bukti Visual: Judul kartu kelas tertulis "Mmatematika Kelas 12" pada section Kelas Saya</div>
+        </div>
+      </article>
+
+      <!-- BUG 2 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-02">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-02" class="bug-id-tag" onclick="copyAnchor('bug-bp2-02', event)">#BUG-BP2-02</a>
+            <h2 class="bug-entry-title">Native Form Submission Reload Glitch (`/auth?`) pada Formulir Masuk</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Auth / Event Handling</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Portal Autentikasi (<code>https://belajarplus.id/auth</code>)</div>
+          <div><strong>Komponen:</strong> <code>&lt;form class="flex flex-col gap-3"&gt;</code></div>
+          <div><strong>Lingkungan:</strong> Chromium, Firefox, Mobile Safari</div>
+          <div><strong>Reproduksibilitas:</strong> Kondisional (Autofill / Synthetic Keystroke)</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika tombol submit <em>"Masuk"</em> diklik dalam kondisi input belum ter-bind penuh oleh event synthetic React (seperti saat menggunakan autofill browser pihak ketiga atau pengisian otomatis ekstensi password manager), elemen <code>&lt;form&gt;</code> mengeksekusi aksi standar browser GET submission dengan query string <code>/auth?</code>. Ini memicu reload penuh dan mengosongkan seluruh field isian.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Siswa atau orang tua yang menggunakan fitur simpan sandi browser Chrome/Edge sering kali mendapati halaman me-refresh sendiri tanpa pesan error yang jelas dan harus mengetik ulang sandi dari awal.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Buka <code>https://belajarplus.id/auth</code>.</li>
+            <li>Gunakan ekstensi auto-fill password atau script programatis untuk mengisi field email dan kata sandi tanpa memicu event <code>input</code> atau <code>change</code> keyboard.</li>
+            <li>Klik tombol <strong>"Masuk"</strong>.</li>
+            <li>URL browser ter-redirect ke <code>https://belajarplus.id/auth?</code> dan seluruh inputan ter-reset.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Kunci penanganan submit form pada tag <code>&lt;form&gt;</code> menggunakan <code>e.preventDefault()</code> eksplisit dan dukung binding input uncontrolled fallback:</p>
+          <div class="code-box code-solution">// Di komponen LoginForm:
+&lt;form
+  onSubmit={(e) =&gt; {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') || emailState;
+    const password = formData.get('password') || passwordState;
+    handleLogin({ email, password });
+  }}
+&gt;
+  ...
+&lt;/form&gt;</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/login.png')">
+          <img src="assets/login.png" alt="Form Login BelajarPlus" />
+          <div class="visual-caption">📸 Formulir Masuk pada /auth yang rentan memicu form reload jika onChange tidak tersinkronisasi</div>
+        </div>
+      </article>
+
+      <!-- BUG 3 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-03">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-03" class="bug-id-tag" onclick="copyAnchor('bug-bp2-03', event)">#BUG-BP2-03</a>
+            <h2 class="bug-entry-title">Ketiadaan Persistent Auto-Select Institusi Default Siswa Pasca-Login</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">UX Flow / Multi-Tenant State</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Post-Login Router (<code>/dashboard</code>)</div>
+          <div><strong>State Storage:</strong> LocalStorage / Session Tenant Key</div>
+          <div><strong>Lingkungan:</strong> All Devices</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Setiap kali pengguna berhasil login, sistem selalu memvalidasi tenancy dengan mendarat di layar perantara <em>"Pilih institusi untuk melanjutkan"</em>. Tidak ada mekanisme penyimpanan preferensi institusi terakhir yang aktif (<em>Last Active Tenant</em>). Pengguna harus selalu mengeklik tombol "Masuk" pada institusi yang sama setiap kali membuka aplikasi.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Menambah friksi 1 langkah ekstra (extra click) bagi seluruh siswa di setiap sesi belajar baru, padahal mayoritas siswa hanya aktif pada 1 institusi sekolah utama.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Terapkan auto-redirect cerdas saat login berhasil jika ditemukan <code>last_active_institution_id</code> di local storage atau jika akun hanya memiliki 1 peran tunggal:</p>
+          <div class="code-box code-solution">// In router auth middleware:
+const savedTenant = localStorage.getItem('bp_last_tenant_id');
+if (userInstitutions.length === 1) {
+  selectInstitution(userInstitutions[0].id);
+} else if (savedTenant && userInstitutions.some(i => i.id === savedTenant)) {
+  selectInstitution(savedTenant);
+} else {
+  // Tampilkan layar pilih institusi
+  showInstitutionSelector();
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/pilih_institusi.png')">
+          <img src="assets/pilih_institusi.png" alt="Layar Pilih Institusi" />
+          <div class="visual-caption">📸 Layar pemilih institusi yang selalu muncul berulang kali di setiap sesi login</div>
+        </div>
+      </article>
+
+      <!-- BUG 4 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-04">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-04" class="bug-id-tag" onclick="copyAnchor('bug-bp2-04', event)">#BUG-BP2-04</a>
+            <h2 class="bug-entry-title">Halaman Pindai QR (/scan) Tanpa Fallback Input Kode Manual Saat Kamera Ditolak</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">Camera API / Graceful Degradation</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Modul QR Scanner (<code>https://belajarplus.id/scan</code>)</div>
+          <div><strong>API:</strong> <code>navigator.mediaDevices.getUserMedia</code></div>
+          <div><strong>Lingkungan:</strong> Desktop PC tanpa webcam / Browser dengan kamera diblokir</div>
+          <div><strong>Reproduksibilitas:</strong> 100% pada perangkat tanpa webcam</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika siswa membuka fitur <strong>Pindai QR</strong> dari laptop lab sekolah yang tidak memiliki webcam atau saat siswa secara tidak sengaja menekan opsi <em>"Block Camera"</em> pada permission prompt browser, layar pemindai hanya menampilkan viewport kosong gelap tanpa opsi alternatif untuk mengetikkan kode token paket soal secara manual.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Siswa yang menghadapi kendala kamera fisik tidak dapat mengerjakan ulangan atau absensi yang disebarkan guru melalui format QR code.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Tambahkan handler state error kamera yang merender formulir input kode alfanumerik manual sebagai fallback:</p>
+          <div class="code-box code-solution">try {
+  await startCameraStream();
+} catch (cameraErr) {
+  setCameraError(true);
+  // Tampilkan UI Fallback:
+  // "Kamera tidak terdeteksi atau izin ditolak. Masukkan kode QR secara manual:"
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/scan_page.png')">
+          <img src="assets/scan_page.png" alt="Layar Scan QR" />
+          <div class="visual-caption">📸 Halaman /scan yang memerlukan fallback input kode manual ketika kamera tidak tersedia</div>
+        </div>
+      </article>
+
+      <!-- BUG 5 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-05">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-05" class="bug-id-tag" onclick="copyAnchor('bug-bp2-05', event)">#BUG-BP2-05</a>
+            <h2 class="bug-entry-title">Ketiadaan Dialog Konfirmasi Ganda (Double-Confirm) pada Tombol "Keluar" Kelas</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">Usability / Data Safety</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Dashboard Siswa &gt; Kelas saya</div>
+          <div><strong>Aksi:</strong> Tombol "Keluar" pada kartu kelas</div>
+          <div><strong>Lingkungan:</strong> Mobile Touchscreen &amp; Desktop</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Fitur baru tombol <strong>"Keluar"</strong> pada kartu kelas diletakkan bersebelahan langsung dengan tombol utama <strong>"Masuk Kelas"</strong>. Mengklik tombol ini tidak memunculkan modal dialog konfirmasi konfirmasi ganda (<em>"Apakah Anda yakin ingin keluar dari kelas ini?"</em>), melainkan langsung memicu unenroll siswa dari rombongan belajar.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Sangat rawan salah tekan (<em>accidental touch/click</em>), terutama pada layar sentuh smartphone saat siswa berniat menekan tombol Masuk Kelas. Jika siswa keluar, rekam jejak tugas di kelas tersebut berisiko terputus dari rekap penilaian guru.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Terapkan komponen modal konfirmasi destruktif dengan penundaan countdown 3 detik atau ketikkan kata konfirmasi:</p>
+          <div class="code-box code-solution">&lt;AlertDialog&gt;
+  &lt;AlertDialogTitle&gt;Keluar dari Rombel Kelas?&lt;/AlertDialogTitle&gt;
+  &lt;AlertDialogDescription&gt;
+    Anda akan kehilangan akses langsung ke penugasan dan bahan ajar yang dibagikan oleh guru di kelas ini. Anda harus meminta kode kelas kembali untuk bergabung.
+  &lt;/AlertDialogDescription&gt;
+  &lt;AlertDialogAction className="bg-destructive" onClick={handleLeaveClass}&gt;
+    Ya, Keluar Kelas
+  &lt;/AlertDialogAction&gt;
+&lt;/AlertDialog&gt;</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/ss_kelas.png')">
+          <img src="assets/ss_kelas.png" alt="Tombol Keluar Kelas" />
+          <div class="visual-caption">📸 Tombol "Keluar" yang diletakkan berdampingan tanpa double confirmation dialog</div>
+        </div>
+      </article>
+
+      <!-- BUG 6 -->
+      <article class="bug-entry" data-priority="P3" id="bug-bp2-06">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-06" class="bug-id-tag" onclick="copyAnchor('bug-bp2-06', event)">#BUG-BP2-06</a>
+            <h2 class="bug-entry-title">Inkonsistensi Active State Navigasi pada Sub-Menu Informasi (Pengumuman &amp; Komunitas)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p3">P3 — Minor Polish</span>
+            <span class="badge badge-cat">UI State / Navigation</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Sidebar Navigasi Utama (<code>/informasi/*</code>)</div>
+          <div><strong>Route:</strong> <code>/informasi/pengumuman</code>, <code>/informasi/komunitas</code></div>
+          <div><strong>Lingkungan:</strong> Desktop Sidebar</div>
+          <div><strong>Reproduksibilitas:</strong> 100%</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Saat siswa membuka rute <code>/informasi/pengumuman</code> atau <code>/informasi/komunitas</code>, highlight state warna primer (active pill indicator) di sidebar kadang tidak menyorot sub-menu secara tepat pada level link parent, atau terjadi jeda rendering styling sebelum class <code>active</code> disematkan.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Gunakan utilitas matching rute TanStack Router <code>useMatchRoute()</code> atau regex prefix match untuk memastikan state aktif konsisten:</p>
+          <div class="code-box code-solution">const matchRoute = useMatchRoute();
+const isAnnouncementActive = Boolean(matchRoute({ to: '/informasi/pengumuman', fuzzy: true }));</div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- No results notice for live search -->
+    <div id="noResultsNotice" style="display: none; text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+      <p style="font-size: 1.1rem; font-weight: 600;">Tidak ada temuan bug yang cocok dengan kriteria pencarian.</p>
+      <p style="font-size: 0.85rem;">Coba gunakan kata kunci lain atau pilih filter "Semua".</p>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-subtle); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>Dokumen Laporan Audit Teknis BelajarPlus.id &copy; 2026. Hak cipta dilindungi undang-undang.</div>
+      <div>Diperbarui secara real-time melalui automated headless exploration &amp; testing suite.</div>
+    </div>
+
+  </div>
+
+  <!-- Modal Backdrop for Zoomed Image -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()">
+    <img id="modalImage" src="" alt="Zoomed Screenshot" />
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-box" id="toastBox">Tautan disalin ke clipboard</div>
+
+  <script>
+    let activePriority = 'all';
+    let searchQuery = '';
+
+    function setPriorityFilter(pri, btn) {
+      activePriority = pri;
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      filterBugsLive();
+    }
+
+    function filterBugsLive() {
+      const input = document.getElementById('searchInput');
+      searchQuery = (input ? input.value : '').toLowerCase().trim();
+
+      const entries = document.querySelectorAll('.bug-entry');
+      let visible = 0;
+
+      entries.forEach(entry => {
+        const pri = entry.getAttribute('data-priority');
+        const text = entry.innerText.toLowerCase();
+
+        const matchPri = (activePriority === 'all' || pri === activePriority);
+        const matchSearch = (!searchQuery || text.includes(searchQuery));
+
+        if (matchPri && matchSearch) {
+          entry.style.display = 'block';
+          visible++;
+        } else {
+          entry.style.display = 'none';
+        }
+      });
+
+      const counter = document.getElementById('liveCounterText');
+      if (counter) {
+        counter.textContent = 'Menampilkan ' + visible + ' temuan audit teknis';
+      }
+
+      const noResults = document.getElementById('noResultsNotice');
+      if (noResults) {
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+      }
+    }
+
+    function copyAnchor(id, e) {
+      if (e) e.preventDefault();
+      const url = window.location.origin + window.location.pathname + '#' + id.toLowerCase();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast('Tautan ' + id + ' disalin');
+        });
+      }
+      const el = document.getElementById(id.toLowerCase());
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastBox');
+      if (toast) {
+        toast.textContent = text;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+    }
+
+    function viewImage(src) {
+      const backdrop = document.getElementById('modalBackdrop');
+      const img = document.getElementById('modalImage');
+      if (backdrop && img) {
+        img.src = src;
+        backdrop.classList.add('active');
+      }
+    }
+
+    function closeModal() {
+      const backdrop = document.getElementById('modalBackdrop');
+      if (backdrop) backdrop.classList.remove('active');
+    }
+
+    function toggleDocTheme() {
+      const isDark = document.documentElement.classList.toggle('dark-mode');
+      localStorage.setItem('bp_doc_theme', isDark ? 'dark' : 'light');
+      const btnText = document.getElementById('themeBtnText');
+      if (btnText) {
+        btnText.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+      }
+    }
+
+    (function() {
+      const isDark = document.documentElement.classList.contains('dark-mode');
+      const btnText = document.getElementById('themeBtnText');
+      if (btnText) {
+        btnText.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+      }
+    })();
+
+    function printReport() {
+      window.print();
+    }
+  </script>
+</body>
+</html>
