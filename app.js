@@ -861,10 +861,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 11: Beli buku di Toko, pilih varian, checkout, lalu transfer manual dan cantumkan Nomor Pesanan. Unggah foto struk agar admin verifikasi dan buku segera aktif.'
       },
       {
-        title: 'Pengaturan Akun, Profil & Logout',
+        title: 'Pengaturan Akun, Profil, Switcher & Logout',
         image: 'assets/user_profile.png',
-        narration: 'Langkah kedua belas: Buka menu Profil Saya untuk melengkapi data dasar seperti Foto Avatar, Nama Lengkap, NISN, dan Nomor Telepon untuk sinkronisasi Dapodik sekolah. Kamu juga bisa memperbarui kata sandi secara berkala. Selalu klik opsi Keluar atau Logout di menu avatar jika kamu mengakses BelajarPlus menggunakan komputer umum atau komputer perpustakaan sekolah.',
-        subtitle: 'Langkah 12: Lengkapi Profil Saya — Foto, Nama, NISN, dan Telepon. Ganti password berkala. Selalu klik "Keluar" (Logout) jika menggunakan komputer lab/perpustakaan sekolah.'
+        narration: 'Langkah kedua belas: Buka menu Profil Saya untuk melengkapi foto avatar, Nama Lengkap, dan NISN untuk sinkronisasi Dapodik sekolah. Di bilah header atas, gunakan switcher Institusi aktif untuk berganti instansi sekolah seketika tanpa perlu logout. Jangan lupa perbarui kata sandi secara berkala dan selalu klik Keluar atau Logout jika menggunakan komputer lab atau gawai umum perpustakaan.',
+        subtitle: 'Langkah 12: Lengkapi Profil Saya — Foto, Nama, NISN Dapodik. Gunakan switcher Institusi aktif di header tanpa logout. Selalu klik "Keluar" (Logout) di perangkat umum lab sekolah.'
       }
     ]
   },

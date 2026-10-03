@@ -8,6 +8,7 @@
 - [x] **Aksi Cepat & Pindai QR Scanner (Langkah 06)**: Tangkapan layar scanner kamera QR lembar kuis / presensi absensi (`assets/scan_page.png` & `assets/ss_latihan.png`).
 - [x] **Manajemen Kelas Saya & Fitur Keluar Mandiri (Langkah 05)**: Opsi keluar kelas jika salah rombel (`assets/ss_kelas.png`).
 - [x] **Laporan Audit Teknis Bug v2.0**: Dokumentasi audit teknis 6 temuan di halaman `/bug2` (`bug2.html`).
+- [x] **Revamp Menyeluruh Copywriting Tutorial Siswa v2.0**: Pembaruan total teks instruksi langkah 01–12, pengenalan platform, 16 item checklist progresif, 8 kartu fitur unggulan, panduan per halaman, pro tips, dan FAQ troubleshooting.
 
 ---
 
