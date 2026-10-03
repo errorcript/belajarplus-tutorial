@@ -795,10 +795,10 @@ const videoTutorialData = {
     roleSub: 'Lengkap dengan Voiceover AI Bahasa Indonesia & Subtitle Teks Berjalan Interaktif',
     steps: [
       {
-        title: 'Pendaftaran & Aktivasi Akun Siswa',
+        title: 'Pendaftaran & Aktivasi Akun BelajarPlus',
         image: 'assets/register_siswa.png',
-        narration: 'Langkah pertama: Buka portal belajarplus.id/auth. Pada antarmuka terbaru, tab Masuk dan Daftar berada dalam satu switcher praktis. Pilih tab Daftar dan tentukan peran Siswa. Masukkan Kode Sekolah SKL-XXXXX jika dari sekolah mitra atau pilih Umum. Isi Jenjang, Kelas, dan Rombel. Lakukan Verifikasi OTP Email yang masuk ke inbox email kamu agar akun aktif sepenuhnya.',
-        subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar", dan peran Siswa. Masukkan Kode Sekolah (SKL-XXXXX), Jenjang, Kelas, dan Rombel. Verifikasi OTP Email agar akun aktif.'
+        narration: 'Langkah pertama: Buka portal belajarplus.id/auth. Pada antarmuka terbaru, BelajarPlus menggunakan registrasi satu pintu untuk siswa maupun guru. Pilih tab Daftar, isi Nama Lengkap, Email aktif, dan buat kata sandi minimal 8 karakter dengan kombinasi huruf dan angka. Konfirmasi kata sandi, centang Tampilkan Password untuk memastikan tidak salah ketik, lalu klik Daftar. Buka inbox email untuk aktivasi akun. Penghubungan ke sekolah dilakukan setelah berhasil masuk.',
+        subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar". Isi Nama Lengkap, Email, Kata Sandi min. 8 karakter, dan Verifikasi Sandi. Klik "Daftar" lalu aktivasi tautan email.'
       },
       {
         title: 'Login & Pemulihan Kata Sandi',
@@ -873,10 +873,10 @@ const videoTutorialData = {
     roleSub: 'Langkah pengelolaan kelas, penugasan LJD, dan penilaian siswa',
     steps: [
       {
-        title: 'Pendaftaran & Verifikasi Akun Guru',
+        title: 'Pendaftaran & Aktivasi Akun Pendidik',
         image: 'assets/register_guru.png',
-        narration: 'Langkah pertama: Akses portal pendaftaran di belajarplus.id/auth, pilih tab Daftar, dan pilih peran Guru atau Pengajar. Masukkan Kode Sekolah Mitra SKL-XXXXX dari admin sekolah serta nomor WhatsApp aktif kamu untuk verifikasi akun pengajar.',
-        subtitle: 'Langkah 1: Buka registrasi belajarplus.id/auth, pilih tab "Daftar", dan tentukan peran Guru/Pengajar. Masukkan Kode Sekolah Mitra (SKL-XXXXX) dan nomor WhatsApp aktif.'
+        narration: 'Langkah pertama: Akses formulir registrasi di belajarplus.id/auth pada tab Daftar. BelajarPlus v2.0 menggunakan halaman pendaftaran terpadu untuk siswa maupun guru. Masukkan Nama Lengkap pendidik, Email aktif, dan buat kata sandi minimal 8 karakter. Setelah mendaftar dan verifikasi email, akun guru dihubungkan dengan instansi sekolah saat pertama kali login.',
+        subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar". Masukkan Nama Lengkap, Email, dan kata sandi minimal 8 karakter. Verifikasi email untuk aktivasi akun.'
       },
       {
         title: 'Akses & Kelola Ruang Kelas Saya',
