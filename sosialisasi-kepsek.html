@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentasi Sosialisasi BelajarPlus ID untuk Kepala Sekolah</title>
+  <link rel="icon" type="image/png" href="assets/belajar-plus-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-light: #ffffff;
+      --primary: #2563eb;
+      --primary-glow: rgba(37, 99, 235, 0.4);
+      --primary-light: #60a5fa;
+      --accent-gold: #f59e0b;
+      --accent-green: #10b981;
+      --accent-purple: #8b5cf6;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-card: rgba(255, 255, 255, 0.1);
+      --transition-smooth: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      user-select: none;
+    }
+
+    /* Background Ambient Mesh Animation */
+    .ambient-mesh {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+      filter: blur(60px);
+      animation: ambientShift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientShift {
+      0% { transform: scale(1) translate(0, 0); }
+      50% { transform: scale(1.08) translate(-2%, 2%); }
+      100% { transform: scale(1) translate(2%, -2%); }
+    }
+
+    /* Presentation Viewport */
+    .deck-viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      padding: 2rem 3rem 5.5rem 3rem;
+    }
+
+    /* Slide Container */
+    .slide {
+      position: absolute;
+      width: min(1360px, 92vw);
+      height: min(765px, 84vh);
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      padding: 2.2rem 2.8rem;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: scale(0.96) translateY(20px);
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 1.4rem;
+    }
+
+    .slide-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .header-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    }
+
+    .header-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: var(--primary-light);
+    }
+
+    .slide-header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .badge-kepsek {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .slide-num-pill {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+    }
+
+    /* Slide Title Area */
+    .slide-title-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .slide-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.35rem;
+    }
+
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Slide Content Body */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      gap: 2rem;
+      overflow: hidden;
+    }
+
+    .slide-col-text {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      justify-content: center;
+    }
+
+    .slide-col-visual {
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .visual-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      background: #000;
+      position: relative;
+    }
+
+    .visual-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.6s ease;
+    }
+
+    .slide.active .visual-frame img {
+      transform: scale(1.02);
+    }
+
+    /* Staggered Animations for List & Cards */
+    .animate-item {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active .animate-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide.active .delay-1 { transition-delay: 0.1s; }
+    .slide.active .delay-2 { transition-delay: 0.2s; }
+    .slide.active .delay-3 { transition-delay: 0.3s; }
+    .slide.active .delay-4 { transition-delay: 0.4s; }
+    .slide.active .delay-5 { transition-delay: 0.5s; }
+
+    /* Feature Cards */
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.1rem 1.35rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: rgba(37, 99, 235, 0.08);
+      border-color: rgba(37, 99, 235, 0.35);
+      transform: translateX(4px);
+    }
+
+    .feature-icon {
+      font-size: 1.6rem;
+      padding: 0.6rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .feature-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Grid Layout for Multi-Card Slides */
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .grid-3-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    /* Bottom Control Bar */
+    .control-bar {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-ctrl {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .btn-ctrl:hover {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .btn-ctrl.btn-highlight {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border-color: #60a5fa;
+    }
+
+    .ctrl-counter {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #94a3b8;
+      padding: 0 0.5rem;
+    }
+
+    /* Timer Pill */
+    .timer-pill {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* Modal Grid Overview */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 29, 0.94);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      padding: 2.5rem;
+      overflow-y: auto;
+    }
+
+    .overview-modal.active {
+      display: flex;
+    }
+
+    .overview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .overview-thumb {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 1.2rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .overview-thumb:hover, .overview-thumb.current {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+      transform: translateY(-4px);
+    }
+
+    .overview-thumb.current {
+      background: rgba(37, 99, 235, 0.15);
+    }
+
+    .thumb-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--primary-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .thumb-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Cover Slide Specific */
+    .cover-slide {
+      background: linear-gradient(135deg, rgba(10, 15, 29, 0.94) 0%, rgba(15, 23, 42, 0.92) 50%, rgba(30, 58, 138, 0.65) 100%), url('assets/kepsek_dashboard.png') center/cover no-repeat !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(96, 165, 250, 0.4);
+      color: #93c5fd;
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+
+    .cover-title {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+
+    .cover-title span {
+      background: linear-gradient(135deg, #60a5fa, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-desc {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      max-width: 820px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .meta-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-val {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Keyboard Hint */
+    .keyboard-hint {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: #64748b;
+      z-index: 50;
+    }
+
+    .kbd-chip {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-mesh"></div>
+
+  <!-- Keyboard Shortcuts Indicator -->
+  <div class="keyboard-hint">
+    <span>Navigasi:</span>
+    <span class="kbd-chip">←</span>
+    <span class="kbd-chip">→</span>
+    <span>Fullscreen:</span>
+    <span class="kbd-chip">F</span>
+    <span>Overview:</span>
+    <span class="kbd-chip">O</span>
+  </div>
+
+  <div class="deck-viewport">
+
+    <!-- ==================== SLIDE 01: COVER ==================== -->
+    <div class="slide cover-slide active" data-slide="1">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Sosialisasi Resmi Pimpinan Sekolah</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">👑 Sesi Khusus Kepala Sekolah</span>
+          <span class="slide-num-pill">01 / 12</span>
+        </div>
+      </div>
+
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="cover-badge animate-item delay-1">
+          <span>✨</span> Transformasi Digital Terpadu 2026
+        </div>
+        <h1 class="cover-title animate-item delay-2">
+          Membangun Ekosistem Literasi &amp; <br />
+          <span>Perpustakaan Digital Mandiri</span> Sekolah
+        </h1>
+        <p class="cover-desc animate-item delay-3">
+          Platform terpadu untuk efisiensi anggaran buku BOS, otomatisasi koreksi esai AI, pengawasan ujian LJD anti-cheat, serta peningkatan poin akreditasi sekolah (BAN-S/M) secara akuntabel.
+        </p>
+
+        <div class="cover-meta animate-item delay-4">
+          <div class="meta-box">
+            <span class="meta-label">Pemateri</span>
+            <span class="meta-val">Tim Kemitraan Strategis BelajarPlus.id</span>
+          </div>
+          <div class="meta-box">
+            <span class="meta-label">Sasaran Audien</span>
+            <span class="meta-val">Dewan Kepala Sekolah &amp; Koordinator IT</span>
+          </div>
+          <div class="meta-box">
+            <span class="meta-label">Platform Core</span>
+            <span class="meta-val">BelajarPlus Multi-Tenant v2.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 02: TANTANGAN RIIL ==================== -->
+    <div class="slide" data-slide="2">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Latar Belakang &amp; Analisis</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Tantangan Sekolah</span>
+          <span class="slide-num-pill">02 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Tantangan Pengelolaan Literasi &amp; Ujian Sekolah Saat Ini</h2>
+        <p class="slide-subtitle">Kendala klasik yang dihadapi manajemen sekolah dalam mengoptimalkan mutu belajar dan efisiensi biaya.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2x2" style="height: 100%;">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">💸</div>
+            <div class="feature-content">
+              <h4>Beban Anggaran Buku Cetak Fisik</h4>
+              <p>Buku fisik mudah robek, hilang, dan cepat kadaluwarsa tiap perubahan kurikulum. Alokasi dana BOS terserap besar untuk pengadaan fisik yang repetitif.</p>
+            </div>
+          </div>
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">📉</div>
+            <div class="feature-content">
+              <h4>Minat Baca Generasi Digital Rendah</h4>
+              <p>Siswa saat ini lebih akrab dengan smartphone. Mengandalkan ruang perpustakaan konvensional yang terbatas jam buka membuat minat baca stagnan.</p>
+            </div>
+          </div>
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon" style="background: rgba(139, 92, 246, 0.15); color: #c084fc;">📋</div>
+            <div class="feature-content">
+              <h4>Kesulitan Validasi Data Akreditasi</h4>
+              <p>Data peminjaman manual sulit dibuktikan keakuratannya saat visitasi asesor akreditasi BAN-S/M atau pelaporan pengawas dinas.</p>
+            </div>
+          </div>
+          <div class="feature-card animate-item delay-4">
+            <div class="feature-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">⏳</div>
+            <div class="feature-content">
+              <h4>Beban Administrasi Guru Sangat Tinggi</h4>
+              <p>Waktu guru tersita berjam-jam hanya untuk mengoreksi lembar jawaban isian dan membuat rekapitulasi nilai rapor manual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 03: EKOSISTEM BELAJARPLUS ==================== -->
+    <div class="slide" data-slide="3">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Arsitektur Ekosistem</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Solusi Terpadu</span>
+          <span class="slide-num-pill">03 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Solusi Menyeluruh: Ekosistem BelajarPlus v2.0</h2>
+        <p class="slide-subtitle">Satu sistem terintegrasi yang menghubungkan Siswa, Guru, dan Pimpinan Sekolah secara harmonis.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3-col" style="height: 100%;">
+          <div class="feature-card animate-item delay-1" style="flex-direction: column; justify-content: flex-start;">
+            <div class="feature-icon" style="background: rgba(37, 99, 235, 0.2); color: #60a5fa; margin-bottom: 0.5rem;">📚</div>
+            <div class="feature-content">
+              <h4 style="font-size: 1.15rem; color: #60a5fa; margin-bottom: 0.6rem;">1. Perpustakaan Digital</h4>
+              <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; list-style-position: inside;">
+                <li>Ribuan judul buku Kurikulum Merdeka &amp; K13 resmi.</li>
+                <li>Model lisensi eksemplar digital sekolah.</li>
+                <li>E-Reader cerdas + Whiteboard + DRM Anti-Screenshot.</li>
+                <li>Peminjaman online 24/7 di gawai siswa.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2" style="flex-direction: column; justify-content: flex-start; border-color: rgba(16, 185, 129, 0.3);">
+            <div class="feature-icon" style="background: rgba(16, 185, 129, 0.2); color: #34d399; margin-bottom: 0.5rem;">📝</div>
+            <div class="feature-content">
+              <h4 style="font-size: 1.15rem; color: #34d399; margin-bottom: 0.6rem;">2. Smart E-Learning</h4>
+              <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; list-style-position: inside;">
+                <li>Ujian Lembar Jawab Digital (LJD) otomatis.</li>
+                <li>Pengawas fokus tab anti-cheat canggih.</li>
+                <li>Koreksi otomatis esai didukung Kredit AI Sekolah.</li>
+                <li>Presensi kelas berbasis scan QR code instan.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3" style="flex-direction: column; justify-content: flex-start; border-color: rgba(245, 158, 11, 0.3);">
+            <div class="feature-icon" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; margin-bottom: 0.5rem;">👑</div>
+            <div class="feature-content">
+              <h4 style="font-size: 1.15rem; color: #fbbf24; margin-bottom: 0.6rem;">3. Executive Analytics</h4>
+              <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; list-style-position: inside;">
+                <li>Dashboard monitoring Kepala Sekolah live.</li>
+                <li>Branding portal sekolah mandiri (logo &amp; domain).</li>
+                <li>Master data siswa, rombel, dan guru PTK.</li>
+                <li>Ekspor berkas akreditasi BAN-S/M sekali klik.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 04: EXECUTIVE DASHBOARD ==================== -->
+    <div class="slide" data-slide="4">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Fitur Kepala Sekolah</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Modul /admin</span>
+          <span class="slide-num-pill">04 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Executive Dashboard: Kontrol Penuh di Tangan Pimpinan</h2>
+        <p class="slide-subtitle">Visibilitas menyeluruh terhadap kegiatan belajar-mengajar tanpa perlu menunggu laporan manual staf.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="slide-col-text">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon">🏫</div>
+            <div class="feature-content">
+              <h4>Header Institusi &amp; Status Resmi</h4>
+              <p>Menampilkan identitas sekolah resmi (contoh: <em>SMA NEGERI 1 SRAGEN</em>) dengan hak akses pengelola resmi untuk mengawasi seluruh unit.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-content">
+              <h4>Baris 5 Aksi Cepat Eksekutif</h4>
+              <p>Pintasan satu klik langsung menuju: <strong>Kelola Kelas</strong>, <strong>Penugasan</strong>, <strong>Hasil Siswa</strong>, <strong>Perpustakaan</strong>, dan <strong>Absensi</strong>.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon">📊</div>
+            <div class="feature-content">
+              <h4>Metrik Pengerjaan Siswa &amp; Koleksi Riil</h4>
+              <p>Memantau akumulasi pengerjaan ujian, peninjauan nilai yang siap diperiksa, ratusan bank soal latihan aktif, dan total koleksi e-book sekolah.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col-visual animate-item delay-2">
+          <div class="visual-frame">
+            <img src="assets/kepsek_dashboard.png" alt="Dashboard Kepala Sekolah BelajarPlus" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 05: BRANDING SEKOLAH ==================== -->
+    <div class="slide" data-slide="5">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Personalisasi Sekolah</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Identitas Mandiri</span>
+          <span class="slide-num-pill">05 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Branding Sekolah, Subdomain Resmi &amp; Custom Domain</h2>
+        <p class="slide-subtitle">Sekolah Anda tampil modern, mandiri, dan eksklusif dengan identitas resmi institusi.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="slide-col-text">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon" style="background: rgba(37,99,235,0.2); color:#60a5fa;">🏷️</div>
+            <div class="feature-content">
+              <h4>Unggah Logo Resmi Sekolah</h4>
+              <p>Logo sekolah Anda otomatis menggantikan logo BelajarPlus pada halaman utama portal perpustakaan siswa dan kartu login institusi.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon" style="background: rgba(16,185,129,0.2); color:#34d399;">🌐</div>
+            <div class="feature-content">
+              <h4>Subdomain &amp; Domain Web Sekolah Sendiri</h4>
+              <p>Mendukung subdomain instan (contoh: <code>smanegeri1sragen.belajarplus.id</code>) serta domain web mandiri (misal: <code>perpustakaan.sekolah.sch.id</code> via DNS A-Record / Cloudflare).</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon" style="background: rgba(245,158,11,0.2); color:#fbbf24;">📱</div>
+            <div class="feature-content">
+              <h4>Progressive Web App (PWA) di Smartphone</h4>
+              <p>Siswa dapat menginstal portal perpustakaan sebagai aplikasi mandiri di ponsel Android/iOS mereka dengan mode layar penuh tanpa address bar.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col-visual animate-item delay-2">
+          <div class="visual-frame">
+            <img src="assets/kepsek_tampilan_sekolah.png" alt="Pengaturan Branding Sekolah BelajarPlus" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 06: MANAJEMEN LISENSI BUKU ==================== -->
+    <div class="slide" data-slide="6">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Efisiensi Anggaran BOS</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Sirkulasi Digital</span>
+          <span class="slide-num-pill">06 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Manajemen Lisensi Eksemplar &amp; Sirkulasi Perpustakaan</h2>
+        <p class="slide-subtitle">Sistem kuota lisensi digital terukur — 1 lisensi dapat dipinjam bergiliran tanpa risiko rusak atau hilang.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="slide-col-text">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon">📦</div>
+            <div class="feature-content">
+              <h4>4 Metrik Inventaris Riil</h4>
+              <p>Pemantauan akurat: <strong>Total Judul Buku</strong>, <strong>Total Kuota Lisensi</strong> (misal 452 lisensi), <strong>Sedang Dipinjam</strong>, dan <strong>Kuota Tersedia</strong>.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon">⏳</div>
+            <div class="feature-content">
+              <h4>Antrean Peminjaman Cerdas (Waiting List)</h4>
+              <p>Bila kuota suatu buku sedang penuh, siswa masuk antrean otomatis. Buku akan bergulir otomatis ke peminjam berikutnya setelah masa pinjam 7–14 hari usai.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon">📈</div>
+            <div class="feature-content">
+              <h4>Tabel "Penggunaan Lisensi Tertinggi"</h4>
+              <p>Kepala Sekolah mengetahui secara persis buku mata pelajaran apa yang paling diminati siswa sebagai dasar pengadaan buku tahun ajaran baru.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col-visual animate-item delay-2">
+          <div class="visual-frame">
+            <img src="assets/kepsek_koleksi_buku.png" alt="Sirkulasi Lisensi Perpustakaan Digital" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 07: MASTER DATA SISWA & PTK ==================== -->
+    <div class="slide" data-slide="7">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Administrasi &amp; Dapodik</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Master Data</span>
+          <span class="slide-num-pill">07 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Tata Kelola Civitas: Siswa, Pendaftaran &amp; PTK Dapodik</h2>
+        <p class="slide-subtitle">Kemudahan impor massal data ratusan pengguna sekolah dalam hitungan detik via spreadsheet.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="slide-col-text">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon">👨‍🎓</div>
+            <div class="feature-content">
+              <h4>Modul Siswa Sekolah (/admin/students)</h4>
+              <p>4 Tab status pemantauan: <em>Total Siswa Aktif</em>, <em>Sudah di Rombel</em>, <em>Belum di Rombel</em>, dan <em>Nonaktif</em>. Dilengkapi menu verifikasi pendaftaran mandiri siswa baru.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-content">
+              <h4>Fitur Impor Siswa Massal (CSV/Excel)</h4>
+              <p>Cukup unggah satu file spreadsheet dari Dapodik, ratusan akun siswa otomatis terdaftar dan langsung terdistribusi ke rombel masing-masing.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon">👨‍🏫</div>
+            <div class="feature-content">
+              <h4>Modul PTK Guru &amp; Tenaga Kependidikan (/admin/teachers)</h4>
+              <p>Kelola data pendidik, sinkronisasi NUPTK / NIP resmi, pembagian peran pengajar vs staf administrasi, serta fitur Ekspor laporan kepegawaian.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col-visual animate-item delay-2">
+          <div class="visual-frame">
+            <img src="assets/kepsek_siswa.png" alt="Master Data Siswa BelajarPlus" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 08: KURIKULUM & KREDIT AI ==================== -->
+    <div class="slide" data-slide="8">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Teknologi Pendidikan Cerdas</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">AI &amp; Kurikulum</span>
+          <span class="slide-num-pill">08 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Kurikulum Merdeka &amp; Efisiensi Koreksi Esai Berbasis AI</h2>
+        <p class="slide-subtitle">Memangkas beban administrasi guru hingga 75% sehingga guru dapat fokus membimbing karakter siswa.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="slide-col-text">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon" style="background: rgba(139,92,246,0.2); color:#c084fc;">🧠</div>
+            <div class="feature-content">
+              <h4>Kredit AI Sekolah (/admin/ai-credits)</h4>
+              <p>Aturan baku yang adil: <code>1 kredit = 1 jawaban isian/esai dinilai otomatis oleh AI</code> berdasarkan rubrik guru. Soal pilihan ganda 100% bebas kredit tanpa batas!</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon" style="background: rgba(16,185,129,0.2); color:#34d399;">⏱️</div>
+            <div class="feature-content">
+              <h4>Hemat 75% Waktu Koreksi Guru</h4>
+              <p>Guru tidak perlu begadang memeriksa ratusan jawaban esai ujian. AI menganalisis ketepatan konsep jawaban siswa secara objektif dan instan.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon" style="background: rgba(37,99,235,0.2); color:#60a5fa;">📖</div>
+            <div class="feature-content">
+              <h4>Sinkronisasi Kurikulum Merdeka &amp; K13</h4>
+              <p>Struktur mata pelajaran, modul ajar, dan capaian pembelajaran dapat diatur fleksibel per tingkat kelas 10, 11, maupun 12 di menu Kurikulum.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col-visual animate-item delay-2">
+          <div class="visual-frame">
+            <img src="assets/kepsek_ai-credits.png" alt="Kredit AI Sekolah BelajarPlus" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 09: NILAI TAMBAH AKREDITASI ==================== -->
+    <div class="slide" data-slide="9">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Nilai Tambah Lembaga</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Akreditasi BAN-S/M</span>
+          <span class="slide-num-pill">09 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Meningkatkan Poin Akreditasi Sekolah &amp; Audit Pengawas</h2>
+        <p class="slide-subtitle">Bukti fisik literasi dan proses pembelajaran digital tersimpan rapi dan siap diekspor sewaktu-waktu.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2x2" style="height: 100%;">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon" style="background: rgba(37,99,235,0.15); color:#60a5fa;">🏢</div>
+            <div class="feature-content">
+              <h4>Standar Sarana Prasarana (Perpustakaan)</h4>
+              <p>Memenuhi instrumen akreditasi perpustakaan berbasis TIK. Sekolah memiliki ribuan judul buku kurikulum tanpa perlu menambah gedung fisik.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon" style="background: rgba(16,185,129,0.15); color:#34d399;">📊</div>
+            <div class="feature-content">
+              <h4>Standar Penilaian &amp; Evaluasi Pembelajaran</h4>
+              <p>Riwayat pengerjaan tugas formatif/sumatif, analisis kompetensi dasar, dan statistik ketuntasan siswa tercatat digital tanpa risiko hilang.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon" style="background: rgba(245,158,11,0.15); color:#fbbf24;">🖨️</div>
+            <div class="feature-content">
+              <h4>Ekspor Berkas Bukti Fisik Sekali Klik</h4>
+              <p>Unduh rekapitulasi data peminjam buku teraktif, grafik minat baca, dan transkrip nilai dalam format spreadsheet atau PDF siap cetak untuk asesor.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-4">
+            <div class="feature-icon" style="background: rgba(139,92,246,0.15); color:#c084fc;">🏛️</div>
+            <div class="feature-content">
+              <h4>Laporan Akuntabel ke Dinas Pendidikan</h4>
+              <p>Pimpinan sekolah memiliki data riil dan transparan saat menyampaikan laporan kemajuan literasi sekolah kepada Pengawas Pembina dan Dinas Pendidikan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 10: INTEGRITAS AKADEMIK ==================== -->
+    <div class="slide" data-slide="10">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Keamanan &amp; Disiplin</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Anti-Cheat &amp; Presensi</span>
+          <span class="slide-num-pill">10 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">Integritas Ujian LJD Anti-Cheat &amp; Presensi QR Code</h2>
+        <p class="slide-subtitle">Menjamin kedisiplinan dan kejujuran akademik siswa tanpa memerlukan instalasi aplikasi pengawas yang rumit.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2x2" style="height: 100%;">
+          <div class="feature-card animate-item delay-1" style="border-color: rgba(239, 68, 68, 0.3);">
+            <div class="feature-icon" style="background: rgba(239, 68, 68, 0.2); color: #f87171;">🛡️</div>
+            <div class="feature-content">
+              <h4 style="color: #f87171;">Pengawas Ujian Cerdas (Tab Focus Monitor)</h4>
+              <p>Sistem LJD secara otomatis mendeteksi dan mencatat setiap kali siswa berpindah tab browser atau membuka aplikasi contekan lain saat ujian sedang berlangsung.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2" style="border-color: rgba(245, 158, 11, 0.3);">
+            <div class="feature-icon" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">⚠️</div>
+            <div class="feature-content">
+              <h4 style="color: #fbbf24;">Transparansi Counter Pelanggaran</h4>
+              <p>Jumlah perpindahan tab siswa ditampilkan langsung di header ujian dan tersimpan permanen di laporan guru/kepala sekolah sebagai bahan evaluasi kedisiplinan.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3" style="border-color: rgba(16, 185, 129, 0.3);">
+            <div class="feature-icon" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">📷</div>
+            <div class="feature-content">
+              <h4 style="color: #34d399;">Presensi Digital Berbasis Pindai QR</h4>
+              <p>Absensi siswa dilakukan dalam hitungan detik cukup dengan memindai kode QR kelas. Mencegah titip absen dan mempercepat waktu mulai KBM.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-4" style="border-color: rgba(59, 130, 246, 0.3);">
+            <div class="feature-icon" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">⌨️</div>
+            <div class="feature-content">
+              <h4 style="color: #60a5fa;">Solusi Alternatif: Masukkan Kode Manual</h4>
+              <p>Jika kamera perangkat siswa bermasalah atau izin browser terblokir, siswa tetap dapat hadir dengan memasukkan kode unik manual tanpa kendala.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 11: ALUR IMPLEMENTASI ==================== -->
+    <div class="slide" data-slide="11">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Langkah Onboarding</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Alur Kemitraan</span>
+          <span class="slide-num-pill">11 / 12</span>
+        </div>
+      </div>
+
+      <div class="slide-title-wrap">
+        <h2 class="slide-title">4 Langkah Implementasi Cepat &amp; Pendampingan Penuh</h2>
+        <p class="slide-subtitle">Proses onboarding mudah tanpa perlu server fisik sendiri di sekolah — 100% berbasis cloud.</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2x2" style="height: 100%;">
+          <div class="feature-card animate-item delay-1">
+            <div class="feature-icon" style="background: rgba(37,99,235,0.2); color:#60a5fa; font-weight:800;">01</div>
+            <div class="feature-content">
+              <h4>Penerbitan Kode Sekolah Mitra</h4>
+              <p>Sekolah menerima Kode Sekolah resmi (contoh: <code>SKL-XXXXX</code>) dan akun Administrator Utama langsung diaktifkan oleh tim BelajarPlus.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-2">
+            <div class="feature-icon" style="background: rgba(16,185,129,0.2); color:#34d399; font-weight:800;">02</div>
+            <div class="feature-content">
+              <h4>Impor Master Data &amp; Setting Portal</h4>
+              <p>Tim IT sekolah mengunggah data siswa dan guru via template spreadsheet, memasang logo sekolah, serta memilih alamat subdomain resmi.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-3">
+            <div class="feature-icon" style="background: rgba(245,158,11,0.2); color:#fbbf24; font-weight:800;">03</div>
+            <div class="feature-content">
+              <h4>Bimtek / Workshop Praktis Guru</h4>
+              <p>Pelatihan singkat 90 menit bagi dewan guru tentang cara membuat ruang kelas, merilis penugasan LJD, dan memantau transkrip hasil belajar.</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item delay-4">
+            <div class="feature-icon" style="background: rgba(139,92,246,0.2); color:#c084fc; font-weight:800;">04</div>
+            <div class="feature-content">
+              <h4>Go-Live &amp; Pendampingan Tim Teknis</h4>
+              <p>Sekolah resmi beroperasi digital dengan didampingi grup khusus WhatsApp Helpdesk BelajarPlus untuk penanganan kendala kapan saja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 12: KESIMPULAN & PENUTUP ==================== -->
+    <div class="slide cover-slide" data-slide="12">
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" class="header-logo" />
+          <span class="header-tag">Komitmen Kemitraan</span>
+        </div>
+        <div class="slide-header-right">
+          <span class="badge-kepsek">Sinergi Maju Bersama</span>
+          <span class="slide-num-pill">12 / 12</span>
+        </div>
+      </div>
+
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="cover-badge animate-item delay-1">
+          <span>🤝</span> Mari Melangkah Bersama Menuju Sekolah Unggul Digital
+        </div>
+        <h1 class="cover-title animate-item delay-2" style="font-size: 2.8rem;">
+          Wujudkan Sekolah Modern, Efisien, &amp; <br />
+          <span>Siap Akreditasi Unggul</span> Hari Ini
+        </h1>
+
+        <div class="grid-2x2 animate-item delay-3" style="margin-bottom: 1.5rem;">
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.9rem 1.2rem;">
+            <div style="color: #34d399; font-weight: 800; font-size: 0.95rem; margin-bottom: 0.2rem;">✓ Efisiensi Nyata BOS</div>
+            <div style="color: #cbd5e1; font-size: 0.85rem;">Penghematan anggaran cetak buku dan risiko kerusakan nol persen.</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.9rem 1.2rem;">
+            <div style="color: #60a5fa; font-weight: 800; font-size: 0.95rem; margin-bottom: 0.2rem;">✓ Data Akreditasi Valid</div>
+            <div style="color: #cbd5e1; font-size: 0.85rem;">Rekam jejak literasi &amp; ujian tersimpan akuntabel siap cetak.</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.9rem 1.2rem;">
+            <div style="color: #fbbf24; font-weight: 800; font-size: 0.95rem; margin-bottom: 0.2rem;">✓ Peringanan Tugas Guru</div>
+            <div style="color: #cbd5e1; font-size: 0.85rem;">Koreksi esai otomatis dengan AI &amp; sistem ujian anti-cheat.</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.9rem 1.2rem;">
+            <div style="color: #c084fc; font-weight: 800; font-size: 0.95rem; margin-bottom: 0.2rem;">✓ Citra Eksklusif Sekolah</div>
+            <div style="color: #cbd5e1; font-size: 0.85rem;">Portal web mandiri dengan logo sekolah dan aplikasi PWA.</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.35); border-radius: 14px; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;" class="animate-item delay-4">
+          <div>
+            <div style="font-weight: 800; color: #fff; font-size: 1.05rem;">Daftarkan Sekolah Anda untuk Uji Coba Pilot Project Gratis</div>
+            <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.2rem;">Dapatkan pendampingan langsung dari tim konsultan literasi BelajarPlus.</div>
+          </div>
+          <a href="https://belajarplus.id" target="_blank" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-decoration: none; font-weight: 800; font-size: 0.9rem; padding: 0.7rem 1.4rem; border-radius: 999px; box-shadow: 0 4px 15px rgba(37,99,235,0.4);">
+            Ajukan Kemitraan ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation & Control Bar -->
+  <div class="control-bar">
+    <button class="btn-ctrl" onclick="prevSlide()" title="Slide Sebelumnya (Panah Kiri)">
+      <span>←</span> Sebelumnya
+    </button>
+    <div class="ctrl-counter" id="slideCounter">01 / 12</div>
+    <button class="btn-ctrl" onclick="nextSlide()" title="Slide Selanjutnya (Panah Kanan)">
+      Selanjutnya <span>→</span>
+    </button>
+    <button class="btn-ctrl" onclick="toggleOverview()" title="Lihat Semua Slide (O)">
+      <span>🗂️</span> Overview
+    </button>
+    <button class="btn-ctrl" onclick="toggleFullscreen()" title="Layar Penuh (F)">
+      <span>⛶</span> Fullscreen
+    </button>
+    <a href="Sosialisasi_BelajarPlus_Kepala_Sekolah.pptx" download class="btn-ctrl btn-highlight" title="Unduh Berkas Microsoft PowerPoint (.pptx) Asli">
+      <span>📥</span> Unduh .PPTX
+    </a>
+    <a href="index.html" class="btn-ctrl" title="Kembali ke Panduan Lengkap">
+      <span>📖</span> Panduan Web
+    </a>
+    <div class="timer-pill" id="presTimer">
+      <span>⏱️</span> <span id="timerText">00:00</span>
+    </div>
+  </div>
+
+  <!-- Slide Overview Grid Modal -->
+  <div class="overview-modal" id="overviewModal">
+    <div class="overview-header">
+      <h2 style="color: #fff; font-size: 1.5rem; font-weight: 800;">Daftar Semua Slide Presentasi</h2>
+      <button class="btn-ctrl" onclick="toggleOverview()">✕ Tutup (Esc)</button>
+    </div>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 12;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('slideCounter');
+
+    const slideTitles = [
+      'Cover: Transformasi Literasi Digital',
+      'Tantangan Riil Pengelolaan Sekolah',
+      'Solusi Ekosistem BelajarPlus v2.0',
+      'Executive Dashboard Kepala Sekolah',
+      'Branding Mandiri & Custom Domain',
+      'Manajemen Lisensi Eksemplar Buku',
+      'Master Data Siswa & PTK Dapodik',
+      'Kurikulum Merdeka & Kredit AI',
+      'Nilai Tambah Akreditasi BAN-S/M',
+      'Ujian LJD Anti-Cheat & Presensi QR',
+      '4 Langkah Implementasi Cepat',
+      'Kesimpulan & Ajakan Kemitraan'
+    ];
+
+    function showSlide(n) {
+      if (n < 1) n = 1;
+      if (n > totalSlides) n = totalSlides;
+      currentSlide = n;
+
+      slides.forEach((s, idx) => {
+        if (idx + 1 === currentSlide) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+
+      counter.textContent = `${String(currentSlide).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+      updateOverviewSelection();
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    // Keyboard listener
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'Home') {
+        showSlide(1);
+      } else if (e.key === 'End') {
+        showSlide(totalSlides);
+      } else if (e.key.toLowerCase() === 'f') {
+        toggleFullscreen();
+      } else if (e.key.toLowerCase() === 'o') {
+        toggleOverview();
+      } else if (e.key === 'Escape') {
+        const modal = document.getElementById('overviewModal');
+        if (modal.classList.contains('active')) {
+          toggleOverview();
+        }
+      }
+    });
+
+    // Fullscreen toggle
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    // Overview modal logic
+    function toggleOverview() {
+      const modal = document.getElementById('overviewModal');
+      modal.classList.toggle('active');
+      if (modal.classList.contains('active')) {
+        renderOverviewGrid();
+      }
+    }
+
+    function renderOverviewGrid() {
+      const grid = document.getElementById('overviewGrid');
+      grid.innerHTML = '';
+      slideTitles.forEach((t, i) => {
+        const num = i + 1;
+        const thumb = document.createElement('div');
+        thumb.className = `overview-thumb ${num === currentSlide ? 'current' : ''}`;
+        thumb.innerHTML = `
+          <div class="thumb-num">SLIDE ${String(num).padStart(2, '0')}</div>
+          <div class="thumb-title">${t}</div>
+        `;
+        thumb.onclick = () => {
+          showSlide(num);
+          toggleOverview();
+        };
+        grid.appendChild(thumb);
+      });
+    }
+
+    function updateOverviewSelection() {
+      const thumbs = document.querySelectorAll('.overview-thumb');
+      thumbs.forEach((t, i) => {
+        if (i + 1 === currentSlide) {
+          t.classList.add('current');
+        } else {
+          t.classList.remove('current');
+        }
+      });
+    }
+
+    // Presentation Timer
+    let secondsElapsed = 0;
+    setInterval(() => {
+      secondsElapsed++;
+      const m = Math.floor(secondsElapsed / 60);
+      const s = secondsElapsed % 60;
+      document.getElementById('timerText').textContent = 
+        `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }, 1000);
+
+    // Initial render
+    showSlide(1);
+  </script>
+</body>
+</html>
