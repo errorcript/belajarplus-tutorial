@@ -807,10 +807,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 2: Login di tab "Masuk" dengan email & password. Gunakan opsi Tampilkan Password. Jika lupa kata sandi, klik tautan Lupa kata sandi untuk reset email.'
       },
       {
-        title: 'Pilih Institusi & Dashboard Pembelajaran Saya',
+        title: 'Pilih Institusi, Dashboard & Pusat Informasi',
         image: 'assets/dashboard_siswa.png',
-        narration: 'Langkah ketiga: Pada antarmuka baru, pilih institusi sekolah atau peran Siswa untuk masuk ke dashboard utama Pembelajaran Saya. Di header atas terdapat switcher Institusi aktif untuk berpindah sekolah tanpa logout. Menu sidebar kiri kini memuat Pengumuman, Komunitas, dan Agenda, serta 4 kartu statistik live aktivitas belajarmu.',
-        subtitle: 'Langkah 3: Pilih institusi sekolah pada layar awal. Gunakan switcher Institusi aktif di header, jelajahi menu baru Komunitas & Agenda di sidebar, dan pantau 4 kartu ringkasan.'
+        narration: 'Langkah ketiga: Pada antarmuka baru, pilih institusi sekolah untuk masuk ke dashboard Pembelajaran Saya. Di header atas terdapat switcher Institusi aktif untuk beralih instansi tanpa logout. Sidebar kiri kini dilengkapi grup Informasi Sekolah: menu Pengumuman resmi, Komunitas diskusi warga sekolah, dan Agenda kalender kegiatan, serta empat kartu statistik aktivitas belajarmu.',
+        subtitle: 'Langkah 3: Pilih institusi sekolah, jelajahi grup Informasi (Pengumuman, Komunitas, Agenda), manfaatkan switcher header tanpa logout, dan pantau 4 kartu ringkasan.'
       },
       {
         title: 'Tugas dari Guru & Pemantauan Tenggat',
@@ -819,10 +819,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 4: Pantau tugas aktif, jumlah progres kegiatan, dan tenggat waktu. Klik "Baca" untuk materi atau "Kerjakan" untuk langsung meluncurkan lembar jawab ujian LJD.'
       },
       {
-        title: 'Kelas Saya & Fitur Keluar Kelas Mandiri',
+        title: 'Kelas Saya & 5 Tab Pembelajaran Ruang Kelas',
         image: 'assets/ss_kelas.png',
-        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ dari bapak ibu guru langsung pada kolom input di card Kelas saya lalu klik Gabung. Pada antarmuka terbaru, siswa dapat menekan tombol Keluar secara mandiri jika salah masuk rombel tanpa harus menunggu dikeluarkan manual oleh guru.',
-        subtitle: 'Langkah 5: Masukkan kode unik (BLJ-XXXXXX) langsung di card Kelas saya lalu klik "Gabung". Siswa bisa keluar mandiri jika salah rombel dengan tombol "Keluar".'
+        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ langsung di card Kelas saya lalu klik Gabung. Klik Masuk Kelas untuk menjelajahi lima tab pembelajaran: Ringkasan metrik belajar, Sumber Belajar buku rujukan dari guru, Penugasan ujian LJD, Aktivitas Belajar, dan Hasil Belajar. Siswa juga bisa keluar mandiri jika salah rombel.',
+        subtitle: 'Langkah 5: Masukkan kode unik di card Kelas saya. Akses 5 tab kelas: Ringkasan, Sumber Belajar, Penugasan LJD, Aktivitas, & Hasil Belajar. Tersedia tombol Keluar mandiri.'
       },
       {
         title: 'Aksi Cepat, Pindai QR, Kode Manual & Hasil Belajar',
