@@ -531,7 +531,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">6 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">9 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -539,7 +539,7 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">6</div>
+        <div class="metric-num" style="color: #64748b;">9</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
@@ -547,11 +547,11 @@
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #f97316;">1</div>
+        <div class="metric-num" style="color: #f97316;">2</div>
         <div class="metric-label">P1 (High Functional)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #eab308;">4</div>
+        <div class="metric-num" style="color: #eab308;">6</div>
         <div class="metric-label">P2 (Medium / UX Risk)</div>
       </div>
       <div class="metric-card">
@@ -563,18 +563,18 @@
     <!-- Search & Filter Live Toolbar -->
     <div class="filter-search-bar">
       <div class="search-input-box">
-        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'form', 'scan', 'typo', 'keluar')..." oninput="filterBugsLive()" />
+        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'komunitas', 'scan', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (6)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (1)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (4)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (9)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (2)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (6)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
       </div>
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 6 temuan audit teknis
+      Menampilkan 9 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -850,6 +850,152 @@ if (userInstitutions.length === 1) {
           <p>Gunakan utilitas matching rute TanStack Router <code>useMatchRoute()</code> atau regex prefix match untuk memastikan state aktif konsisten:</p>
           <div class="code-box code-solution">const matchRoute = useMatchRoute();
 const isAnnouncementActive = Boolean(matchRoute({ to: '/informasi/pengumuman', fuzzy: true }));</div>
+        </div>
+      </article>
+
+      <!-- BUG 7 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-07">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-07" class="bug-id-tag" onclick="copyAnchor('bug-bp2-07', event)">#BUG-BP2-07</a>
+            <h2 class="bug-entry-title">Context Loss Tenant Institusi Aktif pada Modul Presensi Absensi Digital (/absensi)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">State Management / Tenant Context</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Modul Presensi Siswa (<code>https://belajarplus.id/absensi</code>)</div>
+          <div><strong>Endpoint:</strong> <code>GET /api/attendance/status</code></div>
+          <div><strong>Lingkungan:</strong> Web &amp; Mobile Web (All Browsers)</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika siswa yang telah berhasil memilih institusi sekolah aktif (misalnya <em>Belajar Plus · Siswa</em> yang terverifikasi di header) mengklik tombol <strong>"Absensi"</strong> pada baris <em>Aksi Cepat</em> di dashboard, halaman <code>/absensi</code> mengalami <em>context loss</em>. Halaman merender blocking message: <code>"Pilih satu institusi melalui Pilih Institusi untuk melanjutkan."</code> dan tombol <em>"Pilih Institusi"</em>, seolah-olah siswa belum memilih sekolah.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p><strong>Critical UX Friction:</strong> Siswa yang hendak mengisi presensi kehadiran harian kelas tidak dapat melakukan absensi secara langsung dan terlempar berulang kali ke layar pemilihan tenant, menghambat pencatatan kehadiran sekolah tepat waktu.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Login sebagai siswa di <code>https://belajarplus.id/auth</code>.</li>
+            <li>Pilih institusi sekolah aktif hingga mendarat di <code>/dashboard</code>.</li>
+            <li>Klik tombol <strong>"Absensi"</strong> pada baris pintasan <em>Aksi Cepat</em>.</li>
+            <li>Amati layar <code>/absensi</code> yang memblokir akses dan meminta pilih institusi ulang.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Teruskan active tenant ID dari Zustand / React Context ke route handler absensi secara persisten:</p>
+          <div class="code-box code-solution">// src/routes/absensi.tsx
+export function AbsensiPage() {
+  const { currentTenantId } = useTenantContext();
+  const fallbackTenantId = localStorage.getItem('bp_active_tenant_id');
+  const activeId = currentTenantId || fallbackTenantId;
+
+  if (!activeId) {
+    return &lt;PromptSelectInstitution /&gt;;
+  }
+
+  return &lt;AttendanceScanner tenantId={activeId} /&gt;;
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_absensi_context_loss.png')">
+          <img src="assets/bug_absensi_context_loss.png" alt="Bukti Bug Absensi Context Loss" />
+          <div class="visual-caption">📸 Bukti Visual: Layar /absensi menampilkan pesan 'Pilih satu institusi' meskipun institusi Belajar Plus Siswa sudah aktif di header</div>
+        </div>
+      </article>
+
+      <!-- BUG 8 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-08">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-08" class="bug-id-tag" onclick="copyAnchor('bug-bp2-08', event)">#BUG-BP2-08</a>
+            <h2 class="bug-entry-title">Dead-End State pada Halaman Komunitas Sekolah (/informasi/komunitas) Ketiadaan Form Input Composer</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">UX Consistency / Empty State</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Informasi &gt; Komunitas (<code>https://belajarplus.id/informasi/komunitas</code>)</div>
+          <div><strong>Komponen:</strong> Feed Container / Empty State Card</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; Mobile</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Halaman Komunitas menampilkan pesan call-to-action: <em>"Belum ada post. Mulai percakapan pertama dengan warga sekolah."</em> Namun, pada DOM halaman sama sekali tidak tersedia input text, textarea, maupun tombol <em>"Buat Postingan"</em> bagi peran Siswa (elemen input count = 0).</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Memicu kebingungan siswa (Dead-End State). Siswa diarahkan untuk memulai percakapan tetapi tidak diberi sarana input sama sekali. Jika fitur interaksi ini memang hanya boleh diposting oleh Guru/Admin, salinan teks (copywriting) empty state harus disesuaikan agar tidak menjanjikan aksi yang mustahil dilakukan siswa.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Kondisikan pesan empty-state berdasarkan permission role pengguna:</p>
+          <div class="code-box code-solution">{canCreatePost ? (
+  &lt;CreatePostComposer onSubmit={handleCreatePost} /&gt;
+) : (
+  &lt;p className="text-muted"&gt;
+    Belum ada postingan diskusi yang dibagikan oleh bapak/ibu guru di sekolah ini.
+  &lt;/p&gt;
+)}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_komunitas_empty.png')">
+          <img src="assets/bug_komunitas_empty.png" alt="Bukti Bug Komunitas Empty State" />
+          <div class="visual-caption">📸 Bukti Visual: Ajakan 'Mulai percakapan pertama' tanpa tersedianya tombol atau form input composer</div>
+        </div>
+      </article>
+
+      <!-- BUG 9 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-09">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-09" class="bug-id-tag" onclick="copyAnchor('bug-bp2-09', event)">#BUG-BP2-09</a>
+            <h2 class="bug-entry-title">Desinkronisasi Counter Tugas Kelas ("Tugas Untuk Anda: 0") dengan Penugasan Aktif Riil</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">Data Integrity / Aggregation Query</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Ruang Kelas &gt; Tab Ringkasan (<code>/classes/[id]?tab=ringkasan</code>)</div>
+          <div><strong>Endpoint:</strong> <code>GET /api/classes/:id/summary</code></div>
+          <div><strong>Lingkungan:</strong> All Browsers</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Pada kartu ringkasan di dalam ruang kelas siswa, metrik statistik menampilkan <code>"TUGAS UNTUK ANDA: 0"</code> dan <code>"AKTIVITAS DIKERJAKAN: 0/5"</code>, padahal di saat yang sama terdapat tugas aktif yang belum dikerjakan pada tab Penugasan kelas tersebut serta pada widget tugas beranda.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Siswa rentan melewatkan tenggat waktu pengumpulan (missed deadline) karena kartu ringkasan memberikan rasa aman palsu bahwa tidak ada kewajiban tugas yang tersisa (angka 0).</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Perbaiki query agregasi penugasan agar menghitung seluruh assignment dengan status <code>pending</code> / <code>active</code>:</p>
+          <div class="code-box code-solution">// Query backend aggregation:
+const pendingAssignmentsCount = await db.assignments.count({
+  where: {
+    classId,
+    submissions: {
+      none: { studentId: currentUserId, status: 'COMPLETED' }
+    },
+    dueDate: { gte: new Date() }
+  }
+});</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/feature_kelas_detail.png')">
+          <img src="assets/feature_kelas_detail.png" alt="Bukti Bug Desinkronisasi Counter Tugas Kelas" />
+          <div class="visual-caption">📸 Bukti Visual: Indikator 'TUGAS UNTUK ANDA 0' pada ringkasan kelas meskipun tugas aktif tersedia di tab Penugasan</div>
         </div>
       </article>
 
