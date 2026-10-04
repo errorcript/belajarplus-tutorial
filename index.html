@@ -990,16 +990,21 @@
             <div class="step-number">02</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Login &amp; Akses Dashboard Guru</h3>
+                <h3>Login &amp; Akses Dashboard Utama Pengajar (/admin)</h3>
                 <span class="step-tag">Panel Guru</span>
               </div>
-              <p>Login menggunakan akun pengajar BelajarPlus yang terdaftar. Masuk ke halaman <strong>Dashboard Pengajar</strong> untuk mengelola kelas dan materi pembelajaran sekolah.</p>
+              <p>Login menggunakan akun pengajar BelajarPlus yang terdaftar. Pilih institusi sekolah mitra dengan peran <strong>Trainer / Guru</strong> untuk masuk ke pusat kendali pendidik di <code>belajarplus.id/admin</code>:</p>
+              <ul class="step-list">
+                <li><strong>Metrik Hasil Siswa &amp; Aktivitas:</strong> Pantau jumlah pengerjaan tugas yang tercatat dan total aktivitas bank soal latihan yang tersedia (ratusan modul siap pakai).</li>
+                <li><strong>Baris Aksi Cepat Guru:</strong> Pintasan instan menuju: <em>Kelola Kelas</em>, <em>Penugasan</em>, <em>Hasil Siswa</em>, <em>Perpustakaan</em>, dan <em>Absensi</em>.</li>
+                <li><strong>Ringkasan Pekerjaan Pendidik:</strong> Monitoring hasil penilaian siswa yang siap ditinjau, jumlah koleksi e-book sekolah, dan total siswa aktif terdaftar.</li>
+              </ul>
               <div class="step-note">
-                💡 Guru memiliki wewenang mengelola anggota kelas, membuat penugasan LJD, dan mengatur bobot penilaian.
+                💡 <strong>Multi-Tenant Guru:</strong> Jika bapak/ibu guru mengajar di lebih dari satu sekolah mitra, gunakan switcher institusi di header atas untuk berpindah instansi tanpa perlu logout.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/admin_dashboard.png" class="screenshot-img" alt="Dashboard Pengajar Guru" />
+              <img src="assets/guru_dashboard.png" class="screenshot-img" alt="Dashboard Pengajar Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
@@ -1007,21 +1012,22 @@
             <div class="step-number">03</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Buat &amp; Kelola Ruang Kelas</h3>
+                <h3>Buat &amp; Kelola Ruang Kelas (/admin/classes)</h3>
                 <span class="step-tag">Manajemen Kelas</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('guru', 3)">▶️ Tonton Video: Cara Membuat Kelas</button>
-              <p>Buka menu <strong>"Kelas Saya"</strong> untuk membuat kelas baru (misal: <em>Kelas 11 Biologi</em> or <em>Kelas 12 TKA Matematika</em>). Tambahkan siswa terdaftar ke dalam rombel kelasmu.</p>
+              <p>Buka menu <strong>"Kelola Kelas"</strong> (atau klik tombol Aksi Cepat di beranda) untuk membuat ruang belajar baru dan mengatur rombongan belajar:</p>
               <ul class="step-list">
-                <li>Atur nama kelas, tingkatan jenjang, dan mata pelajaran</li>
-                <li>Undang siswa menggunakan Kode Kelas unik atau assign otomatis</li>
+                <li><strong>Buat Kelas Baru:</strong> Tentukan Nama Kelas (contoh: <em>Kelas 12 TKA Matematika</em>), Tingkatan Jenjang (SD/SMP/SMA/SMK), dan Mata Pelajaran pengampu.</li>
+                <li><strong>Generate Kode Kelas Unik (`BLJ-XXXXXX`):</strong> Bagikan 6 karakter kode kelas kepada para siswa agar mereka dapat bergabung mandiri dari dashboard siswa.</li>
+                <li><strong>Manajemen Siswa Rombel:</strong> Pantau daftar siswa yang sudah terhubung, periksa keaktifan akun, dan lepaskan siswa yang salah rombel jika diperlukan.</li>
               </ul>
               <div class="step-note">
-                👥 Siswa yang terdaftar di kelas akan otomatis menerima akses ke tugas dan kuis yang dipublikasikan guru.
+                👥 Siswa yang terdaftar di kelas akan otomatis menerima notifikasi setiap kali guru menerbitkan penugasan baru.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/admin_kelas.png" class="screenshot-img" alt="Kelola Kelas Guru" />
+              <img src="assets/guru_kelola_kelas.png" class="screenshot-img" alt="Kelola Kelas Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
@@ -1050,7 +1056,7 @@
             <div class="step-number">05</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Buat Penugasan &amp; Lembar Jawab Digital (LJD)</h3>
+                <h3>Buat Penugasan &amp; Lembar Jawab Digital (LJD) (/admin/assignments)</h3>
                 <span class="step-tag">Asesmen &amp; Kuis</span>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -1058,18 +1064,18 @@
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 5)">▶️ Video: Cara Membuat Penugasan</button>
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 6)">▶️ Video: Penugasan dari Sumber Belajar</button>
               </div>
-              <p>Buka tab <strong>"Penugasan"</strong> lalu buat penugasan baru. Pilih modul asesmen (Asesmen Formatif, Sumatif, Tryout TKA) dan tentukan tenggat waktu pengumpulan (deadline).</p>
+              <p>Buka menu <strong>"Penugasan"</strong> untuk merilis asesmen pembelajaran digital bagi siswa:</p>
               <ul class="step-list">
-                <li>Tentukan bobot nilai per aktivitas</li>
-                <li>Aktifkan mode pengawasan kejujuran (anti-cheat focus tracking)</li>
-                <li>Atur tanggal publikasi dan batas waktu pengerjaan</li>
+                <li><strong>Pilih Modul Asesmen:</strong> Tersedia Asesmen Formatif per bab, Asesmen Sumatif Tengah/Akhir Semester, hingga paket Simulasi Tryout SNBT / TKA terintegrasi.</li>
+                <li><strong>Pengaturan Batas Waktu &amp; Durasi:</strong> Tetapkan batas tenggat pengumpulan (deadline) dan durasi hitung mundur pengerjaan LJD.</li>
+                <li><strong>Aktifkan Pengawas Anti-Cheat:</strong> Fitur pemantau fokus tab browser otomatis mencatat riwayat perpindahan tab siswa saat ujian berlangsung.</li>
               </ul>
               <div class="step-note">
-                ⚡ Lembar Jawab Digital (LJD) mendukung penilaian otomatis tanpa perlu mengoreksi jawaban pilihan ganda secara manual!
+                ⚡ Lembar Jawab Digital (LJD) mendukung penilaian otomatis tanpa perlu mengoreksi pilihan ganda secara manual!
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/class_assignment.png" class="screenshot-img" alt="Buat Penugasan Guru" />
+              <img src="assets/guru_penugasan.png" class="screenshot-img" alt="Menu Penugasan Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
@@ -1077,20 +1083,25 @@
             <div class="step-number">06</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Pantau Transkrip Nilai &amp; Hasil Belajar Real-time</h3>
+                <h3>Pantau Transkrip Nilai &amp; Hasil Siswa (/admin/submissions)</h3>
                 <span class="step-tag">Gradebook &amp; Analitik</span>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 7)">▶️ Video: Pengaturan Hasil Belajar</button>
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 8)">▶️ Video: Unduh Hasil Pengerjaan Siswa</button>
               </div>
-              <p>Pantau hasil pengerjaan kuis siswa secara real-time di tab <strong>"Hasil Belajar"</strong>. Guru dapat melihat rincian skor per siswa, statistik ketuntasan minimal (KKM), dan analisis komparatif kompetensi bab.</p>
+              <p>Buka menu <strong>"Hasil Siswa"</strong> (atau klik tombol Hasil Siswa di Aksi Cepat beranda) untuk mengevaluasi rekam jejak pengerjaan ujian:</p>
+              <ul class="step-list">
+                <li><strong>Transkrip Nilai Real-time:</strong> Memantau skor persentase ketuntasan setiap siswa, jumlah jawaban benar/salah, dan waktu penyelesaian.</li>
+                <li><strong>Analisis Ketercapaian KKM &amp; KD:</strong> Grafik pemetaan kompetensi dasar yang menunjukkan materi apa saja yang sudah dikuasai atau membutuhkan pengayaan/remedial.</li>
+                <li><strong>Ekspor Rekapitulasi Nilai:</strong> Unduh data hasil belajar seluruh rombel dalam satu berkas siap cetak untuk pengisian rapor sekolah.</li>
+              </ul>
               <div class="step-note">
-                📊 Data transkrip nilai dapat langsung diunduh dalam bentuk rekapitulasi penilaian sekolah.
+                📊 Data hasil belajar otomatis terhubung dengan dashboard kepala sekolah dan dinas pendidikan untuk kebutuhan pelaporan akreditasi.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/assignment_result.png" class="screenshot-img" alt="Transkrip Nilai Guru" />
+              <img src="assets/guru_hasil_siswa.png" class="screenshot-img" alt="Transkrip Hasil Siswa Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 

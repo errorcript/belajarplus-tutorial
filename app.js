@@ -879,34 +879,34 @@ const videoTutorialData = {
         subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar". Masukkan Nama Lengkap, Email, dan kata sandi minimal 8 karakter. Verifikasi email untuk aktivasi akun.'
       },
       {
-        title: 'Akses & Kelola Ruang Kelas Saya',
-        image: 'assets/admin_dashboard.png',
-        narration: 'Langkah kedua: Masuk ke menu Kelas Saya di dashboard pengajar. Di sini kamu dapat membuat ruang kelas baru, menentukan jenjang serta mata pelajaran, dan membagikan Kode Kelas BLJ-XXXXXX kepada para siswa agar mereka dapat bergabung.',
-        subtitle: 'Langkah 2: Buka menu "Kelas Saya" untuk menambah kelas baru, memilih jenjang dan mata pelajaran, serta membagikan Kode Kelas (BLJ-XXXXXX) kepada siswa.'
+        title: 'Login & Akses Dashboard Guru (/admin)',
+        image: 'assets/guru_dashboard.png',
+        narration: 'Langkah kedua: Masuk ke portal belajarplus.id/admin dengan memilih peran Trainer atau Guru di sekolah mitramu. Dashboard guru menampilkan rekap pengerjaan siswa, ketersediaan modul latihan, dan baris Aksi Cepat: Kelola Kelas, Penugasan, Hasil Siswa, Perpustakaan, dan Absensi.',
+        subtitle: 'Langkah 2: Masuk ke /admin, pantau pengerjaan siswa, ketersediaan bank soal latihan, dan gunakan baris Aksi Cepat Guru.'
+      },
+      {
+        title: 'Buat & Kelola Ruang Kelas (/admin/classes)',
+        image: 'assets/guru_kelola_kelas.png',
+        narration: 'Langkah ketiga: Buka menu Kelola Kelas di /admin/classes untuk membuat ruang kelas baru sesuai jenjang dan mata pelajaran. Bagikan 6 karakter Kode Kelas unik BLJ kepada siswa agar mereka terhubung mandiri ke rombel belajarmu.',
+        subtitle: 'Langkah 3: Buka /admin/classes, buat kelas baru, dan bagikan Kode Kelas unik (BLJ-XXXXXX) kepada siswa rombel.'
       },
       {
         title: 'Tautkan Buku Teks Acuan Sekolah',
         image: 'assets/admin_koleksi.png',
-        narration: 'Langkah ketiga: Tautkan buku teks pelajaran dari koleksi e-library sekolah ke dalam ruang kelas kamu. Hal ini memudahkan siswa mengakses referensi materi yang wajib dipinjam dan dibaca sebelum mengerjakan soal latihan.',
-        subtitle: 'Langkah 3: Pilih judul buku teks pelajaran dari katalog koleksi digital sekolah untuk ditautkan sebagai bahan acuan utama penugasan siswa.'
+        narration: 'Langkah keempat: Tautkan buku teks pelajaran dari koleksi perpustakaan digital sekolah ke dalam ruang kelas kamu agar siswa dapat langsung membaca e-book materi acuan yang relevan sebelum mengerjakan soal latihan.',
+        subtitle: 'Langkah 4: Pilih judul buku teks pelajaran dari katalog digital sekolah untuk ditautkan sebagai bahan acuan utama penugasan siswa.'
       },
       {
-        title: 'Penyusunan Penugasan & Kuis LJD',
-        image: 'assets/class_assignment.png',
-        narration: 'Langkah keempat: Buat penugasan baru berupa Lembar Jawab Digital atau LJD. Atur jumlah soal, bobot nilai, tentukan tenggat waktu pengumpulan, serta aktifkan fitur proteksi anti-cheat untuk memantau aktivitas fokus tab siswa saat ujian berlangsung.',
-        subtitle: 'Langkah 4: Buat penugasan Lembar Jawab Digital (LJD), atur bobot soal, tentukan deadline pengumpulan, dan aktifkan fitur pengawas kejujuran anti-cheat tab focus.'
+        title: 'Penyusunan Penugasan & Kuis LJD (/admin/assignments)',
+        image: 'assets/guru_penugasan.png',
+        narration: 'Langkah kelima: Buka menu Penugasan di /admin/assignments untuk merilis penugasan baru. Pilih modul Asesmen Formatif, Sumatif, atau Tryout TKA. Tentukan deadline, durasi hitung mundur, dan aktifkan pengawas anti-cheat tab focus.',
+        subtitle: 'Langkah 5: Buka /admin/assignments, buat penugasan LJD, atur deadline, durasi ujian, dan aktifkan mode pengawas anti-cheat.'
       },
       {
-        title: 'Monitoring Real-time & Transkrip Nilai',
-        image: 'assets/assignment_result.png',
-        narration: 'Langkah kelima: Pantau pengerjaan tugas siswa secara real-time. Sistem BelajarPlus secara otomatis menghitung skor, menampilkan rekapitulasi nilai, serta menyediakan analisis ketercapaian KKM dan materi yang perlu diremediasi.',
-        subtitle: 'Langkah 5: Pantau status pengerjaan kuis siswa secara real-time. Tinjau rekapitulasi nilai otomatis, grafik ketuntasan KKM kelas, dan analisis jawaban.'
-      },
-      {
-        title: 'Ekspor Laporan Evaluasi Pembelajaran',
-        image: 'assets/admin_dashboard.png',
-        narration: 'Langkah keenam: Ekspor rekapitulasi nilai dan laporan evaluasi belajar siswa ke dalam format CSV atau Excel dengan satu kali klik. Berkas ini siap digunakan untuk pengisian nilai rapor semester maupun pelaporan dinas.',
-        subtitle: 'Langkah 6: Unduh rekapitulasi nilai kelas dan laporan analisis kompetensi siswa dalam format CSV atau Excel untuk berkas evaluasi rapor.'
+        title: 'Monitoring & Transkrip Hasil Siswa (/admin/submissions)',
+        image: 'assets/guru_hasil_siswa.png',
+        narration: 'Langkah keenam: Buka menu Hasil Siswa di /admin/submissions untuk memantau pengerjaan secara real-time. Guru dapat melihat rincian skor, grafik ketercapaian kompetensi dasar per bab, dan mengunduh berkas rekapitulasi nilai untuk kebutuhan rapor.',
+        subtitle: 'Langkah 6: Buka /admin/submissions untuk melihat transkrip nilai real-time, analisis kompetensi dasar, dan ekspor rekap nilai siswa.'
       }
     ]
   },

@@ -12,12 +12,12 @@
 
 ---
 
-## 2. Roadmap Panduan Akun Guru / Pengajar (Next Focus)
-Melakukan bedah tuntas seperti akun Siswa:
-- [ ] **Verifikasi & Registrasi Guru (Langkah 01)**: Syarat NUPTK/Kode Sekolah Mitra `SKL-` & nomor WA aktif pengajar.
-- [ ] **Dashboard Pengajar & Analitik Kelas (Langkah 02)**: Cara membaca ringkasan tugas aktif, siswa yang belum mengumpulkan, dan rata-rata nilai kelas.
-- [ ] **Manajemen & Pembuatan Ruang Kelas (Langkah 03)**: Cara generate Kode Kelas unik (`BLJ-XXXXXX`) untuk dibagikan ke siswa, kelola anggota, dan kick siswa salah rombel.
-- [ ] **Menghubungkan Sumber Belajar / Buku Acuan (Langkah 04)**: Cara menyematkan e-book dari perpustakaan sekolah ke dalam tab kelas agar wajib dibaca siswa.
-- [ ] **Pembuatan Paket Soal & Ujian LJD (Langkah 05)**: Cara buat bank soal, bobot nilai, kunci jawaban, dan mitigasi bug "0 soal / infinite loading".
-- [ ] **Penilaian & Ekspor Nilai Siswa (Langkah 06)**: Cara rekap nilai otomatis ke format Excel/rapor dan evaluasi KKM siswa.
-- [ ] **Penyelarasan PDF & Video Tutorial Guru**: Update naskah voiceover dan modul cetak PDF resmi untuk guru.
+## 2. Roadmap Panduan Akun Guru / Pengajar (Selesai Dilaksanakan)
+Bedah tuntas antarmuka live pendidik dari portal admin sekolah (SMA Negeri 1 Sragen):
+- [x] **Verifikasi & Registrasi Guru (Langkah 01)**: Registrasi satu pintu terpadu dan aktivasi instansi pasca-login.
+- [x] **Dashboard Pengajar & Aksi Cepat (Langkah 02)**: Tangkapan layar live `/admin` (`assets/guru_dashboard.png`) dengan metrik pengerjaan, ratusan modul latihan, dan pintasan aksi cepat.
+- [x] **Manajemen & Pembuatan Ruang Kelas (Langkah 03)**: Tangkapan layar live `/admin/classes` (`assets/guru_kelola_kelas.png`), cara generate Kode Kelas unik (`BLJ-XXXXXX`), dan manajemen anggota rombel.
+- [x] **Menghubungkan Sumber Belajar / Buku Acuan (Langkah 04)**: Cara menyematkan e-book dari perpustakaan digital sekolah ke tab kelas.
+- [x] **Pembuatan Paket Soal & Ujian LJD (Langkah 05)**: Tangkapan layar live `/admin/assignments` (`assets/guru_penugasan.png`), konfigurasi batas waktu pengerjaan, dan pengawas anti-cheat.
+- [x] **Penilaian & Ekspor Nilai Siswa (Langkah 06)**: Tangkapan layar live `/admin/submissions` (`assets/guru_hasil_siswa.png`), transkrip nilai, dan analisis kompetensi dasar.
+- [x] **Penyelarasan Naskah Video & PDF Guru**: Sinkronisasi data voiceover `videoTutorialData.guru` di `app.js` dan visual modul di `index.html`.
