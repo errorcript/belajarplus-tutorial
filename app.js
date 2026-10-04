@@ -912,43 +912,43 @@ const videoTutorialData = {
   },
   kepsek: {
     roleTitle: 'Video Panduan Kepala Sekolah & Admin — 6 Langkah Manajemen Ekosistem',
-    roleSub: 'Manajemen ekosistem digital, lisensi stok buku, dan laporan dinas',
+    roleSub: 'Manajemen ekosistem digital, branding sekolah, lisensi stok buku, dan laporan akreditasi',
     steps: [
       {
-        title: 'Registrasi Instansi & Aktivasi Kode Sekolah',
-        image: 'assets/register_guru.png',
-        narration: 'Langkah pertama: Registrasikan instansi sekolah kamu pada portal BelajarPlus untuk mengaktifkan Kode Sekolah Mitra resmi. Kode ini akan digunakan oleh seluruh guru dan siswa saat mendaftar agar terhubung ke ekosistem e-library sekolah.',
-        subtitle: 'Langkah 1: Daftarkan instansi sekolah ke portal BelajarPlus untuk mengaktifkan Kode Sekolah Mitra (SKL-XXXXX) resmi bagi seluruh civitas sekolah.'
+        title: 'Registrasi Administrator & Multi-Tenant Institusi',
+        image: 'assets/pilih_institusi.png',
+        narration: 'Langkah pertama: Daftarkan akun administrator sekolah di portal belajarplus.id/auth pada tab Daftar. Setelah verifikasi email, login dan pilih institusi sekolah resmi seperti SMA NEGERI 1 SRAGEN dengan hak akses Trainer atau Administrator untuk mengelola seluruh ekosistem sekolah.',
+        subtitle: 'Langkah 1: Registrasi akun di belajarplus.id/auth, verifikasi email, dan pilih institusi sekolah resmi dengan hak akses administrator/trainer.'
       },
       {
-        title: 'Monitoring Executive Dashboard',
-        image: 'assets/admin_dashboard.png',
-        narration: 'Langkah kedua: Akses Dashboard Eksekutif di portal admin sekolah /admin. Pantau indikator utama perpustakaan digital secara real-time, meliputi grafik intensitas membaca siswa, total eksemplar terpinjam, keaktifan penugasan kelas, dan ringkasan pengguna.',
-        subtitle: 'Langkah 2: Pantau statistik grafik minat baca siswa, total eksemplar buku terpinjam, keaktifan kelas, dan ringkasan aktivitas pengguna di /admin.'
+        title: 'Monitoring Executive Dashboard & Aksi Cepat (/admin)',
+        image: 'assets/kepsek_dashboard.png',
+        narration: 'Langkah kedua: Akses portal belajarplus.id/admin. Kepala sekolah dapat memantau metrik pengerjaan tugas siswa, ketersediaan bank soal latihan, ringkasan peninjauan penilaian, total buku koleksi sekolah, serta menggunakan lima tombol Aksi Cepat harian.',
+        subtitle: 'Langkah 2: Pantau pengerjaan siswa, modul latihan, peninjauan nilai, total buku sekolah, dan akses 5 tombol Aksi Cepat di /admin.'
       },
       {
-        title: 'Manajemen Koleksi & Lisensi Buku Digital',
-        image: 'assets/admin_koleksi.png',
-        narration: 'Langkah ketiga: Kelola koleksi e-library melalui menu Koleksi dan Lisensi. Admin dapat menambahkan judul buku teks kurikulum terbaru, mengatur jumlah lisensi salinan digital yang dapat dipinjam bersamaan, serta memantau masa aktif lisensi.',
-        subtitle: 'Langkah 3: Buka menu "Koleksi & Lisensi" untuk mengatur kuota eksemplar buku digital, memantau masa aktif lisensi, dan menambah judul buku baru.'
+        title: 'Pengaturan Branding Sekolah & Tampilan Perpustakaan',
+        image: 'assets/kepsek_tampilan_sekolah.png',
+        narration: 'Langkah ketiga: Buka menu Tampilan Sekolah di /admin/library/settings. Atur nama perpustakaan, unggah logo sekolah untuk menggantikan logo BelajarPlus, kelola subdomain atau domain web kustom sekolah, serta atur mode aplikasi PWA di ponsel siswa.',
+        subtitle: 'Langkah 3: Buka /admin/library/settings untuk atur logo sekolah, subdomain, domain kustom DNS, layout banner hero, dan mode PWA.'
       },
       {
-        title: 'Pengelolaan Data Pengguna & Rombel',
-        image: 'assets/admin_kelas.png',
-        narration: 'Langkah keempat: Akses menu Siswa dan Guru untuk mengelola akun pengguna sekolah. Admin dapat mengimpor data pengajar dan peserta didik secara massal via CSV, membagikan rombel kelas, serta membantu reset password akun.',
-        subtitle: 'Langkah 4: Impor data siswa dan guru secara kolektif via CSV, kelola pembagian rombel per jenjang kelas, serta lakukan reset password jika diperlukan.'
+        title: 'Sirkulasi Perpustakaan Digital & Kuota Lisensi Buku',
+        image: 'assets/kepsek_koleksi_buku.png',
+        narration: 'Langkah keempat: Pantau sirkulasi buku di menu Perpustakaan Digital /admin/library. Monitor empat metrik stok: total judul, total lisensi eksemplar, buku dipinjam, dan kuota tersedia, serta evaluasi rasio penggunaan lisensi tertinggi per mata pelajaran.',
+        subtitle: 'Langkah 4: Monitor 4 metrik inventaris (Judul, Lisensi, Dipinjam, Tersedia), daftar antrean peminjaman, dan tabel Penggunaan Lisensi Tertinggi.'
       },
       {
-        title: 'Pengadaan Buku via Portal Toko Penerbit',
-        image: 'assets/admin_toko.png',
-        narration: 'Langkah kelima: Gunakan fitur Toko dan Kemitraan Penerbit untuk mengajukan pengadaan judul buku teks pelajaran atau buku bacaan pengayaan terbaru secara langsung dari penerbit resmi demi memperluas koleksi e-library sekolah.',
-        subtitle: 'Langkah 5: Lakukan pengadaan buku teks dan pengayaan tambahan langsung dari portal penerbit resmi mitra BelajarPlus untuk memperkaya e-library.'
+        title: 'Master Data Siswa, Pendaftaran & PTK Guru',
+        image: 'assets/kepsek_siswa.png',
+        narration: 'Langkah kelima: Kelola data pengguna di menu Siswa dan PTK. Pantau empat status siswa, setujui pengajuan akun baru di menu Kode & Pendaftaran, impor data siswa massal via spreadsheet, dan undang guru serta kelola NUPTK di modul PTK.',
+        subtitle: 'Langkah 5: Kelola 4 status siswa, verifikasi pengajuan pendaftaran, impor data massal CSV, serta undang guru dan kelola NUPTK di menu PTK.'
       },
       {
-        title: 'Audit Keamanan & Laporan Akreditasi',
-        image: 'assets/admin_dashboard.png',
-        narration: 'Langkah keenam: Pantau sistem keamanan platform melalui menu Aktivitas Mencurigakan untuk mendeteksi anomali penggunaan akun. Unduh laporan rekapitulasi kinerja perpustakaan digital secara berkala sebagai dokumen pendukung akreditasi sekolah dan dinas pendidikan.',
-        subtitle: 'Langkah 6: Pantau log aktivitas anomali pada menu Aktivasi Mencurigakan, serta unduh laporan evaluasi perpustakaan digital resmi untuk berkas akreditasi sekolah.'
+        title: 'Tata Kelola Kurikulum, Kredit AI & Laporan Akreditasi',
+        image: 'assets/kepsek_curriculum.png',
+        narration: 'Langkah keenam: Atur pemetaan Kurikulum Merdeka di modul Kurikulum, kelola kuota token koreksi esai otomatis di menu Kredit AI Sekolah, serta ekspor rekapitulasi data literasi dan ketuntasan belajar untuk kebutuhan akreditasi sekolah dan laporan dinas.',
+        subtitle: 'Langkah 6: Petakan Kurikulum & Mapel, kelola saldo Kredit AI untuk koreksi esai otomatis, dan ekspor laporan resmi akreditasi sekolah.'
       }
     ]
   }
