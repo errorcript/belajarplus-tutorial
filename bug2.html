@@ -523,7 +523,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Sesi Pengujian</div>
-          <div class="doc-spec-val">Oktober 2026 (Live Audit)</div>
+          <div class="doc-spec-val">Oktober 2026 (Live Audit &amp; Field Prep)</div>
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Akun Uji Coba</div>
@@ -531,7 +531,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">9 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">13 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -539,7 +539,7 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">9</div>
+        <div class="metric-num" style="color: #64748b;">13</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
@@ -547,11 +547,11 @@
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #f97316;">2</div>
+        <div class="metric-num" style="color: #f97316;">4</div>
         <div class="metric-label">P1 (High Functional)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #eab308;">6</div>
+        <div class="metric-num" style="color: #eab308;">8</div>
         <div class="metric-label">P2 (Medium / UX Risk)</div>
       </div>
       <div class="metric-card">
@@ -563,18 +563,18 @@
     <!-- Search & Filter Live Toolbar -->
     <div class="filter-search-bar">
       <div class="search-input-box">
-        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'komunitas', 'scan', 'typo')..." oninput="filterBugsLive()" />
+        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'dummy', 'subdomain', 'whiteboard', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (9)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (2)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (6)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (13)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (4)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (8)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
       </div>
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 9 temuan audit teknis
+      Menampilkan 13 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -996,6 +996,203 @@ const pendingAssignmentsCount = await db.assignments.count({
         <div class="visual-attachment" onclick="viewImage('assets/feature_kelas_detail.png')">
           <img src="assets/feature_kelas_detail.png" alt="Bukti Bug Desinkronisasi Counter Tugas Kelas" />
           <div class="visual-caption">📸 Bukti Visual: Indikator 'TUGAS UNTUK ANDA 0' pada ringkasan kelas meskipun tugas aktif tersedia di tab Penugasan</div>
+        </div>
+      </article>
+
+      <!-- BUG 10 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-10">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-10" class="bug-id-tag" onclick="copyAnchor('bug-bp2-10', event)">#BUG-BP2-10</a>
+            <h2 class="bug-entry-title">Gating Fitur "Kelas Sekolah" Terkunci / Hilang pada Institusi Dummy Tanpa Subdomain &amp; Paket LMS</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Multi-Tenancy / Feature Flag</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Kelola Kelas Guru (<code>https://belajarplus.id/admin/classes</code>)</div>
+          <div><strong>Institusi Uji:</strong> SMAN Dummy Latihan (Role: Trainer · Tanpa LMS)</div>
+          <div><strong>Lingkungan:</strong> Web &amp; Mobile Web (All Browsers)</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik pada akun tanpa subdomain</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Pada institusi sekolah pelatihan/dummy (seperti <em>SMAN Dummy Latihan</em>), tombol dan tab <strong>"Kelas Sekolah"</strong> sama sekali tidak tersedia di antarmuka <code>/admin/classes</code>. Guru/Trainer hanya disajikan opsi tunggal <code>[Kelas Umum]</code> dengan batasan eksplisit: <em>"Tidak terikat sekolah. Siswa dari sekolah mana pun bisa bergabung dengan kode. Fitur AI sekolah tidak tersedia."</em> dan status <em>"Belum ada Kelas Sekolah di cakupan ini."</em></p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna &amp; Operasional Lapangan</div>
+          <p><strong>Critical Training Blocker:</strong> Tim Trainer dan perwakilan Tim Teknis Sekolah yang hadir pada sesi pelatihan/Bimtek tidak dapat mempraktikkan alur utama LMS sekolah (Kurikulum &rarr; Rombel &rarr; Mapel &rarr; Guru) serta fitur koreksi esai berbasis AI di 6 akun institusi dummy karena terhalang syarat subdomain.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Login ke <code>https://belajarplus.id/auth</code> menggunakan akun Trainer.</li>
+            <li>Pilih institusi <em>SMAN Dummy Latihan</em> pada modal pemilih institusi.</li>
+            <li>Buka menu <strong>E-Learning &gt; Kelas</strong> (<code>/admin/classes</code>).</li>
+            <li>Amati bagian <em>Kelas Baru</em>: Tombol <em>"Buat Kelas Sekolah"</em> lenyap dan hanya tersisa <em>"Kelas Umum"</em>.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Izinkan mode <em>Sandbox Emulation</em> untuk seluruh institusi bertipe testing/dummy agar seluruh kapabilitas LMS sekolah tetap dapat didemonstrasikan meskipun belum memetakan DNS subdomain kustom:</p>
+          <div class="code-box code-solution">// src/guards/schoolFeatures.ts
+export function canCreateSchoolClass(institution: Institution): boolean {
+  if (institution.is_training_dummy || institution.is_sandbox) {
+    return true; // Bypass gating subdomain untuk lingkungan latihan/demo
+  }
+  return Boolean(institution.subdomain && institution.has_active_lms);
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_dummy_classes_page.png')">
+          <img src="assets/bug_dummy_classes_page.png" alt="Bukti Bug Kelas Sekolah Hilang pada Akun Dummy" />
+          <div class="visual-caption">📸 Bukti Visual: Layar /admin/classes di SMAN Dummy Latihan hanya menampilkan opsi 'Kelas Umum' tanpa tombol 'Buat Kelas Sekolah'</div>
+        </div>
+      </article>
+
+      <!-- BUG 11 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-11">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-11" class="bug-id-tag" onclick="copyAnchor('bug-bp2-11', event)">#BUG-BP2-11</a>
+            <h2 class="bug-entry-title">Direct URL Access &amp; Refresh (F5) pada Rute Admin Memicu Session Desync &amp; Layar "Akses Ditolak"</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Auth Hydration / Session State</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Admin Router &amp; Route Guard (<code>/admin/*</code>)</div>
+          <div><strong>Endpoint:</strong> <code>https://belajarplus.id/admin/classes</code>, <code>/admin/ai-credits</code></div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; Mobile Web (All Browsers)</div>
+          <div><strong>Reproduksibilitas:</strong> 100% pada direct navigation tanpa pre-hydrated state</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika pengguna telah berhasil login dan memilih institusi sekolah aktif, lalu membuka tautan langsung (seperti menyalin URL <code>/admin/classes</code> ke tab baru atau menekan tombol F5 / Reload browser), guard rute mengevaluasi tenancy sebelum sesi LocalStorage selesai di-hydrate. Pengguna langsung dihentikan oleh pesan penolakan: <code>"Akses ditolak. Anda tidak memiliki hak untuk membuka Dashboard Admin. Ke Beranda"</code> dengan status header kembali ke <em>"Pilih institusi: Belum dipilih"</em>.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Kepala sekolah dan guru yang me-refresh halaman kerja mereka seketika terlempar keluar dari dashboard administrasi dan mengira hak akses mereka dicabut oleh sistem.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Login sebagai guru/trainer dan pilih <em>SMA NEGERI 1 SRAGEN</em>.</li>
+            <li>Buka halaman <code>https://belajarplus.id/admin/classes</code>.</li>
+            <li>Buka tab browser baru dan salin URL <code>https://belajarplus.id/admin/classes</code> secara langsung.</li>
+            <li>Amati layar putih dengan pesan <em>"Akses ditolak"</em> dan dropdown institusi yang ter-reset ke <em>"Belum dipilih"</em>.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Tunda evaluasi guard admin hingga proses pemulihan state institusi aktif selesai sepenuhnya (<em>Deferred Guard Evaluation</em>):</p>
+          <div class="code-box code-solution">// src/guards/AdminAuthGuard.tsx
+export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
+  const { currentTenant, isHydrating } = useTenantContext();
+
+  if (isHydrating) {
+    return &lt;AdminSkeletonLoader /&gt;; // Tunggu restorasi local session
+  }
+
+  if (!currentTenant || !currentTenant.canAccessAdmin) {
+    return &lt;AccessDeniedScreen onChooseTenant={openTenantDialog} /&gt;;
+  }
+
+  return &lt;&gt;{children}&lt;/&gt;;
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_admin_classes_no_create_btn.png')">
+          <img src="assets/hunt_admin_classes_no_create_btn.png" alt="Bukti Bug Akses Ditolak saat Direct URL" />
+          <div class="visual-caption">📸 Bukti Visual: Layar 'Akses Ditolak' saat mengakses /admin/classes via direct link akibat kegagalan re-hydration tenant</div>
+        </div>
+      </article>
+
+      <!-- BUG 12 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-12">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-12" class="bug-id-tag" onclick="copyAnchor('bug-bp2-12', event)">#BUG-BP2-12</a>
+            <h2 class="bug-entry-title">Pointer-Events Interception &amp; Z-Index Conflict pada Toolbar Bawah Reader Buku Digital</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">E-Reader / CSS Overlay &amp; Event</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> E-Reader Web (<code>https://belajarplus.id/library/reader/[loanId]</code>)</div>
+          <div><strong>Komponen:</strong> <code>div.touch-pan-y.overflow-hidden</code> vs Floating Toolbar Menu</div>
+          <div><strong>Lingkungan:</strong> Desktop Touchscreen &amp; Laptop Trackpad</div>
+          <div><strong>Reproduksibilitas:</strong> 100% saat canvas swipe aktif</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Pada modul pembaca e-book, tombol toolbar bawah (seperti <em>Whiteboard</em>, <em>Bookmark</em>, <em>Daftar Isi</em>, dan <em>Interaktif</em>) sering kali tidak merespons ketukan atau klik awal. Inspeksi DOM mendeteksi container gesture swipe halaman (<code>&lt;div class="relative min-h-0 touch-pan-y overflow-hidden flex-1"&gt;</code>) membentang dengan <code>z-index</code> yang mencegat pointer-events sebelum mencapai layer toolbar navigasi.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Siswa dan guru yang ingin membuka fitur papan tulis (*Whiteboard*) untuk mencatat materi pelajaran harus mengeklik layar berulang kali secara acak hingga layer gesture melepaskan fokus.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Semprotkan <code>pointer-events: none</code> pada wrapper transparan dan beri <code>pointer-events: auto</code> eksplisit dengan <code>z-index: 50</code> pada bar toolbar kontrol:</p>
+          <div class="code-box code-solution">/* CSS Patch untuk Reader Toolbar */
+.reader-viewport-overlay {
+  pointer-events: none;
+}
+.reader-floating-toolbar {
+  z-index: 50 !important;
+  pointer-events: auto !important;
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_reader_active.png')">
+          <img src="assets/hunt_reader_active.png" alt="Bukti Bug Toolbar Reader E-Book" />
+          <div class="visual-caption">📸 Bukti Visual: Antarmuka E-Reader BelajarPlus dengan bar toolbar bawah yang rawan konflik pointer-events</div>
+        </div>
+      </article>
+
+      <!-- BUG 13 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-13">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-13" class="bug-id-tag" onclick="copyAnchor('bug-bp2-13', event)">#BUG-BP2-13</a>
+            <h2 class="bug-entry-title">Dead-Link Role Permission pada Menu "Kurikulum &amp; Mapel Sekolah" di Sidebar bagi Akun Guru/Trainer</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">RBAC / Navigation Consistency</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Sidebar Navigasi Master Data (<code>/admin/curriculum</code>)</div>
+          <div><strong>Peran Pengguna:</strong> Guru Pengajar / Trainer Institusi</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; PWA</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Tautan navigasi <strong>"Kurikulum &amp; Mapel Sekolah"</strong> tetap dirender di dalam grup menu <em>Master Data Sekolah</em> pada akun dengan peran Guru/Trainer. Namun, ketika tautan tersebut diklik, rute <code>/admin/curriculum</code> langsung menampilkan pesan penolakan: <code>"Menu tidak tersedia. Menu ini tidak termasuk hak akses peran Anda. Ke Beranda"</code>.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Menampilkan menu yang tidak dapat diakses menimbulkan kebingungan bagi guru dan memberikan kesan inkonsistensi Role-Based Access Control (RBAC). Menu administratif yang memerlukan wewenang Kepala Sekolah/Admin seharusnya tidak ditampilkan sama sekali pada sidebar guru.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Terapkan conditional rendering menu berdasarkan hak akses peran sebelum merender item sidebar:</p>
+          <div class="code-box code-solution">// In Sidebar Navigation Component:
+{userRole === 'SCHOOL_ADMIN' || userRole === 'PRINCIPAL' ? (
+  &lt;SidebarLink href="/admin/curriculum" icon={CurriculumIcon}&gt;
+    Kurikulum &amp; Mapel Sekolah
+  &lt;/SidebarLink&gt;
+) : null}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_curriculum_role_blocked.png')">
+          <img src="assets/hunt_admin_classes_no_create_btn.png" alt="Bukti Bug Menu Kurikulum Ditolak" />
+          <div class="visual-caption">📸 Bukti Visual: Tautan Kurikulum yang terpampang di sidebar namun memicu layar penolakan izin saat dibuka oleh guru</div>
         </div>
       </article>
 
