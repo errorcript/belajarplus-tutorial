@@ -821,32 +821,32 @@ const videoTutorialData = {
       {
         title: 'Kelas Saya & Fitur Keluar Kelas Mandiri',
         image: 'assets/ss_kelas.png',
-        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ dari bapak ibu guru lewat tombol Gabung kelas agar terhubung ke rombel mata pelajaran. Pada UI terbaru, siswa dapat menekan tombol Keluar secara mandiri jika salah masuk kelas tanpa harus menunggu admin atau guru.',
-        subtitle: 'Langkah 5: Klik tombol "Gabung kelas" dan ketikkan kode unik (BLJ-XXXXXX). Siswa kini bisa keluar mandiri jika salah rombel dengan tombol "Keluar" di kartu kelas.'
+        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ dari bapak ibu guru langsung pada kolom input di card Kelas saya lalu klik Gabung. Pada antarmuka terbaru, siswa dapat menekan tombol Keluar secara mandiri jika salah masuk rombel tanpa harus menunggu dikeluarkan manual oleh guru.',
+        subtitle: 'Langkah 5: Masukkan kode unik (BLJ-XXXXXX) langsung di card Kelas saya lalu klik "Gabung". Siswa bisa keluar mandiri jika salah rombel dengan tombol "Keluar".'
       },
       {
-        title: 'Aksi Cepat, Pindai QR & Hasil Belajar',
+        title: 'Aksi Cepat, Pindai QR, Kode Manual & Hasil Belajar',
         image: 'assets/scan_page.png',
-        narration: 'Langkah keenam: Manfaatkan baris Aksi Cepat di dashboard atau tombol scan QR di navigasi smartphone. Fitur Pindai QR memudahkanmu membuka lembar soal kuis atau absensi guru langsung dengan kamera. Pantau skor persentase ketuntasan belajarmu di kolom Hasil Terbaru.',
-        subtitle: 'Langkah 6: Gunakan "Aksi Cepat" atau Pindai QR kamera untuk presensi dan latihan instan. Cek analisis skor persentase ketuntasan di modul "Hasil Terbaru".'
+        narration: 'Langkah keenam: Manfaatkan baris Aksi Cepat di dashboard atau tombol Pindai QR. Selain menggunakan kamera, BelajarPlus kini menyediakan fitur Masukkan Kode Manual jika kamera perangkat bermasalah. Pantau juga ringkasan skor persentase dan ketuntasan di modul Hasil Terbaru.',
+        subtitle: 'Langkah 6: Gunakan "Aksi Cepat" atau Pindai QR kamera. Tersedia opsi input kode manual jika kamera bermasalah, serta pantau skor di modul "Hasil Terbaru".'
       },
       {
         title: 'Mencari Buku di Perpustakaan Digital',
         image: 'assets/library_search.png',
-        narration: 'Langkah ketujuh: Buka menu Perpustakaan untuk mengakses koleksi e-book dan modul digital sekolah. Gunakan kombinasi Filter Jenjang dan Filter Mata Pelajaran di sidebar kiri untuk hasil pencarian yang paling relevan. Hindari mengandalkan kolom search teks saja karena terkadang ada bug reset parameter — selalu gunakan sidebar filter agar hasil stabil.',
-        subtitle: 'Langkah 7: Buka Perpustakaan dan gunakan Filter Jenjang + Mata Pelajaran di sidebar kiri. Hindari ketik di search bar langsung karena bisa reset — selalu pakai sidebar filter.'
+        narration: 'Langkah ketujuh: Buka menu Perpustakaan untuk meminjam ribuan buku digital sekolah. Pantau kuota pinjaman aktif lewat tombol Buku Saya di kanan atas header. Gunakan faceted filter di bilah samping kiri untuk menyaring jenjang kelas, tipe buku teks utama atau pendamping, dan cek sisa kuota salinan digital.',
+        subtitle: 'Langkah 7: Buka Perpustakaan, pantau tombol "Buku Saya" di header, dan saring buku lewat filter sidebar kiri (Jenjang, Tipe Buku, dan Kategori) serta cek stok salinan.'
       },
       {
         title: 'Menavigasi E-Reader & Fitur Interaktif Buku',
         image: 'assets/reader_toolbar.png',
-        narration: 'Langkah kedelapan: E-Reader BelajarPlus dilengkapi toolbar bawah lengkap. Gunakan slider untuk lompat halaman, atur zoom di Pengaturan, buka Daftar Isi, simpan Bookmark, dan gunakan Whiteboard untuk mencoret catatan. Klik tombol bintang Interaktif untuk membuka kuis latihan soal per bab dan Simulasi TKA terintegrasi yang bisa dikerjakan langsung. Selain itu, sistem proteksi DRM anti-bajak akan mengaburkan layar otomatis jika mendeteksi screenshot.',
-        subtitle: 'Langkah 8: Buka E-Reader dengan toolbar lengkap: Slider, Pengaturan, Daftar Isi, Bookmark, Whiteboard, dan tombol Interaktif (latihan soal & simulasi TKA). Dilengkapi proteksi DRM anti-screenshot.'
+        narration: 'Langkah kedelapan: E-Reader BelajarPlus dilengkapi toolbar bawah lengkap. Gunakan slider untuk melompat halaman, atur zoom di Pengaturan, buka Daftar Isi, simpan Bookmark, dan gunakan Whiteboard untuk mencoret catatan. Klik tombol bintang Interaktif untuk membuka kuis latihan soal per bab dan Simulasi TKA terintegrasi yang bisa dikerjakan langsung. Selain itu, sistem proteksi DRM anti-bajak akan mengaburkan layar otomatis jika mendeteksi tangkapan layar.',
+        subtitle: 'Langkah 8: Buka E-Reader dengan toolbar lengkap: Slider, Pengaturan, Daftar Isi, Bookmark, Whiteboard, dan tombol Interaktif (latihan per bab & simulasi TKA). Dilengkapi proteksi DRM anti-screenshot.'
       },
       {
-        title: 'Manajemen Buku Saya (Masa Pinjam & Antrean)',
+        title: 'Manajemen Koleksi Saya (4 Tab & Buku Ditugaskan)',
         image: 'assets/my_books_list.png',
-        narration: 'Langkah kesembilan: Di halaman Buku Saya, kamu bisa memantau status buku di tab Dipinjam, Antrean, dan Riwayat. Setiap buku memiliki masa pinjam otomatis 7 hingga 14 hari. Jika kuota perpustakaan penuh, buku masuk ke antrean dan otomatis aktif saat tersedia. Jangan lupa klik tombol Kembalikan jika sudah selesai membaca agar teman lain bisa meminjam.',
-        subtitle: 'Langkah 9: Pantau buku di tab Dipinjam, Antrean, dan Riwayat. Masa pinjam 7–14 hari. Klik "Kembalikan" jika sudah selesai agar lisensi buku bisa dipakai teman lain.'
+        narration: 'Langkah kesembilan: Buka halaman Koleksi Saya untuk mengelola seluruh buku digitalmu. Halaman ini memiliki empat tab: Milik Saya untuk buku beli mandiri, Dipinjam untuk buku sekolah masa aktif 7 hingga 14 hari, tab baru Ditugaskan untuk buku yang disematkan guru sebagai bahan tugas, serta Antrean. Selalu klik tombol Kembalikan jika selesai membaca lebih awal.',
+        subtitle: 'Langkah 9: Kelola 4 tab Koleksi Saya: Milik Saya, Dipinjam, Ditugaskan (buku dari guru), dan Antrean. Klik "Kembalikan" jika sudah selesai membaca.'
       },
       {
         title: 'Alur Pengerjaan Tugas & Ujian LJD',
@@ -857,14 +857,14 @@ const videoTutorialData = {
       {
         title: 'Beli Buku di Toko & Pembayaran Transfer Manual',
         image: 'assets/detail_pesanan_transfer.png',
-        narration: 'Langkah kesebelas: Jika kuota perpustakaan penuh atau butuh buku tambahan, beli lewat menu Toko. Pilih varian Digital, Cetak, atau Digital plus Cetak. Selesaikan Checkout dan verifikasi data siswa. Pembayaran menggunakan Transfer Bank Manual — wajib cantumkan Nomor Pesanan pada berita transfer, lalu unggah foto bukti struk. Buku aktif di Buku Saya setelah admin verifikasi.',
-        subtitle: 'Langkah 11: Beli buku di Toko, pilih varian, checkout, lalu transfer manual dan cantumkan Nomor Pesanan. Unggah foto struk agar admin verifikasi dan buku segera aktif.'
+        narration: 'Langkah kesebelas: Jika kuota perpustakaan penuh atau butuh buku teks pendamping, beli lewat menu Toko. Manfaatkan filter chip kategori, tingkat kelas 1 hingga 12, dan jenis produk. Pilih varian Digital, Cetak, atau Paket. Lakukan transfer manual dengan mencantumkan Nomor Pesanan di berita transfer, lalu unggah foto struk agar diverifikasi admin sekolah.',
+        subtitle: 'Langkah 11: Belanja di Toko dengan filter chip pintar, pilih varian buku, lalu lakukan transfer bank manual mencantumkan Nomor Pesanan. Unggah bukti struk agar aktif di Koleksi Saya.'
       },
       {
-        title: 'Pengaturan Akun, Profil, Switcher & Logout',
+        title: 'Pengaturan Akun, Profil Terpadu (4 Tab) & Logout',
         image: 'assets/user_profile.png',
-        narration: 'Langkah kedua belas: Buka menu Profil Saya untuk melengkapi foto avatar, Nama Lengkap, dan NISN untuk sinkronisasi Dapodik sekolah. Di bilah header atas, gunakan switcher Institusi aktif untuk berganti instansi sekolah seketika tanpa perlu logout. Jangan lupa perbarui kata sandi secara berkala dan selalu klik Keluar atau Logout jika menggunakan komputer lab atau gawai umum perpustakaan.',
-        subtitle: 'Langkah 12: Lengkapi Profil Saya — Foto, Nama, NISN Dapodik. Gunakan switcher Institusi aktif di header tanpa logout. Selalu klik "Keluar" (Logout) di perangkat umum lab sekolah.'
+        narration: 'Langkah kedua belas: Buka menu Profil Saya yang dilengkapi empat tab: Institusi dan Peran dengan tombol Gabung Institusi baru, Keamanan untuk ganti sandi dan nomor WhatsApp, Preferensi, serta Aktivitas log login. Gunakan switcher Institusi aktif di header tanpa logout, dan selalu klik Keluar atau Logout jika menggunakan komputer lab sekolah.',
+        subtitle: 'Langkah 12: Profil terpadu 4 tab: Institusi (tombol Gabung Institusi), Keamanan, Preferensi, & Aktivitas. Gunakan switcher di header dan selalu klik Keluar (Logout) di perangkat umum.'
       }
     ]
   },
