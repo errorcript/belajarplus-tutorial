@@ -30,6 +30,7 @@
     { "handle": "filesystem" },
     { "src": "/bug", "dest": "/bug.html" },
     { "src": "/bug2", "dest": "/bug2.html" },
+    { "src": "/changelog", "dest": "/changelog.html" },
     { "src": "/(.*)", "dest": "/404.html", "status": 404 }
   ]
 }

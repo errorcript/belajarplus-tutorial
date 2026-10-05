@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluasi Tindak Lanjut Developer: Audit v1.0 vs v2.0 — BelajarPlus.id</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --border: #e2e8f0;
+      --border-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #94a3b8;
+      
+      --blue-accent: #0284c7;
+      --blue-subtle: #e0f2fe;
+      --green-accent: #16a34a;
+      --green-subtle: #dcfce7;
+      --yellow-accent: #ca8a04;
+      --yellow-subtle: #fef9c3;
+      --red-accent: #dc2626;
+      --red-subtle: #fee2e2;
+      --purple-accent: #7c3aed;
+      --purple-subtle: #f3e8ff;
+
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html.dark-mode {
+      --bg: #090d16;
+      --paper: #0f172a;
+      --border: #1e293b;
+      --border-subtle: #141e33;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --blue-subtle: #082f49;
+      --green-subtle: #052e16;
+      --yellow-subtle: #422006;
+      --red-subtle: #450a0a;
+      --purple-subtle: #3b0764;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .doc-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-action:hover {
+      border-color: var(--text-subtle);
+      background: var(--border-subtle);
+    }
+
+    .doc-header {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .doc-org-info {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+    .doc-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 900px;
+    }
+
+    .scorecard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .scorecard-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .scorecard-num {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .scorecard-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .scorecard-desc {
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+      margin-top: 0.5rem;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 2.5rem 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title span {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* Comparison Table */
+    .table-wrap {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 2rem;
+    }
+    table.comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    table.comp-table th {
+      background: var(--bg);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.75rem;
+    }
+    table.comp-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    table.comp-table tr:last-child td { border-bottom: none; }
+    table.comp-table tr:hover td { background: var(--border-subtle); }
+
+    /* Status Badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .status-fixed {
+      background: var(--green-subtle);
+      color: var(--green-accent);
+      border: 1px solid rgba(22, 163, 74, 0.3);
+    }
+    .status-partial {
+      background: var(--yellow-subtle);
+      color: var(--yellow-accent);
+      border: 1px solid rgba(202, 138, 4, 0.3);
+    }
+    .status-regressed {
+      background: var(--red-subtle);
+      color: var(--red-accent);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+    }
+    .status-unresolved {
+      background: var(--border-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .key-quote-box {
+      background: var(--paper);
+      border-left: 4px solid var(--blue-accent);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .key-quote-box strong { color: var(--blue-accent); }
+
+    .tag-id {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--blue-accent);
+      font-size: 0.8rem;
+    }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .top-toolbar { display: none !important; }
+      .doc-container { padding: 0 !important; max-width: 100% !important; }
+      table.comp-table th, table.comp-table td { border-color: #ccc !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+
+    <!-- Top Toolbar -->
+    <div class="top-toolbar">
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <a href="/" class="btn-action">← Beranda Panduan</a>
+        <a href="/bug" class="btn-action">📂 Audit v1.0 (23 Isu)</a>
+        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (17 Temuan)</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button class="btn-action" onclick="toggleTheme()">
+          🌓 <span id="themeBtnText">Mode Gelap</span>
+        </button>
+        <button class="btn-action" onclick="window.print()">
+          🖨️ Cetak Evaluasi PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="doc-org-info">Engineering Review &bull; Evaluasi Siklus Rilis v1.0 &rarr; v2.0</div>
+      <h1 class="doc-title">Evaluasi Respon Developer: Apa yang Diperbaiki &amp; Apa yang Masih Rusak?</h1>
+      <p class="doc-subtitle">
+        Perbandingan analitis antara 23 temuan audit teknis awal (<code>/bug</code>) terhadap hasil perombakan antarmuka (Redesign UI) terbaru BelajarPlus.id v2.0 (<code>/bug2</code>). Mengukur sejauh mana tim pengembang mendengarkan laporan kami serta anomali baru (regresi) yang tercipta.
+      </p>
+    </header>
+
+    <!-- Scorecard Metrik -->
+    <div class="scorecard-grid">
+      <div class="scorecard-card">
+        <div class="scorecard-num" style="color: var(--green-accent);">35%</div>
+        <div class="scorecard-label">Diperbaiki Tuntas</div>
+        <div class="scorecard-desc">8 dari 23 isu v1 berhasil diperbaiki atau terselesaikan lewat arsitektur baru.</div>
+      </div>
+      <div class="scorecard-card">
+        <div class="scorecard-num" style="color: var(--yellow-accent);">26%</div>
+        <div class="scorecard-label">Diperbaiki Sebagian</div>
+        <div class="scorecard-desc">6 isu ditambal secara kosmetik namun fungsionalitas inti masih memiliki batas.</div>
+      </div>
+      <div class="scorecard-card">
+        <div class="scorecard-num" style="color: var(--red-accent);">39%</div>
+        <div class="scorecard-label">Muncul Masalah Baru (Regresi)</div>
+        <div class="scorecard-desc">Redesign memicu 17 temuan baru di v2.0 (seperti Zombie Session saat switch sekolah).</div>
+      </div>
+    </div>
+
+    <div class="key-quote-box">
+      <strong>Kesimpulan Eksekutif Evaluasi:</strong> Tim developer BelajarPlus <strong>mendengarkan kritik visual dan alur dasar</strong> kami (seperti penyatuan form login/register, penambahan toggle password, dan restrukturisasi kartu siswa). Namun, karena perombakan dilakukan secara tergesa-gesa dengan pola <em>AI code generation</em>, mereka menciptakan <strong>regresi fatal pada logika multi-tenant dan sesi</strong> (misalnya: akun dummy tidak bisa buat kelas sekolah, switch institusi membuat sesi hang/zombie, dan pratinjau e-book di toko buku menjadi kotak hitam).
+    </div>
+
+    <!-- Matriks Perbandingan Detail -->
+    <h2 class="section-title">
+      Matriks Komparasi Isu: Kritik v1.0 vs Hasil Tindak Lanjut v2.0
+      <span>23 Isu Audit vs Realita Produksi</span>
+    </h2>
+
+    <div class="table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Kode Isu</th>
+            <th style="width: 250px;">Kritik Audit Awal (/bug)</th>
+            <th style="width: 280px;">Tindakan Pengembang di v2.0</th>
+            <th style="width: 130px;">Status Tindak Lanjut</th>
+            <th>Catatan Teknis &amp; Dampak Lapangan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag-id">BUG-001</span></td>
+            <td><strong>Nomor Rekening Bank Strip (—) pada Transfer Manual</strong><br>Form instruksi transfer manual menampilkan strip tanpa nomor rekening BCA/Mandiri.</td>
+            <td>Opsi transfer manual di rute checkout publik ditutup/diganti alur invoice terpusat di dashboard siswa (<em>Pesanan Saya</em>).</td>
+            <td><span class="status-badge status-partial">Reconfigured</span></td>
+            <td>Alur manual tidak lagi membingungkan pembeli dengan tanda strip, tetapi halaman pratinjau buku sebelum beli kini malah mengalami black screen (<code>#BUG-BP2-16</code>).</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-006</span></td>
+            <td><strong>Redirect Loop Sesi Login saat Akses Direct URL</strong><br>Akses langsung ke URL internal memicu loop tanpa henti antara middleware auth.</td>
+            <td>Rute autentikasi dirombak menjadi single portal <code>/auth</code> dengan state Masuk &amp; Daftar dalam 1 form bersih. Callback redirect berfungsi normal.</td>
+            <td><span class="status-badge status-fixed">✓ Diperbaiki Tuntas</span></td>
+            <td>Sesi login awal jauh lebih mulus. Tidak ada lagi redirect loop di browser Chrome/Edge.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-008</span></td>
+            <td><strong>Whiteboard E-Reader Tidak Tersimpan Otomatis</strong><br>Catatan dan coretan tinta hilang seketika saat browser atau tab ditutup.</td>
+            <td>Developer menambahkan tombol <em>"Simpan Catatan"</em> eksplisit di bar floating toolbar reader.</td>
+            <td><span class="status-badge status-regressed">⚠️ Muncul Regresi</span></td>
+            <td>Siswa sekarang <em>bisa</em> menyimpan coretan jika mengeklik tombol simpan. Namun, layer gesture swipe halaman di v2.0 menutupi toolbar sehingga tombol Whiteboard sulit diklik (<code>#BUG-BP2-12</code>).</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-014</span></td>
+            <td><strong>Ketiadaan Toggle "Tampilkan Password"</strong><br>Pengguna tidak dapat memeriksa ketikan kata sandi saat mendaftar atau masuk.</td>
+            <td>Ditambahkan checkbox <code>[x] Tampilkan Password</code> tepat di bawah field kata sandi pada <code>/auth</code>.</td>
+            <td><span class="status-badge status-fixed">✓ Diperbaiki Tuntas</span></td>
+            <td>Berfungsi 100% responsif mengubah input <code>type="password"</code> &harr; <code>type="text"</code> secara instan.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-017</span></td>
+            <td><strong>Banner Penutup Kosong pada Halaman Promosi</strong><br>Section Call to Action (CTA) di landing page kerjasama sekolah kosong melompong.</td>
+            <td>Seluruh landing page publik ditata ulang dengan card CTA interaktif dan tautan registrasi baru.</td>
+            <td><span class="status-badge status-fixed">✓ Diperbaiki Tuntas</span></td>
+            <td>Tampilan publik jauh lebih meyakinkan untuk calon sekolah mitra yang membuka landing page awal.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-005</span></td>
+            <td><strong>Desinkronisasi Badge Buku Saya dengan Koleksi</strong><br>Angka badge jumlah buku tidak sesuai dengan kartu buku yang terpinjam.</td>
+            <td>Section dashboard siswa kini menampilkan counter dinamis (<em>"5 Buku Siap Dibaca"</em>) yang sinkron dengan library e-book.</td>
+            <td><span class="status-badge status-fixed">✓ Diperbaiki Tuntas</span></td>
+            <td>Perpustakaan digital dan tab buku saya sudah sinkron dengan data server.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-018</span></td>
+            <td><strong>Silent Failure pada Form Input Scan QR Soal</strong><br>Memasukkan kode QR salah tidak memunculkan pesan error apapun kepada siswa.</td>
+            <td>Halaman scan QR sekarang memiliki animasi pemindaian kamera langsung dan modal status error yang lebih jelas.</td>
+            <td><span class="status-badge status-partial">Diperbaiki Sebagian</span></td>
+            <td>Feedback visual sudah muncul, tetapi pada browser desktop tanpa kamera web sering memicu alert izin browser yang mengunci navigasi.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">Multi-Tenant / Subdomain</span></td>
+            <td><strong>Isolasi Data Sekolah &amp; Pembagian Hak Akses</strong><br>Kebutuhan pemisahan rombel sekolah agar data nilai dan presensi tidak bercampur.</td>
+            <td>Developer menambahkan <em>Tenant Switcher Dialog</em> di header untuk berpindah antara BelajarPlus Siswa, Akun Dummy, dan Sekolah Resmi.</td>
+            <td><span class="status-badge status-regressed">⚠️ Regresi Fatal (P1)</span></td>
+            <td>Implementasi tenant switcher memicu race condition: status hang di <em>"Memuat institusi..."</em> dan form login muncul di dalam dashboard yang sedang login (<code>#BUG-BP2-14</code>). Akun dummy juga dikunci tanpa LMS (<code>#BUG-BP2-10</code>).</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-004</span></td>
+            <td><strong>Anti-Cheat Ujian Toleransi Kosong</strong><br>Pelanggaran pindah tab di ujian tidak memicu penalti penguncian ujian otomatis.</td>
+            <td>Belum ada pembaruan webhook anti-cheat di sisi server; modal peringatan hanya berupa dialog frontend.</td>
+            <td><span class="status-badge status-unresolved">Belum Disentuh</span></td>
+            <td>Masih menggunakan listener <code>visibilitychange</code> klien yang dapat dilewati siswa dengan membuka split window.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">BUG-020</span></td>
+            <td><strong>Pengacakan Soal di Sisi Klien (Client PRNG)</strong><br>Kunci jawaban dan urutan soal dikocok di browser siswa sehingga rentan diintip.</td>
+            <td>Soal evaluasi tetap dikirim dalam payload JSON teragregasi sebelum ujian dimulai.</td>
+            <td><span class="status-badge status-unresolved">Belum Disentuh</span></td>
+            <td>Siswa yang paham Inspect Element (DevTools) masih dapat melihat daftar kunci jawaban dari network tab.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Analisis Kebiasaan Coding Tim Developer -->
+    <h2 class="section-title">
+      Pola Rekayasa Pengembang BelajarPlus: Karakteristik &amp; Rekomendasi Mitigasi
+      <span>Refleksi untuk Tim Trainer di Lapangan</span>
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--blue-accent);">1. Refactoring Kosmetik Lebih Cepat daripada Refactoring Logika</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">
+          Saat menerima kritik bahwa antarmuka terlihat jadul atau kaku, developer dengan sigap merombak seluruh UI menjadi modern dan sedap dipandang (rounded borders, Tailwind modern, iconography baru). Namun, logika <em>state management</em> (seperti Redux/Zustand atau Context session) tidak ikut dirombak sehingga sinkronisasi antar-role menjadi rapuh.
+        </p>
+      </div>
+
+      <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--yellow-accent);">2. Asumsi "Happy Path" pada Akun Dummy Pelatihan</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">
+          Developer tampaknya berasumsi bahwa trainer akan selalu menggunakan akun sekolah produksi resmi yang sudah memiliki paket LMS aktif. Akibatnya, institusi pelatihan (<em>SMAN Dummy Latihan</em>) dibiarkan tanpa fitur "Kelas Sekolah" dan tanpa lisensi AI, sehingga menyulitkan simulasi offline.
+        </p>
+      </div>
+
+      <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--green-accent);">3. Responsif terhadap Feedback Form &amp; Input Dasar</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">
+          Kritik sederhana seperti penambahan toggle show password, perbaikan typography form, dan penghapusan nomor rekening strip manual direspons dengan sangat baik. Ini membuktikan bahwa tim pengembang <strong>membaca dan menindaklanjuti</strong> masukan konkret yang memiliki solusi teknis terdefinisi.
+        </p>
+      </div>
+    </div>
+
+    <!-- Navigasi Footer -->
+    <div style="padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--text-subtle);">
+      <div>Laporan Evaluasi Perbandingan BelajarPlus.id &copy; 2026. Disiapkan untuk Tim Trainer Solo &amp; Batang.</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/bug" style="color: var(--blue-accent); text-decoration: none; font-weight: 600;">Lihat Arsip /bug (v1.0)</a>
+        <a href="/bug2" style="color: var(--blue-accent); text-decoration: none; font-weight: 600;">Lihat Laporan /bug2 (v2.0)</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark-mode');
+      localStorage.setItem('bp_changelog_theme', isDark ? 'dark' : 'light');
+      const btnText = document.getElementById('themeBtnText');
+      if (btnText) btnText.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+    }
+
+    (function() {
+      const saved = localStorage.getItem('bp_changelog_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        const btnText = document.getElementById('themeBtnText');
+        if (btnText) btnText.textContent = 'Mode Terang';
+      }
+    })();
+  </script>
+</body>
+</html>

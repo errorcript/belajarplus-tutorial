@@ -667,7 +667,11 @@
   <div class="doc-page">
     <!-- Top Navigation -->
     <nav class="top-nav">
-      <a href="/" class="nav-back">&larr; Kembali ke Panduan Utama</a>
+      <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+        <a href="/" class="nav-back">&larr; Kembali ke Panduan Utama</a>
+        <a href="/bug2" class="btn-action" style="font-size: 0.8rem; padding: 0.4rem 0.75rem;">🔍 Laporan Audit v2.0</a>
+        <a href="/changelog" class="btn-action" style="font-size: 0.8rem; padding: 0.4rem 0.75rem; background: var(--blue-subtle); color: var(--blue-accent); border-color: var(--blue-accent);">⚖️ Evaluasi Developer (v1 vs v2)</a>
+      </div>
       <div class="nav-actions">
         <button class="btn-action" id="themeToggleBtn" onclick="toggleDocTheme()">
           <span id="themeBtnText">Mode Gelap</span>
