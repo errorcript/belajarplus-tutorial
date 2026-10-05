@@ -7,7 +7,7 @@
 
 ## ⚡ 1. Golden Rules (Pantangan Mutlak Saat Demo)
 
-Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime live BelajarPlus v2.0, berikut adalah 5 hal yang **HARUS DIHINDARI** di hadapan audiens:
+Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime live BelajarPlus v2.0, berikut adalah 7 hal yang **HARUS DIHINDARI** di hadapan audiens:
 
 1. **JANGAN KLIK CARD "ABSENSI" DENGAN AKUN GURU / AKUN UMUM!**
    * *Akar Masalah:* Kode frontend `absensi-D-oQ2FGB.js` membuktikan bahwa modul absensi terkunci ketat oleh validasi multi-tenant:
@@ -36,6 +36,17 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
 
 5. **JANGAN RELOAD (F5) SAAT DI RUTE ADMIN:**
    * *Akar Masalah (#BUG-BP2-11):* Direct access / hard refresh di `/admin/*` sering me-reset tenant ke *"Belum dipilih"* dan melempar layar putih *"Akses ditolak"*.
+
+6. **JANGAN KLIK CARD "AKSI CEPAT" ABSENSI, TAMPILAN, & PENUGASAN DI BERANDA:**
+   * *Akar Masalah (#BUG-BP2-22):* 3 dari 6 card aksi cepat di `/admin` adalah elemen mati (*dead buttons*) tanpa handler klik.
+   * *Solusi:* Selalu gunakan menu resmi di sidebar kiri.
+
+7. **JANGAN BUKA FORM PENUGASAN BUKU (`/admin/assignments`) DI DEPAN AUDIENS RESMI:**
+   * *Akar Masalah (#BUG-BP2-20):* Form penugasan buku membocorkan rombel kelas guru lain.
+   * *Solusi:* Cukup tunjukkan penugasan yang sudah ada di tab "Tugas" di dalam ruang kelas aktif.
+
+> **💡 ZONA AMAN DEMO INTERAKTIF TERBARU (SEKOLAH DUMMY TRAINER 3):**  
+> Modul **Pengumuman** (terbit notifikasi hijau seketika + badge angka di sidebar) dan **Komunitas** (feed interaktif + reaksi emoji) telah teruji 100% aman dan stabil secara live di tenant `SEKOLAH DUMMY TRAINER 3`! Trainer bisa memanfaatkan 2 modul ini untuk simulasi input data langsung di depan audiens.
 
 ---
 

@@ -430,7 +430,7 @@
       <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
         <a href="/" class="btn-action">← Beranda Utama</a>
         <a href="/bug" class="btn-action">📂 Audit v1.0</a>
-        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (18 Isu)</a>
+        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (23 Temuan)</a>
         <a href="/changelog" class="btn-action">⚖️ Evaluasi Respon</a>
         <a href="/sosialisasi-kepsek.html" class="btn-action">📽️ Slide Presentasi</a>
       </div>
@@ -460,9 +460,22 @@
       </div>
     </header>
 
-    <!-- SECTION 1: 5 GOLDEN RULES -->
+    <!-- SAFE DEMO NOTICE BOX -->
+    <div style="background: var(--green-subtle); border: 1px solid var(--green-accent); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; gap: 1rem; align-items: flex-start;">
+      <div style="font-size: 1.6rem; line-height: 1;">✅</div>
+      <div>
+        <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--green-accent); margin-bottom: 0.35rem;">
+          ZONA AMAN DEMO INTERAKTIF: Modul Pengumuman &amp; Komunitas Teruji Live 100%!
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text); line-height: 1.55;">
+          Uji coba input data live di institusi <strong>SEKOLAH DUMMY TRAINER 3</strong> telah membuktikan bahwa modul <strong>Pengumuman</strong> (terbit notifikasi hijau seketika &amp; muncul badge counter di sidebar) serta <strong>Komunitas</strong> (feed interaktif dengan tombol reaksi 👍 ❤️ 💐 👏) berjalan sangat mulus dan stabil. Trainer disarankan mendemonstrasikan kedua modul ini saat ingin mengajak audiens berinteraksi secara real-time.
+        </p>
+      </div>
+    </div>
+
+    <!-- SECTION 1: 7 GOLDEN RULES -->
     <h2 class="section-title">
-      1. ⚡ 5 Golden Rules (Pantangan Mutlak di Depan Audiens)
+      1. ⚡ 7 Golden Rules (Pantangan Mutlak di Depan Audiens)
       <span>Hindari Jebakan Bug Runtime</span>
     </h2>
 
@@ -533,6 +546,34 @@
       <div class="rule-fix-box">
         <div>💡</div>
         <div><strong>Instruksi Lapangan:</strong> Jika ingin kembali ke menu sebelumnya, klik tautan navigasi breadcrumb atau tombol Back resmi di antarmuka web, jangan gunakan refresh browser.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 6. JANGAN KLIK CARD "AKSI CEPAT" ABSENSI, TAMPILAN, &amp; PENUGASAN DI BERANDA!</div>
+        <div class="rule-tag">#BUG-BP2-22 (P1 High)</div>
+      </div>
+      <div class="rule-detail">
+        Pada beranda institusi (<code>/admin</code>), 3 dari 6 card aksi cepat (<em>Absensi, Tampilan Sekolah, Penugasan</em>) adalah <strong>Dead Elements</strong> tanpa click listener dan URL tidak berubah saat diklik. Hanya card <em>Pesanan, Langganan, dan Kelola Kelas</em> yang aktif.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Jangan gunakan card aksi cepat di beranda untuk demo modul tersebut. Gunakan sidebar menu utama di sisi kiri untuk membuka halaman yang dituju.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 7. JANGAN BUKA FORM PENUGASAN BUKU DI DEPAN AUDIENS RESMI!</div>
+        <div class="rule-tag">#BUG-BP2-20 (P1 Security)</div>
+      </div>
+      <div class="rule-detail">
+        Form Penugasan Buku (<code>/admin/assignments</code>) memiliki cacat multi-tenant yang membocorkan daftar kelas milik guru lain (misal: kelas Miss Cindy muncul di akun Mas Henri). Jika dibuka di depan audiens, mereka akan mempertanyakan privasi dan pemisahan data kelas sekolah mereka.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Untuk demo penugasan, cukup tunjukkan penugasan yang sudah ada di tab "Tugas" di dalam ruang kelas aktif, jangan buka modal form penugasan baru.</div>
       </div>
     </div>
 

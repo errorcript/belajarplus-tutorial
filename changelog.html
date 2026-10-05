@@ -270,7 +270,7 @@
       <div style="display: flex; gap: 0.5rem; align-items: center;">
         <a href="/" class="btn-action">← Beranda Panduan</a>
         <a href="/bug" class="btn-action">📂 Audit v1.0 (23 Isu)</a>
-        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (18 Temuan)</a>
+        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (23 Temuan)</a>
         <a href="/demo" class="btn-action" style="background: var(--blue-subtle); color: var(--blue-accent); border-color: var(--blue-accent);">🛡️ Panduan Demo (/demo)</a>
       </div>
       <div style="display: flex; gap: 0.5rem; align-items: center;">
@@ -419,6 +419,38 @@
             <td>Dibuatkan tombol pintas <em>"Absensi"</em> di Aksi Cepat dashboard yang mengarah ke <code>/absensi</code>.</td>
             <td><span class="status-badge status-regressed">⚠️ P0 Blocker (Kritis)</span></td>
             <td>Halaman <code>/absensi</code> terjebak pada infinite loading spinner biru tanpa pernah memuat kamera selfie/wajah (<code>#BUG-BP2-18</code>). Modul ini rusak total di produksi dan <strong>HARUS DIHINDARI</strong> saat demo live!</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">CBT Evaluation</span></td>
+            <td><strong>Rumus Penilaian Evaluasi Ujian Otomatis</strong><br>Fitur koreksi otomatis CBT yang menghitung skor akhir dan persentase ketuntasan siswa.</td>
+            <td>Developer menambahkan dashboard hasil ujian dengan visualisasi persentase dan daftar nomor benar/salah.</td>
+            <td><span class="status-badge status-regressed">⚠️ P0 Cacat Logika</span></td>
+            <td>Rumus penilaian menghasilkan angka tidak masuk akal: 0 benar dari 30 soal dinilai <strong>1.11%</strong>, 9 benar dari 10 soal dinilai <strong>93.33%</strong>, dan pecahan desimal liar 0.33 per soal (<code>#BUG-BP2-19</code>). Menghancurkan kredibilitas di hadapan dewan guru.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">Multi-Tenant / Security</span></td>
+            <td><strong>Isolasi Hak Akses Guru &amp; Rombel Kelas</strong><br>Kebutuhan agar guru hanya dapat menugaskan buku materi ke kelas yang diampunya sendiri.</td>
+            <td>Disediakan menu Penugasan Buku (<code>/admin/assignments</code>) dengan form pemilihan kelas target.</td>
+            <td><span class="status-badge status-regressed">⚠️ P1 Kebocoran Data</span></td>
+            <td>Form penugasan membocorkan daftar kelas milik guru lain (misal: rombel milik Miss Cindy tampil di akun Henri). Guru dapat sembarangan menugaskan materi ke rombel kelas lain tanpa validasi otorisasi server (<code>#BUG-BP2-20</code>).</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">UI / Navigation</span></td>
+            <td><strong>Card Aksi Cepat pada Beranda Institusi</strong><br>Jalan pintas ke modul Absensi, Tampilan Sekolah, Penugasan, Pesanan, Langganan, dan Kelas.</td>
+            <td>Desain baru menyediakan 6 card beranda dengan ikon berwarna dan tombol arah panah modern.</td>
+            <td><span class="status-badge status-regressed">⚠️ P1 Dead Elements</span></td>
+            <td>3 dari 6 card (<em>Absensi, Tampilan Sekolah, Penugasan</em>) adalah <em>ghost elements</em> tanpa handler klik, URL tetap di <code>/admin</code> (<code>#BUG-BP2-22</code>). Hanya Pesanan, Langganan, dan Kelola Kelas yang merespons.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">Data Flow / Async</span></td>
+            <td><strong>Modal Penambahan Rombel / Kelas Baru</strong><br>Fitur pembuatan rombel baru oleh admin sekolah untuk memulai semester ajaran baru.</td>
+            <td>Dibuatkan modal pop-up interaktif untuk input nama kelas, tingkat (10/11/12), dan tahun ajaran.</td>
+            <td><span class="status-badge status-regressed">⚠️ P1 Infinite Loading</span></td>
+            <td>Jika institusi belum memiliki master data Tahun Ajaran, dropdown terjebak permanen pada status <em>"Tahun Ajaran: Memuat..."</em> tanpa fallback error handling, mengunci total tombol simpan kelas (<code>#BUG-BP2-23</code>).</td>
           </tr>
         </tbody>
       </table>
