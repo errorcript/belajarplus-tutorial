@@ -531,7 +531,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">13 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">17 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -539,7 +539,7 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">13</div>
+        <div class="metric-num" style="color: #64748b;">17</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
@@ -547,11 +547,11 @@
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #f97316;">4</div>
+        <div class="metric-num" style="color: #f97316;">6</div>
         <div class="metric-label">P1 (High Functional)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #eab308;">8</div>
+        <div class="metric-num" style="color: #eab308;">10</div>
         <div class="metric-label">P2 (Medium / UX Risk)</div>
       </div>
       <div class="metric-card">
@@ -566,15 +566,15 @@
         <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'dummy', 'subdomain', 'whiteboard', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (13)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (4)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (8)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (17)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (6)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (10)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
       </div>
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 13 temuan audit teknis
+      Menampilkan 17 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -1193,6 +1193,197 @@ export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
         <div class="visual-attachment" onclick="viewImage('assets/hunt_curriculum_role_blocked.png')">
           <img src="assets/hunt_admin_classes_no_create_btn.png" alt="Bukti Bug Menu Kurikulum Ditolak" />
           <div class="visual-caption">📸 Bukti Visual: Tautan Kurikulum yang terpampang di sidebar namun memicu layar penolakan izin saat dibuka oleh guru</div>
+        </div>
+      </article>
+
+      <!-- BUG 14 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-14">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-14" class="bug-id-tag" onclick="copyAnchor('bug-bp2-14', event)">#BUG-BP2-14</a>
+            <h2 class="bug-entry-title">State Desynchronization &amp; Zombie Session saat Switch Institusi (Render Form Login di Dalam Dashboard Aktif)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Auth Context / Multi-Tenant State</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Switcher Institusi / Multi-Tenant Context (<code>/dashboard</code>)</div>
+          <div><strong>Aksi Pemicu:</strong> Pergantian tenant dari Siswa ke Guru (SMA 1 Sragen)</div>
+          <div><strong>Lingkungan:</strong> Production Web &amp; PWA</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika user mencoba berpindah institusi via modal switcher (misalnya beralih dari peran Siswa BelajarPlus ke Guru SMA NEGERI 1 SRAGEN), terjadi <em>race condition</em> pada auth listener context. Status di header terjebak pada animasi <code>"Memuat institusi..."</code>, seluruh menu sidebar kiri lumpuh total menjadi deretan skeleton abu-abu mati, dan body tengah aplikasi me-render ulang formulir login (<em>"Masuk ke Belajar Plus - Gunakan email dan kata sandi Anda"</em>) di dalam layout pengguna yang identitas profilnya masih aktif terotentikasi di pojok kanan atas.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Sangat berisiko saat demonstrasi di hadapan pimpinan sekolah dan guru. Trainer atau guru yang ingin mendemonstrasikan perpindahan kelas antar-sekolah akan mengalami aplikasi macet (freeze). Guru akan kebingungan apakah akun mereka ter-logout atau mengalami kerusakan otorisasi.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Login ke <code>https://belajarplus.id/auth</code> dengan akun multi-peran (misal Guru/Siswa).</li>
+            <li>Masuk ke peran Siswa BelajarPlus terlebih dahulu.</li>
+            <li>Klik dropdown institusi di header atas, lalu pilih institusi sekolah resmi (<code>SMA NEGERI 1 SRAGEN</code>).</li>
+            <li>Amati layar: Status header menampilkan "Memuat institusi...", sidebar berubah menjadi placeholder abu-abu kosong, dan form login muncul di tengah dashboard.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Sinkronisasikan pembaruan tenant token sebelum memicu re-render view, serta cegah auth guard melempar state fallback unauthenticated saat perpindahan tenant sedang berlangsung:</p>
+          <div class="code-box code-solution">// In TenantContext / AuthProvider:
+async function switchTenant(newTenantId: string) {
+  setTenantLoading(true);
+  try {
+    const updatedSession = await api.auth.switchTenant({ tenantId: newTenantId });
+    // Update token & session state secara atomik sebelum trigger router
+    await updateStoredToken(updatedSession.token);
+    setCurrentTenant(updatedSession.tenant);
+    // Reload rute dengan konteks tenant baru tanpa reset auth global
+    window.location.href = updatedSession.redirectUrl || '/dashboard';
+  } catch (err) {
+    toast.error("Gagal berpindah institusi");
+  } finally {
+    setTenantLoading(false);
+  }
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_sragen_dashboard_selected.png')">
+          <img src="assets/hunt_sragen_dashboard_selected.png" alt="Bukti Bug Zombie Session Switch Institusi" />
+          <div class="visual-caption">📸 Bukti Visual: Layar zombie state saat switch tenant — header menunjukkan "Memuat institusi...", sidebar lumpuh, dan form login muncul di dashboard</div>
+        </div>
+      </article>
+
+      <!-- BUG 15 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-15">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-15" class="bug-id-tag" onclick="copyAnchor('bug-bp2-15', event)">#BUG-BP2-15</a>
+            <h2 class="bug-entry-title">Direct Routing Guard Failure pada `/admin/classes` Melempar Layar Putih "Akses Ditolak" Tanpa Auto-Tenant Resolution</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">RBAC / Navigation &amp; Routing</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Admin Classes Access Control (<code>/admin/classes</code>)</div>
+          <div><strong>Peran Pengguna:</strong> Guru Terdaftar di Sekolah Resmi</div>
+          <div><strong>Lingkungan:</strong> Web &amp; PWA</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Jika pengguna yang terdaftar sebagai Guru di sekolah resmi membuka URL <code>https://belajarplus.id/admin/classes</code> (melalui bookmark, direct link, atau back navigation) saat active context-nya sedang berada di tenant Siswa BelajarPlus, rute tersebut langsung diblokir secara brutal dengan halaman putih bertuliskan: <code>"Akses ditolak — Anda tidak memiliki hak untuk membuka Dashboard Admin. Ke Beranda"</code>.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Guru dan admin mengira hak akses atau akun mereka telah dicabut. Sistem tidak memiliki kecerdasan rute untuk mendeteksi bahwa pengguna memiliki peran admin/guru di institusi lain dan tidak menawarkan tombol <em>"Beralih ke SMA Negeri 1 Sragen untuk mengakses kelas ini"</em>.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Implementasikan smart routing guard yang memeriksa seluruh daftar institusi milik user sebelum memblokir akses:</p>
+          <div class="code-box code-solution">// In Route Guard Middleware:
+if (!hasAdminRoleInCurrentTenant(user, currentTenant)) {
+  const eligibleTenant = user.memberships.find(m => ['TEACHER', 'ADMIN'].includes(m.role));
+  if (eligibleTenant) {
+    // Auto redirect atau tampilkan dialog konfirmasi ganti institusi
+    return &lt;SwitchTenantPrompt targetTenant={eligibleTenant} requestedUrl={currentUrl} /&gt;;
+  }
+  return &lt;AccessDeniedScreen /&gt;;
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_admin_sragen_classes.png')">
+          <img src="assets/hunt_admin_sragen_classes.png" alt="Bukti Bug Akses Ditolak Admin Classes" />
+          <div class="visual-caption">📸 Bukti Visual: Layar putih "Akses ditolak" pada /admin/classes karena sistem gagal mendeteksi role guru di sekolah terdaftar</div>
+        </div>
+      </article>
+
+      <!-- BUG 16 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-16">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-16" class="bug-id-tag" onclick="copyAnchor('bug-bp2-16', event)">#BUG-BP2-16</a>
+            <h2 class="bug-entry-title">Infinite Loading &amp; Black Screen Preview Buku Digital pada Detail Toko E-Commerce (`/shop/[id]`)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">E-Commerce / Reader Preview</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Detail Produk Toko Buku (<code>/shop/[id]</code>)</div>
+          <div><strong>Komponen:</strong> Reader Pratinjau Sampel Sampul / Isi Buku</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; PWA</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Pada saat calon pembeli membuka halaman detail buku berbayar di Toko Buku (contoh: <em>Al-Qur'an Hadist 7 - SK-081-2025</em> seharga Rp 50.000), frame pratinjau e-book di panel sebelah kiri hanya menampilkan kotak hitam mati dengan teks berkedip <code>"Membuka buku..."</code> dan indikator halaman <code>1/?</code>. Halaman sampel dokumen digital tidak pernah ter-render.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Menurunkan konversi transaksi belanja buku dan menimbulkan persepsi bahwa berkas digital buku tersebut korup atau rusak. Pembeli ragu menyelesaikan transaksi karena tidak dapat memverifikasi isi buku.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Pisahkan endpoint sampel pratinjau publik (watermarked sample pages) dengan dokumen berbayar berlisensi penuh, serta sediakan fallback cover thumbnail statis jika pratinjau canvas PDF mengalami kendala:</p>
+          <div class="code-box code-solution">// In BookDetailPreview Component:
+{samplePagesUrl ? (
+  &lt;PdfSampleViewer url={samplePagesUrl} maxPages={5} onError={() => setShowCoverFallback(true)} /&gt;
+) : (
+  &lt;BookCoverImage src={book.coverImage} alt={book.title} /&gt;
+)}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_shop_book_detail.png')">
+          <img src="assets/hunt_shop_book_detail.png" alt="Bukti Bug Kotak Hitam Toko Buku" />
+          <div class="visual-caption">📸 Bukti Visual: Kotak hitam "Membuka buku... 1/?" pada panel detail toko buku yang tidak pernah selesai dimuat</div>
+        </div>
+      </article>
+
+      <!-- BUG 17 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-17">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-17" class="bug-id-tag" onclick="copyAnchor('bug-bp2-17', event)">#BUG-BP2-17</a>
+            <h2 class="bug-entry-title">Persistent Floating Toast Banner Menghalangi Header pada Validasi Gabung Kelas Siswa</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium</span>
+            <span class="badge badge-cat">UX / Notification System</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Form Gabung Kelas Siswa (<code>/dashboard</code>)</div>
+          <div><strong>Aksi Pemicu:</strong> Input kode kelas yang diajar sendiri (<code>BLJ-ULE3GA</code>)</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; PWA</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika pengguna memasukkan kode kelas pada form <em>"Kelas saya"</em> dan sistem mendeteksi bahwa pengguna adalah pemilik/pengajar kelas tersebut, sistem memunculkan banner notifikasi merah di bagian atas layar: <code>"Anda adalah pengajar kelas ini"</code>. Namun, banner ini tidak dilengkapi dengan tombol silang (dismiss button) dan tidak memiliki timer auto-hide, sehingga tetap melayang secara persisten menutupi area ucapan selamat datang dan ringkasan dashboard.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
+          <p>Elemen antarmuka di belakang banner menjadi terhalang. Jika pengguna mencoba memasukkan kode lain atau mengeklik tab lain, banner peringatan lama tetap menempel di layar dan menimbulkan kesan aplikasi tidak merespons.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Terapkan auto-dismiss timeout (misal 4000ms) dan sediakan tombol dismiss eksplisit pada komponen Alert:</p>
+          <div class="code-box code-solution">// In Notification / Alert Component:
+useEffect(() => {
+  const timer = setTimeout(() => {
+    onClose();
+  }, 4000);
+  return () => clearTimeout(timer);
+}, [message]);</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_join_school_result.png')">
+          <img src="assets/hunt_join_school_result.png" alt="Bukti Bug Floating Toast Menggantung" />
+          <div class="visual-caption">📸 Bukti Visual: Banner merah "Anda adalah pengajar kelas ini" yang menggantung tanpa tombol dismiss di header dashboard</div>
         </div>
       </article>
 
