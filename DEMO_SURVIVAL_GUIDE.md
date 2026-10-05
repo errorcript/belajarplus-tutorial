@@ -78,6 +78,26 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
 
 ---
 
+### Kasus D: Keamanan Buku Digital dari Pembajakan / Screenshot Siswa
+> **Kepala Sekolah:** *"Buku digital dan materi sekolah di aplikasi ini kan gampang di-screenshot atau dicopas sama siswa terus disebar di grup WhatsApp. Gimana proteksinya?"*
+> 
+> **Jawaban Mas Henri (Taktik: DRM Live Forensic Audit Log):**  
+> *"Pertanyaan yang sangat krusial, Bapak/Ibu Kepala Sekolah. BelajarPlus menerapkan proteksi Digital Rights Management (DRM) tingkat perbankan langsung di canvas e-reader kami. Sistem kami secara otomatis mendeteksi dan memblokir upaya pintasan screenshot, perekaman layar, maupun seleksi teks.*  
+>  
+> *Bahkan lebih dari itu, sistem kami memiliki modul forensik **'Aktivitas Mencurigakan'** di dashboard pengelola sekolah (`/admin/library/security`). Setiap percobaan screenshot atau penggandaan akan tercatat seketika: siapa nama penggunanya, buku apa yang dibuka, halaman ke berapa, hingga detik kejadiannya. Dengan transparansi audit ini, kekayaan intelektual sekolah dan buku penerbit dijamin 100% aman dan akuntabel."*
+
+---
+
+### Kasus E: Mekanisme & Kuota Kredit AI Penilaian Esai
+> **Guru Kurikulum / IT:** *"Fitur AI yang bisa nilai jawaban esai itu kuotanya gimana Mas? Apakah sekolah harus bayar mahal tiap kali siswa submit tugas esai?"*
+> 
+> **Jawaban Mas Henri (Taktik: Transparent Unit Cost & Inclusivity):**  
+> *"Perhitungan efisiensi kami sangat transparan dan hemat anggaran sekolah, Bapak/Ibu. Untuk seluruh jenis soal pilihan ganda, benar/salah, dan menjodohkan, sistem melakukan penilaian otomatis 100% tanpa memakai kuota kredit sama sekali.*  
+>  
+> *Kredit AI hanya dipakai secara proporsional untuk koreksi mendalam jawaban esai analitis (rumusnya: **1 kredit = 1 jawaban isian yang berhasil dianalisis AI** lengkap dengan rubrik umpan balik ke siswa). Sekolah mitra yang mengaktifkan paket LMS sekolah akan langsung kami berikan kuota kredit institusional yang mencukupi seluruh rombel selama semester berjalan."*
+
+---
+
 ## 📋 3. Urutan Alur Demo "Happy Path" (Anti-Gagal)
 
 Ikuti urutan langkah ini untuk alur demonstrasi yang mulus dan memukau:
