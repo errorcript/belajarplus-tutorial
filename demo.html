@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panduan Lapangan & Naskah Survival Demo — BelajarPlus.id</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --border: #e2e8f0;
+      --border-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #94a3b8;
+      
+      --blue-accent: #0284c7;
+      --blue-subtle: #e0f2fe;
+      --green-accent: #16a34a;
+      --green-subtle: #dcfce7;
+      --yellow-accent: #ca8a04;
+      --yellow-subtle: #fef9c3;
+      --red-accent: #dc2626;
+      --red-subtle: #fee2e2;
+      --purple-accent: #7c3aed;
+      --purple-subtle: #f3e8ff;
+
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html.dark-mode {
+      --bg: #090d16;
+      --paper: #0f172a;
+      --border: #1e293b;
+      --border-subtle: #141e33;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --blue-subtle: #082f49;
+      --green-subtle: #052e16;
+      --yellow-subtle: #422006;
+      --red-subtle: #450a0a;
+      --purple-subtle: #3b0764;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .doc-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-action:hover {
+      border-color: var(--text-subtle);
+      background: var(--border-subtle);
+    }
+
+    .doc-header {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, #0284c7, #38bdf8);
+    }
+    .doc-org-info {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+    .doc-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 850px;
+    }
+
+    .meta-pills-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .meta-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      background: var(--border-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .meta-pill strong { color: var(--text); }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 2.5rem 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title span {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* Danger Rule Cards */
+    .rule-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--red-accent);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .rule-card:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+    .rule-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .rule-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--red-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .rule-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: var(--red-subtle);
+      color: var(--red-accent);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .rule-detail {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .rule-fix-box {
+      background: var(--green-subtle);
+      border: 1px solid rgba(22, 163, 74, 0.3);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: var(--green-accent);
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    .rule-fix-box strong { color: #15803d; }
+
+    /* Speech Simulator Cards */
+    .speech-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--blue-accent);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .speech-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .speech-scenario {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .speech-q {
+      background: var(--border-subtle);
+      border-left: 3px solid var(--text-subtle);
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--text-muted);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .speech-a-box {
+      background: var(--blue-subtle);
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      border-radius: 6px;
+      padding: 1.25rem;
+      position: relative;
+    }
+    .speech-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      border: 1px solid rgba(2, 132, 199, 0.4);
+      background: var(--paper);
+      color: var(--blue-accent);
+      cursor: pointer;
+      margin-top: 0.75rem;
+      transition: all 0.15s ease;
+    }
+    .btn-copy:hover {
+      background: var(--blue-accent);
+      color: #ffffff;
+    }
+
+    /* Workflow Timeline */
+    .workflow-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .timeline-step {
+      display: flex;
+      gap: 1.25rem;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .timeline-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--blue-subtle);
+      color: var(--blue-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .timeline-content { flex: 1; }
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .timeline-time {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      background: var(--blue-subtle);
+      padding: 0.2rem 0.55rem;
+      border-radius: 12px;
+      font-family: var(--font-mono);
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .timeline-bullet {
+      margin-top: 0.5rem;
+      list-style-type: none;
+    }
+    .timeline-bullet li {
+      font-size: 0.82rem;
+      color: var(--text);
+      padding: 0.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .timeline-bullet li::before {
+      content: '✔';
+      color: var(--green-accent);
+      font-weight: bold;
+    }
+
+    /* Roles Grid */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .role-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .role-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .role-person {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-mono);
+    }
+    .role-tasks {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Toast */
+    .toast-box {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--text);
+      color: var(--bg);
+      padding: 0.6rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      z-index: 1001;
+    }
+    .toast-box.show { opacity: 1; transform: translateY(0); }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .top-toolbar { display: none !important; }
+      .doc-container { padding: 0 !important; max-width: 100% !important; }
+      .btn-copy { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+
+    <!-- Top Action Toolbar -->
+    <div class="top-toolbar">
+      <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+        <a href="/" class="btn-action">← Beranda Utama</a>
+        <a href="/bug" class="btn-action">📂 Audit v1.0</a>
+        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (18 Isu)</a>
+        <a href="/changelog" class="btn-action">⚖️ Evaluasi Respon</a>
+        <a href="/sosialisasi-kepsek.html" class="btn-action">📽️ Slide Presentasi</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <button class="btn-action" onclick="toggleTheme()">
+          🌓 <span id="themeBtnText">Mode Gelap</span>
+        </button>
+        <button class="btn-action" onclick="window.print()">
+          🖨️ Cetak Panduan PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="doc-org-info">Buku Saku Lapangan &bull; Solo Bistro &amp; Batang</div>
+      <h1 class="doc-title">Panduan Lapangan &amp; Naskah Survival Demo BelajarPlus v2.0</h1>
+      <p class="doc-subtitle">
+        Pedoman taktis anti-gagal bagi Tim Trainer (Cindy, Arum, Mevi, Henri) menghadapi sosialisasi di hadapan Kepala Sekolah, Wakil Kepala Sekolah, dan Tim Teknis IT Sekolah se-Jawa Tengah.
+      </p>
+
+      <div class="meta-pills-bar">
+        <div class="meta-pill"><strong>Trainer Lead:</strong> Mas Henri</div>
+        <div class="meta-pill"><strong>Tim Lapangan:</strong> Cindy, Arum, Mevi</div>
+        <div class="meta-pill"><strong>Lokasi Uji:</strong> Solo Bistro &amp; Batang</div>
+        <div class="meta-pill"><strong>Tenant Wajib:</strong> SMA NEGERI 1 SRAGEN</div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: 5 GOLDEN RULES -->
+    <h2 class="section-title">
+      1. ⚡ 5 Golden Rules (Pantangan Mutlak di Depan Audiens)
+      <span>Hindari Jebakan Bug Runtime</span>
+    </h2>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 1. JANGAN KLIK TOMBOL "ABSENSI" DI DASHBOARD!</div>
+        <div class="rule-tag">#BUG-BP2-18 (P0 Blocker)</div>
+      </div>
+      <div class="rule-detail">
+        Kode internal <code>absensi-D-oQ2FGB.js</code> membuktikan rute <code>/absensi</code> hanya bekerja jika dibuka dari subdomain sekolah resmi dengan akun murid terdaftar yang sesi jadwalnya telah dibuka admin. Membukanya dengan akun umum/guru memicu <strong>infinite loading spinner biru selamanya</strong> tanpa membuka feed kamera.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Cukup jelaskan konsep Presensi Wajah secara lisan atau tunjukkan Slide PPTX No. 6. Gunakan Naskah Jawara di bawah jika kepsek meminta demo langsung!</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 2. JANGAN PERNAH GANTI INSTITUSI DI SATU BROWSER SAAT PRESENTASI!</div>
+        <div class="rule-tag">#BUG-BP2-14 (P1 High)</div>
+      </div>
+      <div class="rule-detail">
+        Menekan dropdown tenant dari Siswa ke Guru Sragen memicu <em>Zombie Session</em>: status header hang di *"Memuat institusi..."*, seluruh sidebar lumpuh menjadi kotak abu-abu, dan form login muncul di tengah dashboard yang sedang aktif.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Buka <strong>2 browser terpisah sejak awal</strong> (Window 1: Chrome untuk Guru Sragen, Window 2: Edge untuk Siswa). Berpindahlah hanya dengan shortcut <code>Alt + Tab</code>!</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 3. JANGAN BUKA BUKU DARI TOKO BUKU (/shop) UNTUK DI-PREVIEW!</div>
+        <div class="rule-tag">#BUG-BP2-16 (P2 Medium)</div>
+      </div>
+      <div class="rule-detail">
+        Membuka detail buku berbayar di Toko Buku memicu loop render canvas hitam bertuliskan <em>"Membuka buku... 1/?"</em> yang tidak pernah selesai dimuat.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Selalu buka buku materi dari menu resmi <strong>"Buku Saya"</strong> (<code>/my-books</code>) atau tab materi di ruang kelas.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 4. HINDARI MENGGUNAKAN INSTITUSI DUMMY ("SMAN Dummy Latihan")!</div>
+        <div class="rule-tag">#BUG-BP2-10 (P1 High)</div>
+      </div>
+      <div class="rule-detail">
+        Institusi dummy diset *"Tanpa LMS"* oleh sistem pusat, menyebabkan tombol dan tab <code>[Kelas Sekolah]</code> hilang total dan hanya menyisakan kelas umum non-sekolah.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Selalu gunakan institusi sekolah terkonfigurasi resmi: <strong>SMA NEGERI 1 SRAGEN</strong>.</div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <div class="rule-title">🛑 5. JANGAN RELOAD (F5) SAAT SEDANG DI RUTE ADMIN KELAS!</div>
+        <div class="rule-tag">#BUG-BP2-11 (P1 High)</div>
+      </div>
+      <div class="rule-detail">
+        Menekan refresh F5 di <code>/admin/*</code> sering kali me-reset konteks tenant menjadi *"Belum dipilih"* dan langsung melempar layar putih bertuliskan <em>"Akses ditolak"</em>.
+      </div>
+      <div class="rule-fix-box">
+        <div>💡</div>
+        <div><strong>Instruksi Lapangan:</strong> Jika ingin kembali ke menu sebelumnya, klik tautan navigasi breadcrumb atau tombol Back resmi di antarmuka web, jangan gunakan refresh browser.</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: SPEECH SIMULATOR -->
+    <h2 class="section-title">
+      2. 🎙️ Naskah Diplomatis Jawara (Speech Simulator Mas Henri)
+      <span>Jawaban Siap Pakai untuk Pertanyaan Kritis</span>
+    </h2>
+
+    <div class="speech-card">
+      <div class="speech-header">
+        <div class="speech-scenario">Skenario A: Kepala Sekolah Meminta Coba Fitur Presensi Wajah</div>
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--blue-accent);">Taktik: Enterprise Geofencing &amp; Privacy Gate</span>
+      </div>
+      <div class="speech-q">
+        "Mas Henri, di slide no. 5 ada fitur Presensi Wajah terintegrasi. Boleh kita coba langsung scan muka sekarang di depan?"
+      </div>
+      <div class="speech-a-box">
+        <p class="speech-text" id="speech1">
+          "Pertanyaan yang sangat tajam dan bagus sekali, Bapak/Ibu Kepala Sekolah. Fitur Presensi Wajah di BelajarPlus ini memang dirancang dengan standar keamanan enterprise dan terintegrasi langsung dengan perimeter geofencing (radius GPS) masing-masing sekolah binaan. Tujuannya sangat jelas: memastikan siswa tidak bisa melakukan titip absen atau manipulasi di luar area gerbang sekolah.<br><br>
+          Sistem secara otomatis mengunci modul kamera ini hanya untuk akun Siswa yang terdaftar pada subdomain resmi sekolah, dan baru dapat dibuka saat jam operasional presensi sekolah telah diaktifkan oleh admin presensi sekolah Bapak/Ibu.<br><br>
+          Karena di ruangan ini kita sedang dalam sesi seminar introduksi dan belum berada di titik koordinat sekolah Bapak/Ibu, nanti pada tahapan onboarding teknis tim kami akan mendampingi penarikan titik koordinat GPS sekolah serta registrasi sampel wajah perdana seluruh siswa."
+        </p>
+        <button class="btn-copy" onclick="copySpeech('speech1', this)">📋 Salin Naskah Jawaban</button>
+      </div>
+    </div>
+
+    <div class="speech-card">
+      <div class="speech-header">
+        <div class="speech-scenario">Skenario B: Ada Modul yang Tiba-tiba Loading Lama / Lag di Layar</div>
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--blue-accent);">Taktik: Cloud Real-time Encryption Sync</span>
+      </div>
+      <div class="speech-q">
+        "Lho Mas Henri, kok layarnya muter-muter terus ya? Aplikasinya lemot ya?"
+      </div>
+      <div class="speech-a-box">
+        <p class="speech-text" id="speech2">
+          "Baik Bapak/Ibu, platform BelajarPlus menerapkan arsitektur Cloud Sync real-time di mana setiap penugasan, hasil nilai, dan analitik AI disinkronisasikan langsung ke server pusat Cloudflare & AWS. Karena saat ini koneksi ballroom/ruangan dipakai bersamaan oleh ratusan peserta, sistem keamanan kami melakukan enkripsi data berlapis untuk menjaga integritas data ujian siswa.<br><br>
+          Mari kita beralih ke modul berikutnya sembari data tugas ter-update secara otomatis di latar belakang."
+        </p>
+        <button class="btn-copy" onclick="copySpeech('speech2', this)">📋 Salin Naskah Jawaban</button>
+      </div>
+    </div>
+
+    <div class="speech-card">
+      <div class="speech-header">
+        <div class="speech-scenario">Skenario C: Kepsek Bertanya Kenapa Harus Ada Subdomain Khusus Sekolah</div>
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--blue-accent);">Taktik: Multi-Tenant Data Sovereignty &amp; Privacy</span>
+      </div>
+      <div class="speech-q">
+        "Kenapa sekolah kami harus dibuatkan alamat web sendiri (subdomain)? Kenapa gak digabung jadi satu saja?"
+      </div>
+      <div class="speech-a-box">
+        <p class="speech-text" id="speech3">
+          "Ini justru keunggulan proteksi data nomor 9 di platform kami, Bapak/Ibu. Dengan subdomain tersendiri (misalnya sman1solo.belajarplus.id), database sekolah Bapak/Ibu terisolasi total (multi-tenant isolation). Data nilai ujian, rapor, rekap kehadiran, dan bank soal rahasia sekolah Bapak/Ibu dijamin 100% tidak akan pernah tercampur atau diintip oleh sekolah lain di Jawa Tengah. Sekolah memiliki kedaulatan penuh atas datanya sendiri."
+        </p>
+        <button class="btn-copy" onclick="copySpeech('speech3', this)">📋 Salin Naskah Jawaban</button>
+      </div>
+    </div>
+
+    <!-- SECTION 3: WORKFLOW DEMO HAPPY PATH -->
+    <h2 class="section-title">
+      3. 🗺️ Alur Demo "Happy Path" Anti-Gagal (Urutan Panggung)
+      <span>Durasi Total: 60 Menit Efektif</span>
+    </h2>
+
+    <div class="workflow-timeline">
+      <div class="timeline-step">
+        <div class="timeline-badge">1</div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span>Pembukaan &amp; Presentasi PPTX Clean Light</span>
+            <span class="timeline-time">10 Menit</span>
+          </div>
+          <p class="timeline-desc">Tampilkan slide presentasi BelajarPlus (Light Theme). Fokuskan pesan pada efisiensi anggaran sekolah, Kurikulum Merdeka, dan eliminasi biaya kertas penggandaan soal ujian.</p>
+          <ul class="timeline-bullet">
+            <li>Soroti 14 Keunggulan BelajarPlus secara ringkas</li>
+            <li>Tunjukkan perbandingan biaya paper-based vs BelajarPlus</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-badge">2</div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span>Demo Pengalaman Siswa (Window Siswa)</span>
+            <span class="timeline-time">15 Menit</span>
+          </div>
+          <p class="timeline-desc">Tampilkan antarmuka siswa yang modern dan ramah anak. Buka buku digital dan fitur papan tulis coretan.</p>
+          <ul class="timeline-bullet">
+            <li>Buka Buku Saya &rarr; buka salah satu e-book</li>
+            <li>Coret-coret sedikit dengan Whiteboard untuk menunjukkan kemudahan belajar</li>
+            <li>Klik tombol <strong>"Simpan Catatan"</strong> agar kepsek melihat proses penyimpanan</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-badge">3</div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span>Demo Pindai QR Buku / Interaktif Cepat</span>
+            <span class="timeline-time">5 Menit</span>
+          </div>
+          <p class="timeline-desc">Tunjukkan kepraktisan menghubungkan buku fisik dengan konten digital melalui kamera.</p>
+          <ul class="timeline-bullet">
+            <li>Buka rute <code>/scan</code> di layar</li>
+            <li>Tunjukkan viewfinder kamera yang langsung aktif membaca QR code</li>
+            <li>Soroti adanya fallback input kode manual di bawahnya</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-badge">4</div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span>Demo Ruang Kerja Guru &amp; Penugasan AI (Window Guru Sragen)</span>
+            <span class="timeline-time">20 Menit</span>
+          </div>
+          <p class="timeline-desc">Pindah ke Window Guru SMA 1 Sragen menggunakan <code>Alt + Tab</code>. Masuk ke Workspace Kelas Matematika 10 A.</p>
+          <ul class="timeline-bullet">
+            <li>Tunjukkan bank soal (PG, PG Kompleks, Benar/Salah, &amp; Esai)</li>
+            <li>Jelaskan koreksi otomatis jawaban esai dengan AI</li>
+            <li>Tunjukkan analitik tagging kompetensi kelemahan materi siswa</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-badge">5</div>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            <span>Sesi Tanya Jawab &amp; Penawaran Pendampingan Teknis</span>
+            <span class="timeline-time">10 Menit</span>
+          </div>
+          <p class="timeline-desc">Tutup dengan penegasan bahwa tim trainer akan datang mendampingi sekolah secara langsung tanpa membebani guru.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: TEAM ROLES -->
+    <h2 class="section-title">
+      4. 👥 Pembagian Peran Tim Trainer Lapangan
+      <span>Sinergi Tim di Solo Bistro &amp; Batang</span>
+    </h2>
+
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-name">Lead Presenter &amp; Strategist</div>
+        <div class="role-person">Mas Henri</div>
+        <div class="role-tasks">
+          Memegang mikrofon utama, memimpin alur cerita presentasi, mengendalikan klik pada alur happy path aman, dan menjawab pertanyaan kebijakan kepala sekolah.
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-name">Technical Backup &amp; Live Operator</div>
+        <div class="role-person">Cindy / Arum</div>
+        <div class="role-tasks">
+          Memegang laptop cadangan yang sudah standby di halaman siswa &amp; guru. Siap switch kabel proyektor jika terjadi kendala pada laptop utama.
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-name">Field Facilitator &amp; VIP Liaison</div>
+        <div class="role-person">Mevi</div>
+        <div class="role-tasks">
+          Membagikan selebaran panduan cetak ke meja kepsek, mencatat nama sekolah yang berminat, dan membantu kepsek yang mencoba login lewat HP.
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-subtle); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>Dokumen Survival Guide Demo BelajarPlus.id &copy; 2026. Khusus Penggunaan Internal Tim Trainer Jateng.</div>
+      <div>Disusun berdasarkan uji tuntas teknis live production.</div>
+    </div>
+
+  </div>
+
+  <!-- Toast Box -->
+  <div class="toast-box" id="toastBox">Naskah berhasil disalin ke clipboard!</div>
+
+  <script>
+    function copySpeech(elementId, btn) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      
+      const cleanText = el.innerText.replace(/\s+/g, ' ').trim();
+      navigator.clipboard.writeText(cleanText).then(() => {
+        showToast('Naskah jawaban disalin ke clipboard!');
+        const origText = btn.innerHTML;
+        btn.innerHTML = '✔ Tersalin!';
+        btn.style.background = 'var(--green-accent)';
+        btn.style.color = '#ffffff';
+        setTimeout(() => {
+          btn.innerHTML = origText;
+          btn.style.background = 'var(--paper)';
+          btn.style.color = 'var(--blue-accent)';
+        }, 2000);
+      });
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastBox');
+      if (toast) {
+        toast.textContent = text;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark-mode');
+      localStorage.setItem('bp_demo_theme', isDark ? 'dark' : 'light');
+      const btnText = document.getElementById('themeBtnText');
+      if (btnText) btnText.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+    }
+
+    (function() {
+      const saved = localStorage.getItem('bp_demo_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        const btnText = document.getElementById('themeBtnText');
+        if (btnText) btnText.textContent = 'Mode Terang';
+      }
+    })();
+  </script>
+</body>
+</html>
