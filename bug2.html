@@ -533,7 +533,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">23 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">24 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -541,11 +541,11 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">23</div>
+        <div class="metric-num" style="color: #64748b;">24</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #ef4444;">2</div>
+        <div class="metric-num" style="color: #ef4444;">3</div>
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
@@ -568,8 +568,8 @@
         <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'grading', 'dead button', 'memuat', 'data leak', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (23)</button>
-        <button class="filter-pill" style="border-color: rgba(220, 38, 38, 0.4); color: var(--red-accent);" onclick="setPriorityFilter('P0', this)">P0 Blocker (2)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (24)</button>
+        <button class="filter-pill" style="border-color: rgba(220, 38, 38, 0.4); color: var(--red-accent);" onclick="setPriorityFilter('P0', this)">P0 Blocker (3)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (10)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (10)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
@@ -577,7 +577,7 @@
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 23 temuan audit teknis
+      Menampilkan 24 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -1637,6 +1637,45 @@ const calculateScore = (correctAnswers, totalQuestions) => {
         <div class="visual-attachment" onclick="viewImage('assets/dummy3_classes_modal_create.png')">
           <img src="assets/dummy3_classes_modal_create.png" alt="Bukti Bug Dropdown Memuat Infinite" />
           <div class="visual-caption">📸 Bukti Visual: Modal Buat Kelas Sekolah dengan dropdown Tahun Ajaran yang menggantung selamanya pada tulisan 'Memuat...'</div>
+        </div>
+      </article>
+
+      <!-- BUG 24 -->
+      <article class="bug-entry" data-priority="P0" id="bug-bp2-24">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-24" class="bug-id-tag" onclick="copyAnchor('bug-bp2-24', event)">#BUG-BP2-24</a>
+            <h2 class="bug-entry-title">Promoted Ghost Feature: Fitur Presensi Wajah Belum Siap (Status "Segera Hadir" pada Liveness Detection &amp; Toggle Absensi OFF di Konfigurasi Sekolah)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p0">P0 — Critical Blocker</span>
+            <span class="badge badge-cat">Feature Incomplete / Promoted Ghost Feature</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Admin &gt; Absensi &gt; Pengaturan Absensi</div>
+          <div><strong>Rute:</strong> <code>/absensi/pengaturan</code></div>
+          <div><strong>Lingkungan:</strong> Production (Web &amp; PWA)</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Fakta Visual Tak Terbantahkan</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Fitur <em>"Presensi Wajah"</em> yang dipromosikan sebagai keunggulan utama BelajarPlus v2.0 ternyata <strong>belum selesai dikembangkan</strong> di tingkat arsitektur sistem. Bukti autentik dari panel Pengaturan Absensi (<code>/absensi/pengaturan</code>) di institusi resmi SMA NEGERI 1 SRAGEN membuktikan:</p>
+          <ul>
+            <li><strong>Deteksi Keaslian Wajah (Liveness):</strong> Berstatus badge abu-abu <code>Segera Hadir</code> dan toggle switch terkunci mati (disabled). Artinya algoritma computer vision / face liveness detection belum diimplementasikan di production.</li>
+            <li><strong>Verifikasi Wajah &amp; Kiosk:</strong> Fitur <em>"Kiosk wajah sekolah"</em> dan <em>"Wajib verifikasi wajah untuk absensi siswa melalui HP"</em> dinonaktifkan permanen dengan catatan <em>"Memerlukan Langganan LMS aktif"</em>.</li>
+            <li><strong>Absensi Utama Tidak Aktif:</strong> Saklar utama <em>"Absensi aktif"</em> secara default berada pada posisi <strong>OFF (Mati)</strong>.</li>
+          </ul>
+          <p>Fakta konfigurasi internal ini membongkar akar masalah mengapa pengujian rute <code>/absensi</code> selalu mengalami <em>infinite loading spinner biru</em>: klien mencoba me-resolve modul yang secara backend belum siap beroperasi.</p>
+
+          <p><strong>Dampak Demo &amp; Lapangan:</strong></p>
+          <div class="callout callout-danger">
+            <strong>VAPORWARE RISK:</strong> Jangan pernah mengklaim atau memperlihatkan menu Presensi Wajah di depan audiens sebagai fitur siap pakai. Jika kepsek atau tim IT sekolah meminta ditunjukkan pengaturan kamera, segera gunakan <strong>Naskah Diplomatis Skenario A</strong> (Taktik Geofencing &amp; Privacy Gate) untuk mengalihkan ke modul lain yang sudah stabil.
+          </div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/audit__absensi_pengaturan.png')">
+          <img src="assets/audit__absensi_pengaturan.png" alt="Bukti Bug Pengaturan Absensi Segera Hadir" />
+          <div class="visual-caption">📸 Bukti Visual: Panel Pengaturan Absensi membuktikan Deteksi Keaslian Wajah (Liveness) berstatus 'Segera Hadir', Verifikasi Wajah terkunci, dan Absensi Aktif dalam posisi OFF</div>
         </div>
       </article>
 
