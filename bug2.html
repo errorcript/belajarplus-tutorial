@@ -532,7 +532,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">17 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">18 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -540,11 +540,11 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">17</div>
+        <div class="metric-num" style="color: #64748b;">18</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #ef4444;">0</div>
+        <div class="metric-num" style="color: #ef4444;">1</div>
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
@@ -564,10 +564,11 @@
     <!-- Search & Filter Live Toolbar -->
     <div class="filter-search-bar">
       <div class="search-input-box">
-        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'dummy', 'subdomain', 'whiteboard', 'typo')..." oninput="filterBugsLive()" />
+        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'presensi', 'dummy', 'subdomain', 'whiteboard', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (17)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (18)</button>
+        <button class="filter-pill" style="border-color: rgba(220, 38, 38, 0.4); color: var(--red-accent);" onclick="setPriorityFilter('P0', this)">P0 Blocker (1)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (6)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (10)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
@@ -575,7 +576,7 @@
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 17 temuan audit teknis
+      Menampilkan 18 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -1385,6 +1386,70 @@ useEffect(() => {
         <div class="visual-attachment" onclick="viewImage('assets/hunt_join_school_result.png')">
           <img src="assets/hunt_join_school_result.png" alt="Bukti Bug Floating Toast Menggantung" />
           <div class="visual-caption">📸 Bukti Visual: Banner merah "Anda adalah pengajar kelas ini" yang menggantung tanpa tombol dismiss di header dashboard</div>
+        </div>
+      </article>
+
+      <!-- BUG 18 -->
+      <article class="bug-entry" data-priority="P0" id="bug-bp2-18">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-18" class="bug-id-tag" onclick="copyAnchor('bug-bp2-18', event)">#BUG-BP2-18</a>
+            <h2 class="bug-entry-title">Modul Presensi Wajah Siswa (`/absensi`) Mengalami Infinite Loading Spinner Tanpa Inisialisasi Feed Kamera</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p0" style="background: var(--red-subtle); color: var(--red-accent); border: 1px solid rgba(220, 38, 38, 0.3);">P0 — Critical Blocker</span>
+            <span class="badge badge-cat">Attendance / MediaStream API</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Presensi Siswa Mandiri (<code>https://belajarplus.id/absensi</code>)</div>
+          <div><strong>Aksi Pemicu:</strong> Klik tombol pintas <em>"Absensi"</em> di Aksi Cepat Dashboard</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; PWA Mobile</div>
+          <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">1. Deskripsi Gejala</div>
+          <p>Ketika siswa mengeklik tombol pintas <strong>"Absensi"</strong> pada bagian Aksi Cepat dashboard utama, rute dialihkan ke <code>https://belajarplus.id/absensi</code>. Namun, halaman hanya merender latar putih kosong dengan satu spinner lingkaran biru yang berputar tanpa henti (<em>infinite loading loop</em>). Sistem sama sekali tidak menginisialisasi kamera (<code>navigator.mediaDevices.getUserMedia</code>), tidak meminta izin geolokasi, tidak memanggil API kehadiran, dan tidak menampilkan formulir absensi fallback.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">2. Dampak Terhadap Pengguna &amp; Demo Lapangan</div>
+          <p><strong>Sangat Kritis &amp; Fatal.</strong> Fitur ini merupakan salah satu dari 14 Keunggulan Utama BelajarPlus (<strong>Poin No. 5: "Terdapat presensi wajah dalam satu aplikasi"</strong>) yang dipromosikan kepada Kepala Sekolah dan Dinas Pendidikan. Jika trainer mencoba mendemonstrasikan fitur presensi wajah ini di Solo Bistro atau Batang, presentasi akan terhenti pada layar putih dengan spinner macet.</p>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">3. Langkah Reproduksi</div>
+          <ol>
+            <li>Login ke <code>https://belajarplus.id/auth</code> menggunakan akun siswa.</li>
+            <li>Masuk ke dashboard utama dan cari kartu <strong>"Aksi Cepat"</strong>.</li>
+            <li>Klik tombol hijau <strong>"Absensi"</strong> (icon kalender).</li>
+            <li>Amati layar pada URL <code>/absensi</code>: halaman terjebak pada animasi loading spinner biru selamanya.</li>
+          </ol>
+        </div>
+        <div class="bug-block">
+          <div class="bug-block-heading">4. Rekomendasi Solusi &amp; Patch Rekayasa</div>
+          <p>Perbaiki <code>useEffect</code> lifecycle pada komponen Absensi agar tidak terblokir oleh tenant context yang belum settled, serta tambahkan timeout safety guard dan fallback manual check-in:</p>
+          <div class="code-box code-solution">// In AbsensiPage Component:
+useEffect(() => {
+  let isMounted = true;
+  async function initCamera() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+      if (isMounted && videoRef.current) {
+        videoRef.current.srcObject = stream;
+        setCameraReady(true);
+      }
+    } catch (err) {
+      setCameraError("Gagal mengakses kamera. Silakan gunakan absensi manual.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  initCamera();
+  return () => { isMounted = false; };
+}, []);</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_absensi_siswa_face_page.png')">
+          <img src="assets/hunt_absensi_siswa_face_page.png" alt="Bukti Bug Infinite Loading Absensi Wajah" />
+          <div class="visual-caption">📸 Bukti Visual: Halaman /absensi yang hang selamanya pada lingkaran biru tanpa membuka antarmuka kamera wajah</div>
         </div>
       </article>
 

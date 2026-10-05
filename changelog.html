@@ -270,7 +270,7 @@
       <div style="display: flex; gap: 0.5rem; align-items: center;">
         <a href="/" class="btn-action">← Beranda Panduan</a>
         <a href="/bug" class="btn-action">📂 Audit v1.0 (23 Isu)</a>
-        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (17 Temuan)</a>
+        <a href="/bug2" class="btn-action">🔍 Audit v2.0 (18 Temuan)</a>
       </div>
       <div style="display: flex; gap: 0.5rem; align-items: center;">
         <button class="btn-action" onclick="toggleTheme()">
@@ -410,6 +410,14 @@
             <td>Soal evaluasi tetap dikirim dalam payload JSON teragregasi sebelum ujian dimulai.</td>
             <td><span class="status-badge status-unresolved">Belum Disentuh</span></td>
             <td>Siswa yang paham Inspect Element (DevTools) masih dapat melihat daftar kunci jawaban dari network tab.</td>
+          </tr>
+
+          <tr>
+            <td><span class="tag-id">Keunggulan #5</span></td>
+            <td><strong>Presensi Wajah &amp; Lokasi Siswa</strong><br>Fitur unggulan no. 5 yang dijanjikan dalam promosi: <em>"Terdapat presensi wajah dalam satu aplikasi"</em>.</td>
+            <td>Dibuatkan tombol pintas <em>"Absensi"</em> di Aksi Cepat dashboard yang mengarah ke <code>/absensi</code>.</td>
+            <td><span class="status-badge status-regressed">⚠️ P0 Blocker (Kritis)</span></td>
+            <td>Halaman <code>/absensi</code> terjebak pada infinite loading spinner biru tanpa pernah memuat kamera selfie/wajah (<code>#BUG-BP2-18</code>). Modul ini rusak total di produksi dan <strong>HARUS DIHINDARI</strong> saat demo live!</td>
           </tr>
         </tbody>
       </table>
