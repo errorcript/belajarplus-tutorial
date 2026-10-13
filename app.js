@@ -528,8 +528,8 @@ window.downloadRolePDF = async function(role) {
 
   const roleTitles = {
     siswa: 'AKUN SISWA / PELAJAR (12 LANGKAH OPERASIONAL LENGKAP)',
-    guru: 'AKUN GURU / PENGAJAR (6 LANGKAH MANAJEMEN PEMBELAJARAN)',
-    kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (6 LANGKAH MANAJEMEN EKOSISTEM)'
+    guru: 'AKUN GURU / PENGAJAR (7 LANGKAH KELOLA PEMBELAJARAN & PRESENSI DIGITAL)',
+    kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (7 LANGKAH MANAJEMEN EKOSISTEM & AKREDITASI SEKOLAH)'
   };
 
   const targetContainer = document.getElementById(`steps-${role}`);

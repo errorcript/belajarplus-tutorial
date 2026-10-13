@@ -341,14 +341,14 @@
             <span class="role-icon">👨‍🏫</span>
             <div class="role-info">
               <span class="role-title">Akun Guru</span>
-              <span class="role-desc">Kelola kelas, assign tugas LJD, &amp; pantau nilai</span>
+              <span class="role-desc">Kelola kelas, presensi geolokasi 120m, penugasan LJD, &amp; penilaian AI</span>
             </div>
           </button>
           <button class="role-tab" data-role="kepsek" onclick="switchRole('kepsek', this)">
             <span class="role-icon">🏫</span>
             <div class="role-info">
               <span class="role-title">Kepala Sekolah / Admin</span>
-              <span class="role-desc">Manajemen stok buku, lisensi, &amp; analitik sekolah</span>
+              <span class="role-desc">Subdomain resmi, master data rombel, presensi GPS, &amp; BAST akreditasi</span>
             </div>
           </button>
         </div>
@@ -1027,11 +1027,12 @@
             </div>
           </div>
         </div>
-          <div class="role-steps-container" id="steps-guru">
+          <!-- ==================== 2. CONTAINER PANDUAN AKUN GURU ==================== -->
+        <div class="role-steps-container" id="steps-guru">
           <div class="role-section-header">
             <div class="rsh-left">
               <div class="rsh-title">👨‍🏫 Panduan Runtut Akun Guru / Pengajar</div>
-              <span class="rsh-badge badge-guru">6 Langkah Kelola Pembelajaran</span>
+              <span class="rsh-badge badge-guru">7 Langkah Kelola Pembelajaran &amp; Presensi Digital</span>
             </div>
             <div class="rsh-actions">
               <button class="btn-video-play btn-video-guru" onclick="openVideoPlayer('guru')">
@@ -1046,147 +1047,185 @@
             </div>
           </div>
 
+          <!-- Step 1 Guru -->
           <div class="step" data-step="1">
             <div class="step-number">01</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Pendaftaran &amp; Aktivasi Akun Pendidik</h3>
-                <span class="step-tag">Registrasi Pengajar</span>
+                <h3>Pendaftaran, Aktivasi Akun &amp; Subdomain Resmi Sekolah</h3>
+                <span class="step-tag">Registrasi &amp; Akses Masuk</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('guru', 1)">▶️ Tonton Video: Penggunaan Aplikasi BelajarPlus</button>
-              <p>Buka portal <a href="https://belajarplus.id/auth" target="_blank" class="link">belajarplus.id/auth</a> dan pilih tab <strong>"Daftar"</strong>. Formulir registrasi BelajarPlus v2.0 menggunakan sistem satu pintu terpadu (<em>"Satu halaman untuk siswa &amp; guru"</em>):</p>
+              <p>Bapak/Ibu Pendidik dapat mengakses platform BelajarPlus melalui portal satu pintu di <a href="https://belajarplus.id/auth" target="_blank" class="link">belajarplus.id/auth</a> atau langsung melalui <strong>subdomain unik resmi masing-masing sekolah</strong> (contoh: <code>https://smanegeri1purwokerto.belajarplus.com</code>):</p>
               <ul class="step-list">
-                <li><strong>Nama Lengkap:</strong> Masukkan nama lengkap bapak/ibu pendidik.</li>
-                <li><strong>Alamat Email:</strong> Disarankan menggunakan email dinas/sekolah aktif atau email pribadi.</li>
-                <li><strong>Kata Sandi:</strong> Buat password kuat minimal 8 karakter (terdiri dari huruf, angka, dan simbol pengaman).</li>
-                <li><strong>Verifikasi Sandi &amp; Tampilkan Password:</strong> Konfirmasi ulang kata sandi dan gunakan centang <em>"Tampilkan Password"</em> untuk validasi visual.</li>
-                <li><strong>Aktivasi Email:</strong> Klik tombol <strong>"Daftar"</strong> lalu periksa kotak masuk email untuk mengonfirmasi tautan aktivasi akun.</li>
+                <li><strong>1. Formulir Registrasi Satu Pintu:</strong> Pada tab <strong>"Daftar"</strong> (<em>"Satu halaman untuk siswa &amp; guru"</em>), ketikkan Nama Lengkap dengan gelar resmi, alamat email aktif (disarankan email kedinasan, akun belajar.id, atau email pribadi terverifikasi), dan buat kata sandi aman minimal 8 karakter.</li>
+                <li><strong>2. Validasi Sandi Visual:</strong> Gunakan centang <em>"Tampilkan Password"</em> untuk memastikan karakter sandi telah sesuai dan bebas dari kesalahan ketik.</li>
+                <li><strong>3. Aktivasi Email Otomatis:</strong> Tekan tombol biru <strong>"Daftar"</strong>. Buka kotak masuk email (atau folder <em>Spam/Promosi</em>) dan klik tombol aktivasi untuk mengonfirmasi keaslian akun.</li>
+                <li><strong>4. Penghubungan ke Institusi:</strong> Saat login pertama kali, akun bapak/ibu guru akan diverifikasi ke instansi sekolah mitra dengan peran <strong>Guru / Pengajar</strong> atau <strong>Wali Kelas</strong> sehingga seluruh menu administrasi terbuka otomatis.</li>
               </ul>
               <div class="step-note">
-                👨‍🏫 <strong>Aktivasi Instansi Sekolah:</strong> Penghubungan akun guru dengan sekolah mitra dan hak akses pengelolaan kelas dilakukan setelah berhasil login melalui layar pemilihan institusi atau verifikasi admin sekolah.
+                💡 <strong>Multi-Tenant Guru:</strong> Jika bapak/ibu guru mengajar di lebih dari satu sekolah mitra BelajarPlus, cukup gunakan satu akun yang sama. Gunakan menu switcher institusi di bilah atas untuk berpindah sekolah tanpa perlu repot logout.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/register_guru.png" class="screenshot-img" alt="Pendaftaran Akun Guru BelajarPlus" />
+              <img src="assets/register_guru.png" class="screenshot-img zoomable-img" alt="Pendaftaran Akun Guru BelajarPlus" />
             </div>
           </div>
 
+          <!-- Step 2 Guru -->
           <div class="step" data-step="2">
             <div class="step-number">02</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Login &amp; Akses Dashboard Utama Pengajar (/admin)</h3>
-                <span class="step-tag">Panel Guru</span>
+                <h3>Eksplorasi Dashboard Utama Pengajar (/admin)</h3>
+                <span class="step-tag">Pusat Kendali Guru</span>
               </div>
-              <p>Login menggunakan akun pengajar BelajarPlus yang terdaftar. Pilih institusi sekolah mitra dengan peran <strong>Trainer / Guru</strong> untuk masuk ke pusat kendali pendidik di <code>belajarplus.id/admin</code>:</p>
+              <p>Setelah memilih institusi mengajar, bapak/ibu guru langsung disambut oleh pusat kendali terpadu di <a href="https://belajarplus.id/admin" target="_blank" class="link">belajarplus.id/admin</a>:</p>
               <ul class="step-list">
-                <li><strong>Metrik Hasil Siswa &amp; Aktivitas:</strong> Pantau jumlah pengerjaan tugas yang tercatat dan total aktivitas bank soal latihan yang tersedia (ratusan modul siap pakai).</li>
-                <li><strong>Baris Aksi Cepat Guru:</strong> Pintasan instan menuju: <em>Kelola Kelas</em>, <em>Penugasan</em>, <em>Hasil Siswa</em>, <em>Perpustakaan</em>, dan <em>Absensi</em>.</li>
-                <li><strong>Ringkasan Pekerjaan Pendidik:</strong> Monitoring hasil penilaian siswa yang siap ditinjau, jumlah koleksi e-book sekolah, dan total siswa aktif terdaftar.</li>
+                <li><strong>1. Baris 5 Aksi Cepat Pengajar:</strong> Pintasan langsung satu klik untuk mengakses fitur harian: <em>Kelola Kelas</em>, <em>Penugasan</em>, <em>Hasil Siswa</em>, <em>Perpustakaan</em>, dan <em>Absensi</em>.</li>
+                <li><strong>2. Metrik Hasil Siswa Real-time:</strong> Memantau akumulasi seluruh pengerjaan tugas dan kuis yang telah dikumpulkan siswa yang siap ditinjau.</li>
+                <li><strong>3. Statistik Koleksi Belajar Aktif:</strong> Informasi ketersediaan modul bank soal latihan kurikulum dan jumlah judul buku digital sekolah yang siap dijadikan rujukan belajar.</li>
+                <li><strong>4. Pengingat Tugas &amp; Evaluasi:</strong> Notifikasi berkala mengenai jadwal ujian yang sedang aktif, tugas yang mendekati batas tenggat, dan rekapitulasi presensi harian.</li>
               </ul>
               <div class="step-note">
-                💡 <strong>Multi-Tenant Guru:</strong> Jika bapak/ibu guru mengajar di lebih dari satu sekolah mitra, gunakan switcher institusi di header atas untuk berpindah instansi tanpa perlu logout.
+                ⚡ <strong>Tampilan Responsif:</strong> Dashboard pengajar dapat diakses dengan nyaman melalui laptop, tablet kelas, maupun browser smartphone untuk monitoring cepat saat mengajar.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/guru_dashboard.png" class="screenshot-img" alt="Dashboard Pengajar Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/guru_dashboard.png" class="screenshot-img zoomable-img" alt="Dashboard Pengajar Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 3 Guru -->
           <div class="step" data-step="3">
             <div class="step-number">03</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Buat &amp; Kelola Ruang Kelas (/admin/classes)</h3>
-                <span class="step-tag">Manajemen Kelas</span>
+                <h3>Buat &amp; Kelola Ruang Kelas (/admin/classes) + Distribusi Akun</h3>
+                <span class="step-tag">Manajemen Kelas &amp; Rombel</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('guru', 3)">▶️ Tonton Video: Cara Membuat Kelas</button>
-              <p>Buka menu <strong>"Kelola Kelas"</strong> (atau klik tombol Aksi Cepat di beranda) untuk membuat ruang belajar baru dan mengatur rombongan belajar:</p>
+              <p>Buka menu <strong>"Kelola Kelas"</strong> untuk membuat ruang belajar digital interaktif per mata pelajaran dan mendistribusikan akun siswa:</p>
               <ul class="step-list">
-                <li><strong>Buat Kelas Baru:</strong> Tentukan Nama Kelas (contoh: <em>Kelas 12 TKA Matematika</em>), Tingkatan Jenjang (SD/SMP/SMA/SMK), dan Mata Pelajaran pengampu.</li>
-                <li><strong>Generate Kode Kelas Unik (`BLJ-XXXXXX`):</strong> Bagikan 6 karakter kode kelas kepada para siswa agar mereka dapat bergabung mandiri dari dashboard siswa.</li>
-                <li><strong>Manajemen Siswa Rombel:</strong> Pantau daftar siswa yang sudah terhubung, periksa keaktifan akun, dan lepaskan siswa yang salah rombel jika diperlukan.</li>
+                <li><strong>1. Buat Kelas Baru:</strong> Klik tombol <em>"Tambah Kelas"</em>, tentukan Nama Kelas (contoh: <em>Kelas 10-1 Matematika Wajib</em>), pilih Jenjang (SMA), dan tetapkan Mata Pelajaran pengampu.</li>
+                <li><strong>2. Kode Kelas Unik (<code>BLJ-XXXXXX</code>):</strong> Sistem menerbitkan 6 digit kode kelas acak. Bagikan kode ini jika siswa bergabung mandiri dari aplikasi siswa.</li>
+                <li><strong>3. Distribusi Kredensial Siswa (Tugas Wali Kelas):</strong> Sesuai lembar <em>Berita Acara Serah Terima Akun</em> resmi sekolah, masing-masing Wali Kelas membagikan lembar kredensial login (Email &amp; Password Awal) kepada siswa di kelasnya serta meminta paraf konfirmasi tanda terima.</li>
+                <li><strong>4. Verifikasi Anggota Rombel:</strong> Periksa daftar siswa di tab <em>"Anggota"</em>. Pastikan seluruh siswa sudah terhubung (kapasitas standar 36 siswa per rombel). Guru dapat mengeluarkan siswa yang salah memilih rombel belajar dengan satu klik.</li>
               </ul>
               <div class="step-note">
-                👥 Siswa yang terdaftar di kelas akan otomatis menerima notifikasi setiap kali guru menerbitkan penugasan baru.
+                👥 <strong>Otomatis Terhubung:</strong> Siswa yang sudah terdaftar di kelas akan otomatis menerima notifikasi setiap kali guru menerbitkan materi atau tugas baru.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/guru_kelola_kelas.png" class="screenshot-img" alt="Kelola Kelas Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/guru_kelola_kelas.png" class="screenshot-img zoomable-img" alt="Kelola Kelas Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 4 Guru -->
           <div class="step" data-step="4">
             <div class="step-number">04</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Hubungkan Buku Acuan Pembelajaran</h3>
-                <span class="step-tag">Sumber Belajar</span>
+                <h3>Presensi Digital &amp; Monitoring Absensi Geolokasi (/admin/attendance)</h3>
+                <span class="step-tag">Presensi GPS 120m</span>
+              </div>
+              <p>Buka menu <strong>"Absensi"</strong> pada bilah navigasi atau tombol aksi cepat beranda untuk memantau kehadiran siswa secara real-time berbasis geolokasi:</p>
+              <ul class="step-list">
+                <li><strong>1. Presensi Berbasis Radius Geolokasi (120 Meter):</strong> Siswa melakukan check-in mandiri melalui smartphone masing-masing. Sistem otomatis memvalidasi koordinat GPS siswa berada di dalam radius toleransi 120 meter dari titik pusat sekolah.</li>
+                <li><strong>2. Rekapitulasi Status Kehadiran Real-time:</strong> Guru dan Wali Kelas dapat melihat secara langsung rekap status civitas: <strong>Hadir Tepat Waktu</strong>, <strong>Terlambat</strong>, <strong>Izin</strong>, <strong>Sakit</strong>, atau <strong>Alpa</strong>.</li>
+                <li><strong>3. Verifikasi Surat Izin/Sakit:</strong> Siswa yang berhalangan hadir dapat mengunggah foto surat dokter/keterangan orang tua langsung dari aplikasi, dan guru dapat memvalidasinya dengan tombol persetujuan.</li>
+                <li><strong>4. Ekspor Rekap Presensi Bulanan:</strong> Unduh berkas rekapitulasi kehadiran bulanan per rombel dalam format spreadsheet Excel untuk arsip laporan wali kelas dan BK.</li>
+              </ul>
+              <div class="step-note">
+                📍 <strong>Bebas Titip Absen:</strong> Teknologi geolokasi presisi mencegah manipulasi kehadiran di luar batas lingkungan sekolah.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/feature_absensi.png" class="screenshot-img zoomable-img" alt="Fitur Absensi Pembelajaran Guru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+            </div>
+          </div>
+
+          <!-- Step 5 Guru -->
+          <div class="step" data-step="5">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Hubungkan Sumber Belajar &amp; Buku Acuan Pembelajaran</h3>
+                <span class="step-tag">Perpustakaan &amp; Kurasi Materi</span>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 2)">▶️ Tonton Video: Menu Perpustakaan</button>
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 9)">▶️ Video: Cara Memesan Buku</button>
               </div>
-              <p>Pada tab <strong>"Sumber Belajar"</strong> di dalam kelas, pilih buku acuan utama dari perpustakaan digital sekolah yang menjadi bahan bacaan wajib siswa.</p>
+              <p>Pada tab <strong>"Sumber Belajar"</strong> di dalam kelas, bapak/ibu guru dapat menautkan e-book buku teks kurikulum resmi yang menjadi panduan belajar wajib:</p>
+              <ul class="step-list">
+                <li><strong>1. Integrasi Buku Teks Pelajaran:</strong> Pilih judul buku Kurikulum Merdeka atau K13 yang telah dilisensikan sekolah (misal: <em>Buku Teks Utama Matematika Kelas 10</em>).</li>
+                <li><strong>2. Tautan Langsung Bab &amp; Halaman:</strong> Guru dapat mengarahkan siswa ke bab spesifik yang sedang diajarkan, lengkap dengan petunjuk materi prasyarat.</li>
+                <li><strong>3. Akses Peminjaman Mandiri Siswa:</strong> Siswa di kelas bersangkutan dapat meminjam eksemplar buku digital secara instan dan membacanya langsung via reader interaktif di browser tanpa perlu mengunduh file PDF bajakan.</li>
+              </ul>
               <div class="step-note">
-                📚 Menghubungkan buku acuan memastikan siswa dapat langsung meminjam buku yang relevan dengan materi kuis.
+                📚 <strong>Hak Cipta Resmi &amp; Legal:</strong> Seluruh e-book di BelajarPlus merupakan buku terbitan resmi ber-ISBN yang aman dan sesuai standar Kemendikbudristek.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/admin_koleksi.png" class="screenshot-img" alt="Sumber Belajar Kelas Guru" />
+              <img src="assets/admin_koleksi.png" class="screenshot-img zoomable-img" alt="Sumber Belajar Kelas Guru BelajarPlus" />
             </div>
           </div>
 
-          <div class="step" data-step="5">
-            <div class="step-number">05</div>
+          <!-- Step 6 Guru -->
+          <div class="step" data-step="6">
+            <div class="step-number">06</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Buat Penugasan &amp; Lembar Jawab Digital (LJD) (/admin/assignments)</h3>
-                <span class="step-tag">Asesmen &amp; Kuis</span>
+                <h3>Buat Penugasan, Lembar Jawab Digital (LJD) &amp; Anti-Cheat (/admin/assignments)</h3>
+                <span class="step-tag">Asesmen &amp; Ujian Digital</span>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 4)">▶️ Video: Aktivitas Belajar</button>
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 5)">▶️ Video: Cara Membuat Penugasan</button>
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 6)">▶️ Video: Penugasan dari Sumber Belajar</button>
               </div>
-              <p>Buka menu <strong>"Penugasan"</strong> untuk merilis asesmen pembelajaran digital bagi siswa:</p>
+              <p>Buka menu <strong>"Penugasan"</strong> untuk merilis asesmen pembelajaran digital bagi siswa dengan fitur pengawasan terpadu:</p>
               <ul class="step-list">
-                <li><strong>Pilih Modul Asesmen:</strong> Tersedia Asesmen Formatif per bab, Asesmen Sumatif Tengah/Akhir Semester, hingga paket Simulasi Tryout SNBT / TKA terintegrasi.</li>
-                <li><strong>Pengaturan Batas Waktu &amp; Durasi:</strong> Tetapkan batas tenggat pengumpulan (deadline) dan durasi hitung mundur pengerjaan LJD.</li>
-                <li><strong>Aktifkan Pengawas Anti-Cheat:</strong> Fitur pemantau fokus tab browser otomatis mencatat riwayat perpindahan tab siswa saat ujian berlangsung.</li>
+                <li><strong>1. Beragam Jenis Asesmen:</strong> Tersedia pilihan Asesmen Formatif per bab, Asesmen Sumatif Tengah Semester (STS), Sumatif Akhir Semester (SAS), hingga Simulasi Ujian Kelulusan &amp; SNBT/TKA.</li>
+                <li><strong>2. Batas Waktu &amp; Durasi Pengerjaan:</strong> Tetapkan batas tenggat pengumpulan (deadline tanggal &amp; jam) serta durasi pengerjaan hitung mundur (contoh: 90 menit).</li>
+                <li><strong>3. Fitur Pengawas Anti-Cheat (Focus Tracker):</strong> Aktifkan proteksi ujian digital. Sistem secara otomatis merekam dan memberi peringatan jika siswa berpindah tab browser atau membuka aplikasi lain saat ujian berlangsung.</li>
+                <li><strong>4. Lembar Jawab Digital (LJD):</strong> Mendukung tipe soal Pilihan Ganda (koreksi instan tanpa repot) dan soal Esai Terbuka.</li>
               </ul>
               <div class="step-note">
-                ⚡ Lembar Jawab Digital (LJD) mendukung penilaian otomatis tanpa perlu mengoreksi pilihan ganda secara manual!
+                ⚡ <strong>Penilaian Otomatis:</strong> Nilai soal pilihan ganda langsung dikalkulasi sistem dalam hitungan detik setelah siswa menekan tombol selesai!
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/guru_penugasan.png" class="screenshot-img" alt="Menu Penugasan Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/guru_penugasan.png" class="screenshot-img zoomable-img" alt="Menu Penugasan Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <div class="step" data-step="6">
-            <div class="step-number">06</div>
+          <!-- Step 7 Guru -->
+          <div class="step" data-step="7">
+            <div class="step-number">07</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Pantau Transkrip Nilai &amp; Hasil Siswa (/admin/submissions)</h3>
-                <span class="step-tag">Gradebook &amp; Analitik</span>
+                <h3>Penilaian Esai Berbasis AI (Kredit AI) &amp; Transkrip Nilai (/admin/submissions)</h3>
+                <span class="step-tag">Koreksi Cerdas &amp; Gradebook</span>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 7)">▶️ Video: Pengaturan Hasil Belajar</button>
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 8)">▶️ Video: Unduh Hasil Pengerjaan Siswa</button>
               </div>
-              <p>Buka menu <strong>"Hasil Siswa"</strong> (atau klik tombol Hasil Siswa di Aksi Cepat beranda) untuk mengevaluasi rekam jejak pengerjaan ujian:</p>
+              <p>Buka menu <strong>"Hasil Siswa"</strong> untuk mengevaluasi jawaban, mengoreksi esai otomatis dengan AI, dan mengunduh transkrip nilai:</p>
               <ul class="step-list">
-                <li><strong>Transkrip Nilai Real-time:</strong> Memantau skor persentase ketuntasan setiap siswa, jumlah jawaban benar/salah, dan waktu penyelesaian.</li>
-                <li><strong>Analisis Ketercapaian KKM &amp; KD:</strong> Grafik pemetaan kompetensi dasar yang menunjukkan materi apa saja yang sudah dikuasai atau membutuhkan pengayaan/remedial.</li>
-                <li><strong>Ekspor Rekapitulasi Nilai:</strong> Unduh data hasil belajar seluruh rombel dalam satu berkas siap cetak untuk pengisian rapor sekolah.</li>
+                <li><strong>1. Penilaian Esai Cerdas dengan AI:</strong> Guru dapat memanfaatkan fitur koreksi esai otomatis bertenaga AI. Sistem membandingkan jawaban siswa dengan rubrik/kunci jawaban dan memberikan rekomendasi skor serta feedback perbaikan (menggunakan kuota Kredit AI sekolah: <em>1 kredit = 1 jawaban esai dinilai</em>).</li>
+                <li><strong>2. Transkrip Nilai Komprehensif:</strong> Tinjau skor total, persentase ketercapaian KKM/KD, rekam jejak anti-cheat (jumlah perpindahan tab), dan durasi pengerjaan masing-masing siswa.</li>
+                <li><strong>3. Analisis Butir Soal &amp; Remedial:</strong> Grafik distribusi nilai memudahkan guru mengidentifikasi materi pelajaran yang butuh pengayaan atau kelas remedial.</li>
+                <li><strong>4. Ekspor Nilai Siap Rapor:</strong> Unduh berkas rekapitulasi nilai seluruh rombel dalam format spreadsheet Excel (<code>.xlsx</code>) siap olah untuk pengisian e-Rapor sekolah.</li>
               </ul>
               <div class="step-note">
-                📊 Data hasil belajar otomatis terhubung dengan dashboard kepala sekolah dan dinas pendidikan untuk kebutuhan pelaporan akreditasi.
+                📊 <strong>Transparansi &amp; Efisiensi:</strong> Menghemat hingga 70% waktu guru dalam memeriksa jawaban esai siswa tanpa mengurangi ketelitian evaluasi akademik.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/guru_hasil_siswa.png" class="screenshot-img" alt="Transkrip Hasil Siswa Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/guru_hasil_siswa.png" class="screenshot-img zoomable-img" alt="Transkrip Hasil Siswa Guru BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
@@ -1233,7 +1272,7 @@
           <div class="role-section-header">
             <div class="rsh-left">
               <div class="rsh-title">🏫 Panduan Runtut Akun Kepala Sekolah &amp; Admin</div>
-              <span class="rsh-badge badge-kepsek">6 Langkah Manajemen Ekosistem Sekolah</span>
+              <span class="rsh-badge badge-kepsek">7 Langkah Manajemen Ekosistem &amp; Akreditasi Sekolah</span>
             </div>
             <div class="rsh-actions" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
               <a href="sosialisasi-kepsek.html" target="_blank" class="btn-ppt-deck" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; text-decoration: none; padding: 0.65rem 1.15rem; border-radius: 8px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.45rem; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35); transition: transform 0.2s ease;">
@@ -1254,41 +1293,44 @@
             </div>
           </div>
 
+          <!-- Step 1 Kepsek -->
           <div class="step" data-step="1">
             <div class="step-number">01</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Registrasi Akun Administrator/Kepala Sekolah &amp; Multi-Tenant Institusi</h3>
-                <span class="step-tag">Pendaftaran &amp; Akses Resmi</span>
+                <h3>Akses Kepemimpinan, Registrasi Admin &amp; Subdomain Resmi Sekolah</h3>
+                <span class="step-tag">Portal Resmi &amp; Multi-Tenant</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('kepsek', 1)">▶️ Tonton Video: Registrasi &amp; Navigasi Admin</button>
-              <p>Portal BelajarPlus v2.0 mengusung sistem satu pintu terpadu melalui <a href="https://belajarplus.id/auth" target="_blank" class="link">belajarplus.id/auth</a> pada tab <strong>"Daftar"</strong> (<em>"Satu halaman untuk siswa &amp; guru"</em>) yang menghubungkan akun ke institusi resmi sekolah:</p>
+              <p>Kepala Sekolah dan Administrator Institusi dapat mengakses kendali ekosistem digital melalui portal resmi di <a href="https://belajarplus.id/auth" target="_blank" class="link">belajarplus.id/auth</a> atau melalui <strong>subdomain resmi sekolah</strong> (contoh: <code>https://smanegeri1purwokerto.belajarplus.com</code>):</p>
               <ul class="step-list">
-                <li><strong>1. Formulir Registrasi Akun:</strong> Masukkan Nama Lengkap kepala sekolah atau staf administrator, gunakan alamat email dinas/sekolah aktif, serta buat kata sandi terenkripsi minimal 8 karakter (memenuhi validasi huruf, angka, dan simbol pengaman).</li>
-                <li><strong>2. Aktivasi Email:</strong> Klik tombol <strong>"Daftar"</strong> dan buka tautan verifikasi pada pesan masuk email (cek kotak masuk atau folder <em>Spam</em>) untuk mengaktifkan akun secara penuh.</li>
-                <li><strong>3. Akses Multi-Tenant &amp; Institusi Resmi:</strong> Saat login pertama kali, akun penanggung jawab sekolah akan diarahkan ke layar pemilihan institusi dengan hak akses resmi (contoh: <em>SMA NEGERI 1 SRAGEN · Trainer / Guru / Administrator</em>) untuk masuk langsung ke pusat kendali ekosistem di <code>belajarplus.id/admin</code>.</li>
+                <li><strong>1. Registrasi Akun Administrator:</strong> Pada tab <strong>"Daftar"</strong> (<em>"Satu halaman untuk siswa &amp; guru"</em>), masukkan nama lengkap pimpinan/admin, alamat email kedinasan, dan kata sandi terenkripsi minimal 8 karakter. Lakukan verifikasi via tautan email aktivasi.</li>
+                <li><strong>2. Akses Multi-Tenant &amp; Pemilihan Institusi:</strong> Saat login pertama kali, akun kepala sekolah akan terdaftar dengan hak akses resmi (contoh: <em>SMA NEGERI 1 PURWOKERTO · Trainer / Administrator</em>) untuk masuk langsung ke <a href="https://belajarplus.id/admin" target="_blank" class="link">belajarplus.id/admin</a>.</li>
+                <li><strong>3. Subdomain Eksklusif Instansi:</strong> Setiap sekolah mitra BelajarPlus dibekali alamat subdomain mandiri (<code>.belajarplus.com</code>) yang memudahkan civitas mengakses portal pembelajaran tanpa tertukar dengan sekolah lain.</li>
+                <li><strong>4. Pengawas / Pimpinan Multi-Sekolah:</strong> Jika kepala sekolah menaungi lebih dari satu instansi, cukup beralih antar institusi menggunakan tombol Switcher Institusi di header atas tanpa perlu logout.</li>
               </ul>
               <div class="step-note">
-                🏫 <strong>Satu Akun Multi-Sekolah:</strong> Jika kepala sekolah atau pengawas menaungi lebih dari satu instansi mitra, seluruh institusi dapat diakses dari satu akun yang sama melalui tombol Switcher Institusi di header aplikasi tanpa perlu logout!
+                🏫 <strong>Otoritas Penuh:</strong> Hak akses Kepala Sekolah &amp; Admin memberikan kewenangan mutlak mengawasi master data, anggaran lisensi perpustakaan, hingga bukti fisik akreditasi digital.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <img src="assets/pilih_institusi.png" class="screenshot-img" alt="Layar Pemilihan Institusi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/register_guru.png" class="screenshot-img" alt="Registrasi Akun Admin & Guru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/pilih_institusi.png" class="screenshot-img zoomable-img" alt="Layar Pemilihan Institusi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/register_guru.png" class="screenshot-img zoomable-img" alt="Registrasi Akun Admin & Guru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 2 Kepsek -->
           <div class="step" data-step="2">
             <div class="step-number">02</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Executive Dashboard Sekolah, Statistik Belajar &amp; Aksi Cepat (/admin)</h3>
-                <span class="step-tag">Executive Summary</span>
+                <h3>Executive Dashboard Sekolah, Statistik Literasi &amp; Indikator Mutu (/admin)</h3>
+                <span class="step-tag">Executive Summary &amp; Analytics</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('kepsek', 2)">▶️ Tonton Video: Dashboard Analitik &amp; Monitoring</button>
-              <p>Masuk ke portal administrasi sekolah di <a href="https://belajarplus.id/admin" target="_blank" class="link">belajarplus.id/admin</a>. Kepala Sekolah dan Admin disuguhkan dashboard analitik eksekutif terpadu untuk mengawasi seluruh jalannya pembelajaran digital:</p>
+              <p>Masuk ke portal administrasi sekolah di <a href="https://belajarplus.id/admin" target="_blank" class="link">belajarplus.id/admin</a> untuk memantau ringkasan kinerja seluruh ekosistem belajar digital:</p>
               <ul class="step-list">
-                <li><strong>1. Header Institusi Aktif:</strong> Menampilkan identitas sekolah resmi (contoh: <em>SMA NEGERI 1 SRAGEN</em>), peran pengelola aktif, dan salam personal administrator.</li>
+                <li><strong>1. Header Institusi Aktif:</strong> Menampilkan identitas sekolah resmi, status akreditasi digital, dan peran pimpinan aktif.</li>
                 <li><strong>2. Metrik Kunci Pembelajaran:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
                     <li><strong>Hasil Siswa:</strong> Rekapitulasi total seluruh pengerjaan tugas &amp; ujian siswa yang tercatat di sistem.</li>
@@ -1299,8 +1341,8 @@
                 <li><strong>4. Kartu Ringkasan Pekerjaan Sekolah:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
                     <li><strong>Penilaian Siswa:</strong> Pemantauan hasil jawaban siswa yang siap ditinjau dan diverifikasi guru.</li>
-                    <li><strong>Materi &amp; Buku:</strong> Jumlah judul koleksi buku digital aktif yang dimiliki institusi (contoh: 61 buku).</li>
-                    <li><strong>Komunitas Sekolah:</strong> Total keaktifan jumlah siswa yang terdaftar dalam ekosistem sekolah.</li>
+                    <li><strong>Materi &amp; Buku:</strong> Jumlah judul koleksi buku digital aktif yang dimiliki institusi.</li>
+                    <li><strong>Civitas Terdaftar:</strong> Total keaktifan jumlah siswa dan PTK yang terdaftar dalam ekosistem sekolah.</li>
                   </ul>
                 </li>
               </ul>
@@ -1309,141 +1351,167 @@
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/kepsek_dashboard.png" class="screenshot-img" alt="Executive Dashboard Sekolah BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_dashboard.png" class="screenshot-img zoomable-img" alt="Executive Dashboard Sekolah BelajarPlus Terbaru" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 3 Kepsek -->
           <div class="step" data-step="3">
             <div class="step-number">03</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Branding Sekolah, Subdomain &amp; Tampilan Perpustakaan (/admin/library/settings)</h3>
-                <span class="step-tag">Pengaturan Portal</span>
+                <h3>Master Data Siswa, SOP Impor Batch &amp; Penempatan 100% Rombel (/admin/students)</h3>
+                <span class="step-tag">Manajemen Siswa &amp; Rombel</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 3)">▶️ Tonton Video: Pengaturan Tampilan &amp; Branding Sekolah</button>
-              <p>Buka menu <strong>"Tampilan Sekolah"</strong> di bawah kelompok <em>MASTER DATA SEKOLAH</em> atau akses <a href="https://belajarplus.id/admin/library/settings" target="_blank" class="link">belajarplus.id/admin/library/settings</a> untuk mempersonalisasi landing page perpustakaan digital sekolah:</p>
+              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 4)">▶️ Tonton Video: Pengelolaan User &amp; Rombel</button>
+              <p>Kelola seluruh akun peserta didik di bawah menu <em>MASTER DATA SEKOLAH &rarr; Siswa</em> di <a href="https://belajarplus.id/admin/students" target="_blank" class="link">belajarplus.id/admin/students</a>:</p>
               <ul class="step-list">
-                <li><strong>1. Branding &amp; Unggah Logo Resmi:</strong> Atur nama resmi perpustakaan dan unggah logo sekolah. Logo ini otomatis menggantikan logo default BelajarPlus pada landing page dan kartu portal sekolah siswa.</li>
-                <li><strong>2. Alamat Subdomain &amp; Domain Kustom:</strong>
+                <li><strong>1. 4 Tab Status Akun Siswa:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>Subdomain Resmi:</strong> Akses landing page via alamat khusus (contoh: <code>smanegeri1sragen.belajarplus.id</code> atau <code>/s/smanegeri1sragen</code>).</li>
-                    <li><strong>Domain Kustom Mandiri:</strong> Sekolah dapat memakai domain web sendiri (misal: <code>perpustakaan.sman1sragen.sch.id</code>). Arahkan DNS domain tersebut dengan A-record ke IP <code>185.158.133.1</code> (disertai TXT verifikasi) atau CNAME Cloudflare.</li>
+                    <li><strong>Total Siswa Aktif:</strong> Jumlah keseluruhan peserta didik terdaftar.</li>
+                    <li><strong>Sudah di Rombel:</strong> Siswa yang telah memiliki rombongan belajar aktif (target: 100% dari total siswa).</li>
+                    <li><strong>Belum di Rombel (Unassigned):</strong> Siswa yang belum ditempatkan (wajib dituntaskan menjadi 0 siswa).</li>
+                    <li><strong>Nonaktif:</strong> Siswa yang lulus, mutasi keluar, atau ditangguhkan.</li>
                   </ul>
                 </li>
-                <li><strong>3. Aplikasi (PWA) di HP Siswa:</strong> Aktifkan fitur PWA agar portal sekolah dapat diinstal sebagai aplikasi tersendiri di smartphone Android/iOS siswa dengan opsi tampilan: <em>Seperti aplikasi</em>, <em>Minimal</em>, atau <em>Browser</em>.</li>
-                <li><strong>4. Penataan Layout &amp; Banner Hero:</strong> Sesuaikan Urutan Bagian Tampilan, teks Footer, dan pasang Banner Hero promosi literasi sekolah.</li>
+                <li><strong>2. SOP Impor Batch Spreadsheet Resmi:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Gunakan template resmi BelajarPlus dengan 2 sheet wajib: <code>['Siswa', 'Panduan']</code>.</li>
+                    <li>Kolom wajib: <code>Nama</code>, <code>Email</code>, <code>Password Awal</code>, <code>Rombel</code>.</li>
+                    <li><strong>Ukuran Chunk Stabil:</strong> Bagi data ke dalam batch 40–60 siswa per file Excel agar rendering modal pratinjau browser tidak mengalami timeout.</li>
+                    <li><strong>Aturan Standar Email:</strong> Wajib gunakan email asli (Gmail/belajar.id) jika ada; jika tidak ada email real, formatkan otomatis ke <code>nama.lengkap@belajarplus.com</code> (Zero PesonaEdu).</li>
+                  </ul>
+                </li>
+                <li><strong>3. Penempatan Otomatis &amp; Ekspor:</strong> Seluruh siswa yang diimpor langsung ditempatkan ke kelas masing-masing. Tekan tombol <strong>"Ekspor"</strong> untuk mengunduh rekap spreadsheet siswa terverifikasi kapan saja.</li>
               </ul>
               <div class="step-note">
-                🌐 <strong>Branding Eksklusif:</strong> Membangun citra digital sekolah yang modern dan mandiri di mata siswa, orang tua, serta dinas pendidikan.
+                👥 <strong>Target 0 Unassigned:</strong> Memastikan seluruh 100% peserta didik telah masuk ke rombel masing-masing dan siap mengikuti kegiatan asesmen tanpa kendala login.
               </div>
             </div>
-            <div class="step-visual">
-              <img src="assets/kepsek_tampilan_sekolah.png" class="screenshot-img" alt="Pengaturan Branding & Tampilan Perpustakaan Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+            <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
+              <img src="assets/kepsek_siswa.png" class="screenshot-img zoomable-img" alt="Master Data Siswa Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_pendaftaran_siswa.png" class="screenshot-img zoomable-img" alt="Pendaftaran dan Pengajuan Siswa Baru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 4 Kepsek -->
           <div class="step" data-step="4">
             <div class="step-number">04</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Sirkulasi Perpustakaan Digital &amp; Kuota Lisensi Buku (/admin/library)</h3>
-                <span class="step-tag">Inventaris Lisensi</span>
+                <h3>Master Data PTK, Manajemen Guru &amp; Penugasan Peran (/admin/teachers)</h3>
+                <span class="step-tag">Pendidik &amp; Tenaga Kependidikan</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 3)">▶️ Tonton Video: Manajemen Lisensi &amp; Koleksi</button>
-              <p>Buka modul <strong>"Perpustakaan Digital"</strong> di bilah sidebar untuk mengawasi sirkulasi dan kuota eksemplar buku sekolah secara terpadu di <code>belajarplus.id/admin/library?school=all</code>:</p>
+              <p>Kelola seluruh staf pengajar dan tenaga kependidikan di bawah menu <em>MASTER DATA SEKOLAH &rarr; PTK</em> di <a href="https://belajarplus.id/admin/teachers" target="_blank" class="link">belajarplus.id/admin/teachers</a>:</p>
               <ul class="step-list">
-                <li><strong>1. 4 Kartu Metrik Inventaris:</strong>
-                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>JUDUL:</strong> Total judul buku kurikulum aktif yang terdaftar (contoh: 61 judul).</li>
-                    <li><strong>LISENSI:</strong> Total kuota eksemplar digital yang dialokasikan (contoh: 452 lisensi).</li>
-                    <li><strong>DIPINJAM:</strong> Jumlah eksemplar yang saat ini sedang dipinjam dan dibaca aktif oleh siswa.</li>
-                    <li><strong>TERSEDIA:</strong> Sisa eksemplar lisensi yang siap dipinjam oleh siswa lain.</li>
-                  </ul>
-                </li>
-                <li><strong>2. Indikator Sirkulasi &amp; Antrean:</strong> Memantau jumlah Peminjam Aktif, buku yang Terlambat dikembalikan, Kepemilikan Permanen, serta jumlah Siswa Mengantre (Waiting List) jika kuota suatu judul sedang penuh.</li>
-                <li><strong>3. Tabel "Penggunaan Lisensi Tertinggi":</strong> Menampilkan daftar buku per mata pelajaran (Antropologi 11 &amp; 12, Bahasa Indonesia Tingkat Lanjut, Matematika, Biologi, dll) lengkap dengan rasio lisensi sedang digunakan, statistik frekuensi dilihat vs dipinjam, serta tombol aksi <strong>"Kelola Koleksi"</strong>.</li>
+                <li><strong>1. Distribusi Peran Civitas PTK:</strong> Memantau total PTK aktif yang terbagi ke dalam peran <em>Guru Pengajar</em>, <em>Wali Kelas</em>, <em>Tim Kurikulum</em>, dan <em>Tenaga Kependidikan / TU</em>.</li>
+                <li><strong>2. Pengelolaan NUPTK &amp; NIP:</strong> Memastikan nomor identitas kepegawaian resmi (NUPTK / NIP) tercatat rapi untuk sinkronisasi data Dapodik.</li>
+                <li><strong>3. Undang PTK Bergabung:</strong> Kirim undangan aktivasi via email dinas pendidik atau tambahkan akun guru baru secara cepat lewat tombol <em>"Undang PTK"</em>.</li>
+                <li><strong>4. Pengaturan Wali Kelas:</strong> Menetapkan bapak/ibu guru pengampu yang bertanggung jawab mendistribusikan kredensial login dan mengelola presensi rombel masing-masing.</li>
               </ul>
               <div class="step-note">
-                🔑 <strong>Optimasi Anggaran Buku:</strong> Melalui statistik sirkulasi ini, kepala sekolah dapat mengetahui buku mana yang paling diminati dan menambah kuota lisensi tepat sasaran pada tahun ajaran baru.
+                👨‍🏫 <strong>Tata Kelola Terstruktur:</strong> Penugasan peran PTK yang tepat memastikan setiap guru memiliki wewenang mengajar sesuai jadwal dan kurikulum yang berlaku.
               </div>
             </div>
             <div class="step-visual">
-              <img src="assets/kepsek_koleksi_buku.png" class="screenshot-img" alt="Sirkulasi dan Lisensi Perpustakaan Digital Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_ptk.png" class="screenshot-img zoomable-img" alt="Master Data Guru dan Tenaga Kependidikan BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 5 Kepsek -->
           <div class="step" data-step="5">
             <div class="step-number">05</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Master Data Siswa, Pendaftaran &amp; PTK Guru (/admin/students &amp; /admin/teachers)</h3>
-                <span class="step-tag">Manajemen Civitas</span>
+                <h3>Konfigurasi Presensi Geolokasi Sekolah (Radius 120m) &amp; Tahun Ajaran</h3>
+                <span class="step-tag">Presensi GPS &amp; Tahun Ajaran</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 4)">▶️ Tonton Video: Pengelolaan User &amp; Rombel</button>
-              <p>Kelola seluruh akun pengguna di bawah naungan kelompok menu <em>MASTER DATA SEKOLAH</em> untuk menjaga integritas data civitas akademika:</p>
+              <p>Atur titik batas presensi sekolah dan kalender akademik aktif untuk mendukung kedisiplinan civitas akademika:</p>
               <ul class="step-list">
-                <li><strong>1. Modul Siswa Sekolah (`/admin/students`):</strong>
+                <li><strong>1. Pengaturan Titik GPS Sekolah (<code>/admin/attendance</code>):</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>4 Tab Status Siswa:</strong> Pantau <em>Total Siswa Aktif</em>, <em>Sudah di Rombel</em> (memiliki rombel aktif), <em>Belum di Rombel</em> (perlu ditempatkan wali kelas), dan <em>Nonaktif</em> (siswa lulus/ditangguhkan).</li>
-                    <li><strong>Menu "Kode &amp; Pendaftaran":</strong> Meninjau dan menyetujui pengajuan akun siswa baru yang mendaftar secara mandiri.</li>
-                    <li><strong>Impor Siswa &amp; Tambah Siswa:</strong> Unggah ratusan data siswa sekaligus menggunakan template spreadsheet/CSV atau tambah data secara manual per siswa.</li>
-                    <li><strong>Filter &amp; Ekspor:</strong> Filter data berdasarkan Rombel dan Status, serta unduh rekap data siswa dalam format spreadsheet lewat tombol <strong>"Ekspor"</strong>.</li>
+                    <li>Tetapkan titik koordinat resmi sekolah (Latitude &amp; Longitude gerbang/gedung utama).</li>
+                    <li>Atur <strong>Radius Toleransi: 120 Meter</strong> untuk memastikan siswa hanya dapat melakukan absensi saat benar-benar berada di lingkungan sekolah.</li>
+                    <li>Tentukan jam batas kedatangan (contoh: 07.00 WIB) dan jam kepulangan (contoh: 15.30 WIB).</li>
                   </ul>
                 </li>
-                <li><strong>2. Modul Guru &amp; Tenaga Kependidikan / PTK (`/admin/teachers`):</strong>
-                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>Distribusi Peran PTK:</strong> Memantau <em>Total PTK Aktif</em>, staf dengan peran <em>Guru Pengajar</em>, dan <em>Tenaga Kependidikan</em> (staf TU/administrasi).</li>
-                    <li><strong>Undang PTK &amp; Pendaftaran:</strong> Mengundang bapak/ibu guru bergabung via email atau meninjau pengajuan akun baru.</li>
-                    <li><strong>Kelengkapan NUPTK/NIP &amp; Ekspor:</strong> Memeriksa nomor identitas kepegawaian resmi (NUPTK/NIP), status keaktifan, dan mengunduh berkas laporan PTK lengkap.</li>
-                  </ul>
-                </li>
+                <li><strong>2. Tata Kelola Tahun Ajaran Aktif (<code>/admin/academic-years</code>):</strong> Menetapkan Tahun Ajaran berjalan dan Semester aktif (Ganjil/Genap) sebagai basis pengelompokan seluruh rombongan belajar.</li>
+                <li><strong>3. Verifikasi Kapasitas Rombel (<code>/admin/rombels</code>):</strong> Mengawasi keterisian rombel kelas dengan kapasitas ideal 36 siswa per kelas dan wali kelas terisi lengkap.</li>
               </ul>
               <div class="step-note">
-                👥 <strong>Sinkronisasi Dapodik:</strong> Master data siswa dan PTK yang rapi mempermudah pengelompokan rombel belajar serta pencatatan absensi digital terpadu.
+                📍 <strong>Presisi &amp; Akuntabel:</strong> Mengeliminasi presensi palsu dan memberikan data kehadiran objektif bagi evaluasi kedisiplinan siswa di hadapan orang tua.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <img src="assets/kepsek_siswa.png" class="screenshot-img" alt="Master Data Siswa Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/kepsek_pendaftaran_siswa.png" class="screenshot-img" alt="Pendaftaran dan Pengajuan Siswa Baru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/kepsek_ptk.png" class="screenshot-img" alt="Master Data Guru dan Tenaga Kependidikan BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/audit__absensi_pengaturan.png" class="screenshot-img zoomable-img" alt="Pengaturan Presensi Geolokasi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/audit__master_data_tahun_ajaran.png" class="screenshot-img zoomable-img" alt="Tahun Ajaran Aktif BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
+          <!-- Step 6 Kepsek -->
           <div class="step" data-step="6">
             <div class="step-number">06</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Tata Kelola Kurikulum, Saldo Kredit AI &amp; Laporan Akreditasi (/admin)</h3>
-                <span class="step-tag">Kurikulum &amp; Akreditasi</span>
+                <h3>Sirkulasi Perpustakaan Digital, Kuota Lisensi Buku &amp; Optimasi BOS (/admin/library)</h3>
+                <span class="step-tag">Inventaris Lisensi &amp; Anggaran</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 5)">▶️ Tonton Video: Audit Keamanan &amp; Laporan Dinas</button>
-              <p>Langkah puncak kepemimpinan sekolah adalah memastikan kurikulum terintegrasi, pemanfaatan teknologi kecerdasan buatan terkelola, dan berkas evaluasi siap audit:</p>
+              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 3)">▶️ Tonton Video: Manajemen Lisensi &amp; Koleksi</button>
+              <p>Awasi sirkulasi dan utilisasi eksemplar buku digital kurikulum sekolah secara transparan di <a href="https://belajarplus.id/admin/library" target="_blank" class="link">belajarplus.id/admin/library</a>:</p>
               <ul class="step-list">
-                <li><strong>1. Pengaturan Kurikulum &amp; Mapel Sekolah (`/admin/curriculum`):</strong> Sinkronisasi struktur Kurikulum Merdeka atau Kurikulum 2013, manajemen mata pelajaran institusi, serta pembagian rombel belajar.</li>
-                <li><strong>2. Tata Kelola Kredit AI Sekolah (`/admin/ai-credits`):</strong>
+                <li><strong>1. 4 Kartu Metrik Inventaris:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>Ketentuan Kredit:</strong> <code>1 kredit = 1 jawaban isian/esai yang berhasil dinilai otomatis oleh AI</code>. Soal pilihan ganda bebas kredit.</li>
-                    <li><strong>Saldo &amp; Langganan LMS:</strong> Mengontrol saldo token AI institusi dan memantau masa aktif periode langganan LMS sekolah agar fitur koreksi esai otomatis guru tetap berjalan lancar.</li>
+                    <li><strong>JUDUL:</strong> Total judul buku kurikulum aktif yang terdaftar di perpustakaan.</li>
+                    <li><strong>LISENSI:</strong> Total kuota eksemplar digital yang dialokasikan untuk sekolah.</li>
+                    <li><strong>DIPINJAM:</strong> Jumlah eksemplar yang saat ini sedang dipinjam dan dibaca aktif oleh siswa.</li>
+                    <li><strong>TERSEDIA:</strong> Sisa eksemplar lisensi yang siap dipinjam oleh siswa lain.</li>
                   </ul>
                 </li>
-                <li><strong>3. Audit &amp; Ekspor Laporan Akreditasi Sekolah:</strong> Mengunduh laporan rekapitulasi literasi perpustakaan, daftar peminjam teraktif, transkrip ketuntasan kompetensi siswa per rombel, dan log aktivitas belajar sebagai dokumen fisik siap cetak untuk keperluan akreditasi sekolah (BAN-S/M) dan pelaporan resmi ke Pengawas serta Dinas Pendidikan.</li>
+                <li><strong>2. Monitoring Waiting List / Antrean:</strong> Memantau antrean siswa jika kuota buku favorit sedang penuh terpinjam untuk dasar penambahan kuota eksemplar.</li>
+                <li><strong>3. Rasio Penggunaan Lisensi Tertinggi:</strong> Menampilkan analitik buku per mata pelajaran yang paling diminati civitas, frekuensi dibaca, dan rata-rata durasi baca siswa.</li>
+                <li><strong>4. Efisiensi Pengadaan Buku (BOS/BPO):</strong> Berdasarkan data sirkulasi riil, kepala sekolah dapat membelanjakan anggaran dana BOS secara tepat sasaran hanya pada buku yang paling dibutuhkan siswa.</li>
               </ul>
               <div class="step-note">
-                📋 <strong>Siap Akreditasi:</strong> Seluruh data interaksi di BelajarPlus tercatat secara akuntabel dan dapat diekspor sewaktu-waktu sebagai bukti fisik implementasi transformasi digital sekolah.
+                🔑 <strong>Bebas Buku Hilang / Rusak:</strong> E-book digital tidak pernah robek, lapuk, atau hilang, memastikan aset literasi sekolah terlindungi secara permanen.
+              </div>
+            </div>
+            <div class="step-visual">
+              <img src="assets/kepsek_koleksi_buku.png" class="screenshot-img zoomable-img" alt="Sirkulasi dan Lisensi Perpustakaan Digital Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+            </div>
+          </div>
+
+          <!-- Step 7 Kepsek -->
+          <div class="step" data-step="7">
+            <div class="step-number">07</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3>Branding Portal, Saldo Kredit AI &amp; Berita Acara Akreditasi (/admin)</h3>
+                <span class="step-tag">Branding, AI &amp; Akreditasi</span>
+              </div>
+              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 5)">▶️ Tonton Video: Audit Keamanan &amp; Laporan Dinas</button>
+              <p>Langkah puncak kepemimpinan sekolah adalah memastikan citra digital sekolah kuat, teknologi AI terkontrol, dan berkas akreditasi siap audit:</p>
+              <ul class="step-list">
+                <li><strong>1. Personalisasi Tampilan &amp; Logo Sekolah (<code>/admin/library/settings</code>):</strong> Unggah logo resmi sekolah dan pasang banner promosi literasi. Logo sekolah otomatis muncul di portal siswa menggantikan logo generik.</li>
+                <li><strong>2. Aktivasi PWA di Smartphone Siswa:</strong> Aktifkan fitur PWA agar portal perpustakaan sekolah dapat diinstal langsung di HP siswa layaknya aplikasi resmi dari PlayStore.</li>
+                <li><strong>3. Tata Kelola Saldo Kredit AI (<code>/admin/ai-credits</code>):</strong> Mengontrol saldo token AI sekolah yang digunakan para guru untuk koreksi otomatis esai siswa (<em>1 kredit = 1 jawaban esai dinilai</em>). Soal pilihan ganda bebas kredit tanpa batas.</li>
+                <li><strong>4. Penerbitan Berita Acara Serah Terima Akun (BAST):</strong> Menghasilkan dokumen resmi Berita Acara Penempatan Siswa &amp; Rekapitulasi Rombel format PDF A4 lengkap dengan tanda tangan Kepala Sekolah dan Tim Trainer sebagai bukti fisik resmi akreditasi BAN-S/M serta pelaporan ke Cabang Dinas Pendidikan.</li>
+              </ul>
+              <div class="step-note">
+                📋 <strong>Akuntabel &amp; Siap Audit:</strong> Seluruh data interaksi dan dokumen serah terima akun tersimpan secara terstruktur dan siap ditunjukkan saat visitasi akreditasi sekolah.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <img src="assets/kepsek_curriculum.png" class="screenshot-img" alt="Pengaturan Kurikulum Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/kepsek_ai-credits.png" class="screenshot-img" alt="Kredit AI Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_tampilan_sekolah.png" class="screenshot-img zoomable-img" alt="Pengaturan Branding & Tampilan Perpustakaan Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_ai-credits.png" class="screenshot-img zoomable-img" alt="Kredit AI Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
+
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Reader Demo Interaktif -->
   <section id="reader-demo" class="section section-dark">
     <div class="container">
       <div class="section-label">Simulasi Interaktif</div>
