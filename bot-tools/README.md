@@ -27,6 +27,12 @@ bot-tools/
 │   ├── export_and_compare_pwk.js        # Ekspor & deep discrepancy checker
 │   ├── fix_master_and_generate_clean_pwk.js # Data sanitization & Excel chunk generator
 │   ├── report_generator_helper.js       # Template engine A4 PDF Berita Acara & Kredensial
+│   ├── run_remaining_4_schools_master.js # Master runner otomatis 4 sekolah Purbalingga
+│   ├── run_pbg2_final_clean.js          # Pembersihan salah kamar & exact match SMAN 2 Purbalingga
+│   ├── fix_rembang_pdf.js               # Generator PDF 33 halaman SMAN 1 Rembang
+│   ├── fix_kemangkon_perfect.js         # Setup instan TA, rombel & siswa Kemangkon
+│   ├── find_missing_bukateja.js         # Auditor selisih siswa master Excel vs platform
+│   ├── test_clean_import_bukateja.js    # Bypass validasi modal all-or-nothing BelajarPlus
 │   ├── generate_all_5_reports_final.js  # Generator 5 Berita Acara PDF resmi
 │   ├── generate_class_grouped_pdf_reports.js
 │   ├── generate_master_comprehensive_pdf_report.js
@@ -34,6 +40,7 @@ bot-tools/
 ├── templates/
 │   └── template_resmi_belajarplus.xlsx # Template resmi impor siswa ('Siswa' & 'Panduan')
 ├── docs/
+│   ├── PURBALINGGA_7_SEKOLAH_OPERATIONS_GUIDE.md # Panduan troubleshooting & otomasi 7 SMA Purbalingga
 │   ├── BELAJARPLUS_IMPORT_PLAYBOOK.md   # SOP & best practices impor BelajarPlus
 │   ├── DAFTAR_SEKOLAH_5_AKUN_TRAINER.md # Directory mapping 5 trainer & subdomains
 │   └── DAFTAR_SEKOLAH_5_AKUN_TRAINER.xlsx
