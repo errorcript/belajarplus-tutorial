@@ -1,0 +1,7 @@
+# Vercel Deployment Ignore
+# Exclude bot tools and private automation scripts from production build & web deployment
+bot-tools/
+scratch/
+*.xlsx
+*.pptx
+*.pdf
