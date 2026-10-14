@@ -9,16 +9,21 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 function cleanEmail(rawEmail, username, schoolCode, emailCounts) {
-  let email = (rawEmail || '').toString().trim().replace(/\s+/g, '');
-  // Cek apakah haram pesonaedu, dummy, atau kosong
-  if (!email || email === '-' || email.includes('pesonaedu.com') || email.includes('pesonaedu.id')) {
-    const cleanU = (username || 'siswa').toString().trim().toLowerCase().replace(/[^a-z0-9._-]/g, '');
+  let email = (rawEmail || '').toString().trim().replace(/['"]/g, '').replace(/\s+/g, '');
+  // Buang tanda @ di awal jika ada typo bawaan (@nama@gmail.com atau @nama@...)
+  email = email.replace(/^@+/, '');
+
+  const cleanU = (username || 'siswa').toString().trim().toLowerCase().replace(/[^a-z0-9._-]/g, '');
+
+  // Cek apakah haram pesonaedu, dummy, kosong, strip, atau tidak lolos regex email standar
+  if (!email || email === '-' || email.includes('pesonaedu.com') || email.includes('pesonaedu.id') || !EMAIL_REGEX.test(email)) {
     return `${cleanU}@belajarplus.com`;
   }
   // Cek duplikasi massal (> 3 akun pakai email persis sama)
   if (emailCounts && emailCounts[email] > 3) {
-    const cleanU = (username || 'siswa').toString().trim().toLowerCase().replace(/[^a-z0-9._-]/g, '');
     return `${cleanU}@belajarplus.com`;
   }
   return email;
