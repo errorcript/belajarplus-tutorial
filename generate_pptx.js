@@ -359,7 +359,7 @@ async function createExecutivePresentation() {
 
   s4.addText([
     { text: '1. Header Resmi & Multi-Tenant Terpadu\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
-    { text: 'Menampilkan identitas sekolah resmi (SMA N 1 Sragen). Pengawas dapat beralih antar-sekolah dari satu akun tanpa perlu logout.\n\n', options: { color: C.textMuted, fontSize: 10 } },
+    { text: 'Menampilkan identitas sekolah resmi (SMA EGIS). Pengawas dapat beralih antar-sekolah dari satu akun tanpa perlu logout.\n\n', options: { color: C.textMuted, fontSize: 10 } },
     { text: '2. Akumulasi Hasil Siswa & Bank Soal Aktif\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
     { text: 'Memantau jumlah pengerjaan tugas siswa live tiap menit dan ketersediaan ratusan modul bank soal latihan siap pakai.\n\n', options: { color: C.textMuted, fontSize: 10 } },
     { text: '3. Baris 5 Aksi Cepat Eksekutif\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
@@ -393,7 +393,7 @@ async function createExecutivePresentation() {
     { text: '1. Unggah Logo Resmi Sekolah\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
     { text: 'Logo sekolah Anda otomatis menggantikan logo BelajarPlus pada landing page perpustakaan siswa dan kartu login institusi.\n\n', options: { color: C.textMuted, fontSize: 10 } },
     { text: '2. Subdomain Khusus Sekolah\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
-    { text: 'Alamat akses web resmi yang profesional, contoh: smanegeri1sragen.belajarplus.id atau /s/smanegeri1sragen.\n\n', options: { color: C.textMuted, fontSize: 10 } },
+    { text: 'Alamat akses web resmi yang profesional, contoh: egis.belajarplus.id atau /s/egis.\n\n', options: { color: C.textMuted, fontSize: 10 } },
     { text: '3. Integrasi Domain Kustom Sekolah (DNS)\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
     { text: 'Sekolah dapat memakai domain web sendiri (misal: perpustakaan.sekolah.sch.id) via DNS A-Record atau Cloudflare.\n\n', options: { color: C.textMuted, fontSize: 10 } },
     { text: '4. Progressive Web App (PWA) di HP Siswa\n', options: { bold: true, color: C.textMain, fontSize: 11 } },
@@ -552,10 +552,10 @@ async function createExecutivePresentation() {
   });
 
   // ==========================================
-  // SLIDE 10: UJIAN LJD ANTI-CHEAT & PRESENSI QR
+  // SLIDE 10: UJIAN LJD ANTI-CHEAT & PRESENSI WAJAH GPS 120M
   // ==========================================
   const s10 = pptx.addSlide();
-  addLightHeader(s10, 'Integritas Akademik: Ujian LJD Anti-Cheat & Presensi QR Code', 'Keamanan & Disiplin', 10);
+  addLightHeader(s10, 'Integritas Akademik: Ujian LJD Anti-Cheat & Presensi Wajah GPS 120m', 'Keamanan & Disiplin', 10);
 
   const secBoxes = [
     {
@@ -570,15 +570,15 @@ async function createExecutivePresentation() {
       icon: '🛡️'
     },
     {
-      title: 'Presensi Digital QR Code & Manual Code',
+      title: 'Presensi Wajah Mandiri & Radius GPS 120m',
       headerBg: C.greenSoft,
       points: [
-        'Siswa memindai kode QR kelas dalam hitungan detik untuk absensi instan tanpa antre.',
-        'Dilengkapi fitur "Masukkan Kode Manual" bila perangkat kamera bermasalah.',
-        'Rekapitulasi kehadiran terhubung otomatis ke rekap bulanan sekolah untuk evaluasi wali kelas.'
+        'Verifikasi wajah liveness mandiri di smartphone siswa saat tiba di lingkungan sekolah.',
+        'Geofencing GPS presisi mengunci absensi hanya dalam radius 120 meter gerbang sekolah.',
+        'Rekapitulasi kehadiran real-time terhubung otomatis ke jurnal wali kelas dan evaluasi kedisiplinan.'
       ],
       color: C.accentGreen,
-      icon: '📷'
+      icon: '👤'
     }
   ];
 

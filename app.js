@@ -528,8 +528,8 @@ window.downloadRolePDF = async function(role) {
 
   const roleTitles = {
     siswa: 'AKUN SISWA / PELAJAR (12 LANGKAH OPERASIONAL LENGKAP)',
-    guru: 'AKUN GURU / PENGAJAR (7 LANGKAH KELOLA PEMBELAJARAN & PRESENSI DIGITAL)',
-    kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (7 LANGKAH MANAJEMEN EKOSISTEM & AKREDITASI SEKOLAH)'
+    guru: 'AKUN GURU / PENGAJAR (8 LANGKAH KELOLA E-LEARNING KELAS, PENUGASAN & PRESENSI DIGITAL)',
+    kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (9 LANGKAH MANAJEMEN EKOSISTEM, MASTER DATA & AKREDITASI SEKOLAH)'
   };
 
   const targetContainer = document.getElementById(`steps-${role}`);
@@ -819,10 +819,10 @@ const videoTutorialData = {
         subtitle: 'Langkah 4: Pantau tugas aktif, jumlah progres kegiatan, dan tenggat waktu. Klik "Baca" untuk materi atau "Kerjakan" untuk langsung meluncurkan lembar jawab ujian LJD.'
       },
       {
-        title: 'Kelas Saya & 5 Tab Pembelajaran Ruang Kelas',
-        image: 'assets/ss_kelas.png',
-        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ langsung di card Kelas saya lalu klik Gabung. Klik Masuk Kelas untuk menjelajahi lima tab pembelajaran: Ringkasan metrik belajar, Sumber Belajar buku rujukan dari guru, Penugasan ujian LJD, Aktivitas Belajar, dan Hasil Belajar. Siswa juga bisa keluar mandiri jika salah rombel.',
-        subtitle: 'Langkah 5: Masukkan kode unik di card Kelas saya. Akses 5 tab kelas: Ringkasan, Sumber Belajar, Penugasan LJD, Aktivitas, & Hasil Belajar. Tersedia tombol Keluar mandiri.'
+        title: 'Kelas Saya & 5 Tab E-Learning Pembelajaran Ruang Kelas',
+        image: 'assets/hunt_student_class_view.png',
+        narration: 'Langkah kelima: Masukkan Kode Kelas Unik BLJ langsung di card Kelas saya lalu klik Gabung. Klik Masuk Kelas untuk menjelajahi lima tab pembelajaran e-learning: Ringkasan metrik belajar, Aktivitas Belajar alur materi dari guru, Sumber Belajar buku rujukan kurikulum terlisensi, Penugasan ujian LJD anti-cheat, dan Hasil Belajar transkrip nilai. Siswa juga dapat melihat tab Anggota rombel serta keluar mandiri jika salah rombel.',
+        subtitle: 'Langkah 5: Masukkan kode unik di card Kelas saya. Akses 5 tab e-learning kelas: Ringkasan, Aktivitas, Sumber Belajar, Penugasan LJD, & Hasil Belajar. Dilengkapi tab Anggota dan opsi Keluar mandiri.'
       },
       {
         title: 'Aksi Cepat, Pindai QR, Kode Manual & Hasil Belajar',
@@ -869,86 +869,116 @@ const videoTutorialData = {
     ]
   },
   guru: {
-    roleTitle: 'Video Panduan Akun Guru / Pengajar — 6 Langkah Kelola Pembelajaran',
-    roleSub: 'Langkah pengelolaan kelas, penugasan LJD, dan penilaian siswa',
+    roleTitle: 'Video Panduan Akun Guru / Pengajar — 8 Langkah Kelola E-Learning & Presensi',
+    roleSub: 'Pengelolaan kelas e-learning, kurasi sumber belajar, asesmen LJD anti-cheat, penilaian esai AI, dan presensi GPS',
     steps: [
       {
-        title: 'Pendaftaran & Aktivasi Akun Pendidik',
+        title: 'Pendaftaran, Aktivasi Akun & Subdomain Resmi Sekolah',
         image: 'assets/register_guru.png',
-        narration: 'Langkah pertama: Akses formulir registrasi di belajarplus.id/auth pada tab Daftar. BelajarPlus v2.0 menggunakan halaman pendaftaran terpadu untuk siswa maupun guru. Masukkan Nama Lengkap pendidik, Email aktif, dan buat kata sandi minimal 8 karakter. Setelah mendaftar dan verifikasi email, akun guru dihubungkan dengan instansi sekolah saat pertama kali login.',
-        subtitle: 'Langkah 1: Buka belajarplus.id/auth, pilih tab "Daftar". Masukkan Nama Lengkap, Email, dan kata sandi minimal 8 karakter. Verifikasi email untuk aktivasi akun.'
+        narration: 'Langkah pertama: Akses formulir registrasi di belajarplus.id/auth pada tab Daftar atau melalui subdomain resmi sekolah seperti egis.belajarplus.id. Masukkan Nama Lengkap pendidik bergelar, Email aktif, dan kata sandi minimal 8 karakter. Setelah verifikasi email, akun guru terhubung otomatis ke sekolah mitra dengan hak akses pengajar atau wali kelas.',
+        subtitle: 'Langkah 1: Registrasi satu pintu di belajarplus.id/auth atau subdomain resmi sekolah. Masukkan Nama, Email, dan kata sandi minimal 8 karakter. Verifikasi email untuk aktivasi.'
       },
       {
-        title: 'Login & Akses Dashboard Guru (/admin)',
-        image: 'assets/guru_dashboard.png',
-        narration: 'Langkah kedua: Masuk ke portal belajarplus.id/admin dengan memilih peran Trainer atau Guru di sekolah mitramu. Dashboard guru menampilkan rekap pengerjaan siswa, ketersediaan modul latihan, dan baris Aksi Cepat: Kelola Kelas, Penugasan, Hasil Siswa, Perpustakaan, dan Absensi.',
-        subtitle: 'Langkah 2: Masuk ke /admin, pantau pengerjaan siswa, ketersediaan bank soal latihan, dan gunakan baris Aksi Cepat Guru.'
+        title: 'Eksplorasi Dashboard Utama Pengajar SMA EGIS (/admin)',
+        image: 'assets/hunt_egis__dashboard.png',
+        narration: 'Langkah kedua: Masuk ke portal administrasi belajarplus.id/admin. Guru disambut oleh Dashboard interaktif institusi SMA EGIS yang menampilkan baris 5 Aksi Cepat: Kelola Kelas, Penugasan, Hasil Siswa, Perpustakaan, dan Absensi, serta rekapitulasi real-time pengerjaan siswa dan bank modul latihan.',
+        subtitle: 'Langkah 2: Masuk ke /admin SMA EGIS, pantau metrik hasil pengerjaan siswa, bank soal latihan aktif, dan gunakan baris 5 Aksi Cepat Pengajar.'
       },
       {
-        title: 'Buat & Kelola Ruang Kelas (/admin/classes)',
-        image: 'assets/guru_kelola_kelas.png',
-        narration: 'Langkah ketiga: Buka menu Kelola Kelas di /admin/classes untuk membuat ruang kelas baru sesuai jenjang dan mata pelajaran. Bagikan 6 karakter Kode Kelas unik BLJ kepada siswa agar mereka terhubung mandiri ke rombel belajarmu.',
-        subtitle: 'Langkah 3: Buka /admin/classes, buat kelas baru, dan bagikan Kode Kelas unik (BLJ-XXXXXX) kepada siswa rombel.'
+        title: 'Buat & Kelola Ruang Kelas E-Learning (/admin/classes) + Distribusi Akun',
+        image: 'assets/dummy3_classes_list.png',
+        narration: 'Langkah ketiga: Buka menu Kelola Kelas untuk membuat ruang belajar baru per mata pelajaran dan tingkat. Dapatkan 6 karakter Kode Kelas unik BLJ untuk dibagikan ke siswa, atau pantau tab Anggota rombel dengan kapasitas 36 siswa. Wali kelas juga bertugas mendistribusikan kredensial login resmi kepada seluruh siswa di rombelnya.',
+        subtitle: 'Langkah 3: Buka /admin/classes, buat kelas baru, bagikan Kode Kelas BLJ, pantau tab Anggota rombel, dan distribusikan lembar akun resmi siswa.'
       },
       {
-        title: 'Tautkan Buku Teks Acuan Sekolah',
-        image: 'assets/admin_koleksi.png',
-        narration: 'Langkah keempat: Tautkan buku teks pelajaran dari koleksi perpustakaan digital sekolah ke dalam ruang kelas kamu agar siswa dapat langsung membaca e-book materi acuan yang relevan sebelum mengerjakan soal latihan.',
-        subtitle: 'Langkah 4: Pilih judul buku teks pelajaran dari katalog digital sekolah untuk ditautkan sebagai bahan acuan utama penugasan siswa.'
+        title: 'Pengelolaan Materi E-Learning & Kurasi Sumber Belajar Kelas',
+        image: 'assets/hunt_tab_aktivitas_belajar.png',
+        narration: 'Langkah keempat: Di dalam ruang kelas e-learning, susun urutan modul belajar terstruktur per bab pada tab Aktivitas Belajar. Lalu buka tab Sumber Belajar untuk menautkan buku teks kurikulum resmi ber-ISBN dari perpustakaan sekolah langsung ke bab dan halaman spesifik tanpa file bajakan.',
+        subtitle: 'Langkah 4: Susun alur modul di tab Aktivitas Belajar dan tautkan e-book buku teks kurikulum resmi ber-ISBN di tab Sumber Belajar ruang kelas.'
       },
       {
-        title: 'Penyusunan Penugasan & Kuis LJD (/admin/assignments)',
-        image: 'assets/guru_penugasan.png',
-        narration: 'Langkah kelima: Buka menu Penugasan di /admin/assignments untuk merilis penugasan baru. Pilih modul Asesmen Formatif, Sumatif, atau Tryout TKA. Tentukan deadline, durasi hitung mundur, dan aktifkan pengawas anti-cheat tab focus.',
-        subtitle: 'Langkah 5: Buka /admin/assignments, buat penugasan LJD, atur deadline, durasi ujian, dan aktifkan mode pengawas anti-cheat.'
+        title: 'Buat Penugasan, Lembar Jawab Digital (LJD) & Anti-Cheat (/admin/assignments)',
+        image: 'assets/dummy3_aksi_cepat_penugasan.png',
+        narration: 'Langkah kelima: Buka menu Penugasan untuk menerbitkan Asesmen Formatif, Sumatif STS, SAS, atau Tryout Ujian. Tentukan deadline, durasi hitung mundur, dan aktifkan fitur pengawas anti-cheat Focus Tracker yang otomatis mendeteksi jika siswa berpindah tab browser saat ujian berlangsung.',
+        subtitle: 'Langkah 5: Buka /admin/assignments, buat asesmen Lembar Jawab Digital (LJD), atur tenggat & durasi ujian, dan aktifkan proteksi anti-cheat focus tracker.'
       },
       {
-        title: 'Monitoring & Transkrip Hasil Siswa (/admin/submissions)',
-        image: 'assets/guru_hasil_siswa.png',
-        narration: 'Langkah keenam: Buka menu Hasil Siswa di /admin/submissions untuk memantau pengerjaan secara real-time. Guru dapat melihat rincian skor, grafik ketercapaian kompetensi dasar per bab, dan mengunduh berkas rekapitulasi nilai untuk kebutuhan rapor.',
-        subtitle: 'Langkah 6: Buka /admin/submissions untuk melihat transkrip nilai real-time, analisis kompetensi dasar, dan ekspor rekap nilai siswa.'
+        title: 'Penilaian Esai Berbasis AI (Kredit AI) & Transkrip Nilai (/admin/submissions)',
+        image: 'assets/feature_hasil_detail.png',
+        narration: 'Langkah keenam: Buka menu Hasil Siswa untuk memantau nilai real-time. Guru dapat menggunakan asisten koreksi esai otomatis bertenaga AI yang menghemat waktu memeriksa jawaban siswa dengan kuota Kredit AI sekolah. Tinjau grafik ketercapaian kompetensi dasar dan ekspor rekap nilai format Excel untuk pengisian e-Rapor.',
+        subtitle: 'Langkah 6: Buka /admin/submissions, koreksi esai otomatis dengan asisten AI, tinjau catatan anti-cheat, dan unduh rekap nilai Excel siap e-Rapor.'
+      },
+      {
+        title: 'Presensi Digital Kelas & Validasi Izin Siswa (/admin/attendance)',
+        image: 'assets/hunt_egis_absensi_pembelajaran.png',
+        narration: 'Langkah ketujuh: Buka menu Absensi untuk memantau kehadiran siswa secara real-time berbasis radius geolokasi GPS 120 meter dari titik sekolah. Guru dan wali kelas dapat melihat status Hadir, Terlambat, Sakit, atau Izin, memvalidasi unggahan surat dokter, serta mengunduh rekap presensi bulanan.',
+        subtitle: 'Langkah 7: Pantau kehadiran geolokasi GPS 120m di /admin/attendance, validasi surat izin atau sakit siswa, dan ekspor laporan presensi bulanan.'
+      },
+      {
+        title: 'Publikasi Pengumuman Kelas & Kalender Agenda Pembelajaran',
+        image: 'assets/dummy3_02_pengumuman_view.png',
+        narration: 'Langkah kedelapan: Buka menu Pengumuman dan Agenda untuk mempublikasikan warta akademik terarah, surat edaran, serta jadwal tatap muka dan batas penyerahan proyek ke kalender akademik sekolah. Siswa langsung menerima notifikasi tanpa risiko tertimbun di grup percakapan.',
+        subtitle: 'Langkah 8: Publikasikan warta di menu Pengumuman, jadwalkan kegiatan di kalender Agenda, dan bangun interaksi positif di forum Komunitas sekolah.'
       }
     ]
   },
   kepsek: {
-    roleTitle: 'Video Panduan Kepala Sekolah & Admin — 6 Langkah Manajemen Ekosistem',
-    roleSub: 'Manajemen ekosistem digital, branding sekolah, lisensi stok buku, dan laporan akreditasi',
+    roleTitle: 'Video Panduan Kepala Sekolah & Admin — 9 Langkah Manajemen Ekosistem & Akreditasi',
+    roleSub: 'Manajemen ekosistem digital, master data rombel/PTK/mapel, presensi GPS 120m, sirkulasi BOS, dan berkas akreditasi',
     steps: [
       {
-        title: 'Registrasi Administrator & Multi-Tenant Institusi',
+        title: 'Akses Kepemimpinan, Registrasi Admin & Subdomain Resmi Sekolah',
         image: 'assets/pilih_institusi.png',
-        narration: 'Langkah pertama: Daftarkan akun administrator sekolah di portal belajarplus.id/auth pada tab Daftar. Setelah verifikasi email, login dan pilih institusi sekolah resmi seperti SMA NEGERI 1 SRAGEN dengan hak akses Trainer atau Administrator untuk mengelola seluruh ekosistem sekolah.',
-        subtitle: 'Langkah 1: Registrasi akun di belajarplus.id/auth, verifikasi email, dan pilih institusi sekolah resmi dengan hak akses administrator/trainer.'
+        narration: 'Langkah pertama: Daftarkan akun pimpinan di portal belajarplus.id/auth atau via subdomain resmi sekolah seperti egis.belajarplus.id. Login dengan peran Administrator atau Trainer untuk mengakses portal kendali penuh di belajarplus.id/admin. Pimpinan multi-institusi dapat berpindah sekolah seketika lewat switcher di header tanpa logout.',
+        subtitle: 'Langkah 1: Akses portal /auth atau subdomain resmi sekolah, login dengan hak akses Administrator/Trainer di /admin, dan manfaatkan switcher multi-institusi.'
       },
       {
-        title: 'Monitoring Executive Dashboard & Aksi Cepat (/admin)',
-        image: 'assets/kepsek_dashboard.png',
-        narration: 'Langkah kedua: Akses portal belajarplus.id/admin. Kepala sekolah dapat memantau metrik pengerjaan tugas siswa, ketersediaan bank soal latihan, ringkasan peninjauan penilaian, total buku koleksi sekolah, serta menggunakan lima tombol Aksi Cepat harian.',
-        subtitle: 'Langkah 2: Pantau pengerjaan siswa, modul latihan, peninjauan nilai, total buku sekolah, dan akses 5 tombol Aksi Cepat di /admin.'
+        title: 'Executive Dashboard Sekolah SMA EGIS, Statistik Literasi & Indikator Mutu (/admin)',
+        image: 'assets/hunt_egis__dashboard.png',
+        narration: 'Langkah kedua: Pada Executive Dashboard SMA EGIS, kepala sekolah dapat memantau indikator mutu pendidikan secara menyeluruh: total akumulasi hasil tugas siswa, ketersediaan bank latihan kurikulum, status peninjauan nilai oleh guru, dan tombol 5 Aksi Cepat harian.',
+        subtitle: 'Langkah 2: Pantau Executive Dashboard SMA EGIS di /admin, evaluasi indikator mutu pembelajaran, dan gunakan 5 Aksi Cepat Pengawasan.'
       },
       {
-        title: 'Pengaturan Branding Sekolah & Tampilan Perpustakaan',
-        image: 'assets/kepsek_tampilan_sekolah.png',
-        narration: 'Langkah ketiga: Buka menu Tampilan Sekolah di /admin/library/settings. Atur nama perpustakaan, unggah logo sekolah untuk menggantikan logo BelajarPlus, kelola subdomain atau domain web kustom sekolah, serta atur mode aplikasi PWA di ponsel siswa.',
-        subtitle: 'Langkah 3: Buka /admin/library/settings untuk atur logo sekolah, subdomain, domain kustom DNS, layout banner hero, dan mode PWA.'
+        title: 'Master Data Siswa, SOP Impor Batch & Penempatan 100% Rombel (/admin/students)',
+        image: 'assets/audit__master_data_rombel.png',
+        narration: 'Langkah ketiga: Kelola data peserta didik di menu Siswa. Pantau 4 status siswa dengan target 100% siswa sudah berada di rombel dan 0 unassigned. Terapkan SOP impor spreadsheet resmi dalam batch 40 hingga 60 siswa per file agar rendering modal browser tetap lancar.',
+        subtitle: 'Langkah 3: Kelola 4 status siswa di /admin/students, pastikan target 100% siswa di rombel, dan gunakan template impor batch Excel resmi.'
       },
       {
-        title: 'Sirkulasi Perpustakaan Digital & Kuota Lisensi Buku',
-        image: 'assets/kepsek_koleksi_buku.png',
-        narration: 'Langkah keempat: Pantau sirkulasi buku di menu Perpustakaan Digital /admin/library. Monitor empat metrik stok: total judul, total lisensi eksemplar, buku dipinjam, dan kuota tersedia, serta evaluasi rasio penggunaan lisensi tertinggi per mata pelajaran.',
-        subtitle: 'Langkah 4: Monitor 4 metrik inventaris (Judul, Lisensi, Dipinjam, Tersedia), daftar antrean peminjaman, dan tabel Penggunaan Lisensi Tertinggi.'
+        title: 'Master Data PTK, Manajemen Guru & Penugasan Peran (/admin/teachers)',
+        image: 'assets/dummy3_sidebar_fully_expanded.png',
+        narration: 'Langkah keempat: Kelola data Pendidik dan Tenaga Kependidikan di menu PTK. Pastikan NUPTK dan NIP tercatat rapi untuk sinkronisasi Dapodik, undang pengajar baru via email resmi, dan tetapkan penugasan Wali Kelas yang bertanggung jawab atas rombel serta distribusi kredensial akun.',
+        subtitle: 'Langkah 4: Kelola staf di /admin/teachers, verifikasi NUPTK/NIP, undang guru baru, dan tetapkan penugasan Wali Kelas.'
       },
       {
-        title: 'Master Data Siswa, Pendaftaran & PTK Guru',
-        image: 'assets/kepsek_siswa.png',
-        narration: 'Langkah kelima: Kelola data pengguna di menu Siswa dan PTK. Pantau empat status siswa, setujui pengajuan akun baru di menu Kode & Pendaftaran, impor data siswa massal via spreadsheet, dan undang guru serta kelola NUPTK di modul PTK.',
-        subtitle: 'Langkah 5: Kelola 4 status siswa, verifikasi pengajuan pendaftaran, impor data massal CSV, serta undang guru dan kelola NUPTK di menu PTK.'
+        title: 'Master Data Kurikulum Sekolah: Rombel, Mapel & Jadwal Pelajaran',
+        image: 'assets/audit__master_data_mapel.png',
+        narration: 'Langkah kelima: Atur struktur kurikulum di bawah Master Data Sekolah: tata ruang rombongan belajar per jenjang fase, petakan mata pelajaran umum dan peminatan Kurikulum Merdeka, tentukan plotting jadwal pelajaran tanpa bentrok jam mengajar, dan aktifkan tahun ajaran berjalan.',
+        subtitle: 'Langkah 5: Konfigurasi Rombongan Belajar, Mata Pelajaran, Jadwal Mengajar, dan Tahun Ajaran aktif di menu Master Data Sekolah.'
       },
       {
-        title: 'Tata Kelola Kurikulum, Kredit AI & Laporan Akreditasi',
-        image: 'assets/kepsek_curriculum.png',
-        narration: 'Langkah keenam: Atur pemetaan Kurikulum Merdeka di modul Kurikulum, kelola kuota token koreksi esai otomatis di menu Kredit AI Sekolah, serta ekspor rekapitulasi data literasi dan ketuntasan belajar untuk kebutuhan akreditasi sekolah dan laporan dinas.',
-        subtitle: 'Langkah 6: Petakan Kurikulum & Mapel, kelola saldo Kredit AI untuk koreksi esai otomatis, dan ekspor laporan resmi akreditasi sekolah.'
+        title: 'Konfigurasi Presensi Geolokasi Sekolah (Radius 120m) & Jam Operasional',
+        image: 'assets/hunt_egis_pengaturan_absensi.png',
+        narration: 'Langkah keenam: Atur koordinat gerbang utama sekolah dan tentukan batas radius toleransi GPS 120 meter di menu Pengaturan Absensi. Tentukan jam operasional batas kedatangan dan kepulangan agar presensi digital civitas berjalan tertib, presisi, dan bebas manipulasi titip absen.',
+        subtitle: 'Langkah 6: Konfigurasi koordinat GPS sekolah dengan radius toleransi 120 meter dan jam operasional di /admin/attendance.'
+      },
+      {
+        title: 'Sirkulasi Perpustakaan Digital, Kuota Lisensi Buku & Optimasi BOS (/admin/library)',
+        image: 'assets/hunt_egis__library.png',
+        narration: 'Langkah ketujuh: Awasi inventaris perpustakaan digital di menu Perpustakaan melalui 4 metrik: total Judul, Lisensi, buku Dipinjam, dan kuota Tersedia. Pantau analitik buku terpopuler dan alokasikan pembelanjaan dana BOS secara tepat sasaran tanpa risiko buku fisik rusak atau hilang.',
+        subtitle: 'Langkah 7: Pantau 4 metrik perpustakaan di /admin/library, evaluasi utilisasi lisensi buku, dan optimalkan alokasi anggaran dana BOS.'
+      },
+      {
+        title: 'Pusat Komunikasi & Pengumuman Eksekutif Sekolah (/admin/announcements)',
+        image: 'assets/dummy3_pengumuman_after_publish.png',
+        narration: 'Langkah kedelapan: Publikasikan surat edaran resmi kedinasan, penetapan libur sekolah, atau jadwal asesmen serentak melalui modul Pengumuman. Tetapkan kalender agenda institusi dan lakukan moderasi berkala pada ruang komunitas warga sekolah.',
+        subtitle: 'Langkah 8: Siarkan pengumuman dinas resmi di /admin/announcements, atur kalender agenda institusi, dan pantau feed komunitas sekolah.'
+      },
+      {
+        title: 'Branding Portal, Saldo Kredit AI & Berita Acara Akreditasi (BAST)',
+        image: 'assets/hunt_ai_credits_page.png',
+        narration: 'Langkah kesembilan: Kustomisasi identitas sekolah dengan mengunggah logo resmi dan mengaktifkan mode PWA di menu Tampilan Sekolah. Pantau kuota Kredit AI sekolah untuk koreksi esai otomatis guru, dan cetak dokumen Berita Acara Serah Terima Akun PDF A4 bertanda tangan resmi sebagai bukti fisik akreditasi BAN-S/M.',
+        subtitle: 'Langkah 9: Pasang logo sekolah & PWA di /admin/library/settings, pantau saldo Kredit AI di /admin/ai-credits, dan terbitkan berkas resmi BAST akreditasi.'
       }
     ]
   }

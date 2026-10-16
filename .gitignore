@@ -4,4 +4,6 @@ node_modules/
 test_*.js
 scratch/
 *.png
+!assets/*.png
 !assets/**/*.png
+

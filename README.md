@@ -10,7 +10,7 @@
 
 | Fitur | Deskripsi |
 |-------|-----------|
-| 🔀 **Role Switcher** | Panduan terpisah & terstruktur untuk 3 peran: Siswa (12 langkah), Guru (6 langkah), Kepsek/Admin (6 langkah) |
+| 🔀 **Role Switcher** | Panduan terpisah & terstruktur untuk 3 peran: Siswa (12 langkah lengkap & bedah 5 tab kelas e-learning), Guru (8 langkah e-learning & presensi), Kepsek/Admin (9 langkah ekosistem & akreditasi) |
 | 📖 **Interactive Book Reader Demo** | Simulasi e-reader BelajarPlus langsung di browser — lengkap dengan Daftar Isi, navigasi halaman, zoom teks, dan mode fullscreen |
 | 🎬 **Video Tutorial + Voiceover AI** | Slideshow tutorial per peran dilengkapi narasi Bahasa Indonesia via ResponsiveVoice API dan subtitle teks berjalan |
 | 📥 **Download Modul PDF Resmi (A4)** | Generate & unduh modul panduan berformat A4 resmi menggunakan html2pdf.js — dengan kop surat, screenshot, dan footer |
