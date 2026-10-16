@@ -40,21 +40,46 @@
 
 ---
 
-### C. Akun Kepala Sekolah & Admin (9 Langkah Tata Kelola Ekosistem & Akreditasi Ter-Enrich)
-- [x] **Langkah 01**: Akses Kepemimpinan, Registrasi Admin, Subdomain Resmi & Hak Multi-Tenant Pimpinan (`assets/pilih_institusi.png`, `assets/register_guru.png`).
-- [x] **Langkah 02**: Executive Dashboard SMA EGIS (`assets/hunt_egis__dashboard.png`, `assets/hunt_egis_sidebar_expanded.png`), Metrik Literasi & 5 Aksi Cepat Pimpinan.
-- [x] **Langkah 03**: Master Data Siswa Dapodik (`assets/audit__admin_students.png`), SOP Impor Batch Spreadsheet (40-60 siswa), Penempatan 100% Rombel (Target 0 Unassigned) (`assets/audit__master_data_rombel.png`), dan Pendaftaran Siswa Baru (`assets/kepsek_pendaftaran_siswa.png`).
-- [x] **Langkah 04**: Master Data PTK & Rekap Guru Pengampu (`assets/audit__admin_teachers.png`), Manajemen NUPTK/NIP & Penugasan Wali Kelas (`assets/dummy3_sidebar_fully_expanded.png`).
-- [x] **Langkah 05**: 4 Pilar Master Data Kurikulum Merdeka: Rombel (`assets/audit__master_data_rombel.png`), Mata Pelajaran (`assets/audit__master_data_mapel.png`), Jadwal Pelajaran (`assets/audit__master_data_jadwal.png`), dan Tahun Ajaran Aktif (`assets/audit__master_data_tahun_ajaran.png`).
-- [x] **Langkah 06**: Konfigurasi Titik Presensi GPS Sekolah (Radius 120m) & Jam Operasional Kedatangan/Kepulangan (`assets/absensi_pengaturan_purwokerto.png`, `assets/audit__absensi_pengaturan.png`, `assets/hunt_egis_pengaturan_absensi.png`).
-- [x] **Langkah 07**: Sirkulasi Perpustakaan Digital (`assets/hunt_egis__library.png`), **Manajemen Kursi Baca Simultan (Concurrent Seats)** (`assets/audit__admin_library_seats.png`), dan **Pengaturan Kebijakan Sirkulasi/Denda** (`assets/audit__admin_library_settings.png`).
-- [x] **Langkah 08**: Pusat Komunikasi, Pengumuman Eksekutif & Moderasi Komunitas (`assets/dummy3_pengumuman_after_publish.png`, `assets/dummy3_komunitas_detail.png`), serta **Laporan Audit Rekapitulasi Pengumpulan Tugas Seluruh Rombel** (`assets/audit__admin_submissions.png`).
-- [x] **Langkah 09**: **Proteksi Digital Rights Management (DRM) & Forensik Aktivitas Mencurigakan** (`assets/audit__admin_library_security.png`), Tata Kelola Saldo Kredit AI (`assets/audit__admin_ai_credits.png`, `assets/hunt_ai_credits_page.png`), Rekap Penjualan Toko Sekolah (`assets/audit__admin_sales.png`), dan Penerbitan Berita Acara Akreditasi (BAST).
+### C. Akun Kepala Sekolah & Admin (Buku Panduan Resmi 8 Tahap & Alur Kerja Awal Tahun Ajaran)
+- [x] **Prinsip Kesetaraan Kewenangan Penuh**: Admin Sekolah (operasional master data, presensi, akun) vs Kepala Sekolah (supervisi KBM, pemantauan jurnal, kontrol nilai & rapor).
+- [x] **Ringkasan Alur Kerja Awal Tahun Ajaran (8 Tahap Berurutan)**:
+  1. Anggota: Impor/Setujui Siswa & PTK baru
+  2. Master Data: Aktifkan Tahun Ajaran & Semester baru (hijau)
+  3. Rombel: Susun Rombel & tetapkan Wali Kelas
+  4. Jadwal: Susun jadwal mengajar guru per rombel
+  5. Pembelajaran: Buat Kelas Sekolah & tautkan ke Rombel
+  6. Presensi: Periksa titik GPS & jam absensi
+  7. Operasional: Pantau KBM, Jurnal, dan Hasil Belajar
+  8. Akhir Semester: Validasi nilai & Kirim ke Rapor Rombel
+- [x] **Step 01 / Navigasi & Konteks Institusi**: Pemilih Institusi (Switcher header), Sidebar 8 Modul, dan Profil Akun (`assets/pilih_institusi.png`, `assets/hunt_egis_sidebar_expanded.png`, `assets/hunt_navbar_profile_menu.png`).
+- [x] **Step 02 / Tahap 1: Pengelolaan Pengguna**: Persetujuan Pengajuan Bergabung PTK, Undang PTK, Persetujuan Siswa, Impor Massal Spreadsheet (batch 40-60 siswa), Pengeluaran Siswa tanpa hapus histori nilai (`assets/audit__admin_teachers.png`, `assets/audit__admin_students.png`, `assets/kepsek_pendaftaran_siswa.png`).
+- [x] **Step 03 / Tahap 2: Pengaturan Akademik**: Tahun Ajaran & Semester aktif, Rombel & Wali Kelas, Mapel Kurikulum, Jadwal Pelajaran termasuk **Kelas Gabungan Lintas Rombel** (`assets/audit__master_data_tahun_ajaran.png`, `assets/audit__master_data_rombel.png`, `assets/audit__master_data_mapel.png`, `assets/audit__master_data_jadwal.png`).
+- [x] **Step 04 / Tahap 3: E-Learning & Supervisi Kelas**: Direktori Seluruh Kelas Sekolah (filter tingkat, rombel, mapel, guru), Supervisi Pembelajaran di Tab Aktivitas Belajar, dan Pengawasan Tab Jurnal Mengajar Guru (`assets/audit__admin_classes.png`, `assets/hunt_tab_aktivitas_belajar.png`, `assets/audit__absensi_pembelajaran.png`).
+- [x] **Step 05 / Tahap 4: Sistem Presensi Digital**: Geofencing Titik Koordinat & Radius GPS (50–120m), Jam Operasional, **Toggle Opsi Verifikasi Otomatis** (Hadir langsung vs antrean Menunggu; anomali luar radius otomatis tertahan), **Antrean Verifikasi Massal (Batch 500+ siswa)** & Rekap Excel, Izin & Sakit surat dokter (`assets/absensi_pengaturan_purwokerto.png`, `assets/dummy3_absensi_kedatangan_view.png`, `assets/hunt_guru_sragen_absensi_live.png`).
+- [x] **Step 06 / Tahap 5: Bank Soal, Asesmen & Pengawasan Ujian**: **6 Variasi Tipe Soal** (MCQ, MCMA, PGK Kategori, Menjodohkan/Matching, Esai, Unggah Berkas Tugas PDF/Word hingga 10 MB), Pengaturan Ujian Aman (batas waktu, deteksi tab/fullscreen lock, jadwal buka/tutup), **Fitur Pratinjau Asesmen** (trial run tanpa dummy result / Zero DB Dirty) (`assets/audit__admin_assignments.png`, `assets/ljd_lembar_jawaban.png`, `assets/ljd_tinjau_jawaban.png`).
+- [x] **Step 07 / Tahap 6: Hasil Belajar, Penilaian Non-Tes & Rapor**: Atur Bobot & KKM 100% (atau Bobot Sama), Penilaian Non-Tes 6 Rubrik (Diskusi, Praktik, Presentasi, Proyek, Observasi, Lainnya), **Input Nilai Massal & Pembedaan Kritis Nilai Kosong (NULL) vs Nilai 0 Resmi**, Validasi Kelengkapan (Siap Kirim vs Belum Lengkap), **Penguncian Snapshot Resmi Rapor Rombel (Immutable)** (`assets/hunt_tab_hasil_belajar.png`, `assets/guru_hasil_siswa.png`, `assets/audit__admin_submissions.png`).
+- [x] **Step 08 / Tahap 7: Perpustakaan Digital Sekolah**: Katalog Buku Sekolah, **Deep-Link Penugasan Membaca langsung ke bab/halaman spesifik**, Manajemen Kuota Lisensi Kursi Baca (Concurrent Seats & Waiting Queue), Proteksi DRM Forensik Watermark & Anti-Screenshot (`assets/hunt_egis__library.png`, `assets/audit__admin_library_seats.png`, `assets/audit__admin_library_security.png`).
+- [x] **Step 09 / Tahap 8: Informasi Sekolah & Analitik Pembelajaran Eksekutif**: Siaran Pengumuman Resmi & Kalender Agenda Sekolah, Analitik Keaktifan Tugas & Literasi, Evaluasi Sebaran Nilai Rata-Rata Rombel, Pengawasan Saldo Kredit AI & BAST Akreditasi (`assets/dummy3_pengumuman_after_publish.png`, `assets/dummy3_agenda_ready_to_save.png`, `assets/hunt_egis__dashboard.png`, `assets/audit__admin_ai_credits.png`).
 
 ---
 
-## 2. Kepatuhan Privasi & Standar Visual
+## 2. Quality Assurance (QA) Fitur-Fitur Baru & UAT Live
+- [x] **Simulator Interaktif QA**: Dibangun di `qa-fitur-baru.html` dengan workbench live:
+  - Kalkulator Uji Pembedaan Nilai NULL vs Nilai 0 Resmi (pembuktian matematis pencegahan distorsi nilai).
+  - Geofence GPS Simulator dengan slider radius dan toggle verifikasi ulang.
+  - Stress Test Batch Approval 500+ presensi siswa (&lt; 150 ms benchmark).
+  - File Upload Validator (rejeksi file &gt; 10MB dan ekstensi non-dokumen).
+  - Soal Menjodohkan (Matching) validator pasangan stimulus.
+  - Mode Pratinjau Asesmen (Zero DB Dirty validation).
+  - Validator Jadwal Kelas Gabungan Lintas Rombel.
+  - Generator Hash Kriptografi Snapshot Rapor Rombel (Immutable Lock).
+- [x] **Dokumen Spesifikasi QA Formal**: Ditulis di `QA_FITUR_BARU_BELAJARPLUS.md` lengkap dengan Matriks Uji QA-ATT-01 s.d. QA-LIB-03, Analisis Kasus Batas (Edge Cases), Failure Modes, dan Lembar Sign-off Pejabat Sekolah.
+- [x] **Integrasi Navigasi**: Ditambahkan tombol `🧪 QA Fitur Baru Live` di header `index.html`, card di Trainer Field Kit grid, serta link navbar.
+
+---
+
+## 3. Kepatuhan Privasi & Standar Visual
 - [x] **Kebijakan Non-Sekolah Riil Terpenuhi 100%**: Tidak menggunakan screenshot atau data dari sekolah riil (seperti SMAN 1 Sragen).
 - [x] **Tenant Resmi Rujukan**: Seluruh materi institusi mengacu pada **SMA EGIS** (tenant demo/referensi internal) serta dataset simulasi dummy trainer (`SEKOLAH DUMMY TRAINER 3` / master data audit).
 - [x] **Sinkronisasi Kode**: `index.html`, `app.js` (PDF exporter, voiceover video data), dan presentasi eksekutif telah selaras 100%.
-- [x] **Total Visual Aktif**: 98 tangkapan layar HD terintegrasi lengkap dengan label deskriptif dan dukungan zoom lightbox modal.
+- [x] **Total Visual Aktif**: 98+ tangkapan layar HD terintegrasi lengkap dengan label deskriptif dan dukungan zoom lightbox modal.

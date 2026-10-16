@@ -60,6 +60,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="/demo" style="color: #38bdf8; font-weight: 700;">🛡️ Demo Hub</a></li>
+      <li><a href="qa-fitur-baru.html" style="color: #10b981; font-weight: 700;">🧪 QA Fitur Baru</a></li>
       <li><a href="/sosialisasi-kepsek.html">📽️ Slide Kepsek</a></li>
       <li><a href="/bug2">🔍 Audit v2.0</a></li>
       <li><a href="#pengenalan">Pengenalan</a></li>
@@ -191,6 +192,21 @@
           </p>
           <div style="font-size: 0.8rem; font-weight: 700; color: #facc15; display: flex; align-items: center; gap: 0.35rem;">
             Lihat Evaluasi (/changelog) &rarr;
+          </div>
+        </a>
+
+        <!-- Card 5: QA Fitur Baru -->
+        <a href="qa-fitur-baru.html" style="text-decoration: none; display: flex; flex-direction: column; background: var(--bg-tertiary); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 12px; padding: 1.5rem; transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='rgba(16, 185, 129, 0.8)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='rgba(16, 185, 129, 0.4)'; this.style.transform='translateY(0)';">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div style="font-size: 2rem;">🧪</div>
+            <span style="font-size: 0.7rem; font-weight: 700; background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 0.2rem 0.55rem; border-radius: 20px;">QA &amp; UAT LIVE</span>
+          </div>
+          <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Quality Assurance Fitur Baru</h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
+            Matriks uji interaktif &amp; validasi edge cases: Geofence radius GPS &amp; bypass toggle, batch 500+ presensi, 6 variasi soal (matching &amp; upload 10MB), pratinjau asesmen, nilai NULL vs 0, dan penguncian snapshot rapor.
+          </p>
+          <div style="font-size: 0.8rem; font-weight: 700; color: #10b981; display: flex; align-items: center; gap: 0.35rem;">
+            Buka Uji QA Fitur Baru &rarr;
           </div>
         </a>
       </div>
@@ -1387,318 +1403,529 @@
         <div class="role-steps-container" id="steps-kepsek">
           <div class="role-section-header">
             <div class="rsh-left">
-              <div class="rsh-title">🏫 Panduan Runtut Akun Kepala Sekolah &amp; Admin</div>
-              <span class="rsh-badge badge-kepsek">9 Langkah Manajemen Ekosistem, Master Data, Presensi GPS &amp; Akreditasi</span>
+              <div class="rsh-title">🏫 Buku Panduan &amp; Tutorial Lengkap Kepala Sekolah &amp; Admin Sekolah</div>
+              <span class="rsh-badge badge-kepsek">Kesetaraan Otoritas Penuh • 8 Tahap Tata Kelola Ekosistem &amp; Rapor Digital</span>
             </div>
             <div class="rsh-actions" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+              <a href="qa-fitur-baru.html" class="btn-qa-fitur" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; text-decoration: none; padding: 0.65rem 1.15rem; border-radius: 8px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.45rem; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); transition: transform 0.2s ease;">
+                🧪 QA Fitur Baru Live
+              </a>
               <a href="sosialisasi-kepsek.html" target="_blank" class="btn-ppt-deck" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; text-decoration: none; padding: 0.65rem 1.15rem; border-radius: 8px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.45rem; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35); transition: transform 0.2s ease;">
-                🖥️ Buka Slide Presentasi (PPT)
+                🖥️ Buka Slide PPT (Sosialisasi)
               </a>
               <a href="Sosialisasi_BelajarPlus_Kepala_Sekolah.pptx" download class="btn-ppt-download" style="background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); text-decoration: none; padding: 0.65rem 1.15rem; border-radius: 8px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.45rem; transition: all 0.2s ease;">
-                📥 Unduh Berkas .PPTX
+                📥 Unduh .PPTX
               </a>
               <button class="btn-video-play btn-video-kepsek" onclick="openVideoPlayer('kepsek')">
-                ▶️ Putar Video Tutorial &amp; VO
+                ▶️ Putar Video VO
               </button>
               <button class="btn-pdf-download btn-pdf-kepsek" onclick="downloadRolePDF('kepsek')">
                 📥 Unduh Modul PDF Resmi (A4)
               </button>
-              <button class="btn-mp4-download btn-mp4-kepsek" onclick="downloadVideoMP4('kepsek')">
-                🎥 Unduh Video (.mp4)
-              </button>
             </div>
           </div>
 
-          <!-- Step 1 Kepsek -->
+          <!-- Card Kesetaraan Kewenangan & Pembagian Peran -->
+          <div style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.15), rgba(15, 23, 42, 0.25)); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span style="font-size: 1.5rem;">⚖️</span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #38bdf8; margin: 0;">Kesetaraan Kewenangan Penuh Admin &amp; Kepala Sekolah</h3>
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+              Di Belajar Plus, <strong>Admin Sekolah dan Kepala Sekolah memiliki kesetaraan kewenangan penuh</strong> atas seluruh data, kelas, dan operasional di sekolahnya. Pembagian kerja operasional terdistribusi secara sinergis:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-left: 4px solid #38bdf8; border-radius: 8px; padding: 1rem;">
+                <div style="font-weight: 800; color: #38bdf8; font-size: 0.95rem; margin-bottom: 0.35rem;">🛠️ Admin Sekolah (Operasional &amp; Teknis)</div>
+                <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+                  Bertanggung jawab atas penyiapan data master (TA, Rombel, Mapel, Jadwal), operasional harian, konfigurasi presensi GPS, impor batch data, dan pengelolaan akun guru/siswa.
+                </div>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 1rem;">
+                <div style="font-weight: 800; color: #f59e0b; font-size: 0.95rem; margin-bottom: 0.35rem;">👔 Kepala Sekolah (Supervisi &amp; Kebijakan)</div>
+                <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+                  Fokus pada supervisi pembelajaran langsung di ruang kelas, pemantauan presensi &amp; jurnal mengajar guru, kontrol validasi nilai &amp; rapor rombel, serta analisis kemajuan sekolah.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap: Ringkasan Alur Kerja Awal Tahun Ajaran -->
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div style="font-size: 0.8rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em;">
+                🗺️ Ringkasan Alur Kerja Awal Tahun Ajaran (Wajib Berurutan)
+              </div>
+              <span style="font-size: 0.78rem; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700;">
+                8 Tahapan Sekuensial
+              </span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.75rem;">
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">1</span>
+                  Anggota
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Impor/Setujui Siswa &amp; PTK baru resmi sekolah.</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">2</span>
+                  Master Data
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Aktifkan Tahun Ajaran &amp; Semester baru (hijau).</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">3</span>
+                  Rombel
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Susun Rombel, tetapkan Wali Kelas &amp; masukkan siswa.</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">4</span>
+                  Jadwal
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Plotting jadwal mengajar guru per rombel (bebas bentrok).</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">5</span>
+                  Pembelajaran
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Buat Kelas Sekolah &amp; tautkan ke Rombel resmi.</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">6</span>
+                  Presensi
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Periksa titik koordinat GPS gerbang &amp; jam absensi.</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #2563eb; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">7</span>
+                  Operasional
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Pantau KBM aktif, Jurnal Mengajar, dan Hasil Belajar.</div>
+              </div>
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  <span style="background: #10b981; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">8</span>
+                  Akhir Semester
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Validasi nilai lengkap &amp; Kirim snapshot ke Rapor Rombel.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 1 Kepsek: Navigasi & Konteks Institusi -->
           <div class="step" data-step="1">
             <div class="step-number">01</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Akses Kepemimpinan, Registrasi Admin &amp; Subdomain Resmi Sekolah</h3>
-                <span class="step-tag">Portal Resmi &amp; Multi-Tenant</span>
+                <h3>Navigasi &amp; Konteks Institusi: Multi-Sekolah, Sidebar &amp; Keamanan Akun</h3>
+                <span class="step-tag">Navigasi &amp; Multi-Tenant</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 1)">▶️ Tonton Video: Registrasi &amp; Navigasi Admin</button>
-              <p>Kepala Sekolah dan Administrator Institusi dapat mengakses kendali ekosistem digital melalui portal resmi di <a href="https://belajarplus.id/auth" target="_blank" class="link">belajarplus.id/auth</a> atau melalui <strong>subdomain resmi sekolah</strong> (contoh: <code>https://egis.belajarplus.id</code>):</p>
+              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 1)">▶️ Tonton Video: Navigasi &amp; Konteks Institusi</button>
+              <p>Setiap akun pengguna di Belajar Plus dapat terhubung ke lebih dari satu sekolah. Pastikan Anda selalu berada di sekolah yang benar sebelum mengelola data:</p>
               <ul class="step-list">
-                <li><strong>1. Registrasi Akun Administrator:</strong> Pada tab <strong>"Daftar"</strong> (<em>"Satu halaman untuk siswa &amp; guru"</em>), masukkan nama lengkap pimpinan/admin, alamat email kedinasan, dan kata sandi terenkripsi minimal 8 karakter. Lakukan verifikasi via tautan email aktivasi.</li>
-                <li><strong>2. Akses Multi-Tenant &amp; Pemilihan Institusi:</strong> Saat login pertama kali, akun kepala sekolah akan terdaftar dengan hak akses resmi (contoh: <em>SMA EGIS · Trainer / Administrator</em>) untuk masuk langsung ke <a href="https://belajarplus.id/admin" target="_blank" class="link">belajarplus.id/admin</a>.</li>
-                <li><strong>3. Subdomain Eksklusif Instansi:</strong> Setiap sekolah mitra BelajarPlus dibekali alamat subdomain mandiri (<code>.belajarplus.com</code> atau <code>.belajarplus.id</code>) yang memudahkan civitas mengakses portal pembelajaran tanpa tertukar dengan sekolah lain.</li>
-                <li><strong>4. Pengawas / Pimpinan Multi-Sekolah:</strong> Jika kepala sekolah menaungi lebih dari satu instansi, cukup beralih antar institusi menggunakan tombol Switcher Institusi di header atas tanpa perlu logout.</li>
+                <li><strong>1. Pemilih Institusi (Institution Switcher):</strong> Terletak di bagian atas (header). Klik nama sekolah untuk memastikan Anda sedang aktif di sekolah yang dituju. Pimpinan yang menaungi beberapa sekolah dapat beralih tenant secara instan tanpa perlu logout.</li>
+                <li><strong>2. Menu Navigasi Samping (Sidebar):</strong> Menyediakan akses terstruktur ke 8 modul utama:
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li><strong>Beranda / Dashboard:</strong> Ringkasan metrik eksekutif, tugas siswa, koleksi, dan civitas terdaftar.</li>
+                    <li><strong>E-Learning (Kelas):</strong> Pemantauan dan supervisi ruang kelas sekolah.</li>
+                    <li><strong>Asesmen &amp; Penugasan:</strong> Bank soal, latihan kurikulum, dan pengawasan ujian aman.</li>
+                    <li><strong>Presensi:</strong> Absensi kedatangan GPS, presensi KBM per mapel, antrean verifikasi, dan rekap bulanan.</li>
+                    <li><strong>Master Data:</strong> Tahun ajaran, rombel, mata pelajaran, jadwal pelajaran, PTK, dan siswa.</li>
+                    <li><strong>Perpustakaan:</strong> Katalog buku teks/pengayaan, lisensi buku digital (seats), antrean pinjam, dan audit DRM.</li>
+                    <li><strong>Informasi:</strong> Pusat publikasi pengumuman sekolah dan kalender agenda institusi.</li>
+                    <li><strong>Analitik:</strong> Grafik keaktifan pengerjaan tugas, durasi membaca buku, dan sebaran capaian nilai rata-rata rombel.</li>
+                  </ul>
+                </li>
+                <li><strong>3. Profil &amp; Keamanan Akun:</strong> Terletak di pojok kanan atas untuk memeriksa peran aktif (<em>Kepala Sekolah / Admin Sekolah</em>), mengubah kata sandi terenkripsi, atau keluar (logout) secara aman.</li>
               </ul>
               <div class="step-note">
-                🏫 <strong>Otoritas Penuh:</strong> Hak akses Kepala Sekolah &amp; Admin memberikan kewenangan mutlak mengawasi master data, anggaran lisensi perpustakaan, hingga bukti fisik akreditasi digital.
+                💡 <strong>Konteks Sekolah Terkunci:</strong> Seluruh master data yang Anda buat (misal: Rombel atau Siswa) otomatis terasosiasi ke institusi yang sedang aktif di header atas.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Pemilih Institusi (Institution Switcher) &amp; Multi-Tenant</div>
               <img src="assets/pilih_institusi.png" class="screenshot-img zoomable-img" alt="Layar Pemilihan Institusi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/register_guru.png" class="screenshot-img zoomable-img" alt="Registrasi Akun Admin & Guru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Sidebar Navigasi Eksekutif Lengkap Belajar Plus</div>
+              <img src="assets/hunt_egis_sidebar_expanded.png" class="screenshot-img zoomable-img" alt="Sidebar Navigasi Eksekutif BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/hunt_navbar_profile_menu.png" class="screenshot-img zoomable-img" alt="Menu Profil dan Keamanan Akun BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 2 Kepsek -->
+          <!-- Step 2 Kepsek: Tahap 1: Pengelolaan Pengguna (PTK & Siswa) -->
           <div class="step" data-step="2">
             <div class="step-number">02</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Executive Dashboard Sekolah SMA EGIS, Statistik Literasi &amp; Indikator Mutu (/admin)</h3>
-                <span class="step-tag">Executive Summary &amp; Analytics</span>
+                <h3>Tahap 1: Pengelolaan Pengguna (PTK &amp; Siswa) — Approval, Impor Batch &amp; Pengeluaran</h3>
+                <span class="step-tag">Pengguna &amp; Keanggotaan</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 2)">▶️ Tonton Video: Dashboard Analitik &amp; Monitoring</button>
-              <p>Masuk ke portal administrasi sekolah di <a href="https://belajarplus.id/admin" target="_blank" class="link">belajarplus.id/admin</a> untuk memantau ringkasan kinerja seluruh ekosistem belajar digital:</p>
+              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 4)">▶️ Tonton Video: Pengelolaan User &amp; Rombel</button>
+              <p>Semua guru dan siswa yang beraktivitas di sekolah wajib terdaftar sebagai anggota resmi sekolah sebelum dapat dijadwalkan mengajar atau masuk kelas:</p>
               <ul class="step-list">
-                <li><strong>1. Header Institusi Aktif:</strong> Menampilkan identitas sekolah resmi (seperti tenant rujukan <strong>SMA EGIS</strong>), status akreditasi digital, dan peran pimpinan aktif.</li>
-                <li><strong>2. Metrik Kunci Pembelajaran:</strong>
+                <li><strong>A. Mengelola Guru &amp; Tenaga Kependidikan (PTK):</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>Hasil Siswa:</strong> Rekapitulasi total seluruh pengerjaan tugas &amp; ujian siswa yang tercatat di sistem.</li>
-                    <li><strong>Latihan &amp; Bank Soal:</strong> Jumlah ratusan aktivitas soal interaktif kurikulum yang siap diakses pengajar.</li>
+                    <li><strong>Persetujuan Pengajuan Bergabung:</strong> Buka menu <em>Master Data &rarr; PTK</em> atau menu <em>Pendaftaran PTK</em>. Periksa daftar permohonan masuk guru/staf. Klik <strong>Setujui</strong> untuk mengaktifkan statusnya sebagai PTK resmi sekolah.</li>
+                    <li><strong>Menambahkan / Mengundang Guru:</strong> Klik tombol <strong>Undang PTK</strong>. Masukkan alamat email resmi guru. Undangan akan otomatis terhubung saat guru masuk ke sistem menggunakan email tersebut.</li>
                   </ul>
                 </li>
-                <li><strong>3. Baris 5 Aksi Cepat Eksekutif:</strong> Akses instan satu klik menuju modul: <em>Kelola Kelas</em>, <em>Penugasan</em>, <em>Hasil Siswa</em>, <em>Perpustakaan</em>, dan <em>Absensi</em>.</li>
-                <li><strong>4. Kartu Ringkasan Pekerjaan Sekolah:</strong>
+                <li><strong>B. Mengelola Siswa:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>Penilaian Siswa:</strong> Pemantauan hasil jawaban siswa yang siap ditinjau dan diverifikasi guru.</li>
-                    <li><strong>Materi &amp; Buku:</strong> Jumlah judul koleksi buku digital aktif yang dimiliki institusi.</li>
-                    <li><strong>Civitas Terdaftar:</strong> Total keaktifan jumlah siswa dan PTK yang terdaftar dalam ekosistem sekolah.</li>
+                    <li><strong>Persetujuan Pendaftaran Siswa:</strong> Buka menu <em>Master Data &rarr; Siswa</em> atau <em>Pendaftaran Siswa</em>. Periksa identitas siswa yang mengajukan permohonan masuk. Klik <strong>Setujui</strong> untuk menjadikan siswa anggota aktif.</li>
+                    <li><strong>Impor Data Siswa Massal (Spreadsheet):</strong> Masuk ke <em>Master Data &rarr; Siswa &rarr; Tambah / Impor Siswa</em>. Unduh template resmi CSV/Excel. Unggah berkas data siswa yang telah diisi (NIS/NISN, nama lengkap, email/akun, dan rombel tujuan). Periksa pratinjau data dan konfirmasi simpan (disarankan dalam batch 40–60 baris per file agar proses rendering browser instan).</li>
+                    <li><strong>Mengeluarkan / Menghapus Siswa:</strong> Jika siswa lulus atau mutasi keluar, buka profil siswa di daftar siswa, pilih opsi pengeluaran siswa. <em>Sistem secara otomatis mencatat pengeluaran tanpa menghapus histori nilai lampau</em>, sehingga arsip akademik tetap utuh saat audit akreditasi.</li>
                   </ul>
                 </li>
               </ul>
               <div class="step-note">
-                📈 <strong>Transparansi Real-time:</strong> Dashboard eksekutif memberikan visibilitas penuh bagi pimpinan sekolah untuk memantau performa mengajar guru dan kedisiplinan belajar siswa setiap hari.
+                👥 <strong>Perlindungan Data Historis:</strong> Fitur pengeluaran siswa Belajar Plus dirancang khusus agar tidak merusak buku nilai atau statistik kelulusan tahun sebelumnya.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <img src="assets/hunt_egis__dashboard.png" class="screenshot-img zoomable-img" alt="Executive Dashboard Sekolah SMA EGIS BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/hunt_egis_sidebar_expanded.png" class="screenshot-img zoomable-img" alt="Sidebar Navigasi Eksekutif SMA EGIS BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Master Data PTK &amp; Guru Pengampu (/admin/teachers)</div>
+              <img src="assets/audit__admin_teachers.png" class="screenshot-img zoomable-img" alt="Master Data PTK Guru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Master Data Siswa &amp; Rekap Rombel (/admin/students)</div>
+              <img src="assets/audit__admin_students.png" class="screenshot-img zoomable-img" alt="Master Data Siswa BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_pendaftaran_siswa.png" class="screenshot-img zoomable-img" alt="Persetujuan Pendaftaran Siswa BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 3 Kepsek -->
+          <!-- Step 3 Kepsek: Tahap 2: Pengaturan Akademik (Master Data) -->
           <div class="step" data-step="3">
             <div class="step-number">03</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Master Data Siswa, SOP Impor Batch &amp; Penempatan 100% Rombel (/admin/students)</h3>
-                <span class="step-tag">Manajemen Siswa &amp; Rombel</span>
+                <h3>Tahap 2: Pengaturan Akademik (Tahun Ajaran, Rombel, Mapel &amp; Jadwal)</h3>
+                <span class="step-tag">Fondasi Kurikulum</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 4)">▶️ Tonton Video: Pengelolaan User &amp; Rombel</button>
-              <p>Kelola seluruh akun peserta didik di bawah menu <em>MASTER DATA SEKOLAH &rarr; Siswa</em> di <a href="https://belajarplus.id/admin/students" target="_blank" class="link">belajarplus.id/admin/students</a>:</p>
+              <p>Fondasi akademik sekolah wajib disiapkan secara berurutan: <strong>Tahun Ajaran &rarr; Rombel &rarr; Mapel &rarr; Jadwal Pelajaran</strong>:</p>
               <ul class="step-list">
-                <li><strong>1. 4 Tab Status Akun Siswa:</strong>
+                <li><strong>A. Tahun Ajaran &amp; Semester:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>Total Siswa Aktif:</strong> Jumlah keseluruhan peserta didik terdaftar.</li>
-                    <li><strong>Sudah di Rombel:</strong> Siswa yang telah memiliki rombongan belajar aktif (target: 100% dari total siswa).</li>
-                    <li><strong>Belum di Rombel (Unassigned):</strong> Siswa yang belum ditempatkan (wajib dituntaskan menjadi 0 siswa).</li>
-                    <li><strong>Nonaktif:</strong> Siswa yang lulus, mutasi keluar, atau ditangguhkan.</li>
+                    <li>Masuk ke <em>Master Data &rarr; Tahun Ajaran</em>.</li>
+                    <li>Buat Tahun Ajaran baru (contoh: <code>2026/2027</code>) dan tentukan Semester aktif (Ganjil / Genap).</li>
+                    <li>Pastikan semester aktif sudah ditandai hijau sebagai acuan kelas dan rapor berjalan.</li>
                   </ul>
                 </li>
-                <li><strong>2. SOP Impor Batch Spreadsheet Resmi:</strong>
+                <li><strong>B. Rombongan Belajar (Rombel):</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li>Gunakan template resmi BelajarPlus dengan 2 sheet wajib: <code>['Siswa', 'Panduan']</code>.</li>
-                    <li>Kolom wajib: <code>Nama</code>, <code>Email</code>, <code>Password Awal</code>, <code>Rombel</code>.</li>
-                    <li><strong>Ukuran Chunk Stabil:</strong> Bagi data ke dalam batch 40–60 siswa per file Excel agar rendering modal pratinjau browser tidak mengalami timeout.</li>
-                    <li><strong>Aturan Standar Email:</strong> Wajib gunakan email asli (Gmail/belajar.id) jika ada; jika tidak ada email real, formatkan otomatis ke <code>nama.lengkap@belajarplus.com</code> (Zero PesonaEdu).</li>
+                    <li>Masuk ke <em>Master Data &rarr; Rombel</em>.</li>
+                    <li>Tambahkan rombel resmi (contoh: <code>Kelas 10-A</code>, <code>Kelas 11 IPA 1</code>).</li>
+                    <li>Tentukan Tingkat dan Wali Kelas (pilih dari daftar guru yang sudah aktif).</li>
+                    <li>Masukkan siswa ke dalam rombel: klik rombel terkait &rarr; <em>Kelola Anggota Siswa</em> &rarr; masukkan siswa per rombel hingga status unassigned menjadi 0 siswa.</li>
                   </ul>
                 </li>
-                <li><strong>3. Penempatan Otomatis &amp; Ekspor:</strong> Seluruh siswa yang diimpor langsung ditempatkan ke kelas masing-masing. Tekan tombol <strong>"Ekspor"</strong> untuk mengunduh rekap spreadsheet siswa terverifikasi kapan saja.</li>
+                <li><strong>C. Mata Pelajaran (Mapel):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Masuk ke <em>Master Data &rarr; Mapel</em>.</li>
+                    <li>Daftarkan seluruh mata pelajaran kurikulum sekolah (contoh: Matematika Wajib, Bahasa Indonesia, Fisika, dsb.).</li>
+                  </ul>
+                </li>
+                <li><strong>D. Jadwal Pelajaran (Termasuk Kelas Gabungan Lintas Rombel):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Masuk ke <em>Master Data &rarr; Jadwal Pelajaran</em>.</li>
+                    <li>Pilih Rombel yang ingin diatur jadwalnya.</li>
+                    <li>Tambahkan slot jam pelajaran: tentukan Hari, Jam Mulai–Selesai, Mata Pelajaran, dan Guru Pengampu.</li>
+                    <li><strong>Catatan Khusus — Kelas Gabungan Lintas Rombel:</strong> Sistem mendukung skenario di mana satu guru mengajar siswa dari beberapa rombel sekaligus pada jam yang sama (misalnya: Guru Agama Kristen/Katolik mengajar gabungan siswa dari Kelas 11-1 dan 11-2 di slot waktu yang sama untuk mata pelajaran yang sama).</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                👥 <strong>Target 0 Unassigned:</strong> Memastikan seluruh 100% peserta didik telah masuk ke rombel masing-masing dan siap mengikuti kegiatan asesmen tanpa kendala login.
+                📅 <strong>Bebas Konflik Jadwal:</strong> Validator sistem secara otomatis mendeteksi bentrok jadwal guru dan ruangan sebelum jadwal disimpan.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Master Data Siswa Dapodik (/admin/students)</div>
-              <img src="assets/audit__admin_students.png" class="screenshot-img zoomable-img" alt="Master Data Siswa Terdaftar BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/audit__master_data_rombel.png" class="screenshot-img zoomable-img" alt="Master Data Siswa dan Rombel Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/kepsek_pendaftaran_siswa.png" class="screenshot-img zoomable-img" alt="Pendaftaran dan Pengajuan Siswa Baru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Pengaturan Tahun Ajaran &amp; Semester Berjalan</div>
+              <img src="assets/audit__master_data_tahun_ajaran.png" class="screenshot-img zoomable-img" alt="Master Data Tahun Ajaran BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Pengaturan Rombongan Belajar &amp; Penetapan Wali Kelas</div>
+              <img src="assets/audit__master_data_rombel.png" class="screenshot-img zoomable-img" alt="Master Data Rombel BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Jadwal Pelajaran &amp; Dukungan Kelas Gabungan</div>
+              <img src="assets/audit__master_data_jadwal.png" class="screenshot-img zoomable-img" alt="Master Data Jadwal Pelajaran BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 4 Kepsek -->
+          <!-- Step 4 Kepsek: Tahap 3: E-Learning & Supervisi Kelas Sekolah -->
           <div class="step" data-step="4">
             <div class="step-number">04</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Master Data PTK, Manajemen Guru &amp; Penugasan Peran (/admin/teachers)</h3>
-                <span class="step-tag">Pendidik &amp; Tenaga Kependidikan</span>
+                <h3>Tahap 3: E-Learning &amp; Supervisi Kelas Sekolah — Struktur Kelas, Aktivitas &amp; Jurnal Mengajar</h3>
+                <span class="step-tag">Supervisi KBM &amp; Jurnal</span>
               </div>
-              <p>Kelola seluruh staf pengajar dan tenaga kependidikan di bawah menu <em>MASTER DATA SEKOLAH &rarr; PTK</em> di <a href="https://belajarplus.id/admin/teachers" target="_blank" class="link">belajarplus.id/admin/teachers</a>:</p>
+              <p>Kepala Sekolah dan Admin Sekolah memiliki hak istimewa untuk melihat dan mengelola seluruh Kelas Sekolah tanpa harus menjadi pengajar langsung di kelas tersebut:</p>
               <ul class="step-list">
-                <li><strong>1. Distribusi Peran Civitas PTK:</strong> Memantau total PTK aktif yang terbagi ke dalam peran <em>Guru Pengajar</em>, <em>Wali Kelas</em>, <em>Tim Kurikulum</em>, dan <em>Tenaga Kependidikan / TU</em>.</li>
-                <li><strong>2. Pengelolaan NUPTK &amp; NIP:</strong> Memastikan nomor identitas kepegawaian resmi (NUPTK / NIP) tercatat rapi untuk sinkronisasi data Dapodik.</li>
-                <li><strong>3. Undang PTK Bergabung:</strong> Kirim undangan aktivasi via email dinas pendidik atau tambahkan akun guru baru secara cepat lewat tombol <em>"Undang PTK"</em>.</li>
-                <li><strong>4. Pengaturan Wali Kelas:</strong> Menetapkan bapak/ibu guru pengampu yang bertanggung jawab mendistribusikan kredensial login dan mengelola presensi rombel masing-masing.</li>
+                <li><strong>A. Struktur Kelas Sekolah:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Buka menu <strong>Kelas / E-Learning</strong> di sidebar.</li>
+                    <li>Gunakan filter <em>Tingkat</em>, <em>Rombel</em>, <em>Mata Pelajaran</em>, dan <em>Guru</em> untuk mencari ruang kelas tertentu secara cepat.</li>
+                    <li>Admin/Kepsek dapat mengedit rincian kelas, menambahkan rekan guru pengampu (co-teacher), atau menghapus kelas yang keliru dibuat oleh pengajar.</li>
+                  </ul>
+                </li>
+                <li><strong>B. Supervisi Pembelajaran &amp; Jurnal Mengajar:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Klik pada salah satu kartu kelas untuk membuka ruang kelas digital secara langsung.</li>
+                    <li><strong>Tab Aktivitas Belajar:</strong> Pantau materi ajar digital, penugasan membaca buku paket, dan aktivitas latihan/ujian interaktif yang diberikan guru kepada peserta didik.</li>
+                    <li><strong>Tab Jurnal Mengajar:</strong> Tinjau keterlaksanaan pembelajaran guru secara faktual — mencakup topik materi yang disampaikan, catatan kejadian kelas, durasi pelaksanaan, serta daftar siswa yang tidak hadir.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                👨‍🏫 <strong>Tata Kelola Terstruktur:</strong> Penugasan peran PTK yang tepat memastikan setiap guru memiliki wewenang mengajar sesuai jadwal dan kurikulum yang berlaku.
+                🔍 <strong>Supervisi Tanpa Hambatan:</strong> Pimpinan sekolah tidak perlu meminta kode kelas kepada guru untuk meninjau mutu pengajaran di kelas manapun.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Master Data PTK &amp; Rekap Guru Pengampu (/admin/teachers)</div>
-              <img src="assets/audit__admin_teachers.png" class="screenshot-img zoomable-img" alt="Master Data Pendidik dan Tenaga Kependidikan BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/dummy3_sidebar_fully_expanded.png" class="screenshot-img zoomable-img" alt="Master Data Guru dan Tenaga Kependidikan BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Direktori Seluruh Kelas Sekolah (/admin/classes)</div>
+              <img src="assets/audit__admin_classes.png" class="screenshot-img zoomable-img" alt="Kelola Kelas Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Tab Aktivitas Belajar &amp; Materi Pembelajaran</div>
+              <img src="assets/hunt_tab_aktivitas_belajar.png" class="screenshot-img zoomable-img" alt="Aktivitas Belajar Kelas BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Jurnal Mengajar &amp; Presensi KBM Guru</div>
+              <img src="assets/audit__absensi_pembelajaran.png" class="screenshot-img zoomable-img" alt="Jurnal Mengajar dan Presensi Pembelajaran BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 5 Kepsek -->
+          <!-- Step 5 Kepsek: Tahap 4: Sistem Presensi Digital (Kedatangan & Pembelajaran) -->
           <div class="step" data-step="5">
             <div class="step-number">05</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Master Data Kurikulum Sekolah: Rombel, Mapel &amp; Jadwal Pelajaran</h3>
-                <span class="step-tag">Kurikulum &amp; Penjadwalan</span>
+                <h3>Tahap 4: Sistem Presensi Digital — Geofencing GPS, Toggle Verifikasi &amp; Antrean 500+</h3>
+                <span class="step-tag">Presensi GPS &amp; Batch 500+</span>
               </div>
-              <p>Pondasi utama keteraturan akademik berada pada grup <strong>MASTER DATA SEKOLAH</strong> di sidebar admin:</p>
+              <p>Sistem presensi terbagi menjadi dua moda: <strong>Presensi Kedatangan (Harian)</strong> di gerbang sekolah dan <strong>Presensi Pembelajaran (Per Jam Mengajar)</strong> di ruang kelas:</p>
               <ul class="step-list">
-                <li><strong>1. Rombongan Belajar (<code>/admin/rombels</code>):</strong> Menata seluruh ruang kelas per tingkat (Fase E Kelas 10, Fase F Kelas 11 &amp; 12), menentukan wali kelas resmi, serta mengunci batas kapasitas siswa.</li>
-                <li><strong>2. Mata Pelajaran (<code>/admin/mapel</code>):</strong> Memetakan kurikulum mata pelajaran umum, peminatan, maupun muatan lokal sesuai standar Kurikulum Merdeka.</li>
-                <li><strong>3. Jadwal Pelajaran (<code>/admin/jadwal</code>):</strong> Mengatur plotting jadwal jam mengajar guru per hari dan sesi untuk mencegah terjadinya bentrok jam mengajar.</li>
-                <li><strong>4. Tahun Ajaran &amp; Semester Aktif (<code>/admin/academic-years</code>):</strong> Mengaktifkan tahun ajaran berjalan (contoh: 2026/2027 Ganjil) sebagai acuan seluruh rombel aktif.</li>
+                <li><strong>A. Konfigurasi Lokasi &amp; Kebijakan (Pengaturan Presensi):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Masuk ke <em>Presensi &rarr; Pengaturan</em>.</li>
+                    <li><strong>Titik Koordinat &amp; Radius:</strong> Tentukan koordinat GPS gerbang/gedung sekolah (Latitude &amp; Longitude) dan radius toleransi (misalnya 50–120 meter).</li>
+                    <li><strong>Jam Masuk &amp; Pulang:</strong> Atur batas jam masuk normal (contoh: 07.00 WIB), toleransi keterlambatan menit, dan jam pulang.</li>
+                    <li><strong>Opsi Verifikasi Otomatis (Toggle Penting):</strong>
+                      <br />• <em>Jika tombol "Hasil absensi perlu diverifikasi ulang" dimatikan:</em> Siswa yang absen mandiri lewat HP/kiosk dan berada di dalam radius GPS langsung tercatat <strong>Hadir</strong> / <strong>Terlambat</strong> otomatis tanpa perlu diverifikasi manual oleh petugas.
+                      <br />• <em>Jika tombol diaktifkan:</em> Seluruh presensi masuk ke antrean <strong>"Menunggu"</strong> dan wajib disetujui petugas piket/admin.
+                      <br />• <em>Catatan Khusus:</em> Presensi yang mencurigakan (di luar radius GPS) akan <strong>selalu otomatis dialihkan ke antrean verifikasi</strong> untuk mencegah kecurangan titik lokasi palsu (fake GPS).
+                    </li>
+                  </ul>
+                </li>
+                <li><strong>B. Antrean Verifikasi Massal &amp; Rekap Bulanan:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Masuk ke <em>Presensi &rarr; Absensi Kedatangan &rarr; Riwayat &amp; Rekap</em>.</li>
+                    <li>Klik kartu <strong>"Menunggu"</strong> untuk membuka daftar antrean presensi siswa.</li>
+                    <li>Anda dapat memverifikasi atau menolak ratusan siswa sekaligus (arsitektur sistem mampu memproses batch cepat hingga <strong>500+ siswa sekaligus</strong> tanpa lag browser).</li>
+                    <li><strong>Tab Rekap:</strong> Pantau persentase kehadiran agregat per rombel, rekapitulasi kehadiran bulanan, dan ekspor ke format Excel/CSV untuk arsip kedinasan.</li>
+                  </ul>
+                </li>
+                <li><strong>C. Izin dan Sakit:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Guru piket atau Admin dapat mencatat status izin/sakit siswa secara langsung disertai unggahan bukti berkas (surat permohonan orang tua atau surat keterangan dokter) melalui panel presensi harian.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                📅 <strong>Sinkronisasi Terpadu:</strong> Perubahan pada rombel dan mapel otomatis mengalir ke tampilan jadwal siswa dan guru.
+                📍 <strong>Presisi &amp; Anti-Fake GPS:</strong> Perlindungan geofencing mendeteksi loncatan koordinat anomali dan otomatis menahan presensi di luar radius gerbang sekolah.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <img src="assets/audit__master_data_mapel.png" class="screenshot-img zoomable-img" alt="Master Data Mata Pelajaran BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/audit__master_data_jadwal.png" class="screenshot-img zoomable-img" alt="Master Data Jadwal Pelajaran Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/audit__master_data_tahun_ajaran.png" class="screenshot-img zoomable-img" alt="Tahun Ajaran Aktif Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Pengaturan Titik GPS Sekolah, Radius &amp; Toggle Verifikasi</div>
+              <img src="assets/absensi_pengaturan_purwokerto.png" class="screenshot-img zoomable-img" alt="Pengaturan Presensi Geolokasi BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Riwayat Kedatangan, Rekap Bulanan &amp; Antrean Menunggu</div>
+              <img src="assets/dummy3_absensi_kedatangan_view.png" class="screenshot-img zoomable-img" alt="Riwayat Presensi Kedatangan Siswa BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Presensi Real-Time &amp; Verifikasi Wajah Siswa</div>
+              <img src="assets/hunt_guru_sragen_absensi_live.png" class="screenshot-img zoomable-img" alt="Presensi Live Mengajar BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 6 Kepsek -->
+          <!-- Step 6 Kepsek: Tahap 5: Bank Soal, Asesmen & Pengawasan Ujian -->
           <div class="step" data-step="6">
             <div class="step-number">06</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Konfigurasi Presensi Geolokasi Sekolah (Radius 120m) &amp; Jam Operasional</h3>
-                <span class="step-tag">Presensi GPS 120m</span>
+                <h3>Tahap 5: Bank Soal, Asesmen &amp; Pengawasan Ujian — 6 Variasi Soal, Ujian Aman &amp; Pratinjau</h3>
+                <span class="step-tag">Asesmen &amp; 6 Tipe Soal</span>
               </div>
-              <p>Atur titik batas presensi sekolah dan jam operasional aktif untuk mendukung kedisiplinan civitas akademika:</p>
+              <p>Mendukung ekosistem asesmen formatif dan sumatif berstandar nasional dengan ragam instrumen soal interaktif:</p>
               <ul class="step-list">
-                <li><strong>1. Pengaturan Titik GPS Sekolah (<code>/admin/attendance</code>):</strong>
+                <li><strong>A. Bank Soal &amp; Pembuatan Latihan/Ujian:</strong> Guru atau admin dapat menyusun bank soal dengan <strong>6 variasi tipe soal lengkap</strong>:
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li>Tetapkan titik koordinat resmi sekolah (Latitude &amp; Longitude gerbang/gedung utama).</li>
-                    <li>Atur <strong>Radius Toleransi: 120 Meter</strong> untuk memastikan siswa hanya dapat melakukan absensi saat benar-benar berada di lingkungan sekolah.</li>
-                    <li>Tentukan jam batas kedatangan (contoh: 07.00 WIB) dan jam kepulangan (contoh: 15.30 WIB).</li>
+                    <li><strong>1. Pilihan Ganda Tunggal (MCQ):</strong> Soal 1 opsi jawaban benar dengan kunci otomatis.</li>
+                    <li><strong>2. Pilihan Ganda Kompleks (MCMA):</strong> Siswa dapat memilih lebih dari satu jawaban benar (AKM model).</li>
+                    <li><strong>3. Kategori / Benar-Salah (PGK Kategori):</strong> Siswa mengelompokkan pernyataan ke kolom Benar / Salah atau kategori klasifikasi.</li>
+                    <li><strong>4. Menjodohkan (Matching):</strong> Siswa menghubungkan pasangan stimulus pertanyaan dengan jawaban yang bersesuaian.</li>
+                    <li><strong>5. Isian Singkat &amp; Jawaban Panjang (Esai):</strong> Isian kata kunci presisi atau esai komprehensif yang dapat dinilai otomatis dengan bantuan token AI kredit.</li>
+                    <li><strong>6. Unggah Berkas Tugas:</strong> Siswa mengunggah dokumen pengerjaan (format PDF, Microsoft Word, atau foto lembar kerja berukuran <strong>hingga 10 MB</strong>).</li>
                   </ul>
                 </li>
-                <li><strong>2. Kebijakan Presensi Siswa &amp; PTK:</strong> Aktifkan verifikasi check-in mandiri dan tetapkan toleransi keterlambatan menit.</li>
-                <li><strong>3. Rekapitulasi Eksekutif:</strong> Pantau grafik kehadiran harian seluruh rombel secara agregat langsung dari portal pimpinan.</li>
+                <li><strong>B. Pengaturan Ujian Aman (Secure Exam Environment):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li><strong>Batas Waktu:</strong> Dapat ditentukan durasi menit pengerjaan secara ketat atau mode latihan tanpa batas waktu.</li>
+                    <li><strong>Keamanan Layar:</strong> Mengaktifkan mode layar penuh (fullscreen lock), deteksi perpindahan tab browser, dan toleransi pelanggaran sebelum ujian terkunci otomatis.</li>
+                    <li><strong>Jadwal Buka &amp; Tutup:</strong> Mengatur waktu mulai asesmen dan tenggat pengumpulan secara presisi hingga satuan menit.</li>
+                  </ul>
+                </li>
+                <li><strong>C. Fitur Pratinjau Asesmen (Assessment Preview Mode):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Sebelum ujian dirilis secara resmi kepada siswa, Kepala Sekolah, Admin Sekolah, dan Guru Pengampu dapat menekan tombol <strong>"Pratinjau"</strong>.</li>
+                    <li>Fitur ini memungkinkan penguji mencoba tampilan soal persis seperti yang akan dialami siswa di gawai mereka <em>tanpa meninggalkan jejak nilai kotor atau membuat sesi ujian palsu di database sekolah</em>.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                📍 <strong>Presisi &amp; Akuntabel:</strong> Mengeliminasi presensi palsu dan memberikan data kehadiran objektif bagi evaluasi kedisiplinan siswa di hadapan orang tua.
+                🛡️ <strong>Ujian Bersih &amp; Teruji:</strong> Tombol "Pratinjau" memastikan instrumen soal tidak mengalami salah ketik rumus atau kunci jawaban keliru sebelum dikerjakan peserta didik.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Konfigurasi Perimeter GPS (Radius 120m) &amp; Jam Operasional</div>
-              <img src="assets/absensi_pengaturan_purwokerto.png" class="screenshot-img zoomable-img" alt="Pengaturan Titik GPS Sekolah dan Jam Kedatangan Pulang BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/audit__absensi_pengaturan.png" class="screenshot-img zoomable-img" alt="Konfigurasi Perimeter GPS Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/hunt_egis_pengaturan_absensi.png" class="screenshot-img zoomable-img" alt="Pengaturan Presensi Geolokasi SMA EGIS BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Bank Soal &amp; Pengelolaan Asesmen Sekolah (/admin/assignments)</div>
+              <img src="assets/audit__admin_assignments.png" class="screenshot-img zoomable-img" alt="Manajemen Asesmen BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Lembar Jawaban Digital (LJD) &amp; Ragam Stimulus Soal</div>
+              <img src="assets/ljd_lembar_jawaban.png" class="screenshot-img zoomable-img" alt="Lembar Jawaban Asesmen BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Tinjauan Pratinjau &amp; Hasil Evaluasi Asesmen</div>
+              <img src="assets/ljd_tinjau_jawaban.png" class="screenshot-img zoomable-img" alt="Tinjau Jawaban Asesmen BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 7 Kepsek -->
+          <!-- Step 7 Kepsek: Tahap 6: Hasil Belajar, Penilaian Non-Tes & Rapor -->
           <div class="step" data-step="7">
             <div class="step-number">07</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Sirkulasi Perpustakaan Digital, Kuota Lisensi Buku &amp; Optimasi BOS (/admin/library)</h3>
-                <span class="step-tag">Inventaris Lisensi &amp; Anggaran</span>
+                <h3>Tahap 6: Hasil Belajar, Penilaian Non-Tes &amp; Rapor — Bobot 100%, Pembedaan NULL vs 0 &amp; Snapshot</h3>
+                <span class="step-tag">Penilaian &amp; Buku Rapor</span>
               </div>
-              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 3)">▶️ Tonton Video: Manajemen Lisensi &amp; Koleksi</button>
-              <p>Awasi sirkulasi dan utilisasi eksemplar buku digital kurikulum sekolah secara transparan di <a href="https://belajarplus.id/admin/library" target="_blank" class="link">belajarplus.id/admin/library</a>:</p>
+              <p>Mengintegrasikan capaian kognitif asesmen tes dan penilaian autentik non-tes menuju buku nilai resmi:</p>
               <ul class="step-list">
-                <li><strong>1. 4 Kartu Metrik Inventaris:</strong>
+                <li><strong>A. Atur Bobot &amp; KKM:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li><strong>JUDUL:</strong> Total judul buku kurikulum aktif yang terdaftar di perpustakaan.</li>
-                    <li><strong>LISENSI:</strong> Total kuota eksemplar digital yang dialokasikan untuk sekolah.</li>
-                    <li><strong>DIPINJAM:</strong> Jumlah eksemplar yang saat ini sedang dipinjam dan dibaca aktif oleh siswa.</li>
-                    <li><strong>TERSEDIA:</strong> Sisa eksemplar lisensi yang siap dipinjam oleh siswa lain.</li>
+                    <li>Masuk ke kelas terkait &rarr; buka tab <strong>Hasil Belajar</strong> &rarr; klik <strong>Atur Bobot &amp; KKM</strong>.</li>
+                    <li>Tentukan Kriteria Ketercapaian Tujuan Pembelajaran (KKM/KKTP) mata pelajaran.</li>
+                    <li>Atur persentase bobot antara <em>Aktivitas Soal (Tes)</em> dan <em>Aktivitas Non-Tes</em> (Total bobot manual wajib tepat 100%, atau aktifkan opsi <strong>"Bobot Sama"</strong> untuk pembagian rata otomatis).</li>
                   </ul>
                 </li>
-                <li><strong>2. Monitoring Waiting List / Antrean:</strong> Memantau antrean siswa jika kuota buku favorit sedang penuh terpinjam untuk dasar penambahan kuota eksemplar.</li>
-                <li><strong>3. Rasio Penggunaan Lisensi Tertinggi:</strong> Menampilkan analitik buku per mata pelajaran yang paling diminati civitas, frekuensi dibaca, dan rata-rata durasi baca siswa.</li>
-                <li><strong>4. Efisiensi Pengadaan Buku (BOS/BPO):</strong> Berdasarkan data sirkulasi riil, kepala sekolah dapat membelanjakan anggaran dana BOS secara tepat sasaran hanya pada buku yang paling dibutuhkan siswa.</li>
+                <li><strong>B. Penilaian Non-Tes (Keterampilan, Proyek, Observasi):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Di tab Hasil Belajar, buka bagian <strong>Penilaian Non-Tes</strong> dan klik <strong>Tambah Penilaian Non-Tes</strong>.</li>
+                    <li>Masukkan nama penilaian (contoh: <em>Praktik Laboratorium Fisika</em>, <em>Presentasi Kelompok Bab 2</em>).</li>
+                    <li>Pilih jenis rubrik: <strong>Diskusi</strong> / <strong>Praktik</strong> / <strong>Presentasi</strong> / <strong>Proyek</strong> / <strong>Observasi</strong> / <strong>Lainnya</strong>.</li>
+                    <li><strong>Input Nilai Massal &amp; Pembedaan Kritis NULL vs Nilai 0:</strong>
+                      <br />• Sistem menampilkan daftar seluruh siswa kelas dalam satu tabel input interaktif.
+                      <br />• Guru/Admin dapat langsung menginput skor angka 0–100 dan catatan deskripsi capaian.
+                      <br />• <strong>Siswa yang belum dinilai dibiarkan kosong:</strong> Sistem Belajar Plus secara cerdas membedakan antara nilai kosong (<code>NULL</code> / Belum Dinilai) vs nilai <code>0</code> resmi. Nilai kosong tidak akan merusak rata-rata kelas, sedangkan nilai 0 resmi dihitung sebagai skor nol riil.
+                      <br />• Klik <strong>Simpan Nilai</strong> untuk menyimpan seluruh entri.
+                    </li>
+                  </ul>
+                </li>
+                <li><strong>C. Kirim ke Rapor Rombel:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Di tab Hasil Belajar, klik tombol <strong>Kirim ke Rapor</strong>.</li>
+                    <li><strong>Sistem Validasi Kelengkapan Nilai:</strong>
+                      <br />• Siswa yang semua komponen tes dan non-tesnya telah dinilai akan berstatus <strong>"Siap Dikirim"</strong>.
+                      <br />• Siswa yang masih memiliki komponen wajib kosong (belum dinilai) akan ditandai kuning/merah agar dilengkapi terlebih dahulu.
+                    </li>
+                    <li><strong>Konfirmasi Penguncian Snapshot Resmi:</strong> Klik konfirmasi kirim. Nilai akan terkunci menjadi snapshot resmi (immutable archive) dan langsung terhubung secara otomatis ke buku nilai Wali Kelas untuk pencetakan rapor semester.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                🔑 <strong>Bebas Buku Hilang / Rusak:</strong> E-book digital tidak pernah robek, lapuk, atau hilang, memastikan aset literasi sekolah terlindungi secara permanen.
+                🔒 <strong>Integritas Nilai Mutlak:</strong> Snapshot rapor yang telah dikunci mencegah terjadinya perubahan sepihak dan menjamin akuntabilitas nilai saat pembagian rapor kepada wali murid.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Sirkulasi &amp; Pemanfaatan Lisensi Buku Sekolah</div>
-              <img src="assets/hunt_egis__library.png" class="screenshot-img zoomable-img" alt="Sirkulasi dan Lisensi Perpustakaan Digital SMA EGIS BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-
-              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Manajemen Kursi Baca Simultan (Concurrent Seats)</div>
-              <img src="assets/audit__admin_library_seats.png" class="screenshot-img zoomable-img" alt="Alokasi Kursi Baca Perpustakaan Digital BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-
-              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Pengaturan Sirkulasi, Durasi Pinjam &amp; Denda</div>
-              <img src="assets/audit__admin_library_settings.png" class="screenshot-img zoomable-img" alt="Pengaturan Kebijakan Perpustakaan Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Tab Hasil Belajar, Bobot KKM &amp; Penilaian Non-Tes</div>
+              <img src="assets/hunt_tab_hasil_belajar.png" class="screenshot-img zoomable-img" alt="Tab Hasil Belajar Kelas BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Rekapitulasi Nilai Siswa &amp; Distribusi Nilai Akhir</div>
+              <img src="assets/guru_hasil_siswa.png" class="screenshot-img zoomable-img" alt="Rekap Hasil Siswa BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Validasi Pengumpulan Tugas &amp; Integrasi Rapor Rombel</div>
+              <img src="assets/audit__admin_submissions.png" class="screenshot-img zoomable-img" alt="Validasi Nilai dan Rapor BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 8 Kepsek -->
+          <!-- Step 8 Kepsek: Tahap 7: Perpustakaan Digital Sekolah -->
           <div class="step" data-step="8">
             <div class="step-number">08</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Pusat Komunikasi &amp; Pengumuman Eksekutif Sekolah (/admin/announcements)</h3>
-                <span class="step-tag">Komunikasi &amp; Moderasi</span>
+                <h3>Tahap 7: Perpustakaan Digital Sekolah — Katalog, Deep-Link Tugas Membaca, Lisensi &amp; DRM Forensik</h3>
+                <span class="step-tag">Literasi &amp; Lisensi Digital</span>
               </div>
-              <p>Pimpinan sekolah dapat menyampaikan arahan dan menjaga iklim komunikasi yang kondusif di seluruh ekosistem sekolah:</p>
+              <button class="btn-step-video" onclick="playDriveVideo('kepsek', 3)">▶️ Tonton Video: Manajemen Lisensi &amp; Koleksi</button>
+              <p>Belajar Plus menyediakan ekosistem literasi sekolah terpadu yang terintegrasi langsung dengan aktivitas pembelajaran di kelas:</p>
               <ul class="step-list">
-                <li><strong>1. Siaran Pengumuman Resmi Pimpinan:</strong> Rilis surat edaran dinas, pengumuman hari libur, atau edaran pelaksanaan ujian semester serentak langsung ke gawai seluruh civitas.</li>
-                <li><strong>2. Kalender Agenda Institusional:</strong> Menetapkan kalender pendidikan sekolah, tanggal rapat dewan guru, dan jadwal supervisi kelas.</li>
-                <li><strong>3. Moderasi Komunitas Sekolah:</strong> Memantau feed komunitas warga sekolah untuk memastikan etika komunikasi digital terjaga bebas dari ujaran tidak pantas atau perundungan.</li>
+                <li><strong>1. Katalog Buku Sekolah:</strong> Akses lengkap ke ribuan koleksi buku paket pelajaran resmi Kemendikbudristek, modul ajar kurikulum, dan buku pengayaan literasi yang siap dibaca siswa.</li>
+                <li><strong>2. Penugasan Membaca Terpadu (Deep-Link e-Reader):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Guru dapat memberikan tugas membaca bab tertentu pada buku pelajaran langsung di dalam kelas.</li>
+                    <li>Saat siswa mengklik tugas membaca tersebut di akun mereka, sistem <strong>secara otomatis membuka e-reader langsung ke halaman bab yang ditugaskan</strong> tanpa siswa perlu mencari nomor halaman secara manual.</li>
+                  </ul>
+                </li>
+                <li><strong>3. Peminjaman &amp; Kuota Lisensi Buku (Concurrent Seats):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Admin dapat memantau ketersediaan lisensi buku digital (<em>seats</em>) sekolah di menu <em>/admin/library</em>: judul aktif, total kuota eksemplar, buku yang sedang dipinjam, dan sisa ketersediaan.</li>
+                    <li>Memantau antrean peminjaman (<em>queue/waiting list</em>) jika kuota buku favorit sedang terpakai penuh oleh siswa lain.</li>
+                    <li>Mengatur masa aktif pinjaman otomatis agar eksemplar buku digital kembali ke rak perpustakaan secara otomatis saat tenggat habis.</li>
+                  </ul>
+                </li>
+                <li><strong>4. Keamanan Hak Cipta DRM &amp; Forensik Screenshot (/admin/library/security):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Setiap buku dilindungi enkripsi DRM perbankan dengan watermark identitas dinamis peminjam pada lembar bacaan.</li>
+                    <li>Modul forensik merekam setiap percobaan screenshot atau bypass layar: mencatat nama pengguna, buku yang dibuka, nomor halaman, dan timestamp detik kejadian untuk melindungi aset penerbit.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                🛡️ <strong>Kanal Resmi:</strong> Memastikan seluruh instruksi kedinasan sampai secara valid tanpa distorsi informasi.
+                📖 <strong>Efisiensi Anggaran BOS:</strong> Melalui analitik utilisasi buku, pimpinan sekolah dapat membelanjakan anggaran buku secara tepat sasaran pada judul yang paling aktif dibaca.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Siaran Pengumuman Eksekutif &amp; Moderasi Komunitas</div>
-              <img src="assets/dummy3_pengumuman_after_publish.png" class="screenshot-img zoomable-img" alt="Pusat Siaran Pengumuman Resmi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/dummy3_komunitas_detail.png" class="screenshot-img zoomable-img" alt="Ruang Moderasi Komunitas Warga Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-
-              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Rekapitulasi Pengumpulan Tugas Seluruh Rombel (/admin/submissions)</div>
-              <img src="assets/audit__admin_submissions.png" class="screenshot-img zoomable-img" alt="Rekapitulasi Pengumpulan Tugas Siswa BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Katalog Buku &amp; Sirkulasi Perpustakaan Digital (/admin/library)</div>
+              <img src="assets/hunt_egis__library.png" class="screenshot-img zoomable-img" alt="Sirkulasi Perpustakaan Digital BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Manajemen Kursi Lisensi Simultan (Concurrent Seats)</div>
+              <img src="assets/audit__admin_library_seats.png" class="screenshot-img zoomable-img" alt="Manajemen Kursi Lisensi Buku BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #f87171; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Forensik DRM &amp; Deteksi Percobaan Screenshot</div>
+              <img src="assets/audit__admin_library_security.png" class="screenshot-img zoomable-img" alt="Audit Forensik Keamanan DRM BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
-          <!-- Step 9 Kepsek -->
+          <!-- Step 9 Kepsek: Tahap 8: Informasi Sekolah & Analitik Pembelajaran -->
           <div class="step" data-step="9">
             <div class="step-number">09</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Keamanan DRM &amp; Forensik, Saldo Kredit AI, Laporan Penjualan &amp; Akreditasi (BAST)</h3>
-                <span class="step-tag">DRM Forensik, AI &amp; Akreditasi</span>
+                <h3>Tahap 8: Informasi Sekolah &amp; Analitik Pembelajaran Eksekutif — Komunikasi, AI &amp; Evaluasi Rombel</h3>
+                <span class="step-tag">Informasi &amp; Analitik Eksekutif</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('kepsek', 5)">▶️ Tonton Video: Audit Keamanan &amp; Laporan Dinas</button>
-              <p>Langkah puncak kepemimpinan sekolah adalah memastikan aset literasi terlindungi dengan DRM forensik, efisiensi kecerdasan buatan terkontrol, dan berkas akreditasi siap audit:</p>
+              <p>Mendukung kepemimpinan berbasis data dengan pusat informasi resmi dan analitik pembelajaran terintegrasi:</p>
               <ul class="step-list">
-                <li><strong>1. Proteksi Hak Cipta DRM &amp; Forensik "Aktivitas Mencurigakan" (<code>/admin/library/security</code>):</strong>
+                <li><strong>A. Pusat Informasi &amp; Komunikasi Institusi:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li>BelajarPlus menyematkan Digital Rights Management tingkat perbankan langsung di e-reader.</li>
-                    <li>Modul forensik merekam setiap percobaan screenshot, perekaman layar, atau bypass DRM secara real-time: nama pengguna, judul buku yang dibuka, nomor halaman, dan timestamp detik kejadian secara transparan.</li>
+                    <li><strong>Siaran Pengumuman Resmi:</strong> Admin dan Kepala Sekolah dapat menerbitkan pengumuman penting (seperti edaran dinas, instruksi ujian, atau hari libur) yang langsung muncul di beranda seluruh guru dan siswa.</li>
+                    <li><strong>Agenda Kegiatan Sekolah:</strong> Jadwalkan agenda penting seperti Penilaian Tengah Semester (PTS), Penilaian Akhir Semester (PAS), rapat dinas dewan guru, dan jadwal supervisi kelas secara rapi.</li>
                   </ul>
                 </li>
-                <li><strong>2. Tata Kelola Saldo Kredit AI (<code>/admin/ai-credits</code>):</strong> Mengontrol saldo token AI sekolah yang digunakan para guru untuk koreksi otomatis esai analitis siswa (<em>1 kredit = 1 jawaban esai dinilai</em>). Soal pilihan ganda, benar/salah, dan menjodohkan bebas kuota kredit 100%.</li>
-                <li><strong>3. Rekap Transaksi Toko Buku &amp; Koperasi Sekolah (<code>/admin/sales</code>):</strong> Memantau transparansi transaksi pembelian buku modul pendamping SNBT dan buku cetak mandiri oleh siswa.</li>
-                <li><strong>4. Penerbitan Berita Acara Serah Terima Akun (BAST):</strong> Menghasilkan dokumen resmi Berita Acara Penempatan Siswa &amp; Rekapitulasi Rombel format PDF A4 lengkap dengan tanda tangan Kepala Sekolah dan Tim Trainer sebagai bukti fisik resmi akreditasi BAN-S/M serta pelaporan ke Cabang Dinas Pendidikan.</li>
+                <li><strong>B. Analitik Pembelajaran Eksekutif:</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Masuk ke menu <strong>Analitik</strong> atau tinjau langsung dashboard eksekutif di <em>/admin</em>.</li>
+                    <li><strong>Grafik Keaktifan Siswa:</strong> Pantau volume interaksi pengerjaan tugas dan intensitas waktu membaca buku digital seluruh siswa secara real-time.</li>
+                    <li><strong>Sebaran Capaian Nilai Rata-Rata Mapel:</strong> Tinjau perbandingan performa nilai rata-rata mata pelajaran per rombel sebagai instrumen objektif dalam rapat evaluasi dewan guru dan tindak lanjut perbaikan mutu.</li>
+                    <li><strong>Pengawasan Kredit AI Penilaian Esai (/admin/ai-credits):</strong> Mengontrol saldo token AI sekolah yang dipakai guru untuk koreksi otomatis jawaban esai analitis siswa secara adil dan transparan.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                📋 <strong>Akuntabel &amp; Siap Audit:</strong> Seluruh data interaksi, log audit keamanan buku, dan dokumen serah terima akun tersimpan secara terstruktur dan siap ditunjukkan saat visitasi akreditasi sekolah.
+                📊 <strong>Keputusan Berbasis Data:</strong> Pimpinan sekolah memiliki bukti numerik yang solid dalam memetakan mata pelajaran yang memerlukan penguatan materi sebelum ujian nasional.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #f87171; letter-spacing: 0.05em; text-transform: uppercase;">📸 Forensik DRM &amp; Aktivitas Mencurigakan (/admin/library/security)</div>
-              <img src="assets/audit__admin_library_security.png" class="screenshot-img zoomable-img" alt="Audit Forensik Keamanan Perpustakaan BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Monitoring Saldo Kredit AI Penilaian Esai (/admin/ai-credits)</div>
-              <img src="assets/audit__admin_ai_credits.png" class="screenshot-img zoomable-img" alt="Audit Saldo Token Kredit AI BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <img src="assets/hunt_ai_credits_page.png" class="screenshot-img zoomable-img" alt="Tata Kelola Kredit AI Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-
-              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Laporan Transaksi Penjualan Toko Sekolah (/admin/sales)</div>
-              <img src="assets/audit__admin_sales.png" class="screenshot-img zoomable-img" alt="Laporan Penjualan Buku Digital Toko Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Siaran Pengumuman &amp; Kalender Agenda Sekolah</div>
+              <img src="assets/dummy3_pengumuman_after_publish.png" class="screenshot-img zoomable-img" alt="Pengumuman Resmi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/dummy3_agenda_ready_to_save.png" class="screenshot-img zoomable-img" alt="Agenda Kegiatan Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Executive Dashboard &amp; Analitik Pembelajaran (/admin)</div>
+              <img src="assets/hunt_egis__dashboard.png" class="screenshot-img zoomable-img" alt="Executive Dashboard Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/audit__admin_ai_credits.png" class="screenshot-img zoomable-img" alt="Monitoring Saldo Token AI BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 

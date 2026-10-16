@@ -10,7 +10,8 @@
 
 | Fitur | Deskripsi |
 |-------|-----------|
-| 🔀 **Role Switcher** | Panduan terpisah & terstruktur untuk 3 peran: Siswa (12 langkah lengkap & bedah 5 tab kelas e-learning), Guru (8 langkah e-learning & presensi), Kepsek/Admin (9 langkah ekosistem & akreditasi) |
+| 🔀 **Role Switcher** | Panduan terpisah & terstruktur untuk 3 peran: Siswa (12 langkah lengkap & bedah 5 tab kelas e-learning), Guru (8 langkah e-learning & presensi), Kepsek/Admin (Buku Panduan 8 Tahap Tata Kelola Ekosistem & Rapor Digital) |
+| 🧪 **QA Fitur Baru Live Workbench** | Laboratorium Quality Assurance interaktif (`qa-fitur-baru.html` & `QA_FITUR_BARU_BELAJARPLUS.md`) untuk menguji Geofence GPS, Toggle Verifikasi Presensi, Batch 500+, 6 Tipe Asesmen, Mode Pratinjau, Nilai NULL vs 0, dan Penguncian Snapshot Rapor |
 | 📖 **Interactive Book Reader Demo** | Simulasi e-reader BelajarPlus langsung di browser — lengkap dengan Daftar Isi, navigasi halaman, zoom teks, dan mode fullscreen |
 | 🎬 **Video Tutorial + Voiceover AI** | Slideshow tutorial per peran dilengkapi narasi Bahasa Indonesia via ResponsiveVoice API dan subtitle teks berjalan |
 | 📥 **Download Modul PDF Resmi (A4)** | Generate & unduh modul panduan berformat A4 resmi menggunakan html2pdf.js — dengan kop surat, screenshot, dan footer |
@@ -28,13 +29,17 @@
 
 ```
 belajarplus-tutorial/
-├── index.html          # Halaman utama tutorial (single-page)
-├── video.html          # Halaman pemutar video tutorial terpisah
-├── app.js              # Seluruh logika JavaScript (reader, PDF, video, theme, dll)
-├── style.css           # Stylesheet utama (dark mode, animasi, komponen)
-├── vercel.json         # Konfigurasi deployment Vercel (cache headers)
-├── package.json        # Dependencies Node (ws, playwright, vercel)
-└── assets/             # Folder gambar screenshot aplikasi BelajarPlus
+├── index.html                   # Halaman utama tutorial (single-page)
+├── qa-fitur-baru.html           # Workbench Quality Assurance (QA) interaktif live
+├── QA_FITUR_BARU_BELAJARPLUS.md # Dokumen spesifikasi QA & matriks uji lengkap
+├── video.html                   # Halaman pemutar video tutorial terpisah
+├── demo.html                    # Survival demo kit & 7 golden rules
+├── sosialisasi-kepsek.html      # Slide presentasi interaktif Kepala Sekolah
+├── app.js                       # Seluruh logika JavaScript (reader, PDF, video, theme, dll)
+├── style.css                    # Stylesheet utama (dark mode, animasi, komponen)
+├── vercel.json                  # Konfigurasi deployment Vercel (cache headers)
+├── package.json                 # Dependencies Node (ws, playwright, vercel)
+└── assets/                      # Folder gambar screenshot aplikasi BelajarPlus
     ├── belajar-plus-logo.png
     ├── library.png
     ├── register_siswa.png
