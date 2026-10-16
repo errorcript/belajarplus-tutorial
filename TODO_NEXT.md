@@ -21,3 +21,18 @@ Bedah tuntas antarmuka live pendidik dari portal admin sekolah (SMA Negeri 1 Sra
 - [x] **Pembuatan Paket Soal & Ujian LJD (Langkah 05)**: Tangkapan layar live `/admin/assignments` (`assets/guru_penugasan.png`), konfigurasi batas waktu pengerjaan, dan pengawas anti-cheat.
 - [x] **Penilaian & Ekspor Nilai Siswa (Langkah 06)**: Tangkapan layar live `/admin/submissions` (`assets/guru_hasil_siswa.png`), transkrip nilai, dan analisis kompetensi dasar.
 - [x] **Penyelarasan Naskah Video & PDF Guru**: Sinkronisasi data voiceover `videoTutorialData.guru` di `app.js` dan visual modul di `index.html`.
+
+---
+
+## 3. Eksekusi Akun & Laporan Resmi 17 Sekolah Surakarta & Sragen (Selesai Dilaksanakan)
+- [x] **Sanitasi Master Data 17 Sekolah**: Penyelamatan berkas SMAN 7 Surakarta, normalisasi email unik bebas spasi (`[CLEAN_IMPORT] ...`), dan aktivasi tombol impor live (`disabled: false`).
+- [x] **Eksekusi Live Impor BelajarPlus**:
+  - Wilayah Sragen: SMAN 1 Sragen, SMAN 3 Sragen, SMAN 1 Gemolong, SMAN 1 Sukodono, SMAN 1 Tangen, SMAN 2 Sragen, SMAN 1 Gondang (total >1.600 siswa aktif via akun Henri Susilo).
+  - Wilayah Surakarta: SMAN 5 Surakarta (187 siswa aktif via akun Andrew Aliffiansyah).
+- [x] **Penetapan Subdomain Resmi Tiap Sekolah**: Integrasi subdomain resmi `https://{slug}.belajarplus.id` dan direct link `/s/{slug}` ke seluruh laporan kedinasan.
+- [x] **Generasi Dokumen Resmi Berita Acara PDF (17 Sekolah)**:
+  - Dilengkapi Nomor Surat Resmi, Tanggal, Portal Subdomain Sekolah, Ringkasan Rombel, Tanda Tangan Kepala Sekolah & Trainer.
+  - Pemecahan halaman per kelas (*page-break*) memuat: No, Nama Lengkap, Email Login, Password Awal (amber highlight), Status Aktif, dan Kotak Paraf Siswa.
+  - Lampiran Kredensial Dewan Guru & PTK untuk sekolah yang memiliki data guru (SMAN 1 Gondang & SMAN 2 Sragen).
+  - Seluruh 17 PDF resmi tersimpan langsung di Google Drive `G:\My Drive\Trainer\B+\AKUN\`.
+- [x] **Dokumentasi Lengkap & Otomasi Skrip**: Pencatatan master report di `LAPORAN_REKAP_17_SEKOLAH_SURAKARTA_SRAGEN.md` dan skrip otomasi di `bot-tools/scripts/`.
