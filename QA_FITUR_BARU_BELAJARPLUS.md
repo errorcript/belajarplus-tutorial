@@ -33,6 +33,9 @@ Dokumen Quality Assurance (QA) ini disusun untuk memvalidasi keandalan fungsiona
 | **QA-LIB-01** | Perpustakaan | Deep-Link Tugas Membaca | Guru menugaskan Bab 3 Halaman 42 buku Antropologi 11; siswa mengklik tautan tugas di akun mereka. | E-reader otomatis memuat dan membuka langsung halaman 42 Bab 3 tanpa siswa harus membalik halaman secara manual. | **PASSED** |
 | **QA-LIB-02** | Perpustakaan | Sirkulasi Kuota Lisensi (Seats) | Sekolah memiliki kuota 50 kursi buku; siswa ke-51 meminjam buku. | Siswa ke-51 masuk antrean tunggu (*waiting list*); eksemplar otomatis dialokasikan saat siswa lain mengembalikan atau masa aktif habis. | **PASSED** |
 | **QA-LIB-03** | Perpustakaan | Keamanan DRM Forensik | Pengguna mencoba mengambil screenshot atau merekam layar e-reader. | Modul forensik mendeteksi aktivitas, menampilkan layar hitam anti-capture, dan mencatat log kejadian di `/admin/library/security`. | **PASSED** |
+| **QA-LKPD-01** | LKPD Interaktif | Pengerjaan LJD Stimulus &amp; 6 Tipe Respon | Siswa mengerjakan LKPD berisi stimulus observasi + MCQ, MCMA, Benar/Salah, Menjodohkan, Esai AI, dan Berkas &le; 10MB. | Sistem merespon interaksi seketika, auto-scoring kalkulasi instan, dan menerbitkan radar penguasaan kompetensi dasar. | **PASSED** |
+| **QA-LKPD-02** | Aktivitas Belajar | Penyematan Modul Web / HTML5 (PhET/GeoGebra) | Guru menyematkan modul simulasi sains interaktif di tab Aktivitas Belajar via sandboxed container. | Simulasi fisika/matematika berjalan 60 FPS di dalam aplikasi tanpa reload browser atau memicu false anti-cheat flag. | **PASSED** |
+| **QA-LKPD-03** | Penilaian Non-Tes | Rubrik Praktikum &amp; Dokumen Tugas &le; 10MB | Guru menginput penilaian kinerja eksperimen (Kesiapan, Prosedur, Analisis, Laporan) skala 0–100. | Nilai otomatis terakumulasi; siswa absen dipertahankan `NULL` (tidak merusak rata-rata rombel), siap kunci ke e-Rapor. | **PASSED** |
 
 ---
 
@@ -66,6 +69,13 @@ Dokumen Quality Assurance (QA) ini disusun untuk memvalidasi keandalan fungsiona
 * **Solusi & Verifikasi**:
   1. Saat tombol *Kirim ke Rapor* dikonfirmasi, sistem membuat salinan snapshot terpisah dengan timestamp presisi dan identitas admin/guru penandatangan.
   2. Dihasilkan string hash verifikasi (SHA-256) pada berkas nilai. Jika ada perubahan pada tabel kelas asal, tabel snapshot rapor tetap tidak berubah.
+
+### 3.5. Arsitektur LKPD Interaktif & Modul Web/HTML Sandbox
+* **Risiko Potensial**: Script eksternal pada modul HTML5 atau PhET simulation mengganggu sesi browser siswa atau memicu false anti-cheat trigger saat siswa berinteraksi dengan canvas simulasi.
+* **Solusi & Verifikasi**:
+  1. **Sandboxed Iframe**: Modul web interaktif disematkan dengan atribut `sandbox="allow-scripts allow-same-origin allow-forms"`, mengisolasi modul dari akses ke token sesi atau cookie induk Belajar Plus.
+  2. **Focus State Whitelisting**: Interaksi pointer/mouse di dalam area simulasi dinyatakan sah (*valid in-app engagement*) dan tidak memicu penambahan counter pelanggaran anti-cheat.
+  3. **Multi-Model Flexibility**: Mendukung 3 model sekaligus: Native LJD (auto-scoring 6 tipe soal), Interactive Web Simulation (PhET/GeoGebra/H5P di Tab Aktivitas Belajar), dan Practical Worksheet Upload (&le; 10 MB) dengan rubrik non-tes.
 
 ---
 

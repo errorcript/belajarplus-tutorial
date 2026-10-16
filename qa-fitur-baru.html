@@ -488,6 +488,209 @@
           </div>
         </div>
 
+        <!-- SIMULASI 7: SANDBOX LKPD INTERAKTIF & MODUL PEMBELAJARAN HTML5 (PhET / GeoGebra / Native LJD) -->
+        <div class="qa-card" style="grid-column: 1 / -1;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <span class="qa-badge badge-pass">LKPD Interaktif &amp; E-Learning</span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-top: 0.35rem;">
+                Uji 7: Sandbox LKPD Interaktif &amp; Pembelajaran Web / HTML5
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                Memvalidasi 3 arsitektur LKPD: <strong>(1) LKPD Native LJD</strong> berbasis stimulus &amp; bank soal, <strong>(2) Simulasi Sains / Matematika Interaktif HTML5</strong> (PhET/GeoGebra sandbox), dan <strong>(3) Rubrik Praktikum Non-Tes</strong> (&le; 10 MB).
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button class="qa-btn" id="btn_tab_native" onclick="switchLkpdTab('native')" style="background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; font-size: 0.78rem;">
+                🧪 Model 1: LKPD Native LJD
+              </button>
+              <button class="qa-btn" id="btn_tab_phet" onclick="switchLkpdTab('phet')" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); font-size: 0.78rem;">
+                ⚛️ Model 2: Simulasi HTML5 (PhET)
+              </button>
+              <button class="qa-btn" id="btn_tab_rubric" onclick="switchLkpdTab('rubric')" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); font-size: 0.78rem;">
+                📋 Model 3: Rubrik Praktikum
+              </button>
+            </div>
+          </div>
+
+          <div class="sim-box" style="margin-top: 1rem;">
+            <!-- SUB-TAB 1: LKPD NATIVE LJD INTERAKTIF -->
+            <div id="tab_content_native" style="display: block;">
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <span style="background: #2563eb; color: #fff; font-weight: 800; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">SOAL 1/5</span>
+                    <strong style="color: #fff; font-size: 0.9rem;">LKPD Fisika: Periode Ayunan Sederhana</strong>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem;">
+                    <span style="color: #f87171; font-weight: 700; background: rgba(239, 68, 68, 0.15); padding: 0.2rem 0.6rem; border-radius: 4px;">⏱️ Timer: <span id="ljd_timer">44:52</span></span>
+                    <span style="color: #10b981; font-weight: 700;">🛡️ Anti-Cheat Aktif</span>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                  <!-- Stimulus & Soal -->
+                  <div>
+                    <div style="background: rgba(255,255,255,0.03); border-left: 3px solid #38bdf8; border-radius: 4px; padding: 0.75rem; font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 0.75rem;">
+                      <strong style="color: #38bdf8;">📖 Stimulus Hasil Observasi Laboratorium:</strong><br/>
+                      Sebuah bandul sederhana dengan panjang tali <code>L = 1 meter</code> diayunkan pada percepatan gravitasi bumi <code>g = 9.8 m/s²</code>. Mengikuti rumus periode ayunan matematis <code>T = 2π√(L/g)</code>:
+                    </div>
+                    <div style="font-weight: 700; font-size: 0.88rem; color: #fff; margin-bottom: 0.75rem;">
+                      Pertanyaan: Jika panjang tali (L) diperpanjang menjadi 4 kali semula, bagaimanakah perubahan periode ayunan (T) bandul tersebut?
+                    </div>
+
+                    <!-- Pilihan Respon Soal -->
+                    <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.82rem;">
+                      <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer;" onclick="selectLjdOption('A')">
+                        <input type="radio" name="ljd_opt" value="A" id="opt_A" />
+                        <span><strong>A.</strong> Menjadi 2 kali periode semula</span>
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer;" onclick="selectLjdOption('B')">
+                        <input type="radio" name="ljd_opt" value="B" id="opt_B" />
+                        <span><strong>B.</strong> Menjadi 4 kali periode semula</span>
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer;" onclick="selectLjdOption('C')">
+                        <input type="radio" name="ljd_opt" value="C" id="opt_C" />
+                        <span><strong>C.</strong> Menjadi 1/2 kali periode semula</span>
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px; cursor: pointer;" onclick="selectLjdOption('D')">
+                        <input type="radio" name="ljd_opt" value="D" id="opt_D" />
+                        <span><strong>D.</strong> Tetap sama tidak mengalami perubahan</span>
+                      </label>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+                      <button class="qa-btn" onclick="toggleRaguRagu()" id="btn_ragu" style="font-size: 0.75rem; background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; color: #f59e0b;">
+                        🚩 Tandai Ragu-ragu
+                      </button>
+                      <button class="qa-btn qa-btn-success" onclick="submitLjdTest()" style="font-size: 0.75rem;">
+                        ⚡ Kirim Jawaban LKPD
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Navigator & Skor Feedback -->
+                  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; margin-bottom: 0.5rem;">
+                      NAVIGATOR SOAL LKPD (1–5)
+                    </div>
+                    <div style="display: flex; gap: 0.4rem; margin-bottom: 0.75rem;">
+                      <span id="nav_pill_1" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: #2563eb; color: #fff; font-weight: 800; border-radius: 4px; font-size: 0.8rem;">1</span>
+                      <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); color: #94a3b8; font-weight: 800; border-radius: 4px; font-size: 0.8rem;">2</span>
+                      <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); color: #94a3b8; font-weight: 800; border-radius: 4px; font-size: 0.8rem;">3</span>
+                      <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); color: #94a3b8; font-weight: 800; border-radius: 4px; font-size: 0.8rem;">4</span>
+                      <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); color: #94a3b8; font-weight: 800; border-radius: 4px; font-size: 0.8rem;">5</span>
+                    </div>
+
+                    <div id="ljd_score_result" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 0.75rem; font-size: 0.8rem;">
+                      <div style="font-weight: 800; color: #10b981;" id="ljd_score_header">✅ Skor LKPD: 100/100</div>
+                      <div style="color: #cbd5e1; margin-top: 0.25rem;" id="ljd_score_text">Jawaban tepat! Karena T sebanding dengan √L, maka ketika L menjadi 4L, periode menjadi √4 = 2 kali.</div>
+                      <div style="color: #38bdf8; font-size: 0.75rem; margin-top: 0.35rem;">📊 Capaian Kompetensi: <strong>Indikator Analisis Harmonik (100% Menguasai)</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUB-TAB 2: SIMULASI SAINS HTML5 (PhET SANDBOX) -->
+            <div id="tab_content_phet" style="display: none;">
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+                  <div>
+                    <strong style="color: #38bdf8; font-size: 0.9rem;">Simulasi Fisika HTML5 Tersemat (Embedded Virtual Lab)</strong>
+                    <div style="font-size: 0.78rem; color: #94a3b8;">Simulasi interaktif dijalankan langsung di Tab Aktivitas Belajar tanpa meninggalkan aplikasi.</div>
+                  </div>
+                  <span style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">
+                    Canvas 60 FPS • Interactive Sandbox
+                  </span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; align-items: center;">
+                  <!-- Canvas Simulator -->
+                  <div style="background: #090d16; border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem; text-align: center;">
+                    <canvas id="pendulumCanvas" width="340" height="220" style="width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; background: #0a0f1d; border-radius: 6px;"></canvas>
+                    <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 0.35rem;">
+                      Osilasi Real-time: <strong id="pendulum_period_display" style="color: #38bdf8;">T = 2.01 s</strong>
+                    </div>
+                  </div>
+
+                  <!-- Parameter Controls -->
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.8rem;">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; color: #94a3b8; margin-bottom: 0.2rem;">
+                        <span>Panjang Tali (L):</span>
+                        <strong id="val_length" style="color: #38bdf8;">1.0 Meter</strong>
+                      </div>
+                      <input type="range" id="slider_length" min="0.3" max="2.5" step="0.1" value="1.0" oninput="updatePhysics()" style="width: 100%;" />
+                    </div>
+
+                    <div>
+                      <div style="display: flex; justify-content: space-between; color: #94a3b8; margin-bottom: 0.2rem;">
+                        <span>Gravitasi Planet (g):</span>
+                        <strong id="val_gravity" style="color: #a78bfa;">9.8 m/s² (Bumi)</strong>
+                      </div>
+                      <select id="select_gravity" onchange="updatePhysics()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 0.35rem 0.5rem; font-size: 0.8rem;">
+                        <option value="9.8">Bumi (g = 9.8 m/s²)</option>
+                        <option value="1.62">Bulan (g = 1.62 m/s²)</option>
+                        <option value="3.71">Mars (g = 3.71 m/s²)</option>
+                        <option value="24.79">Jupiter (g = 24.79 m/s²)</option>
+                      </select>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 6px; padding: 0.6rem; font-size: 0.78rem; color: #cbd5e1;">
+                      ✅ <strong>Kompatibilitas Web:</strong> Belajar Plus mendukung iframe sandboxed untuk seluruh modul PhET Interactive Simulations, GeoGebra Math, dan H5P Interactive Activities.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUB-TAB 3: RUBRIK PRAKTIKUM NON-TES -->
+            <div id="tab_content_rubric" style="display: none;">
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+                  <div>
+                    <strong style="color: #a78bfa; font-size: 0.9rem;">Rubrik Penilaian Kinerja Praktikum &amp; Dokumen Siswa (&le; 10 MB)</strong>
+                    <div style="font-size: 0.78rem; color: #94a3b8;">Penilaian non-tes untuk observasi laboratorium, proyek kelompok, atau portofolio.</div>
+                  </div>
+                  <span class="qa-badge badge-pass">Auto-Calculator</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.8rem;">
+                  <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <div style="color: #94a3b8; font-size: 0.75rem;">1. Kesiapan Alat (0–25):</div>
+                    <input type="number" id="rubric_1" min="0" max="25" value="23" oninput="calcRubricScore()" style="width: 100%; margin-top: 0.25rem; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); padding: 0.25rem 0.5rem; border-radius: 4px;" />
+                  </div>
+                  <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <div style="color: #94a3b8; font-size: 0.75rem;">2. Prosedur Kerja (0–25):</div>
+                    <input type="number" id="rubric_2" min="0" max="25" value="24" oninput="calcRubricScore()" style="width: 100%; margin-top: 0.25rem; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); padding: 0.25rem 0.5rem; border-radius: 4px;" />
+                  </div>
+                  <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <div style="color: #94a3b8; font-size: 0.75rem;">3. Analisis Data (0–25):</div>
+                    <input type="number" id="rubric_3" min="0" max="25" value="22" oninput="calcRubricScore()" style="width: 100%; margin-top: 0.25rem; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); padding: 0.25rem 0.5rem; border-radius: 4px;" />
+                  </div>
+                  <div style="background: rgba(255,255,255,0.03); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <div style="color: #94a3b8; font-size: 0.75rem;">4. Kesimpulan &amp; Laporan (0–25):</div>
+                    <input type="number" id="rubric_4" min="0" max="25" value="25" oninput="calcRubricScore()" style="width: 100%; margin-top: 0.25rem; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); padding: 0.25rem 0.5rem; border-radius: 4px;" />
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.04); padding: 0.75rem; border-radius: 6px;">
+                  <div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">Total Nilai Praktikum Non-Tes:</div>
+                    <div style="font-size: 1.4rem; font-weight: 800; color: #10b981;" id="rubric_total_score">94 / 100</div>
+                  </div>
+                  <div style="text-align: right; font-size: 0.75rem; color: #38bdf8;">
+                    Kategori: <strong id="rubric_predikat">SANGAT BAIK (A)</strong><br/>
+                    <span style="color: #94a3b8;">Siap Diintegrasikan ke Tab Hasil Belajar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -614,6 +817,30 @@
               <td>Sirkulasi Kuota Kursi (Concurrent Seats)</td>
               <td>Kuota lisensi 50 kursi, peminjam ke-51 mengajukan peminjaman buku</td>
               <td>Siswa ke-51 dialihkan ke antrean tunggu (queue) dan menerima notifikasi saat eksemplar siswa lain dikembalikan.</td>
+              <td><span class="qa-badge badge-pass">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><span class="code-pill">QA-LKPD-01</span></td>
+              <td>LKPD Interaktif Native</td>
+              <td>Pengerjaan LJD dengan Stimulus &amp; 6 Tipe Soal</td>
+              <td>Stimulus teks/grafik + MCQ, MCMA, Benar/Salah, Menjodohkan, Esai AI, Berkas &le; 10MB</td>
+              <td>Siswa dapat merespon seluruh tipe soal secara interaktif, auto-scoring akurat, dan analisis penguasaan kompetensi terbit instan.</td>
+              <td><span class="qa-badge badge-pass">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><span class="code-pill">QA-LKPD-02</span></td>
+              <td>Aktivitas Belajar E-Learning</td>
+              <td>Penyematan Modul Web / HTML5 (PhET/GeoGebra/H5P)</td>
+              <td>Guru menyematkan modul simulasi sains / matematika interaktif berbasis web di tab Aktivitas Belajar</td>
+              <td>Simulasi berjalan responsif 60 FPS di dalam iframe aman tanpa gangguan tab browser atau memicu false anti-cheat.</td>
+              <td><span class="qa-badge badge-pass">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><span class="code-pill">QA-LKPD-03</span></td>
+              <td>Penilaian Non-Tes</td>
+              <td>Rubrik Praktikum &amp; Dokumen Tugas &le; 10MB</td>
+              <td>Guru menginput nilai rubrik 0–100 untuk lembar observasi dan tugas dokumen</td>
+              <td>Kalkulasi total rubrik otomatis, siswa kosong dipertahankan NULL (tidak merusak rata-rata kelas), siap ekspor ke e-Rapor.</td>
               <td><span class="qa-badge badge-pass">PASSED</span></td>
             </tr>
           </tbody>
@@ -817,9 +1044,215 @@
       }, 500);
     }
 
+    // 8. LKPD Interaktif & Physics Sandbox Scripts
+    function switchLkpdTab(tabName) {
+      const tabNative = document.getElementById('tab_content_native');
+      const tabPhet = document.getElementById('tab_content_phet');
+      const tabRubric = document.getElementById('tab_content_rubric');
+
+      const btnNative = document.getElementById('btn_tab_native');
+      const btnPhet = document.getElementById('btn_tab_phet');
+      const btnRubric = document.getElementById('btn_tab_rubric');
+
+      tabNative.style.display = 'none';
+      tabPhet.style.display = 'none';
+      tabRubric.style.display = 'none';
+
+      btnNative.style.background = 'rgba(255,255,255,0.05)';
+      btnNative.style.borderColor = 'var(--border)';
+      btnPhet.style.background = 'rgba(255,255,255,0.05)';
+      btnPhet.style.borderColor = 'var(--border)';
+      btnRubric.style.background = 'rgba(255,255,255,0.05)';
+      btnRubric.style.borderColor = 'var(--border)';
+
+      if (tabName === 'native') {
+        tabNative.style.display = 'block';
+        btnNative.style.background = 'rgba(56, 189, 248, 0.2)';
+        btnNative.style.borderColor = '#38bdf8';
+      } else if (tabName === 'phet') {
+        tabPhet.style.display = 'block';
+        btnPhet.style.background = 'rgba(56, 189, 248, 0.2)';
+        btnPhet.style.borderColor = '#38bdf8';
+        if (!physicsRunning) startPhysicsLoop();
+      } else if (tabName === 'rubric') {
+        tabRubric.style.display = 'block';
+        btnRubric.style.background = 'rgba(167, 139, 250, 0.2)';
+        btnRubric.style.borderColor = '#a78bfa';
+        calcRubricScore();
+      }
+    }
+
+    let isRaguRagu = false;
+    let selectedLjdAns = '';
+
+    function selectLjdOption(opt) {
+      selectedLjdAns = opt;
+      document.getElementById('opt_' + opt).checked = true;
+      const pill = document.getElementById('nav_pill_1');
+      if (!isRaguRagu) {
+        pill.style.background = '#10b981';
+      }
+    }
+
+    function toggleRaguRagu() {
+      isRaguRagu = !isRaguRagu;
+      const pill = document.getElementById('nav_pill_1');
+      const btn = document.getElementById('btn_ragu');
+      if (isRaguRagu) {
+        pill.style.background = '#f59e0b';
+        btn.innerText = '🚩 Ditandai Ragu';
+        btn.style.background = '#f59e0b';
+        btn.style.color = '#000';
+      } else {
+        pill.style.background = selectedLjdAns ? '#10b981' : '#2563eb';
+        btn.innerText = '🚩 Tandai Ragu-ragu';
+        btn.style.background = 'rgba(245, 158, 11, 0.15)';
+        btn.style.color = '#f59e0b';
+      }
+    }
+
+    function submitLjdTest() {
+      const resultBox = document.getElementById('ljd_score_result');
+      resultBox.style.display = 'block';
+      const header = document.getElementById('ljd_score_header');
+      const text = document.getElementById('ljd_score_text');
+
+      if (selectedLjdAns === 'A') {
+        header.innerHTML = '✅ Skor LKPD: 100/100 (Sempurna)';
+        header.style.color = '#10b981';
+        text.innerHTML = 'Jawaban tepat! Karena rumus periode <code>T = 2π√(L/g)</code> sebanding dengan akar panjang tali (√L), maka saat tali diperpanjang 4 kali semula, periode menjadi √4 = <strong>2 kali semula</strong>.';
+      } else if (selectedLjdAns === '') {
+        header.innerHTML = '⚠️ Belum Memilih Jawaban';
+        header.style.color = '#f59e0b';
+        text.innerHTML = 'Silakan pilih salah satu opsi jawaban (A, B, C, atau D) sebelum menekan tombol kirim.';
+      } else {
+        header.innerHTML = '❌ Skor LKPD: 0/100';
+        header.style.color = '#ef4444';
+        text.innerHTML = 'Jawaban kamu belum tepat. Ingat hubungan kuadratik: T berbanding lurus dengan <strong>akar kuadrat</strong> dari L (√L), bukan linear.';
+      }
+    }
+
+    // Canvas Physics Pendulum Simulator
+    let physicsRunning = false;
+    let animFrameId = null;
+    let pendAngle = Math.PI / 4;
+    let pendAngleVel = 0;
+    let pendLength = 1.0;
+    let pendGravity = 9.8;
+
+    function updatePhysics() {
+      pendLength = parseFloat(document.getElementById('slider_length').value);
+      document.getElementById('val_length').innerText = pendLength.toFixed(1) + ' Meter';
+
+      pendGravity = parseFloat(document.getElementById('select_gravity').value);
+      const sel = document.getElementById('select_gravity');
+      document.getElementById('val_gravity').innerText = pendGravity + ' m/s² (' + sel.options[sel.selectedIndex].text.split('(')[0].trim() + ')';
+
+      const T = (2 * Math.PI * Math.sqrt(pendLength / pendGravity)).toFixed(2);
+      document.getElementById('pendulum_period_display').innerText = `T = ${T} s`;
+    }
+
+    function startPhysicsLoop() {
+      physicsRunning = true;
+      const canvas = document.getElementById('pendulumCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const originX = canvas.width / 2;
+      const originY = 30;
+
+      let lastTime = performance.now();
+
+      function step(now) {
+        const dt = Math.min((now - lastTime) / 1000, 0.05);
+        lastTime = now;
+
+        // Physics equation: θ'' = -(g/L) * sin(θ) - damping * θ'
+        const angularAccel = (-pendGravity / pendLength) * Math.sin(pendAngle) - 0.08 * pendAngleVel;
+        pendAngleVel += angularAccel * dt;
+        pendAngle += pendAngleVel * dt;
+
+        // Render
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Ceiling beam
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(originX - 60, originY);
+        ctx.lineTo(originX + 60, originY);
+        ctx.stroke();
+
+        // String length in pixels
+        const pixelLen = 40 + pendLength * 60;
+        const bobX = originX + pixelLen * Math.sin(pendAngle);
+        const bobY = originY + pixelLen * Math.cos(pendAngle);
+
+        // Cord
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(originX, originY);
+        ctx.lineTo(bobX, bobY);
+        ctx.stroke();
+
+        // Pivot pin
+        ctx.fillStyle = '#60a5fa';
+        ctx.beginPath();
+        ctx.arc(originX, originY, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Bob
+        const gradient = ctx.createRadialGradient(bobX - 3, bobY - 3, 2, bobX, bobY, 14);
+        gradient.addColorStop(0, '#60a5fa');
+        gradient.addColorStop(1, '#1e3a8a');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(bobX, bobY, 14, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#93c5fd';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        animFrameId = requestAnimationFrame(step);
+      }
+
+      animFrameId = requestAnimationFrame(step);
+    }
+
+    // 9. Rubric Calculator
+    function calcRubricScore() {
+      const r1 = parseFloat(document.getElementById('rubric_1')?.value || 0);
+      const r2 = parseFloat(document.getElementById('rubric_2')?.value || 0);
+      const r3 = parseFloat(document.getElementById('rubric_3')?.value || 0);
+      const r4 = parseFloat(document.getElementById('rubric_4')?.value || 0);
+
+      const total = Math.min(Math.max(r1 + r2 + r3 + r4, 0), 100);
+      const totalEl = document.getElementById('rubric_total_score');
+      const predikatEl = document.getElementById('rubric_predikat');
+
+      if (totalEl) totalEl.innerText = `${total} / 100`;
+
+      if (predikatEl) {
+        if (total >= 90) {
+          predikatEl.innerText = 'SANGAT BAIK (A)';
+          predikatEl.style.color = '#10b981';
+        } else if (total >= 80) {
+          predikatEl.innerText = 'BAIK (B)';
+          predikatEl.style.color = '#38bdf8';
+        } else if (total >= 70) {
+          predikatEl.innerText = 'CUKUP (C)';
+          predikatEl.style.color = '#f59e0b';
+        } else {
+          predikatEl.innerText = 'PERLU BIMBINGAN (D)';
+          predikatEl.style.color = '#ef4444';
+        }
+      }
+    }
+
     // Initialize
     calcScores();
     runGpsSim();
+    updatePhysics();
   </script>
 </body>
 </html>

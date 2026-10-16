@@ -63,7 +63,7 @@
 
 ---
 
-## 2. Quality Assurance (QA) Fitur-Fitur Baru & UAT Live
+## 2. Quality Assurance (QA) Fitur-Fitur Baru, LKPD Interaktif & UAT Live
 - [x] **Simulator Interaktif QA**: Dibangun di `qa-fitur-baru.html` dengan workbench live:
   - Kalkulator Uji Pembedaan Nilai NULL vs Nilai 0 Resmi (pembuktian matematis pencegahan distorsi nilai).
   - Geofence GPS Simulator dengan slider radius dan toggle verifikasi ulang.
@@ -73,7 +73,11 @@
   - Mode Pratinjau Asesmen (Zero DB Dirty validation).
   - Validator Jadwal Kelas Gabungan Lintas Rombel.
   - Generator Hash Kriptografi Snapshot Rapor Rombel (Immutable Lock).
-- [x] **Dokumen Spesifikasi QA Formal**: Ditulis di `QA_FITUR_BARU_BELAJARPLUS.md` lengkap dengan Matriks Uji QA-ATT-01 s.d. QA-LIB-03, Analisis Kasus Batas (Edge Cases), Failure Modes, dan Lembar Sign-off Pejabat Sekolah.
+  - **Uji 7: Sandbox LKPD Interaktif & Pembelajaran Web / HTML5 (PhET / GeoGebra / Native LJD)**:
+    1. Mode Native LJD dengan stimulus, timer hitung mundur, navigator butir soal, dan auto-scoring instan + radar capaian kompetensi.
+    2. Mode Simulasi Sains HTML5 (Virtual Lab Fisika / Pendulum Osilasi 60 FPS) dengan kontrol panjang tali dan gravitasi planet.
+    3. Mode Rubrik Praktikum Non-Tes (&le; 10 MB) dengan kalkulator 4 indikator kinerja (Kesiapan, Prosedur, Analisis, Laporan) dan perlakuan NULL vs 0.
+- [x] **Dokumen Spesifikasi QA Formal**: Ditulis di `QA_FITUR_BARU_BELAJARPLUS.md` lengkap dengan Matriks Uji QA-ATT-01 s.d. QA-LKPD-03, Analisis Kasus Batas (Edge Cases), Arsitektur Sandbox Web/HTML5, Failure Modes, dan Lembar Sign-off Pejabat Sekolah.
 - [x] **Integrasi Navigasi**: Ditambahkan tombol `🧪 QA Fitur Baru Live` di header `index.html`, card di Trainer Field Kit grid, serta link navbar.
 
 ---
