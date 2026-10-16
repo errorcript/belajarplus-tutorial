@@ -145,6 +145,7 @@
       <li><a href="/bug2">🔍 Audit v2.0</a></li>
       <li><a href="#test-matrix">Matriks Pengujian</a></li>
       <li><a href="#interactive-sim">Simulator Live</a></li>
+      <li><a href="#deep-engine">⚙️ Arsitektur Mesin</a></li>
     </ul>
     <div class="nav-right">
       <button onclick="window.print()" class="qa-btn" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);">
@@ -849,6 +850,221 @@
     </div>
   </section>
 
+  <!-- Deep Engine Inspector & Architecture Internals -->
+  <section id="deep-engine" class="section">
+    <div class="container">
+      <div class="section-label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">
+        ⚙️ Deep Engine Architecture &amp; System Internals
+      </div>
+      <h2 class="section-title">Inspeksi Rekayasa Sistem &amp; Algoritma Internal Belajar Plus</h2>
+      <p class="section-sub">
+        Eksplorasi interaktif cara kerja mesin di balik layar: perhitungan trigonometri Haversine GPS, Finite State Machine (FSM) Anti-Cheat, Forensik DRM Canvas, dan RPC Multi-Tenant TanStack.
+      </p>
+
+      <div class="qa-grid" style="margin-top: 2rem;">
+
+        <!-- ENGINE 1: HAVERSINE GPS MATHEMATICAL ENGINE -->
+        <div class="qa-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="qa-badge badge-pass">Algoritma Geodesi</span>
+              <span class="code-pill">HAVERSINE-MATH-01</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-top: 0.4rem;">
+              1. Mesin Hitung Trigonometri Haversine GPS
+            </h3>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.2rem;">
+              Kalkulasi jarak kelengkungan bumi bola (R = 6.371 km) antara koordinat gawai siswa dan titik pusat sekolah.
+            </p>
+          </div>
+
+          <div class="sim-box" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <!-- Formula Math Card -->
+            <div style="background: rgba(15,23,42,0.8); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; padding: 0.65rem; font-family: var(--mono-font); font-size: 0.72rem; color: #38bdf8; line-height: 1.5;">
+              a = sin²(Δφ/2) + cos(φ₁)·cos(φ₂)·sin²(Δλ/2)<br/>
+              c = 2 · atan2(√a, √(1−a))<br/>
+              d = R · c  (R = 6,371,000 meter)
+            </div>
+
+            <!-- Coordinate Inputs -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.78rem;">
+              <div>
+                <label style="color: #94a3b8; display: block; margin-bottom: 0.2rem;">Lat Sekolah (φ₁):</label>
+                <input type="number" id="eng_lat_school" value="-7.426500" step="0.0001" oninput="calcHaversineEngine()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 0.3rem;" />
+              </div>
+              <div>
+                <label style="color: #94a3b8; display: block; margin-bottom: 0.2rem;">Lon Sekolah (λ₁):</label>
+                <input type="number" id="eng_lon_school" value="111.021200" step="0.0001" oninput="calcHaversineEngine()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 0.3rem;" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.78rem;">
+              <div>
+                <label style="color: #94a3b8; display: block; margin-bottom: 0.2rem;">Lat Siswa (φ₂):</label>
+                <input type="number" id="eng_lat_student" value="-7.427100" step="0.0001" oninput="calcHaversineEngine()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 0.3rem;" />
+              </div>
+              <div>
+                <label style="color: #94a3b8; display: block; margin-bottom: 0.2rem;">Lon Siswa (λ₂):</label>
+                <input type="number" id="eng_lon_student" value="111.021600" step="0.0001" oninput="calcHaversineEngine()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 0.3rem;" />
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 0.65rem; font-size: 0.78rem;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: #94a3b8;">Jarak Hitung Presisi:</span>
+                <strong id="haversine_dist_result" style="color: #38bdf8; font-size: 0.95rem;">79.8 Meter</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-top: 0.25rem;">
+                <span style="color: #94a3b8;">Threshold Geofence (100m):</span>
+                <strong id="haversine_status_result" style="color: #10b981;">✅ DI DALAM RADIUS (Lolos)</strong>
+              </div>
+            </div>
+
+            <button class="qa-btn" onclick="randomizeStudentPos()" style="justify-content: center; font-size: 0.75rem;">
+              🎲 Geser Posisi Siswa (Acak Uji Radius)
+            </button>
+          </div>
+        </div>
+
+        <!-- ENGINE 2: ANTI-CHEAT FOCUS TRACKER FINITE STATE MACHINE -->
+        <div class="qa-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="qa-badge badge-warn">Event-Driven FSM</span>
+              <span class="code-pill">ANTI-CHEAT-FSM</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-top: 0.4rem;">
+              2. FSM Pengawas Anti-Cheat Ujian Digital
+            </h3>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.2rem;">
+              Simulasi siklus pendeteksian perpindahan tab (`blur`), layar penuh, dan tindakan auto-submit paksa.
+            </p>
+          </div>
+
+          <div class="sim-box" style="display: flex; flex-direction: column; gap: 0.65rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.5rem 0.75rem; border-radius: 6px;">
+              <div>
+                <div style="font-size: 0.75rem; color: #94a3b8;">Status Pengawasan:</div>
+                <strong id="fsm_state_badge" style="color: #10b981; font-size: 0.85rem;">🟢 SECURE_FOCUSED (Fokus Aman)</strong>
+              </div>
+              <div>
+                <div style="font-size: 0.75rem; color: #94a3b8;">Pelanggaran:</div>
+                <strong id="fsm_violation_count" style="color: #f87171; font-size: 1.1rem;">0 / 3</strong>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
+              <button class="qa-btn" onclick="triggerCheatEvent('TAB_SWITCH')" style="font-size: 0.72rem; background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; color: #fbbf24;">
+                ⚠️ Event: Pindah Tab
+              </button>
+              <button class="qa-btn" onclick="triggerCheatEvent('EXIT_FULLSCREEN')" style="font-size: 0.72rem; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #f87171;">
+                🚨 Event: Exit Fullscreen
+              </button>
+            </div>
+
+            <div style="background: #020617; border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem; font-family: var(--mono-font); font-size: 0.72rem; height: 95px; overflow-y: auto;" id="fsm_event_log">
+              <span style="color: #64748b;">[03:15:00] FSM Initialized: Session Token VALID.</span>
+            </div>
+
+            <button class="qa-btn" onclick="resetCheatFSM()" style="justify-content: center; font-size: 0.75rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border);">
+              🔄 Reset Sesi Ujian
+            </button>
+          </div>
+        </div>
+
+        <!-- ENGINE 3: DRM CANVAS FORENSIC WATERMARKING -->
+        <div class="qa-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="qa-badge badge-pass">DRM Forensics</span>
+              <span class="code-pill">DRM-CANVAS-VEIL</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-top: 0.4rem;">
+              3. Proteksi DRM Canvas &amp; Watermark Forensik
+            </h3>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.2rem;">
+              Layer watermark dinamis diagonal mikro dan tirai hitam anti-capture screenshot e-reader.
+            </p>
+          </div>
+
+          <div class="sim-box" style="display: flex; flex-direction: column; gap: 0.65rem;">
+            <!-- Canvas Book Preview with Watermark -->
+            <div style="position: relative; width: 100%; height: 120px; background: #ffffff; border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1;" id="drm_canvas_wrapper">
+              <div style="padding: 0.6rem; color: #0f172a; font-size: 0.7rem; line-height: 1.4;">
+                <strong style="color: #1e3a8a;">Buku Teks Antropologi 11 • Bab 2:</strong><br/>
+                Kebudayaan adalah keseluruhan sistem gagasan, tindakan, dan hasil karya manusia dalam kehidupan masyarakat yang dijadikan milik diri manusia dengan belajar...
+              </div>
+
+              <!-- Canvas Watermark Layer -->
+              <canvas id="drmWatermarkCanvas" width="320" height="120" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+
+              <!-- Anti-Capture Black Veil (Triggered on Screenshot) -->
+              <div id="drm_veil" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000000; color: #ef4444; display: none; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">
+                🛡️ Screen Capture Intercepted
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.4rem;">
+              <button class="qa-btn" onclick="simulateScreenshotAttempt()" style="flex: 1; font-size: 0.72rem; background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #f87171;">
+                📸 Tekan Tombol PrintScreen
+              </button>
+              <button class="qa-btn" onclick="restoreDrmVeil()" style="font-size: 0.72rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border);">
+                Buka Tirai
+              </button>
+            </div>
+
+            <div id="drm_audit_report" style="font-size: 0.72rem; color: #94a3b8; background: rgba(255,255,255,0.02); padding: 0.4rem 0.6rem; border-radius: 4px; display: flex; justify-content: space-between;">
+              <span>Log Forensik: <strong style="color: #10b981;" id="drm_incident_count">0 Insiden</strong></span>
+              <span>Endpoint: <code>/admin/library/security</code></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENGINE 4: TANSTACK RPC MULTI-TENANT DISPATCHER -->
+        <div class="qa-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="qa-badge badge-pass">TanStack ServerFn</span>
+              <span class="code-pill">RPC-TENANT-ROUTER</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-top: 0.4rem;">
+              4. Dispatcher RPC Multi-Tenant &amp; Header Override
+            </h3>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.2rem;">
+              Inspeksi paket request RPC `/_serverFn/` dengan header isolasi institusi `x-school-override`.
+            </p>
+          </div>
+
+          <div class="sim-box" style="display: flex; flex-direction: column; gap: 0.65rem;">
+            <div style="display: flex; gap: 0.4rem; font-size: 0.75rem;">
+              <select id="rpc_method_select" onchange="updateRpcInspector()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 0.35rem 0.5rem;">
+                <option value="assignRombel">RPC 1: batchAssignRombel()</option>
+                <option value="verifyAttendance">RPC 2: verifyAttendanceBatch()</option>
+                <option value="lockSnapshot">RPC 3: lockReportCardSnapshot()</option>
+                <option value="aiGrading">RPC 4: analyzeEssayAiGrading()</option>
+              </select>
+            </div>
+
+            <!-- Headers & Payload Display -->
+            <div style="background: #020617; border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem; font-family: var(--mono-font); font-size: 0.7rem; color: #cbd5e1; max-height: 125px; overflow-y: auto;" id="rpc_payload_display">
+              POST /_serverFn/337a3c1afccf4d...<br/>
+              Host: smaegis.belajarplus.id<br/>
+              x-school-override: "sma-egis"<br/>
+              Authorization: "Bearer eyJhbGciOi..."<br/>
+              Status: 200 OK (DB RLS Isolated)
+            </div>
+
+            <div style="font-size: 0.72rem; color: #10b981; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🔒 Multi-Tenant Isolation:</span>
+              <strong>Row-Level Security (RLS) PostgreSQL Verified</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Interactive Scripts -->
   <script>
     // 1. Calculator NULL vs 0
@@ -1249,10 +1465,228 @@
       }
     }
 
+    // ==========================================
+    // DEEP ENGINE INSPECTOR & SYSTEM INTERNALS
+    // ==========================================
+
+    // 10. Engine 1: Haversine GPS Geodesy Calculation
+    function calcHaversineEngine() {
+      const lat1 = parseFloat(document.getElementById('eng_lat_school')?.value || -7.4265);
+      const lon1 = parseFloat(document.getElementById('eng_lon_school')?.value || 111.0212);
+      const lat2 = parseFloat(document.getElementById('eng_lat_student')?.value || -7.4271);
+      const lon2 = parseFloat(document.getElementById('eng_lon_student')?.value || 111.0216);
+
+      const R = 6371000; // Radius of Earth in meters
+      const toRad = (x) => (x * Math.PI) / 180;
+
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const phi1 = toRad(lat1);
+      const phi2 = toRad(lat2);
+
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(phi1) * Math.cos(phi2) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const dist = R * c;
+
+      const distEl = document.getElementById('haversine_dist_result');
+      const statusEl = document.getElementById('haversine_status_result');
+
+      if (distEl) distEl.innerText = `${dist.toFixed(1)} Meter`;
+
+      if (statusEl) {
+        if (dist <= 100) {
+          statusEl.innerText = `✅ DI DALAM RADIUS (Lolos Toleransi ${dist.toFixed(1)}m ≤ 100m)`;
+          statusEl.style.color = '#10b981';
+        } else {
+          statusEl.innerText = `❌ DILUAR RADIUS (+${(dist - 100).toFixed(1)}m melebihi geofence)`;
+          statusEl.style.color = '#ef4444';
+        }
+      }
+    }
+
+    function randomizeStudentPos() {
+      const latSchool = parseFloat(document.getElementById('eng_lat_school')?.value || -7.4265);
+      const lonSchool = parseFloat(document.getElementById('eng_lon_school')?.value || 111.0212);
+
+      const isOutside = Math.random() > 0.45;
+      const spread = isOutside ? (0.0012 + Math.random() * 0.0016) : (Math.random() * 0.0006);
+      const angle = Math.random() * 2 * Math.PI;
+
+      const newLat = latSchool + spread * Math.sin(angle);
+      const newLon = lonSchool + (spread / Math.cos((latSchool * Math.PI) / 180)) * Math.cos(angle);
+
+      const latInput = document.getElementById('eng_lat_student');
+      const lonInput = document.getElementById('eng_lon_student');
+      if (latInput) latInput.value = newLat.toFixed(6);
+      if (lonInput) lonInput.value = newLon.toFixed(6);
+      calcHaversineEngine();
+    }
+
+    // 11. Engine 2: Anti-Cheat Focus Tracker FSM
+    let fsmViolationCount = 0;
+    const fsmStates = [
+      { name: '🟢 SECURE_FOCUSED (Fokus Aman)', color: '#10b981' },
+      { name: '🟡 SUSPICIOUS_UNFOCUSED (Peringatan 1: Tab Blur)', color: '#f59e0b' },
+      { name: '🟠 CRITICAL_BLUR (Peringatan 2: Ancaman Kunci)', color: '#f97316' },
+      { name: '🔴 FORCED_AUTOSUBMIT (Terkunci & Terkirim Otomatis)', color: '#ef4444' }
+    ];
+
+    function triggerCheatEvent(evtType) {
+      if (fsmViolationCount >= 3) return; // Already locked
+
+      fsmViolationCount++;
+      const now = new Date().toTimeString().split(' ')[0];
+      const stateBadge = document.getElementById('fsm_state_badge');
+      const countEl = document.getElementById('fsm_violation_count');
+      const logBox = document.getElementById('fsm_event_log');
+
+      if (countEl) countEl.innerText = `${fsmViolationCount} / 3`;
+
+      const currentState = fsmStates[Math.min(fsmViolationCount, 3)];
+      if (stateBadge) {
+        stateBadge.innerText = currentState.name;
+        stateBadge.style.color = currentState.color;
+      }
+
+      let logMessage = '';
+      if (evtType === 'TAB_SWITCH') {
+        logMessage = `[${now}] DETECTED: 'window.onblur' / 'visibilitychange:hidden'. Pelanggaran ke-${fsmViolationCount}.`;
+      } else {
+        logMessage = `[${now}] DETECTED: 'fullscreenchange:null' (Layar penuh ditinggalkan!). Pelanggaran ke-${fsmViolationCount}.`;
+      }
+
+      if (fsmViolationCount >= 3) {
+        logMessage += ` 🛑 FSM TRANSITION: LOCKED! Jawaban LJD di-snapshot & dikirim via RPC /_serverFn.`;
+      }
+
+      if (logBox) {
+        const line = document.createElement('div');
+        line.style.color = fsmViolationCount >= 3 ? '#ef4444' : (fsmViolationCount === 2 ? '#f97316' : '#f59e0b');
+        line.innerText = logMessage;
+        logBox.appendChild(line);
+        logBox.scrollTop = logBox.scrollHeight;
+      }
+    }
+
+    function resetCheatFSM() {
+      fsmViolationCount = 0;
+      const stateBadge = document.getElementById('fsm_state_badge');
+      const countEl = document.getElementById('fsm_violation_count');
+      const logBox = document.getElementById('fsm_event_log');
+
+      if (stateBadge) {
+        stateBadge.innerText = fsmStates[0].name;
+        stateBadge.style.color = fsmStates[0].color;
+      }
+      if (countEl) countEl.innerText = '0 / 3';
+      if (logBox) {
+        logBox.innerHTML = '<span style="color: #64748b;">[' + new Date().toTimeString().split(' ')[0] + '] Sesi Baru: Token Ujian VALID. Fullscreen Aktif.</span>';
+      }
+    }
+
+    // 12. Engine 3: DRM Canvas Forensics & Watermarking
+    let drmIncidentCount = 0;
+    function drawDrmCanvasWatermark() {
+      const canvas = document.getElementById('drmWatermarkCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.save();
+      ctx.rotate((-22 * Math.PI) / 180);
+      ctx.font = '600 10px JetBrains Mono, monospace';
+      ctx.fillStyle = 'rgba(220, 38, 38, 0.22)';
+
+      const text = 'SMA EGIS • NISN:0089218291 • ' + new Date().toISOString().substring(0, 10);
+      for (let y = -60; y < 200; y += 38) {
+        for (let x = -80; x < 380; x += 220) {
+          ctx.fillText(text, x, y);
+        }
+      }
+      ctx.restore();
+    }
+
+    function simulateScreenshotAttempt() {
+      const veil = document.getElementById('drm_veil');
+      if (veil) veil.style.display = 'flex';
+
+      drmIncidentCount++;
+      const incEl = document.getElementById('drm_incident_count');
+      if (incEl) {
+        incEl.innerText = `${drmIncidentCount} Insiden Terekam`;
+        incEl.style.color = '#ef4444';
+      }
+    }
+
+    function restoreDrmVeil() {
+      const veil = document.getElementById('drm_veil');
+      if (veil) veil.style.display = 'none';
+    }
+
+    // 13. Engine 4: TanStack RPC Multi-Tenant Inspector
+    const rpcPayloads = {
+      assignRombel: `POST /_serverFn/batchAssignRombel_337a
+Host: smaegis.belajarplus.id
+x-school-override: "sma-egis"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+Payload: {
+  "rombelId": "XI-MIPA-1",
+  "semesterId": "2026-GANJIL",
+  "studentIds": [1082, 1083, 1084, 1085]
+}
+Response: 200 OK (PostgreSQL RLS Filter: tenant_id = 'sma-egis')`,
+      verifyAttendance: `POST /_serverFn/verifyAttendanceBatch_7f92
+Host: smaegis.belajarplus.id
+x-school-override: "sma-egis"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+Payload: {
+  "batchDate": "2026-10-17",
+  "action": "APPROVE_ALL_IN_GEOFENCE",
+  "thresholdMeters": 100,
+  "processedRows": 542
+}
+Response: 200 OK (Execution Time: 88 ms • DB Isolated)`,
+      lockSnapshot: `POST /_serverFn/lockReportCardSnapshot_9b1a
+Host: smaegis.belajarplus.id
+x-school-override: "sma-egis"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+Payload: {
+  "rombelId": "XI-MIPA-1",
+  "term": "Ganjil 2026/2027",
+  "sha256": "8f3b61e29c4d98a002fa119ceb649231f82c18d098e...",
+  "verifiedBy": "Drs. H. Mulyono (Kepsek)"
+}
+Response: 200 OK (Status: IMMUTABLE_LOCKED)`,
+      aiGrading: `POST /_serverFn/analyzeEssayAiGrading_4c81
+Host: smaegis.belajarplus.id
+x-school-override: "sma-egis"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+Payload: {
+  "submissionId": "SUB-9941",
+  "promptRubric": "Analisis Pengaruh Akulturasi Budaya (Min. 3 Argumen)",
+  "studentText": "Akulturasi budaya di Indonesia menghasilkan perpaduan...",
+  "aiCreditDebit": 1
+}
+Response: 200 OK (Score: 88.5 • Feedback: "Argumen komprehensif")`
+    };
+
+    function updateRpcInspector() {
+      const select = document.getElementById('rpc_method_select');
+      const display = document.getElementById('rpc_payload_display');
+      if (select && display && rpcPayloads[select.value]) {
+        display.innerHTML = rpcPayloads[select.value].replace(/\n/g, '<br/>');
+      }
+    }
+
     // Initialize
     calcScores();
     runGpsSim();
     updatePhysics();
+    calcHaversineEngine();
+    drawDrmCanvasWatermark();
+    updateRpcInspector();
   </script>
 </body>
 </html>

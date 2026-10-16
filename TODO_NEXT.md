@@ -78,6 +78,11 @@
     2. Mode Simulasi Sains HTML5 (Virtual Lab Fisika / Pendulum Osilasi 60 FPS) dengan kontrol panjang tali dan gravitasi planet.
     3. Mode Rubrik Praktikum Non-Tes (&le; 10 MB) dengan kalkulator 4 indikator kinerja (Kesiapan, Prosedur, Analisis, Laporan) dan perlakuan NULL vs 0.
 - [x] **Dokumen Spesifikasi QA Formal**: Ditulis di `QA_FITUR_BARU_BELAJARPLUS.md` lengkap dengan Matriks Uji QA-ATT-01 s.d. QA-LKPD-03, Analisis Kasus Batas (Edge Cases), Arsitektur Sandbox Web/HTML5, Failure Modes, dan Lembar Sign-off Pejabat Sekolah.
+- [x] **Deep Engine Architecture & System Internals Inspector**:
+  - Mesin Hitung Trigonometri Haversine Geodesi ($R = 6.371.000\text{ m}$) dengan simulator koordinat interaktif dan anomali geofence.
+  - Finite State Machine (FSM) Pengawas Anti-Cheat Ujian Digital (`onblur`, `visibilitychange`, `fullscreenchange`) dengan auto-submit terpaksa.
+  - Forensik DRM Canvas Watermarking berulang diagonal mikro dan tabir interseptor `PrintScreen` (Blackout Veil).
+  - TanStack RPC Multi-Tenant Router Inspector dengan simulasi isolasi header `x-school-override` dan PostgreSQL Row-Level Security (RLS).
 - [x] **Integrasi Navigasi**: Ditambahkan tombol `🧪 QA Fitur Baru Live` di header `index.html`, card di Trainer Field Kit grid, serta link navbar.
 
 ---
