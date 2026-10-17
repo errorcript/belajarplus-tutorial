@@ -38,12 +38,28 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
    * *Akar Masalah (#BUG-BP2-11):* Direct access / hard refresh di `/admin/*` sering me-reset tenant ke *"Belum dipilih"* dan melempar layar putih *"Akses ditolak"*.
 
 6. **JANGAN KLIK CARD "AKSI CEPAT" ABSENSI, TAMPILAN, & PENUGASAN DI BERANDA:**
-   * *Akar Masalah (#BUG-BP2-22):* 3 dari 6 card aksi cepat di `/admin` adalah elemen mati (*dead buttons*) tanpa handler klik.
+   * *Akar Masalah (#BUG-BP2-22 & #BUG-BP2-32):* 3 dari 6 card aksi cepat di `/admin` adalah elemen mati (*dead buttons*) tanpa handler klik.
    * *Solusi:* Selalu gunakan menu resmi di sidebar kiri.
 
 7. **JANGAN BUKA FORM PENUGASAN BUKU (`/admin/assignments`) DI DEPAN AUDIENS RESMI:**
-   * *Akar Masalah (#BUG-BP2-20):* Form penugasan buku membocorkan rombel kelas guru lain.
+   * *Akar Masalah (#BUG-BP2-20 & #BUG-BP2-34):* Form penugasan buku membocorkan rombel kelas guru lain tanpa filter `teacher_id`, serta rentan desinkronisasi rombel (#BUG-BP2-35).
    * *Solusi:* Cukup tunjukkan penugasan yang sudah ada di tab "Tugas" di dalam ruang kelas aktif.
+
+8. **JANGAN MEMBUKA FITUR SCAN QR (`/scan`) DI LAPTOP DEMO TANPA WEBCAM AKTIF:**
+   * *Akar Masalah (#BUG-BP2-37):* Jika kamera laptop mati atau izin browser diblokir, sistem memutar video mock hijau artefak development (`0:03:850 77`) alih-alih me-request izin kamera asli.
+   * *Solusi:* Buka `/scan` hanya di gawai smartphone demonstran atau siapkan tab input kode manual.
+
+9. **JANGAN AKSES MENU PESANAN (`/orders`) SAAT STATUS INSTITUSI 'BELUM DIPILIH':**
+   * *Akar Masalah (#BUG-BP2-36):* Rute `/orders` memfilter query berdasarkan `school_id`. Jika statusnya "Belum dipilih", seluruh transaksi toko sekolah lenyap dan menampilkan status kosong *"Belum ada pesanan."*
+   * *Solusi:* Pastikan switcher institusi di kanan atas sudah aktif di sekolah target sebelum membuka menu Pesanan.
+
+10. **JANGAN MENCARI "MENU SEKOLAH" DARI HALAMAN KREDIT AI (`/admin/ai-credits`):**
+    * *Akar Masalah (#BUG-BP2-38):* Panduan tertulis *"Periode LMS dikelola di menu Sekolah"*, padahal menu tersebut fiktif dan tidak ada di sidebar Master Data.
+    * *Solusi:* Arahkan audiens langsung ke menu *Tampilan Landing Page* atau *Profil Sekolah* di `/admin/library/settings`.
+
+11. **WASPADA KETIKA MEMBUKA LEMBAR EVALUASI SOAL PGK MODEL AKM:**
+    * *Akar Masalah (#BUG-BP2-39):* Butir soal AKM dengan nilai parsial (misal 0.33 poin) akan dibulatkan sepihak menjadi 1 "Salah" pada kartu ringkasan atas, memicu pertanyaan kritis mengapa skor 93.33% tidak sama dengan 9/10 (90%).
+    * *Solusi:* Jelaskan secara proaktif bahwa sistem analitik Belajar Plus menerapkan penilaian berbobot mikro (*micro-weighting*) per opsi respon.
 
 > **💡 ZONA AMAN DEMO INTERAKTIF TERBARU (SEKOLAH DUMMY TRAINER 3):**  
 > Modul **Pengumuman** (terbit notifikasi hijau seketika + badge angka di sidebar) dan **Komunitas** (feed interaktif + reaksi emoji) telah teruji 100% aman dan stabil secara live di tenant `SEKOLAH DUMMY TRAINER 3`! Trainer bisa memanfaatkan 2 modul ini untuk simulasi input data langsung di depan audiens.
@@ -105,6 +121,36 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
 > *"Sama sekali bukan biaya tersembunyi, Bapak/Ibu. 3 digit terakhir (misal angka 342) adalah **Kode Unik Verifikasi Rekonsiliasi Otomatis Perbankan**. Di sistem perbankan Indonesia, ada ribuan siswa yang mungkin mentransfer nominal buku yang persis sama.*  
 >  
 > *Dengan 3 digit unik ini, sistem robot mutasi bank kami dapat mengenali pembayaran siswa tersebut secara presisi dalam hitungan 3 detik, langsung mengaktifkan lisensi e-book ke tab 'Buku Saya' tanpa siswa harus menunggu seharian atau repot-repot mengirim foto struk ke WhatsApp admin sekolah. Sangat praktis, akurat, dan transparan."*
+
+---
+
+### Kasus G: Wi-Fi Lab Tiba-Tiba Putus Saat Siswa Sedang Mengerjakan Ujian LJD
+> **Kepala Sekolah / Proktor IT:** *"Kalau di lab komputer sekolah kami tiba-tiba Wi-Fi mati atau bandwidth ngedrop pas 200 siswa ujian barengan, apakah jawaban siswa bakal hilang semua dan harus ulang dari nomor 1?"*
+> 
+> **Jawaban Mas Henri (Taktik: Client-Side LocalStorage Write-Through Resiliency):**  
+> *"Kekhawatiran yang sangat beralasan dan dialami hampir seluruh sekolah, Bapak/Ibu. Namun inilah kekuatan arsitektur modern BelajarPlus: sistem LJD kami menerapkan mekanisme **Write-Through Caching ke LocalStorage Browser**.*  
+>  
+> *Artinya, di detik yang sama saat siswa mengklik opsi jawaban A, B, atau C, data tersebut langsung terkunci secara offline di memori browser HP atau komputer siswa dengan timestamp terenkripsi. Indikator di pojok layar akan berubah menjadi label kuning 'Mode Offline - Jawaban Tersimpan Aman Lokal'. Siswa tetap bisa lanjut membaca soal dan menjawab tanpa terhenti. Begitu sinyal Wi-Fi lab menyala kembali, sistem background worker kami secara otomatis mensinkronisasikan antrean jawaban ke server sekolah tanpa kehilangan 1 pun jawaban siswa."*
+
+---
+
+### Kasus H: Keabsahan & Otoritas Penilaian Esai AI (Teacher-in-the-Loop & Hak Veto Pendidik)
+> **Dewan Guru / Kurikulum:** *"Apakah kami guru tidak khawatir digantikan oleh AI? Dan kalau AI salah mengoreksi esai siswa yang rumit atau memakai gaya bahasa berbeda, bagaimana tanggung jawab nilainya?"*
+> 
+> **Jawaban Mas Henri (Taktik: Teacher-in-the-Loop & Hak Veto Pendidik Mutlak):**  
+> *"Prinsip etika pendidikan BelajarPlus sangat tegas: **AI bukan pengganti guru, melainkan asisten cerdas (co-pilot) pendidik**.*  
+>  
+> *Sistem AI Grader kami menganalisis kesesuaian semantik kalimat siswa terhadap rubrik kata kunci yang disusun oleh guru, lalu memberikan **rekomendasi nilai awal (0–100)** beserta argumen pedagogisnya. Namun status nilai tersebut adalah draft proposal. **Bapak/Ibu Guru memegang Hak Veto Mutlak 100%**: guru bebas menaikkan, menurunkan, atau mengoreksi nilai tersebut dengan satu klik sebelum nilai disahkan ke Rapor Digital. AI bertugas menghemat 80% waktu lelah guru dalam membaca ratusan lembar esai, sementara kebijaksanaan akhir tetap berada di tangan pendidik."*
+
+---
+
+### Kasus I: Keabsahan Dokumen BAST Digital & Pengakuan Akreditasi BAN-S/M serta LPJ BOS
+> **Kepala Sekolah & Bendahara BOS:** *"Dokumen Berita Acara Serah Terima (BAST) digital dari BelajarPlus ini apakah sah secara hukum untuk laporan pertanggungjawaban (LPJ) dana BOS dan pemeriksaan asesor akreditasi BAN-S/M?"*
+> 
+> **Jawaban Mas Henri (Taktik: Cryptographic QR Audit Trail & Standar Regulasi Kemendikbud):**  
+> *"Dijamin 100% sah dan akuntabel, Bapak/Ibu Kepala Sekolah. Dokumen BAST Digital yang diterbitkan sistem BelajarPlus telah mengikuti standar format Surat Pesanan Kerjasama (SPK) dan belanja modal perpustakaan digital.*  
+>  
+> *Setiap lembar BAST memuat rincian lengkap: nomor invoice unik, rincian judul buku, kuantitas lisensi aktif, identitas kepala sekolah & admin pengelola, serta **Quick Response (QR) Code Kriptografis**. Saat asesor akreditasi BAN-S/M atau inspektorat dinas memindai QR code tersebut menggunakan kamera HP apa saja, mereka akan langsung diarahkan ke halaman verifikasi resmi server BelajarPlus yang membuktikan keaslian lisensi dan waktu aktivasinya. Ini memenuhi indikator Butir 19 Akreditasi Perpustakaan Sekolah dan siap dicetak fisik sebagai lampiran SPJ BOS."*
 
 ---
 

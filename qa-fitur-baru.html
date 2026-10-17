@@ -1017,6 +1017,22 @@
               <td>Pencocokan mutasi bank akurat 100%, status pesanan berubah menjadi Selesai, dan e-book aktif permanen di "Buku Saya" siswa.</td>
               <td><span class="qa-badge badge-pass">PASSED</span></td>
             </tr>
+            <tr>
+              <td><span class="code-pill">QA-LJD-01</span></td>
+              <td>Ujian LJD &amp; Asesmen</td>
+              <td>Ketahanan Koneksi Putus &amp; Write-Through LocalStorage</td>
+              <td>Siswa mengerjakan ujian saat koneksi internet / Wi-Fi lab terputus secara mendadak (0 KB/s)</td>
+              <td>Sistem otomatis beralih ke Offline Cache Mode, menyimpan setiap klik radio/checkbox jawaban ke LocalStorage browser terenkripsi tanpa freeze, dan melakukan sinkronisasi background batch seketika sinyal online kembali tanpa kehilangan 1 data pun.</td>
+              <td><span class="qa-badge badge-pass">PASSED</span></td>
+            </tr>
+            <tr>
+              <td><span class="code-pill">QA-BAST-01</span></td>
+              <td>Administrasi &amp; Akreditasi</td>
+              <td>Berita Acara Serah Terima (BAST) &amp; QR Kriptografis</td>
+              <td>Kepala Sekolah menerbitkan BAST Digital atas aktivasi buku perpustakaan untuk audit akreditasi BAN-S/M dan LPJ BOS</td>
+              <td>Dokumen A4 resmi ter-generate dengan format SPK standar, nomor invoice valid, rincian judul &amp; kuantitas kursi, serta QR code kriptografis yang saat discan mengarahkan ke halaman verifikasi keabsahan lisensi.</td>
+              <td><span class="qa-badge badge-pass">PASSED</span></td>
+            </tr>
           </tbody>
         </table>
       </div>

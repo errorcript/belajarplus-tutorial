@@ -38,6 +38,8 @@ Dokumen Quality Assurance (QA) ini disusun untuk memvalidasi keandalan fungsiona
 | **QA-LKPD-03** | Penilaian Non-Tes | Rubrik Praktikum &amp; Dokumen Tugas &le; 10MB | Guru menginput penilaian kinerja eksperimen (Kesiapan, Prosedur, Analisis, Laporan) skala 0–100. | Nilai otomatis terakumulasi; siswa absen dipertahankan `NULL` (tidak merusak rata-rata rombel), siap kunci ke e-Rapor. | **PASSED** |
 | **QA-AI-01** | Asesmen & Ujian | Koreksi Cerdas Esai Berbasis AI (AI Grader) | Guru mengevaluasi lembar jawaban esai siswa menggunakan inferensi semantik AI dengan kriteria rubrik kata kunci berbobot. | Sistem mendebit 1 token kuota AI secara akuntabel, menghitung skor 0–100 berdasarkan kecocokan semantik rubrik (contoh: Akulturasi, Menara Kudus, Harmoni), menyajikan umpan balik pedagogis instan, dan mempertahankan otoritas guru (*human-in-the-loop*) untuk memveto atau merevisi nilai sebelum disimpan ke buku nilai. | **PASSED** |
 | **QA-TOKO-01** | Toko Buku & Lisensi | Invoice Pembayaran Mandiri 3-Digit Kode Unik | Siswa/Guru melakukan pembelian buku digital di Toko Belajar Plus via metode transfer bank mandiri. | Sistem meng-generate tagihan dengan nominal acak 3-digit kode unik (misal Rp 95.342), mencocokkan mutasi rekening bank secara otomatis, mengaktifkan lisensi DRM ke tab "Buku Saya", serta menerbitkan nomor lisensi resmi tanpa keterlambatan. | **PASSED** |
+| **QA-LJD-01** | Ujian LJD & Asesmen | Ketahanan Koneksi Putus & Write-Through LocalStorage | Siswa mengerjakan ujian saat koneksi internet / Wi-Fi lab terputus secara mendadak (0 KB/s). | Sistem otomatis beralih ke *Offline Cache Mode*, menyimpan setiap klik radio/checkbox jawaban ke LocalStorage browser terenkripsi tanpa freeze, dan melakukan sinkronisasi *background batch* seketika sinyal online kembali tanpa kehilangan 1 data pun. | **PASSED** |
+| **QA-BAST-01** | Administrasi & Akreditasi | Berita Acara Serah Terima (BAST) & QR Kriptografis | Kepala Sekolah menerbitkan BAST Digital atas aktivasi buku perpustakaan untuk audit akreditasi BAN-S/M dan LPJ BOS. | Dokumen A4 resmi ter-generate dengan format SPK standar, nomor invoice valid, rincian judul & kuantitas kursi, serta QR code kriptografis yang saat discan mengarahkan ke halaman verifikasi keabsahan lisensi. | **PASSED** |
 
 ---
 
@@ -92,6 +94,20 @@ Dokumen Quality Assurance (QA) ini disusun untuk memvalidasi keandalan fungsiona
   1. **Algoritma 3-Digit Pseudo-Random Suffix**: Setiap invoice pembayaran mandiri yang diterbitkan menambahkan akhiran acak 3 digit antara `001` hingga `999` pada harga dasar buku (contoh: Buku Rp 95.000 + Kode Unik 342 = Total Rp 95.342).
   2. **Jendela Validitas Pembayaran (TTL 24 Jam)**: Kombinasi kode unik dan nomor rekening tujuan dikunci untuk ID pengguna tersebut selama 24 jam. Jika dalam 24 jam tidak ada mutasi yang cocok, invoice kedaluwarsa dan kode unik dilepaskan kembali ke pool.
   3. **Aktivasi Lisensi Otomatis & DRM Registration**: Begitu transfer dengan nominal presisi terdeteksi oleh webhook mutasi bank, status pesanan berganti dari `UNPAID` ke `PAID` dalam &lt; 3 detik, nomor lisensi resmi diterbitkan, dan buku langsung tersedia di tab *Koleksi Saya > Milik Saya* dengan watermark DRM akun pembeli.
+
+### 3.8. Ketahanan Sinyal Terputus pada Ujian LJD (Client-Side LocalStorage Resiliency)
+* **Risiko Potensial**: Wi-Fi lab komputer sekolah drop saat ratusan siswa ujian serentak, menyebabkan lembar ujian macet, nilai hilang, atau halaman reload yang menghapus seluruh jawaban siswa.
+* **Solusi & Verifikasi**:
+  1. **Write-Through Persistence**: Setiap aksi pemilihan jawaban memicu mutasi instan ke objek `localStorage.setItem('ljd_session_[examId]', JSON.stringify(state))` sebelum mengirim request payload ke server.
+  2. **Indikator Status UI**: Ketika `navigator.onLine === false` atau heartbeat server gagal merespons dalam 3 detik, UI menampilkan lencana peringatan *"Mode Offline Aktif - Jawaban Tersimpan Aman Lokal"* berwarna oranye tanpa memblokir navigasi nomor soal.
+  3. **Idempotent Background Re-sync**: Ketika event `window.addEventListener('online')` terpicu, background queue worker mengirimkan paket delta jawaban terakumulasi dengan header timestamp lokal. Server memperbarui state ujian secara atomik.
+
+### 3.9. Integritas Dokumen BAST Digital & Verifikasi Audit Akreditasi BAN-S/M
+* **Risiko Potensial**: Asesor akreditasi perpustakaan meragukan legalitas kepemilikan buku digital atau berkas serah terima digital ditolak inspektorat BOS karena dianggap rekayasa manual.
+* **Solusi & Verifikasi**:
+  1. **Tanda Tangan Digital Berstempel QR**: Dokumen memuat QR code verifikasi publik dengan URL berformat `https://[subdomain].belajarplus.id/verify-bast/[hash_id]`.
+  2. **Pencatatan Rincian Aset**: Menyertakan detail e-Katalog/SIPLah, nomor surat keputusan (SK), masa berlaku lisensi institusional, dan jumlah kursi aktif per judul buku.
+  3. **Export Siap Cetak (Print-Ready A4)**: Menggunakan stylesheet khusus cetak `@media print` yang mengoptimalkan layout dokumen menjadi format resmi 2 rangkap (Pihak Pertama & Pihak Kedua) lengkap dengan kolom tanda tangan materai elektronik / basah.
 
 ---
 
