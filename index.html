@@ -571,23 +571,37 @@
             <div class="step-number">04</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Tugas dari Guru &amp; Pemantauan Tenggat Waktu</h3>
-                <span class="step-tag">Penugasan Aktif</span>
+                <h3>Tugas dari Guru, Tenggat Waktu &amp; SOP Ujian Lembar Jawab Digital (LJD)</h3>
+                <span class="step-tag">Penugasan &amp; Ujian LJD</span>
               </div>
-              <p>Bagian <strong>Tugas dari guru</strong> di dashboard menyajikan daftar kegiatan terstruktur yang wajib kamu kerjakan. Desain kartu tugas terbaru menampilkan detail yang sangat spesifik:</p>
+              <p>Bagian <strong>Tugas dari guru</strong> di dashboard menyajikan daftar kegiatan terstruktur yang wajib kamu kerjakan, mulai dari tugas baca buku materi hingga simulasi ujian resmi:</p>
               <ul class="step-list">
-                <li><strong>Judul &amp; Bab Pembahasan:</strong> Contoh: <em>"Kerjakan asesmen formatif bab 1 · Demo - Biologi 11"</em>.</li>
-                <li><strong>Indikator Progress Kegiatan:</strong> Menampilkan rasio pengerjaan (contoh: <code>0/1 kegiatan</code>).</li>
-                <li><strong>Peringatan Tenggat:</strong> Ditandai dengan warna merah tegas jika lewat tenggat waktu (contoh: <em>"Lewat tenggat 21 Agu 2026"</em>) atau tanggal batas pengumpulan.</li>
-                <li><strong>Tombol Aksi Cepat ("Baca" / "Kerjakan"):</strong> Klik langsung untuk membuka bahan bacaan penugasan atau meluncurkan lembar kuis LJD.</li>
-                <li><strong>Tautan "Lihat semua tugas":</strong> Membuka rekapitulasi seluruh arsip penugasan semester aktif.</li>
+                <li><strong>1. Indikator Detail Kartu Tugas:</strong> Menampilkan judul bab (contoh: <em>"Kerjakan asesmen formatif bab 1 · Demo - Biologi 11"</em>), rasio kegiatan (<code>0/1 kegiatan</code>), dan peringatan tenggat merah menyala jika batas waktu terlewati.</li>
+                <li><strong>2. Tombol Aksi Cepat ("Baca" / "Kerjakan"):</strong> Membuka bahan bacaan e-reader atau langsung meluncurkan lembar kuis ujian Lembar Jawab Digital (LJD).</li>
+                <li><strong>3. Antarmuka Ujian LJD Split-Screen:</strong> Sisi kiri menyajikan stimulus soal kaya wacana (teks cerita, tabel data, infografis, atau rekaman audio), sementara sisi kanan menyajikan lembar opsi respon jawaban.</li>
+                <li><strong>4. Navigator Butir Soal 3 Warna:</strong>
+                  <br />• 🟩 <strong>Hijau:</strong> Butir soal sudah dijawab dan tersimpan aman.
+                  <br />• 🟨 <strong>Kuning:</strong> Ragu-ragu (siswa menandai untuk ditinjau kembali sebelum selesai).
+                  <br />• ⬜ <strong>Abu-abu:</strong> Belum dijawab (wajib diisi sebelum tombol submit aktif).
+                </li>
+                <li><strong>5. Ketahanan Jaringan &amp; Auto-Save LocalStorage:</strong> <em>Tidak perlu panik jika Wi-Fi lab atau kelas putus mendadak!</em> Setiap klik jawaban siswa secara otomatis dicatat seketika ke local storage peramban. Begitu koneksi internet pulih, sistem background worker menyinkronkan seluruh jawaban ke server tanpa ada data yang hilang.</li>
+                <li><strong>6. Lembar Tinjau Jawaban &amp; Hasil Analisis KD:</strong> Sebelum mengakhiri ujian, siswa memeriksa ringkasan status seluruh nomor. Setelah menekan tombol <em>"Selesai &amp; Kumpulkan"</em>, transkrip nilai instan dan analisis penguasaan Kompetensi Dasar (KD) langsung terbit.</li>
               </ul>
               <div class="step-note">
-                ⏰ <strong>Pengingat Ujian:</strong> Saat menekan tombol "Kerjakan" pada tugas bertipe ujian, timer hitung mundur LJD akan langsung aktif. Pastikan perangkat dan koneksi internet stabil sebelum mulai mengerjakan!
+                🛡️ <strong>Focus Tracker Anti-Curang:</strong> Selama ujian berlangsung, hindari berpindah tab atau membuka aplikasi lain di perangkatmu. Sistem merekam setiap insiden perpindahan layar dan melaporkannya langsung ke kartu hasil pengerjaan guru!
               </div>
             </div>
-            <div class="step-visual" style="display: block; width: 100%; page-break-inside: avoid;">
-              <img src="assets/ss_tugas.png" class="screenshot-img" alt="Detail Tugas dari Guru BelajarPlus" style="display: block; width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px;" />
+            <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Kartu Tugas Aktif &amp; Peringatan Batas Waktu</div>
+              <img src="assets/ss_tugas.png" class="screenshot-img zoomable-img" alt="Detail Tugas dari Guru BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Split-Screen LJD: Wacana Stimulus &amp; Lembar Jawaban</div>
+              <img src="assets/ljd_soal_stimulus.png" class="screenshot-img zoomable-img" alt="Antarmuka Soal Stimulus Ujian Digital" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/ljd_lembar_jawaban.png" class="screenshot-img zoomable-img" alt="Navigator Butir Soal dan Opsi Pilihan LJD" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Lembar Tinjau Jawaban Akhir &amp; Transkrip Analisis KD</div>
+              <img src="assets/ljd_tinjau_jawaban.png" class="screenshot-img zoomable-img" alt="Lembar Tinjau Jawaban Sebelum Selesai Ujian" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/ljd_hasil_skor.png" class="screenshot-img zoomable-img" alt="Ringkasan Skor dan Notifikasi Pengiriman Tugas" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>
 
@@ -1398,8 +1412,20 @@
                 <button class="btn-step-video" onclick="playDriveVideo('guru', 8)">▶️ Video: Unduh Hasil Pengerjaan Siswa</button>
               </div>
               <p>Buka menu <strong>"Hasil Siswa"</strong> untuk mengevaluasi jawaban, mengoreksi esai otomatis dengan AI, menginput nilai rubrik non-tes, dan mengunduh transkrip nilai siap e-Rapor:</p>
+
+              <!-- Card Khusus: Live Interactive AI Essay Grader & Veto Guru -->
+              <div style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <div style="font-weight: 800; color: #a5b4fc; font-size: 0.95rem; margin-bottom: 0.4rem;">🤖 Alur Kerja Live Interactive AI Essay Grader &amp; Hak Veto Pendidik:</div>
+                <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+                  • <strong>1. Rubrik Kata Kunci Semantik:</strong> Saat menyusun soal esai, guru menentukan kata kunci wajib, konsep inti, dan rubrik kriteria penilaian (skala 0–100).<br/>
+                  • <strong>2. Konsumsi Token Terenkripsi:</strong> Guru menekan tombol <em>"Koreksi AI Otomatis"</em>. Sistem memanfaatkan kuota Kredit AI sekolah (rasio tetap: <strong>1 kredit = 1 jawaban esai dinilai</strong>).<br/>
+                  • <strong>3. Evaluasi Argumen &amp; Rekomendasi Skor:</strong> AI menelaah struktur kalimat, kelengkapan argumen, dan sintaksis jawaban siswa. AI menyajikan rekomendasi skor objektif (misal: 85/100) beserta rincian alasan evaluasi dan feedback saran perbaikan yang konstruktif.<br/>
+                  • <strong>4. Hak Veto Mutlak Guru (Teacher-in-the-Loop):</strong> AI bertindak murni sebagai asisten pengoreksi. Guru memiliki wewenang penuh untuk menyetujui, menaikkan/menurunkan skor secara manual, atau menuliskan catatan apresiasi pribadi sebelum nilai dipublikasikan ke siswa.
+                </div>
+              </div>
+
               <ul class="step-list">
-                <li><strong>1. Penilaian Esai Cerdas dengan AI:</strong> Guru dapat memanfaatkan fitur koreksi esai otomatis bertenaga AI. Sistem membandingkan jawaban siswa dengan rubrik/kunci jawaban dan memberikan rekomendasi skor serta feedback perbaikan (menggunakan kuota Kredit AI sekolah: <em>1 kredit = 1 jawaban esai dinilai</em>).</li>
+                <li><strong>1. Penilaian Esai Cerdas dengan AI:</strong> Membantu guru memeriksa tumpukan puluhan esai siswa dalam hitungan detik tanpa kehilangan ketajaman penilaian analitis.</li>
                 <li><strong>2. Penilaian Non-Tes LKPD (Praktik, Proyek, Portofolio, Observasi):</strong> Untuk penugasan lembar kerja praktikum laboratorium atau proyek, guru menambahkan komponen Non-Tes di tab Hasil Belajar. Menginput skor 0–100 berdasarkan rubrik kinerja siswa.</li>
                 <li><strong>3. Pembedaan Kritis Nilai NULL vs Nilai 0:</strong>
                   <br />• <strong>Siswa Belum Mengumpulkan / Izin:</strong> Biarkan kolom nilai kosong (<code>NULL</code>). Sistem tidak akan memasukkan siswa tersebut ke pembagi rata-rata rombel, sehingga tidak menjatuhkan rerata kelas secara tidak adil.
@@ -2208,16 +2234,17 @@
                     <li>Memastikan pemanfaatan AI berjalan adil antar mata pelajaran dan bebas pemborosan kuota.</li>
                   </ul>
                 </li>
-                <li><strong>2. Efisiensi Pembelanjaan Dana BOS Buku:</strong> Melalui grafik analitik baca di perpustakaan digital, Kepala Sekolah dapat mengalokasikan anggaran BOS buku tepat sasaran pada judul yang paling aktif dibaca civitas, tanpa risiko buku fisik rusak atau hilang di gudang.</li>
-                <li><strong>3. Penerbitan Berita Acara Serah Terima (BAST) &amp; Akreditasi:</strong>
+                <li><strong>2. Efisiensi Pembelanjaan Dana BOS Buku &amp; Kursi Lisensi (Seats):</strong> Melalui grafik analitik baca di perpustakaan digital, Kepala Sekolah dapat mengalokasikan anggaran BOS buku secara presisi pada judul yang paling aktif dipinjam dan dibaca civitas, meniadakan pemborosan buku fisik yang rusak, hilang, atau menumpuk di gudang.</li>
+                <li><strong>3. Penerbitan &amp; Cetak Berita Acara Serah Terima (BAST) Akreditasi BAN-S/M:</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li>Mencetak dokumen resmi Berita Acara Serah Terima (BAST) akun digital bertanda tangan elektronik.</li>
-                    <li>Menyajikan log forensik keamanan DRM screenshot sebagai bukti fisik keabsahan perlindungan hak cipta buku digital saat visitasi akreditasi BAN-S/M.</li>
+                    <li>Mencetak lembar fisik <strong>Berita Acara Serah Terima (BAST) Lisensi Digital</strong> berstempel tanda tangan digital terenkripsi dan verifikasi QR Code resmi institusi.</li>
+                    <li>Dokumen memuat rincian alokasi judul buku Kurikulum Merdeka, total kursi lisensi simultan, dan rasio keterbacaan siswa per rombel untuk kelengkapan berkas SPJ Laporan Pertanggungjawaban (LPJ) BOS Reguler/Kinerja sesuai ketentuan Permendikbudristek.</li>
+                    <li>Menyajikan log forensik keamanan DRM (rekam jejak deteksi screenshot) sebagai bukti fisik keabsahan perlindungan hak cipta buku digital saat visitasi Tim Asesor BAN-S/M maupun audit Inspektorat Daerah.</li>
                   </ul>
                 </li>
               </ul>
               <div class="step-note">
-                📑 <strong>Kepatuhan Akreditasi:</strong> Bukti BAST dan rekam jejak digital Belajar Plus siap diajukan untuk memenuhi instrumen akreditasi sekolah berbasis IT.
+                📑 <strong>Kepatuhan Akreditasi:</strong> Dokumen BAST berstempel QR dan log forensik Belajar Plus siap diajukan untuk memenuhi instrumen IASP akreditasi sekolah modern berbasis teknologi informasi.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">

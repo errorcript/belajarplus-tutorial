@@ -533,7 +533,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">33 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">39 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -541,7 +541,7 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">33</div>
+        <div class="metric-num" style="color: #64748b;">39</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
@@ -549,11 +549,11 @@
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #f97316;">16</div>
+        <div class="metric-num" style="color: #f97316;">20</div>
         <div class="metric-label">P1 (High Functional)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #eab308;">13</div>
+        <div class="metric-num" style="color: #eab308;">15</div>
         <div class="metric-label">P2 (Medium / UX Risk)</div>
       </div>
       <div class="metric-card">
@@ -565,19 +565,19 @@
     <!-- Search & Filter Live Toolbar -->
     <div class="filter-search-bar">
       <div class="search-input-box">
-        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'grading', 'dead button', 'memuat', 'data leak', 'typo')..." oninput="filterBugsLive()" />
+        <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'penugasan', 'kredit ai', 'scan qr', 'pesanan', 'dead button', 'data leak')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (33)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (39)</button>
         <button class="filter-pill" style="border-color: rgba(220, 38, 38, 0.4); color: var(--red-accent);" onclick="setPriorityFilter('P0', this)">P0 Blocker (3)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (16)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (13)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (20)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (15)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
       </div>
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 33 temuan audit teknis
+      Menampilkan 39 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -2138,6 +2138,297 @@ export function normalizeIndonesianPhone(raw: string | number): string {
         <div class="visual-attachment" onclick="viewImage('assets/audit__admin_students.png')">
           <img src="assets/audit__admin_students.png" alt="Bukti Bug Impor Siswa Dapodik" />
           <div class="visual-caption">📸 Bukti Visual: Layar Master Data Siswa (/admin/students) yang membutuhkan normalizer format nomor telepon lokal otomatis</div>
+        </div>
+      </article>
+
+      <!-- BUG 34 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-34">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-34" class="bug-id-tag" onclick="copyAnchor('bug-bp2-34', event)">#BUG-BP2-34</a>
+            <h2 class="bug-entry-title">Cross-Teacher Data Exposure pada Kolom "Kelas Saya" di Form Penugasan Buku: Seluruh Rombel Guru Lain Terekspos Tanpa Filter teacher_id</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Multi-Tenant Isolation / Data Leakage</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> E-Learning &gt; Form Penugasan Buku Baru</div>
+          <div><strong>Rute:</strong> <code>/admin/assignments/new</code> (atau <code>E-LEARNING &gt; Tugas</code>)</div>
+          <div><strong>Lingkungan:</strong> Production Live</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Unscoped Global Query</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada formulir pembuatan penugasan buku baru (<code>Penugasan Buku</code>), guru diarahkan untuk memilih kelompok target pada 3 kolom: <em>Kelas / rombel sekolah</em>, <em>Kelas saya</em>, dan <em>Siswa tertentu</em>. Pada kolom <strong>"Kelas saya"</strong> (kelompok siswa yang bergabung lewat kode kelas), sistem menjalankan query <code>SELECT * FROM classes WHERE type = 'code'</code> tanpa klausa pembatas <code>AND teacher_id = current_user.id</code>. Akibatnya, seluruh ruang kelas privat milik guru lain di sekolah yang sama (seperti <em>"FISIKA KELAS 11 - MISS CINDY"</em>, <em>"FISIKA 12 - MISS CINDY"</em>, <em>"MATEMATIKA KELAS 12 - RA"</em>, dsb.) terpampang bebas sebagai pill tombol yang bisa diklik oleh pendidik lain.</p>
+
+          <p><strong>Dampak Lapangan &amp; Keamanan Data:</strong></p>
+          <div class="callout callout-danger" style="background: var(--p0-bg); border-left: 4px solid var(--p0-border); padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 0.75rem;">
+            <strong>DATA PRIVACY &amp; OPERATIONAL ACCIDENT:</strong> Guru mata pelajaran lain dapat secara tidak sengaja menerbitkan materi tugas buku ke rombel guru yang bukan tanggung jawabnya, membingungkan puluhan siswa dan mencemari daftar tugas aktif kelas lain.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Kunci query pengambilan daftar kelas kode milik guru yang sedang login menggunakan context auth:</p>
+          <div class="code-box code-solution">// In AssignmentController.ts (Backend API)
+export async function getTeacherPersonalClasses(req: Request, res: Response) {
+  const currentUserId = req.user.id;
+  const currentSchoolId = req.headers['x-tenant-id'];
+
+  // WAJIB tambahkan filter teacher_id = currentUserId
+  const personalClasses = await db('classes')
+    .where({
+      school_id: currentSchoolId,
+      created_by_user_id: currentUserId,
+      type: 'general_code'
+    })
+    .select('id', 'name', 'code', 'grade_level');
+
+  return res.json({ data: personalClasses });
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_guru_penugasan_live.png')">
+          <img src="assets/bug_guru_penugasan_live.png" alt="Bukti Bug Cross-Teacher Class Leak" />
+          <div class="visual-caption">📸 Bukti Visual: Form pembuatan penugasan buku guru di mana kolom "Kelas saya" menampilkan daftar rombel milik guru lain (Miss Cindy, RA, dsb.) secara publik</div>
+        </div>
+      </article>
+
+      <!-- BUG 35 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-35">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-35" class="bug-id-tag" onclick="copyAnchor('bug-bp2-35', event)">#BUG-BP2-35</a>
+            <h2 class="bug-entry-title">Desinkronisasi Rombel Sekolah pada Form Penugasan Buku ("Belum ada data kelas siswa") Meski Guru Telah Memiliki Kelas Sekolah Aktif</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Data Sync / Relational Disconnect</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> E-Learning &gt; Distribusi Tugas Rombel</div>
+          <div><strong>Rute:</strong> <code>E-LEARNING &gt; Tugas</code> &amp; <code>/admin/classes</code></div>
+          <div><strong>Lingkungan:</strong> Production Live</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Foreign Key Mismatch</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada dashboard <em>"Kelas Saya"</em> (<code>/admin/classes</code>), guru terbukti telah mengampu kelas resmi terverifikasi (contoh: <em>"Kelas Sekolah — SMA NEGERI 1 SRAGEN: Matematika Kelas 10 · A · Kode BLJ-ULE3GA"</em>). Namun saat guru beralih ke form penerbitan <em>"Penugasan Buku"</em>, kolom pertama <strong>"Kelas / rombel sekolah"</strong> justru menampilkan pesan kosong: <em>"Berdasarkan data kelas siswa di sekolah. Belum ada data kelas siswa."</em> Hal ini terjadi karena form penugasan buku melakukan lookup ke tabel <code>school_sections</code> (Dapodik Rombel) secara murni alih-alih meng-query tabel <code>lms_classes</code> yang sudah di-mapping oleh guru.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>GURU TERKUNCI TIDAK BISA MENUGASKAN BUKU:</strong> Guru yang telah menyusun kelas sekolah tidak dapat menugaskan bacaan buku teks wajib ke rombelnya melalui alur resmi, memaksa guru membuat kelas umum darurat atau menyuruh siswa membaca manual di luar LMS.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Satukan schema data feeder kelas sekolah pada form penugasan buku agar membaca rombel aktif yang terasosiasi dengan akun guru:</p>
+          <div class="code-box code-solution">// In AssignmentTargetSelector.vue
+const availableSchoolClasses = computed(() => {
+  // Gabungkan rombel resmi sekolah yang telah dipetakan ke LMS guru aktif
+  return lmsClassStore.classes.filter(c => 
+    c.is_school_class === true && 
+    c.school_id === currentTenant.value?.id &&
+    (c.teacher_id === currentUser.value?.id || currentUser.value?.role === 'admin')
+  );
+});</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_guru_kelola_kelas_live.png')">
+          <img src="assets/bug_guru_kelola_kelas_live.png" alt="Bukti Bug Desinkronisasi Rombel Penugasan" />
+          <div class="visual-caption">📸 Bukti Visual: Layar Kelola Kelas menampilkan Kelas Sekolah Matematika 10-A aktif, namun tidak terdeteksi pada form penugasan buku</div>
+        </div>
+      </article>
+
+      <!-- BUG 36 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-36">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-36" class="bug-id-tag" onclick="copyAnchor('bug-bp2-36', event)">#BUG-BP2-36</a>
+            <h2 class="bug-entry-title">Scoping Riwayat Pesanan (/orders) Tanpa Fallback Global Tenant Menyebabkan Riwayat Transaksi Toko Sekolah Menghilang Saat Switcher Berstatus "Belum Dipilih"</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Tenant Scope Mismatch / Transaction Loss</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Toko Sekolah &gt; Riwayat Pesanan Siswa</div>
+          <div><strong>Rute:</strong> <code>/orders</code> &amp; <code>/api/orders</code></div>
+          <div><strong>Lingkungan:</strong> Production Live</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Scoped Isolation Leak</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Ketika siswa membeli buku teks atau atribut sekolah melalui Toko Sekolah, transaksi dicatat dengan <code>school_id</code> instansi yang bersangkutan. Namun ketika siswa masuk kembali ke portal dengan switcher institusi berstatus <em>"Pilih institusi: Belum dipilih"</em> dan membuka menu <strong>Pesanan</strong> (<code>/orders</code>), frontend mengirimkan query API tanpa menyertakan <code>school_id</code> atau dengan parameter <code>school_id = null</code>. Server mengembalikan array kosong <code>[]</code>, menyebabkan layar menampilkan status keliru: <em>"Belum ada pesanan."</em> Siswa mengira pesanan dan pembayarannya hangus atau dibatalkan.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>PANIK ORANG TUA &amp; SISWA:</strong> Orang tua siswa yang telah mentransfer pembayaran merasa cemas uangnya hilang karena status pesanan tidak muncul di dashboard, memicu komplain berulang ke panitia penerimaan/koperasi sekolah.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Rute `/orders` pada akun siswa harus bersifat agregat (cross-tenant user-centric) yang menampilkan seluruh riwayat pesanan milik `user_id` tanpa membatasi pada satu institusi aktif:</p>
+          <div class="code-box code-solution">// In OrderRepository.ts
+export async function getStudentOrders(userId: string, activeSchoolId?: string) {
+  const query = db('orders')
+    .leftJoin('schools', 'orders.school_id', 'schools.id')
+    .where('orders.user_id', userId)
+    .select('orders.*', 'schools.name as school_name');
+
+  // Jangan hard-filter jika activeSchoolId null, tampilkan seluruh transaksi siswa
+  if (activeSchoolId) {
+    query.andWhere('orders.school_id', activeSchoolId);
+  }
+
+  return query.orderBy('created_at', 'desc');
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_orders_page.png')">
+          <img src="assets/bug_orders_page.png" alt="Bukti Bug Pesanan Hilang" />
+          <div class="visual-caption">📸 Bukti Visual: Halaman Pesanan Saya (/orders) menampilkan status kosong 'Belum ada pesanan' saat institusi berstatus 'Belum dipilih', menyembunyikan riwayat pesanan toko sekolah</div>
+        </div>
+      </article>
+
+      <!-- BUG 37 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-37">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-37" class="bug-id-tag" onclick="copyAnchor('bug-bp2-37', event)">#BUG-BP2-37</a>
+            <h2 class="bug-entry-title">Mock Test-Pattern Stream Hijau ("0:03:850 77") pada Fitur Scan QR (/scan) Tanpa Deteksi Izin Akses Kamera Nyata (getUserMedia)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Hardware API Access / Mock Fallback Leak</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Fitur Siswa &gt; Pemindai QR Cepat Buku</div>
+          <div><strong>Rute:</strong> <code>/scan</code> &amp; <code>html5-qrcode</code> engine</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; Webview Seluler</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Artifact Mock Rendering</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Fitur <strong>Scan QR</strong> (<code>/scan</code>) dirancang untuk memindai kode QR pada lembar buku fisik agar siswa langsung diarahkan ke video stimulus atau modul interaktif. Namun jika dibuka pada peramban laptop tanpa webcam aktif, atau ketika izin kamera ditolak oleh pengguna, modul pemindai tidak menampilkan komponen peringatan <em>"Izin kamera tidak diberikan"</em>. Sebaliknya, modul jatuh ke mock test-pattern loop bawaan library pengembangan (kanvas hijau gelap dengan teks kode waktu <code>0:03:850 77</code>). Kamera tidak pernah membaca QR asli dan pengguna bingung melihat layar hijau berputar.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>PENGALAMAN SISWA RUSAK SAAT MEMBACA BUKU:</strong> Siswa yang hendak mengakses video pembahasan soal buku fisik terhenti karena kamera tidak aktif dan tidak ada petunjuk cara mengizinkan webcam di pengaturan browser.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Lakukan pengecekan izin `navigator.permissions` secara eksplisit dan tampilkan modal fallback manual input kode jika kamera tidak tersedia:</p>
+          <div class="code-box code-solution">// In QrScannerComponent.vue
+async function initCameraScanner() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+    videoElement.srcObject = stream;
+  } catch (err) {
+    if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      showPermissionDeniedBanner("Akses kamera diblokir. Klik ikon gembok di bilah browser untuk mengizinkan kamera.");
+    } else if (err.name === 'NotFoundError') {
+      showNoCameraDetectedFallback("Perangkat Anda tidak memiliki kamera. Gunakan opsi 'Masukkan kode manual' di bawah.");
+    }
+  }
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_scan_qr_live.png')">
+          <img src="assets/hunt_scan_qr_live.png" alt="Bukti Bug Mock Green QR Scanner" />
+          <div class="visual-caption">📸 Bukti Visual: Tampilan pemindai QR yang memutar video test-pattern hijau alih-alih me-request izin kamera nyata atau menampilkan panduan izin di browser</div>
+        </div>
+      </article>
+
+      <!-- BUG 38 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-38">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-38" class="bug-id-tag" onclick="copyAnchor('bug-bp2-38', event)">#BUG-BP2-38</a>
+            <h2 class="bug-entry-title">Phantom Menu Reference ("Periode LMS dikelola di menu Sekolah") pada Halaman Kredit AI Sekolah (/admin/ai-credits) Tanpa Adanya Menu "Sekolah"</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium / UX Risk</span>
+            <span class="badge badge-cat">Navigation Inconsistency / Dead-End Link</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Master Data &amp; Administrasi &gt; Saldo AI Token</div>
+          <div><strong>Rute:</strong> <code>/admin/ai-credits</code></div>
+          <div><strong>Lingkungan:</strong> Web Desktop</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Dead-End Instructional Text</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada layar <em>"Kredit AI Sekolah"</em> (<code>/admin/ai-credits</code>), tertulis informasi panduan: <em>"AI tidak tersedia: sekolah belum punya langganan LMS aktif. Periode LMS dikelola di menu Sekolah."</em> Namun, pada hierarki navigasi sidebar kiri di bawah blok <strong>MASTER DATA SEKOLAH</strong>, hanya ada 7 menu: <em>Tampilan Landing Page</em>, <em>Tahun Ajaran</em>, <em>Kurikulum &amp; Mapel Sekolah</em>, <em>Rombel</em>, <em>Jadwal</em>, <em>Siswa</em>, dan <em>PTK</em>. Menu bernama <em>"Sekolah"</em> tidak pernah ada. Admin sekolah terjebak mencari-cari menu tersebut tanpa hasil.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>ADMINISTRATIVE CONFUSION:</strong> Administrator sekolah atau Kepala Sekolah yang ingin mengaktifkan langganan modul AI essay grading tidak menemukan menu aktivasi dan mengira akun mereka kekurangan hak akses (insufficient privileges).
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Ganti teks referensi menjadi tautan navigasi langsung ke menu Pengaturan Tampilan &amp; Profil Sekolah (`/admin/library/settings`) atau tambahkan tombol aksi <em>"Hubungi Tim Support BelajarPlus"</em>:</p>
+          <div class="code-box code-solution">// In AiCreditsView.vue
+&lt;div class="alert-box-info"&gt;
+  &lt;p&gt;AI tidak tersedia: sekolah belum memiliki paket langganan LMS aktif.&lt;/p&gt;
+  &lt;router-link to="/admin/library/settings" class="btn-link"&gt;
+    Kelola Profil Institusi &amp; Lisensi di Pengaturan Sekolah &rarr;
+  &lt;/router-link&gt;
+  &lt;a href="https://wa.me/62812xxxx?text=Aktivasi%20Kredit%20AI" target="_blank" class="btn-primary-sm"&gt;
+    Hubungi Sales Partner untuk Top-up Kredit AI
+  &lt;/a&gt;
+&lt;/div&gt;</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_sragen_admin_ai_credits.png')">
+          <img src="assets/hunt_sragen_admin_ai_credits.png" alt="Bukti Bug Phantom Menu Sekolah" />
+          <div class="visual-caption">📸 Bukti Visual: Halaman Kredit AI Sekolah menginstruksikan pengelolaan langganan di 'menu Sekolah', namun menu tersebut tidak tersedia di navigasi sidebar Master Data</div>
+        </div>
+      </article>
+
+      <!-- BUG 39 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-39">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-39" class="bug-id-tag" onclick="copyAnchor('bug-bp2-39', event)">#BUG-BP2-39</a>
+            <h2 class="bug-entry-title">Diskrepansi Metrik Parsial PGK (0.33 Poin) dengan Kartu Ringkasan Biner (Benar: 9, Salah: 1) pada Lembar Hasil Asesmen Siswa</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium / UX Risk</span>
+            <span class="badge badge-cat">Grading Engine / Reporting Rounding Mismatch</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Asesmen Siswa &gt; Analisis Capaian Pembelajaran LJD</div>
+          <div><strong>Rute:</strong> <code>/exam/result/:assignmentId</code></div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; Mobile</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Discrete Metric Clash</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada lembar ringkasan hasil ujian <em>"Simulasi TKA 2"</em>, siswa memperoleh total skor <strong>93.33%</strong>. Tiga kartu metrik di atas menampilkan angka bulat: <strong>SKOR: 93.33%</strong>, <strong>BENAR: 9</strong>, dan <strong>SALAH: 1</strong> (dari total 10 butir soal). Namun jika dilihat pada diagram <em>"Analisis kompetensi"</em> di bawahnya, butir soal nomor 2 (Operasi bilangan) mencatat skor parsial: <code>0.33/1 soal benar (33.33%)</code>. Kartu ringkasan atas membulatkan butir soal bernilai 0.33 ini secara sepihak ke dalam kategori <strong>SALAH</strong> (1). Siswa dan orang tua kebingungan mengapa 9 benar dari 10 soal menghasilkan 93.33% (seharusnya 9/10 = 90.00%).</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>PERTANYAAN AKADEMIK &amp; DISKREDITASI SISTEM PENILAIAN:</strong> Pendidik harus menjelaskan berulang kali kepada siswa dan orang tua murid mengapa perhitungan skor persentase tidak sinkron dengan jumlah butir soal benar dan salah pada kartu ringkasan.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Tambahkan kartu ketiga "Jawaban Parsial" pada instrumen soal model AKM/PGK agar penghitungan matematika transparan:</p>
+          <div class="code-box code-solution">// In ExamScoreSummaryCard.vue
+&lt;div class="metric-card"&gt;
+  &lt;div class="metric-val"&gt;{{ exactCorrectCount }}&lt;/div&gt;
+  &lt;div class="metric-label"&gt;Benar Penuh&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="metric-card" v-if="partialCount &gt; 0"&gt;
+  &lt;div class="metric-val text-warning"&gt;{{ partialCount }}&lt;/div&gt;
+  &lt;div class="metric-label"&gt;Benar Sebagian (Parsial)&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="metric-card"&gt;
+  &lt;div class="metric-val text-danger"&gt;{{ exactWrongCount }}&lt;/div&gt;
+  &lt;div class="metric-label"&gt;Salah&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_exam_result_page.png')">
+          <img src="assets/hunt_exam_result_page.png" alt="Bukti Bug Metric Discrepancy" />
+          <div class="visual-caption">📸 Bukti Visual: Analisis kompetensi mencatat skor parsial 0.33/1 soal (33.33%), namun kartu ringkasan atas hanya mengenal penghitungan biner bulat (Benar: 9, Salah: 1)</div>
         </div>
       </article>
 

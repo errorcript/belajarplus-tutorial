@@ -117,10 +117,10 @@
 
 ---
 
-## 5. Laporan Audit Teknis v2.0 (/bug2) — 33 Temuan Live Terverifikasi
+## 5. Laporan Audit Teknis v2.0 (/bug2) — 39 Temuan Live Terverifikasi
 - [x] **Pembaruan Metriks & Filter Bar**:
-  - Total: 33 Temuan (3 P0 Critical Blocker, 16 P1 High Functional, 13 P2 Medium UX Risk, 1 P3 Minor Polish).
-- [x] **9 Temuan Baru Ditambahkan**:
+  - Total: 39 Temuan (3 P0 Critical Blocker, 20 P1 High Functional, 15 P2 Medium UX Risk, 1 P3 Minor Polish).
+- [x] **15 Temuan Baru (#25 s.d. #39) Ditambahkan**:
   - **#BUG-BP2-25 (P1)**: *Unhandled Insufficient Token Exception* pada Koreksi Esai AI (`/admin/submissions`) memicu infinite spinner tanpa modal pemberitahuan kuota habis.
   - **#BUG-BP2-26 (P1)**: *Silent Expiry Invoice Pembayaran Transfer Bank 3-Digit Kode Unik* (`/orders`) tanpa countdown peringatan kedaluwarsa & auto-release mutasi.
   - **#BUG-BP2-27 (P1)**: *Konversi Implisit String Kosong Nilai Belum Dinilai (NULL) Menjadi Integer 0* pada agregasi hasil belajar sebelum penguncian rapor rombel.
@@ -130,5 +130,11 @@
   - **#BUG-BP2-31 (P1)**: *Hard Refresh (F5 / Reload Browser) pada Subpath Admin* (`/admin/*`) me-reset status institusi aktif dan melempar layar putih unauthorized.
   - **#BUG-BP2-32 (P2)**: *Dead Button Tanpa Event Listener pada 3 Kartu Aksi Cepat* (Absensi, Tampilan Sekolah, Penugasan) di dashboard eksekutif admin (`/admin`).
   - **#BUG-BP2-33 (P2)**: *Ketidakkonsistenan Sanitasi Nomor Telepon (+62 vs 08)* pada impor spreadsheet Dapodik CSV memicu all-or-nothing rejection batch 60 siswa.
-- [x] **Sinkronisasi Survival Guide & Visual Bukti**: Seluruh 33 temuan terintegrasi dengan bukti screenshot visual real-time dan modal zoom lightbox.
+  - **#BUG-BP2-34 (P1)**: *Cross-Teacher Data Exposure pada Kolom "Kelas Saya" di Form Penugasan Buku* (`E-LEARNING > Tugas`) mengekspos rombel guru lain (Miss Cindy, RA) tanpa filter `teacher_id`.
+  - **#BUG-BP2-35 (P1)**: *Desinkronisasi Rombel Sekolah pada Form Penugasan Buku* ("Belum ada data kelas siswa") meski guru telah mengampu Kelas Sekolah aktif.
+  - **#BUG-BP2-36 (P1)**: *Scoping Riwayat Pesanan (`/orders`) Tanpa Fallback Global Tenant* menyebabkan transaksi toko sekolah lenyap saat status institusi "Belum dipilih".
+  - **#BUG-BP2-37 (P1)**: *Mock Test-Pattern Stream Hijau ("0:03:850 77") pada Fitur Scan QR (`/scan`)* tanpa deteksi izin akses kamera nyata (`getUserMedia`).
+  - **#BUG-BP2-38 (P2)**: *Phantom Menu Reference ("Periode LMS dikelola di menu Sekolah") pada Halaman Kredit AI Sekolah (`/admin/ai-credits`)* tanpa adanya menu "Sekolah" di sidebar.
+  - **#BUG-BP2-39 (P2)**: *Diskrepansi Metrik Parsial PGK (0.33 Poin) dengan Kartu Ringkasan Biner (Benar: 9, Salah: 1)* pada lembar transkrip hasil asesmen LJD siswa.
+- [x] **Sinkronisasi Survival Guide & Visual Bukti**: Seluruh 39 temuan terintegrasi dengan bukti screenshot visual real-time dan modal zoom lightbox.
 
