@@ -117,13 +117,18 @@
 
 ---
 
-## 5. Laporan Audit Teknis v2.0 (/bug2) — 28 Temuan Live Terverifikasi
+## 5. Laporan Audit Teknis v2.0 (/bug2) — 33 Temuan Live Terverifikasi
 - [x] **Pembaruan Metriks & Filter Bar**:
-  - Total: 28 Temuan (3 P0 Critical Blocker, 13 P1 High Functional, 11 P2 Medium UX Risk, 1 P3 Minor Polish).
-- [x] **4 Temuan Baru Ditambahkan**:
+  - Total: 33 Temuan (3 P0 Critical Blocker, 16 P1 High Functional, 13 P2 Medium UX Risk, 1 P3 Minor Polish).
+- [x] **9 Temuan Baru Ditambahkan**:
   - **#BUG-BP2-25 (P1)**: *Unhandled Insufficient Token Exception* pada Koreksi Esai AI (`/admin/submissions`) memicu infinite spinner tanpa modal pemberitahuan kuota habis.
   - **#BUG-BP2-26 (P1)**: *Silent Expiry Invoice Pembayaran Transfer Bank 3-Digit Kode Unik* (`/orders`) tanpa countdown peringatan kedaluwarsa & auto-release mutasi.
   - **#BUG-BP2-27 (P1)**: *Konversi Implisit String Kosong Nilai Belum Dinilai (NULL) Menjadi Integer 0* pada agregasi hasil belajar sebelum penguncian rapor rombel.
   - **#BUG-BP2-28 (P2)**: *Deviasi Geometri Koordinat Presensi Satelit GPS* akibat aproksimasi Pythagoras planar memicu false rejection di kompleks sekolah luas.
-- [x] **Sinkronisasi Survival Guide**: Penambahan Kasus F (*Transparansi 3-Digit Kode Unik Rekonsiliasi Otomatis Bank*) di `DEMO_SURVIVAL_GUIDE.md`.
+  - **#BUG-BP2-29 (P1)**: *Infinite Spinner & Multi-Tenant Lockout pada Rute Absensi* (`/absensi`) saat diakses menggunakan akun guru/umum tanpa timeout boundary.
+  - **#BUG-BP2-30 (P1)**: *Infinite Loading Black Screen ("Membuka buku... 1/?") pada Sample e-Reader* di katalog toko buku (`/shop`) akibat unhandled 403 missing license.
+  - **#BUG-BP2-31 (P1)**: *Hard Refresh (F5 / Reload Browser) pada Subpath Admin* (`/admin/*`) me-reset status institusi aktif dan melempar layar putih unauthorized.
+  - **#BUG-BP2-32 (P2)**: *Dead Button Tanpa Event Listener pada 3 Kartu Aksi Cepat* (Absensi, Tampilan Sekolah, Penugasan) di dashboard eksekutif admin (`/admin`).
+  - **#BUG-BP2-33 (P2)**: *Ketidakkonsistenan Sanitasi Nomor Telepon (+62 vs 08)* pada impor spreadsheet Dapodik CSV memicu all-or-nothing rejection batch 60 siswa.
+- [x] **Sinkronisasi Survival Guide & Visual Bukti**: Seluruh 33 temuan terintegrasi dengan bukti screenshot visual real-time dan modal zoom lightbox.
 

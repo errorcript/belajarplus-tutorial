@@ -1920,36 +1920,49 @@
             </div>
           </div>
 
-          <!-- Step 8 Admin: Toko Sekolah, Pengumuman & Agenda -->
+          <!-- Step 8 Admin: Branding Sekolah, PWA, Toko & Warta Resmi -->
           <div class="step" data-step="8">
             <div class="step-number">08</div>
             <div class="step-content">
               <div class="step-header">
-                <h3>Tahap 7: Toko Sekolah, Siaran Pengumuman Resmi &amp; Kalender Agenda Institusi</h3>
-                <span class="step-tag">Operasional &amp; Komunikasi</span>
+                <h3>Tahap 8: Kustomisasi Branding Portal, Progressive Web App (PWA), Toko Sekolah &amp; Siaran Warta Resmi</h3>
+                <span class="step-tag">Branding, PWA &amp; Operasional</span>
               </div>
               <button class="btn-step-video" onclick="playDriveVideo('admin', 5)">▶️ Tonton Video: Audit Keamanan &amp; Laporan Dinas</button>
-              <p>Mendukung kelancaran logistik sekolah, komunikasi resmi civitas, dan jadwal kalender akademik:</p>
+              <p>Mendukung identitas resmi institusi, kemudahan instalasi di gawai civitas, kelancaran logistik sekolah, dan komunikasi terpadu:</p>
               <ul class="step-list">
-                <li><strong>A. Manajemen Toko Sekolah (/admin/sales):</strong>
+                <li><strong>A. Kustomisasi Tampilan &amp; Branding Sekolah (/admin/library/settings):</strong>
                   <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
-                    <li>Kelola katalog seragam, atribut, buku teks fisik, dan modul pengayaan sekolah.</li>
-                    <li>Pantau pesanan masuk siswa, konfirmasi bukti pembayaran transfer, dan ubah status pengiriman barang.</li>
+                    <li><strong>Unggah Logo &amp; Favicon Resmi:</strong> Unggah berkas lambang sekolah (format PNG transparan atau SVG) agar terpajang di header portal, cover rapor digital, dan kop dokumen cetak resmi.</li>
+                    <li><strong>Nomor Pokok Sekolah Nasional (NPSN) &amp; Subdomain:</strong> Tetapkan nomor identitas sekolah dan subdomain resmi (contoh: <code>sman1solo.belajarplus.id</code>) untuk kedaulatan data institusi.</li>
+                    <li><strong>Instalasi Progressive Web App (PWA):</strong> Aktifkan mode PWA sehingga guru dan siswa dapat langsung menambahkan icon aplikasi Belajar Plus ke layar utama (homescreen) ponsel Android atau iOS mereka tanpa harus membuka PlayStore/AppStore.</li>
                   </ul>
                 </li>
-                <li><strong>B. Siaran Pengumuman Resmi:</strong> Publikasikan surat edaran dinas, instruksi pelaksanaan ujian, atau maklumat hari libur yang langsung tampil di dashboard seluruh civitas sekolah.</li>
-                <li><strong>C. Kalender Agenda Institusi:</strong> Jadwalkan kalender kegiatan penting sekolah seperti gladi bersih asesmen, rapat dinas dewan guru, dan pekan pembagian rapor.</li>
+                <li><strong>B. Manajemen Toko Sekolah &amp; Konfirmasi Pembayaran (/admin/sales):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Kelola katalog seragam, atribut, buku cetak fisik, dan modul pengayaan sekolah.</li>
+                    <li>Pantau pesanan masuk siswa, konfirmasi bukti pembayaran mutasi transfer bank (didukung generator kode unik 3-digit), dan perbarui status pesanan (*Diproses / Dikirim / Selesai*).</li>
+                  </ul>
+                </li>
+                <li><strong>C. Siaran Pengumuman Resmi &amp; Kalender Agenda Institusi (/admin/announcements):</strong>
+                  <ul style="margin: 0.3rem 0 0.3rem 1.2rem; list-style-type: circle;">
+                    <li>Publikasikan surat edaran dinas, instruksi pelaksanaan ujian, atau maklumat hari libur yang langsung tampil di dashboard seluruh civitas sekolah.</li>
+                    <li>Jadwalkan kalender kegiatan penting sekolah seperti gladi bersih asesmen, rapat dinas dewan guru, dan pekan pembagian rapor.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="step-note">
-                📢 <strong>Komunikasi Satu Pintu:</strong> Mengurangi risiko miskomunikasi pengumuman penting antara pihak sekolah, guru, dan peserta didik.
+                📱 <strong>Akses Homescreen Ringan:</strong> PWA Belajar Plus hanya membutuhkan ruang penyimpanan kurang dari 5 MB di ponsel siswa, sangat ramah untuk gawai dengan memori terbatas.
               </div>
             </div>
             <div class="step-visual" style="flex-direction: column; gap: 1.25rem;">
-              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Pengelolaan Toko Sekolah &amp; Rekap Pesanan (/admin/sales)</div>
+              <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase;">📸 Kustomisasi Tampilan Sekolah &amp; Mode PWA (/admin/library/settings)</div>
+              <img src="assets/audit__admin_library_settings.png" class="screenshot-img zoomable-img" alt="Pengaturan Branding Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <img src="assets/kepsek_tampilan_sekolah.png" class="screenshot-img zoomable-img" alt="Kustomisasi Tampilan Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Pengelolaan Toko Sekolah &amp; Rekap Pesanan (/admin/sales)</div>
               <img src="assets/audit__admin_sales.png" class="screenshot-img zoomable-img" alt="Toko Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <div style="font-size: 0.72rem; font-weight: 700; color: #a78bfa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Siaran Pengumuman Resmi Sekolah (/admin/announcements)</div>
+              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Siaran Pengumuman &amp; Kalender Agenda Institusi</div>
               <img src="assets/dummy3_pengumuman_after_publish.png" class="screenshot-img zoomable-img" alt="Pengumuman Resmi Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-              <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;">📸 Kalender Agenda Institusi</div>
               <img src="assets/dummy3_agenda_ready_to_save.png" class="screenshot-img zoomable-img" alt="Agenda Kegiatan Sekolah BelajarPlus" style="border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
             </div>
           </div>

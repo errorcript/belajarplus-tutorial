@@ -533,7 +533,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">28 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">33 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -541,7 +541,7 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">28</div>
+        <div class="metric-num" style="color: #64748b;">33</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
@@ -549,11 +549,11 @@
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #f97316;">13</div>
+        <div class="metric-num" style="color: #f97316;">16</div>
         <div class="metric-label">P1 (High Functional)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #eab308;">11</div>
+        <div class="metric-num" style="color: #eab308;">13</div>
         <div class="metric-label">P2 (Medium / UX Risk)</div>
       </div>
       <div class="metric-card">
@@ -568,16 +568,16 @@
         <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'grading', 'dead button', 'memuat', 'data leak', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (28)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (33)</button>
         <button class="filter-pill" style="border-color: rgba(220, 38, 38, 0.4); color: var(--red-accent);" onclick="setPriorityFilter('P0', this)">P0 Blocker (3)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (13)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (11)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (16)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (13)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
       </div>
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 28 temuan audit teknis
+      Menampilkan 33 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -1886,6 +1886,258 @@ export function calculateHaversineDistance(
         <div class="visual-attachment" onclick="viewImage('assets/hunt_absensi_siswa_face_page.png')">
           <img src="assets/hunt_absensi_siswa_face_page.png" alt="Bukti Bug Presensi Geofence" />
           <div class="visual-caption">📸 Bukti Visual: Layar presensi gawai siswa yang membutuhkan akurasi milimeter formula Haversine agar tidak tertolak di radius 120m</div>
+        </div>
+      </article>
+
+      <!-- BUG 29 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-29">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-29" class="bug-id-tag" onclick="copyAnchor('bug-bp2-29', event)">#BUG-BP2-29</a>
+            <h2 class="bug-entry-title">Infinite Spinner &amp; Multi-Tenant Context Lockout pada Rute Absensi (/absensi) Saat Diakses oleh Akun Guru / Non-Siswa</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Multi-Tenant / Auth Routing Lockout</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Presensi Siswa &gt; Navigasi Mandiri Gawai</div>
+          <div><strong>Rute:</strong> <code>/absensi</code> &amp; <code>absensi-D-oQ2FGB.js</code></div>
+          <div><strong>Lingkungan:</strong> Production Live (Web &amp; PWA)</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Hang Tanpa Timeout Boundary</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Saat pengguna dengan peran Guru atau akun umum menekan menu atau kartu "Absensi", frontend memuat skrip <code>absensi-D-oQ2FGB.js</code>. Skrip ini memvalidasi apakah pengguna terdaftar sebagai siswa aktif pada subdomain sekolah. Ketika kondisi ini gagal, promise API tidak pernah me-reject atau menampilkan komponen pesan penolakan secara ramah, melainkan terjebak pada animasi <em>infinite loading spinner</em> berputar selamanya tanpa batas waktu (no timeout).</p>
+
+          <p><strong>Dampak Lapangan &amp; Demo:</strong></p>
+          <div class="callout callout-danger" style="background: var(--p0-bg); border-left: 4px solid var(--p0-border); padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 0.75rem;">
+            <strong>DEMO CRASH RISK:</strong> Ketika guru atau kepala sekolah mencoba mengecek modul absensi di ponsel mereka dengan akun guru saat presentasi sosialisasi, layar membeku (*freeze*). Pengguna mengira server down atau internet bermasalah.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Terapkan Auth Guard interceptor yang mendeteksi peran pengguna sebelum me-render view presensi siswa, dan redirect otomatis ke panel supervisi guru/admin jika peran bukan siswa:</p>
+          <div class="code-box code-solution">// In AbsensiRouterGuard.ts
+export function handleAbsensiAccess(user: UserProfile, activeTenant: Tenant) {
+  if (user.role === 'teacher' || user.role === 'admin' || user.role === 'principal') {
+    // Arahkan otomatis ke halaman supervisi absensi KBM, bukan modul check-in siswa
+    return navigateTo('/admin/attendance');
+  }
+
+  if (!user.isEnrolledInSchool(activeTenant.id)) {
+    return showFriendlyNoticeModal({
+      title: "Konteks Sekolah Belum Terhubung",
+      desc: "Fitur absensi mandiri hanya dapat dibuka untuk akun siswa yang terdaftar resmi di sekolah ini.",
+      actionText: "Kembali ke Beranda",
+      actionUrl: "/dashboard"
+    });
+  }
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/bug_absensi_context_loss.png')">
+          <img src="assets/bug_absensi_context_loss.png" alt="Bukti Bug Absensi Infinite Spinner" />
+          <div class="visual-caption">📸 Bukti Visual: Layar rute /absensi yang terkunci pada infinite loading spinner ketika dibuka menggunakan akun guru</div>
+        </div>
+      </article>
+
+      <!-- BUG 30 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-30">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-30" class="bug-id-tag" onclick="copyAnchor('bug-bp2-30', event)">#BUG-BP2-30</a>
+            <h2 class="bug-entry-title">Infinite Loading Black Screen ("Membuka buku... 1/?") pada Sample e-Reader di Katalog Toko Buku (/shop)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">E-Commerce DRM / Reader Failure</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Toko Sekolah &gt; Pratinjau Buku Komersial</div>
+          <div><strong>Rute:</strong> <code>/shop</code> &amp; <code>/shop/:productId</code></div>
+          <div><strong>Lingkungan:</strong> Production Live</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Canvas Rendering Drop</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada katalog toko buku komersial, calon pembeli diberikan opsi "Baca Sampel Gratis". Namun, modal reader DRM yang dipanggil mengasumsikan adanya token lisensi peminjaman di akun pengguna. Karena buku berbayar belum dibeli, server mengembalikan respon <code>HTTP 403 Forbidden (Missing License Seat)</code>. Frontend tidak menangkap error ini dan tetap memaksakan inisialisasi reader, menghasilkan layar hitam pekat (*black screen*) dengan teks statis <em>"Membuka buku... 1/?"</em>.</p>
+
+          <p><strong>Dampak Lapangan &amp; Komersial:</strong></p>
+          <div class="callout callout-warning">
+            <strong>LOSS OF PURCHASE CONFIDENCE:</strong> Orang tua murid atau guru yang hendak membeli buku pengayaan tidak bisa memverifikasi isi buku (daftar isi / bab 1), memicu pembatalan pembelian dan keraguan terhadap keandalan toko sekolah.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Terbitkan token ephemeral read-only sample khusus halaman 1–5 buku komersial tanpa mewajibkan lisensi buku penuh:</p>
+          <div class="code-box code-solution">// In ShopSampleStreamController.ts
+export async function streamPublicBookSample(bookId: string, pageNumber: number) {
+  if (pageNumber > 5) {
+    return { error: 'SAMPLE_LIMIT_REACHED', message: 'Silakan beli buku untuk membaca bab selanjutnya.' };
+  }
+  
+  // Render canvas dengan watermark "SAMPEL PRATINJAU TOKO BELAJARPLUS"
+  const sampleCanvas = await renderPdfPageWithSampleWatermark(bookId, pageNumber);
+  return { status: 'OK', pageNumber, totalSamplePages: 5, data: sampleCanvas };
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_shop_book_detail.png')">
+          <img src="assets/hunt_shop_book_detail.png" alt="Bukti Bug Reader Toko Buku" />
+          <div class="visual-caption">📸 Bukti Visual: Layar detail buku di toko (/shop) di mana fitur pratinjau sampel buku gagal render dan terjebak di modal hitam</div>
+        </div>
+      </article>
+
+      <!-- BUG 31 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-31">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-31" class="bug-id-tag" onclick="copyAnchor('bug-bp2-31', event)">#BUG-BP2-31</a>
+            <h2 class="bug-entry-title">Hard Refresh (F5 / Reload Browser) pada Subpath Admin (/admin/*) Me-reset Status Institusi Aktif dan Melempar Layar Putih "Akses Ditolak"</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">State Persistence / Hydration Failure</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Admin Sekolah &gt; Seluruh Subpath (/admin/*)</div>
+          <div><strong>Rute:</strong> <code>/admin/teachers</code>, <code>/admin/classes</code>, <code>/admin/attendance</code></div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; PWA</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Race Condition Rehydration</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Sistem menyimpan identifier sekolah aktif (<code>selectedSchoolId</code>) di state runtime memory. Ketika admin melakukan hard refresh (F5) pada halaman seperti <code>/admin/teachers</code>, middleware router dieksekusi sebelum modul rehidrasi <code>localStorage</code> selesai membaca identitas institusi. Router mendeteksi <code>selectedSchoolId === null</code>, menganggap admin belum memilih sekolah, dan seketika menembakkan redirect ke layar putih <em>"Akses Ditolak: Anda tidak memiliki wewenang pada institusi ini"</em>.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>ADMIN WORKFLOW INTERRUPT:</strong> Admin yang sedang menginput data rombel atau jadwal dan tidak sengaja me-refresh browser kehilangan sesi aktifnya dan harus mengulang klik dari menu pemilihan institusi di beranda.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Simpan identifier tenant di HTTP-only cookie atau blokir eksekusi router guard hingga rehidrasi state lokal selesai secara asinkron:</p>
+          <div class="code-box code-solution">// In AdminAuthMiddleware.ts
+router.beforeEach(async (to, from, next) => {
+  if (to.path.startsWith('/admin')) {
+    // Tunggu sinkronisasi persist storage tuntas
+    if (!authStore.isHydrated) {
+      await authStore.rehydrateFromStorage();
+    }
+    
+    if (!authStore.selectedTenantId) {
+      const fallbackTenant = authStore.getRecentTenant();
+      if (fallbackTenant) {
+        authStore.setSelectedTenant(fallbackTenant.id);
+        return next();
+      }
+      return next('/auth/select-institution');
+    }
+  }
+  next();
+});</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/audit__admin.png')">
+          <img src="assets/audit__admin.png" alt="Bukti Bug Rehidrasi Rute Admin" />
+          <div class="visual-caption">📸 Bukti Visual: Panel admin institusi yang rawan reset context saat ditekan tombol refresh peramban (F5)</div>
+        </div>
+      </article>
+
+      <!-- BUG 32 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-32">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-32" class="bug-id-tag" onclick="copyAnchor('bug-bp2-32', event)">#BUG-BP2-32</a>
+            <h2 class="bug-entry-title">Dead Button Tanpa Event Listener pada 3 Kartu Aksi Cepat ("Absensi", "Tampilan Sekolah", "Penugasan") di Dashboard Admin (/admin)</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium / UX Risk</span>
+            <span class="badge badge-cat">UI Interaction / Dead Elements</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Dashboard Admin &gt; Grid Aksi Cepat Beranda</div>
+          <div><strong>Rute:</strong> <code>/admin</code> (Executive Home)</div>
+          <div><strong>Lingkungan:</strong> Web Desktop &amp; Tablet</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; No Click Handler</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada grid "Aksi Cepat" di bagian tengah dashboard eksekutif `/admin`, terdapat 6 kartu berpola tombol interaktif dengan hover styling dan cursor pointer. Namun, 3 dari 6 kartu tersebut (kartu <em>"Absensi"</em>, kartu <em>"Tampilan Sekolah"</em>, dan kartu <em>"Penugasan"</em>) tidak memiliki tag anchor <code>&lt;a href&gt;</code> maupun fungsi handler <code>@click</code> / <code>onClick</code> pada elemen pembungkusnya. Menekan kartu ini tidak menghasilkan aksi apapun (mati total).</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>KEBINGUNGAN PENGGUNA AWAL:</strong> Kepala Sekolah atau Admin baru yang ingin cepat mengatur logo atau mengecek absensi mengira tombol rusak atau fitur belum dibuat, padahal fitur tersebut aktif jika diakses lewat sidebar kiri.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Tautkan route link yang sesuai pada masing-masing kartu aksi cepat:</p>
+          <div class="code-box code-solution">// In AdminDashboardQuickActions.vue
+&lt;div class="quick-action-card" @click="$router.push('/admin/attendance')"&gt;
+  &lt;div class="icon"&gt;📍&lt;/div&gt;
+  &lt;span&gt;Pengaturan Absensi&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="quick-action-card" @click="$router.push('/admin/library/settings')"&gt;
+  &lt;div class="icon"&gt;🎨&lt;/div&gt;
+  &lt;span&gt;Tampilan Sekolah&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="quick-action-card" @click="$router.push('/admin/assignments')"&gt;
+  &lt;div class="icon"&gt;📝&lt;/div&gt;
+  &lt;span&gt;Manajemen Penugasan&lt;/span&gt;
+&lt;/div&gt;</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/dummy3_aksi_cepat_absensi.png')">
+          <img src="assets/dummy3_aksi_cepat_absensi.png" alt="Bukti Bug Dead Button Aksi Cepat" />
+          <div class="visual-caption">📸 Bukti Visual: Grid Aksi Cepat di beranda admin di mana kartu Absensi, Penugasan, dan Tampilan Sekolah tidak merespon klik</div>
+        </div>
+      </article>
+
+      <!-- BUG 33 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-33">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-33" class="bug-id-tag" onclick="copyAnchor('bug-bp2-33', event)">#BUG-BP2-33</a>
+            <h2 class="bug-entry-title">Ketidakkonsistenan Sanitasi Nomor Telepon (+62 vs 08) pada Impor Spreadsheet CSV Mengakibatkan Kegagalan Batch 60 Siswa Secara Menyeluruh</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium / UX Risk</span>
+            <span class="badge badge-cat">Data Importer / Regex Sanitation</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Master Data &gt; Impor Siswa &amp; PTK Massal</div>
+          <div><strong>Rute:</strong> <code>/admin/students</code> &amp; <code>/admin/teachers</code></div>
+          <div><strong>Lingkungan:</strong> Web Desktop</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; All-or-Nothing Rejection</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Modul impor spreadsheet Dapodik sekolah menerima file CSV/Excel dengan kolom nomor telepon. Di Indonesia, data Dapodik lazim berformat lokal (contoh: <code>081234567890</code> atau <code>62812...</code>). Regex validator pada backend menerapkan aturan ketat E.164 (<code>/^\+[1-9]\d{1,14}$/</code>) tanpa menjalankan tahap sanitasi pra-validasi (pre-sanitizer). Akibatnya, jika ada 1 saja baris siswa yang menggunakan awalan `08`, seluruh file impor (batch 40–60 siswa) ditolak secara total (*all-or-nothing rollback*) dengan error generik <em>"Format data tidak valid pada baris 17"</em>.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>FRUSTRASI OPERATOR SEKOLAH:</strong> Operator Dapodik harus mengedit ratusan nomor handphone secara manual di Microsoft Excel untuk menambahkan tanda petik dan awalan `+62` sebelum dapat diunggah ke sistem Belajar Plus.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Pasang fungsi normalisasi nomor telepon otomatis di layer ingestion importer:</p>
+          <div class="code-box code-solution">// In PhoneSanitizer.ts
+export function normalizeIndonesianPhone(raw: string | number): string {
+  let cleaned = String(raw).trim().replace(/[\s\-\(\)\.]/g, '');
+  
+  if (cleaned.startsWith('0')) {
+    cleaned = '+62' + cleaned.slice(1);
+  } else if (cleaned.startsWith('62')) {
+    cleaned = '+' + cleaned;
+  } else if (!cleaned.startsWith('+')) {
+    cleaned = '+62' + cleaned;
+  }
+  
+  return cleaned;
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/audit__admin_students.png')">
+          <img src="assets/audit__admin_students.png" alt="Bukti Bug Impor Siswa Dapodik" />
+          <div class="visual-caption">📸 Bukti Visual: Layar Master Data Siswa (/admin/students) yang membutuhkan normalizer format nomor telepon lokal otomatis</div>
         </div>
       </article>
 
