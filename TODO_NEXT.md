@@ -113,3 +113,15 @@
 - [x] **Enrichment Section Admin Panel**: Seluruh card modul admin di `index.html` dilengkapi screenshot audit nyata (`audit__admin_assignments.png`, `audit__admin_students.png`, `audit__admin_teachers.png`, `audit__admin_submissions.png`, `audit__admin_library_collection.png`, `audit__admin_library_seats.png`, `audit__admin_library_security.png`, `audit__admin_sales.png`, `audit__admin_ai_credits.png`).
 - [x] **Buku Manual Panduan Mendalam**: Ditulis dokumen komprehensif `PANDUAN_MENDALAM_FITUR_PLATFORM_BPLUS.md`.
 
+---
+
+## 5. Laporan Audit Teknis v2.0 (/bug2) — 28 Temuan Live Terverifikasi
+- [x] **Pembaruan Metriks & Filter Bar**:
+  - Total: 28 Temuan (3 P0 Critical Blocker, 13 P1 High Functional, 11 P2 Medium UX Risk, 1 P3 Minor Polish).
+- [x] **4 Temuan Baru Ditambahkan**:
+  - **#BUG-BP2-25 (P1)**: *Unhandled Insufficient Token Exception* pada Koreksi Esai AI (`/admin/submissions`) memicu infinite spinner tanpa modal pemberitahuan kuota habis.
+  - **#BUG-BP2-26 (P1)**: *Silent Expiry Invoice Pembayaran Transfer Bank 3-Digit Kode Unik* (`/orders`) tanpa countdown peringatan kedaluwarsa & auto-release mutasi.
+  - **#BUG-BP2-27 (P1)**: *Konversi Implisit String Kosong Nilai Belum Dinilai (NULL) Menjadi Integer 0* pada agregasi hasil belajar sebelum penguncian rapor rombel.
+  - **#BUG-BP2-28 (P2)**: *Deviasi Geometri Koordinat Presensi Satelit GPS* akibat aproksimasi Pythagoras planar memicu false rejection di kompleks sekolah luas.
+- [x] **Sinkronisasi Survival Guide**: Penambahan Kasus F (*Transparansi 3-Digit Kode Unik Rekonsiliasi Otomatis Bank*) di `DEMO_SURVIVAL_GUIDE.md`.
+

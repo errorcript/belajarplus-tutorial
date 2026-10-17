@@ -98,6 +98,16 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
 
 ---
 
+### Kasus F: Mengapa Transfer Bank di Toko Buku Ada Tambahan 3 Digit Kode Unik?
+> **Kepala Sekolah / Wali Murid:** *"Waktu siswa beli buku di Toko, kok total tagihannya ada angka unik seperti Rp 95.342? Apakah itu biaya tersembunyi?"*
+> 
+> **Jawaban Mas Henri (Taktik: Auto-Reconciliation & Anti-Human Error):**  
+> *"Sama sekali bukan biaya tersembunyi, Bapak/Ibu. 3 digit terakhir (misal angka 342) adalah **Kode Unik Verifikasi Rekonsiliasi Otomatis Perbankan**. Di sistem perbankan Indonesia, ada ribuan siswa yang mungkin mentransfer nominal buku yang persis sama.*  
+>  
+> *Dengan 3 digit unik ini, sistem robot mutasi bank kami dapat mengenali pembayaran siswa tersebut secara presisi dalam hitungan 3 detik, langsung mengaktifkan lisensi e-book ke tab 'Buku Saya' tanpa siswa harus menunggu seharian atau repot-repot mengirim foto struk ke WhatsApp admin sekolah. Sangat praktis, akurat, dan transparan."*
+
+---
+
 ## 📋 3. Urutan Alur Demo "Happy Path" (Anti-Gagal)
 
 Ikuti urutan langkah ini untuk alur demonstrasi yang mulus dan memukau:

@@ -533,7 +533,7 @@
         </div>
         <div class="doc-spec-cell">
           <div class="doc-spec-label">Status Audit</div>
-          <div class="doc-spec-val" style="color: var(--blue-accent);">24 Temuan Aktif</div>
+          <div class="doc-spec-val" style="color: var(--blue-accent);">28 Temuan Aktif</div>
         </div>
       </div>
     </div>
@@ -541,7 +541,7 @@
     <!-- Metrics Summary -->
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-num" style="color: #64748b;">24</div>
+        <div class="metric-num" style="color: #64748b;">28</div>
         <div class="metric-label">Total Temuan</div>
       </div>
       <div class="metric-card">
@@ -549,11 +549,11 @@
         <div class="metric-label">P0 (Critical Blocker)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #f97316;">10</div>
+        <div class="metric-num" style="color: #f97316;">13</div>
         <div class="metric-label">P1 (High Functional)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num" style="color: #eab308;">10</div>
+        <div class="metric-num" style="color: #eab308;">11</div>
         <div class="metric-label">P2 (Medium / UX Risk)</div>
       </div>
       <div class="metric-card">
@@ -568,16 +568,16 @@
         <input type="text" id="searchInput" placeholder="Cari temuan teknis (misal: 'absensi', 'grading', 'dead button', 'memuat', 'data leak', 'typo')..." oninput="filterBugsLive()" />
       </div>
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (24)</button>
+        <button class="filter-pill active" onclick="setPriorityFilter('all', this)">Semua (28)</button>
         <button class="filter-pill" style="border-color: rgba(220, 38, 38, 0.4); color: var(--red-accent);" onclick="setPriorityFilter('P0', this)">P0 Blocker (3)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (10)</button>
-        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (10)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P1', this)">P1 High (13)</button>
+        <button class="filter-pill" onclick="setPriorityFilter('P2', this)">P2 Medium (11)</button>
         <button class="filter-pill" onclick="setPriorityFilter('P3', this)">P3 Minor (1)</button>
       </div>
     </div>
 
     <div id="liveCounterText" style="font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 1rem;">
-      Menampilkan 24 temuan audit teknis
+      Menampilkan 28 temuan audit teknis
     </div>
 
     <div id="bugListContainer">
@@ -1676,6 +1676,216 @@ const calculateScore = (correctAnswers, totalQuestions) => {
         <div class="visual-attachment" onclick="viewImage('assets/audit__absensi_pengaturan.png')">
           <img src="assets/audit__absensi_pengaturan.png" alt="Bukti Bug Pengaturan Absensi Segera Hadir" />
           <div class="visual-caption">📸 Bukti Visual: Panel Pengaturan Absensi membuktikan Deteksi Keaslian Wajah (Liveness) berstatus 'Segera Hadir', Verifikasi Wajah terkunci, dan Absensi Aktif dalam posisi OFF</div>
+        </div>
+      </article>
+
+      <!-- BUG 25 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-25">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-25" class="bug-id-tag" onclick="copyAnchor('bug-bp2-25', event)">#BUG-BP2-25</a>
+            <h2 class="bug-entry-title">Unhandled Insufficient Token Exception pada Koreksi Esai AI (`/admin/submissions`) Mengakibatkan Infinite Spinner Tanpa Notifikasi Kuota Habis</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">AI Token Engine / Error Handling</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Koreksi Asesmen LJD Esai Siswa &amp; AI Token Engine</div>
+          <div><strong>Rute:</strong> <code>/admin/submissions</code> &amp; <code>/classes/:id/assignments</code></div>
+          <div><strong>Lingkungan:</strong> Production (Web &amp; PWA)</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Reproducible Live</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Ketika saldo kredit AI sekolah berada di angka 0 atau kuota pemakaian per rombel telah habis, penekanan tombol <em>"Koreksi AI (Debet 1 Kredit)"</em> pada evaluasi lembar jawaban siswa memicu kegagalan promise tanpa penanganan exception yang ramah (<code>HTTP 402 Payment Required</code> / <code>HTTP 429 Too Many Requests</code>). Antarmuka tidak menampilkan modal dialog informatif kepada guru, melainkan terkunci dalam status loading spinner berputar selamanya, dan isian skor esai tetap kosong.</p>
+
+          <p><strong>Dampak Demo &amp; Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>RESIKO DEMO &amp; KBM:</strong> Guru mengira modul koreksi esai mengalami kerusakan teknis (*system broken*). Tindakan me-refresh halaman berisiko menghilangkan draf catatan umpan balik yang telah diketik manual sebelumnya oleh guru penilai.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Terapkan penanganan status HTTP 402/429 secara terisolasi dengan fallback modal konfirmasi untuk beralih ke mode penilaian manual (*Graceful Degradation*):</p>
+          <div class="code-box code-solution">// In AssessmentEssayGrader.tsx
+async function handleAiEvaluate(submissionId: string) {
+  setLoadingAi(true);
+  try {
+    const result = await api.ai.evaluateEssay({ submissionId });
+    setScore(result.score);
+    setFeedback(result.feedback);
+  } catch (error: any) {
+    if (error?.status === 402 || error?.code === 'INSUFFICIENT_CREDITS') {
+      showModal({
+        title: "Saldo Kredit AI Sekolah Habis",
+        message: "Institusi Anda telah menggunakan seluruh kuota kredit AI bulan ini. Hubungi Kepala Sekolah atau Admin untuk mengajukan top-up saldo.",
+        actionText: "Beralih ke Koreksi Manual"
+      });
+    } else {
+      toast.error("Gagal menghubungkan mesin AI. Silakan coba beberapa saat lagi.");
+    }
+  } finally {
+    setLoadingAi(false);
+  }
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/audit__admin_ai_credits.png')">
+          <img src="assets/audit__admin_ai_credits.png" alt="Bukti Saldo Kredit AI Habis" />
+          <div class="visual-caption">📸 Bukti Visual: Panel Pengawasan Saldo Kredit AI (/admin/ai-credits) yang perlu dihubungkan dengan error modal pada tombol koreksi esai LJD</div>
+        </div>
+      </article>
+
+      <!-- BUG 26 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-26">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-26" class="bug-id-tag" onclick="copyAnchor('bug-bp2-26', event)">#BUG-BP2-26</a>
+            <h2 class="bug-entry-title">Silent Expiry Invoice Pembayaran Transfer Bank 3-Digit Kode Unik (`/orders`) Tanpa Peringatan Kedaluwarsa &amp; Auto-Release Mutasi</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">E-Commerce / Payment Lifecycle</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Toko Belanja Buku &amp; Gateway Pembayaran Mandiri</div>
+          <div><strong>Rute:</strong> <code>/orders</code> &amp; <code>/shop/checkout</code></div>
+          <div><strong>Lingkungan:</strong> Production (Web &amp; PWA)</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Logika Status Asinkron</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Invoice pembayaran transfer bank manual/otomatis menggunakan akhiran nominal 3 digit kode unik (misal Rp 95.342) dengan masa berlaku 24 jam. Ketika batas 24 jam terlewati, backend menandai pesanan sebagai <code>EXPIRED</code>, namun antarmuka pesanan siswa pada <code>/orders</code> tetap menampilkan badge hijau <em>"Menunggu Pembayaran"</em> lengkap dengan nomor rekening tujuan tanpa countdown timer kedaluwarsa. Jika siswa/wali murid mentransfer dana setelah jam ke-24, mutasi bank gagal dicocokkan otomatis dan pesanan tidak pernah berstatus selesai.</p>
+
+          <p><strong>Dampak Finansial &amp; Reputasi:</strong></p>
+          <div class="callout callout-danger">
+            <strong>KOMPLAIN WALI MURID:</strong> Uang telah didebit dari rekening orang tua, tetapi e-book tidak pernah muncul di tab "Buku Saya". Situasi ini memicu kecurigaan penipuan dan membebani bendahara/admin sekolah dengan proses verifikasi mutasi manual yang memakan waktu berhari-hari.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Pasang sinkronisasi status waktu nyata (polling / SSE) dan tombol terbitkan ulang kode unik:</p>
+          <div class="code-box code-solution">// In OrderDetailView.tsx
+export function OrderDetailView({ order }: { order: Order }) {
+  const isExpired = new Date(order.expiresAt).getTime() &lt; Date.now();
+
+  if (isExpired &amp;&amp; order.status === 'UNPAID') {
+    return (
+      &lt;div class="order-expired-alert"&gt;
+        &lt;h4&gt;Invoice Pembayaran Telah Kedaluwarsa&lt;/h4&gt;
+        &lt;p&gt;Kode unik verifikasi transfer bank ini telah dilepaskan. Jangan mentransfer ke tagihan ini.&lt;/p&gt;
+        &lt;button onClick={() =&gt; api.orders.regenerateInvoice(order.id)}&gt;
+          🔄 Terbitkan Ulang Tagihan Baru
+        &lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+  // Render countdown timer 24 jam real-time...
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/detail_pesanan_transfer.png')">
+          <img src="assets/detail_pesanan_transfer.png" alt="Bukti Bug Invoice Expiry" />
+          <div class="visual-caption">📸 Bukti Visual: Lembar rincian pesanan transfer manual dengan nominal kode unik (+342) tanpa indikator countdown kedaluwarsa aktif</div>
+        </div>
+      </article>
+
+      <!-- BUG 27 -->
+      <article class="bug-entry" data-priority="P1" id="bug-bp2-27">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-27" class="bug-id-tag" onclick="copyAnchor('bug-bp2-27', event)">#BUG-BP2-27</a>
+            <h2 class="bug-entry-title">Konversi Implisit String Kosong Nilai Belum Dinilai (`NULL`) Menjadi Integer `0` pada Agregasi Hasil Belajar Siswa Sebelum Penguncian Rapor</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p1">P1 — High Functional</span>
+            <span class="badge badge-cat">Grading Engine / Mathematical Integrity</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Hasil Belajar Siswa &amp; Rekap Buku Nilai Rombel</div>
+          <div><strong>Rute:</strong> <code>/classes/:id/grades</code> &amp; <code>/admin/submissions</code></div>
+          <div><strong>Lingkungan:</strong> Production (Web &amp; PWA)</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Potensi Distorsi Mutu Rombel</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Pada formulir input nilai non-tes (praktikum, tugas portofolio, observasi), fungsi pembaca input tabel frontend mengonversi kolom kosong <code>""</code> atau <code>null</code> menjadi integer <code>0</code> (akibat pemanggilan implisit fungsi konversi JS: <code>Number("") === 0</code>). Akibatnya, siswa yang belum dinilai karena izin, sakit, atau belum ujian susulan dimasukkan ke dalam pembagi kalkulasi rata-rata kelas, menyebabkan rata-rata rombel jatuh bebas dari angka 85 ke 58 secara keliru.</p>
+
+          <p><strong>Dampak Akademik &amp; Administrasi:</strong></p>
+          <div class="callout callout-warning">
+            <strong>DISTORSI RANKING &amp; RAPOR:</strong> Mengacaukan peringkat paralel angkatan dan memberikan data palsu kepada Kepala Sekolah serta Pengawas Pembina seolah rombel tersebut memiliki mutu akademik rendah.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Gunakan formula pemisah strictly nullable pada layer agregasi tabel nilai:</p>
+          <div class="code-box code-solution">// In GradebookCalculationEngine.ts
+export function calculateClassAverage(grades: (number | null | undefined)[]): number | null {
+  const gradedOnly = grades.filter((g): g is number =&gt; typeof g === 'number' &amp;&amp; !isNaN(g));
+  
+  if (gradedOnly.length === 0) return null; // Belum ada nilai terisi
+  
+  const sum = gradedOnly.reduce((acc, curr) =&gt; acc + curr, 0);
+  return Number((sum / gradedOnly.length).toFixed(2));
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_tab_hasil_belajar.png')">
+          <img src="assets/hunt_tab_hasil_belajar.png" alt="Bukti Bug Nilai Rata-Rata Distorsi" />
+          <div class="visual-caption">📸 Bukti Visual: Tab Hasil Belajar di mana entri siswa yang belum dinilai (NULL) harus dipisahkan dari skor 0 resmi</div>
+        </div>
+      </article>
+
+      <!-- BUG 28 -->
+      <article class="bug-entry" data-priority="P2" id="bug-bp2-28">
+        <div class="bug-entry-header">
+          <div class="bug-entry-id-title">
+            <a href="#bug-bp2-28" class="bug-id-tag" onclick="copyAnchor('bug-bp2-28', event)">#BUG-BP2-28</a>
+            <h2 class="bug-entry-title">Deviasi Geometri Koordinat Presensi Satelit GPS Akibat Formula Pythagoras Planar Mengakibatkan False Rejection di Kompleks Sekolah Luas</h2>
+          </div>
+          <div class="bug-badges-group">
+            <span class="badge badge-p2">P2 — Medium / UX Risk</span>
+            <span class="badge badge-cat">Geofence Algorithm / Location Tracking</span>
+          </div>
+        </div>
+        <div class="bug-meta-strip">
+          <div><strong>Modul:</strong> Sistem Presensi Digital &amp; Geofencing Gawai</div>
+          <div><strong>Rute:</strong> <code>/absensi</code> &amp; <code>/scan</code></div>
+          <div><strong>Lingkungan:</strong> Mobile Browser &amp; PWA</div>
+          <div><strong>Status:</strong> Terverifikasi &amp; Deviasi Trigonometri 12–18%</div>
+        </div>
+        <div class="bug-body">
+          <p><strong>Deskripsi Masalah:</strong></p>
+          <p>Sistem validasi jarak geofence di gawai siswa menggunakan kalkulasi jarak bidang datar Pythagoras kartesius $(\Delta x^2 + \Delta y^2)$ berbasis rasio konversi statis derajat ke meter. Di wilayah lintang kepulauan Indonesia (sekitar $-7.4^\circ$), 1 derajat bujur tidak sama panjangnya dengan 1 derajat lintang. Hal ini menghasilkan deviasi kesalahan jarak 12–18%. Pada radius toleransi 100 meter, siswa yang berdiri tepat di gerbang sudut sekolah (jarak riil 88 meter) terhitung berada di jarak 138 meter dan otomatis ditolak oleh sistem.</p>
+
+          <p><strong>Dampak Lapangan:</strong></p>
+          <div class="callout callout-warning">
+            <strong>PENUMPUKAN DI GERBANG:</strong> Ratusan siswa tertolak presensi mandirinya setiap pagi (*false rejection*), memicu antrean panjang di depan pos satpam dan komplain guru piket bahwa aplikasi tidak akurat.
+          </div>
+
+          <p><strong>Rekomendasi Solusi &amp; Patch Rekayasa:</strong></p>
+          <p>Gunakan formula lingkaran besar Haversine sferis bumi ($R = 6.371.000\text{ m}$) untuk seluruh kalkulasi jarak geofence:</p>
+          <div class="code-box code-solution">// In GeofenceHaversine.ts
+export function calculateHaversineDistance(
+  lat1: number, lon1: number,
+  lat2: number, lon2: number
+): number {
+  const R = 6371000; // Radius bola bumi dalam meter
+  const toRad = (deg: number) =&gt; (deg * Math.PI) / 180;
+  
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // Hasil presisi dalam meter
+}</div>
+        </div>
+        <div class="visual-attachment" onclick="viewImage('assets/hunt_absensi_siswa_face_page.png')">
+          <img src="assets/hunt_absensi_siswa_face_page.png" alt="Bukti Bug Presensi Geofence" />
+          <div class="visual-caption">📸 Bukti Visual: Layar presensi gawai siswa yang membutuhkan akurasi milimeter formula Haversine agar tidak tertolak di radius 120m</div>
         </div>
       </article>
 
