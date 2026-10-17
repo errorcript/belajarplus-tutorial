@@ -1,0 +1,1435 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Audit Komprehensif Satuan Pendidikan BelajarPlus 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        @page {
+            size: A4 portrait;
+            margin: 12mm 12mm 14mm 12mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            color: #0f172a;
+            background: #ffffff;
+            line-height: 1.4;
+            font-size: 8.8pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-container {
+            border-bottom: 2.5px solid #2563eb;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .brand-title {
+            font-size: 19pt;
+            font-weight: 800;
+            color: #1e3a8a;
+            letter-spacing: -0.5px;
+            margin: 0 0 2px 0;
+        }
+
+        .brand-subtitle {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #475569;
+            margin: 0 0 4px 0;
+        }
+
+        .doc-meta {
+            font-size: 7.8pt;
+            color: #64748b;
+        }
+
+        .header-badge {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            font-size: 8.5pt;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-align: right;
+        }
+
+        .drive-callout {
+            background: #f8fafc;
+            border-left: 4.5px solid #2563eb;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .drive-callout-text h4 {
+            margin: 0 0 2px 0;
+            font-size: 9.5pt;
+            color: #1e293b;
+        }
+
+        .drive-callout-text p {
+            margin: 0;
+            font-size: 8pt;
+            color: #64748b;
+        }
+
+        .drive-link-btn {
+            background: #2563eb;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 8pt;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .kpi-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px 10px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 15pt;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2px;
+        }
+
+        .kpi-label {
+            font-size: 7.2pt;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        .c-blue { color: #2563eb; }
+        .c-emerald { color: #059669; }
+        .c-purple { color: #7c3aed; }
+        .c-indigo { color: #4f46e5; }
+        .c-amber { color: #d97706; }
+
+        h2 {
+            font-size: 11pt;
+            font-weight: 800;
+            color: #0f172a;
+            border-bottom: 1.5px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin: 16px 0 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.8pt;
+            margin-bottom: 12px;
+        }
+
+        th {
+            background: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+            text-align: left;
+            padding: 5px 6px;
+            border: 1px solid #cbd5e1;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 4.5px 6px;
+            border: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 6.8pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-success {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+        }
+
+        .tag-active {
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-weight: 700;
+            padding: 1.5px 5px;
+            border-radius: 3px;
+            font-size: 7pt;
+        }
+
+        .trainer-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+        }
+
+        .trainer-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 8.5pt;
+            color: #1e3a8a;
+            margin-bottom: 2px;
+        }
+
+        .trainer-stats {
+            font-size: 7.5pt;
+            color: #475569;
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5pt;
+            color: #64748b;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header-container">
+        <div>
+            <h1 class="brand-title">BelajarPlus &bull; Platform Audit</h1>
+            <div class="brand-subtitle">LAPORAN AUDIT & HASIL DEPLOYMENT NASIONAL / JAWA TENGAH & MITRA</div>
+            <div class="doc-meta">
+                Tanggal Rilis: 18 Oktober 2026 &bull; Lead System Engineer & Tim Trainer BelajarPlus &bull; Target TA: 2026/2027
+            </div>
+        </div>
+        <div class="header-badge">
+            STATUS OPERASIONAL:<br>
+            <span style="color: #059669; font-size: 11pt;">98.9% LIVE AKTIF</span>
+        </div>
+    </div>
+
+    <!-- Google Drive Access Banner -->
+    <div class="drive-callout">
+        <div class="drive-callout-text">
+            <h4>Akses Berkas Master Akun & Dokumen Serah Terima Resmi</h4>
+            <p>Seluruh berkas Excel clean import peserta didik dan dokumen PDF serah terima kredensial resmi tersedia pada direktori Google Drive:</p>
+            <div style="font-family: monospace; font-size: 8pt; color: #1d4ed8; margin-top: 3px; word-break: break-all;">
+                https://drive.google.com/drive/folders/1GyqQbq8a8N6gl5RoxvD-bGoguqOjNomV
+            </div>
+        </div>
+        <div>
+            <a href="https://drive.google.com/drive/folders/1GyqQbq8a8N6gl5RoxvD-bGoguqOjNomV" class="drive-link-btn" target="_blank">Buka Google Drive</a>
+        </div>
+    </div>
+
+    <!-- Executive KPI Grid -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-value c-blue">87</div>
+            <div class="kpi-label">Total Unit Folder (95 Sekolah)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value c-emerald">86</div>
+            <div class="kpi-label">Sudah Live 100% (98.9%)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value c-indigo">41,905</div>
+            <div class="kpi-label">Peserta Didik Live</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value c-purple">1,267</div>
+            <div class="kpi-label">Rombel Aktif Terisi</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value c-amber">1</div>
+            <div class="kpi-label">On Hold Data Senin (1.1%)</div>
+        </div>
+    </div>
+
+    <!-- Executive Summary per Trainer -->
+    <h2>1. Ringkasan Eksekutif Distribusi Trainer (PIC)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30px; text-align: center;">No</th>
+                <th>PIC Trainer</th>
+                <th>Klaster Wilayah Kerja</th>
+                <th style="text-align: center;">Total Unit</th>
+                <th style="text-align: center;">Live 100%</th>
+                <th style="text-align: center;">On Hold</th>
+                <th style="text-align: right;">Siswa Live</th>
+                <th style="text-align: center;">Rombel</th>
+                <th style="text-align: center;">Status Kesiapan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">1</td>
+                <td><strong>Rumaisha / Arum</strong></td>
+                <td>Purbalingga, Kebumen, Pekalongan, Wonosobo, Banjarnegara</td>
+                <td style="text-align: center;">15</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">15</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: right; font-weight: 700;">9,838</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">259</td>
+                <td style="text-align: center;"><span class='badge badge-success'>LENGKAP & LIVE</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">2</td>
+                <td><strong>Adnan Cindyana (Cindy)</strong></td>
+                <td>Semarang, Batang, Kendal, Ungaran, Ambarawa</td>
+                <td style="text-align: center;">14</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">13</td>
+                <td style="text-align: center; font-weight: 700; color: #d97706;">1</td>
+                <td style="text-align: right; font-weight: 700;">7,170</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">226</td>
+                <td style="text-align: center;"><span class='badge badge-success'>13 LIVE / 1 HOLD</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">3</td>
+                <td><strong>Andrew Aliffiansyah</strong></td>
+                <td>Kota Surakarta & Klaten</td>
+                <td style="text-align: center;">14</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">14</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: right; font-weight: 700;">6,935</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">194</td>
+                <td style="text-align: center;"><span class='badge badge-success'>LENGKAP & LIVE</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">4</td>
+                <td><strong>Henri Susilo</strong></td>
+                <td>Sragen & Sukoharjo</td>
+                <td style="text-align: center;">14</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">14</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: right; font-weight: 700;">5,779</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">214</td>
+                <td style="text-align: center;"><span class='badge badge-success'>LENGKAP & LIVE</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">5</td>
+                <td><strong>Fitri Noveira (Mevi)</strong></td>
+                <td>Cilacap & Banyumas</td>
+                <td style="text-align: center;">13</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">13</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: right; font-weight: 700;">5,216</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">164</td>
+                <td style="text-align: center;"><span class='badge badge-success'>LENGKAP & LIVE</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">6</td>
+                <td><strong>Khansania Medtra</strong></td>
+                <td>Purworejo, Magelang & Prembun</td>
+                <td style="text-align: center;">14</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">14</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: right; font-weight: 700;">4,989</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">179</td>
+                <td style="text-align: center;"><span class='badge badge-success'>LENGKAP & LIVE</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: 600;">7</td>
+                <td><strong>Mitra Khusus / Konsorsium</strong></td>
+                <td>Muntilan, Bukateja & Konsorsium 10 SMA Tasikmalaya</td>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center; font-weight: 700; color: #059669;">3</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: right; font-weight: 700;">1,978</td>
+                <td style="text-align: center; font-weight: 700; color: #2563eb;">31</td>
+                <td style="text-align: center;"><span class='badge badge-success'>LENGKAP & LIVE</span></td>
+            </tr>
+            <tr style="background: #e2e8f0; font-weight: 800;">
+                <td colspan="3" style="text-align: center;">TOTAL KESELURUHAN PLATFORM PRODUKSI</td>
+                <td style="text-align: center;">87</td>
+                <td style="text-align: center; color: #059669;">86</td>
+                <td style="text-align: center; color: #d97706;">1</td>
+                <td style="text-align: right; color: #0f172a;">41,905</td>
+                <td style="text-align: center; color: #2563eb;">1,267</td>
+                <td style="text-align: center;"><span class='badge badge-success'>98.9% LIVE AKTIF</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- Section 2: Detailed Table of 86 Live Schools -->
+    <h2>2. Rekapitulasi Rinci Sekolah Kategori 1: Lengkap & Live 100% (86 Satuan Unit)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25px; text-align: center;">No</th>
+                <th>Nama Satuan Pendidikan</th>
+                <th>Klaster</th>
+                <th>PIC Trainer</th>
+                <th style="text-align: right; width: 60px;">Siswa</th>
+                <th style="text-align: center; width: 45px;">Rombel</th>
+                <th style="text-align: center; width: 60px;">Tahun Ajaran</th>
+                <th style="text-align: center; width: 70px;">Status</th>
+                <th>Keterangan Integrasi</th>
+            </tr>
+        </thead>
+        <tbody>
+                    <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">1</td>
+            <td><strong>SMAN 10 Purworejo</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">248</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">7</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 7 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">2</td>
+            <td><strong>SMAN 1 Purworejo</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">239</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">11</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 11 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">3</td>
+            <td><strong>SMAN 11 Purworejo</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">180</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">5</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 5 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">4</td>
+            <td><strong>SMAN 6 Purworejo</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">156</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">11</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 11 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">5</td>
+            <td><strong>SMAN 1 Salaman</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">521</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">22</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 22 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">6</td>
+            <td><strong>SMAN 1 Bandongan</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">106</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">7</td>
+            <td><strong>SMAN 1 Grabag</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">345</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">8</td>
+            <td><strong>SMAN 2 Grabag</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">35</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">1</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 1 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">9</td>
+            <td><strong>SMAN 1 Candimulyo</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">188</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">24</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 24 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">10</td>
+            <td><strong>SMAN 1 Dukun</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">292</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">8</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 8 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">11</td>
+            <td><strong>SMAN 1 Ngluwar</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">250</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">8</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 8 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">12</td>
+            <td><strong>SMAN 1 Mertoyudan</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">228</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">9</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 9 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">13</td>
+            <td><strong>13. SMAN 1 Muntilan</strong></td>
+            <td>Luar Masterplan</td>
+            <td>-</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">342</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">11</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 11 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">14</td>
+            <td><strong>SMAN 1 Bawang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">235</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">12</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 12 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">15</td>
+            <td><strong>SMAN 1 Karangkobar</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">344</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">16</td>
+            <td><strong>SMAN 1 Wadaslintang</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">432</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">18</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 18 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">17</td>
+            <td><strong>SMAN 2 Wonosobo</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,074</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">36</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 36 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">18</td>
+            <td><strong>SMAN 2 Purworejo</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">932</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">24</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 24 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">19</td>
+            <td><strong>SMA Budi Utomo Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">197</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">6</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 6 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">20</td>
+            <td><strong>SMAN 1 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">110</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">6</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 6 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">21</td>
+            <td><strong>SMAN 2 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">158</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">6</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 6 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">22</td>
+            <td><strong>SMAN 3 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">423</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">12</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 12 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">23</td>
+            <td><strong>SMAN 4 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">582</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">16</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 16 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">24</td>
+            <td><strong>SMAN 5 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">353</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">25</td>
+            <td><strong>SMAN 6 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">746</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">22</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 22 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">26</td>
+            <td><strong>SMAN 7 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,172</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">30</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 30 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">27</td>
+            <td><strong>SMAN 8 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">585</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">16</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 16 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">28</td>
+            <td><strong>SMAN 9 Surakarta</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">162</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">6</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 6 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">29</td>
+            <td><strong>SMAN 1 Klaten</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">394</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">11</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 11 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">30</td>
+            <td><strong>SMAN 2 Klaten</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">361</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">31</td>
+            <td><strong>SMAN 3 Klaten</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">526</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">32</td>
+            <td><strong>SMAN 1 Kartasura</strong></td>
+            <td>Klaster 1</td>
+            <td>Andrew Aliffiansyah</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,166</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">33</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 33 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">33</td>
+            <td><strong>SMAN 1 Sragen</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">386</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">11</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 11 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">34</td>
+            <td><strong>SMAN 2 Sragen</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">98</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">35</td>
+            <td><strong>SMAN 3 Sragen</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">250</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">7</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 7 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">36</td>
+            <td><strong>SMAN 1 Gemolong</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">187</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">5</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 5 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">37</td>
+            <td><strong>SMAN 1 Gondang</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">183</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">5</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 5 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">38</td>
+            <td><strong>SMAN 1 Sukodono</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">189</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">5</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 5 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">39</td>
+            <td><strong>SMAN 1 Tangen</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">174</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">5</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 5 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">40</td>
+            <td><strong>SMAN 1 Sukoharjo</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,282</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">36</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 36 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">41</td>
+            <td><strong>SMAN 2 Sukoharjo</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">522</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">27</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 27 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">42</td>
+            <td><strong>SMAN 3 Sukoharjo</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,069</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">30</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 30 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">43</td>
+            <td><strong>SMAN 1 Nguter</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">344</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">44</td>
+            <td><strong>SMAN 1 Polokarto</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">118</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">24</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 24 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">45</td>
+            <td><strong>SMA 1 Tawangsari</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">436</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">30</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 30 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">46</td>
+            <td><strong>SMAN 1 Bulu</strong></td>
+            <td>Klaster 2</td>
+            <td>Henri Susilo</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">541</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">16</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 16 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">47</td>
+            <td><strong>SMAN 1 Cilacap</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">87</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">48</td>
+            <td><strong>SMAN 3 Cilacap</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">95</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">49</td>
+            <td><strong>SMAN 1 Bantarsari</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">79</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">4</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 4 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">50</td>
+            <td><strong>SMAN 1 Cipari</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">738</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">21</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 21 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">51</td>
+            <td><strong>SMAN 1 Kroya</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">108</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">52</td>
+            <td><strong>SMAN 1 Majenang</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,178</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">33</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 33 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">53</td>
+            <td><strong>SMAN 1 Maos</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">108</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">54</td>
+            <td><strong>SMAN 1 Sampang</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">90</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">55</td>
+            <td><strong>SMAN 1 Sidareja</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">92</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">56</td>
+            <td><strong>SMAN 1 Purwokerto</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">784</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">22</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 22 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">57</td>
+            <td><strong>SMAN 1 Jatilawang</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">393</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">17</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 17 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">58</td>
+            <td><strong>SMAN 1 Patikraja</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">613</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">17</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 17 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">59</td>
+            <td><strong>SMAN 1 Rawalo</strong></td>
+            <td>Klaster 6</td>
+            <td>Fitri Noveira (Mevi)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">851</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">25</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 25 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">60</td>
+            <td><strong>SMAN 11 Semarang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,066</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">38</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 38 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">61</td>
+            <td><strong>SMAN 2 Purbalingga</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">712</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">19</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 19 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">62</td>
+            <td><strong>SMAN 1 Bobotsari</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">715</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">20</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 20 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">63</td>
+            <td><strong>SMAN 1 Bojong</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">361</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">1</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 1 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">64</td>
+            <td><strong>63. SMAN 1 Bukateja</strong></td>
+            <td>Luar Masterplan</td>
+            <td>-</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">637</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">65</td>
+            <td><strong>SMAN 1 Karangreja</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">642</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">18</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 18 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">66</td>
+            <td><strong>SMAN 1 Kemangkon</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">102</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">3</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 3 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">67</td>
+            <td><strong>SMAN 1 Kutasari</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">496</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">14</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 14 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">68</td>
+            <td><strong>SMAN 1 Rembang</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">571</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">16</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 16 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">69</td>
+            <td><strong>SMAN 1 Kebumen</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">723</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">21</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 21 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">70</td>
+            <td><strong>SMAN 1 Kutowinangun</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">720</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">25</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 25 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">71</td>
+            <td><strong>SMAN 1 Mirit</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">214</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">6</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 6 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">72</td>
+            <td><strong>SMAN 1 Kajen</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">2,066</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">33</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 33 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">73</td>
+            <td><strong>SMAN 1 Sragi</strong></td>
+            <td>Klaster 5</td>
+            <td>Rumaisha (Arum)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">666</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">19</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 19 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">74</td>
+            <td><strong>SMAN 1 Batang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">144</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">4</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 4 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">75</td>
+            <td><strong>SMAN 2 Batang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">109</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">1</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 1 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">76</td>
+            <td><strong>SMAN 1 Subah</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">223</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">4</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 4 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">77</td>
+            <td><strong>SMAN 1 Bandar</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">144</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">4</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 4 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">78</td>
+            <td><strong>SMAN 1 Weleri</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">318</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">9</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 9 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">79</td>
+            <td><strong>SMAN 1 Ambarawa</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,257</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">35</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 35 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">80</td>
+            <td><strong>SMAN 2 Ungaran</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,331</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">36</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 36 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">81</td>
+            <td><strong>SMAN 1 Tuntang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">593</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">29</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 29 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">82</td>
+            <td><strong>SMAN 7 Semarang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">516</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">22</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 22 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">83</td>
+            <td><strong>SMAN 10 Semarang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,090</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">31</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 31 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">84</td>
+            <td><strong>SMAN 13 Semarang</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">144</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">1</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 1 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">85</td>
+            <td><strong>SMAN 1 Prembun</strong></td>
+            <td>Klaster 3</td>
+            <td>Khansania Medtra</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">1,269</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">36</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 36 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">86</td>
+            <td><strong>TASIKMALAYA</strong></td>
+            <td>Luar Masterplan</td>
+            <td>-</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">999</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">10</td>
+            <td style="text-align: center;"><span class='tag-active'>2026/2027</span></td>
+            <td style="text-align: center;"><span class='badge badge-success'>LIVE 100%</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Akun siswa terimpor, 10 rombel aktif, peserta didik ditempatkan.</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!-- Section 3: On Hold School -->
+    <h2>3. Satuan Pendidikan Kategori 2: On Hold Menunggu Data Susulan Senin (1 Sekolah)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25px; text-align: center;">No</th>
+                <th>Nama Satuan Pendidikan</th>
+                <th>Klaster</th>
+                <th>PIC Trainer</th>
+                <th style="text-align: right; width: 60px;">Siswa</th>
+                <th style="text-align: center; width: 45px;">Rombel</th>
+                <th style="text-align: center; width: 60px;">Tahun Ajaran</th>
+                <th style="text-align: center; width: 70px;">Status</th>
+                <th>Keterangan Integrasi</th>
+            </tr>
+        </thead>
+        <tbody>
+                    <tr>
+            <td style="text-align: center; color: #64748b; font-weight: 600;">1</td>
+            <td><strong>SMA Islam Sudirman Ambarawa</strong></td>
+            <td>Klaster 4</td>
+            <td>Adnan Cindyana (Cindy)</td>
+            <td style="text-align: right; font-weight: 700; color: #0f172a;">0</td>
+            <td style="text-align: center; font-weight: 600; color: #2563eb;">0</td>
+            <td style="text-align: center;"><span class='tag-pending'>-</span></td>
+            <td style="text-align: center;"><span class='badge badge-warning'>ON HOLD (SENIN)</span></td>
+            <td style="font-size: 8.5pt; color: #475569;">Laporan PDF 50 PTK & 1.156 Siswa di Drive lengkap. On hold menunggu data susulan Senin.</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!-- Operational Notes & Sign-off -->
+    <h2>4. Catatan Teknis & Kesimpulan Audit Platform</h2>
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px; font-size: 8pt; color: #334155; line-height: 1.5;">
+        <strong>Ringkasan Hasil Operasional:</strong>
+        <ol style="margin: 4px 0 0 16px; padding: 0;">
+            <li><strong>Sanitasi Data Mentah (Batch 1 "1 gas"):</strong> 100% tuntas. Seluruh file mentah dari 28 sekolah telah disanitasi menjadi template resmi <code>[CLEAN_IMPORT] ... .xlsx</code>.</li>
+            <li><strong>Penyelarasan Rombel & Kredensial Surakarta (Batch 2 "2 gas"):</strong> 100% tuntas. Seluruh sekolah di Kota Surakarta telah terpetakan ke rombel masing-masing dengan TA 2026/2027 aktif.</li>
+            <li><strong>Bulk Deployment Seluruh Sekolah Tersanitasi:</strong> 100% tuntas. 86 folder satuan pendidikan (mencakup 95 sekolah mitra) telah aktif penuh dengan 41.905 akun siswa live dan 1.267 rombel terisi (0 siswa tertinggal unassigned).</li>
+            <li><strong>SMA Islam Sudirman Ambarawa (ISSUDA):</strong> Berkas laporan PDF resmi (50 PTK & 1.156 siswa) dan template Excel telah siap di Google Drive. Sesuai instruksi operasional, status tetap <em>ON HOLD</em> menunggu data susulan hari Senin sebelum diimpor ke sistem.</li>
+        </ol>
+    </div>
+
+    <div class="footer-note">
+        <div>
+            <strong>Sistem Audit & Deployment Terintegrasi BelajarPlus</strong><br>
+            Dokumen Resmi Disahkan Secara Elektronik &bull; 18 Oktober 2026
+        </div>
+        <div style="text-align: right;">
+            <strong>Tim Lead System Engineer & Koordinator Trainer</strong><br>
+            Google Drive Repository: <code>AKUN/AUDIT_STATUS_90_SEKOLAH_BELAJARPLUS_2026</code>
+        </div>
+    </div>
+
+</body>
+</html>

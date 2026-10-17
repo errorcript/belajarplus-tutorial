@@ -7,3 +7,34 @@ scratch/
 !assets/*.png
 !assets/**/*.png
 
+# Auth tokens & secrets
+*_token.txt
+token.txt
+*_body.json
+
+# Temporary request/response dumps
+temp_*
+tmp_*
+*_raw.txt
+*_resp*.txt
+*_resp.txt
+roster_members.json
+count_req.json
+grant_req.json
+ta_req.json
+del_rombel.json
+page_req.json
+rombel_req.json
+seroval_req.json
+set_status_test.json
+create_rombel_seroval.json
+create_rombel_test.json
+body.json
+current_rombels.txt
+students_raw.txt
+all_prembun_members*
+roster_*
+test_r_res.txt
+*.csv
+
+
