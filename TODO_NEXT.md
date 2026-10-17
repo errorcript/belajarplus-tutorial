@@ -40,7 +40,9 @@
 
 ---
 
-### C. Akun Kepala Sekolah & Admin (Buku Panduan Resmi 8 Tahap & Alur Kerja Awal Tahun Ajaran)
+### C. Akun Admin Sekolah (Buku Panduan Operasional 8 Tahap) & D. Akun Kepala Sekolah (Buku Panduan Eksekutif 6 Pilar)
+- [x] **Pemisahan Peran Dedikasi 4 Role**: Siswa (12 langkah), Guru (8 langkah), Admin Sekolah (8 tahap setup), Kepala Sekolah (6 pilar mutu).
+- [x] **Pusat Cetak & PDF Hub Terisolasi**: `@media print` murni A4 isolasi kontainer peran aktif tanpa terpotong page-break.
 - [x] **Prinsip Kesetaraan Kewenangan Penuh**: Admin Sekolah (operasional master data, presensi, akun) vs Kepala Sekolah (supervisi KBM, pemantauan jurnal, kontrol nilai & rapor).
 - [x] **Ringkasan Alur Kerja Awal Tahun Ajaran (8 Tahap Berurutan)**:
   1. Anggota: Impor/Setujui Siswa & PTK baru

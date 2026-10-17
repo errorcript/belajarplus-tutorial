@@ -538,10 +538,21 @@ window.downloadRolePDF = async function(role) {
   window.isGeneratingPDF = true;
 
   const roleTitles = {
-    siswa: 'AKUN SISWA / PELAJAR (12 LANGKAH OPERASIONAL LENGKAP)',
-    guru: 'AKUN GURU / PENGAJAR (8 LANGKAH KELOLA E-LEARNING KELAS, PENUGASAN & PRESENSI DIGITAL)',
-    kepsek: 'AKUN KEPALA SEKOLAH & ADMIN (BUKU PANDUAN LENGKAP: 8 TAHAP TATA KELOLA AKADEMIK, E-LEARNING, PRESENSI & RAPOR)'
+    siswa: 'PANDUAN AKUN SISWA / PELAJAR (12 LANGKAH OPERASIONAL LENGKAP)',
+    guru: 'PANDUAN AKUN GURU / PENGAJAR (8 LANGKAH KELOLA KELAS & KBM DIGITAL)',
+    admin: 'PANDUAN AKUN ADMIN SEKOLAH (8 TAHAP SETUP MASTER DATA & OPERASIONAL TEKNIS)',
+    kepsek: 'PANDUAN AKUN KEPALA SEKOLAH (6 PILAR SUPERVISI KBM, VALIDASI RAPOR & KEBIJAKAN EKSEKUTIF)'
   };
+
+window.printRoleTutorial = function(role) {
+  const btn = document.querySelector(`.role-tab[data-role="${role}"]`);
+  if (btn && window.switchRole) {
+    window.switchRole(role, btn);
+  }
+  setTimeout(() => {
+    window.print();
+  }, 150);
+};
 
   const targetContainer = document.getElementById(`steps-${role}`);
   if (!targetContainer) {
@@ -798,6 +809,7 @@ const driveVideoData = {
     { part: 5, title: 'Part 5: Audit & Laporan Dinas', id: '1hZTWw4WY8cGpvswggrW4vqb8dZ0Etifo', desc: 'Laporan eksekutif akreditasi sekolah & log keamanan sistem' }
   ]
 };
+driveVideoData.admin = driveVideoData.kepsek;
 
 // === INTERACTIVE VIDEO TUTORIAL & INDONESIAN VOICEOVER ENGINE ===
 const videoTutorialData = {
@@ -994,6 +1006,11 @@ const videoTutorialData = {
     ]
   }
 };
+videoTutorialData.admin = {
+  roleTitle: 'Video Panduan Admin Sekolah — Setup Master Data & Operasional',
+  roleSub: 'Panduan Teknis Master Data, Impor Dapodik, Presensi Geofencing GPS & Kursi Lisensi Buku',
+  steps: videoTutorialData.kepsek.steps
+};
 
 let currentVideoRole = 'siswa';
 let currentVideoStepIndex = 0;
@@ -1071,7 +1088,7 @@ window.loadDriveVideo = function(role, partNumber) {
   // Update header text
   const titleElem = document.getElementById('videoRoleTitle');
   const subElem = document.getElementById('videoRoleSub');
-  const roleNames = { siswa: 'Akun Siswa', guru: 'Akun Guru', kepsek: 'Kepala Sekolah & Admin' };
+  const roleNames = { siswa: 'Akun Siswa', guru: 'Akun Guru', admin: 'Admin Sekolah', kepsek: 'Kepala Sekolah' };
   if (titleElem) titleElem.textContent = `${video.title} (${roleNames[currentVideoRole] || currentVideoRole})`;
   if (subElem) subElem.textContent = video.desc || 'Rekaman panduan layar resmi BelajarPlus';
 
