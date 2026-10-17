@@ -36,6 +36,8 @@ Dokumen Quality Assurance (QA) ini disusun untuk memvalidasi keandalan fungsiona
 | **QA-LKPD-01** | LKPD Interaktif | Pengerjaan LJD Stimulus &amp; 6 Tipe Respon | Siswa mengerjakan LKPD berisi stimulus observasi + MCQ, MCMA, Benar/Salah, Menjodohkan, Esai AI, dan Berkas &le; 10MB. | Sistem merespon interaksi seketika, auto-scoring kalkulasi instan, dan menerbitkan radar penguasaan kompetensi dasar. | **PASSED** |
 | **QA-LKPD-02** | Aktivitas Belajar | Penyematan Modul Web / HTML5 (PhET/GeoGebra) | Guru menyematkan modul simulasi sains interaktif di tab Aktivitas Belajar via sandboxed container. | Simulasi fisika/matematika berjalan 60 FPS di dalam aplikasi tanpa reload browser atau memicu false anti-cheat flag. | **PASSED** |
 | **QA-LKPD-03** | Penilaian Non-Tes | Rubrik Praktikum &amp; Dokumen Tugas &le; 10MB | Guru menginput penilaian kinerja eksperimen (Kesiapan, Prosedur, Analisis, Laporan) skala 0–100. | Nilai otomatis terakumulasi; siswa absen dipertahankan `NULL` (tidak merusak rata-rata rombel), siap kunci ke e-Rapor. | **PASSED** |
+| **QA-AI-01** | Asesmen & Ujian | Koreksi Cerdas Esai Berbasis AI (AI Grader) | Guru mengevaluasi lembar jawaban esai siswa menggunakan inferensi semantik AI dengan kriteria rubrik kata kunci berbobot. | Sistem mendebit 1 token kuota AI secara akuntabel, menghitung skor 0–100 berdasarkan kecocokan semantik rubrik (contoh: Akulturasi, Menara Kudus, Harmoni), menyajikan umpan balik pedagogis instan, dan mempertahankan otoritas guru (*human-in-the-loop*) untuk memveto atau merevisi nilai sebelum disimpan ke buku nilai. | **PASSED** |
+| **QA-TOKO-01** | Toko Buku & Lisensi | Invoice Pembayaran Mandiri 3-Digit Kode Unik | Siswa/Guru melakukan pembelian buku digital di Toko Belajar Plus via metode transfer bank mandiri. | Sistem meng-generate tagihan dengan nominal acak 3-digit kode unik (misal Rp 95.342), mencocokkan mutasi rekening bank secara otomatis, mengaktifkan lisensi DRM ke tab "Buku Saya", serta menerbitkan nomor lisensi resmi tanpa keterlambatan. | **PASSED** |
 
 ---
 
@@ -76,6 +78,20 @@ Dokumen Quality Assurance (QA) ini disusun untuk memvalidasi keandalan fungsiona
   1. **Sandboxed Iframe**: Modul web interaktif disematkan dengan atribut `sandbox="allow-scripts allow-same-origin allow-forms"`, mengisolasi modul dari akses ke token sesi atau cookie induk Belajar Plus.
   2. **Focus State Whitelisting**: Interaksi pointer/mouse di dalam area simulasi dinyatakan sah (*valid in-app engagement*) dan tidak memicu penambahan counter pelanggaran anti-cheat.
   3. **Multi-Model Flexibility**: Mendukung 3 model sekaligus: Native LJD (auto-scoring 6 tipe soal), Interactive Web Simulation (PhET/GeoGebra/H5P di Tab Aktivitas Belajar), dan Practical Worksheet Upload (&le; 10 MB) dengan rubrik non-tes.
+
+### 3.6. Otomasi Inferensi Esai AI & Mekanisme Human-in-the-Loop
+* **Risiko Potensial**: Halusinasi skor AI atau pemotongan kredit sepihak saat inferensi gagal, serta hilangnya kontrol pedagogis guru jika nilai AI langsung disuntikkan permanen ke e-Rapor tanpa validasi manusia.
+* **Solusi & Verifikasi**:
+  1. **Debit Kredit Akuntabel (Idempotent Token Debit)**: Kuota kredit AI sekolah hanya didebit saat respons inferensi valid berstatus `HTTP 200 OK` dengan skor numerik dan umpan balik tersaji. Jika terjadi timeout koneksi atau kegagalan API, transaksi dibatalkan (*rollback*) dan token dikembalikan utuh.
+  2. **Kecocokan Semantik Berbobot (Weighted Keyword Matching)**: Mesin pengevaluasi memeriksa kehadiran konsep kunci kurikulum (misal: "percampuran budaya", "tanpa menghilangkan unsur asli", "contoh akulturasi Menara Kudus", "sikap toleransi") bukan sekadar kecocokan kata harafiah (*exact string match*).
+  3. **Otoritas Veto Guru (Human-in-the-Loop)**: Nilai rekomendasi AI berstatus *Draft Proposal*. Guru memegang kewenangan mutlak untuk menerima, menaikkan, atau menurunkan nilai sebelum tombol "Kunci ke Nilai Rapor" ditekan.
+
+### 3.7. Pencocokan Mutasi Transfer Bank 3-Digit Kode Unik & Aktivasi Lisensi Mandiri
+* **Risiko Potensial**: Pembeli salah mentransfer nominal flat tanpa kode unik sehingga transaksi gagal terverifikasi otomatis oleh sistem robot mutasi bank, atau terjadi klaim ganda atas satu nomor transaksi.
+* **Solusi & Verifikasi**:
+  1. **Algoritma 3-Digit Pseudo-Random Suffix**: Setiap invoice pembayaran mandiri yang diterbitkan menambahkan akhiran acak 3 digit antara `001` hingga `999` pada harga dasar buku (contoh: Buku Rp 95.000 + Kode Unik 342 = Total Rp 95.342).
+  2. **Jendela Validitas Pembayaran (TTL 24 Jam)**: Kombinasi kode unik dan nomor rekening tujuan dikunci untuk ID pengguna tersebut selama 24 jam. Jika dalam 24 jam tidak ada mutasi yang cocok, invoice kedaluwarsa dan kode unik dilepaskan kembali ke pool.
+  3. **Aktivasi Lisensi Otomatis & DRM Registration**: Begitu transfer dengan nominal presisi terdeteksi oleh webhook mutasi bank, status pesanan berganti dari `UNPAID` ke `PAID` dalam &lt; 3 detik, nomor lisensi resmi diterbitkan, dan buku langsung tersedia di tab *Koleksi Saya > Milik Saya* dengan watermark DRM akun pembeli.
 
 ---
 

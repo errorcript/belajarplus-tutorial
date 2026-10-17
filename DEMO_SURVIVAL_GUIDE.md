@@ -20,9 +20,9 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
    * *Solusi:* Jangan buka live kecuali sudah disiapkan akun *Siswa Terdaftar* di sekolah aktif. Cukup jelaskan fitur ini secara konsep dan tunjukkan slide presentasi (lihat naskah diplomatis di bawah).
 
 2. **JANGAN PERNAH SWITCH INSTITUSI DI SATU BROWSER SAAT PRESENTASI!**
-   * *Akar Masalah (#BUG-BP2-14):* Berpindah role dari *Siswa Belajar Plus* ke *SMA NEGERI 1 SRAGEN* memicu *race condition*. Status header hang di *"Memuat institusi..."*, sidebar kiri lumpuh jadi abu-abu, dan form login muncul di tengah dashboard.
+   * *Akar Masalah (#BUG-BP2-14):* Berpindah role dari *Siswa Belajar Plus* ke *SMA EGIS* memicu *race condition*. Status header hang di *"Memuat institusi..."*, sidebar kiri lumpuh jadi abu-abu, dan form login muncul di tengah dashboard.
    * *Solusi Setup Sebelum Tampil:* Siapkan **2 Browser Window terpisah**:
-     * **Window 1 (Chrome):** Mode Guru — Sudah login di institusi **SMA NEGERI 1 SRAGEN**.
+     * **Window 1 (Chrome):** Mode Guru — Sudah login di institusi **SMA EGIS**.
      * **Window 2 (Edge/Incognito):** Mode Siswa — Sudah login di akun Siswa dengan rombel aktif.
      * Cukup gunakan shortcut `Alt + Tab` untuk berpindah pandangan antara Guru dan Siswa.
 
@@ -32,7 +32,7 @@ Berdasarkan hasil audit teknis mendalam (*reverse engineering*) pada runtime liv
 
 4. **HINDARI MENGGUNAKAN INSTITUSI DUMMY ("SMAN Dummy Latihan"):**
    * *Akar Masalah (#BUG-BP2-10):* Institusi dummy berstatus *"Tanpa LMS"* sehingga tombol dan tab `[Kelas Sekolah]` hilang total, menyisakan `[Kelas Umum]`.
-   * *Solusi:* Gunakan tenant sekolah resmi yang sudah terkonfigurasi (**SMA NEGERI 1 SRAGEN**).
+   * *Solusi:* Gunakan tenant sekolah resmi yang sudah terkonfigurasi (**SMA EGIS**).
 
 5. **JANGAN RELOAD (F5) SAAT DI RUTE ADMIN:**
    * *Akar Masalah (#BUG-BP2-11):* Direct access / hard refresh di `/admin/*` sering me-reset tenant ke *"Belum dipilih"* dan melempar layar putih *"Akses ditolak"*.
@@ -116,7 +116,7 @@ Ikuti urutan langkah ini untuk alur demonstrasi yang mulus dan memukau:
    └── Buka /scan di HP atau layar utama
    └── Tunjukkan betapa cepatnya kamera mengenali QR code soal untuk latihan mandiri
 
-[4. Demo Akun Guru - Window Guru SMA 1 Sragen] (20 Menit)
+[4. Demo Akun Guru - Window Guru SMA EGIS] (20 Menit)
    └── Buka Workspace Kelas Matematika 10 A
    └── Tunjukkan bank soal lengkap (PG, PG Kompleks, Benar/Salah, & Esai)
    └── Tunjukkan simulasi penilaian otomatis jawaban siswa & analisa tagging kelemahan siswa

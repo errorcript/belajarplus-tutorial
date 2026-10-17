@@ -1083,7 +1083,7 @@ export function canCreateSchoolClass(institution: Institution): boolean {
         <div class="bug-block">
           <div class="bug-block-heading">3. Langkah Reproduksi</div>
           <ol>
-            <li>Login sebagai guru/trainer dan pilih <em>SMA NEGERI 1 SRAGEN</em>.</li>
+            <li>Login sebagai guru/trainer dan pilih <em>SMA EGIS</em>.</li>
             <li>Buka halaman <code>https://belajarplus.id/admin/classes</code>.</li>
             <li>Buka tab browser baru dan salin URL <code>https://belajarplus.id/admin/classes</code> secara langsung.</li>
             <li>Amati layar putih dengan pesan <em>"Akses ditolak"</em> dan dropdown institusi yang ter-reset ke <em>"Belum dipilih"</em>.</li>
@@ -1213,13 +1213,13 @@ export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
         </div>
         <div class="bug-meta-strip">
           <div><strong>Modul:</strong> Switcher Institusi / Multi-Tenant Context (<code>/dashboard</code>)</div>
-          <div><strong>Aksi Pemicu:</strong> Pergantian tenant dari Siswa ke Guru (SMA 1 Sragen)</div>
+          <div><strong>Aksi Pemicu:</strong> Pergantian tenant dari Siswa ke Guru (Institusi Mitra / SMA EGIS)</div>
           <div><strong>Lingkungan:</strong> Production Web &amp; PWA</div>
           <div><strong>Reproduksibilitas:</strong> 100% Deterministik</div>
         </div>
         <div class="bug-block">
           <div class="bug-block-heading">1. Deskripsi Gejala</div>
-          <p>Ketika user mencoba berpindah institusi via modal switcher (misalnya beralih dari peran Siswa BelajarPlus ke Guru SMA NEGERI 1 SRAGEN), terjadi <em>race condition</em> pada auth listener context. Status di header terjebak pada animasi <code>"Memuat institusi..."</code>, seluruh menu sidebar kiri lumpuh total menjadi deretan skeleton abu-abu mati, dan body tengah aplikasi me-render ulang formulir login (<em>"Masuk ke Belajar Plus - Gunakan email dan kata sandi Anda"</em>) di dalam layout pengguna yang identitas profilnya masih aktif terotentikasi di pojok kanan atas.</p>
+          <p>Ketika user mencoba berpindah institusi via modal switcher (misalnya beralih dari peran Siswa BelajarPlus ke Guru Institusi Mitra / SMA EGIS), terjadi <em>race condition</em> pada auth listener context. Status di header terjebak pada animasi <code>"Memuat institusi..."</code>, seluruh menu sidebar kiri lumpuh total menjadi deretan skeleton abu-abu mati, dan body tengah aplikasi me-render ulang formulir login (<em>"Masuk ke Belajar Plus - Gunakan email dan kata sandi Anda"</em>) di dalam layout pengguna yang identitas profilnya masih aktif terotentikasi di pojok kanan atas.</p>
         </div>
         <div class="bug-block">
           <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
@@ -1230,7 +1230,7 @@ export function AdminAuthGuard({ children }: { children: React.ReactNode }) {
           <ol>
             <li>Login ke <code>https://belajarplus.id/auth</code> dengan akun multi-peran (misal Guru/Siswa).</li>
             <li>Masuk ke peran Siswa BelajarPlus terlebih dahulu.</li>
-            <li>Klik dropdown institusi di header atas, lalu pilih institusi sekolah resmi (<code>SMA NEGERI 1 SRAGEN</code>).</li>
+            <li>Klik dropdown institusi di header atas, lalu pilih institusi sekolah resmi (<code>SMA EGIS</code>).</li>
             <li>Amati layar: Status header menampilkan "Memuat institusi...", sidebar berubah menjadi placeholder abu-abu kosong, dan form login muncul di tengah dashboard.</li>
           </ol>
         </div>
@@ -1284,7 +1284,7 @@ async function switchTenant(newTenantId: string) {
         </div>
         <div class="bug-block">
           <div class="bug-block-heading">2. Dampak Terhadap Pengguna</div>
-          <p>Guru dan admin mengira hak akses atau akun mereka telah dicabut. Sistem tidak memiliki kecerdasan rute untuk mendeteksi bahwa pengguna memiliki peran admin/guru di institusi lain dan tidak menawarkan tombol <em>"Beralih ke SMA Negeri 1 Sragen untuk mengakses kelas ini"</em>.</p>
+          <p>Guru dan admin mengira hak akses atau akun mereka telah dicabut. Sistem tidak memiliki kecerdasan rute untuk mendeteksi bahwa pengguna memiliki peran admin/guru di institusi lain dan tidak menawarkan tombol <em>"Beralih ke SMA EGIS untuk mengakses kelas ini"</em>.</p>
         </div>
         <div class="bug-block">
           <div class="bug-block-heading">3. Rekomendasi Solusi &amp; Patch Rekayasa</div>
@@ -1526,7 +1526,7 @@ const calculateScore = (correctAnswers, totalQuestions) => {
         </div>
         <div class="bug-body">
           <p><strong>Deskripsi Masalah:</strong></p>
-          <p>Kegagalan isolasi data multi-tenant (*tenant data breach*) terdeteksi pada form penugasan buku digital di <code>/admin/assignments</code>. Saat akun guru Henri masuk ke institusi resmi <strong>SMA NEGERI 1 SRAGEN</strong> dan membuka dropdown filter <em>"Kelas Saya"</em>, sistem membocorkan kelas-kelas yang dibuat oleh guru dan trainer dari institusi lain:</p>
+          <p>Kegagalan isolasi data multi-tenant (*tenant data breach*) terdeteksi pada form penugasan buku digital di <code>/admin/assignments</code>. Saat akun guru Henri masuk ke institusi resmi <strong>Institusi Mitra / SMA EGIS</strong> dan membuka dropdown filter <em>"Kelas Saya"</em>, sistem membocorkan kelas-kelas yang dibuat oleh guru dan trainer dari institusi lain:</p>
           <ul>
             <li><code>FISIKA KELAS 11 - MISS CINDY</code></li>
             <li><code>FISIKA 12 - MISS CINDY</code></li>
@@ -1537,12 +1537,12 @@ const calculateScore = (correctAnswers, totalQuestions) => {
 
           <p><strong>Dampak Demo &amp; Lapangan:</strong></p>
           <div class="callout callout-danger">
-            <strong>LARANGAN DEMO:</strong> Jangan membuka form penugasan buku di hadapan manajemen sekolah negeri. Tampilan nama-nama guru lain seperti "Miss Cindy" di layar proyektor SMA Negeri 1 Sragen akan menjadi bukti telak kebocoran data privasi (*privacy data leak*) antar-sekolah mitra.
+            <strong>LARANGAN DEMO:</strong> Jangan membuka form penugasan buku di hadapan manajemen sekolah negeri. Tampilan nama-nama guru lain seperti "Miss Cindy" di layar proyektor institusi sekolah akan menjadi bukti telak kebocoran data privasi (*privacy data leak*) antar-sekolah mitra.
           </div>
         </div>
         <div class="visual-attachment" onclick="viewImage('assets/hunt_sragen_admin_assignments_hd.png')">
           <img src="assets/hunt_sragen_admin_assignments_hd.png" alt="Bukti Bug Kebocoran Rombel Lintas Guru" />
-          <div class="visual-caption">📸 Bukti Visual: Halaman penugasan SMA N 1 Sragen yang bocor menampilkan kelas milik Miss Cindy dan rombel uji coba</div>
+          <div class="visual-caption">📸 Bukti Visual: Halaman penugasan institusi yang bocor menampilkan kelas milik Miss Cindy dan rombel uji coba</div>
         </div>
       </article>
 
@@ -1566,7 +1566,7 @@ const calculateScore = (correctAnswers, totalQuestions) => {
         </div>
         <div class="bug-body">
           <p><strong>Deskripsi Masalah:</strong></p>
-          <p>Modul Presensi Kedatangan di institusi sekolah (baik di SMA N 1 Sragen maupun SEKOLAH DUMMY TRAINER 3) secara otomatis menolak akses dan memblokir layar kerja guru/trainer dengan pesan:</p>
+          <p>Modul Presensi Kedatangan di institusi sekolah (baik di Institusi Mitra / SMA EGIS maupun SEKOLAH DUMMY TRAINER 3) secara otomatis menolak akses dan memblokir layar kerja guru/trainer dengan pesan:</p>
           <blockquote><em>"Anda belum menjadi wali kelas Rombel aktif mana pun."</em></blockquote>
           <p>Arsitektur sistem membatasi fitur absensi hanya kepada akun yang secara eksplisit didefinisikan sebagai <code>homeroom_teacher</code> (wali kelas). Guru mata pelajaran biasa tidak memiliki hak atau tampilan rekap kehadiran siswa di kelasnya sendiri, dan tidak ada fallback antarmuka untuk demonstrasi kehadiran oleh instruktur/trainer.</p>
         </div>
@@ -1660,7 +1660,7 @@ const calculateScore = (correctAnswers, totalQuestions) => {
         </div>
         <div class="bug-body">
           <p><strong>Deskripsi Masalah:</strong></p>
-          <p>Fitur <em>"Presensi Wajah"</em> yang dipromosikan sebagai keunggulan utama BelajarPlus v2.0 ternyata <strong>belum selesai dikembangkan</strong> di tingkat arsitektur sistem. Bukti autentik dari panel Pengaturan Absensi (<code>/absensi/pengaturan</code>) di institusi resmi SMA NEGERI 1 SRAGEN membuktikan:</p>
+          <p>Fitur <em>"Presensi Wajah"</em> yang dipromosikan sebagai keunggulan utama BelajarPlus v2.0 ternyata <strong>belum selesai dikembangkan</strong> di tingkat arsitektur sistem. Bukti autentik dari panel Pengaturan Absensi (<code>/absensi/pengaturan</code>) di institusi resmi Institusi Mitra / SMA EGIS membuktikan:</p>
           <ul>
             <li><strong>Deteksi Keaslian Wajah (Liveness):</strong> Berstatus badge abu-abu <code>Segera Hadir</code> dan toggle switch terkunci mati (disabled). Artinya algoritma computer vision / face liveness detection belum diimplementasikan di production.</li>
             <li><strong>Verifikasi Wajah &amp; Kiosk:</strong> Fitur <em>"Kiosk wajah sekolah"</em> dan <em>"Wajib verifikasi wajah untuk absensi siswa melalui HP"</em> dinonaktifkan permanen dengan catatan <em>"Memerlukan Langganan LMS aktif"</em>.</li>

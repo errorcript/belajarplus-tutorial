@@ -77,7 +77,15 @@
     1. Mode Native LJD dengan stimulus, timer hitung mundur, navigator butir soal, dan auto-scoring instan + radar capaian kompetensi.
     2. Mode Simulasi Sains HTML5 (Virtual Lab Fisika / Pendulum Osilasi 60 FPS) dengan kontrol panjang tali dan gravitasi planet.
     3. Mode Rubrik Praktikum Non-Tes (&le; 10 MB) dengan kalkulator 4 indikator kinerja (Kesiapan, Prosedur, Analisis, Laporan) dan perlakuan NULL vs 0.
-- [x] **Dokumen Spesifikasi QA Formal**: Ditulis di `QA_FITUR_BARU_BELAJARPLUS.md` lengkap dengan Matriks Uji QA-ATT-01 s.d. QA-LKPD-03, Analisis Kasus Batas (Edge Cases), Arsitektur Sandbox Web/HTML5, Failure Modes, dan Lembar Sign-off Pejabat Sekolah.
+  - **Uji 8: Live Interactive AI Essay Grader & Rubric Matcher (QA-AI-01)**:
+    - Analisis semantik kata kunci berbobot (Akulturasi, Menara Kudus, Harmoni/Toleransi).
+    - Konsumsi token kredit akuntabel (idempotent 1 kredit per esai).
+    - Penilaian 0–100, umpan balik pedagogis instan, dan kontrol veto guru (*human-in-the-loop*).
+  - **Uji 9: E-Commerce Invoice Simulator dengan 3-Digit Kode Unik & Aktivasi Lisensi DRM Mandiri (QA-TOKO-01)**:
+    - Generator invoice nominal acak 3-digit kode unik (misal Rp 95.342) untuk verifikasi mutasi bank otomatis.
+    - Status transaksi otomatis beralih `UNPAID` &rarr; `PAID` dalam &lt; 3 detik.
+    - Penerbitan nomor lisensi resmi dan auto-linking aset buku ke tab *Koleksi Saya > Milik Saya*.
+- [x] **Dokumen Spesifikasi QA Formal**: Ditulis di `QA_FITUR_BARU_BELAJARPLUS.md` lengkap dengan Matriks Uji QA-ATT-01 s.d. QA-TOKO-01, Analisis Kasus Batas (Edge Cases 3.1–3.7), Arsitektur Sandbox Web/HTML5, Failure Modes, dan Lembar Sign-off Pejabat Sekolah.
 - [x] **Deep Engine Architecture & System Internals Inspector**:
   - Mesin Hitung Trigonometri Haversine Geodesi ($R = 6.371.000\text{ m}$) dengan simulator koordinat interaktif dan anomali geofence.
   - Finite State Machine (FSM) Pengawas Anti-Cheat Ujian Digital (`onblur`, `visibilitychange`, `fullscreenchange`) dengan auto-submit terpaksa.
