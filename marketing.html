@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing &amp; BD Field Toolkit • BelajarPlus v2.0</title>
+  <meta name="description" content="Pegangan & Field Toolkit Resmi Tim Pemasaran & Business Development BelajarPlus: Skrip Pitching, Kalkulator ROI BOS, Battlecard Kompetitor, dan Penanganan Keberatan Sekolah." />
+  <link rel="icon" type="image/png" href="assets/belajar-plus-logo.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=57" />
+
+  <!-- ResponsiveVoice JS for Native Indonesian Female Voiceover -->
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+  <style>
+    :root {
+      --mkt-primary: #0284c7;
+      --mkt-primary-hover: #0369a1;
+      --mkt-accent: #10b981;
+      --mkt-gold: #f59e0b;
+      --mkt-purple: #8b5cf6;
+      --mkt-dark: #0f172a;
+      --mkt-card-bg: rgba(30, 41, 59, 0.7);
+      --mkt-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: #090d16;
+      color: #f8fafc;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Marketing Header */
+    .mkt-hero {
+      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.25) 0%, rgba(9, 13, 22, 1) 75%);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .mkt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      margin-bottom: 1.25rem;
+    }
+
+    .mkt-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .mkt-subtitle {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 760px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .mkt-nav-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pill-link {
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .pill-link:hover, .pill-link.active {
+      background: rgba(2, 132, 199, 0.2);
+      border-color: #38bdf8;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* Container */
+    .mkt-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* Section Styles */
+    .mkt-section {
+      margin-bottom: 4rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.75rem;
+      border-left: 4px solid #0284c7;
+      padding-left: 1rem;
+    }
+
+    .section-head h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .section-head p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin: 0.25rem 0 0 0;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mkt-card {
+      background: var(--mkt-card-bg);
+      border: 1px solid var(--mkt-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .mkt-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* ROI Calculator */
+    .calc-box {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.95));
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 16px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 860px) {
+      .calc-box { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .calc-slider-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .calc-slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .calc-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #334155;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
+    .calc-result-panel {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .calc-highlight {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 95, 70, 0.2));
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .savings-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #34d399;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Pitch Card with Audio Voiceover */
+    .pitch-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pitch-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pitch-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(2, 132, 199, 0.2);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .pitch-body {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+      font-style: italic;
+      background: rgba(0, 0, 0, 0.25);
+      border-left: 3px solid #38bdf8;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1rem;
+    }
+
+    .btn-audio {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-audio:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    /* Objection Flashcards */
+    .objection-card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .objection-card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: rgba(20, 30, 48, 0.95);
+    }
+
+    .objection-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f8fafc;
+    }
+
+    .objection-a {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .objection-card.open .objection-a {
+      display: block;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .objection-card.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Battlecard Table */
+    .battle-table-wrap {
+      overflow-x: auto;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--mkt-border);
+      border-radius: 12px;
+      padding: 0.5rem;
+    }
+
+    .battle-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .battle-table th, .battle-table td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: left;
+    }
+
+    .battle-table th {
+      background: rgba(0, 0, 0, 0.35);
+      color: #94a3b8;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .battle-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .col-highlight {
+      background: rgba(2, 132, 199, 0.08);
+      border-left: 2px solid #0284c7;
+      border-right: 2px solid #0284c7;
+      font-weight: 600;
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .mkt-hero, .btn-audio, .mkt-nav-pills, .no-print { display: none !important; }
+      .mkt-card, .calc-box, .pitch-card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; }
+      .savings-num { color: #059669 !important; }
+      .pitch-body { color: #000 !important; font-style: normal !important; border-left-color: #0284c7 !important; }
+      .objection-a { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Navigation Bar -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" style="height: 32px; width: auto; object-fit: contain;" />
+      <span class="logo-badge" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff;">Field Toolkit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/" style="color: #94a3b8;">📖 Tutorial</a></li>
+      <li><a href="/demo" style="color: #38bdf8;">🛡️ Demo Hub</a></li>
+      <li><a href="/sosialisasi-kepsek.html" style="color: #a78bfa;">📽️ Slide Kepsek</a></li>
+      <li><a href="/bug2" style="color: #f87171;">🔍 Audit v2.0 (39)</a></li>
+      <li><a href="/qa-fitur-baru.html" style="color: #10b981;">🧪 Simulator QA</a></li>
+      <li><a href="#roi-calculator" style="color: #34d399; font-weight: 700;">💰 Kalkulator BOS</a></li>
+    </ul>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-audio" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2);">
+        🖨️ Cetak A4 / PDF
+      </button>
+      <a href="https://belajarplus.id" target="_blank" class="btn-nav desktop-only">Buka App →</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="mkt-hero">
+    <div class="mkt-badge">🎯 Field Marketing &amp; BD Playbook 2026</div>
+    <h1 class="mkt-title">Pegangan Lapangan <span style="background: linear-gradient(135deg, #38bdf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Marketing &amp; Sales</span></h1>
+    <p class="mkt-subtitle">Alat bantu taktis tim lapangan BelajarPlus: Skrip pitching eksekutif, simulasi efisiensi BOS interaktif, perbandingan kompetitor, dan jurus penanganan keberatan Kepala Sekolah.</p>
+    
+    <div class="mkt-nav-pills no-print">
+      <a href="#pitching-scripts" class="pill-link active">🗣️ Skrip Pitching (Audio)</a>
+      <a href="#roi-calculator" class="pill-link">💰 Kalkulator ROI BOS</a>
+      <a href="#battlecard" class="pill-link">⚔️ Battlecard Kompetitor</a>
+      <a href="#objections" class="pill-link">🛡️ Jurus Tangkis Keberatan</a>
+      <a href="#sales-funnel" class="pill-link">📋 5-Step Sales Funnel</a>
+    </div>
+  </header>
+
+  <main class="mkt-container">
+
+    <!-- ==================== 1. SKRIP PITCHING INTERAKTIF (DENGAN AUDIO VOICEOVER) ==================== -->
+    <section id="pitching-scripts" class="mkt-section">
+      <div class="section-head">
+        <h2>1. Skrip Pitching Interaktif (Elevator &amp; Executive Pitches)</h2>
+        <p>Gunakan skrip terstruktur ini saat berbicara dengan Kepala Sekolah, Pengawas Pembina, atau Ketua MKKS. Dengarkan pelafalan audionya untuk melatih intonasi diplomatis.</p>
+      </div>
+
+      <!-- Pitch 1: 30 Detik -->
+      <div class="pitch-card">
+        <div class="pitch-header">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span class="pitch-tag" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">30 Detik</span>
+            <strong style="color: #ffffff;">Elevator Pitch (Lobi Dinas / Pertemuan MKKS / Sapaan Cepat)</strong>
+          </div>
+          <button class="btn-audio" onclick="playVoicePitch('pitch30', this)">
+            🔊 Putar Audio VO (30s)
+          </button>
+        </div>
+        <div class="pitch-body" id="pitch30-text">
+          "Selamat pagi Bapak/Ibu Kepala Sekolah. Pernahkah Bapak/Ibu menghitung berapa puluh juta dana BOS yang habis tiap semester hanya untuk fotokopi kertas ujian dan pengadaan buku cetak yang akhirnya rusak di gudang perpustakaan? Kami dari BelajarPlus membantu lebih dari 17 sekolah mitra di Jawa Tengah menghemat hingga 50% anggaran BOS tersebut dengan ekosistem perpustakaan digital resmi dan ujian LJD paperless. Hebatnya lagi, platform kami dilengkapi asisten AI yang membantu guru mengoreksi ujian esai dalam hitungan detik. Boleh saya jadwalkan 15 menit minggu ini untuk mendemokan langsung di laptop Bapak/Ibu?"
+        </div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">
+          💡 <strong>Kapan Digunakan:</strong> Saat berpapasan dengan Kepala Sekolah di acara dinas, jeda seminar, atau pesan pembuka WhatsApp formal.
+        </div>
+      </div>
+
+      <!-- Pitch 2: 2 Menit -->
+      <div class="pitch-card">
+        <div class="pitch-header">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span class="pitch-tag" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">2 Menit</span>
+            <strong style="color: #ffffff;">Executive Kepsek Pitch (Audiensi Ruang Kepala Sekolah)</strong>
+          </div>
+          <button class="btn-audio" onclick="playVoicePitch('pitch2m', this)">
+            🔊 Putar Audio VO (2 Menit)
+          </button>
+        </div>
+        <div class="pitch-body" id="pitch2m-text">
+          "Terima kasih atas waktunya, Bapak/Ibu Kepala Sekolah. Ada tiga alasan mendasar mengapa sekolah-sekolah unggulan kini beralih ke BelajarPlus. Pertama, Kedaulatan &amp; Citra Sekolah Modern. Sekolah Bapak/Ibu akan memiliki portal digital beralamat resmi sendiri—misalnya sman1solo.belajarplus.id—di mana logo sekolah terpasang resmi dan database siswa, guru, serta bank soal terisolasi total, dijamin 100% tidak bercampur dengan sekolah lain. Kedua, Inovasi Ujian LJD &amp; Asisten Koreksi AI. Siswa mengerjakan ujian langsung di HP atau lab komputer tanpa kertas. Untuk soal esai Kurikulum Merdeka yang biasanya membuat guru lembur berhari-hari, mesin AI kami menganalisis jawaban siswa berdasarkan rubrik kata kunci dan menyajikan rekomendasi nilai secara instan. Bapak/Ibu Guru tetap memegang hak veto 100% sebelum nilai masuk ke buku rapor. Ketiga, Kepatuhan Akreditasi BAN-S/M &amp; Audit BOS. Setiap buku pelajaran di BelajarPlus ber-ISBN resmi. Sistem secara otomatis menerbitkan dokumen Berita Acara Serah Terima (BAST) Digital berstempel QR Kriptografis untuk memenuhi Butir 19 Instrumen Akreditasi. Kami ingin mengundang sekolah Bapak/Ibu untuk mencoba Program Pilot Uji Coba Gratis selama 30 hari di 1 sampai 2 rombel unggulan."
+        </div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">
+          💡 <strong>Kunci Sukses:</strong> Tekankan 3 pilar: <em>Kedaulatan Subdomain Mandiri</em>, <em>Hak Veto Guru atas AI</em>, dan <em>Legalitas BAST Akreditasi</em>.
+        </div>
+      </div>
+
+      <!-- Pitch 3: 5 Menit Rapat Pleno -->
+      <div class="pitch-card">
+        <div class="pitch-header">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span class="pitch-tag" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">5 Menit</span>
+            <strong style="color: #ffffff;">Paparan Rapat Pleno Dewan Guru &amp; Komite Sekolah</strong>
+          </div>
+          <a href="/sosialisasi-kepsek.html" target="_blank" class="btn-audio" style="text-decoration: none;">
+            📽️ Buka Slide Presentasi Interaktif →
+          </a>
+        </div>
+        <div class="pitch-body">
+          Buka langsung slide sosialisasi interaktif BelajarPlus pada proyektor ruangan rapat. Jalankan alur 5 menit:
+          <ol style="margin: 0.5rem 0 0 1.25rem;">
+            <li><strong>Menit 1 (Empati):</strong> Paparkan beban administrasi guru, beban koreksi esai AKM, dan biaya kertas ujian yang mubazir.</li>
+            <li><strong>Menit 2 (E-Reader DRM):</strong> Tunjukkan buku kurikulum merdeka resmi, fitur whiteboard corat-coret materi, dan proteksi anti-screenshot.</li>
+            <li><strong>Menit 3 (AI Grader):</strong> Lakukan demo live koreksi esai 2 detik, buktikan guru tetap memegang kendali nilai mutlak.</li>
+            <li><strong>Menit 4 (Ketahanan Wi-Fi Drop):</strong> Tunjukkan arsitektur LJD LocalStorage auto-save saat internet lab mati tanpa kehilangan data.</li>
+            <li><strong>Menit 5 (Call-to-Action):</strong> Tawarkan penandatanganan Program Pilot 30 Hari Tanpa Biaya di 1 rombel percontohan.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. KALKULATOR INTERAKTIF EFISIENSI BOS & ROI ==================== -->
+    <section id="roi-calculator" class="mkt-section">
+      <div class="section-head">
+        <h2>2. Kalkulator Efisiensi Anggaran BOS (The Math of Value)</h2>
+        <p>Tunjukkan simulasi penghematan riil di depan Kepala Sekolah dan Bendahara BOS. Geser slider untuk menyesuaikan jumlah siswa dan biaya sekolah saat ini.</p>
+      </div>
+
+      <div class="calc-box">
+        <div>
+          <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>⚙️</span> Parameter Sekolah
+          </div>
+
+          <!-- Slider 1: Jumlah Siswa -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span style="color: #cbd5e1;">Jumlah Siswa Aktif:</span>
+              <span id="label-students" style="color: #38bdf8; font-weight: 800; font-family: 'JetBrains Mono', monospace;">600 Siswa</span>
+            </div>
+            <input type="range" class="calc-slider" id="input-students" min="150" max="1500" step="50" value="600" oninput="calculateSavings()" />
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 0.2rem;">
+              <span>150 (Sekolah Kecil)</span>
+              <span>1.500 (Sekolah Besar)</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Biaya Kertas Ujian Per Siswa / Tahun -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span style="color: #cbd5e1;">Biaya Kertas Ujian (Fotokopi PTS/PAS/AKM):</span>
+              <span id="label-paper" style="color: #f59e0b; font-weight: 800; font-family: 'JetBrains Mono', monospace;">Rp 90.000 / th</span>
+            </div>
+            <input type="range" class="calc-slider" id="input-paper" min="30000" max="180000" step="5000" value="90000" oninput="calculateSavings()" />
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 0.2rem;">
+              <span>Rp 30.000</span>
+              <span>Rp 180.000</span>
+            </div>
+          </div>
+
+          <!-- Slider 3: Biaya Buku Fisik Rusak / Tambahan Per Siswa / Tahun -->
+          <div class="calc-slider-group">
+            <div class="calc-slider-header">
+              <span style="color: #cbd5e1;">Alokasi Penggantian Buku Fisik Rusak/Hilang:</span>
+              <span id="label-books" style="color: #f87171; font-weight: 800; font-family: 'JetBrains Mono', monospace;">Rp 120.000 / th</span>
+            </div>
+            <input type="range" class="calc-slider" id="input-books" min="40000" max="250000" step="10000" value="120000" oninput="calculateSavings()" />
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 0.2rem;">
+              <span>Rp 40.000</span>
+              <span>Rp 250.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="calc-result-panel">
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Proyeksi Biaya Operasional Lama</div>
+            <div id="cost-traditional" style="font-size: 1.4rem; font-weight: 800; color: #ef4444; font-family: 'JetBrains Mono', monospace; margin: 0.3rem 0 1rem;">
+              Rp 126.000.000 / th
+            </div>
+
+            <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Estimasi Kemitraan BelajarPlus v2.0</div>
+            <div id="cost-belajarplus" style="font-size: 1.25rem; font-weight: 700; color: #38bdf8; font-family: 'JetBrains Mono', monospace; margin: 0.3rem 0;">
+              Rp 54.000.000 / th
+            </div>
+          </div>
+
+          <div class="calc-highlight">
+            <div style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; color: #10b981; letter-spacing: 0.05em;">💰 Potensi Dana BOS yang Dihemat</div>
+            <div class="savings-num" id="cost-savings">Rp 72.000.000</div>
+            <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 0.3rem;">
+              Efisiensi Anggaran: <strong id="savings-percent" style="color: #34d399;">57.1%</strong>
+            </div>
+          </div>
+
+          <p style="font-size: 0.75rem; color: #64748b; margin-top: 1rem; text-align: center;">
+            *Simulasi berdasarkan data rata-rata 17 sekolah mitra di Jawa Tengah. Penghematan riil dapat bervariasi sesuai jumlah mapel &amp; jadwal ujian.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. BATTLECARD KOMPETITIF ==================== -->
+    <section id="battlecard" class="mkt-section">
+      <div class="section-head">
+        <h2>3. Battlecard Kompetitor: Mengapa BelajarPlus Unggul Mutlak?</h2>
+        <p>Bahan perbandingan faktual saat sekolah menanyakan mengapa mereka harus beralih dari platform lain.</p>
+      </div>
+
+      <div class="battle-table-wrap">
+        <table class="battle-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Fitur &amp; Kemampuan Kunci</th>
+              <th style="width: 18%;">Google Classroom</th>
+              <th style="width: 18%;">Moodle Mandiri</th>
+              <th style="width: 18%;">Platform Bimbel Swasta</th>
+              <th class="col-highlight" style="width: 18%; color: #38bdf8;">BelajarPlus v2.0</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Perpustakaan Buku Resmi Kemendikbud &amp; ISBN</strong></td>
+              <td>❌ Tidak Ada (Guru cari PDF)</td>
+              <td>❌ Tidak Ada</td>
+              <td>⚠️ Hanya buku latihan bimbel</td>
+              <td class="col-highlight">✅ <strong>Ribuan Judul Buku Resmi Kurikulum Merdeka</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Koreksi Jawaban Esai Berbasis AI (AI Grader)</strong></td>
+              <td>❌ Manual 100%</td>
+              <td>❌ Manual (Perlu plugin rumit)</td>
+              <td>❌ Tidak ada rubrik guru</td>
+              <td class="col-highlight">✅ <strong>AI Semantik + Hak Veto Mutlak Guru 100%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Ketahanan Ujian Saat Wi-Fi Drop</strong></td>
+              <td>❌ Form error &amp; jawaban hilang</td>
+              <td>⚠️ Sering timeout server</td>
+              <td>⚠️ Butuh koneksi stabil konstan</td>
+              <td class="col-highlight">✅ <strong>Write-Through LocalStorage: Zero Data Loss</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Presensi Satelit GPS Anti-Fake GPS</strong></td>
+              <td>❌ Tidak Ada</td>
+              <td>❌ Plugin tidak stabil</td>
+              <td>❌ Terbatas</td>
+              <td class="col-highlight">✅ <strong>Formula Haversine + Deteksi Anomali Jarak</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Berita Acara BAST untuk Akreditasi &amp; BOS</strong></td>
+              <td>❌ Tidak Ada</td>
+              <td>❌ Tidak Ada</td>
+              <td>❌ Hanya kuitansi langganan</td>
+              <td class="col-highlight">✅ <strong>BAST Digital Resmi Berstempel QR Kriptografis</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Kedaulatan Subdomain &amp; Data Terisolasi</strong></td>
+              <td>❌ Gabung di domain Google</td>
+              <td>⚠️ Harus beli hosting &amp; setup server</td>
+              <td>❌ Terpusat di portal mereka</td>
+              <td class="col-highlight">✅ <strong>Subdomain Resmi Sekolah (`sekolah.belajarplus.id`)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pendampingan Trainer Onsite Dedicated</strong></td>
+              <td>❌ Mandiri</td>
+              <td>❌ Harus sewa konsultan IT</td>
+              <td>⚠️ Hanya CS via WhatsApp</td>
+              <td class="col-highlight">✅ <strong>Tim Trainer Lapangan Siap Hadir Onsite di Sekolah</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==================== 4. JURUS MENANGKIS 8 KEBERATAN UTAMA ==================== -->
+    <section id="objections" class="mkt-section">
+      <div class="section-head">
+        <h2>4. Jurus Menangkis 8 Keberatan Sekolah (Objection Flashcards)</h2>
+        <p>Klik salah satu kartu keberatan untuk membuka jawaban diplomatis dan taktis yang terbukti memecahkan kebuntuan closing.</p>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- Objection 1 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>1. "Kami sudah pakai Google Classroom &amp; WA gratisan"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Betul Bapak/Ibu, Google Classroom sangat baik untuk kumpul tugas sederhana. Namun apakah Google Classroom menyediakan ribuan buku teks pelajaran Kurikulum Merdeka resmi? Apakah bisa mengoreksi ujian esai siswa otomatis dengan AI? Dan apakah menerbitkan dokumen BAST berstempel QR untuk akreditasi perpustakaan sekolah?<br /><br />
+            BelajarPlus menyatukan perpustakaan berlisensi, ujian LJD anti-cheat, koreksi AI, dan presensi geolokasi dalam satu portal yang terhubung langsung ke e-Rapor sekolah Bapak/Ibu. Ini bukan sekadar tempat kumpul tugas, ini ekosistem sekolah modern."
+          </div>
+        </div>
+
+        <!-- Objection 2 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>2. "Anggaran BOS kami terbatas, tidak ada dana software"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Justru dengan BelajarPlus, anggaran BOS sekolah menjadi <strong>jauh lebih hemat</strong>, Bapak/Ibu. Sekolah tidak perlu lagi mengeluarkan 50–80 juta tiap tahun untuk fotokopi kertas ujian PTS/PAS dan penggantian buku cetak yang rusak/hilang.<br /><br />
+            Biaya kertas ujian menjadi Rp 0, dan belanja buku dialihkan ke lisensi digital kursi simultan yang tidak pernah rusak atau lapuk. Penghematan 40–60% tersebut dapat dialihkan untuk kesejahteraan guru honorer atau pembenahan lab sekolah."
+          </div>
+        </div>
+
+        <!-- Objection 3 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>3. "Buku digital gampang di-screenshot &amp; dibajak siswa"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Proteksi hak cipta adalah prioritas nomor satu kami. Canvas e-reader BelajarPlus dilindungi <strong>Digital Rights Management (DRM) perbankan</strong> yang memblokir pintasan screenshot, snipping tool, dan screen recording.<br /><br />
+            Bahkan jika difoto dari HP lain, terdapat <em>Watermark Dinamis Mikro</em> berisi nama siswa, NISN, dan jam akses. Dashboard admin juga memiliki menu <strong>Forensik Keamanan DRM</strong> yang mencatat identitas siswa yang mencoba membajak secara real-time."
+          </div>
+        </div>
+
+        <!-- Objection 4 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>4. "Guru-guru kami sudah senior / gaptek, takut ribet"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Kekhawatiran itu sangat wajar, Bapak/Ibu. Karena itu antarmuka BelajarPlus dirancang sangat manusiawi dan bersih—kebanyakan alur hanya butuh 1 kali klik.<br /><br />
+            Lebih dari itu, <strong>Tim Trainer BelajarPlus akan hadir langsung di sekolah</strong> untuk memberikan workshop tatap muka meja per meja, modul panduan bergambar A4, dan video tutorial dengan penjelasan suara bahasa Indonesia. Kami dampingi sampai seluruh guru mahir!"
+          </div>
+        </div>
+
+        <!-- Objection 5 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>5. "Internet sekolah kami sering mati / lemot saat ujian"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Ini keunggulan teknis terbaik BelajarPlus: sistem LJD kami menerapkan <strong>Write-Through Caching ke LocalStorage Browser</strong>.<br /><br />
+            Di detik siswa mengklik jawaban, data langsung tersimpan aman di HP/laptop siswa. Jika Wi-Fi lab mati mendadak, layar tidak akan error atau freeze. Siswa bisa terus membaca soal dan memilih jawaban. Begitu internet menyala kembali, sistem background worker kami langsung mensinkronisasikan jawaban ke server tanpa kehilangan 1 data pun."
+          </div>
+        </div>
+
+        <!-- Objection 6 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>6. "Apakah BAST digital diakui Asesor BAN-S/M &amp; BOS?"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Dijamin 100% sah dan akuntabel, Bapak/Ibu. Format Berita Acara Serah Terima (BAST) BelajarPlus dirancang mengikuti standar baku Surat Pesanan Kerjasama (SPK) belanja modal perpustakaan digital nasional.<br /><br />
+            Dokumen memuat invoice unik, rincian judul buku, kuantitas kursi lisensi, serta <strong>Quick Response (QR) Code Kriptografis</strong>. Saat asesor akreditasi memindai QR code tersebut dengan HP apa saja, mereka langsung melihat halaman verifikasi resmi keabsahan lisensi untuk memenuhi Butir 19 Akreditasi Sekolah."
+          </div>
+        </div>
+
+        <!-- Objection 7 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>7. "Apakah fitur AI ini akan menggantikan peran guru?"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Sama sekali tidak, Bapak/Ibu. Prinsip etika kami adalah <strong>Teacher-in-the-Loop</strong>. AI bertindak sebagai asisten cerdas yang membaca esai siswa dan mencocokkan konsepnya dengan rubrik kata kunci guru, lalu menyajikan saran skor (0–100) dan umpan balik awal.<br /><br />
+            Namun, <strong>Bapak/Ibu Guru memegang Hak Veto Mutlak 100%</strong>: guru bebas menaikkan nilai, menurunkannya, atau menambahkan catatan sebelum nilai masuk rapor. AI membebaskan guru dari rasa lelah, sementara kebijaksanaan nilai tetap milik pendidik."
+          </div>
+        </div>
+
+        <!-- Objection 8 -->
+        <div class="objection-card" onclick="toggleObjection(this)">
+          <div class="objection-q">
+            <span>8. "Bagaimana kalau data sekolah kami bocor ke sekolah lain?"</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="objection-a">
+            <strong>Jawaban Emas:</strong><br />
+            "Platform BelajarPlus menggunakan arsitektur <strong>PostgreSQL Row-Level Security (RLS) &amp; Multi-Tenant Subdomain Isolation</strong>.<br /><br />
+            Setiap request data dikunci oleh header unik sekolah Bapak/Ibu (<code>x-school-override</code>). Database bank soal, rapor, catatan disiplin, dan jurnal mengajar sekolah Bapak/Ibu dienkripsi dan terisolasi secara logis. Sekolah lain tidak akan pernah bisa mengakses atau melihat 1 byte pun data sekolah Bapak/Ibu."
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. ALUR PENJUALAN 5-STEP SALES FUNNEL ==================== -->
+    <section id="sales-funnel" class="mkt-section">
+      <div class="section-head">
+        <h2>5. Standar Operasional Penjualan (The 5-Step Sales Funnel)</h2>
+        <p>Gunakan checklist interaktif ini untuk memonitor progres prospek sekolah hingga penandatanganan SPK dan penerbitan BAST.</p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="mkt-card">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #38bdf8; text-transform: uppercase;">Langkah 1 (Hari 1–3)</div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.3rem 0 0.6rem;">Prospekting &amp; Outreach</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">Mendapatkan kontak Kepala Sekolah atau Wakasek Kurikulum melalui jalur formal MKKS atau Pengawas Pembina.</p>
+          <ul style="font-size: 0.85rem; color: #cbd5e1; list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 0.4rem;">☑️ Kirim proposal ringkas &amp; flyer digital</li>
+            <li style="margin-bottom: 0.4rem;">☑️ Tautkan link <em>belajarplus-tutorial.vercel.app</em></li>
+            <li>☑️ Amankan janji temu audiensi 20 menit</li>
+          </ul>
+        </div>
+
+        <div class="mkt-card">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #f59e0b; text-transform: uppercase;">Langkah 2 (Hari 4–7)</div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.3rem 0 0.6rem;">Live Demo Happy Path</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">Menjalankan demonstrasi langsung 20 menit di ruang Kepala Sekolah sesuai urutan anti-gagal.</p>
+          <ul style="font-size: 0.85rem; color: #cbd5e1; list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 0.4rem;">☑️ Buka Slide Sosialisasi Clean Light</li>
+            <li style="margin-bottom: 0.4rem;">☑️ Demo E-Reader &amp; Whiteboard Siswa</li>
+            <li style="margin-bottom: 0.4rem;">☑️ Demo Koreksi AI Esai &amp; Hak Veto Guru</li>
+            <li>☑️ Tunjukkan BAST Digital berstempel QR</li>
+          </ul>
+        </div>
+
+        <div class="mkt-card">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #10b981; text-transform: uppercase;">Langkah 3 (Hari 8–10)</div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.3rem 0 0.6rem;">Tawaran Pilot 30 Hari</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">Menawarkan program uji coba gratis pada 1–2 rombel unggulan tanpa komitmen biaya di muka.</p>
+          <ul style="font-size: 0.85rem; color: #cbd5e1; list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 0.4rem;">☑️ Tunjuk 1 kelas unggulan &amp; 1 guru pengampu</li>
+            <li style="margin-bottom: 0.4rem;">☑️ Buat akun siswa via spreadsheet instan</li>
+            <li>☑️ Dampingi pengerjaan 1 tugas LJD pertama</li>
+          </ul>
+        </div>
+
+        <div class="mkt-card">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #8b5cf6; text-transform: uppercase;">Langkah 4 (Hari 25–30)</div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.3rem 0 0.6rem;">Presentasi Closing SPK</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">Menghadirkan Kepala Sekolah dan Bendahara BOS untuk meninjau hasil pilot dan menandatangani SPK.</p>
+          <ul style="font-size: 0.85rem; color: #cbd5e1; list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 0.4rem;">☑️ Tampilkan testimoni kepuasan guru pilot</li>
+            <li style="margin-bottom: 0.4rem;">☑️ Buka Kalkulator ROI BOS di depan bendahara</li>
+            <li>☑️ Serahkan draf Surat Perjanjian Kerjasama (SPK)</li>
+          </ul>
+        </div>
+
+        <div class="mkt-card" style="grid-column: span 2;">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #34d399; text-transform: uppercase;">Langkah 5 (Paska Closing)</div>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.3rem 0 0.6rem;">BAST Digital &amp; Workshop Guru Onsite</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">Mengukuhkan kemitraan resmi, menerbitkan dokumen akreditasi, dan mendampingi seluruh dewan guru secara langsung.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <ul style="font-size: 0.85rem; color: #cbd5e1; list-style-type: none; padding-left: 0;">
+              <li style="margin-bottom: 0.4rem;">☑️ Terbitkan BAST Digital berstempel QR Kriptografis</li>
+              <li>☑️ Setup subdomain resmi sekolah (<code>sekolah.belajarplus.id</code>)</li>
+            </ul>
+            <ul style="font-size: 0.85rem; color: #cbd5e1; list-style-type: none; padding-left: 0;">
+              <li style="margin-bottom: 0.4rem;">☑️ Gelar workshop guru 1 hari tatap muka</li>
+              <li>☑️ Bagikan modul A4 &amp; sertifikat kemitraan</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid rgba(255,255,255,0.1); padding: 2.5rem 1.5rem; text-align: center; font-size: 0.85rem; color: #64748b;">
+    <p>BelajarPlus Marketing &amp; Business Development Field Toolkit &copy; 2026 • Tim Kemitraan Wilayah Jawa Tengah</p>
+    <p style="margin-top: 0.4rem;">Dokumen ini bersifat rahasia untuk penggunaan internal staf pemasaran, konsultan kemitraan, dan trainer resmi BelajarPlus.</p>
+  </footer>
+
+  <!-- Scripts for Audio Voiceover and Interactive ROI Calculator -->
+  <script>
+    // 1. Interactive ROI Calculator Logic
+    function formatRupiah(number) {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+    }
+
+    function calculateSavings() {
+      const students = parseInt(document.getElementById('input-students').value, 10);
+      const paperPerStudent = parseInt(document.getElementById('input-paper').value, 10);
+      const booksPerStudent = parseInt(document.getElementById('input-books').value, 10);
+
+      // Update Labels
+      document.getElementById('label-students').textContent = students.toLocaleString('id-ID') + ' Siswa';
+      document.getElementById('label-paper').textContent = formatRupiah(paperPerStudent) + ' / th';
+      document.getElementById('label-books').textContent = formatRupiah(booksPerStudent) + ' / th';
+
+      // Calculations
+      const oldTotal = students * (paperPerStudent + booksPerStudent);
+      
+      // BelajarPlus estimated package based on student tiers
+      let bPlusFeePerStudent = 90000;
+      if (students >= 500) bPlusFeePerStudent = 80000;
+      if (students >= 1000) bPlusFeePerStudent = 65000;
+      
+      const bPlusTotal = Math.round(students * bPlusFeePerStudent * 0.95);
+      const savings = Math.max(0, oldTotal - bPlusTotal);
+      const savingsPct = oldTotal > 0 ? ((savings / oldTotal) * 100).toFixed(1) : '0';
+
+      // Update DOM
+      document.getElementById('cost-traditional').textContent = formatRupiah(oldTotal) + ' / th';
+      document.getElementById('cost-belajarplus').textContent = formatRupiah(bPlusTotal) + ' / th';
+      document.getElementById('cost-savings').textContent = formatRupiah(savings);
+      document.getElementById('savings-percent').textContent = savingsPct + '%';
+    }
+
+    // 2. Objection Accordion Toggle
+    function toggleObjection(card) {
+      card.classList.toggle('open');
+    }
+
+    // 3. Audio Voiceover using ResponsiveVoice or Web Speech API fallback
+    let isPlayingAudio = false;
+
+    function playVoicePitch(pitchId, btnElement) {
+      if (isPlayingAudio) {
+        if (typeof responsiveVoice !== 'undefined') responsiveVoice.cancel();
+        window.speechSynthesis.cancel();
+        isPlayingAudio = false;
+        btnElement.innerHTML = btnElement.getAttribute('data-original-text') || '🔊 Putar Audio VO';
+        return;
+      }
+
+      const textElem = document.getElementById(pitchId + '-text');
+      if (!textElem) return;
+      const textToSpeak = textElem.textContent.trim();
+
+      btnElement.setAttribute('data-original-text', btnElement.innerHTML);
+      btnElement.innerHTML = '⏹️ Hentikan Audio';
+      isPlayingAudio = true;
+
+      const onEndCallback = () => {
+        isPlayingAudio = false;
+        btnElement.innerHTML = btnElement.getAttribute('data-original-text') || '🔊 Putar Audio VO';
+      };
+
+      if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
+        responsiveVoice.speak(textToSpeak, "Indonesian Female", {
+          pitch: 1.05,
+          rate: 0.96,
+          onend: onEndCallback
+        });
+      } else if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        utterance.lang = 'id-ID';
+        utterance.rate = 0.95;
+        utterance.onend = onEndCallback;
+        utterance.onerror = onEndCallback;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("Browser Anda tidak mendukung pemutar suara otomatis.");
+        onEndCallback();
+      }
+    }
+
+    // Initial calculation on load
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateSavings();
+    });
+  </script>
+</body>
+</html>
