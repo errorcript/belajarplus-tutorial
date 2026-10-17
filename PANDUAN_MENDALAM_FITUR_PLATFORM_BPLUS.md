@@ -72,6 +72,9 @@ Modul Toko (`/shop`) dan Pesanan (`/orders`) memberikan fleksibilitas bagi siswa
   * Kepala Sekolah dan Admin Sekolah memantau rekap transaksi belanja buku mandiri oleh siswa.
   * Menampilkan grafik omset penjualan berkala, daftar buku terlaris (*best seller*), dan pembagian margin bagi hasil royalti sekolah.
 
+> [!TIP]
+> **Simulator Interaktif Live**: Anda dapat mencoba simulasi transaksi invoice 3-digit kode unik, verifikasi mutasi bank otomatis, dan aktivasi e-book instan di Workbench QA: [qa-fitur-baru.html (Uji 9: QA-TOKO-01)](file:///c:/Users/user/.gemini/antigravity-ide/scratch/belajarplus-tutorial/qa-fitur-baru.html).
+
 ---
 
 ## 3. Modul 2: Forum Komunitas Sekolah & Kolaborasi Antar-Siswa (Social Learning Hub)
@@ -159,6 +162,9 @@ Mengatasi beban koreksi manual ratusan lembar jawaban esai guru melalui pemanfaa
 * **Penjelasan Teknis**:
   * AI menerbitkan skor usulan (0–100) disertai uraian poin kekuatan dan kelemahan argumen siswa.
   * Guru memiliki hak prerogatif penuh untuk menyetujui atau mengubah skor sebelum nilai dikunci ke buku nilai rapor rombel.
+
+> [!TIP]
+> **Simulator Interaktif Live**: Anda dapat menguji inferensi AI Grader langsung, analisis kecocokan semantik rubrik kata kunci, dan konsumsi saldo token di Workbench QA: [qa-fitur-baru.html (Uji 8: QA-AI-01)](file:///c:/Users/user/.gemini/antigravity-ide/scratch/belajarplus-tutorial/qa-fitur-baru.html).
 
 ---
 
