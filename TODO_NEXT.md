@@ -90,5 +90,18 @@
 ## 3. Kepatuhan Privasi & Standar Visual
 - [x] **Kebijakan Non-Sekolah Riil Terpenuhi 100%**: Tidak menggunakan screenshot atau data dari sekolah riil (seperti SMAN 1 Sragen).
 - [x] **Tenant Resmi Rujukan**: Seluruh materi institusi mengacu pada **SMA EGIS** (tenant demo/referensi internal) serta dataset simulasi dummy trainer (`SEKOLAH DUMMY TRAINER 3` / master data audit).
-- [x] **Sinkronisasi Kode**: `index.html`, `app.js` (PDF exporter, voiceover video data), dan presentasi eksekutif telah selaras 100%.
-- [x] **Total Visual Aktif**: 98+ tangkapan layar HD terintegrasi lengkap dengan label deskriptif dan dukungan zoom lightbox modal.
+- [x] **Total Visual Aktif**: 118+ tangkapan layar HD terintegrasi lengkap dengan label deskriptif dan dukungan zoom lightbox modal.
+
+---
+
+## 4. Eksplorasi Mendalam 6 Modul Platform BelajarPlus (Deep-Dive Tutorials & Real Screenshots)
+- [x] **Section Interaktif Deep-Dive Modules di `index.html`**:
+  - Modul 1: Toko Buku Digital & Alur Transaksi Pembayaran Mandiri Siswa (6 Langkah + 6 Screenshot HD: `hunt_shop_page.png`, `hunt_product_detail.png`, `keranjang_belanja.png`, `detail_pesanan_transfer.png`, `hunt_pesanan_page_hd.png`, `audit__admin_sales.png`).
+  - Modul 2: Forum Komunitas Sekolah & Kolaborasi Siswa (3 Langkah + 3 Screenshot HD: `hunt_komunitas_detail_view.png`, `dummy3_komunitas_typing.png`, `dummy3_komunitas_posted.png`).
+  - Modul 3: Kalender Akademik Terpadu & Siaran Warta Pengumuman (3 Langkah + 4 Screenshot HD: `hunt_agenda_calendar_detail.png`, `dummy3_agenda_modal_open.png`, `dummy3_agenda_form_filled.png`, `dummy3_pengumuman_form_ready.png`, `dummy3_pengumuman_after_publish.png`).
+  - Modul 4: Pusat Pengawasan Saldo Kredit AI & Koreksi Esai Cerdas (3 Langkah + 3 Screenshot HD: `audit__admin_ai_credits.png`, `kepsek_ai-credits.png`, `feature_hasil_detail.png`, `assignment_result.png`).
+  - Modul 5: Tata Kelola Koleksi Perpustakaan Digital, Kuota Kursi Lisensi (Seats) & DRM Forensik (4 Langkah + 4 Screenshot HD: `audit__admin_library_collection.png`, `audit__admin_library_seats.png`, `audit__admin_library_settings.png`, `audit__admin_library_security.png`).
+  - Modul 6: Geofencing Presensi Satelit GPS 120m, Selfie Wajah & Jurnal KBM Guru (3 Langkah + 3 Screenshot HD: `audit__absensi_pengaturan.png`, `hunt_absensi_siswa_face_page.png`, `hunt_guru_sragen_absensi_live.png`, `audit__absensi_pembelajaran.png`).
+- [x] **Enrichment Section Admin Panel**: Seluruh card modul admin di `index.html` dilengkapi screenshot audit nyata (`audit__admin_assignments.png`, `audit__admin_students.png`, `audit__admin_teachers.png`, `audit__admin_submissions.png`, `audit__admin_library_collection.png`, `audit__admin_library_seats.png`, `audit__admin_library_security.png`, `audit__admin_sales.png`, `audit__admin_ai_credits.png`).
+- [x] **Buku Manual Panduan Mendalam**: Ditulis dokumen komprehensif `PANDUAN_MENDALAM_FITUR_PLATFORM_BPLUS.md`.
+

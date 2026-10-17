@@ -430,6 +430,17 @@ window.switchRole = function(role, btn) {
   }
 }
 
+// === DEEP-DIVE MODULES SWITCHER ===
+window.switchDeepDiveModule = function(modId, btn) {
+  document.querySelectorAll('.dd-tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.dd-module-content').forEach(c => c.classList.remove('active'));
+  const target = document.getElementById(`dd-mod-${modId}`);
+  if (target) {
+    target.classList.add('active');
+  }
+}
+
 // === UNIVERSAL LIGHTBOX IMAGE MODAL (ALL IMAGES & MOBILE SUPPORT) ===
 function initImageLightbox() {
   // Target ALL images in document except modal preview images and playlist thumbnails

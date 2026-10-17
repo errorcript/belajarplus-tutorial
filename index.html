@@ -65,6 +65,7 @@
       <li><a href="/bug2">🔍 Audit v2.0</a></li>
       <li><a href="#pengenalan">Pengenalan</a></li>
       <li><a href="#cara-pakai">Cara Pakai</a></li>
+      <li><a href="#deep-dive-modules" style="color: #a78bfa; font-weight: 700;">🔍 Eksplorasi Platform</a></li>
       <li><a href="#reader-demo">Book Reader</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li class="mobile-only"><a href="https://belajarplus.id/library" target="_blank" class="btn-nav">Buka App →</a></li>
@@ -207,6 +208,21 @@
           </p>
           <div style="font-size: 0.8rem; font-weight: 700; color: #10b981; display: flex; align-items: center; gap: 0.35rem;">
             Buka Uji QA Fitur Baru &rarr;
+          </div>
+        </a>
+
+        <!-- Card 6: Deep-Dive Modules -->
+        <a href="#deep-dive-modules" style="text-decoration: none; display: flex; flex-direction: column; background: var(--bg-tertiary); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 12px; padding: 1.5rem; transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='rgba(139, 92, 246, 0.8)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='rgba(139, 92, 246, 0.4)'; this.style.transform='translateY(0)';">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div style="font-size: 2rem;">🔍</div>
+            <span style="font-size: 0.7rem; font-weight: 700; background: rgba(139, 92, 246, 0.15); color: #a78bfa; padding: 0.2rem 0.55rem; border-radius: 20px;">BEDAH FITUR HD</span>
+          </div>
+          <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Eksplorasi Platform BelajarPlus</h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
+            Tutorial visual &amp; bedah tuntas 6 modul operasional: Toko &amp; checkout transfer mandiri, forum komunitas, agenda akademik, kredit koreksi AI, perpustakaan DRM, dan geofence GPS.
+          </p>
+          <div style="font-size: 0.8rem; font-weight: 700; color: #a78bfa; display: flex; align-items: center; gap: 0.35rem;">
+            Lihat 6 Modul Deep-Dive &rarr;
           </div>
         </a>
       </div>
@@ -2007,6 +2023,581 @@
     </div>
   </section>
 
+  <!-- ==================== EKSPLORASI MENDALAM FITUR PLATFORM BELAJARPLUS ==================== -->
+  <section id="deep-dive-modules" class="section" style="background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 20px; padding: 0.3rem 0.85rem; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.85rem;">
+            🔍 Eksplorasi Platform BelajarPlus v2.0 • Bedah Tuntas 6 Modul Utama
+          </div>
+          <h2 style="font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 0.5rem;">
+            Tutorial Mendalam &amp; Bedah Fitur Platform BelajarPlus
+          </h2>
+          <p style="font-size: 1rem; color: #94a3b8; max-width: 820px; line-height: 1.6;">
+            Panduan komprehensif langkah demi langkah berdasar eksplorasi menyeluruh platform BelajarPlus lengkap dengan tangkapan layar HD: E-Commerce Toko &amp; Transfer Bank, Forum Komunitas Belajar, Kalender Agenda Akademik, Kredit Koreksi AI, Tata Kelola Koleksi Perpustakaan, dan Presensi Satelit GPS.
+          </p>
+        </div>
+        <div style="font-size: 0.8rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 0.6rem 1rem;">
+          💡 Klik gambar mana pun untuk memperbesar (Zoom HD)
+        </div>
+      </div>
+
+      <!-- Navigation Switcher Tabs for 6 Deep-Dive Modules -->
+      <div class="dd-tabs-wrapper">
+        <button class="dd-tab-btn active" onclick="switchDeepDiveModule('toko', this)">
+          <span>🛒</span> 1. Toko &amp; Pembayaran Mandiri
+        </button>
+        <button class="dd-tab-btn" onclick="switchDeepDiveModule('komunitas', this)">
+          <span>💬</span> 2. Komunitas &amp; Diskusi Siswa
+        </button>
+        <button class="dd-tab-btn" onclick="switchDeepDiveModule('agenda', this)">
+          <span>📅</span> 3. Agenda &amp; Warta Pengumuman
+        </button>
+        <button class="dd-tab-btn" onclick="switchDeepDiveModule('ai', this)">
+          <span>🤖</span> 4. Saldo AI &amp; Koreksi Esai
+        </button>
+        <button class="dd-tab-btn" onclick="switchDeepDiveModule('perpustakaan', this)">
+          <span>📚</span> 5. Koleksi E-Book &amp; DRM
+        </button>
+        <button class="dd-tab-btn" onclick="switchDeepDiveModule('presensi', this)">
+          <span>📍</span> 6. Presensi GPS &amp; Kehadiran
+        </button>
+      </div>
+
+      <!-- ==================== MODUL 1: TOKO & PEMBAYARAN MANDIRI ==================== -->
+      <div class="dd-module-content active" id="dd-mod-toko">
+        <div style="background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🛒</span> Modul 1: Toko Buku Digital &amp; Alur Transaksi Pembayaran Mandiri Siswa
+          </h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+            Siswa atau wali murid dapat membeli buku teks cetak mandiri, modul pengayaan persiapan SNBT/UTBK, dan e-book berlisensi pribadi (akses selamanya) di luar kuota yang disediakan oleh sekolah. Seluruh transaksi didukung sistem invoice otomatis, verifikasi transfer bank, dan riwayat pesanan real-time.
+          </p>
+        </div>
+
+        <div class="dd-card-grid">
+          <!-- Step 1 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Katalog Toko</span>
+              <span class="dd-step-num">01</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Jelajahi Katalog Toko Buku (/shop)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Buka menu <strong>Toko</strong> pada bilah navigasi. Katalog menyajikan ribuan judul buku Kurikulum Merdeka dan buku persiapan ujian dengan perbandingan harga reguler vs harga diskon kemitraan sekolah.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Filter jenjang kelas (X, XI, XII) dan rumpun mata pelajaran.</li>
+              <li>Badge penanda varian: <strong>Buku Cetak</strong> atau <strong>E-Book Digital</strong>.</li>
+              <li>Pencarian instan berdasarkan judul buku atau nama penulis.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/hunt_shop_page.png" class="screenshot-img zoomable-img" alt="Katalog Toko Buku BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Spesifikasi</span>
+              <span class="dd-step-num">02</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Buka Detail Buku &amp; Pilih Format</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Klik pada salah satu sampul buku untuk membuka halaman detail. Halaman ini memuat informasi bibliografi lengkap, sinopsis resmi, ISBN resmi penerbit, dan opsi varian pembelian.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Pilih opsi: <strong>E-Book (Akses Selamanya)</strong> atau <strong>Buku Fisik</strong>.</li>
+              <li>Pemeriksaan stok ketersediaan eksemplar di gudang mitra penerbit.</li>
+              <li>Tombol <strong>"Tambah ke Keranjang"</strong> atau langsung <strong>"Beli Sekarang"</strong>.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/hunt_product_detail.png" class="screenshot-img zoomable-img" alt="Detail Produk Toko BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Keranjang</span>
+              <span class="dd-step-num">03</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Keranjang Belanja &amp; Review Pembelian</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Ikon troli belanja di sudut kanan atas menampilkan daftar buku yang siap dibeli. Siswa dapat mengatur kuantitas eksemplar atau menghapus item yang tidak diinginkan.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Kalkulasi subtotal otomatis dan estimasi berat untuk ongkir buku fisik.</li>
+              <li>Kolom catatan pengiriman khusus untuk kurir atau staf perpustakaan.</li>
+              <li>Klik tombol biru <strong>"Lanjutkan ke Checkout"</strong> untuk membuat tagihan resmi.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/keranjang_belanja.png" class="screenshot-img zoomable-img" alt="Keranjang Belanja Toko BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Checkout</span>
+              <span class="dd-step-num">04</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Checkout &amp; Instruksi Transfer Rekening</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Sistem menerbitkan invoice resmi lengkap dengan <strong>Nomor Pesanan</strong> unik dan <strong>Kode Verifikasi 3 Digit Terakhir</strong> (contoh: tagihan Rp 95.342) untuk mempercepat verifikasi mutasi bank.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Instruksi transfer ke rekening bank resmi (BCA, Mandiri, BRI).</li>
+              <li>Tombol satu klik <strong>"Salin Nomor Rekening"</strong> dan <strong>"Salin Nominal"</strong>.</li>
+              <li>Batas waktu pembayaran 24 jam sebelum kode tagihan kedaluwarsa secara otomatis.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/detail_pesanan_transfer.png" class="screenshot-img zoomable-img" alt="Instruksi Transfer Bank Manual Toko BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Pelacakan</span>
+              <span class="dd-step-num">05</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Halaman Pesanan &amp; Aktivasi Rak Buku (/orders)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Setelah melakukan transfer, siswa membuka menu <strong>Pesanan</strong> (`/orders`). Di sini pengguna dapat memantau status pembayaran: <em>Menunggu Pembayaran</em> ➔ <em>Sedang Diverifikasi</em> ➔ <em>Selesai</em>.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Fitur unggah struk foto bukti transfer ATM / m-Banking.</li>
+              <li>Setelah terverifikasi, e-book otomatis langsung aktif di tab <strong>"Buku Saya"</strong>.</li>
+              <li>Unduh kuitansi digital / bukti pembelian berstempel sah BelajarPlus.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/hunt_pesanan_page_hd.png" class="screenshot-img zoomable-img" alt="Pelacakan Pesanan Siswa BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Panel Admin</span>
+              <span class="dd-step-num">06</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Supervisi Penjualan &amp; Omset Sekolah (/admin/sales)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Kepala Sekolah dan Admin Perpustakaan dapat memantau seluruh transaksi penjualan buku melalui panel <strong>Toko &gt; Rekap Penjualan</strong> (`/admin/sales`) secara transparan.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Grafik ringkasan omset penjualan harian, mingguan, dan bulanan.</li>
+              <li>Daftar buku terlaris (*best seller*) yang paling diminati siswa.</li>
+              <li>Audit verifikasi manual untuk transaksi yang mengalami kendala mutasi bank.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/audit__admin_sales.png" class="screenshot-img zoomable-img" alt="Rekap Penjualan Toko Admin BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== MODUL 2: KOMUNITAS & DISKUSI ==================== -->
+      <div class="dd-module-content" id="dd-mod-komunitas">
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>💬</span> Modul 2: Forum Komunitas Sekolah &amp; Kolaborasi Antar-Siswa (Social Learning Hub)
+          </h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+            BelajarPlus menghadirkan ruang sosial akademik intra-sekolah yang terisolasi dan aman. Siswa dan guru dapat berdiskusi seputar materi pelajaran, membagikan tips mengerjakan soal sulit, serta mendapatkan bimbingan langsung tanpa terdistraksi media sosial publik.
+          </p>
+        </div>
+
+        <div class="dd-card-grid">
+          <!-- Step 1 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">Feed Diskusi</span>
+              <span class="dd-step-num">01</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Eksplorasi Feed Linimasa Komunitas (/informasi/komunitas)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Buka menu <strong>Komunitas</strong> pada navigasi utama. Linimasa komunitas menampilkan seluruh postingan diskusi yang dibuat oleh siswa dan bapak/ibu guru di institusi sekolahmu.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Filter topik berdasarkan rumpun mata pelajaran (Matematika, IPA, IPS, Bahasa).</li>
+              <li>Pencarian kata kunci pertanyaan untuk melihat apakah kendala serupa sudah pernah dibahas.</li>
+              <li>Tab pemilah: <em>Semua Postingan</em>, <em>Postingan Saya</em>, dan <em>Diskusi Populer</em>.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/hunt_komunitas_detail_view.png" class="screenshot-img zoomable-img" alt="Linimasa Komunitas Sekolah BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">Buat Diskusi</span>
+              <span class="dd-step-num">02</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Menulis Pertanyaan Baru &amp; Menautkan Rumpun Mapel</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Klik pada kotak input <em>"Tulis sesuatu untuk komunitas sekolahmu..."</em> di bagian atas linimasa. Tuliskan kendala pemahaman materi secara jelas dan terarah.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Pilih kategori mata pelajaran yang relevan dari menu dropdown penanda.</li>
+              <li>Gunakan opsi unggah berkas / gambar jika ingin melampirkan foto latihan soal dari buku.</li>
+              <li>Format penulisan yang rapi memudahkan teman sekelas dan guru untuk memberikan solusi cepat.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/dummy3_komunitas_typing.png" class="screenshot-img zoomable-img" alt="Form Menulis Diskusi Komunitas BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">Interaksi &amp; Solusi</span>
+              <span class="dd-step-num">03</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Interaksi Feed, Komentar Solusi &amp; Pin Jawaban Guru</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Setelah diterbitkan, postingan langsung muncul di linimasa komunitas dengan identitas pengunggah dan timestamp presisi.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Siswa lain dapat memberikan tanda suka (like) dan mengetikkan langkah penyelesaian di kolom komentar.</li>
+              <li>Guru pengampu mata pelajaran dapat memberikan verifikasi jawaban benar.</li>
+              <li>Jawaban terbaik dapat disematkan (*pin to top*) agar langsung terbaca oleh seluruh siswa lainnya.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/dummy3_komunitas_posted.png" class="screenshot-img zoomable-img" alt="Postingan Aktif Komunitas BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== MODUL 3: AGENDA & PENGUMUMAN ==================== -->
+      <div class="dd-module-content" id="dd-mod-agenda">
+        <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📅</span> Modul 3: Kalender Akademik Terpadu &amp; Siaran Warta Pengumuman Sekolah
+          </h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+            Mencegah miskomunikasi dan penumpukan deadline melalui integrasi agenda akademik kegiatan belajar serta publikasi pengumuman resmi bertanda tangan pimpinan sekolah yang langsung tersiar ke dashboard seluruh siswa dan tenaga pendidik.
+          </p>
+        </div>
+
+        <div class="dd-card-grid">
+          <!-- Step 1 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Kalender Siswa</span>
+              <span class="dd-step-num">01</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Kalender Akademik Interaktif Siswa (/informasi/agenda)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Buka menu <strong>Agenda</strong> untuk melihat kalender bulanan sekolah yang responsif. Seluruh jadwal ujian dan tenggat pengumpulan tugas teragregasi secara otomatis.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Kode warna kategori kegiatan: Biru (Ujian Sekolah/PTS/PAS), Hijau (Batas Tugas LJD), Oranye (Upacara/OSIS), Merah (Hari Libur).</li>
+              <li>Klik tanggal tertentu untuk melihat rincian kegiatan dan jam pelaksanaan.</li>
+              <li>Sinkronisasi langsung dengan tugas-tugas aktif di ruang kelas e-learning.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/hunt_agenda_calendar_detail.png" class="screenshot-img zoomable-img" alt="Kalender Agenda Siswa BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Input Agenda</span>
+              <span class="dd-step-num">02</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Form Tambah Agenda Sekolah oleh Guru &amp; Admin</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Guru dan Admin Sekolah dapat menekan tombol <strong>"+ Tambah Agenda"</strong> untuk menyusun kegiatan baru pada kalender resmi sekolah.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Modal input mencakup: Judul Kegiatan, Kategori, Rentang Tanggal Mulai s.d. Selesai, dan Jam Pelaksanaan.</li>
+              <li>Pilihan target audiens: Seluruh Sekolah, Tingkat Tertentu (Kelas 11 saja), atau Rombel Spesifik.</li>
+              <li>Catatan instruksi pakaian atau perlengkapan yang wajib dipersiapkan siswa.</li>
+            </ul>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem;">
+              <img src="assets/dummy3_agenda_modal_open.png" class="screenshot-img zoomable-img" alt="Modal Tambah Agenda BelajarPlus" style="border-radius: 10px; width: 100%;" />
+              <img src="assets/dummy3_agenda_form_filled.png" class="screenshot-img zoomable-img" alt="Form Agenda Terisi BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Warta Resmi</span>
+              <span class="dd-step-num">03</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Penyusunan &amp; Publikasi Warta Pengumuman (/informasi/pengumuman)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Papan siaran warta pengumuman resmi sekolah dilengkapi rich-text editor dan kemampuan melampirkan surat edaran format PDF.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Penyusunan judul warta, isi teks kaya (bold, heading, bullet points, tautan eksternal).</li>
+              <li>Unggah dokumen lampiran resmi bertanda tangan Kepala Sekolah (maksimal 10 MB).</li>
+              <li>Setelah terbit, warta otomatis muncul sebagai pop-up / banner pengingat pada layar Beranda siswa saat pertama kali login.</li>
+            </ul>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem;">
+              <img src="assets/dummy3_pengumuman_form_ready.png" class="screenshot-img zoomable-img" alt="Form Pengumuman Sekolah BelajarPlus" style="border-radius: 10px; width: 100%;" />
+              <img src="assets/dummy3_pengumuman_after_publish.png" class="screenshot-img zoomable-img" alt="Pengumuman Terbit BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== MODUL 4: KREDIT AI & KOREKSI ESAI ==================== -->
+      <div class="dd-module-content" id="dd-mod-ai">
+        <div style="background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🤖</span> Modul 4: Pusat Pengawasan Saldo Kredit AI &amp; Koreksi Esai Cerdas (AI Token Hub)
+          </h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+            Otomasi evaluasi jawaban esai Lembar Jawab Digital siswa menggunakan kecerdasan buatan berbasis rubrik kata kunci kompetensi dasar, lengkap dengan tata kelola saldo kredit AI sekolah yang transparan dan akuntabel bagi Kepala Sekolah.
+          </p>
+        </div>
+
+        <div class="dd-card-grid">
+          <!-- Step 1 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">Saldo Kuota</span>
+              <span class="dd-step-num">01</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Monitoring Saldo &amp; Kuota Kredit AI (/admin/ai-credits)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Kepala Sekolah dan Tim Kurikulum dapat memantau ketersediaan token kredit AI sekolah melalui panel admin khusus.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Indikator saldo sisa kredit AI aktif lembaga (contoh: 850 / 1.000 kredit).</li>
+              <li>Grafik analitik tren pemakaian kredit oleh dewan guru per bulan.</li>
+              <li>Riwayat audit debet token: mencatat nama guru, mata pelajaran, rombel kelas, dan jumlah lembar esai yang dikoreksi.</li>
+              <li>Tautan resmi permohonan isi ulang / top-up saldo ke manajemen BelajarPlus.</li>
+            </ul>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem;">
+              <img src="assets/audit__admin_ai_credits.png" class="screenshot-img zoomable-img" alt="Monitoring Saldo Token AI BelajarPlus" style="border-radius: 10px; width: 100%;" />
+              <img src="assets/kepsek_ai-credits.png" class="screenshot-img zoomable-img" alt="Tampilan Kredit AI Kepsek BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">Otomasi LJD</span>
+              <span class="dd-step-num">02</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Pemicu Koreksi Esai Otomatis Berbasis Rubrik Indikator</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Saat memeriksa hasil pengerjaan LJD siswa yang memuat soal tipe Esai/Uraian kompleks, guru tidak perlu membaca ratusan lembar secara manual satu per satu.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Guru menekan tombol <strong>"Koreksi AI (Debet 1 Kredit)"</strong> pada butir soal esai siswa.</li>
+              <li>AI membaca argumen siswa dan membandingkannya dengan rubrik kata kunci &amp; indikator kompetensi yang telah ditetapkan guru saat merakit bank soal.</li>
+              <li>Proses inferensi semantik berlangsung cepat (&lt; 3 detik per lembar jawaban siswa).</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/feature_hasil_detail.png" class="screenshot-img zoomable-img" alt="Detail Penilaian Hasil Belajar AI BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3);">Human In Loop</span>
+              <span class="dd-step-num">03</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Evaluasi Semantik Objektif &amp; Validasi Hak Veto Guru</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Prinsip BelajarPlus menempatkan AI sebagai asisten pendukung, bukan penentu mutlak nasib akademik siswa (*Human-in-the-Loop*).
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>AI menampilkan skor rekomendasi (skala 0–100) disertai uraian poin kekuatan dan kekurangan argumen siswa.</li>
+              <li>Guru memiliki hak prerogatif penuh untuk menyetujui, menaikkan, atau menurunkan skor sesuai pertimbangan pedagogis.</li>
+              <li>Skor final langsung teragregasi ke daftar nilai rombel dan siap dikunci ke e-Rapor.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/assignment_result.png" class="screenshot-img zoomable-img" alt="Hasil Evaluasi Esai Siswa BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== MODUL 5: KOLEKSI & DRM ==================== -->
+      <div class="dd-module-content" id="dd-mod-perpustakaan">
+        <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📚</span> Modul 5: Tata Kelola Koleksi Perpustakaan Digital, Kuota Kursi Lisensi &amp; DRM Forensik
+          </h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+            Manajemen inventaris ribuan judul buku teks Kurikulum Merdeka ber-ISBN, pengaturan sirkulasi kursi lisensi peminjaman paralel (*Concurrent User Seats*), konfigurasi masa aktif pinjam, serta audit forensik pengamanan hak cipta buku dari ancaman pembajakan digital.
+          </p>
+        </div>
+
+        <div class="dd-card-grid">
+          <!-- Step 1 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Koleksi Sekolah</span>
+              <span class="dd-step-num">01</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Manajemen Koleksi Buku Perpustakaan (/admin/library/collection)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Admin Perpustakaan dapat mengelola ketersediaan buku kurikulum yang dapat diakses oleh seluruh siswa sekolah.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Menambahkan judul buku baru dari master katalog penerbit mitra resmi BelajarPlus.</li>
+              <li>Toggle status ketersediaan buku: <strong>Aktif</strong> (bisa dipinjam) atau <strong>Nonaktif</strong> (arsip).</li>
+              <li>Penyusunan kategori tingkat kelas (Fase E untuk Kelas 10, Fase F untuk Kelas 11-12) dan rumpun peminatan.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/audit__admin_library_collection.png" class="screenshot-img zoomable-img" alt="Koleksi Buku Perpustakaan Admin BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Kursi Lisensi</span>
+              <span class="dd-step-num">02</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Sirkulasi Kuota Kursi Baca / Seats &amp; Antrean (/admin/library/seats)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              BelajarPlus menerapkan kepatuhan lisensi penerbit berbasis <em>Concurrent User Seats</em> (contoh: kuota 50 kursi per judul buku pelajaran).
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Tabel pemantauan menampilkan nama siswa yang sedang memegang kursi dan sisa waktu baca.</li>
+              <li>Siswa ke-51 yang meminjam buku otomatis dialihkan ke status antrean (*waiting list*).</li>
+              <li>Saat ada siswa lain yang mengembalikan buku atau masa aktifnya habis, kursi otomatis diberikan ke siswa di urutan antrean teratas.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/audit__admin_library_seats.png" class="screenshot-img zoomable-img" alt="Manajemen Kursi Lisensi BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Kebijakan Pinjam</span>
+              <span class="dd-step-num">03</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Konfigurasi Durasi &amp; Batas Pinjam (/admin/library/settings)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Menyesuaikan regulasi sirkulasi perpustakaan agar rotasi buku di antara siswa berjalan adil dan merata.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Pengaturan durasi masa aktif peminjaman standar (misal 7 hari atau 14 hari per peminjaman).</li>
+              <li>Batas maksimal jumlah buku yang dapat dipinjam secara bersamaan oleh 1 siswa (default: 3 buku).</li>
+              <li>Fitur perpanjangan mandiri: siswa dapat memperpanjang masa pinjam 1 kali jika tidak ada antrean.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/audit__admin_library_settings.png" class="screenshot-img zoomable-img" alt="Pengaturan Perpustakaan Admin BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">DRM Forensik</span>
+              <span class="dd-step-num">04</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Pusat Audit Forensik &amp; Aktivitas Mencurigakan (/admin/library/security)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Untuk menjaga kepercayaan penerbit buku ber-ISBN, modul keamanan memantau seluruh indikasi penyalahgunaan konten secara real-time.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Pencegahan penangkapan layar (PrintScreen &amp; Snipping Tool) yang memicu tirai hitam otomatis.</li>
+              <li>Watermark forensik mikro yang mengunci NISN dan identitas siswa pada canvas baca digital.</li>
+              <li>Deteksi login anomali: 1 akun yang digunakan bersamaan dari banyak gawai atau IP address berbeda.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/audit__admin_library_security.png" class="screenshot-img zoomable-img" alt="Pusat Keamanan Perpustakaan BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== MODUL 6: PRESENSI GPS & KEHADIRAN ==================== -->
+      <div class="dd-module-content" id="dd-mod-presensi">
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📍</span> Modul 6: Geofencing Presensi Satelit GPS 120m &amp; Monitoring Kehadiran Kelas
+          </h3>
+          <p style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+            Penegakan kedisiplinan kehadiran siswa dan guru melalui pembatasan radius geografis berbasis satelit (Haversine Geofencing), verifikasi foto selfie biometrik wajah, supervisi presensi tatap muka langsung di kelas, serta pencatatan jurnal KBM harian.
+          </p>
+        </div>
+
+        <div class="dd-card-grid">
+          <!-- Step 1 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Konfigurasi GPS</span>
+              <span class="dd-step-num">01</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Pengaturan Titik Pusat GPS &amp; Radius Sekolah (/admin/absensi/pengaturan)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Admin Sekolah menentukan koordinat titik pusat sekolah dan toleransi radius meter untuk sistem presensi gawai.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Input koordinat presisi Latitude dan Longitude gerbang utama sekolah.</li>
+              <li>Atur batas radius toleransi (standar: 50m, 100m, atau maksimal 120m) untuk menjangkau seluruh sudut kelas.</li>
+              <li>Pengaturan jam operasional: jam buka gerbang kedatangan, jam batas terlambat, dan jam mulai absensi kepulangan.</li>
+              <li>Toggle Opsi Verifikasi Otomatis (langsung hadir vs antrean verifikasi petugas piket).</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/audit__absensi_pengaturan.png" class="screenshot-img zoomable-img" alt="Pengaturan Presensi GPS BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Selfie Siswa</span>
+              <span class="dd-step-num">02</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Presensi Selfie Wajah Mandiri Siswa (/scan &amp; /absensi)</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Saat siswa tiba di lingkungan sekolah, siswa membuka fitur presensi mandiri melalui gawai smartphone mereka.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Sistem membaca sinyal satelit GPS dan menghitung jarak presisi secara instan via formula Haversine.</li>
+              <li>Siswa mengarahkan kamera depan untuk pengambilan foto selfie verifikasi wajah (*face verification*).</li>
+              <li>Pencegahan fake GPS: anomali jarak (&gt; 120m) otomatis ditolak atau ditahan di antrean mencurigakan.</li>
+            </ul>
+            <div style="margin-top: auto;">
+              <img src="assets/hunt_absensi_siswa_face_page.png" class="screenshot-img zoomable-img" alt="Presensi Wajah Mandiri Siswa BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="dd-step-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="dd-step-badge">Supervisi Guru</span>
+              <span class="dd-step-num">03</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff;">Supervisi Presensi Kelas Live Guru &amp; Jurnal KBM</h4>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55;">
+              Guru di ruang kelas memantau daftar kehadiran siswa secara langsung pada setiap jam pelajaran aktif.
+            </p>
+            <ul style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+              <li>Daftar hadir otomatis menampilkan siswa: Hadir, Terlambat (dengan menit keterlambatan), Izin, Sakit, atau Alpa.</li>
+              <li>Pencatatan surat izin/sakit siswa disertai unggahan bukti dokumen surat dokter format PDF/JPG.</li>
+              <li>Setelah jam mengajar selesai, data presensi dikunci dan otomatis tertaut ke lembar <strong>Jurnal Mengajar Guru</strong>.</li>
+            </ul>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem;">
+              <img src="assets/hunt_guru_sragen_absensi_live.png" class="screenshot-img zoomable-img" alt="Monitoring Presensi Live Guru BelajarPlus" style="border-radius: 10px; width: 100%;" />
+              <img src="assets/audit__absensi_pembelajaran.png" class="screenshot-img zoomable-img" alt="Presensi Pembelajaran Kelas BelajarPlus" style="border-radius: 10px; width: 100%;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <section id="reader-demo" class="section section-dark">
     <div class="container">
       <div class="section-label">Simulasi Interaktif</div>
@@ -2486,6 +3077,7 @@
             <li>Assign ke kelas tertentu</li>
             <li>Pantau status pengerjaan siswa</li>
           </ul>
+          <img src="assets/audit__admin_assignments.png" class="screenshot-img zoomable-img" alt="Kelola Penugasan Admin" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card">
           <div class="amc-header"><span class="amc-icon">👨‍🎓</span><span class="amc-name">Siswa</span></div>
@@ -2496,6 +3088,7 @@
             <li>Reset password siswa</li>
             <li>Kelola akses per kelas</li>
           </ul>
+          <img src="assets/audit__admin_students.png" class="screenshot-img zoomable-img" alt="Kelola Siswa Admin" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card">
           <div class="amc-header"><span class="amc-icon">👨‍🏫</span><span class="amc-name">Guru</span></div>
@@ -2505,6 +3098,7 @@
             <li>Assign mapel &amp; kelas ke guru</li>
             <li>Atur level akses (Staf/Guru)</li>
           </ul>
+          <img src="assets/audit__admin_teachers.png" class="screenshot-img zoomable-img" alt="Kelola Guru Admin" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card">
           <div class="amc-header"><span class="amc-icon">📊</span><span class="amc-name">Hasil Siswa</span></div>
@@ -2515,6 +3109,7 @@
             <li>Export data nilai ke CSV/Excel</li>
             <li>Pantau progress belajar</li>
           </ul>
+          <img src="assets/audit__admin_submissions.png" class="screenshot-img zoomable-img" alt="Rekap Hasil Siswa Admin" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
       </div>
 
@@ -2528,6 +3123,7 @@
             <li>Tombol aksi cepat (shortcut)</li>
             <li>Overview aktivitas terkini</li>
           </ul>
+          <img src="assets/hunt_egis__dashboard.png" class="screenshot-img zoomable-img" alt="Ringkasan Perpustakaan Admin" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card">
           <div class="amc-header"><span class="amc-icon">📦</span><span class="amc-name">Koleksi &amp; Lisensi</span></div>
@@ -2540,7 +3136,7 @@
             <li>Kelola masa aktif lisensi</li>
           </ul>
           <div class="amc-badge">🔑 Halaman terpenting untuk admin perpustakaan</div>
-          <img src="assets/admin_koleksi.png" class="screenshot-img" alt="Kelola Koleksi & Lisensi" style="margin-top: 1rem;" />
+          <img src="assets/audit__admin_library_collection.png" class="screenshot-img zoomable-img" alt="Kelola Koleksi & Lisensi" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card">
           <div class="amc-header"><span class="amc-icon">🎁</span><span class="amc-name">Bagikan Buku Digital</span></div>
@@ -2551,6 +3147,7 @@
             <li>Atur periode akses (tanggal mulai-selesai)</li>
             <li>Distribusi massal ke seluruh sekolah</li>
           </ul>
+          <img src="assets/audit__admin_library_seats.png" class="screenshot-img zoomable-img" alt="Sirkulasi Kursi Lisensi Buku" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card">
           <div class="amc-header"><span class="amc-icon">🎨</span><span class="amc-name">Tampilan Sekolah</span></div>
@@ -2572,6 +3169,7 @@
             <li>Blokir / tandai akun mencurigakan</li>
           </ul>
           <div class="amc-badge" style="background:rgba(239,68,68,.15);color:#FCA5A5;border-color:rgba(239,68,68,.2)">⚠️ Fitur keamanan — pantau rutin</div>
+          <img src="assets/audit__admin_library_security.png" class="screenshot-img zoomable-img" alt="Aktivitas Mencurigakan DRM" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
       </div>
 
@@ -2586,17 +3184,18 @@
             <li>Riwayat pembelian per siswa</li>
             <li>Filter per periode (harian/bulanan)</li>
           </ul>
-          <img src="assets/admin_toko.png" class="screenshot-img" alt="Rekap Transaksi Toko" style="margin-top: 1rem;" />
+          <img src="assets/audit__admin_sales.png" class="screenshot-img zoomable-img" alt="Rekap Transaksi Toko" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
         <div class="admin-menu-card" style="background:rgba(59,130,246,.05);border-color:rgba(59,130,246,.2)">
-          <div class="amc-header"><span class="amc-icon">👤</span><span class="amc-name">Role Akses Admin</span></div>
-          <p class="amc-desc">BelajarPlus memiliki dua level akses admin:</p>
+          <div class="amc-header"><span class="amc-icon">🤖</span><span class="amc-name">Kredit AI &amp; Kuota Koreksi</span></div>
+          <p class="amc-desc">Monitoring saldo kuota kredit AI lembaga untuk koreksi esai otomatis LJD:</p>
           <ul class="amc-list">
-            <li><strong style="color:#60A5FA">Staf</strong> — akses terbatas, bisa kelola perpustakaan &amp; e-learning</li>
-            <li><strong style="color:#A78BFA">Admin Penuh</strong> — akses semua fitur termasuk pengaturan sekolah &amp; billing</li>
-            <li>Role bisa diatur di menu Guru &gt; edit akun</li>
+            <li><strong style="color:#60A5FA">Saldo Aktif</strong> — sisa kuota kredit token sekolah per semester</li>
+            <li><strong style="color:#A78BFA">Audit Debet</strong> — pemantauan pemakaian token per guru &amp; rombel</li>
+            <li><strong style="color:#34D399">Top-up Resmi</strong> — permohonan isi ulang kuota ke BelajarPlus</li>
+            <li><strong style="color:#F59E0B">Tingkat Akses</strong> — dikelola oleh Admin Penuh &amp; Kepala Sekolah</li>
           </ul>
-          <div class="amc-badge">ℹ️ Screenshot menunjukkan role: Staf</div>
+          <img src="assets/audit__admin_ai_credits.png" class="screenshot-img zoomable-img" alt="Monitoring Kredit AI BelajarPlus" style="margin-top: 1rem; border-radius: 8px;" />
         </div>
       </div>
 
