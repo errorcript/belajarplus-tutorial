@@ -1,0 +1,867 @@
+[
+  {
+    "id": 1,
+    "name": "SMAN 1 Sukoharjo",
+    "searchKey": "SMA NEGERI 1 SUKOHARJO",
+    "rawRows": 864,
+    "rawRombels": 25,
+    "rawFile": "SMA Negeri 1 Sukoharjo.xlsx",
+    "gdriveCleanRows": 0,
+    "gdriveCleanFile": null,
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Sukoharjo.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 0,
+    "platformSiswaUnplaced": 0,
+    "platformPTKTotal": 78,
+    "guruMandiri": [
+      "AS (abidin.suko75@gmail.com)",
+      "AK (adityakurniawan63096@gmail.com)",
+      "AW (aguskamajaya@gmail.com)",
+      "AB (buagustina@yahoo.com)",
+      "AF (alimfatimah@gmail.com)",
+      "AT (aangtrip33@gmail.com)",
+      "AT (anissanaresalyne@gmail.com)",
+      "AI (asep.indrayana@gmail.com)",
+      "AN (atikzakiyahthox@gmail.com)",
+      "BD (bd773210@gmail.com)",
+      "BW (benkpitik@gmail.com)",
+      "BS (setiabudisetia70@gmail.com)",
+      "CY (caturyuliuntaribk2013@gmail.com)",
+      "DK (desikusuma7979@gmail.com)",
+      "DH (hrningrum@gmail.com)",
+      "DH (hdwi1926@gmail.com)",
+      "DO (dwioktofiantoppknuns@gmail.com)",
+      "DP (perwitasaridiah77@gmail.com)",
+      "EW (ekowahyudi.uns@gmail.com)",
+      "EW (warsiti1871@gmail.com)"
+    ],
+    "guruDouble": [
+      "AT (aangtrip33@gmail.com)",
+      "AT (anissanaresalyne@gmail.com)",
+      "DH (hrningrum@gmail.com)",
+      "DH (hdwi1926@gmail.com)",
+      "EW (ekowahyudi.uns@gmail.com)",
+      "EW (warsiti1871@gmail.com)"
+    ],
+    "siswaMandiriSample": [],
+    "statusMatch": "BELUM_TERIMPOR",
+    "catatan": ""
+  },
+  {
+    "id": 2,
+    "name": "SMAN 2 Sukoharjo",
+    "searchKey": "SMA NEGERI 2 SUKOHARJO",
+    "rawRows": 0,
+    "rawRombels": 0,
+    "rawFile": "SMA Negeri 2 Sukoharjo(1).xlsx",
+    "gdriveCleanRows": 0,
+    "gdriveCleanFile": null,
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_2_Sukoharjo.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 967,
+    "platformSiswaUnplaced": 967,
+    "platformPTKTotal": 0,
+    "guruMandiri": [],
+    "guruDouble": [],
+    "siswaMandiriSample": [
+      {
+        "name": "AL",
+        "email": "davidaaronglow@gmail.com"
+      },
+      {
+        "name": "AW",
+        "email": "nemonr125@gmail.com"
+      },
+      {
+        "name": "AN",
+        "email": "abednegosuryamarchsix123@gmail.com"
+      },
+      {
+        "name": "AE",
+        "email": "morelow714@gmail.com"
+      },
+      {
+        "name": "AS",
+        "email": "shallommitha9@gmail.com"
+      },
+      {
+        "name": "AW",
+        "email": "ama.rohani@gmail.com"
+      },
+      {
+        "name": "AT",
+        "email": "abisatyatoufiq@gmail.com"
+      },
+      {
+        "name": "AS",
+        "email": "biuu3685@gmail.com"
+      },
+      {
+        "name": "AF",
+        "email": "abyanfazli5@gmail.com"
+      },
+      {
+        "name": "AM",
+        "email": "faruqachdiyat@gmail.com"
+      }
+    ],
+    "statusMatch": "SELISIH (967)",
+    "catatan": ""
+  },
+  {
+    "id": 3,
+    "name": "SMAN 3 Sukoharjo",
+    "searchKey": "SMA NEGERI 3 SUKOHARJO",
+    "rawRows": 720,
+    "rawRombels": 1,
+    "rawFile": "SMA Negeri 3 Sukoharjo.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 3 Sukoharjo.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_3_Sukoharjo.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 0,
+    "platformSiswaUnplaced": 0,
+    "platformPTKTotal": 0,
+    "guruMandiri": [],
+    "guruDouble": [],
+    "siswaMandiriSample": [],
+    "statusMatch": "UNKNOWN",
+    "catatan": "Tidak ada kartu penugasan di dashboard Henri"
+  },
+  {
+    "id": 4,
+    "name": "SMAN 1 Nguter",
+    "searchKey": "SMA NEGERI 1 NGUTER",
+    "rawRows": 576,
+    "rawRombels": 17,
+    "rawFile": "SMA Negeri 1 Nguter.xlsx",
+    "gdriveCleanRows": 0,
+    "gdriveCleanFile": null,
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Nguter.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 344,
+    "platformSiswaUnplaced": 344,
+    "platformPTKTotal": 3,
+    "guruMandiri": [
+      "LH (omluq54@gmail.com)",
+      "SA (sitisubandho62@guru.sma.belajar.id)",
+      "S1 (osmansater3@gmail.com)"
+    ],
+    "guruDouble": [],
+    "siswaMandiriSample": [
+      {
+        "name": "AA",
+        "email": "abdillahhidayat692@gmail.com"
+      },
+      {
+        "name": "AS",
+        "email": "rofial1927@gmail.com"
+      },
+      {
+        "name": "AK",
+        "email": "jadamkusuma@gmail.com"
+      },
+      {
+        "name": "AP",
+        "email": "aditya82688@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "suradi56a@gmail.com"
+      },
+      {
+        "name": "AS",
+        "email": "dindaaasekar123@gmail.com"
+      },
+      {
+        "name": "AD",
+        "email": "bendoladitya900@gmail.com"
+      },
+      {
+        "name": "AS",
+        "email": "adnansonygr56@gmail.com"
+      },
+      {
+        "name": "AJ",
+        "email": "adrionjaniw@gmail.com"
+      },
+      {
+        "name": "AM",
+        "email": "ghsaxxx3@gmail.com"
+      }
+    ],
+    "statusMatch": "SELISIH (-232)",
+    "catatan": ""
+  },
+  {
+    "id": 5,
+    "name": "SMA 1 Tawangsari",
+    "searchKey": "SMA NEGERI 1 TAWANGSARI",
+    "rawRows": 720,
+    "rawRombels": 23,
+    "rawFile": "SMA Negeri 1 Tawangsari.xlsx",
+    "gdriveCleanRows": 0,
+    "gdriveCleanFile": null,
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Tawangsari.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 436,
+    "platformSiswaUnplaced": 436,
+    "platformPTKTotal": 3,
+    "guruMandiri": [
+      "DA (devitawijaya34@guru.sma.belajar.id)",
+      "H (79hartadi@gmail.com)",
+      "WE (wahidahestiningrum10@guru.sma.belajar.id)"
+    ],
+    "guruDouble": [],
+    "siswaMandiriSample": [
+      {
+        "name": "AH",
+        "email": "ahabibie44@gmail.com"
+      },
+      {
+        "name": "AH",
+        "email": "hahahihihahahihi662@gmail.com"
+      },
+      {
+        "name": "AK",
+        "email": "abinaya.krisya10@gmail.com"
+      },
+      {
+        "name": "AR",
+        "email": "sigitaditya257@gmail.com"
+      },
+      {
+        "name": "AH",
+        "email": "zahraviaaa00@gmail.com"
+      },
+      {
+        "name": "AD",
+        "email": "dwiaryanti402@gmail.com"
+      },
+      {
+        "name": "AF",
+        "email": "ahmadfauzanklaten123@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "ainaarfaresfita33@gmail.com"
+      },
+      {
+        "name": "AN",
+        "email": "dindafaradilaaa@gmail.com"
+      },
+      {
+        "name": "AR",
+        "email": "airarisma@gmail.com"
+      }
+    ],
+    "statusMatch": "SELISIH (-284)",
+    "catatan": ""
+  },
+  {
+    "id": 6,
+    "name": "SMAN 1 Polokarto",
+    "searchKey": "SMA NEGERI 1 POLOKARTO",
+    "rawRows": 278,
+    "rawRombels": 23,
+    "rawFile": "SMA Negeri 1 Polokarto.xlsx",
+    "gdriveCleanRows": 0,
+    "gdriveCleanFile": null,
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Polokarto.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 0,
+    "platformSiswaUnplaced": 0,
+    "platformPTKTotal": 37,
+    "guruMandiri": [
+      "AG (gracianandaa@gmail.com)",
+      "AS (arifnoorsabekti13@gmail.com)",
+      "AS (agus4014@guru.sma.belajar.id)",
+      "AP (aallays17@gmail.com)",
+      "AW (ardhianpambudi09@guru.sma.belajar.id)",
+      "AN (arif.ns1912@gmail.com)",
+      "AT (atidwuryantoro@gmail.com)",
+      "DS (santosodanang96@gmail.com)",
+      "DA (agusrohadi355@gmail.com)",
+      "FP (fp.wijaya79@gmail.com)",
+      "GS (gunblezz@gmail.com)",
+      "GY (triasmorogunturyuli@gmail.com)",
+      "H (shafahezza@gmail.com)",
+      "HW (heriwindarto2@gmail.com)",
+      "IK (ikemanis81@gmail.com)",
+      "LR (lalusrssutikno@gmail.com)",
+      "LS (linasugiarti004@gmail.com)",
+      "LF (luqmanfajarn08@gmail.com)",
+      "MS (kikuk.maryono@gmail.com)",
+      "MI (muhammadisnaedhi@gmail.com)"
+    ],
+    "guruDouble": [
+      "AS (arifnoorsabekti13@gmail.com)",
+      "AS (agus4014@guru.sma.belajar.id)"
+    ],
+    "siswaMandiriSample": [],
+    "statusMatch": "BELUM_TERIMPOR",
+    "catatan": ""
+  },
+  {
+    "id": 7,
+    "name": "SMAN 1 Bulu",
+    "searchKey": "SMA NEGERI 1 BULU",
+    "rawRows": 576,
+    "rawRombels": 17,
+    "rawFile": "SMA NEGERI 1 BULU.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 1 Bulu.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Bulu.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 541,
+    "platformSiswaUnplaced": 541,
+    "platformPTKTotal": 27,
+    "guruMandiri": [
+      "AP (ambarprabawati45@guru.sma.belajar.id)",
+      "AW (anitayulianti47@guru.sma.belajar.id)",
+      "D (daryanti121@guru.sma.belajar.id)",
+      "EN (endangsmabulu1@gmail.com)",
+      "EW (eny.widihastuti45@guru.sma.belajar.id)",
+      "IF (ilhamfadhia46@gmail.com)",
+      "IM (mfrisnaini23@gmail.com)",
+      "JP (jayantipurwaningsih34@guru.sma.belajar.id)",
+      "J (jumanto16081970@gmail.com)",
+      "MS (maryuni671@gmail.com)",
+      "MW (mulatwidhi12@gmail.com)",
+      "NA (niahananisa1971@gmail.com)",
+      "ND (dewinila824@gmail.com)",
+      "NM (nisaunmarkamah13@guru.smk.belajar.id)",
+      "NH (nurulhidayah15@guru.sma.belajar.id)",
+      "P (parmonokrp@gmail.com)",
+      "RA (calonjuara93@gmail.com)",
+      "R (rustani29@guru.sma.belajar.id)",
+      "SC (sitichotijah78@guru.sma.belajar.id)",
+      "SS (srisutrisni11@guru.sma.belajar.id)"
+    ],
+    "guruDouble": [],
+    "siswaMandiriSample": [],
+    "statusMatch": "SELISIH (-35)",
+    "catatan": ""
+  },
+  {
+    "id": 8,
+    "name": "SMAN 1 Sragen",
+    "searchKey": "SMA NEGERI 1 SRAGEN",
+    "rawRows": 396,
+    "rawRombels": 12,
+    "rawFile": "SMA Negeri 1 Sragen.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 1 Sragen.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Sragen.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 1172,
+    "platformSiswaUnplaced": 1172,
+    "platformPTKTotal": 64,
+    "guruMandiri": [
+      "AA (abdul.azis@sman1sragen.sch.id)",
+      "AH (achmad.hambali@sman1sragen.sch.id)",
+      "AR (adhim.rahtawu@sman1sragen.sch.id)",
+      "AF (adinda.fajar@sman1sragen.sch.id)",
+      "AW (advent.wima@sman1sragen.sch.id)",
+      "AR (afifah.robby@sman1sragen.sch.id)",
+      "AF (akbar.fatahillah@sman1sragen.sch.id)",
+      "AM (anis.miftakhul@sman1sragen.sch.id)",
+      "AK (ari.kristianawati@sman1sragen.sch.id)",
+      "AN (arif.nur@sman1sragen.sch.id)",
+      "AS (aris.sutanto@sman1sragen.sch.id)",
+      "AC (ayu.chandra@sman1sragen.sch.id)",
+      "BA (bahruddiin.alfain@sman1sragen.sch.id)",
+      "DF (dewanti.fitria@sman1sragen.sch.id)",
+      "DS (didik.setyono@sman1sragen.sch.id)",
+      "DP (pancarini.dyah@sman1sragen.sch.id)",
+      "DS (subeno@sman1sragen.sch.id)",
+      "DB (dwibudi@sman1sragen.sch.id)",
+      "EE (edwan.eka@sman1sragen.sch.id)",
+      "ES (efy.sri@sman1sragen.sch.id)"
+    ],
+    "guruDouble": [
+      "AR (adhim.rahtawu@sman1sragen.sch.id)",
+      "AF (adinda.fajar@sman1sragen.sch.id)",
+      "AR (afifah.robby@sman1sragen.sch.id)",
+      "AF (akbar.fatahillah@sman1sragen.sch.id)",
+      "DS (didik.setyono@sman1sragen.sch.id)",
+      "DS (subeno@sman1sragen.sch.id)"
+    ],
+    "siswaMandiriSample": [
+      {
+        "name": "A",
+        "email": "afiatussoliha20399@sman1sragen.sch.id"
+      },
+      {
+        "name": "AN",
+        "email": "aidah.nafia20400@sman1sragen.sch.id"
+      },
+      {
+        "name": "AH",
+        "email": "abdillah.hanif20401@sman1sragen.sch.id"
+      },
+      {
+        "name": "AA",
+        "email": "abdullah.azzam20402@sman1sragen.sch.id"
+      },
+      {
+        "name": "AA",
+        "email": "abel.arta19596@sman1sragen.sch.id"
+      },
+      {
+        "name": "AK",
+        "email": "abellia.kamila20403@sman1sragen.sch.id"
+      },
+      {
+        "name": "AO",
+        "email": "abigail.odelina19997@sman1sragen.sch.id"
+      },
+      {
+        "name": "AP",
+        "email": "abimanyu.pradhinya19597@sman1sragen.sch.id"
+      },
+      {
+        "name": "AJ",
+        "email": "abram.jowan20404@sman1sragen.sch.id"
+      },
+      {
+        "name": "AP",
+        "email": "adelard.perwiro20405@sman1sragen.sch.id"
+      }
+    ],
+    "statusMatch": "SELISIH (776)",
+    "catatan": ""
+  },
+  {
+    "id": 9,
+    "name": "SMAN 2 Sragen",
+    "searchKey": "SMA NEGERI 2 SRAGEN",
+    "rawRows": 360,
+    "rawRombels": 1,
+    "rawFile": "SMA Negeri 2 Sragen.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 2 Sragen.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_2_Sragen.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 98,
+    "platformSiswaUnplaced": 98,
+    "platformPTKTotal": 38,
+    "guruMandiri": [],
+    "guruDouble": [
+      "GK (guru_sman2sragen_1@belajarplus.com)",
+      "GK (guru_sman2sragen_10@belajarplus.com)",
+      "GK (guru_sman2sragen_11@belajarplus.com)",
+      "GK (guru_sman2sragen_12@belajarplus.com)",
+      "GK (guru_sman2sragen_13@belajarplus.com)",
+      "GK (guru_sman2sragen_14@belajarplus.com)",
+      "GK (guru_sman2sragen_15@belajarplus.com)",
+      "GK (guru_sman2sragen_16@belajarplus.com)",
+      "GK (guru_sman2sragen_17@belajarplus.com)",
+      "GK (guru_sman2sragen_18@belajarplus.com)",
+      "GK (guru_sman2sragen_19@belajarplus.com)",
+      "GK (guru_sman2sragen_2@belajarplus.com)",
+      "GK (guru_sman2sragen_20@belajarplus.com)",
+      "GK (guru_sman2sragen_21@belajarplus.com)",
+      "GK (guru_sman2sragen_22@belajarplus.com)",
+      "GK (guru_sman2sragen_23@belajarplus.com)",
+      "GK (guru_sman2sragen_24@belajarplus.com)",
+      "GK (guru_sman2sragen_25@belajarplus.com)",
+      "GK (guru_sman2sragen_26@belajarplus.com)"
+    ],
+    "siswaMandiriSample": [
+      {
+        "name": "SK",
+        "email": "sman2sragen@pesonaedu.com"
+      }
+    ],
+    "statusMatch": "SELISIH (-262)",
+    "catatan": ""
+  },
+  {
+    "id": 10,
+    "name": "SMAN 3 Sragen",
+    "searchKey": "SMA NEGERI 3 SRAGEN",
+    "rawRows": 360,
+    "rawRombels": 11,
+    "rawFile": "SMA Negeri 3 Sragen.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 3 Sragen.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_3_Sragen.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 165,
+    "platformSiswaUnplaced": 165,
+    "platformPTKTotal": 35,
+    "guruMandiri": [
+      "AY (ardiansaputri47@guru.sma.belajar.id)",
+      "AP (arifpurwadi62@guru.sma.belajar.id)",
+      "AD (atikkurniasih82@guru.sma.belajar.id)",
+      "DN (datihistriana14@guru.sma.belajar.id)",
+      "DA (dewisari74@guru.sma.belajar.id)",
+      "DA (diyahendarti58@guru.sma.belajar.id)",
+      "DM (mulyati87@guru.sma.belajar.id)",
+      "D (supartini.792@guru.sma.belajar.id)",
+      "DE (edysantoso25@guru.sma.belajar.id)",
+      "DH (hartono60@guru.sma.belajar.id)",
+      "DP (dyah.puspitasari124@guru.sma.belajar.id)",
+      "ER (etikriyaningsih49@guru.sma.belajar.id)",
+      "HB (husnibawafi91@guru.sma.belajar.id)",
+      "IF (istinahfahmiwati91@guru.sma.belajar.id)",
+      "IS (iswanto57@guru.sma.belajar.id)",
+      "JD (jokodomas74@guru.sma.belajar.id)",
+      "KH (kukuh151@guru.sma.belajar.id)",
+      "LR (latifahrahmawati18@guru.sma.belajar.id)",
+      "MA (muhtriwibowo82@guru.sma.belajar.id)",
+      "NS (nikenwidiati53@guru.sma.belajar.id)"
+    ],
+    "guruDouble": [
+      "DA (dewisari74@guru.sma.belajar.id)",
+      "DA (diyahendarti58@guru.sma.belajar.id)"
+    ],
+    "siswaMandiriSample": [
+      {
+        "name": "AR",
+        "email": "rizkipn320@gmail.com"
+      },
+      {
+        "name": "AE",
+        "email": "adindaelokrengganis@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "adityaanugrah08@gmail.com"
+      },
+      {
+        "name": "AC",
+        "email": "anitadesi970@gmail.com"
+      },
+      {
+        "name": "AS",
+        "email": "afifasyafira574@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "aprillia230412@gmail.com"
+      },
+      {
+        "name": "AD",
+        "email": "aisyahahustin71@gmail.com"
+      },
+      {
+        "name": "AR",
+        "email": "akhdansragen1@gmail.com"
+      },
+      {
+        "name": "AF",
+        "email": "anell.devv@gmail.com"
+      },
+      {
+        "name": "AY",
+        "email": "alfitooyogzzganz@gmail.com"
+      }
+    ],
+    "statusMatch": "SELISIH (-195)",
+    "catatan": ""
+  },
+  {
+    "id": 11,
+    "name": "SMAN 1 Tangen",
+    "searchKey": "SMA NEGERI 1 TANGEN",
+    "rawRows": 252,
+    "rawRombels": 8,
+    "rawFile": "SMA NEGERI 1 TANGEN.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 1 Tangen.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Tangen.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 227,
+    "platformSiswaUnplaced": 227,
+    "platformPTKTotal": 25,
+    "guruMandiri": [
+      "AW (adisiwijaya@gmail.com)",
+      "AS (agungsuharno48@gmail.com)",
+      "AK (ardiantikusumadewi85@gmail.com)",
+      "AJ (4tijarwati@gmail.com)",
+      "DA (dhanar85laoshi@gmail.com)",
+      "FR (fajarriyantospd@gmail.com)",
+      "IK (inak4wati@yahoo.com)",
+      "KF (kusmiyatileboy696969@gmail.com)",
+      "LH (lilikhandoko.1985@gmail.com)",
+      "LH (lilikhandoko95@guru.sma.belajar.id)",
+      "MM (miftamurtadlo@gmail.com)",
+      "NH (ninik_hariyanti2010@yahoo.com)",
+      "P (totoktosan_2015@yahoo.com)",
+      "RS (retnosus826@gmail.com)",
+      "R (ryantdewe@gmail.com)",
+      "R (riyant.2007@gmail.com)",
+      "RA (gaega82@gmail.com)",
+      "SR (siska@sman1sambungmacan.sch.id)",
+      "SN (nurk73073@gmail.com)",
+      "SS (sumastutibio@gmail.com)"
+    ],
+    "guruDouble": [
+      "LH (lilikhandoko.1985@gmail.com)",
+      "LH (lilikhandoko95@guru.sma.belajar.id)",
+      "R (ryantdewe@gmail.com)",
+      "R (riyant.2007@gmail.com)"
+    ],
+    "siswaMandiriSample": [
+      {
+        "name": "AB",
+        "email": "abyanbanyuu@gmail.com"
+      },
+      {
+        "name": "AP",
+        "email": "prasdit569@gmail.com"
+      },
+      {
+        "name": "AE",
+        "email": "adnansht8@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "pipahhhajahhh@gmail.com"
+      },
+      {
+        "name": "A",
+        "email": "afifatunisa822@gmail.com"
+      },
+      {
+        "name": "AJ",
+        "email": "scretpp@gmail.com"
+      },
+      {
+        "name": "AP",
+        "email": "aghaprasetyo03@gmail.com"
+      },
+      {
+        "name": "AE",
+        "email": "agitaelginy054@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "ahmadafdani63@gmail.com"
+      },
+      {
+        "name": "AF",
+        "email": "ainurfiana24@gmail.com"
+      }
+    ],
+    "statusMatch": "SELISIH (-25)",
+    "catatan": ""
+  },
+  {
+    "id": 12,
+    "name": "SMAN 1 Gemolong",
+    "searchKey": "SMA NEGERI 1 GEMOLONG",
+    "rawRows": 360,
+    "rawRombels": 11,
+    "rawFile": "SMA Negeri 1 Gemolong.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 1 Gemolong.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Gemolong.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 0,
+    "platformSiswaUnplaced": 0,
+    "platformPTKTotal": 13,
+    "guruMandiri": [
+      "AS (achsansafurianto@gmail.com)",
+      "AL (agustinaleonarti@yahoo.co.id)",
+      "AT (agustinatri1981@gmail.com)",
+      "AW (hakeemkaindraattaqie585@gmail.com)",
+      "AA (anggitaayu_kristiani@yahoo.co.id)",
+      "AD (anitadwi@gmail.com)",
+      "AR (ariefrahmawan2@gmail.com)",
+      "AS (atiksriyanto15@gmail.com)",
+      "BK (bety@yahoo.co.id)",
+      "BR (budhirachmani@gmail.com)",
+      "B (budiyanto513@guru.sma.belajar.id)",
+      "S (maryonosmaracatur@gmail.com)",
+      "S (soesieyani@gmail.com)"
+    ],
+    "guruDouble": [
+      "AS (achsansafurianto@gmail.com)",
+      "AS (atiksriyanto15@gmail.com)",
+      "S (maryonosmaracatur@gmail.com)",
+      "S (soesieyani@gmail.com)"
+    ],
+    "siswaMandiriSample": [],
+    "statusMatch": "BELUM_TERIMPOR",
+    "catatan": ""
+  },
+  {
+    "id": 13,
+    "name": "SMAN 1 Sukodono",
+    "searchKey": "SMA NEGERI 1 SUKODONO",
+    "rawRows": 288,
+    "rawRombels": 9,
+    "rawFile": "SMA Negeri 1 Sukodono.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 1 Sukodono.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Sukodono.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 0,
+    "platformSiswaUnplaced": 0,
+    "platformPTKTotal": 21,
+    "guruMandiri": [
+      "AM (anamaratul2@gmail.com)",
+      "BA (bahrudin@sma1sukodono.sch.id)",
+      "DS (pakdargeografi@gmail.com)",
+      "DG (giyono111@gmail.com)",
+      "DJ (jakaraharja68@gmail.com)",
+      "DS (ciiptaa@gmail.com)",
+      "DP (praptonodwi1@gmail.com)",
+      "IS (iwangamping1977@gmail.com)",
+      "KS (naniys69@gmail.com)",
+      "MI (ikhsan@sma1sukodono.sch.id)",
+      "MF (meisera97@gmail.com)",
+      "MN (nanungnung21@gmail.com)",
+      "MN (muslimah@sma1sukodono.sch.id)",
+      "NU (nurul@sma1sukodono.sch.id)",
+      "OI (octavianaika@sma1sukodono.sch.id)",
+      "RN (dafdas41@gmail.com)",
+      "SS (suprihadinew@gmail.com)",
+      "SS (riptomo.67@gmail.com)",
+      "TS (titikdot98@gmail.com)",
+      "WS (news.wahyudi@gmail.com)"
+    ],
+    "guruDouble": [
+      "DS (pakdargeografi@gmail.com)",
+      "DS (ciiptaa@gmail.com)",
+      "MN (nanungnung21@gmail.com)",
+      "MN (muslimah@sma1sukodono.sch.id)",
+      "SS (suprihadinew@gmail.com)",
+      "SS (riptomo.67@gmail.com)"
+    ],
+    "siswaMandiriSample": [],
+    "statusMatch": "BELUM_TERIMPOR",
+    "catatan": ""
+  },
+  {
+    "id": 14,
+    "name": "SMAN 1 Gondang",
+    "searchKey": "SMA NEGERI 1 GONDANG",
+    "rawRows": 360,
+    "rawRombels": 11,
+    "rawFile": "SMA NEGERI 1 GONDANG.xlsx",
+    "gdriveCleanFile": "[CLEAN_IMPORT] SMAN 1 Gondang.xlsx",
+    "gdrivePdf": "Laporan_Resmi_Akun_SMAN_1_Gondang.pdf",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 201,
+    "platformSiswaUnplaced": 201,
+    "platformPTKTotal": 35,
+    "guruMandiri": [
+      "AS (maman.gubug@gmail.com)",
+      "AS (annisah611@guru.sma.belajar)",
+      "AR (ristantiwinarno@gmail.com)",
+      "AA (arifagung069@gmail.com)",
+      "BN (nasukha90@gmail.com)",
+      "BA (bettywidjaya26@gmail.com)",
+      "BR (budirahmatjati69@guru.sma.belajar.id)",
+      "DA (didik.bola@gmail.com)",
+      "DS (wi2dsrg@gmail.com)",
+      "DW (dwiwahyuningsih40@guru.sma.belajar.id)",
+      "EJ (totok683@gmail.com)",
+      "EF (esterfeny37@gmail.com)",
+      "ET (evitriastuti56@guru.sma.belajar.id)",
+      "GK (smango.sragen@gmail.com)",
+      "IP (iinpamularsih11@gmail.com)",
+      "IN (imamnasai025@gmail.com)",
+      "IM (maryatunindri117@gmail.com)",
+      "IS (innamawati030876@gmail.com)",
+      "IS (irwanto683@yahoo.co.id)",
+      "KT (aq.cuyu@gmail.com)"
+    ],
+    "guruDouble": [
+      "AS (maman.gubug@gmail.com)",
+      "AS (annisah611@guru.sma.belajar)",
+      "IS (innamawati030876@gmail.com)",
+      "IS (irwanto683@yahoo.co.id)"
+    ],
+    "siswaMandiriSample": [
+      {
+        "name": "AP",
+        "email": "iyaaboss13@gmail.com"
+      },
+      {
+        "name": "AP",
+        "email": "pendiptra9@gmail.com"
+      },
+      {
+        "name": "AN",
+        "email": "nisrinakhairani2008@gmail.com"
+      },
+      {
+        "name": "AB",
+        "email": "ainybaty832@gmail.com"
+      },
+      {
+        "name": "AM",
+        "email": "mutiaaira061@gmail.com"
+      },
+      {
+        "name": "AP",
+        "email": "putriana46771@gmail.com"
+      },
+      {
+        "name": "AW",
+        "email": "wajeng366@gmail.com"
+      },
+      {
+        "name": "AD",
+        "email": "nayaadita117@gmail.com"
+      },
+      {
+        "name": "AA",
+        "email": "adiandy971@gmail.com"
+      }
+    ],
+    "statusMatch": "SELISIH (-159)",
+    "catatan": ""
+  },
+  {
+    "id": 15,
+    "name": "SMAN 1 Blora",
+    "searchKey": "SMA NEGERI 1 BLORA",
+    "rawRows": 0,
+    "rawRombels": 0,
+    "rawFile": null,
+    "gdriveCleanRows": 0,
+    "gdriveCleanFile": null,
+    "gdrivePdf": "Belum Ada",
+    "platformTahunAjaran": "Belum Diatur",
+    "platformRombelCount": 0,
+    "platformSiswaDiRombel": 0,
+    "platformSiswaLive": 0,
+    "platformSiswaUnplaced": 0,
+    "platformPTKTotal": 3,
+    "guruMandiri": [
+      "A (andriani43@guru.sma.belajar.id)",
+      "DH (dwihandayani66@guru.sma.belajar.id)",
+      "EF (ekasmansa513@gmail.com)"
+    ],
+    "guruDouble": [],
+    "siswaMandiriSample": [],
+    "statusMatch": "TARGET_KOSONG",
+    "catatan": ""
+  }
+]

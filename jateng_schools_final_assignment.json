@@ -1,0 +1,518 @@
+[
+  {
+    "folder": "01. SMAN 10 Purworejo",
+    "schoolName": "SMA NEGERI 10 PURWOREJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 250
+  },
+  {
+    "folder": "02. SMAN 1 Purworejo",
+    "schoolName": "SMA NEGERI 1 PURWOREJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 394
+  },
+  {
+    "folder": "03. SMAN 11 Purworejo",
+    "schoolName": "SMA NEGERI 11 PURWOREJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 180
+  },
+  {
+    "folder": "04. SMAN 6 Purworejo",
+    "schoolName": "SMA NEGERI 6 PURWOREJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 252
+  },
+  {
+    "folder": "05. SMAN 1 Salaman",
+    "schoolName": "SMA NEGERI 1 SALAMAN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "06. SMAN 1 Bandongan",
+    "schoolName": "SMA NEGERI 1 BANDONGAN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 134
+  },
+  {
+    "folder": "07. SMAN 1 Grabag",
+    "schoolName": "SMA NEGERI 1 GRABAG",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 348
+  },
+  {
+    "folder": "08. SMAN 2 Grabag",
+    "schoolName": "SMA NEGERI 2 GRABAG",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 36
+  },
+  {
+    "folder": "09. SMAN 1 Candimulyo",
+    "schoolName": "SMA NEGERI 1 CANDIMULYO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 278
+  },
+  {
+    "folder": "10. SMAN 1 Dukun",
+    "schoolName": "SMA NEGERI 1 DUKUN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 281
+  },
+  {
+    "folder": "11. SMAN 1 Ngluwar",
+    "schoolName": "SMA NEGERI 1 NGLUWAR",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 271
+  },
+  {
+    "folder": "12. SMAN 1 Mertoyudan",
+    "schoolName": "SMA NEGERI 1 MERTOYUDAN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 312
+  },
+  {
+    "folder": "13. SMAN 1 Muntilan",
+    "schoolName": "SMA NEGERI 1 MUNTILAN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 356
+  },
+  {
+    "folder": "14. SMAN 1 Bawang",
+    "schoolName": "SMA NEGERI 1 BAWANG BATANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 349
+  },
+  {
+    "folder": "15. SMAN 1 Karangkobar",
+    "schoolName": "SMA NEGERI 1 KARANGKOBAR",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 344
+  },
+  {
+    "folder": "16. SMAN 1 Wadaslintang",
+    "schoolName": "SMA NEGERI 1 WADASLINTANG",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 432
+  },
+  {
+    "folder": "17. SMAN 2 Wonosobo",
+    "schoolName": "SMA NEGERI 2 WONOSOBO",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 0
+  },
+  {
+    "folder": "18. SMAN 2 Purworejo",
+    "schoolName": "SMA NEGERI 2 PURWOREJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 386
+  },
+  {
+    "folder": "19. SMA Budi Utomo Surakarta",
+    "schoolName": "SMA BUDI UTOMO SURAKARTA",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 199
+  },
+  {
+    "folder": "20. SMAN 1 Surakarta",
+    "schoolName": "SMA NEGERI 1 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 110
+  },
+  {
+    "folder": "21. SMAN 2 Surakarta",
+    "schoolName": "SMA NEGERI 2 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 159
+  },
+  {
+    "folder": "22. SMAN 3 Surakarta",
+    "schoolName": "SMA NEGERI 3 SURAKARTA",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 425
+  },
+  {
+    "folder": "23. SMAN 4 Surakarta",
+    "schoolName": "SMA NEGERI 4 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 789
+  },
+  {
+    "folder": "24. SMAN 5 Surakarta",
+    "schoolName": "SMA NEGERI 5 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 353
+  },
+  {
+    "folder": "25. SMAN 6 Surakarta",
+    "schoolName": "SMA NEGERI 6 SURAKARTA",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 749
+  },
+  {
+    "folder": "25b. SMAN 7 Surakarta",
+    "schoolName": "SMA NEGERI 7 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 108
+  },
+  {
+    "folder": "26. SMAN 8 Surakarta",
+    "schoolName": "SMA NEGERI 8 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 770
+  },
+  {
+    "folder": "27. SMAN 9 Surakarta",
+    "schoolName": "SMA NEGERI 9 SURAKARTA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 162
+  },
+  {
+    "folder": "28. SMAN 1 Klaten",
+    "schoolName": "SMA NEGERI 1 KLATEN",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 395
+  },
+  {
+    "folder": "29. SMAN 2 Klaten",
+    "schoolName": "SMA NEGERI 2 KLATEN",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 360
+  },
+  {
+    "folder": "30. SMAN 3 Klaten",
+    "schoolName": "SMA NEGERI 3 KLATEN",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 356
+  },
+  {
+    "folder": "31. SMAN 1 Kartasura",
+    "schoolName": "SMA NEGERI 1 KARTASURA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "32. SMAN 1 Sragen",
+    "schoolName": "SMA NEGERI 1 SRAGEN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 388
+  },
+  {
+    "folder": "33. SMAN 2 Sragen",
+    "schoolName": "SMA NEGERI 2 SRAGEN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 360
+  },
+  {
+    "folder": "34. SMAN 3 Sragen",
+    "schoolName": "SMA NEGERI 3 SRAGEN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 359
+  },
+  {
+    "folder": "35. SMAN 1 Gemolong",
+    "schoolName": "SMA NEGERI 1 GEMOLONG",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 355
+  },
+  {
+    "folder": "36. SMAN 1 Gondang",
+    "schoolName": "SMA NEGERI 1 GONDANG",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 359
+  },
+  {
+    "folder": "37. SMAN 1 Sukodono",
+    "schoolName": "SMA NEGERI 1 SUKODONO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 277
+  },
+  {
+    "folder": "38. SMAN 1 Tangen",
+    "schoolName": "SMA NEGERI 1 TANGEN",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 227
+  },
+  {
+    "folder": "39. SMAN 1 Sukoharjo",
+    "schoolName": "SMA NEGERI 1 SUKOHARJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "40. SMAN 2 Sukoharjo",
+    "schoolName": "SMA NEGERI 2 SUKOHARJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "41. SMAN 3 Sukoharjo",
+    "schoolName": "SMA NEGERI 3 SUKOHARJO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 720
+  },
+  {
+    "folder": "42. SMAN 1 Nguter",
+    "schoolName": "SMA NEGERI 1 NGUTER",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "43. SMAN 1 Polokarto",
+    "schoolName": "SMA NEGERI 1 POLOKARTO",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 140
+  },
+  {
+    "folder": "44. SMAN 1 Tawangsari",
+    "schoolName": "SMA NEGERI 1 TAWANGSARI",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "45. SMAN 1 Bulu",
+    "schoolName": "SMA NEGERI 1 BULU",
+    "trainer": "Henri Susilo",
+    "targetSiswaGDrive": 540
+  },
+  {
+    "folder": "46. SMAN 1 Cilacap",
+    "schoolName": "SMA NEGERI 1 CILACAP",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 216
+  },
+  {
+    "folder": "47. SMAN 3 Cilacap",
+    "schoolName": "SMA NEGERI 3 CILACAP",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 107
+  },
+  {
+    "folder": "48. SMAN 1 Bantarsari",
+    "schoolName": "SMA NEGERI 1 BANTARSARI",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 249
+  },
+  {
+    "folder": "49. SMAN 1 Cipari",
+    "schoolName": "SMA NEGERI 1 CIPARI",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 130
+  },
+  {
+    "folder": "50. SMAN 1 Kroya",
+    "schoolName": "SMA NEGERI 1 KROYA",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 108
+  },
+  {
+    "folder": "51. SMAN 1 Majenang",
+    "schoolName": "SMA NEGERI 1 MAJENANG",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 108
+  },
+  {
+    "folder": "52. SMAN 1 Maos",
+    "schoolName": "SMA NEGERI 1 MAOS",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 108
+  },
+  {
+    "folder": "53. SMAN 1 Sampang",
+    "schoolName": "SMA NEGERI 1 SAMPANG",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 104
+  },
+  {
+    "folder": "54. SMAN 1 Sidareja",
+    "schoolName": "SMA NEGERI 1 SIDAREJA",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 108
+  },
+  {
+    "folder": "55. SMAN 1 Purwokerto",
+    "schoolName": "SMA NEGERI 1 PURWOKERTO",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 791
+  },
+  {
+    "folder": "56. SMAN 1 Jatilawang",
+    "schoolName": "SMA NEGERI 1 JATILAWANG",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 792
+  },
+  {
+    "folder": "57. SMAN 1 Patikraja",
+    "schoolName": "SMA NEGERI 1 PATIKRAJA",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "58. SMAN 1 Rawalo",
+    "schoolName": "SMA NEGERI 1 RAWALO",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 852
+  },
+  {
+    "folder": "59. SMAN 11 Semarang",
+    "schoolName": "SMA NEGERI 11 SEMARANG",
+    "trainer": "Ameviana Fitri Noveira",
+    "targetSiswaGDrive": 1349
+  },
+  {
+    "folder": "60. SMAN 2 Purbalingga",
+    "schoolName": "SMA NEGERI 2 PURBALINGGA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "61. SMAN 1 Bobotsari",
+    "schoolName": "SMA NEGERI 1 BOBOTSARI",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 720
+  },
+  {
+    "folder": "62. SMAN 1 Bojong",
+    "schoolName": "SMA NEGERI 1 BOJONG",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 360
+  },
+  {
+    "folder": "63. SMAN 1 Bukateja",
+    "schoolName": "SMA NEGERI 1 BUKATEJA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 360
+  },
+  {
+    "folder": "64. SMAN 1 Karangreja",
+    "schoolName": "SMA NEGERI 1 KARANGREJA",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 648
+  },
+  {
+    "folder": "65. SMAN 1 Kemangkon",
+    "schoolName": "SMA NEGERI 1 KEMANGKON",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 100
+  },
+  {
+    "folder": "66. SMAN 1 Kutasari",
+    "schoolName": "SMA NEGERI 1 KUTASARI",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "67. SMAN 1 Rembang",
+    "schoolName": "SMA NEGERI 1 REMBANG",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "68. SMAN 1 Kebumen",
+    "schoolName": "SMA NEGERI 1 KEBUMEN",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "69. SMAN 1 Kutowinangun",
+    "schoolName": "SMA NEGERI 1 KUTOWINANGUN",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 720
+  },
+  {
+    "folder": "70. SMAN 1 Mirit",
+    "schoolName": "SMA NEGERI 1 MIRIT",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 214
+  },
+  {
+    "folder": "71. SMAN 1 Kajen",
+    "schoolName": "SMA NEGERI 1 KAJEN",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "72. SMAN 1 Sragi",
+    "schoolName": "SMA NEGERI 1 SRAGI",
+    "trainer": "Andrew Aliffiansyah",
+    "targetSiswaGDrive": 500
+  },
+  {
+    "folder": "73. SMAN 1 Batang",
+    "schoolName": "SMA NEGERI 1 BATANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 144
+  },
+  {
+    "folder": "74. SMAN 2 Batang",
+    "schoolName": "SMA NEGERI 2 BATANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 108
+  },
+  {
+    "folder": "75. SMAN 1 Subah",
+    "schoolName": "SMA NEGERI 1 SUBAH",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 144
+  },
+  {
+    "folder": "76. SMAN 1 Bandar",
+    "schoolName": "SMA NEGERI 1 BANDAR",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 144
+  },
+  {
+    "folder": "77. SMAN 1 Weleri",
+    "schoolName": "SMA NEGERI 1 WELERI",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 318
+  },
+  {
+    "folder": "78. SMAN 1 Ambarawa",
+    "schoolName": "SMA NEGERI 1 AMBARAWA",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 1260
+  },
+  {
+    "folder": "79. SMA Islam Sudirman Ambarawa",
+    "schoolName": "SMA ISLAM SUDIRMAN AMBARAWA",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 1156
+  },
+  {
+    "folder": "80. SMAN 2 Ungaran",
+    "schoolName": "SMA NEGERI 2 UNGARAN",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 1290
+  },
+  {
+    "folder": "81. SMAN 1 Tuntang",
+    "schoolName": "SMA NEGERI 1 TUNTANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 1042
+  },
+  {
+    "folder": "82. SMAN 7 Semarang",
+    "schoolName": "SMA NEGERI 7 SEMARANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 787
+  },
+  {
+    "folder": "83. SMAN 10 Semarang",
+    "schoolName": "SMA NEGERI 10 SEMARANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 1099
+  },
+  {
+    "folder": "84. SMAN 13 Semarang",
+    "schoolName": "SMA NEGERI 13 SEMARANG",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 144
+  },
+  {
+    "folder": "85. SMAN 1 Prembun",
+    "schoolName": "SMA NEGERI 1 PREMBUN",
+    "trainer": "Adnan Cindyana",
+    "targetSiswaGDrive": 110
+  }
+]
