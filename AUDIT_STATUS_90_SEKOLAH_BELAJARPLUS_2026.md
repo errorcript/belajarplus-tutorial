@@ -1,4 +1,4 @@
-﻿# Laporan Audit Komprehensif Satuan Pendidikan BelajarPlus (Jawa Tengah & Mitra)
+# Laporan Audit Komprehensif Satuan Pendidikan BelajarPlus (Jawa Tengah & Mitra)
 **Status Integrasi Laporan PDF, Master Clean Data, dan Live Platform (Siswa, Rombel, Guru, & TA 2026/2027)**  
 *Waktu Audit Sistem: Minggu, 18 Oktober 2026 &bull; Lead System Engineer & Tim Trainer BelajarPlus*
 
@@ -42,7 +42,7 @@ Berikut adalah rekapitulasi data riil yang telah aktif secara *live* pada platfo
 
 4. **Henri Susilo (Klaster Sragen & Sukoharjo)**:
    - **Total:** **14 Unit / 14 Live 100%** &bull; **5.779 Siswa Live** &bull; **214 Rombel Aktif**
-   - *Sekolah Terintegrasi:* SMAN 1 Sukoharjo (1.282 siswa, 36 rombel), SMAN 3 Sukoharjo (1.069 siswa, 30 rombel), SMAN 1 Bulu (541 siswa, 16 rombel), SMAN 2 Sukoharjo (522 siswa, 27 rombel), SMA 1 Tawangsari (436 siswa, 30 rombel), SMAN 1 Sragen (386 siswa, 11 rombel), SMAN 1 Nguter (344 siswa, 10 rombel), SMAN 3 Sragen (250 siswa, 7 rombel), SMAN 1 Sukodono (189 siswa, 5 rombel), SMAN 1 Gemolong (187 siswa, 5 rombel), SMAN 1 Gondang (183 siswa, 5 rombel), SMAN 1 Tangen (174 siswa, 5 rombel), SMAN 1 Polokarto (118 siswa, 24 rombel), SMAN 2 Sragen (98 siswa, 3 rombel).
+   - *Sekolah Terintegrasi:* SMAN 1 Sukoharjo (1.282 siswa, 36 rombel), SMAN 3 Sukoharjo (1.069 siswa, 30 rombel), SMAN 1 Bulu (541 siswa, 16 rombel), SMAN 2 Sukoharjo (522 siswa, 27 rombel), SMA 1 Tawangsari (436 siswa, 30 rombel), SMAN 1 Sragen (386 siswa, 11 rombel), SMAN 1 Nguter (344 siswa, 10 rombel), SMAN 3 Sragen (250 siswa, 7 rombel), SMAN 1 Sukodono (275 siswa, 8 rombel resmi), SMAN 1 Gemolong (187 siswa, 5 rombel), SMAN 1 Gondang (183 siswa, 5 rombel), SMAN 1 Tangen (174 siswa, 5 rombel), SMAN 1 Polokarto (118 siswa, 24 rombel), SMAN 2 Sragen (98 siswa, 3 rombel).
 
 5. **Fitri Noveira / Mevi (Klaster Cilacap & Banyumas)**:
    - **Total:** **13 Unit / 13 Live 100%** &bull; **5.216 Siswa Live** &bull; **164 Rombel Aktif**
@@ -99,7 +99,7 @@ Berikut adalah rekapitulasi data riil yang telah aktif secara *live* pada platfo
 | 35 | **SMAN 3 Sragen** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Ready (1 File) | 250 Siswa (7 Rombel) | Aktif | 7 SS | Laporan PDF resmi terbit, 250 siswa live aktif di platform, 7 rombel terbentuk, TA 2026/2027 aktif. |
 | 36 | **SMAN 1 Gemolong** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Ready (1 File) | 187 Siswa (5 Rombel) | Aktif | 4 SS | Laporan PDF resmi terbit, 187 siswa live aktif di platform, 5 rombel terbentuk, TA 2026/2027 aktif. |
 | 37 | **SMAN 1 Gondang** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Ready (2 File) | 183 Siswa (5 Rombel) | Aktif | 4 SS | Laporan PDF resmi terbit, 183 siswa live aktif di platform, 5 rombel terbentuk, TA 2026/2027 aktif. |
-| 38 | **SMAN 1 Sukodono** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Ready (1 File) | 189 Siswa (5 Rombel) | Aktif | 4 SS | Laporan PDF resmi terbit, 189 siswa live aktif di platform, 5 rombel terbentuk, TA 2026/2027 aktif. |
+| 38 | **SMAN 1 Sukodono** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Ready (1 File) | 275 Siswa (8 Rombel Resmi) | Aktif | 4 SS | Laporan PDF terbit, 275 siswa terbagi proporsional di Kelas 12-A s/d 12-H, rombel duplikat dinonaktifkan, password sinkron 100%. |
 | 39 | **SMAN 1 Tangen** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Ready (1 File) | 174 Siswa (5 Rombel) | Aktif | 4 SS | Laporan PDF resmi terbit, 174 siswa live aktif di platform, 5 rombel terbentuk, TA 2026/2027 aktif. |
 | 40 | **SMAN 1 Sukoharjo** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Format Bersih | 1,282 Siswa (36 Rombel) | Aktif | 4 SS | Laporan PDF resmi terbit, 1,282 siswa live aktif di platform, 36 rombel terbentuk, TA 2026/2027 aktif. |
 | 41 | **SMAN 2 Sukoharjo** | Klaster 2 | Henri Susilo | Ada (1 PDF) | Format Bersih | 522 Siswa (27 Rombel) | Aktif | 3 SS | Laporan PDF resmi terbit, 522 siswa live aktif di platform, 27 rombel terbentuk, TA 2026/2027 aktif. |
@@ -175,3 +175,9 @@ Berikut adalah rekapitulasi data riil yang telah aktif secara *live* pada platfo
 4. **Instruksi "3 masih menunggu data susulan hari senin" &bull; SMA Islam Sudirman Ambarawa (ISSUDA)**:
    - **STATUS: ON HOLD (TIDAK DISENTUH)**.
    - Berkas Laporan PDF resmi dan master file Excel clean import telah siap di Google Drive. Sesuai instruksi, data ditahan dan langsung siap diunggah saat data susulan diterima hari Senin.
+5. **Instruksi Audit & Penataan SMAN 2 Purworejo (Kelas 10, 11, 12)**:
+   - **STATUS: 100% SELESAI & AMAN**.
+   - Rombel terbagi rata proporsional (34-37 siswa per rombel), 7 siswa ujian yang dobel akun tetap dipertahankan akun ujiannya (nilai ujian 100% aman), seluruh 956 akun siswa telah disinkronkan ke password master Excel, dan login riil diverifikasi sukses.
+6. **Instruksi Audit & Penataan SMAN 1 Sukodono (Kelas 12)**:
+   - **STATUS: 100% SELESAI & TERVERIFIKASI**.
+   - 76 siswa susulan berhasil diimpor, seluruh 275 siswa terdistribusi ke 8 rombel resmi (Kelas 12-A s/d 12-H) dengan wali kelas resmi, 8 rombel duplikat tanpa wali kelas dibersihkan (3 terhapus, 5 dinonaktifkan dengan 0 siswa), password 275 siswa disinkronkan ke kolom `Password Awal` Excel master, dan login sampel di 8 rombel resmi terkonfirmasi 100% sukses masuk dashboard.
