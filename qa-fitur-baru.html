@@ -421,6 +421,77 @@
                 <div id="preview_feedback" style="font-size: 0.75rem; margin-top: 0.5rem; color: #10b981; display: none;"></div>
               </div>
             </div>
+
+            <!-- Live Interactive Soal Builder & Validator Simulator -->
+            <div style="margin-top: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1.5px solid rgba(56, 189, 248, 0.35); border-radius: 10px; padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <div style="font-weight: 800; color: #38bdf8; font-size: 1rem; display: flex; align-items: center; gap: 0.4rem;">
+                  🛠️ Live Soal Builder &amp; LJD Preview Simulator
+                </div>
+                <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700;">
+                  Uji Format Mandiri Guru
+                </span>
+              </div>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 1rem;">
+                Susun butir soal mandiri secara langsung di bawah ini. Sistem akan memvalidasi kepatuhan sintaks delimiter dan merender simulasi tampilannya di layar Lembar Jawab Digital (LJD) siswa:
+              </p>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.25rem;">1. Pilih Tipe Soal:</label>
+                  <select id="builder_tipe" onchange="updateBuilderForm()" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.6rem; font-size: 0.82rem; font-weight: 600;">
+                    <option value="MCQ">MCQ - Pilihan Ganda Tunggal (1 Kunci)</option>
+                    <option value="MCMA">MCMA - Pilihan Ganda Kompleks (Multi-Centang)</option>
+                    <option value="PGK">PGK - Kategori Benar/Salah (Matriks Titik Koma)</option>
+                    <option value="MATCH">MATCH - Menjodohkan (Pasangan Premis-Konsep)</option>
+                    <option value="ESSAY">ESSAY - Uraian Analisis (Rubrik Semantik AI)</option>
+                    <option value="UPLOAD">UPLOAD - Tugas Praktikum Lembar Kerja (&le; 10 MB)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.25rem;">2. Bobot Skor (Wajib Bilangan Bulat):</label>
+                  <input type="number" id="builder_skor" value="1" min="1" max="100" style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.6rem; font-size: 0.82rem;" />
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.85rem;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.25rem;">3. Teks Wacana / Stimulus (Opsional, dukung rumus LaTeX):</label>
+                <textarea id="builder_stimulus" rows="2" placeholder="Contoh: Kementerian Lingkungan Hidup mencatat timbulan sampah plastik mencapai 19%..." style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.6rem; font-size: 0.8rem; resize: vertical;"></textarea>
+              </div>
+
+              <div style="margin-bottom: 0.85rem;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.25rem;">4. Kalimat Pertanyaan / Instruksi Soal:</label>
+                <input type="text" id="builder_pertanyaan" value="Organel sel yang berfungsi sebagai tempat respirasi aerob penghasil energi ATP adalah..." style="width: 100%; background: var(--bg-tertiary); color: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.45rem 0.6rem; font-size: 0.82rem;" />
+              </div>
+
+              <div id="dynamic_options_container" style="background: rgba(0,0,0,0.2); border: 1px dashed var(--border); border-radius: 6px; padding: 0.85rem; margin-bottom: 1rem;">
+                <!-- Dynamic Fields Rendered by JS -->
+              </div>
+
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                <button class="qa-btn" onclick="validateAndRenderLJD()" style="background: linear-gradient(135deg, #0284c7, #0ea5e9); font-weight: 700; flex: 1; justify-content: center;">
+                  ⚡ Validasi Format Kunci &amp; Render Layar Siswa
+                </button>
+                <button class="qa-btn" onclick="copyExcelRow()" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 700;">
+                  📋 Salin Baris Excel (.xlsx)
+                </button>
+                <button class="qa-btn" onclick="copyWordFormat()" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); font-weight: 700;">
+                  📄 Salin Naskah Word (.docx)
+                </button>
+              </div>
+
+              <!-- Hasil Validasi & Render Live LJD -->
+              <div id="builder_validation_status" style="margin-bottom: 0.75rem; font-size: 0.82rem; padding: 0.6rem 0.85rem; border-radius: 6px; display: none;"></div>
+
+              <div id="ljd_live_preview_box" style="display: none; background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 0.4rem; margin-bottom: 0.75rem;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #38bdf8;">🖥️ SIMULASI TAMPILAN LEMBAR JAWAB DIGITAL (LJD) SISWA:</span>
+                  <span style="font-size: 0.7rem; color: #10b981; font-weight: 700;">● Sesi Ujian Aktif</span>
+                </div>
+                <div id="ljd_rendered_content" style="font-size: 0.85rem; color: #e2e8f0; line-height: 1.6;"></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1443,6 +1514,269 @@
         </div>
       `;
     }
+
+    // ==========================================
+    // 6.b INTERACTIVE LIVE SOAL BUILDER & LJD SIMULATOR
+    // ==========================================
+    function updateBuilderForm() {
+      const tipe = document.getElementById('builder_tipe').value;
+      const c = document.getElementById('dynamic_options_container');
+      
+      if (tipe === 'MCQ') {
+        c.innerHTML = `
+          <div style="font-weight:700; color:#38bdf8; font-size:0.8rem; margin-bottom:0.4rem;">Pilihan Ganda Tunggal (MCQ):</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.8rem;">
+            <div><label>Opsi A:</label><input type="text" id="b_opt_a" value="Ribosom" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi B:</label><input type="text" id="b_opt_b" value="Mitokondria" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi C:</label><input type="text" id="b_opt_c" value="Badan Golgi" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi D:</label><input type="text" id="b_opt_d" value="Retikulum Endoplasma" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi E:</label><input type="text" id="b_opt_e" value="Lisosom" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div>
+              <label style="font-weight:700; color:#10b981;">Kunci Jawaban (Pilih Satu):</label>
+              <select id="b_kunci" style="width:100%; background:var(--bg-secondary); color:#10b981; font-weight:800; border:1px solid #10b981; padding:0.3rem 0.5rem; border-radius:4px;">
+                <option value="A">A</option>
+                <option value="B" selected>B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+              </select>
+            </div>
+          </div>
+        `;
+      } else if (tipe === 'MCMA') {
+        c.innerHTML = `
+          <div style="font-weight:700; color:#f59e0b; font-size:0.8rem; margin-bottom:0.4rem;">Pilihan Ganda Kompleks (MCMA - Multi Kunci):</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.8rem;">
+            <div><label>Opsi A:</label><input type="text" id="b_opt_a" value="Es batu mencair" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi B:</label><input type="text" id="b_opt_b" value="Besi berkarat" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi C:</label><input type="text" id="b_opt_c" value="Gula larut dalam air" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi D:</label><input type="text" id="b_opt_d" value="Kertas terbakar" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div><label>Opsi E:</label><input type="text" id="b_opt_e" value="Lilin meleleh" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/></div>
+            <div>
+              <label style="font-weight:700; color:#f59e0b;">Kunci Multi-Respon (Koma tanpa spasi):</label>
+              <input type="text" id="b_kunci" value="A,C,E" placeholder="Contoh: A,C,E" style="width:100%; background:var(--bg-secondary); color:#f59e0b; font-weight:800; border:1px solid #f59e0b; padding:0.3rem 0.5rem; border-radius:4px;"/>
+            </div>
+          </div>
+        `;
+      } else if (tipe === 'PGK') {
+        c.innerHTML = `
+          <div style="font-weight:700; color:#818cf8; font-size:0.8rem; margin-bottom:0.4rem;">Kategori Benar / Salah (PGK Matriks):</div>
+          <div style="font-size:0.8rem;">
+            <label>Daftar Pernyataan di Opsi A (Pisahkan dengan titik koma ;):</label>
+            <textarea id="b_opt_a" rows="2" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.4rem; border-radius:4px; margin-bottom:0.5rem;">Target EBT 23% di 2025; Biofuel bukan pilar EBT; PLTS Atap pilar dekarbonisasi</textarea>
+            <label style="font-weight:700; color:#818cf8;">Kunci Status B / S per Baris (Pisahkan titik koma ;):</label>
+            <input type="text" id="b_kunci" value="B;S;B" placeholder="Contoh: B;S;B" style="width:100%; background:var(--bg-secondary); color:#818cf8; font-weight:800; border:1px solid #818cf8; padding:0.3rem 0.5rem; border-radius:4px;"/>
+          </div>
+        `;
+      } else if (tipe === 'MATCH') {
+        c.innerHTML = `
+          <div style="font-weight:700; color:#f472b6; font-size:0.8rem; margin-bottom:0.4rem;">Menjodohkan (Matching Pair):</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.8rem;">
+            <div>
+              <label>Premis Kiri (Opsi A dipisah ;):</label>
+              <textarea id="b_opt_a" rows="2" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;">1. Isokhorik; 2. Isobarik; 3. Isotermik</textarea>
+            </div>
+            <div>
+              <label>Konsep Kanan (Opsi B dipisah ;):</label>
+              <textarea id="b_opt_b" rows="2" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;">A. Tekanan tetap; B. Volume tetap; C. Suhu tetap</textarea>
+            </div>
+          </div>
+          <div style="margin-top:0.5rem; font-size:0.8rem;">
+            <label style="font-weight:700; color:#f472b6;">Kunci Pasangan (Format 1-B;2-A;3-C):</label>
+            <input type="text" id="b_kunci" value="1-B;2-A;3-C" style="width:100%; background:var(--bg-secondary); color:#f472b6; font-weight:800; border:1px solid #f472b6; padding:0.3rem 0.5rem; border-radius:4px;"/>
+          </div>
+        `;
+      } else if (tipe === 'ESSAY') {
+        c.innerHTML = `
+          <div style="font-weight:700; color:#34d399; font-size:0.8rem; margin-bottom:0.4rem;">Uraian Analisis (Rubrik AI):</div>
+          <div style="font-size:0.8rem;">
+            <label>Kunci Jawaban Acuan Guru:</label>
+            <textarea id="b_kunci" rows="2" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.4rem; border-radius:4px; margin-bottom:0.5rem;">Infiltrasi air berkurang sehingga limpasan permukaan meningkat drastis, memicu banjir bandang saat hujan.</textarea>
+            <label style="font-weight:700; color:#34d399;">Rubrik Kata Kunci AI (Pisahkan dengan garis tegak |):</label>
+            <input type="text" id="b_rubrik" value="infiltrasi berkurang | limpasan permukaan tinggi | banjir bandang hilir | erosi tanah" style="width:100%; background:var(--bg-secondary); color:#34d399; font-weight:700; border:1px solid #34d399; padding:0.3rem 0.5rem; border-radius:4px;"/>
+          </div>
+        `;
+      } else if (tipe === 'UPLOAD') {
+        c.innerHTML = `
+          <div style="font-weight:700; color:#fb923c; font-size:0.8rem; margin-bottom:0.4rem;">Tugas Praktikum Berkas (UPLOAD):</div>
+          <div style="font-size:0.8rem;">
+            <label>Kunci Jawaban:</label>
+            <input type="text" id="b_kunci" value="[Manual Grading oleh Guru]" readonly style="width:100%; background:var(--bg-secondary); color:#fb923c; font-weight:700; border:1px solid #fb923c; padding:0.3rem 0.5rem; border-radius:4px; margin-bottom:0.5rem;"/>
+            <label>Kriteria Rubrik Penilaian Guru:</label>
+            <input type="text" id="b_rubrik" value="Kelengkapan Prosedur (30%), Analisis Data (40%), Kerapian & TTD (30%)" style="width:100%; background:var(--bg-secondary); color:#fff; border:1px solid var(--border); padding:0.3rem 0.5rem; border-radius:4px;"/>
+          </div>
+        `;
+      }
+    }
+
+    function validateAndRenderLJD() {
+      const tipe = document.getElementById('builder_tipe').value;
+      const skorVal = parseFloat(document.getElementById('builder_skor').value);
+      const stimulus = document.getElementById('builder_stimulus').value.trim();
+      const pertanyaan = document.getElementById('builder_pertanyaan').value.trim();
+      const kunciEl = document.getElementById('b_kunci');
+      const kunci = kunciEl ? kunciEl.value.trim() : '';
+      
+      const statusBox = document.getElementById('builder_validation_status');
+      const ljdBox = document.getElementById('ljd_live_preview_box');
+      const ljdContent = document.getElementById('ljd_rendered_content');
+      
+      statusBox.style.display = 'block';
+      
+      // 1. Validasi Skor Integer
+      if (!Number.isInteger(skorVal) || skorVal <= 0) {
+        statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        statusBox.style.border = '1px solid #ef4444';
+        statusBox.style.color = '#f87171';
+        statusBox.innerHTML = '❌ <strong>Validasi Gagal:</strong> Bobot skor wajib berupa bilangan bulat positif (contoh: 1, 2, 3, 5, 10). Dilarang memasukkan desimal pecahan (seperti 0.33) agar tidak merusak agregasi persentase LJD.';
+        ljdBox.style.display = 'none';
+        return;
+      }
+
+      // 2. Validasi Delimiter Kunci
+      if (tipe === 'MCMA' && (!kunci.includes(',') || /\s/.test(kunci))) {
+        statusBox.style.background = 'rgba(245, 158, 11, 0.15)';
+        statusBox.style.border = '1px solid #f59e0b';
+        statusBox.style.color = '#fbbf24';
+        statusBox.innerHTML = '⚠️ <strong>Peringatan Delimiter:</strong> Kunci MCMA harus dipisahkan tanda koma tanpa spasi (contoh: <code>A,C,E</code>). Pastikan tidak ada spasi di sela koma.';
+      } else if (tipe === 'PGK' && !kunci.includes(';')) {
+        statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        statusBox.style.border = '1px solid #ef4444';
+        statusBox.style.color = '#f87171';
+        statusBox.innerHTML = '❌ <strong>Validasi Gagal:</strong> Kunci matriks PGK wajib menggunakan pemisah titik koma <code>;</code> (contoh: <code>B;S;B</code>). Koma biasa dilarang!';
+        ljdBox.style.display = 'none';
+        return;
+      } else if (tipe === 'MATCH' && (!kunci.includes('-') || !kunci.includes(';'))) {
+        statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        statusBox.style.border = '1px solid #ef4444';
+        statusBox.style.color = '#f87171';
+        statusBox.innerHTML = '❌ <strong>Validasi Gagal:</strong> Kunci Menjodohkan wajib berformat pasangan <code>1-B;2-A;3-C</code> dengan pemisah titik koma.';
+        ljdBox.style.display = 'none';
+        return;
+      } else {
+        statusBox.style.background = 'rgba(16, 185, 129, 0.15)';
+        statusBox.style.border = '1px solid #10b981';
+        statusBox.style.color = '#34d399';
+        statusBox.innerHTML = `✅ <strong>Validasi Berhasil:</strong> Butir soal <strong>${tipe}</strong> lulus uji integritas CBT BelajarPlus (Bobot: ${skorVal} Poin, Format Kunci: <code>${kunci}</code> valid).`;
+      }
+
+      // 3. Render Live LJD Siswa
+      ljdBox.style.display = 'block';
+      let ljdHtml = '';
+      
+      if (stimulus) {
+        ljdHtml += `<div style="background:#1e293b; border-left:3px solid #38bdf8; padding:0.6rem 0.8rem; border-radius:4px; margin-bottom:0.75rem; font-style:italic; font-size:0.82rem; color:#cbd5e1;">📄 <strong>Wacana Stimulus:</strong><br/>${stimulus}</div>`;
+      }
+      
+      ljdHtml += `<div style="font-weight:700; color:#f8fafc; margin-bottom:0.75rem; font-size:0.9rem;">❓ ${pertanyaan}</div>`;
+      
+      if (tipe === 'MCQ') {
+        const opts = ['A', 'B', 'C', 'D', 'E'];
+        opts.forEach(letter => {
+          const el = document.getElementById('b_opt_' + letter.toLowerCase());
+          const txt = el ? el.value : '';
+          if (txt) {
+            ljdHtml += `
+              <label style="display:flex; align-items:center; gap:0.5rem; background:#1e293b; padding:0.45rem 0.75rem; border-radius:6px; margin-bottom:0.35rem; cursor:pointer;">
+                <input type="radio" name="ljd_sim_mcq" value="${letter}" ${letter === kunci ? 'checked' : ''} style="accent-color:#38bdf8;"/>
+                <span style="font-weight:700; color:#38bdf8;">${letter}.</span>
+                <span>${txt}</span>
+              </label>
+            `;
+          }
+        });
+      } else if (tipe === 'MCMA') {
+        const opts = ['A', 'B', 'C', 'D', 'E'];
+        const keys = kunci.split(',');
+        opts.forEach(letter => {
+          const el = document.getElementById('b_opt_' + letter.toLowerCase());
+          const txt = el ? el.value : '';
+          if (txt) {
+            ljdHtml += `
+              <label style="display:flex; align-items:center; gap:0.5rem; background:#1e293b; padding:0.45rem 0.75rem; border-radius:6px; margin-bottom:0.35rem; cursor:pointer;">
+                <input type="checkbox" ${keys.includes(letter) ? 'checked' : ''} style="accent-color:#f59e0b;"/>
+                <span style="font-weight:700; color:#f59e0b;">${letter}.</span>
+                <span>${txt}</span>
+              </label>
+            `;
+          }
+        });
+      } else if (tipe === 'PGK') {
+        const rawOpts = document.getElementById('b_opt_a').value.split(';');
+        ljdHtml += `<div style="border:1px solid #334155; border-radius:6px; overflow:hidden; margin-top:0.5rem;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem;"><tr style="background:#1e293b;"><th style="padding:0.4rem; text-align:left;">Pernyataan</th><th style="width:70px; text-align:center;">Benar</th><th style="width:70px; text-align:center;">Salah</th></tr>`;
+        rawOpts.forEach((st, idx) => {
+          if (st.trim()) {
+            ljdHtml += `<tr><td style="padding:0.4rem; border-top:1px solid #334155;">${st.trim()}</td><td style="text-align:center; border-top:1px solid #334155;"><input type="radio" name="pgk_${idx}" style="accent-color:#10b981;"/></td><td style="text-align:center; border-top:1px solid #334155;"><input type="radio" name="pgk_${idx}" style="accent-color:#ef4444;"/></td></tr>`;
+          }
+        });
+        ljdHtml += `</table></div>`;
+      } else if (tipe === 'MATCH') {
+        ljdHtml += `<div style="background:#1e293b; padding:0.75rem; border-radius:6px; font-size:0.8rem; border:1px solid #334155;"><span style="color:#f472b6; font-weight:700;">🧩 Mode Tarik Garis / Dropdown Pasangan:</span><br/>Siswa memasangkan premis kiri dengan konsep kanan via antarmuka LJD interaktif.</div>`;
+      } else if (tipe === 'ESSAY') {
+        ljdHtml += `<textarea placeholder="Siswa mengetikkan jawaban uraian konsep di sini..." rows="3" style="width:100%; background:#1e293b; color:#fff; border:1px solid #334155; border-radius:6px; padding:0.5rem; font-size:0.82rem;"></textarea><div style="font-size:0.75rem; color:#34d399; margin-top:0.35rem;">✨ Terkoneksi ke Modul AI Grader (Koreksi Semantik Berbobot Kata Kunci).</div>`;
+      } else if (tipe === 'UPLOAD') {
+        ljdHtml += `<div style="border:2px dashed #475569; border-radius:6px; padding:1.25rem; text-align:center; background:#1e293b;"><span style="font-size:1.5rem;">📁</span><br/><span style="font-size:0.8rem; color:#94a3b8;">Klik untuk Unggah Berkas Tugas (PDF/DOCX/JPG &le; 10 MB)</span></div>`;
+      }
+
+      ljdContent.innerHTML = ljdHtml;
+    }
+
+    function copyExcelRow() {
+      const tipe = document.getElementById('builder_tipe').value;
+      const skor = document.getElementById('builder_skor').value;
+      const stimulus = document.getElementById('builder_stimulus').value.trim();
+      const pertanyaan = document.getElementById('builder_pertanyaan').value.trim();
+      const kunci = document.getElementById('b_kunci') ? document.getElementById('b_kunci').value.trim() : '';
+      const rubrik = document.getElementById('b_rubrik') ? document.getElementById('b_rubrik').value.trim() : '';
+      
+      const optA = document.getElementById('b_opt_a') ? document.getElementById('b_opt_a').value.trim() : '';
+      const optB = document.getElementById('b_opt_b') ? document.getElementById('b_opt_b').value.trim() : '';
+      const optC = document.getElementById('b_opt_c') ? document.getElementById('b_opt_c').value.trim() : '';
+      const optD = document.getElementById('b_opt_d') ? document.getElementById('b_opt_d').value.trim() : '';
+      const optE = document.getElementById('b_opt_e') ? document.getElementById('b_opt_e').value.trim() : '';
+
+      // Tab-separated string for Excel paste
+      const row = `1\t${tipe}\tMateri Pokok\t${stimulus}\t\t${pertanyaan}\t${optA}\t${optB}\t${optC}\t${optD}\t${optE}\t${kunci}\t${skor}\t${rubrik}`;
+      
+      navigator.clipboard.writeText(row).then(() => {
+        alert('📋 Baris Excel Berhasil Disalin! Buka template Excel Anda dan tekan Ctrl + V pada baris yang diinginkan.');
+      }).catch(() => {
+        prompt('Salin teks baris Excel ini (Ctrl + C):', row);
+      });
+    }
+
+    function copyWordFormat() {
+      const tipe = document.getElementById('builder_tipe').value;
+      const skor = document.getElementById('builder_skor').value;
+      const stimulus = document.getElementById('builder_stimulus').value.trim();
+      const pertanyaan = document.getElementById('builder_pertanyaan').value.trim();
+      const kunci = document.getElementById('b_kunci') ? document.getElementById('b_kunci').value.trim() : '';
+      const rubrik = document.getElementById('b_rubrik') ? document.getElementById('b_rubrik').value.trim() : '';
+
+      let textWord = `[SOAL 1] - Tipe: ${tipe} | Bobot: ${skor} Poin | Kunci: ${kunci}\n`;
+      if (stimulus) textWord += `Stimulus: ${stimulus}\n`;
+      textWord += `Pertanyaan: ${pertanyaan}\n`;
+      
+      ['a','b','c','d','e'].forEach(l => {
+        const el = document.getElementById('b_opt_' + l);
+        if (el && el.value.trim()) {
+          textWord += `${l.toUpperCase()}. ${el.value.trim()}\n`;
+        }
+      });
+      if (rubrik) textWord += `Rubrik Kata Kunci: ${rubrik}\n`;
+
+      navigator.clipboard.writeText(textWord).then(() => {
+        alert('📄 Format Naskah Word Berhasil Disalin! Buka dokumen Word Anda dan tekan Ctrl + V.');
+      }).catch(() => {
+        prompt('Salin format Word ini (Ctrl + C):', textWord);
+      });
+    }
+
+    // Inisialisasi awal builder form
+    document.addEventListener('DOMContentLoaded', () => {
+      try { updateBuilderForm(); } catch(e){}
+    });
+
 
     // 7. Rapor Lock Sim
     function simulateRaporLock() {
