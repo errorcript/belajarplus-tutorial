@@ -3328,8 +3328,20 @@
           <div class="faq-a">Kamu tidak perlu melakukan logout! Cukup klik tombol <strong>"Institusi aktif"</strong> di sudut kanan atas bilah header, lalu pilih institusi sekolah atau peran yang ingin kamu buka. Seluruh materi dan tugas akan otomatis berganti sesuai sekolah yang dipilih.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana alur verifikasi pembayaran transfer manual di menu Toko? <span class="faq-arrow">▼</span></button>
-          <div class="faq-a">Setelah membuat pesanan di Toko, catat <strong>Nomor Pesanan Unik</strong> (contoh: <code>BPLUS-20260903-CA1606</code>). Lakukan transfer bank tepat hingga digit terakhir, cantumkan nomor pesanan pada berita transfer, lalu foto bukti struk ATM atau screenshot m-banking dan unggah di menu <strong>Pesanan</strong>. Buku digital akan otomatis aktif setelah admin memverifikasi bukti bayar.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana format penulisan soal mandiri jika guru menyusun dari Microsoft Word vs Excel? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Guru dapat mengunduh template resmi di tab <strong>Aktivitas Belajar</strong> kelas. Untuk <strong>Word (.docx)</strong>, gunakan struktur penanda <code>[SOAL]</code>, <code>[KUNCI]</code>, dan opsi A–E. Untuk <strong>Excel (.xlsx)</strong>, gunakan tabel master 14 kolom. Kunci multi-jawaban (MCMA) dipisahkan koma (<code>A,C,E</code>), sedangkan kategori Benar/Salah (PGK) dan Menjodohkan (MATCH) dipisahkan titik koma (<code>B;S;B</code> atau <code>1-B;2-A;3-C</code>). Bobot skor wajib diisi bilangan bulat bulat (1, 2, 3, 5, 10).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara menulis rumus matematika, pecahan, dan reaksi kimia di template soal? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Gunakan notasi standar <strong>LaTeX</strong> yang diapit tanda dollar (<code>$...$</code>). Contoh pecahan: <code>$f(x) = \frac{2x^2 + 5x}{x - 3}$</code>, akar: <code>$\sqrt{x^2 + y^2} = r$</code>, atau reaksi kimia: <code>$\text{2H}_2 + \text{O}_2 \rightarrow \text{2H}_2\text{O}$</code>. Mesin render CBT BelajarPlus otomatis memformat kode tersebut menjadi simbol matematika/sains proporsional saat siswa membuka lembar LJD.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Bagaimana mekanisme penilaian otomatis pada soal esai/uraian menggunakan AI BelajarPlus? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Pada kolom <em>rubrik_atau_pembahasan</em> di template soal, cantumkan frasa-frasa konsep kunci yang dipisahkan garis tegak (contoh: <code>infiltrasi air berkurang | limpasan permukaan tinggi | banjir bandang hilir</code>). Saat siswa mengumpulkan ujian, AI mengevaluasi kemiripan semantik jawaban siswa terhadap konsep kunci tersebut dan mengusulkan skor 0–100. Guru memegang <strong>otoritas veto penuh (Human-in-the-Loop)</strong> untuk menaikkan atau menurunkan skor sebelum dikunci ke buku nilai.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Apa perbedaan nilai NULL (belum dinilai) dengan nilai 0 resmi pada rekap hasil belajar siswa? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">BelajarPlus membedakan secara tegas nilai <strong>NULL</strong> (siswa belum mengerjakan/izin sakit) dengan nilai <strong>0 resmi</strong> (remedial/pelanggaran). Siswa berstatus NULL otomatis <em>dikeluarkan dari himpunan pembagi rata-rata kelas</em>, sehingga rata-rata kelas tidak anjlok secara tidak adil dan tidak merugikan peringkat paralel rombel.</div>
         </div>
       </div>
     </div>
