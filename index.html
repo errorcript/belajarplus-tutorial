@@ -1330,6 +1330,60 @@
                 </div>
               </div>
 
+              <!-- Card Panduan Tambah Soal Mandiri di Tab Aktivitas Belajar -->
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid rgba(16, 185, 129, 0.35); border-radius: 10px; padding: 1.25rem; margin: 1.25rem 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                  <div style="font-weight: 800; color: #34d399; font-size: 1.05rem; display: flex; align-items: center; gap: 0.4rem;">
+                    📝 Panduan Khusus: Penambahan Soal Mandiri di Menu Aktivitas Belajar
+                  </div>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="template_pembuatan_soal_guru_belajarplus.docx" download class="btn-step-video" style="background: linear-gradient(135deg, #1d4ed8, #2563eb); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: white;">
+                      📄 Unduh Template Word (.docx)
+                    </a>
+                    <a href="template_pembuatan_soal_guru_belajarplus.xlsx" download class="btn-step-video" style="background: linear-gradient(135deg, #059669, #10b981); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: white;">
+                      📊 Unduh Template Excel (.xlsx)
+                    </a>
+                  </div>
+                </div>
+
+                <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+                  Selain mengambil soal dari buku paket perpustakaan, guru dapat <strong>membuat dan mengunggah bank soal mandiri per pertemuan/bab</strong> langsung dari tab Aktivitas Belajar kelas. Ikuti 5 langkah runtut berikut:
+                </p>
+
+                <ol style="margin-left: 1.2rem; font-size: 0.85rem; color: #cbd5e1; line-height: 1.7;">
+                  <li>
+                    <strong>Langkah 1 — Akses Tab Aktivitas Belajar:</strong> Buka menu <em>Kelas Saya</em>, klik <strong>"Masuk Kelas"</strong> pada mata pelajaran yang bapak/ibu ampu, lalu klik <strong>Tab 2: "Aktivitas Belajar"</strong>.
+                  </li>
+                  <li>
+                    <strong>Langkah 2 — Klik Tombol "+ Tambah Aktivitas":</strong> Di sudut kanan atas tab aktivitas, klik tombol <strong>"+ Tambah Aktivitas"</strong> &rarr; pilih <strong>"Latihan Soal Mandiri / Kuis Interaktif (LJD)"</strong>.
+                  </li>
+                  <li>
+                    <strong>Langkah 3 — Pilih &amp; Unduh Format Template:</strong> Guru dapat memilih format naskah yang paling nyaman digunakan:
+                    <ul style="margin: 0.25rem 0 0.25rem 1.2rem; list-style-type: square;">
+                      <li><strong>Format Word (.docx):</strong> Cocok untuk guru yang terbiasa mengetik naskah soal naratif lengkap dengan penanda <code>[SOAL]</code>, <code>[KUNCI]</code>, dan opsi A–E.</li>
+                      <li><strong>Format Excel (.xlsx):</strong> Cocok untuk penyusunan cepat berbasis tabel spreadsheet 14 kolom untuk impor butir soal massal.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Langkah 4 — Penulisan 6 Variasi Tipe Soal &amp; Formula LaTeX:</strong> Tuliskan stimulus wacana, kalimat pertanyaan, dan kunci respon sesuai tipe soal (Pilihan Ganda, Pilihan Kompleks <code>A,C,E</code>, Benar/Salah Matriks <code>B;S;B</code>, Menjodohkan <code>1-B;2-A</code>, Esai dengan Rubrik AI <code>kunci1 | kunci2</code>, atau Tugas Berkas &le; 10MB). Rumus matematika/kimia diapit tanda dollar: <code>$f(x) = \frac{a}{b}$</code>.
+                  </li>
+                  <li>
+                    <strong>Langkah 5 — Unggah Berkas &amp; Rilis ke Siswa:</strong> Tarik berkas Word/Excel yang telah terisi ke kotak dropzone unggah. Sistem otomatis memetakan seluruh butir soal. Klik <strong>"Pratinjau Asesmen"</strong> untuk memastikan tampilan LJD rapi, lalu klik <strong>"Terbitkan Aktivitas"</strong>.
+                  </li>
+                </ol>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                  <div>
+                    <div style="font-size: 0.72rem; font-weight: 700; color: #60a5fa; margin-bottom: 0.35rem;">📸 Format Naskah Word (.docx) Guru:</div>
+                    <img src="assets/template_soal_word_doc_preview.png" class="screenshot-img zoomable-img" alt="Template Naskah Word Soal Guru BelajarPlus" style="width: 100%; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);" />
+                  </div>
+                  <div>
+                    <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; margin-bottom: 0.35rem;">📸 Format Spreadsheet Excel (.xlsx) Guru:</div>
+                    <img src="assets/template_soal_excel_preview.png" class="screenshot-img zoomable-img" alt="Template Spreadsheet Excel Soal Guru BelajarPlus" style="width: 100%; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);" />
+                  </div>
+                </div>
+              </div>
+
               <ul class="step-list">
                 <li><strong>1. Penyusunan Aktivitas E-Learning Terstruktur:</strong> Di tab <em>"Aktivitas Belajar"</em>, susun urutan bab pertemuan (contoh: Pertemuan 1 - Konsep &amp; Simulasi, Pertemuan 2 - Analisis LKPD). Sematkan materi ringkasan, instruksi kerja, dan tautan aktivitas interaktif.</li>
                 <li><strong>2. Tautkan Buku Teks Resmi Kemendikbud:</strong> Pada tab <em>"Sumber Belajar"</em>, pilih e-book buku teks kurikulum (Kurikulum Merdeka / K13) dari perpustakaan digital sekolah yang dijadikan rujukan belajar wajib.</li>
