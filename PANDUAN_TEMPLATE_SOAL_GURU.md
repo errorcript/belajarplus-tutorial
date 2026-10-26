@@ -9,9 +9,19 @@ Dokumen panduan resmi penyusunan instrumen evaluasi pembelajaran digital berbasi
 Unduh berkas template master Excel:  
 👉 **[`template_pembuatan_soal_guru_belajarplus.xlsx`](template_pembuatan_soal_guru_belajarplus.xlsx)**
 
-File spreadsheet di atas telah dilengkapi dengan:
-1. **Sheet `PETUNJUK_FORMAT`:** Aturan penulisan formula matematika/sains (LaTeX), format media stimulus, dan aturan rubrik esai AI.
-2. **Sheet `BANK_SOAL_TEMPLATE`:** Tabel master berisi 10 baris contoh butir soal riil untuk seluruh 6 tipe respon soal standar.
+---
+
+## 📸 Tangkapan Layar Tampilan Template Excel Resmi
+
+Berikut tampilan visual file Excel saat dibuka oleh guru:
+
+### 1. Sheet `BANK_SOAL_TEMPLATE` (Format Tabel 14 Kolom & Contoh 6 Tipe Soal)
+![Tampilan Sheet Template Bank Soal Excel](assets/template_soal_excel_preview.png)
+*(Gambar: Panel [template_soal_excel_preview.png](assets/template_soal_excel_preview.png) — Struktur kolom input soal, kode tipe respon, opsi, kunci, dan rubrik)*
+
+### 2. Sheet `PETUNJUK_FORMAT` (Aturan Delimiter & Rumus Matematika LaTeX)
+![Tampilan Sheet Petunjuk Format dan Rumus](assets/template_soal_petunjuk_preview.png)
+*(Gambar: Panel [template_soal_petunjuk_preview.png](assets/template_soal_petunjuk_preview.png) — Aturan karakter pemisah koma/titik-koma dan sintaks rumus LaTeX)*
 
 ---
 
