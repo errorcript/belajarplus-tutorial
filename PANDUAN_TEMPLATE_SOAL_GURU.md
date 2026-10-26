@@ -6,22 +6,27 @@ Dokumen panduan resmi penyusunan instrumen evaluasi pembelajaran digital berbasi
 
 ## 📥 File Template Resmi Siap Pakai
 
-Unduh berkas template master Excel:  
-👉 **[`template_pembuatan_soal_guru_belajarplus.xlsx`](template_pembuatan_soal_guru_belajarplus.xlsx)**
+Unduh berkas template master resmi:  
+👉 **[Template Format Microsoft Word (`.docx`)](template_pembuatan_soal_guru_belajarplus.docx)**  
+👉 **[Template Format Microsoft Excel (`.xlsx`)](template_pembuatan_soal_guru_belajarplus.xlsx)**
 
 ---
 
-## 📸 Tangkapan Layar Tampilan Template Excel Resmi
+## 📸 Tangkapan Layar Tampilan Template Resmi (Doc & Excel)
 
-Berikut tampilan visual file Excel saat dibuka oleh guru:
+Berikut tampilan visual kedua template saat dibuka oleh guru:
 
-### 1. Sheet `BANK_SOAL_TEMPLATE` (Format Tabel 14 Kolom & Contoh 6 Tipe Soal)
+### 1. Tampilan Template Microsoft Word (`.docx`)
+![Tampilan Template Word Pembuatan Soal](assets/template_soal_word_doc_preview.png)
+*(Gambar: Panel [template_soal_word_doc_preview.png](assets/template_soal_word_doc_preview.png) — Format naskah soal Word, kop resmi, informasi asesmen, dan penulisan butir 6 tipe soal)*
+
+### 2. Tampilan Template Microsoft Excel (`.xlsx` - Sheet `BANK_SOAL_TEMPLATE`)
 ![Tampilan Sheet Template Bank Soal Excel](assets/template_soal_excel_preview.png)
-*(Gambar: Panel [template_soal_excel_preview.png](assets/template_soal_excel_preview.png) — Struktur kolom input soal, kode tipe respon, opsi, kunci, dan rubrik)*
+*(Gambar: Panel [template_soal_excel_preview.png](assets/template_soal_excel_preview.png) — Format tabel spreadsheet 14 kolom untuk impor massal CBT)*
 
-### 2. Sheet `PETUNJUK_FORMAT` (Aturan Delimiter & Rumus Matematika LaTeX)
+### 3. Tampilan Sheet Petunjuk Format & Rumus LaTeX (`.xlsx` - Sheet `PETUNJUK_FORMAT`)
 ![Tampilan Sheet Petunjuk Format dan Rumus](assets/template_soal_petunjuk_preview.png)
-*(Gambar: Panel [template_soal_petunjuk_preview.png](assets/template_soal_petunjuk_preview.png) — Aturan karakter pemisah koma/titik-koma dan sintaks rumus LaTeX)*
+*(Gambar: Panel [template_soal_petunjuk_preview.png](assets/template_soal_petunjuk_preview.png) — Sintaks rumus matematika LaTeX, reaksi kimia, dan karakter pemisah kunci)*
 
 ---
 
