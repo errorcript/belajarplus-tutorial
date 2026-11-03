@@ -1,0 +1,776 @@
+﻿[
+    {
+        "Username":  "sman1amb_guru1",
+        "Nama":  "Afny Istiningsih,S.Pd.",
+        "Email":  "afnyistiningsih28@guru.sma.belajar.id",
+        "Password":  "Sman1amb_2366"
+    },
+    {
+        "Username":  "sman1amb_guru2",
+        "Nama":  "Alfiyah, S.Pd",
+        "Email":  "alfiyahfiyah20@gmail.com",
+        "Password":  "Sman1amb_7569"
+    },
+    {
+        "Username":  "sman1amb_guru3",
+        "Nama":  "Ana Yustika, S.Pd., M.Si.",
+        "Email":  "anayustika13@gmail.com",
+        "Password":  "Sman1amb_1109"
+    },
+    {
+        "Username":  "sman1amb_guru4",
+        "Nama":  "Angela Wyda Setiyani, S.Pd.",
+        "Email":  "Wydaangela@gmail.com",
+        "Password":  "Sman1amb_3247"
+    },
+    {
+        "Username":  "sman1amb_guru5",
+        "Nama":  "Ani Olivia, S.Pd",
+        "Email":  "aniolivia64@guru.sma.belajar.id",
+        "Password":  "Sman1amb_5707"
+    },
+    {
+        "Username":  "sman1amb_guru6",
+        "Nama":  "Antonius Sigit Pamungkas,S.Pd",
+        "Email":  "sigit20.sp@gmail.com",
+        "Password":  "Sman1amb_9052"
+    },
+    {
+        "Username":  "sman1amb_guru7",
+        "Nama":  "Asep Berlian",
+        "Email":  "asepbejoslamet@gmail.com",
+        "Password":  "Sman1amb_9631"
+    },
+    {
+        "Username":  "sman1amb_guru8",
+        "Nama":  "Asep Berlian Dirgantara,S.S.",
+        "Email":  "asepdirgantara99@guru.sma.belajar.id",
+        "Password":  "Sman1amb_3708"
+    },
+    {
+        "Username":  "sman1amb_guru9",
+        "Nama":  "Aula Mustafa Anwar, S.Pd",
+        "Email":  "aula.musthafa96@gmail.com",
+        "Password":  "Sman1amb_9590"
+    },
+    {
+        "Username":  "sman1amb_guru10",
+        "Nama":  "Bernadeta Helen, S.Pd",
+        "Email":  "bernadettahellen91@gmail.com",
+        "Password":  "Sman1amb_9872"
+    },
+    {
+        "Username":  "sman1amb_guru11",
+        "Nama":  "Caecilia Erna Widyaningsih,S. Pd",
+        "Email":  "caeciliawidyaningsih96@guru.sma.belajar.id",
+        "Password":  "Sman1amb_1383"
+    },
+    {
+        "Username":  "sman1amb_guru12",
+        "Nama":  "Dewanto Teguh Prakoso, S.Th.",
+        "Email":  "dewantoprakosa@gmail.com",
+        "Password":  "Sman1amb_5377"
+    },
+    {
+        "Username":  "sman1amb_guru13",
+        "Nama":  "Dian Fatmawati,S.Pd.",
+        "Email":  "dianfatma56@gmail.com",
+        "Password":  "Sman1amb_5358"
+    },
+    {
+        "Username":  "sman1amb_guru14",
+        "Nama":  "Dinar Galuh Pertiwi,S.Pd.",
+        "Email":  "aldinar20pertiwi@gmail.com",
+        "Password":  "Sman1amb_8648"
+    },
+    {
+        "Username":  "sman1amb_guru15",
+        "Nama":  "Dra. Eriwati Dwi Suhesti",
+        "Email":  "eriwatidwisuhesti02@gmail.com",
+        "Password":  "Sman1amb_7978"
+    },
+    {
+        "Username":  "sman1amb_guru16",
+        "Nama":  "Drs.. Nur Tamzis",
+        "Email":  "elzyawidya@gmail.com",
+        "Password":  "Sman1amb_7954"
+    },
+    {
+        "Username":  "sman1amb_guru17",
+        "Nama":  "Dwi Hartati,S. Pd",
+        "Email":  "dwihartati72@guru.sma.belajar.id",
+        "Password":  "Sman1amb_2003"
+    },
+    {
+        "Username":  "sman1amb_guru18",
+        "Nama":  "Eri Astuti, S.Pd",
+        "Email":  "eriastuti2020@gmail.com",
+        "Password":  "Sman1amb_7162"
+    },
+    {
+        "Username":  "sman1amb_guru19",
+        "Nama":  "Erwan Kasriyanto,S.Pd.",
+        "Email":  "eruwanjapan@gmail.com",
+        "Password":  "Sman1amb_7685"
+    },
+    {
+        "Username":  "sman1amb_guru20",
+        "Nama":  "Fithri Anna Fauziyyah, S.Pd.",
+        "Email":  "fithrianna.15@gmail.com",
+        "Password":  "Sman1amb_8899"
+    },
+    {
+        "Username":  "sman1amb_guru21",
+        "Nama":  "Fusi Asrining Dini,S. Pd",
+        "Email":  "fusidini72@guru.sma.belajar.id",
+        "Password":  "Sman1amb_1645"
+    },
+    {
+        "Username":  "sman1amb_guru22",
+        "Nama":  "Hisyam Mustari,S.Kom",
+        "Email":  "androsam708@gmail.com",
+        "Password":  "Sman1amb_9752"
+    },
+    {
+        "Username":  "sman1amb_guru23",
+        "Nama":  "Ita Purnamasari , S.Pd.",
+        "Email":  "Itapurnamasarirayyan@gmail.com",
+        "Password":  "Sman1amb_4741"
+    },
+    {
+        "Username":  "sman1amb_guru24",
+        "Nama":  "Jaelani, M. Pd",
+        "Email":  "jaelanimustika@gmail.com",
+        "Password":  "Sman1amb_6816"
+    },
+    {
+        "Username":  "sman1amb_guru25",
+        "Nama":  "Jumiati,S. Pd.",
+        "Email":  "jumiatisbw1970@gmail.com",
+        "Password":  "Sman1amb_1555"
+    },
+    {
+        "Username":  "sman1amb_guru26",
+        "Nama":  "Lidya Ika Handayani,S.Pd.",
+        "Email":  "lidyaikahandayani@gmail.com",
+        "Password":  "Sman1amb_6493"
+    },
+    {
+        "Username":  "sman1amb_guru27",
+        "Nama":  "Liviana Ika Subekti, S.Pd., Gr",
+        "Email":  "livianais98@gmail.com",
+        "Password":  "Sman1amb_2834"
+    },
+    {
+        "Username":  "sman1amb_guru28",
+        "Nama":  "Lussiana Farriha Salsabila, S.Pd",
+        "Email":  "lusianasalsabila48@gmail.com",
+        "Password":  "Sman1amb_4464"
+    },
+    {
+        "Username":  "sman1amb_guru29",
+        "Nama":  "Marjono, S. Pd",
+        "Email":  "pak.mo2013@gmail.com",
+        "Password":  "Sman1amb_3187"
+    },
+    {
+        "Username":  "sman1amb_guru30",
+        "Nama":  "Meiva Vinandhita Arta Sitta,S.Pd",
+        "Email":  "artasitta24@gmail.com",
+        "Password":  "Sman1amb_2663"
+    },
+    {
+        "Username":  "sman1amb_guru31",
+        "Nama":  "Metta Septyani, S.Pd",
+        "Email":  "septyanimetta@gmail.com",
+        "Password":  "Sman1amb_7300"
+    },
+    {
+        "Username":  "sman1amb_guru32",
+        "Nama":  "Mufrikati , S.S",
+        "Email":  "mufrikati17@guru.sma.belajar.id",
+        "Password":  "Sman1amb_5028"
+    },
+    {
+        "Username":  "sman1amb_guru33",
+        "Nama":  "Muhamad Ulil Abshor, S.Pd.",
+        "Email":  "ulil.smanega@gmail.com",
+        "Password":  "Sman1amb_9563"
+    },
+    {
+        "Username":  "sman1amb_guru34",
+        "Nama":  "Nabella Hendriastuty Nataningrat, S.Pd.",
+        "Email":  "nabellanataningrat@gmail.com",
+        "Password":  "Sman1amb_4303"
+    },
+    {
+        "Username":  "sman1amb_guru35",
+        "Nama":  "Nastiti Nur Ariffiani,S.Pd.",
+        "Email":  "vivishumadi@gmail.com",
+        "Password":  "Sman1amb_8806"
+    },
+    {
+        "Username":  "sman1amb_guru36",
+        "Nama":  "Netiasa Seliagati,S.Pd.",
+        "Email":  "netiasawirawan22@gmail.com",
+        "Password":  "Sman1amb_4968"
+    },
+    {
+        "Username":  "sman1amb_guru37",
+        "Nama":  "Norma Febria Ayu Fista, M.Pd.",
+        "Email":  "norma.fista@gmail.com",
+        "Password":  "Sman1amb_3081"
+    },
+    {
+        "Username":  "sman1amb_guru38",
+        "Nama":  "Pamuji Budi Kuncoro,S.Sos.",
+        "Email":  "kuncoropamuji@gmail.com",
+        "Password":  "Sman1amb_3779"
+    },
+    {
+        "Username":  "sman1amb_guru39",
+        "Nama":  "Putri Dewi Iswanti, S.Pd",
+        "Email":  "putridewiiswanti@gmail.com",
+        "Password":  "Sman1amb_9877"
+    },
+    {
+        "Username":  "sman1amb_guru40",
+        "Nama":  "Rachmad Saatul Hidayat, M.Pd I.",
+        "Email":  "rahmadsaatu85@gmail.com",
+        "Password":  "Sman1amb_6055"
+    },
+    {
+        "Username":  "sman1amb_guru41",
+        "Nama":  "Ravi Aji Pamungkas,S.Pd.",
+        "Email":  "ravipamungkas12@guru.sma.belajar.id",
+        "Password":  "Sman1amb_8334"
+    },
+    {
+        "Username":  "sman1amb_guru42",
+        "Nama":  "Reni Ita Indriyani, S.Pd.",
+        "Email":  "elfathanhusein@gmail.com",
+        "Password":  "Sman1amb_3136"
+    },
+    {
+        "Username":  "sman1amb_guru43",
+        "Nama":  "Rusiyanto, S.Pd",
+        "Email":  "Rusiyanto15@gmail.com",
+        "Password":  "Sman1amb_7744"
+    },
+    {
+        "Username":  "sman1amb_guru44",
+        "Nama":  "Setio Budiono,S.T.",
+        "Email":  "tiox7997@gmail.com",
+        "Password":  "Sman1amb_1884"
+    },
+    {
+        "Username":  "sman1amb_guru45",
+        "Nama":  "Siti Khoni`Ah, S.Pd",
+        "Email":  "sitikhoniah73@gmail.com",
+        "Password":  "Sman1amb_5557"
+    },
+    {
+        "Username":  "sman1amb_guru46",
+        "Nama":  "Sri Wahyuni, Sp",
+        "Email":  "wahyuraina80@gmail.com",
+        "Password":  "Sman1amb_2636"
+    },
+    {
+        "Username":  "sman1amb_guru47",
+        "Nama":  "Sri Widati, S.Pd",
+        "Email":  "widati.sw@gmail.com",
+        "Password":  "Sman1amb_9444"
+    },
+    {
+        "Username":  "sman1amb_guru48",
+        "Nama":  "Subiyanto,S. Pd",
+        "Email":  "subiyanto0070@gmail.com",
+        "Password":  "Sman1amb_3812"
+    },
+    {
+        "Username":  "sman1amb_guru49",
+        "Nama":  "Sugiyati,S. Pd",
+        "Email":  "sugiyati35@guru.sma.belajar.id",
+        "Password":  "Sman1amb_1847"
+    },
+    {
+        "Username":  "sman1amb_guru50",
+        "Nama":  "Suparmi, S.Pd",
+        "Email":  "mimibiosmanega@gmail.com",
+        "Password":  "Sman1amb_8973"
+    },
+    {
+        "Username":  "sman1amb_guru51",
+        "Nama":  "Supriyanto, S.Pd",
+        "Email":  "supriyanto24okt@gmail.com",
+        "Password":  "Sman1amb_8312"
+    },
+    {
+        "Username":  "sman1amb_guru52",
+        "Nama":  "Tati Yuliati, S.Pd",
+        "Email":  "tatiyuliati30@gmail.com",
+        "Password":  "Sman1amb_7013"
+    },
+    {
+        "Username":  "sman1amb_guru53",
+        "Nama":  "Wiwin Hidayati,S.Pd.",
+        "Email":  "wiwinhidayati007@gmail.com",
+        "Password":  "Sman1amb_6209"
+    },
+    {
+        "Username":  "sman1amb_guru54",
+        "Nama":  "Yannety Amalia,S.Pd.",
+        "Email":  "yannetyamalia55@gmail.com",
+        "Password":  "Sman1amb_2897"
+    },
+    {
+        "Username":  "sman1amb_guru55",
+        "Nama":  "Yusnizar Abdul Hamid,S. Pd",
+        "Email":  "yusnizar.abdul.hamid@gmail.com",
+        "Password":  "Sman1amb_7037"
+    },
+    {
+        "Username":  "sman1amb_guru56",
+        "Nama":  "Zaeni Hasan,S.Pd.",
+        "Email":  "zaenihasan37@guru.sma.belajar.id",
+        "Password":  "Sman1amb_5306"
+    },
+    {
+        "Username":  "sman1amb_guru57",
+        "Nama":  "Akhmad Muttamaqin, M.Kom",
+        "Email":  "akhmad2009@gmail.com",
+        "Password":  "Sman1amb_6144"
+    },
+    {
+        "Username":  "sman1amb_guru58",
+        "Nama":  "Adhi Setyobudi, S.M., S.Pd., M.Pd",
+        "Email":  "adhisetyobudi86@guru.smk.belajar.id",
+        "Password":  "Sman1amb_6139"
+    },
+    {
+        "Username":  "sman1amb_guru59",
+        "Nama":  "Adinda Hapsari, S.Pd.Gr",
+        "Email":  "dindahapsa30@gmail.com",
+        "Password":  "Sman1amb_3898"
+    },
+    {
+        "Username":  "sman1amb_guru60",
+        "Nama":  "Desminta Rossianna BR. Sihaloho, S.Pd",
+        "Email":  "desmintasihaloho02@guru.sma.belajar.id",
+        "Password":  "Sman1amb_3248"
+    },
+    {
+        "Username":  "sman1amb_guru61",
+        "Nama":  "Dwi Jaya Hendra Sakti, S.Pd.",
+        "Email":  null,
+        "Password":  "Sman1amb_7066"
+    },
+    {
+        "Username":  "sman1amb_guru62",
+        "Nama":  "Modestus Haryono, S.Pd.",
+        "Email":  "modestusharyono20@guru.sma.belajar.id",
+        "Password":  "Sman1amb_6213"
+    },
+    {
+        "Username":  "sman1amb_guru63",
+        "Nama":  "Nurwachid,S.Pd.I",
+        "Email":  "onenuwa@gmail.com",
+        "Password":  "Sman1amb_9249"
+    },
+    {
+        "Username":  "sman1amb_guru64",
+        "Nama":  "Prasetiyo Wibowo, S.Pd",
+        "Email":  null,
+        "Password":  "Sman1amb_7408"
+    },
+    {
+        "Username":  "sman1amb_guru65",
+        "Nama":  "Sri Setyani, S.Pd",
+        "Email":  null,
+        "Password":  "Sman1amb_5556"
+    },
+    {
+        "Username":  "sman1amb_guru66",
+        "Nama":  "Tiara Osa Mutia, S.Si",
+        "Email":  "meutiaosa@gmail.com",
+        "Password":  "Sman1amb_5891"
+    },
+    {
+        "Username":  "sman1amb_guru67",
+        "Nama":  "Wahyu Eka Murjiyanta, S.Pd.",
+        "Email":  null,
+        "Password":  "Sman1amb_9518"
+    },
+    {
+        "Username":  "sman1amb_guru68",
+        "Nama":  "Widi Istanto, S.Pd",
+        "Email":  null,
+        "Password":  "Sman1amb_6819"
+    },
+    {
+        "Username":  "sman1amb_guru69",
+        "Nama":  "Yohana Yuliani widy Asmoro., S.S.",
+        "Email":  "yohanaasmoro07@guru.sma.belajar.id",
+        "Password":  "Sman1amb_3194"
+    },
+    {
+        "Username":  "sman1amb_guru70",
+        "Nama":  "Admin",
+        "Email":  null,
+        "Password":  "Sman1amb_2427"
+    },
+    {
+        "Username":  "sman1amb_guru71",
+        "Nama":  "Admin",
+        "Email":  null,
+        "Password":  "Sman1amb_6169"
+    },
+    {
+        "Username":  "sman1amb_guru72",
+        "Nama":  "Admin",
+        "Email":  null,
+        "Password":  "Sman1amb_2006"
+    },
+    {
+        "Username":  "sman1amb_guru73",
+        "Nama":  "Admin",
+        "Email":  null,
+        "Password":  "Sman1amb_3805"
+    },
+    {
+        "Username":  "sman1amb_guru74",
+        "Nama":  "Admin",
+        "Email":  null,
+        "Password":  "Sman1amb_2436"
+    },
+    {
+        "Username":  "sman1amb_guru75",
+        "Nama":  "Guru ke 75",
+        "Email":  null,
+        "Password":  "Sman1amb_3874"
+    },
+    {
+        "Username":  "sman1amb_guru76",
+        "Nama":  "Guru ke 76",
+        "Email":  null,
+        "Password":  "Sman1amb_2988"
+    },
+    {
+        "Username":  "sman1amb_guru77",
+        "Nama":  "Guru ke 77",
+        "Email":  null,
+        "Password":  "Sman1amb_9294"
+    },
+    {
+        "Username":  "sman1amb_guru78",
+        "Nama":  "Guru ke 78",
+        "Email":  null,
+        "Password":  "Sman1amb_1857"
+    },
+    {
+        "Username":  "sman1amb_guru79",
+        "Nama":  "Guru ke 79",
+        "Email":  null,
+        "Password":  "Sman1amb_5590"
+    },
+    {
+        "Username":  "sman1amb_guru80",
+        "Nama":  "Guru ke 80",
+        "Email":  null,
+        "Password":  "Sman1amb_4429"
+    },
+    {
+        "Username":  "sman1amb_guru81",
+        "Nama":  "Guru ke 81",
+        "Email":  null,
+        "Password":  "Sman1amb_1545"
+    },
+    {
+        "Username":  "sman1amb_guru82",
+        "Nama":  "Guru ke 82",
+        "Email":  null,
+        "Password":  "Sman1amb_4787"
+    },
+    {
+        "Username":  "sman1amb_guru83",
+        "Nama":  "Guru ke 83",
+        "Email":  null,
+        "Password":  "Sman1amb_1023"
+    },
+    {
+        "Username":  "sman1amb_guru84",
+        "Nama":  "Guru ke 84",
+        "Email":  null,
+        "Password":  "Sman1amb_2326"
+    },
+    {
+        "Username":  "sman1amb_guru85",
+        "Nama":  "Guru ke 85",
+        "Email":  null,
+        "Password":  "Sman1amb_9367"
+    },
+    {
+        "Username":  "sman1amb_guru86",
+        "Nama":  "Guru ke 86",
+        "Email":  null,
+        "Password":  "Sman1amb_8135"
+    },
+    {
+        "Username":  "sman1amb_guru87",
+        "Nama":  "Guru ke 87",
+        "Email":  null,
+        "Password":  "Sman1amb_3555"
+    },
+    {
+        "Username":  "sman1amb_guru88",
+        "Nama":  "Guru ke 88",
+        "Email":  null,
+        "Password":  "Sman1amb_5175"
+    },
+    {
+        "Username":  "sman1amb_guru89",
+        "Nama":  "Guru ke 89",
+        "Email":  null,
+        "Password":  "Sman1amb_9850"
+    },
+    {
+        "Username":  "sman1amb_guru90",
+        "Nama":  "Guru ke 90",
+        "Email":  null,
+        "Password":  "Sman1amb_2746"
+    },
+    {
+        "Username":  "sman1amb_guru91",
+        "Nama":  "Guru ke 91",
+        "Email":  null,
+        "Password":  "Sman1amb_8154"
+    },
+    {
+        "Username":  "sman1amb_guru92",
+        "Nama":  "Guru ke 92",
+        "Email":  null,
+        "Password":  "Sman1amb_9180"
+    },
+    {
+        "Username":  "sman1amb_guru93",
+        "Nama":  "Guru ke 93",
+        "Email":  null,
+        "Password":  "Sman1amb_2364"
+    },
+    {
+        "Username":  "sman1amb_guru94",
+        "Nama":  "Guru ke 94",
+        "Email":  null,
+        "Password":  "Sman1amb_8061"
+    },
+    {
+        "Username":  "sman1amb_guru95",
+        "Nama":  "Guru ke 95",
+        "Email":  null,
+        "Password":  "Sman1amb_8404"
+    },
+    {
+        "Username":  "sman1amb_guru96",
+        "Nama":  "Guru ke 96",
+        "Email":  null,
+        "Password":  "Sman1amb_6413"
+    },
+    {
+        "Username":  "sman1amb_guru97",
+        "Nama":  "Guru ke 97",
+        "Email":  null,
+        "Password":  "Sman1amb_9279"
+    },
+    {
+        "Username":  "sman1amb_guru98",
+        "Nama":  "Guru ke 98",
+        "Email":  null,
+        "Password":  "Sman1amb_8947"
+    },
+    {
+        "Username":  "sman1amb_guru99",
+        "Nama":  "Guru ke 99",
+        "Email":  null,
+        "Password":  "Sman1amb_3289"
+    },
+    {
+        "Username":  "sman1amb_guru100",
+        "Nama":  "Guru ke 100",
+        "Email":  null,
+        "Password":  "Sman1amb_9621"
+    },
+    {
+        "Username":  "sman1amb_guru101",
+        "Nama":  "Guru ke 101",
+        "Email":  null,
+        "Password":  "Sman1amb_3062"
+    },
+    {
+        "Username":  "sman1amb_guru102",
+        "Nama":  "Guru ke 102",
+        "Email":  null,
+        "Password":  "Sman1amb_5448"
+    },
+    {
+        "Username":  "sman1amb_guru103",
+        "Nama":  "Guru ke 103",
+        "Email":  null,
+        "Password":  "Sman1amb_1155"
+    },
+    {
+        "Username":  "sman1amb_guru104",
+        "Nama":  "Guru ke 104",
+        "Email":  null,
+        "Password":  "Sman1amb_4293"
+    },
+    {
+        "Username":  "sman1amb_guru105",
+        "Nama":  "Guru ke 105",
+        "Email":  null,
+        "Password":  "Sman1amb_4586"
+    },
+    {
+        "Username":  "sman1amb_guru106",
+        "Nama":  "Guru ke 106",
+        "Email":  null,
+        "Password":  "Sman1amb_2183"
+    },
+    {
+        "Username":  "sman1amb_guru107",
+        "Nama":  "Guru ke 107",
+        "Email":  null,
+        "Password":  "Sman1amb_1123"
+    },
+    {
+        "Username":  "sman1amb_guru108",
+        "Nama":  "Guru ke 108",
+        "Email":  null,
+        "Password":  "Sman1amb_8594"
+    },
+    {
+        "Username":  "sman1amb_guru109",
+        "Nama":  "Guru ke 109",
+        "Email":  null,
+        "Password":  "Sman1amb_6721"
+    },
+    {
+        "Username":  "sman1amb_guru110",
+        "Nama":  "Guru ke 110",
+        "Email":  null,
+        "Password":  "Sman1amb_6162"
+    },
+    {
+        "Username":  "sman1amb_guru111",
+        "Nama":  "Guru ke 111",
+        "Email":  null,
+        "Password":  "Sman1amb_1676"
+    },
+    {
+        "Username":  "sman1amb_guru112",
+        "Nama":  "Guru ke 112",
+        "Email":  null,
+        "Password":  "Sman1amb_1114"
+    },
+    {
+        "Username":  "sman1amb_guru113",
+        "Nama":  "Guru ke 113",
+        "Email":  null,
+        "Password":  "Sman1amb_1464"
+    },
+    {
+        "Username":  "sman1amb_guru114",
+        "Nama":  "Guru ke 114",
+        "Email":  null,
+        "Password":  "Sman1amb_5485"
+    },
+    {
+        "Username":  "sman1amb_guru115",
+        "Nama":  "Guru ke 115",
+        "Email":  null,
+        "Password":  "Sman1amb_1976"
+    },
+    {
+        "Username":  "sman1amb_guru116",
+        "Nama":  "Guru ke 116",
+        "Email":  null,
+        "Password":  "Sman1amb_2567"
+    },
+    {
+        "Username":  "sman1amb_guru117",
+        "Nama":  "Guru ke 117",
+        "Email":  null,
+        "Password":  "Sman1amb_2833"
+    },
+    {
+        "Username":  "sman1amb_guru118",
+        "Nama":  "Guru ke 118",
+        "Email":  null,
+        "Password":  "Sman1amb_3595"
+    },
+    {
+        "Username":  "sman1amb_guru119",
+        "Nama":  "Guru ke 119",
+        "Email":  null,
+        "Password":  "Sman1amb_3493"
+    },
+    {
+        "Username":  "sman1amb_guru120",
+        "Nama":  "Guru ke 120",
+        "Email":  null,
+        "Password":  "Sman1amb_7827"
+    },
+    {
+        "Username":  "sman1amb_guru121",
+        "Nama":  "Guru ke 121",
+        "Email":  null,
+        "Password":  "Sman1amb_3705"
+    },
+    {
+        "Username":  "sman1amb_guru122",
+        "Nama":  "Guru ke 122",
+        "Email":  null,
+        "Password":  "Sman1amb_8916"
+    },
+    {
+        "Username":  "sman1amb_guru123",
+        "Nama":  "Guru ke 123",
+        "Email":  null,
+        "Password":  "Sman1amb_1268"
+    },
+    {
+        "Username":  "sman1amb_guru124",
+        "Nama":  "Guru ke 124",
+        "Email":  null,
+        "Password":  "Sman1amb_4377"
+    },
+    {
+        "Username":  "sman1amb_guru125",
+        "Nama":  "Guru ke 125",
+        "Email":  null,
+        "Password":  "Sman1amb_5125"
+    },
+    {
+        "Username":  "sman1amb_guru126",
+        "Nama":  "Guru ke 126",
+        "Email":  null,
+        "Password":  "Sman1amb_5602"
+    },
+    {
+        "Username":  "sman1amb_guru127",
+        "Nama":  "Guru ke 127",
+        "Email":  null,
+        "Password":  "Sman1amb_1325"
+    },
+    {
+        "Username":  "sman1amb_admin",
+        "Nama":  "Admin",
+        "Email":  null,
+        "Password":  "Sman1amb_9506"
+    },
+    {
+        "Username":  "sman1amb_kepsek",
+        "Nama":  "Kepsek",
+        "Email":  null,
+        "Password":  "Sman1amb_6144"
+    }
+]

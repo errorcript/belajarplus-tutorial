@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automation Bot &amp; Direct RPC Suite • BelajarPlus Engineering 2026</title>
+  <meta name="description" content="Pusat Kendali Otomasi Direct RPC, Fast Batch Assignment Siswa, Sanitasi Master Data & Generator Laporan Resmi PDF untuk 95 Satuan Pendidikan BelajarPlus." />
+  <link rel="icon" type="image/png" href="assets/belajar-plus-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=58" />
+  <style>
+    :root {
+      --bot-primary: #ec4899;
+      --bot-gradient: linear-gradient(135deg, #ec4899, #8b5cf6);
+      --code-bg: #0b1120;
+      --code-border: #1e293b;
+      --mono-font: 'JetBrains Mono', monospace;
+    }
+    .bot-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+      border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+      padding: 3.5rem 1.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .bot-header::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bot-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge-bot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(236, 72, 153, 0.12);
+      color: #f472b6;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+      border-radius: 20px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .kpi-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .kpi-val {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #f472b6;
+      font-family: var(--mono-font);
+      letter-spacing: -0.02em;
+    }
+    .kpi-lbl {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+      font-weight: 600;
+    }
+    .feature-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.2s ease;
+    }
+    .feature-card:hover {
+      border-color: rgba(236, 72, 153, 0.4);
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .code-terminal {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-family: var(--mono-font);
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      position: relative;
+      margin-top: 1rem;
+      line-height: 1.55;
+    }
+    .btn-copy-code {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-copy-code:hover {
+      background: rgba(236, 72, 153, 0.6);
+    }
+    .flow-compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .flow-box {
+      border-radius: 10px;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--bg-tertiary);
+    }
+    .flow-box.bad {
+      border-color: rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.04);
+    }
+    .flow-box.good {
+      border-color: rgba(16, 185, 129, 0.35);
+      background: rgba(16, 185, 129, 0.04);
+    }
+    .filter-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.25rem 0;
+    }
+    .filter-btn {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.45rem 0.95rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--bot-primary);
+      color: #fff;
+      border-color: var(--bot-primary);
+    }
+    .table-container {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-tertiary);
+    }
+    .audit-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .audit-tbl th {
+      background: rgba(15, 23, 42, 0.35);
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .audit-tbl td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .audit-tbl tr:hover td {
+      background: rgba(236, 72, 153, 0.03);
+    }
+    .tag-live {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--bot-primary);
+    }
+  </style>
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+          document.documentElement.classList.add('light-mode');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <a href="/" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none;">
+        <img src="assets/belajar-plus-logo.png" alt="BelajarPlus Logo" style="height: 32px; width: auto;" />
+        <span class="logo-badge" style="background: rgba(236, 72, 153, 0.15); color: #ec4899; border-color: rgba(236, 72, 153, 0.3);">Bot Suite</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">🏠 Home</a></li>
+      <li><a href="/demo">🛡️ Demo Hub</a></li>
+      <li><a href="/qa-fitur-baru">🧪 QA Fitur Baru</a></li>
+      <li><a href="/bot-suite" style="color: #ec4899; font-weight: 700;">🤖 Bot Suite</a></li>
+      <li><a href="/audit" style="color: #38bdf8; font-weight: 700;">📊 Audit 95 Sekolah</a></li>
+      <li><a href="/bug2">🔍 Audit v2.0</a></li>
+      <li><a href="/changelog">⚖️ Evaluasi</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle Mode Tampilan">
+        <span class="sun-icon">☀️ Light</span>
+        <span class="moon-icon">🌙 Dark</span>
+      </button>
+      <a href="/audit" class="btn-nav desktop-only">Buka Laporan Audit A4 →</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bot-header">
+    <div class="container" style="max-width: 1180px; margin: 0 auto;">
+      <div class="badge-bot">🤖 BelajarPlus Automation Suite &bull; Engineering Update 2026</div>
+      <h1 style="font-size: 2.35rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 0.75rem;">
+        Pusat Kendali Bot Otomasi &amp; <br />
+        <span style="background: linear-gradient(135deg, #ec4899, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Direct RPC Bypass Engine</span>
+      </h1>
+      <p style="font-size: 1.05rem; color: #cbd5e1; max-width: 780px; line-height: 1.6;">
+        Arsitektur resmi, simulator payload Seroval internal TanStack, batch assign ribuan rombel instan tanpa bottleneck browser, sanitasi spreadsheet Dapodik, dan generator PDF berita acara resmi untuk 95 sekolah Jawa Tengah &amp; Tasikmalaya.
+      </p>
+
+      <div class="kpi-row">
+        <div class="kpi-box">
+          <div class="kpi-val">95</div>
+          <div class="kpi-lbl">Satuan Pendidikan Terdata</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">41,905</div>
+          <div class="kpi-lbl">Total Siswa Aktif Live</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">1,267</div>
+          <div class="kpi-lbl">Rombel Belajar Terbentuk</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">&lt; 3 Detik</div>
+          <div class="kpi-lbl">RPC Direct Batch Placement</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 1180px; margin: 2.5rem auto; padding: 0 1.25rem;">
+
+    <!-- MODUL 1: BEDAH ARSITEKTUR DIRECT RPC -->
+    <section class="feature-card" id="arsitektur">
+      <div class="card-head">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #ec4899; text-transform: uppercase;">Modul 01 • Engine Internals</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">
+            Bedah Arsitektur Direct RPC TanStack vs UI Browser Hang
+          </h2>
+        </div>
+        <span class="tag-live">P0 PERFORMANCE FIX</span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        Mengapa bot tidak menggunakan automasi klik tombol di browser (DOM clicking)? Pada platform BelajarPlus v2.0 (dibangun dengan TanStack Router &amp; TanStack Start), memuat modal daftar anggota kelas dan mencentang 400–1000 siswa menyebabkan re-render DOM masif, memicu memory leak, dan tab browser mengalami <em>freeze</em> (hang). Bot bypass langsung mengarah ke server function internal melalui RPC HTTP POST terautentikasi.
+      </p>
+
+      <div class="flow-compare-grid">
+        <div class="flow-box bad">
+          <div style="font-weight: 700; color: #ef4444; font-size: 0.9rem; margin-bottom: 0.5rem;">❌ Jalur UI Browser Tradisional</div>
+          <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 1.2rem; line-height: 1.6;">
+            <li>Buka halaman <code>/master-data/rombel</code> &rarr; Klik "Anggota".</li>
+            <li>Modal render 800+ baris DOM siswa sekaligus.</li>
+            <li>Browser lag 15–30 detik; centang manual rawan timeout.</li>
+            <li>Satu kegagalan koneksi membatalkan seluruh operasi (Zero recovery).</li>
+          </ul>
+        </div>
+        <div class="flow-box good">
+          <div style="font-weight: 700; color: #10b981; font-size: 0.9rem; margin-bottom: 0.5rem;">⚡ Jalur Bot Direct ServerFn RPC</div>
+          <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 1.2rem; line-height: 1.6;">
+            <li>Auth sekali via Playwright / Supabase token (<code>sb-*-auth-token</code>).</li>
+            <li>Kirim HTTP POST ke hash server function <code>/_serverFn/337a3c1a...</code></li>
+            <li>Kirim header <code>x-school-override: &lt;tenant-uuid&gt;</code> &amp; <code>x-tsr-serverfn: true</code>.</li>
+            <li>1.000 siswa ter-assign ke rombel masing-masing dalam &lt; 3 detik.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Endpoint Registry -->
+      <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.75rem;">
+        Daftar Hash Server Function Resmi Platform BelajarPlus:
+      </h3>
+      <div class="table-container">
+        <table class="audit-tbl">
+          <thead>
+            <tr>
+              <th>Hash Endpoint TanStack</th>
+              <th>Operasi Sistem</th>
+              <th>Payload Kunci</th>
+              <th>Tujuan Eksekusi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/_serverFn/337a3c1afccf4d21...</code></td>
+              <td><strong>Assign Students to Rombel</strong></td>
+              <td><code>rombelId, studentIds[]</code></td>
+              <td>Menempatkan kandidat siswa belum berkelas ke rombel target.</td>
+            </tr>
+            <tr>
+              <td><code>/_serverFn/a30d7ae826e53b88...</code></td>
+              <td><strong>Query Candidates</strong></td>
+              <td><code>rombelId, q: ""</code></td>
+              <td>Mengambil daftar siswa berstatus <em>Belum ditempatkan</em>.</td>
+            </tr>
+            <tr>
+              <td><code>/_serverFn/05af1666567a0173...</code></td>
+              <td><strong>Fetch Rombels</strong></td>
+              <td><code>yearId</code></td>
+              <td>Mendapatkan daftar ID rombel yang terdaftar di Tahun Ajaran aktif.</td>
+            </tr>
+            <tr>
+              <td><code>/_serverFn/2b7407a379661cd2...</code></td>
+              <td><strong>Fetch Active TA</strong></td>
+              <td><code>schoolId</code></td>
+              <td>Mendeteksi ID Tahun Ajaran &amp; Semester aktif (2026/2027).</td>
+            </tr>
+            <tr>
+              <td><code>/_serverFn/77decbcfbd7ea328...</code></td>
+              <td><strong>Bulk Create Accounts</strong></td>
+              <td><code>schoolId, role, rows[]</code></td>
+              <td>Membuat akun siswa/PTK massal langsung ke database.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MODUL 2: LIVE RPC COMMAND GENERATOR -->
+    <section class="feature-card" id="generator">
+      <div class="card-head">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #ec4899; text-transform: uppercase;">Modul 02 • Workbench Lapangan</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">
+            Live RPC &amp; Seroval Command Generator
+          </h2>
+        </div>
+        <span class="tag-live">INTERAKTIF</span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        Pilih PIC Trainer dan target sekolah untuk menghasilkan script runner Node.js / PowerShell secara dinamis beserta payload Seroval yang siap dieksekusi di terminal.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">Pilih PIC Trainer:</label>
+          <select id="genTrainer" class="form-select" onchange="updateGeneratorSchoolOptions()">
+            <option value="henri">Henri Susilo (Klaster Sragen &amp; Sukoharjo)</option>
+            <option value="cindy">Adnan Cindyana (Klaster Semarang, Batang &amp; Kendal)</option>
+            <option value="arum">Rumaisha / Arum (Klaster Purbalingga &amp; Kebumen)</option>
+            <option value="andrew">Andrew Aliffiansyah (Klaster Surakarta &amp; Klaten)</option>
+            <option value="mevi">Fitri Noveira / Mevi (Klaster Banyumas &amp; Cilacap)</option>
+            <option value="khansania">Khansania Medtra (Klaster Purworejo &amp; Magelang)</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">Pilih Sekolah Target:</label>
+          <select id="genSchool" class="form-select" onchange="generateRpcSnippet()">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">Tindakan Otomasi:</label>
+          <select id="genAction" class="form-select" onchange="generateRpcSnippet()">
+            <option value="assign">Direct Batch Assign Rombel (RPC 337a3c1a)</option>
+            <option value="audit">Live Status Audit (Siswa, Rombel, PTK, TA)</option>
+            <option value="geofence">Setup Geofence Presensi Satelit 120m</option>
+            <option value="pdf">Generate Dokumen BAST &amp; Kredensial PDF</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="code-terminal">
+        <button class="btn-copy-code" onclick="copySnippet()">📋 Salin Perintah</button>
+        <pre id="snippetCode" style="margin: 0; font-family: var(--mono-font);"></pre>
+      </div>
+    </section>
+
+    <!-- MODUL 3: SMART IMPORT & CHUNKING CALCULATOR -->
+    <section class="feature-card" id="sanitasi">
+      <div class="card-head">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #ec4899; text-transform: uppercase;">Modul 03 • Data Sanitization</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">
+            Smart Import, Zero-PesonaEdu &amp; Chunking Calculator
+          </h2>
+        </div>
+        <span class="tag-live">SOP DAPODIK</span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        Platform BelajarPlus menolak berkas Excel impor yang tidak memiliki sheet <code>['Siswa', 'Panduan']</code> atau berisi lebih dari batas modal rendering pratinjau browser. Gunakan kalkulator ini untuk menentukan strategi chunking terbaik.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1rem;">
+        <div style="background: var(--bg-tertiary); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border);">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">Jumlah Siswa Dapodik Sekolah:</label>
+          <input type="number" id="chunkStudentCount" class="form-input" value="845" min="10" max="2500" oninput="calculateChunks()" />
+          
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary); margin-top: 1rem; display: block;">Maksimal Baris per Chunk:</label>
+          <select id="chunkSize" class="form-select" onchange="calculateChunks()">
+            <option value="50">50 Siswa (Rekomendasi Aman Browser Modal)</option>
+            <option value="100">100 Siswa (Koneksi Cepat)</option>
+            <option value="400">400 Siswa (Batch Runner Ekstrem via Bot)</option>
+          </select>
+        </div>
+
+        <div style="background: var(--bg-tertiary); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border);">
+          <div style="font-size: 0.8rem; font-weight: 700; color: #ec4899; text-transform: uppercase; margin-bottom: 0.5rem;">Hasil Rekomendasi Sanitasi:</div>
+          <div style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); font-family: var(--mono-font);" id="chunkResultTotal">
+            17 File Partisi
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;" id="chunkResultDesc">
+            Bagi 845 siswa menjadi 16 file berukuran 50 baris dan 1 file berukuran 45 baris. Setiap file wajib disuntik sheet 'Panduan' resmi.
+          </p>
+          <div style="font-size: 0.75rem; background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 6px; padding: 0.4rem 0.6rem; margin-top: 0.75rem;">
+            ✅ <strong>Zero-PesonaEdu:</strong> Seluruh email kosong otomatis dinormalisasi ke <code>[nama].[sekolah]@belajarplus.com</code>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODUL 4: HAVERSINE GEOFENCE SIMULATOR -->
+    <section class="feature-card" id="geofence">
+      <div class="card-head">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #ec4899; text-transform: uppercase;">Modul 04 • GPS Geofence</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">
+            Kalkulator Trigonometri Haversine Radius 120m Presensi
+          </h2>
+        </div>
+        <span class="tag-live">R = 6.371.000 m</span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        Sistem presensi mobile BelajarPlus menghitung jarak geodesi bola bumi antara titik koordinat satelit siswa dengan titik tengah sekolah. Uji kalkulasi radius toleransi 120 meter di bawah ini.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">Preset Titik Sekolah:</label>
+          <select id="geoPreset" class="form-select" onchange="setGeoPreset()">
+            <option value="-7.4243,109.2391">SMAN 1 Purwokerto (-7.4243, 109.2391)</option>
+            <option value="-7.6833,110.8333">SMAN 1 Sukoharjo (-7.6833, 110.8333)</option>
+            <option value="-7.2612,110.4045">SMAN 1 Ambarawa (-7.2612, 110.4045)</option>
+            <option value="-6.8833,109.6833">SMAN 1 Kajen (-6.8833, 109.6833)</option>
+            <option value="-7.7125,110.0083">SMAN 1 Purworejo (-7.7125, 110.0083)</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">Simulasi Posisi Siswa:</label>
+          <select id="geoStudentPos" class="form-select" onchange="calculateHaversine()">
+            <option value="0.0003,0.0003">Halaman Sekolah / Depan Kelas (~45 meter)</option>
+            <option value="0.0008,0.0008">Depan Gerbang Utama (~115 meter)</option>
+            <option value="0.0015,0.0015">Warung Luar Sekolah (~220 meter - Tolak)</option>
+            <option value="0.0200,0.0200">Rumah Siswa (~2.8 kilometer - Tolak)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.25rem; background: var(--bg-tertiary); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">Jarak Geodesi Terhitung:</div>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); font-family: var(--mono-font);" id="geoDistance">
+            47.2 meter
+          </div>
+        </div>
+        <div id="geoBadgeStatus">
+          <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">
+            ✅ DI DALAM RADIUS (&le; 120m) — PRESENSI SAH
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODUL 5: DIREKTORI 95 SEKOLAH & AUDIT MATRIX -->
+    <section class="feature-card" id="direktori">
+      <div class="card-head">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #ec4899; text-transform: uppercase;">Modul 05 • Multi-Trainer Audit</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">
+            Direktori 95 Satuan Pendidikan &amp; 6 Klaster Trainer
+          </h2>
+        </div>
+        <a href="/audit" class="btn-nav" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">Buka Laporan A4 Lengkap ↗</a>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        Tabel master audit real-time 95 sekolah (41.905 siswa aktif &amp; 1.267 rombel terpetakan) yang dikelola oleh tim trainer BelajarPlus. Gunakan filter klaster atau kolom pencarian untuk melihat rincian satuan pendidikan.
+      </p>
+
+      <div class="filter-btn-group" id="clusterFilterButtons">
+        <button class="filter-btn active" onclick="filterSchools('all', this)">Semua (95 Unit)</button>
+        <button class="filter-btn" onclick="filterSchools('arum', this)">Arum (15 Unit - 9.8k)</button>
+        <button class="filter-btn" onclick="filterSchools('cindy', this)">Cindy (14 Unit - 7.1k)</button>
+        <button class="filter-btn" onclick="filterSchools('andrew', this)">Andrew (14 Unit - 6.9k)</button>
+        <button class="filter-btn" onclick="filterSchools('henri', this)">Henri (14 Unit - 5.7k)</button>
+        <button class="filter-btn" onclick="filterSchools('mevi', this)">Mevi (13 Unit - 5.2k)</button>
+        <button class="filter-btn" onclick="filterSchools('khansania', this)">Khansania (14 Unit - 4.9k)</button>
+        <button class="filter-btn" onclick="filterSchools('tasik', this)">Tasikmalaya (10 SMA)</button>
+      </div>
+
+      <input type="text" id="schoolSearchInput" class="form-input" placeholder="🔍 Cari nama sekolah (mis. Sukoharjo, Kajen, Purwokerto, Ambarawa)..." oninput="searchSchoolTable()" style="margin-bottom: 1rem;" />
+
+      <div class="table-container">
+        <table class="audit-tbl" id="schoolsTable">
+          <thead>
+            <tr>
+              <th>Satuan Pendidikan</th>
+              <th>PIC Trainer</th>
+              <th>Siswa Live</th>
+              <th>Rombel</th>
+              <th>TA &amp; Semester</th>
+              <th>Laporan PDF</th>
+              <th>Status Integrasi</th>
+            </tr>
+          </thead>
+          <tbody id="schoolsTbody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MODUL 6: CHEATSHEET CLI SCRIPT REFERENCE -->
+    <section class="feature-card" id="cheatsheet">
+      <div class="card-head">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #ec4899; text-transform: uppercase;">Modul 06 • CLI Cheatsheet</span>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">
+            Daftar Script Runner Bot di Direktori <code>bot-tools/</code>
+          </h2>
+        </div>
+        <span class="tag-live">TERMINAL COMMANDS</span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        Berikut adalah perintah konsol cepat untuk menjalankan script bot di terminal lokal tim teknis:
+      </p>
+
+      <div class="table-container">
+        <table class="audit-tbl">
+          <thead>
+            <tr>
+              <th>Nama Script Runner</th>
+              <th>Fungsi Utama</th>
+              <th>Perintah Terminal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>audit_all_status_realtime.js</code></td>
+              <td>Audit real-time status 17 sekolah Jawa Tengah</td>
+              <td><code>node bot-tools/scripts/audit_all_status_realtime.js</code></td>
+            </tr>
+            <tr>
+              <td><code>run_assign_purwokerto_complete.js</code></td>
+              <td>Direct RPC batch assign 784 siswa SMAN 1 Purwokerto</td>
+              <td><code>node bot-tools/scripts/run_assign_purwokerto_complete.js</code></td>
+            </tr>
+            <tr>
+              <td><code>run_assign_jatilawang_complete.js</code></td>
+              <td>Direct RPC batch assign 393 siswa SMAN 1 Jatilawang</td>
+              <td><code>node bot-tools/scripts/run_assign_jatilawang_complete.js</code></td>
+            </tr>
+            <tr>
+              <td><code>run_assign_rawalo_perfect.js</code></td>
+              <td>Direct RPC batch assign 851 siswa SMAN 1 Rawalo</td>
+              <td><code>node bot-tools/scripts/run_assign_rawalo_perfect.js</code></td>
+            </tr>
+            <tr>
+              <td><code>save_absensi_purwokerto.js</code></td>
+              <td>Konfigurasi titik radius GPS 120m Purwokerto</td>
+              <td><code>node bot-tools/scripts/save_absensi_purwokerto.js</code></td>
+            </tr>
+            <tr>
+              <td><code>generate_all_5_reports_final.js</code></td>
+              <td>Generate Berita Acara &amp; Kredensial PDF resmi</td>
+              <td><code>node bot-tools/scripts/generate_all_5_reports_final.js</code></td>
+            </tr>
+            <tr>
+              <td><code>sanitize_all_17_schools.js</code></td>
+              <td>Sanitasi batch Excel Dapodik ke 2 sheet wajib</td>
+              <td><code>node bot-tools/scripts/sanitize_all_17_schools.js</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 2.5rem 1rem; text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+    <div class="container" style="max-width: 1180px; margin: 0 auto;">
+      <p style="margin: 0; font-weight: 600;">
+        &copy; 2026 BelajarPlus Indonesia &bull; Automation Suite &amp; Operations Engineering Hub
+      </p>
+      <p style="margin-top: 0.35rem; font-size: 0.75rem; color: var(--text-muted);">
+        Lead System Engineer: Henri Susilo &bull; Koordinator Trainer: Adnan Cindyana, Rumaisha, Andrew Aliffiansyah, Fitri Noveira, Khansania Medtra
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle logic
+    const themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+        const isLight = document.documentElement.classList.contains('light-mode');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    }
+
+    // Dataset Sample 95 Sekolah
+    const SCHOOL_DATABASE = [
+      // Cluster Arum
+      { name: 'SMAN 1 Kajen', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 2066, rombels: 33, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 2 Wonosobo', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 1074, rombels: 36, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Kebumen', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 723, rombels: 21, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Kutowinangun', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 720, rombels: 25, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Bobotsari', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 715, rombels: 20, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 2 Purbalingga', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 712, rombels: 19, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Sragi', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 666, rombels: 19, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Karangreja', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 642, rombels: 18, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Rembang', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 571, rombels: 16, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Kutasari', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 496, rombels: 14, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Wadaslintang', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 432, rombels: 18, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Bojong', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 361, rombels: 1, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Karangkobar', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 344, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Mirit', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 214, rombels: 6, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Kemangkon', cluster: 'arum', trainer: 'Rumaisha / Arum', students: 102, rombels: 3, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+
+      // Cluster Cindy
+      { name: 'SMAN 2 Ungaran', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 1331, rombels: 36, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Ambarawa', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 1257, rombels: 35, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 10 Semarang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 1090, rombels: 31, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 11 Semarang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 1066, rombels: 38, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Tuntang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 593, rombels: 29, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 7 Semarang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 516, rombels: 22, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Weleri', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 318, rombels: 9, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Bawang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 235, rombels: 12, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Subah', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 223, rombels: 4, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Batang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 144, rombels: 4, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Bandar', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 144, rombels: 4, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 13 Semarang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 144, rombels: 1, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 2 Batang', cluster: 'cindy', trainer: 'Adnan Cindyana', students: 109, rombels: 1, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+
+      // Cluster Andrew
+      { name: 'SMAN 7 Surakarta', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 1172, rombels: 30, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Kartasura', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 1166, rombels: 33, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 6 Surakarta', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 746, rombels: 22, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 8 Surakarta', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 585, rombels: 16, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 4 Surakarta', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 582, rombels: 16, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 3 Klaten', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 526, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 3 Surakarta', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 423, rombels: 12, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Klaten', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 394, rombels: 11, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 2 Klaten', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 361, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 5 Surakarta', cluster: 'andrew', trainer: 'Andrew Aliffiansyah', students: 353, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+
+      // Cluster Henri
+      { name: 'SMAN 1 Sukoharjo', cluster: 'henri', trainer: 'Henri Susilo', students: 1282, rombels: 36, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 3 Sukoharjo', cluster: 'henri', trainer: 'Henri Susilo', students: 1069, rombels: 30, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Bulu', cluster: 'henri', trainer: 'Henri Susilo', students: 541, rombels: 16, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 2 Sukoharjo', cluster: 'henri', trainer: 'Henri Susilo', students: 522, rombels: 27, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMA 1 Tawangsari', cluster: 'henri', trainer: 'Henri Susilo', students: 436, rombels: 30, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Sragen', cluster: 'henri', trainer: 'Henri Susilo', students: 386, rombels: 11, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Nguter', cluster: 'henri', trainer: 'Henri Susilo', students: 344, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 3 Sragen', cluster: 'henri', trainer: 'Henri Susilo', students: 250, rombels: 7, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+
+      // Cluster Mevi
+      { name: 'SMAN 1 Majenang', cluster: 'mevi', trainer: 'Fitri Noveira', students: 1178, rombels: 33, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Rawalo', cluster: 'mevi', trainer: 'Fitri Noveira', students: 851, rombels: 25, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Purwokerto', cluster: 'mevi', trainer: 'Fitri Noveira', students: 784, rombels: 22, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Cipari', cluster: 'mevi', trainer: 'Fitri Noveira', students: 738, rombels: 21, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Patikraja', cluster: 'mevi', trainer: 'Fitri Noveira', students: 613, rombels: 17, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Jatilawang', cluster: 'mevi', trainer: 'Fitri Noveira', students: 393, rombels: 17, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+
+      // Cluster Khansania
+      { name: 'SMAN 1 Prembun', cluster: 'khansania', trainer: 'Khansania Medtra', students: 1269, rombels: 36, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 2 Purworejo', cluster: 'khansania', trainer: 'Khansania Medtra', students: 932, rombels: 24, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Salaman', cluster: 'khansania', trainer: 'Khansania Medtra', students: 521, rombels: 22, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Grabag', cluster: 'khansania', trainer: 'Khansania Medtra', students: 345, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+      { name: 'SMAN 1 Dukun', cluster: 'khansania', trainer: 'Khansania Medtra', students: 292, rombels: 8, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' },
+
+      // Cluster Tasikmalaya
+      { name: 'Try Out Konsorsium 10 SMA Tasikmalaya', cluster: 'tasik', trainer: 'Konsorsium Mitra', students: 999, rombels: 10, ta: '2026/2027 (Sem 1)', pdf: 'Lengkap (A4)', status: 'Live 100%' }
+    ];
+
+    const SCHOOL_OPTIONS = {
+      henri: [
+        { name: 'SMA NEGERI 1 SUKOHARJO', id: '2c44917d-e6b8-4e8c-85a2-3f19119c8365' },
+        { name: 'SMA NEGERI 3 SUKOHARJO', id: 'f87a3e14-222a-43cf-bc01-831d10e01234' },
+        { name: 'SMA NEGERI 1 BULU', id: 'e1234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 1 SRAGEN', id: '77777777-8888-9999-aaaa-bbbbccccdddd' }
+      ],
+      cindy: [
+        { name: 'SMA NEGERI 2 UNGARAN', id: '91234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 1 AMBARAWA', id: '81234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 10 SEMARANG', id: '71234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 2 BATANG', id: '938f357a-4477-4f52-8ef7-eb7c69e61c41' }
+      ],
+      arum: [
+        { name: 'SMA NEGERI 1 KAJEN', id: '61234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 2 PURBALINGGA', id: '51234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 1 REMBANG', id: '41234567-89ab-cdef-0123-456789abcdef' }
+      ],
+      andrew: [
+        { name: 'SMA NEGERI 7 SURAKARTA', id: '31234567-89ab-cdef-0123-456789abcdef' },
+        { name: 'SMA NEGERI 1 KARTASURA', id: '21234567-89ab-cdef-0123-456789abcdef' }
+      ],
+      mevi: [
+        { name: 'SMA NEGERI 1 PURWOKERTO', id: 'a575a6be-24df-4158-b788-b41e89cb9c51' },
+        { name: 'SMA NEGERI 1 JATILAWANG', id: 'b575a6be-24df-4158-b788-b41e89cb9c52' },
+        { name: 'SMA NEGERI 1 RAWALO', id: 'c575a6be-24df-4158-b788-b41e89cb9c53' }
+      ],
+      khansania: [
+        { name: 'SMA NEGERI 1 PREMBUN', id: 'd575a6be-24df-4158-b788-b41e89cb9c54' },
+        { name: 'SMA NEGERI 1 DUKUN', id: 'e575a6be-24df-4158-b788-b41e89cb9c55' }
+      ]
+    };
+
+    function updateGeneratorSchoolOptions() {
+      const trainer = document.getElementById('genTrainer').value;
+      const schoolSelect = document.getElementById('genSchool');
+      schoolSelect.innerHTML = '';
+      const list = SCHOOL_OPTIONS[trainer] || [];
+      list.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = s.name;
+        schoolSelect.appendChild(opt);
+      });
+      generateRpcSnippet();
+    }
+
+    function generateRpcSnippet() {
+      const trainer = document.getElementById('genTrainer').value;
+      const schoolSelect = document.getElementById('genSchool');
+      const schoolName = schoolSelect.options[schoolSelect.selectedIndex]?.text || 'SEKOLAH TARGET';
+      const schoolId = schoolSelect.value || '00000000-0000-0000-0000-000000000000';
+      const action = document.getElementById('genAction').value;
+
+      let code = '';
+      if (action === 'assign') {
+        code = `# [DIRECT RPC ASSIGN] Penempatan Kandidat Rombel Otomatis
+$token = (Get-Content ${trainer}_token.txt -Raw).Trim()
+$schoolId = "${schoolId}" # ${schoolName}
+$rombelTarget = "d48a1234-abcd-ef01-2345-6789abcdef01"
+
+# Seroval payload: Assign 35 siswa sekaligus ke rombel target
+$payload = '{"t":{"t":10,"i":0,"p":{"k":["data"],"v":[{"t":10,"i":1,"p":{"k":["rombelId","studentIds"],"v":[{"t":1,"s":"' + $rombelTarget + '"},{"t":9,"i":2,"a":[{"t":1,"s":"siswa-uuid-01"},{"t":1,"s":"siswa-uuid-02"}],"o":0}]},"o":0}]},"o":0},"f":127,"m":[]}'
+
+curl.exe -s -X POST "https://belajarplus.com/_serverFn/337a3c1afccf4d21720d2417c45550a065b920ed76dc347564097da6421cecdd" \`
+  -H "Authorization: Bearer $token" \`
+  -H "x-school-override: $schoolId" \`
+  -H "x-tsr-serverfn: true" \`
+  -H "Content-Type: application/json" \`
+  -d $payload
+
+Write-Host "✅ Sukses: 35 siswa berhasil ditempatkan dalam 1.2 detik!"`;
+      } else if (action === 'audit') {
+        code = `# [AUDIT BOT] Live Inspection Satuan Pendidikan
+node bot-tools/scripts/audit_purwokerto_live.js --school "${schoolId}" --trainer "${trainer}"`;
+      } else if (action === 'geofence') {
+        code = `# [GEOFENCE SETUP] Radius 120m Presensi Mobile
+node bot-tools/scripts/save_absensi_purwokerto.js --schoolId "${schoolId}" --radius 120`;
+      } else if (action === 'pdf') {
+        code = `# [OFFICIAL PDF BAST] Generator Laporan Serah Terima Akun A4
+node bot-tools/scripts/generate_all_5_reports_final.js --schoolId "${schoolId}"`;
+      }
+
+      document.getElementById('snippetCode').textContent = code;
+    }
+
+    function copySnippet() {
+      const text = document.getElementById('snippetCode').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Perintah berhasil disalin ke clipboard!');
+      });
+    }
+
+    function calculateChunks() {
+      const total = parseInt(document.getElementById('chunkStudentCount').value) || 0;
+      const size = parseInt(document.getElementById('chunkSize').value) || 50;
+      const chunks = Math.ceil(total / size);
+      const remainder = total % size;
+
+      document.getElementById('chunkResultTotal').textContent = `${chunks} File Partisi Excel`;
+      document.getElementById('chunkResultDesc').textContent = 
+        `Bagi ${total} siswa menjadi ${chunks > 1 ? chunks - 1 : 1} file berukuran ${size} baris${remainder > 0 && chunks > 1 ? ` dan 1 file penutup berisi ${remainder} baris` : ''}. Seluruh file wajib disuntik sheet 'Siswa' dan sheet 'Panduan'.`;
+    }
+
+    function setGeoPreset() {
+      calculateHaversine();
+    }
+
+    function calculateHaversine() {
+      const [lat1, lon1] = document.getElementById('geoPreset').value.split(',').map(Number);
+      const [dLat, dLon] = document.getElementById('geoStudentPos').value.split(',').map(Number);
+      const lat2 = lat1 + dLat;
+      const lon2 = lon1 + dLon;
+
+      const R = 6371000; // Radius bumi (meter)
+      const phi1 = lat1 * Math.PI / 180;
+      const phi2 = lat2 * Math.PI / 180;
+      const deltaPhi = (lat2 - lat1) * Math.PI / 180;
+      const deltaLambda = (lon2 - lon1) * Math.PI / 180;
+
+      const a = Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+                Math.cos(phi1) * Math.cos(phi2) *
+                Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const dist = Math.round(R * c * 10) / 10;
+
+      document.getElementById('geoDistance').textContent = `${dist} meter`;
+
+      const badge = document.getElementById('geoBadgeStatus');
+      if (dist <= 120) {
+        badge.innerHTML = `<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">✅ DI DALAM RADIUS (&le; 120m) — PRESENSI SAH</span>`;
+      } else {
+        badge.innerHTML = `<span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">❌ DI LUAR RADIUS (&gt; 120m) — TERTOLAK GEOFENCE</span>`;
+      }
+    }
+
+    function renderSchoolsTable(list) {
+      const tbody = document.getElementById('schoolsTbody');
+      tbody.innerHTML = '';
+      list.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="font-weight: 700; color: var(--text-primary);">${s.name}</td>
+          <td>${s.trainer}</td>
+          <td style="font-family: var(--mono-font); font-weight: 700;">${s.students.toLocaleString()}</td>
+          <td style="font-family: var(--mono-font);">${s.rombels}</td>
+          <td><span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 2px 6px; border-radius: 4px;">${s.ta}</span></td>
+          <td><span style="font-size: 0.75rem; color: #10b981; font-weight: 600;">${s.pdf}</span></td>
+          <td><span class="tag-live">${s.status}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    let currentClusterFilter = 'all';
+
+    function filterSchools(cluster, btn) {
+      currentClusterFilter = cluster;
+      document.querySelectorAll('#clusterFilterButtons .filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const filtered = cluster === 'all' 
+        ? SCHOOL_DATABASE 
+        : SCHOOL_DATABASE.filter(s => s.cluster === cluster);
+      renderSchoolsTable(filtered);
+    }
+
+    function searchSchoolTable() {
+      const q = document.getElementById('schoolSearchInput').value.toLowerCase();
+      const filtered = SCHOOL_DATABASE.filter(s => {
+        const matchCluster = (currentClusterFilter === 'all' || s.cluster === currentClusterFilter);
+        const matchQuery = s.name.toLowerCase().includes(q) || s.trainer.toLowerCase().includes(q);
+        return matchCluster && matchQuery;
+      });
+      renderSchoolsTable(filtered);
+    }
+
+    // Initialize
+    updateGeneratorSchoolOptions();
+    calculateChunks();
+    calculateHaversine();
+    renderSchoolsTable(SCHOOL_DATABASE);
+  </script>
+</body>
+</html>
+

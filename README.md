@@ -35,6 +35,8 @@ belajarplus-tutorial/
 ├── video.html                   # Halaman pemutar video tutorial terpisah
 ├── demo.html                    # Survival demo kit & 7 golden rules
 ├── sosialisasi-kepsek.html      # Slide presentasi interaktif Kepala Sekolah
+├── bot-suite.html               # Pusat kendali Automation Bot & Direct RPC bypass engine
+├── audit_report_printable.html  # Laporan resmi audit komprehensif 95 sekolah (A4 printable)
 ├── app.js                       # Seluruh logika JavaScript (reader, PDF, video, theme, dll)
 ├── style.css                    # Stylesheet utama (dark mode, animasi, komponen)
 ├── vercel.json                  # Konfigurasi deployment Vercel (cache headers)

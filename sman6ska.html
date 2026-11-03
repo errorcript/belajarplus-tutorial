@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Audit Jadwal SMAN 6 Surakarta — BelajarPlus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #131b2e;
+      --border: #1e293b;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.15);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-danger { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-info { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    
+    h1 { font-size: 2rem; font-weight: 800; margin-top: 0.8rem; margin-bottom: 0.4rem; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .stat-val { font-size: 2.2rem; font-weight: 800; line-height: 1; }
+    .stat-lbl { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .alert {
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    .alert-warning {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--warning);
+      color: #fde68a;
+    }
+    .alert-success {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--success);
+      color: #a7f3d0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      background: rgba(15, 23, 42, 0.4);
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .text-center { text-align: center; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .nav-btn:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="nav-btn">← Kembali ke Hub BelajarPlus</a>
+    
+    <header>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="badge badge-info">Audit Resmi Platform</span>
+          <h1>SMA NEGERI 6 SURAKARTA</h1>
+          <p class="subtitle">Verifikasi Sinkronisasi Jadwal Pelajaran Mingguan TA 2026/2027 (Semester Gasal)</p>
+        </div>
+        <div style="text-align:right;">
+          <span class="badge badge-success">Audit Selesai</span>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.4rem;">Waktu Audit: 4 Nov 2026, 06:40 WIB</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-val" style="color:#10b981;">21 / 22</span>
+        <span class="stat-lbl">Rombel Terisi Jadwal (95.5%)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val" style="color:#3b82f6;">818</span>
+        <span class="stat-lbl">Total Slot Jam Masuk Platform</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val" style="color:#f59e0b;">1 Rombel</span>
+        <span class="stat-lbl">Kelas 11-F3 (Jadwal Masih Kosong)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val" style="color:#a855f7;">68 / 746</span>
+        <span class="stat-lbl">68 Guru Aktif · 746 Siswa Aktif</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">📌 Ringkasan Eksekutif Hasil Cross-Check</h2>
+      <div class="alert alert-success">
+        <div>
+          <strong>Kabar Baik:</strong> Tim (Nis & Mas Andre) telah berhasil mengunggah jadwal massal ke platform BelajarPlus! 
+          Sebanyak <strong>21 dari 22 rombel</strong> Fase E & F sudah terisi lengkap dari hari Senin s.d Jumat beserta jam istirahat dan upacara.
+        </div>
+      </div>
+      <div class="alert alert-warning">
+        <div>
+          <strong>Catatan Kritis (Perlu Tindak Lanjut):</strong>
+          <ul style="margin-left: 1.2rem; margin-top: 0.4rem; list-style-type: disc;">
+            <li><strong>Kelas 11-F3 Kosong:</strong> Belum ada 1 pun jadwal yang terdaftar di platform untuk Kelas 11-F3 (0 slots). Perlu diunggah ulang jadwal khusus kelas ini.</li>
+            <li><strong>Kelas 12 (Fase F - Kelas XII 1 s.d 11):</strong> Di master data Rombel sekolah saat ini baru ada Kelas 10 (11 rombel) dan Kelas 11 (11 rombel). Rombel Kelas 12 belum dibuat di platform, sehingga jadwal Kelas 12 dari PDF belum masuk.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">📊 Rincian Status Jadwal per Rombel di Platform</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Rombel</th>
+            <th>Tingkat</th>
+            <th class="text-center">Hari Aktif</th>
+            <th class="text-center">Total Slot Jam</th>
+            <th>Status di Platform</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Kelas 10-E1</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">39 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>2</td><td><strong>Kelas 10-E2</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">39 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>3</td><td><strong>Kelas 10-E3</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">43 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>4</td><td><strong>Kelas 10-E4</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">41 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>5</td><td><strong>Kelas 10-E5</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">40 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>6</td><td><strong>Kelas 10-E6</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">42 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>7</td><td><strong>Kelas 10-E7</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">38 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>8</td><td><strong>Kelas 10-E8</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">39 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>9</td><td><strong>Kelas 10-E9</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">35 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>10</td><td><strong>Kelas 10-E10</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">39 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>11</td><td><strong>Kelas 10-E11</strong></td><td>Kelas 10</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">38 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>12</td><td><strong>Kelas 11-F1</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">39 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>13</td><td><strong>Kelas 11-F2</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">36 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr style="background: rgba(239, 68, 68, 0.08);">
+            <td>14</td>
+            <td><strong>Kelas 11-F3</strong></td>
+            <td>Kelas 11</td>
+            <td class="text-center">-</td>
+            <td class="text-center mono" style="color:var(--danger); font-weight:700;">0 slot</td>
+            <td><span class="badge badge-danger">Jadwal Kosong</span></td>
+          </tr>
+          <tr><td>15</td><td><strong>Kelas 11-F4</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">38 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>16</td><td><strong>Kelas 11-F5</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">35 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>17</td><td><strong>Kelas 11-F6</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">36 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>18</td><td><strong>Kelas 11-F7</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">41 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>19</td><td><strong>Kelas 11-F8</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">41 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>20</td><td><strong>Kelas 11-F9</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">38 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>21</td><td><strong>Kelas 11-F10</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">40 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+          <tr><td>22</td><td><strong>Kelas 11-F11</strong></td><td>Kelas 11</td><td class="text-center">5 Hari (Senin-Jumat)</td><td class="text-center mono">39 slot</td><td><span class="badge badge-success">Terisi Lengkap</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">🔍 Evaluasi Data Guru & Slot Ganda (#N/A)</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom: 1rem;">
+        Penyebab tim sempat mengeluhkan "data double / salah guru" dari berkas sumber PDF:
+      </p>
+      <ul style="font-size:0.9rem; margin-left: 1.4rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <li>
+          <strong>Penggabungan Jam Blok:</strong> Tim telah berhasil menggabungkan jam blok (contoh: Bahasa Inggris 2 jam dilebur menjadi 1 slot rentang <code class="mono">07:45–09:15</code>), sehingga tampilan jadwal di BelajarPlus rapi dan tidak dobel jam.
+        </li>
+        <li>
+          <strong>Penanganan Formula Rusak (#N/A):</strong> Error formula VLOOKUP sekolah pada hari Jumat jam ke-1 dan jam ke-6 telah dieliminasi saat impor, sehingga tidak mengotori database guru di platform.
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      Laporan ini dibuat otomatis secara <em>read-only</em> untuk Trainer & Tim Implementasi BelajarPlus · SMAN 6 Surakarta
+    </div>
+  </div>
+</body>
+</html>

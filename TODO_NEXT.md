@@ -138,3 +138,20 @@
   - **#BUG-BP2-39 (P2)**: *Diskrepansi Metrik Parsial PGK (0.33 Poin) dengan Kartu Ringkasan Biner (Benar: 9, Salah: 1)* pada lembar transkrip hasil asesmen LJD siswa.
 - [x] **Sinkronisasi Survival Guide & Visual Bukti**: Seluruh 39 temuan terintegrasi dengan bukti screenshot visual real-time dan modal zoom lightbox.
 
+
+---
+
+## 6. Automation Bot Suite, Direct RPC Bypass & Audit 95 Sekolah Terintegrasi
+- [x] **Pusat Kendali Bot Otomasi (`/bot-suite`)**:
+  - **Bedah Arsitektur Direct RPC**: Dokumentasi bypass rendering DOM browser via TanStack ServerFn (`/_serverFn/337a3c1a...`) dengan Seroval serialization dan header `x-school-override`.
+  - **Interactive RPC & Seroval Command Generator**: Simulator perintah PowerShell & Node.js per PIC Trainer (Henri, Cindy, Arum, Andrew, Mevi, Khansania) siap salin.
+  - **Kalkulator Smart Import & Chunking**: Pemecah batch otomatis (40-60 baris) dengan mitigasi timeout modal preview dan normalisasi email Zero-PesonaEdu.
+  - **Haversine Geofence GPS Satelit Simulator**: Perhitungan jarak geodesi presisi ($R = 6.371.000\text{ m}$) dengan toleransi radius 120m absensi mobile.
+  - **Direktori Live 95 Sekolah**: Database master 95 sekolah (41.905 siswa, 1.267 rombel) terfilter 6 klaster trainer Jawa Tengah & Tasikmalaya.
+  - **Cheatsheet Runner Script**: Direktori script operasional di `bot-tools/scripts/`.
+- [x] **Rute Produksi Vercel (`vercel.json`)**:
+  - `/bot-suite` dialihkan ke `/bot-suite.html`
+  - `/audit` dialihkan ke `/audit_report_printable.html` (Laporan resmi A4 komprehensif)
+- [x] **Navigasi & Showcase di `index.html`**:
+  - Penambahan link navigasi `🤖 Bot Suite` dan `📊 Audit 95 Sekolah` di navbar.
+  - Penambahan 2 Card Executive Toolkit: *Bot Automation & RPC Suite* dan *Laporan Audit 95 Satuan Pendidikan*.
