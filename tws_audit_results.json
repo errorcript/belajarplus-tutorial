@@ -1,0 +1,1122 @@
+{
+  "schoolName": "SMA NEGERI 1 TAWANGSARI",
+  "schoolId": "a1ecc8f2-84a5-4f22-bbbc-e79a5823ae21",
+  "auditTime": "2026-11-10T12:49:35.255Z",
+  "totalDriveTeachers": 74,
+  "totalLivePlatformStaff": 55,
+  "successLogins": 35,
+  "failedLogins": 39,
+  "inPlatformCount": 41,
+  "notInPlatformCount": 33,
+  "results": [
+    {
+      "no": 1,
+      "name": "'Ifah Nur 'Azizah, S.Pd.",
+      "email": "ifahazizah61@guru.sma.belajar.id",
+      "password": "Sman1taw_6595",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "e5dfedbb-d9eb-4930-babb-99a3c35cbaa5",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 2,
+      "name": "Ambar Sintaningsih, S.Pd.,M.Pd",
+      "email": "ambarsintaningsih70@gmail.com",
+      "password": "Sman1taw_1203",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "a4d510f1-056d-41b2-92fe-e270794d08d9",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 3,
+      "name": "Aryani Puji Hastuti,S.Pd",
+      "email": "aryani.ph@gmail.com",
+      "password": "Sman1taw_3825",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "6ba76e88-d31e-40c7-ac39-d10dccbb94e3",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 4,
+      "name": "Asri Budiyani, S.Pd.I",
+      "email": "asribudiyani69@guru.sma.belajar.id",
+      "password": "Sman1taw_7837",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "ab5a2469-9d4a-4cb5-b36c-8ccceecea786",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 5,
+      "name": "Chandra Ivan, S.S., M.Pd",
+      "email": "chandraivan9406@gmail.com",
+      "password": "Sman1taw_2801",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "b4a99d3d-49c5-4008-92e0-f30e352c7845",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 6,
+      "name": "Devita Aprilia Wijaya, S.Pd.",
+      "email": "devitawijaya34@guru.sma.belajar.id",
+      "password": "Sman1taw_1486",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "681f85af-5afc-4b36-a0b2-565f81759ff3",
+      "loginStatus": "FAILED",
+      "loginMessage": "Invalid login credentials"
+    },
+    {
+      "no": 7,
+      "name": "Dovan Julinur Rahsyaputra, S.Pd",
+      "email": "dovanrahsyaputra47@guru.sma.belajar.id",
+      "password": "Sman1taw_9937",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "05024760-3264-4b4a-bf7a-99068731af3e",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 8,
+      "name": "Dra. Ita Retnowati",
+      "email": "itaretnowati11@guru.sma.belajar.id",
+      "password": "Sman1taw_6833",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "7ba56291-2cc2-4f58-a3e2-61a6604dbbfc",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 9,
+      "name": "Drs. Muh Muhtar",
+      "email": "muhmuhtar53@gmail.com",
+      "password": "Sman1taw_7108",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "f529cc70-745c-4810-9454-d5a178e68d61",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 10,
+      "name": "Dudy Iskandar, S.Pd",
+      "email": "iskandardudy111@gmail.com",
+      "password": "Sman1taw_7392",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "273fb83c-3033-43ba-81c2-7945f378c508",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 11,
+      "name": "E.Dyah Setyorini, S.Pd",
+      "email": "dyahstyrn25@gmail.com",
+      "password": "Sman1taw_4107",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "54643899-1c54-4ed4-8a6d-526efe9ee123",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 12,
+      "name": "Endang Wiyatni, S.S.",
+      "email": "endangwiyatni18@guru.sma.belajar.id",
+      "password": "Sman1taw_6899",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "74b4454d-73b5-42b9-84db-c2a0162db102",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 13,
+      "name": "Entin Setyawati, S.Pd.",
+      "email": "entin.setyawati44@guru.sma.belajar.id",
+      "password": "Sman1taw_8970",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "735d850d-2f2b-4e8a-a59f-b222abf78c06",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 14,
+      "name": "Fakih Ardianto, S.Pd",
+      "email": "fakihardianto@gmail.com",
+      "password": "Sman1taw_2580",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "3cb9df20-fc7c-4e47-8542-4b97816639d5",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 15,
+      "name": "Hafidh Imam Pratama, S.Pd",
+      "email": "hafidhprtma@gmail.com",
+      "password": "Sman1taw_3884",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "1096f85d-56bf-47e1-82ab-cf0d041622d1",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 16,
+      "name": "Hartadi, S.S",
+      "email": "79hartadi@gmail.com",
+      "password": "Sman1taw_8266",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "02a1bbe7-287c-4485-ad45-dc058fe5a619",
+      "loginStatus": "FAILED",
+      "loginMessage": "Invalid login credentials"
+    },
+    {
+      "no": 17,
+      "name": "Ida Marsiti, S.Pd",
+      "email": "idamarsiti54@guru.sma.belajar.id",
+      "password": "Sman1taw_9207",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "7525dae9-b999-4269-8c26-b399eec5ed36",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 18,
+      "name": "Kuncoro Setyawan, S. Sos.",
+      "email": "kuncorosetyawan@asn.jatengprov.go.id",
+      "password": "Sman1taw_8347",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "b2fa300c-e92b-494a-a59a-00199b7c6852",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 19,
+      "name": "Merlinda Kurniawati,S.Pd",
+      "email": "merlindakurniawati75@guru.sma.belajar.id",
+      "password": "Sman1taw_2375",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "1399f01e-3e3d-4fbb-8ed6-8912f4ddf6e0",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 20,
+      "name": "Na Pradita Anjasmara, S.Pd",
+      "email": "naanjasmara50@guru.sma.belajar.id",
+      "password": "Sman1taw_6129",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "ce329974-a5ec-4848-90a1-6432364f8950",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 21,
+      "name": "Novica Nur Fadlilah, S.Pd.",
+      "email": "novica21nurfadlilah@gmail.com",
+      "password": "Sman1taw_7801",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "86a609a0-379f-412a-9630-c5d7e51f0997",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 22,
+      "name": "Ori Bandiningsih TM, S.Si.",
+      "email": "oribandiningsihtm@gmail.com",
+      "password": "Sman1taw_1218",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "ff093170-94cf-4d75-bac4-6d85c60ae16a",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 23,
+      "name": "Poni,S.Pd.",
+      "email": "phonyspd@gmail.com",
+      "password": "Sman1taw_2577",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "97809eda-1a62-4234-8584-ebbc22f1d088",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 24,
+      "name": "Rahmawati Nur Jamilah, S.S",
+      "email": "rahmawatinugroho19@gmail.com",
+      "password": "Sman1taw_3115",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "2c1fe455-1517-42a7-bc8f-3b78f13dae84",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 25,
+      "name": "Refi Mariska, S.Pd.",
+      "email": "reyv.k287@gmail.com",
+      "password": "Sman1taw_8068",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "20576329-3416-4055-bb3e-42cac726815d",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 26,
+      "name": "Rina Indri Astuti, S.Pd",
+      "email": "rinaastuti32@guru.sma.belajar.id",
+      "password": "Sman1taw_6087",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "df0fa035-df4b-4a42-b226-1380c9998f87",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 27,
+      "name": "Riris Hidayati, S.Pd.",
+      "email": "riris.hidayati9@guru.sma.belajar.id",
+      "password": "Sman1taw_4187",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "3aed4b9a-81b5-41aa-9b3f-ba184cd6f7b4",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 28,
+      "name": "Rizky Nur Aini, S.Pd",
+      "email": "rizkyaini31@guru.sma.belajar.id",
+      "password": "Sman1taw_9705",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "fe12b109-ea91-426a-8fb1-860a18a49b63",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 29,
+      "name": "Sajatun, S.Pd.",
+      "email": "sajatun25@guru.sma.belajar.id",
+      "password": "Sman1taw_2480",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "64b9f76c-ccf5-4dd1-954f-7f9a0172e53a",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 30,
+      "name": "Siti Asiyah, S.Pd",
+      "email": "sitiasiyah0606@gmail.com",
+      "password": "Sman1taw_7165",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "e2943db7-90de-4018-a4ed-6fdb4d15407c",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 31,
+      "name": "Siti Nurzanah, S.Pd.",
+      "email": "snoerzanah@gmail.com",
+      "password": "Sman1taw_4457",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "bd200cf2-649f-4c66-8a65-49c60e48d18c",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 32,
+      "name": "SRI DARSINI,S.Pd.",
+      "email": "sridarsini04@guru.sma.belajar.id",
+      "password": "Sman1taw_2886",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "edfee3d3-454d-476f-b75c-13b7b2f3c6d6",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 33,
+      "name": "Sri Daryanti,S.Th.",
+      "email": "daryanti.67@gmail.com",
+      "password": "Sman1taw_5062",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "3210b145-aaff-4277-9243-7aa7a7e6951a",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 34,
+      "name": "Sri Handayani, S.Pd.",
+      "email": "srihandayani09@guru.sma.belajar.id",
+      "password": "Sman1taw_9757",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "b14ee1d8-fba4-4e0c-962e-4fadef1e46f3",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 35,
+      "name": "Sri Haryani, S. Pd",
+      "email": "sri.haryani2679@guru.sma.belajar.id",
+      "password": "Sman1taw_6840",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "6cc5f571-a767-4f87-9520-a8f2884c4005",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 36,
+      "name": "Sri Mulyani, S.Si., M.Pd.",
+      "email": "srimulyani70@guru.sma.belajar.id",
+      "password": "Sman1taw_1750",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "5afd961f-93f1-4128-afe5-f8ed7626f217",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 37,
+      "name": "Suci Subarni, S.Pd.",
+      "email": "sucisubarni01@guru.sma.belajar.id",
+      "password": "Sman1taw_4312",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "4ce58164-f5a0-4acb-877d-5a6486857a84",
+      "loginStatus": "SUCCESS",
+      "loginMessage": "Berhasil login (Token valid)"
+    },
+    {
+      "no": 38,
+      "name": "SuKOSIH CAHYANI, S.Pd",
+      "email": "sukosihcahyani82@guru.sma.belajar.id",
+      "password": "Sman1taw_5364",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "0c3933d0-0fb6-4346-bd22-d20ee7d91381",
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 39,
+      "name": "Sumarwan, S. Kom",
+      "email": "marwanjogja7810@gmail.com",
+      "password": "Sman1taw_9491",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "943f896e-d803-4a98-ac71-886b554d95d8",
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 40,
+      "name": "Suyadi, S.Pd., M.Pd.",
+      "email": "suyadi85@guru.sma.belajar.id",
+      "password": "Sman1taw_5347",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "teacher"
+      ],
+      "platformUserId": "cee703af-beb7-486e-9a49-5e0434bc101e",
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 41,
+      "name": "Wahidah Estiningrum, S.Pd.",
+      "email": "wahidahestiningrum10@guru.sma.belajar.id",
+      "password": "Sman1taw_1454",
+      "inPlatform": true,
+      "platformStatus": "active",
+      "platformRoles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "platformUserId": "720a8915-735a-41d2-898e-25e9e746689e",
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 42,
+      "name": "Wiwin Setyowati, S.Pd",
+      "email": "winwinsetyowati@gmail.com",
+      "password": "Sman1taw_1666",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 43,
+      "name": "Yoga Prasetyo Pamungkas, S.Pd",
+      "email": "yogapraset757@gmail.com",
+      "password": "Sman1taw_5093",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Invalid login credentials"
+    },
+    {
+      "no": 44,
+      "name": "Yuni Setyaningsih, S.Pd.",
+      "email": "yunisetyaningsih7@gmail.com",
+      "password": "Sman1taw_5196",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 45,
+      "name": "Tri Budiana S.Pd",
+      "email": "tribudiana79@guru.sma.belajar.id",
+      "password": "Sman1taw_9835",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 46,
+      "name": "Kwawa Qoirum Mutiarini, S. Pd",
+      "email": "khawamutia@gmail.com",
+      "password": "Sman1taw_4392",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 47,
+      "name": "Tri Suwastri, S.Sn.",
+      "email": "suwastritri@gmail.com",
+      "password": "Sman1taw_7709",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 48,
+      "name": "Agus Dwi Prasetyo, S.Pd",
+      "email": "agusdwiprasetyo.spd@gmail.com",
+      "password": "Sman1taw_1925",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 49,
+      "name": "Nugroho Dwi Kasdadi, S.Pd",
+      "email": "nugrohokasdadi79@guru.sma.belajar.id",
+      "password": "Sman1taw_6195",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 50,
+      "name": "Dosis Ahad Muttaqien, S.PdI, M.PdI",
+      "email": "dosismuttaqien72@guru.sma.belajar.id",
+      "password": "Sman1taw_5212",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 51,
+      "name": "Rufie Setia Rika Kusuma,SPd",
+      "email": "kusumarika494@gmail.com",
+      "password": "Sman1taw_6614",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Invalid login credentials"
+    },
+    {
+      "no": 52,
+      "name": "Suroto, S. Pd.",
+      "email": "rotoqueen8@gmail.com",
+      "password": "Sman1taw_2793",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 53,
+      "name": "Ruce Popowati, S.Pd",
+      "email": "rucepopowati@gmail.com",
+      "password": "Sman1taw_2670",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 54,
+      "name": "Suma Ardyan Prasetyo, S.Psi",
+      "email": "sumaardyan85@gmail.com",
+      "password": "Sman1taw_5523",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 55,
+      "name": "Margareta Tri Wulandari, S.E.",
+      "email": "triwreta@gmail.com",
+      "password": "Sman1taw_6831",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 56,
+      "name": "Istiqomah,S.Pd",
+      "email": "istiqomah51@guru.sma.belajar.id",
+      "password": "Sman1taw_1300",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 57,
+      "name": "Tobri Mulatningsih, S.Kom",
+      "email": "tobrimulatningsih@gmail.com",
+      "password": "Sman1taw_6420",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 58,
+      "name": "Ngatini, S.Pd.",
+      "email": "sman1taw@pesonaedu.com",
+      "password": "Sman1taw_9157",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 59,
+      "name": "Salsabila Shafa, S.Pd.",
+      "email": "salsabila.shafa.s.pd@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_3752",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Invalid login credentials"
+    },
+    {
+      "no": 60,
+      "name": "Guru ke 60",
+      "email": "guru.ke.60@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_9845",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 61,
+      "name": "Guru ke 61",
+      "email": "guru.ke.61@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_3354",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 62,
+      "name": "Guru ke 62",
+      "email": "guru.ke.62@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_8043",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 63,
+      "name": "Guru ke 63",
+      "email": "guru.ke.63@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_2323",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 64,
+      "name": "Guru ke 64",
+      "email": "guru.ke.64@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_5870",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 65,
+      "name": "Guru ke 65",
+      "email": "guru.ke.65@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_3906",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 66,
+      "name": "Guru ke 66",
+      "email": "guru.ke.66@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_5217",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 67,
+      "name": "Guru ke 67",
+      "email": "guru.ke.67@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_9390",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Invalid login credentials"
+    },
+    {
+      "no": 68,
+      "name": "Guru ke 68",
+      "email": "guru.ke.68@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_9048",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 69,
+      "name": "Guru ke 69",
+      "email": "guru.ke.69@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_4056",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 70,
+      "name": "Guru ke 70",
+      "email": "guru.ke.70@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_7292",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 71,
+      "name": "Guru ke 71",
+      "email": "guru.ke.71@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_2966",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 72,
+      "name": "Guru ke 72",
+      "email": "guru.ke.72@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_8095",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 73,
+      "name": "Admin",
+      "email": "admin@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_8294",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    },
+    {
+      "no": 74,
+      "name": "Kepsek",
+      "email": "kepsek@sman1tawangsari.belajarplus.com",
+      "password": "Sman1taw_1360",
+      "inPlatform": false,
+      "platformStatus": "BELUM TERDAFTAR",
+      "platformRoles": [],
+      "platformUserId": null,
+      "loginStatus": "FAILED",
+      "loginMessage": "Request rate limit reached"
+    }
+  ],
+  "extraInPlatform": [
+    {
+      "name": "Dosis Ahad Muttaqien",
+      "email": "dosisahadmuttaqien@belajarplus.com",
+      "roles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "941059fc-2a09-4c20-a853-e60a18d99b48"
+    },
+    {
+      "name": "Dwi Lestari",
+      "email": "dwilestari@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "7379ddfa-51e4-4122-8be4-0cbccfe91379"
+    },
+    {
+      "name": "Hartadi",
+      "email": "hartadi@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "7479db99-4e72-48fc-b238-23ee5be56f1a"
+    },
+    {
+      "name": "Istiqomah",
+      "email": "istiqomah_guru@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "d9a44144-463f-4db8-92f4-7bd2b8bf663a"
+    },
+    {
+      "name": "Kwawa Qoirum",
+      "email": "kwawaqoirum@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "202508c4-ce27-42e7-8f37-64158cd777f8"
+    },
+    {
+      "name": "Margareta Tri Wulandari",
+      "email": "margaretatriwulandari@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "a77d62d4-1338-405d-9d4e-3c979daf4bc1"
+    },
+    {
+      "name": "Nugroho  Dwi Kasdadi",
+      "email": "nugrohodwikasdadi@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "fee9c224-7fdd-4338-ab92-caca05a8355f"
+    },
+    {
+      "name": "Ruce Popowati",
+      "email": "rucepopowati@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "eafb707d-2298-4769-ab13-8d724e3e5145"
+    },
+    {
+      "name": "Suroto",
+      "email": "suroto@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "37e44edb-f19e-4985-94cb-74a6c4a7f501"
+    },
+    {
+      "name": "Tobri Mulatningsih",
+      "email": "tobrimulatningsih@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "f6a82c42-8510-4d5e-9670-ff746777d947"
+    },
+    {
+      "name": "Tri Suwastri",
+      "email": "trisuwastri@belajarplus.com",
+      "roles": [
+        "admin_sekolah",
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "bcd07aa4-d4e8-4bc5-8793-6b90aa801963"
+    },
+    {
+      "name": "Wiwin Setyowati",
+      "email": "wiwinsetyowati@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "3b7f8348-3edb-4702-8280-f4969180d38d"
+    },
+    {
+      "name": "Yoga Prasetyo Pamungkas",
+      "email": "yogaprasetyopamungkas@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "43ef0fb8-b194-4315-8892-60f3a5c24adc"
+    },
+    {
+      "name": "Yuni Setyaningsih",
+      "email": "yunisetyaningsih@belajarplus.com",
+      "roles": [
+        "teacher"
+      ],
+      "status": "active",
+      "user_id": "9fa5c727-068b-4890-a29e-de920c8feeb8"
+    }
+  ]
+}
