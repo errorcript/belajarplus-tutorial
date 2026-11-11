@@ -2,52 +2,35 @@
   "totalDriveStudents": 1063,
   "totalPlatformStudents": 1086,
   "matchedCount": 1058,
-  "missingInPlatformCount": 5,
+  "missingInPlatformCount": 4,
   "missingInPlatformList": [
     {
-      "_row": 171,
       "A": "Moria Calista Damasa Riyadi",
       "B": "cacha.cdr2011@gmail.com",
       "C": "Sman1taw_1413",
-      "D": "Kelas 10-4",
-      "E": "27.0"
+      "D": "Kelas 10-4"
     },
     {
-      "_row": 186,
-      "A": "NAURA CAHYA NINGSIH",
-      "B": "cahyanaura58@gmail.co",
-      "C": "Sman1taw_2884",
-      "D": "Kelas 10-5",
-      "E": "6.0"
-    },
-    {
-      "_row": 718,
       "A": "Abid Bahtiar Putra Ramadan",
       "B": "abidbahtiar50@gmail.com",
       "C": "sman1taw490",
-      "D": "Kelas 12-1",
-      "E": "7.0"
+      "D": "Kelas 12-1"
     },
     {
-      "_row": 734,
       "A": "SELVIANA AUZAN HAZHIYAH",
       "B": "selvianaauzan28@gmail.com",
       "C": "sman1taw898",
-      "D": "Kelas 12-1",
-      "E": "23.0"
+      "D": "Kelas 12-1"
     },
     {
-      "_row": 881,
       "A": "TYAS AULIA MAHARANI",
       "B": "tyasaulia28@gmail.com",
       "C": "sman1taw213",
-      "D": "Kelas 12-4",
-      "E": "33.0"
+      "D": "Kelas 12-4"
     }
   ],
   "driveRombelCounts": {
     "Kelas 10-1": 36,
-    "Kelas 10-10": 35,
     "Kelas 10-2": 36,
     "Kelas 10-3": 36,
     "Kelas 10-4": 36,
@@ -56,18 +39,18 @@
     "Kelas 10-7": 36,
     "Kelas 10-8": 36,
     "Kelas 10-9": 36,
+    "Kelas 10-10": 35,
     "Kelas 11-1": 36,
-    "Kelas 11-10": 26,
     "Kelas 11-2": 36,
     "Kelas 11-3": 36,
     "Kelas 11-4": 36,
     "Kelas 11-5": 36,
     "Kelas 11-6": 36,
-    "Kelas 11-7": 37,
+    "Kelas 11-7": 36,
     "Kelas 11-8": 36,
     "Kelas 11-9": 36,
+    "Kelas 11-10": 25,
     "Kelas 12-1": 36,
-    "Kelas 12-10": 30,
     "Kelas 12-2": 36,
     "Kelas 12-3": 35,
     "Kelas 12-4": 36,
@@ -75,14 +58,15 @@
     "Kelas 12-6": 36,
     "Kelas 12-7": 36,
     "Kelas 12-8": 36,
-    "Kelas 12-9": 36
+    "Kelas 12-9": 36,
+    "Kelas 12-10": 30
   },
   "liveRombelCounts": {
     "Kelas 10-1": 36,
     "Kelas 10-2": 36,
     "Kelas 10-3": 36,
     "Kelas 10-4": 35,
-    "Kelas 10-5": 35,
+    "Kelas 10-5": 36,
     "Kelas 10-6": 36,
     "Kelas 10-7": 36,
     "Kelas 10-8": 36,
@@ -92,21 +76,21 @@
     "Kelas 11-2": 36,
     "Kelas 11-3": 36,
     "Kelas 11-4": 36,
-    "Kelas 11-5": 39,
-    "Kelas 11-6": 40,
-    "Kelas 11-7": 38,
-    "Kelas 11-8": 54,
+    "Kelas 11-5": 36,
+    "Kelas 11-6": 36,
+    "Kelas 11-7": 36,
+    "Kelas 11-8": 36,
     "Kelas 11-9": 36,
-    "Kelas 11-10": 26,
+    "Kelas 11-10": 25,
     "Kelas 12-1": 34,
     "Kelas 12-2": 36,
     "Kelas 12-3": 35,
     "Kelas 12-4": 35,
     "Kelas 12-5": 36,
-    "Kelas 12-6": 33,
+    "Kelas 12-6": 36,
     "Kelas 12-7": 36,
     "Kelas 12-8": 36,
     "Kelas 12-9": 36,
-    "Kelas 12-10": 29
+    "Kelas 12-10": 30
   }
 }
