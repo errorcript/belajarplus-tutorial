@@ -5,3 +5,9 @@ scratch/
 *.xlsx
 *.pptx
 *.pdf
+!public/pdf/*.pdf
+!master.pdf
+!kelas-10.pdf
+!kelas-11.pdf
+!kelas-12.pdf
+
