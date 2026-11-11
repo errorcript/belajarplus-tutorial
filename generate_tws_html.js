@@ -188,7 +188,7 @@ const htmlContent = `<!DOCTYPE html>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
           <!-- Master PDF -->
-          <a href="/pdf/master.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-indigo-300 bg-indigo-600 text-white hover:bg-indigo-700 transition shadow-sm group">
+          <a href="/master.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-indigo-300 bg-indigo-600 text-white hover:bg-indigo-700 transition shadow-sm group">
             <div>
               <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold bg-white/20 px-2 py-0.5 rounded">30 Rombel</span>
@@ -203,7 +203,7 @@ const htmlContent = `<!DOCTYPE html>
           </a>
 
           <!-- Kelas 10 PDF -->
-          <a href="/pdf/kelas-10.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-slate-200 bg-white hover:border-blue-400 hover:bg-blue-50/40 transition shadow-sm group">
+          <a href="/kelas-10.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-slate-200 bg-white hover:border-blue-400 hover:bg-blue-50/40 transition shadow-sm group">
             <div>
               <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Kelas X</span>
@@ -218,7 +218,7 @@ const htmlContent = `<!DOCTYPE html>
           </a>
 
           <!-- Kelas 11 PDF -->
-          <a href="/pdf/kelas-11.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-emerald-300 bg-emerald-50/50 hover:border-emerald-500 hover:bg-emerald-100/50 transition shadow-sm group">
+          <a href="/kelas-11.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-emerald-300 bg-emerald-50/50 hover:border-emerald-500 hover:bg-emerald-100/50 transition shadow-sm group">
             <div>
               <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded">Kelas XI (Terbaru)</span>
@@ -233,7 +233,7 @@ const htmlContent = `<!DOCTYPE html>
           </a>
 
           <!-- Kelas 12 PDF -->
-          <a href="/pdf/kelas-12.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-slate-200 bg-white hover:border-purple-400 hover:bg-purple-50/40 transition shadow-sm group">
+          <a href="/kelas-12.pdf" target="_blank" class="flex flex-col justify-between p-3 rounded-lg border border-slate-200 bg-white hover:border-purple-400 hover:bg-purple-50/40 transition shadow-sm group">
             <div>
               <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold bg-purple-100 text-purple-800 px-2 py-0.5 rounded">Kelas XII</span>
