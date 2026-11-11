@@ -40,6 +40,10 @@
     { "src": "/sman6ska", "dest": "/sman6ska.html" },
     { "src": "/audit", "dest": "/audit_report_printable.html" },
     { "src": "/tws", "dest": "/tws.html" },
+    { "src": "/tws/pdf-master", "dest": "/2_Daftar_Akun_Siswa_Per_Rombel_SMAN_1_Tawangsari.pdf" },
+    { "src": "/tws/pdf-kelas-10", "dest": "/Daftar_Akun_Siswa_Kelas_X_SMAN_1_Tawangsari.pdf" },
+    { "src": "/tws/pdf-kelas-11", "dest": "/Daftar_Akun_Siswa_Kelas_XI_SMAN_1_Tawangsari.pdf" },
+    { "src": "/tws/pdf-kelas-12", "dest": "/Daftar_Akun_Siswa_Kelas_XII_SMAN_1_Tawangsari.pdf" },
     { "src": "/(.*)", "dest": "/404.html", "status": 404 }
   ]
 }
