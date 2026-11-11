@@ -1,7 +1,6 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "trailingSlash": false,
   "headers": [
     {
       "source": "/app.js",
@@ -39,20 +38,17 @@
       ]
     }
   ],
-  "routes": [
-    { "src": "/bot-tools/(.*)", "dest": "/404.html", "status": 404 },
-    { "handle": "filesystem" },
-    { "src": "/bug", "dest": "/bug.html" },
-    { "src": "/bug2", "dest": "/bug2.html" },
-    { "src": "/changelog", "dest": "/changelog.html" },
-    { "src": "/demo", "dest": "/demo.html" },
-    { "src": "/marketing", "dest": "/marketing.html" },
-    { "src": "/qa-fitur-baru", "dest": "/qa-fitur-baru.html" },
-    { "src": "/sosialisasi-kepsek", "dest": "/sosialisasi-kepsek.html" },
-    { "src": "/bot-suite", "dest": "/bot-suite.html" },
-    { "src": "/sman6ska", "dest": "/sman6ska.html" },
-    { "src": "/audit", "dest": "/audit_report_printable.html" },
-    { "src": "/tws", "dest": "/tws.html" },
-    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
+  "rewrites": [
+    { "source": "/bug", "destination": "/bug.html" },
+    { "source": "/bug2", "destination": "/bug2.html" },
+    { "source": "/changelog", "destination": "/changelog.html" },
+    { "source": "/demo", "destination": "/demo.html" },
+    { "source": "/marketing", "destination": "/marketing.html" },
+    { "source": "/qa-fitur-baru", "destination": "/qa-fitur-baru.html" },
+    { "source": "/sosialisasi-kepsek", "destination": "/sosialisasi-kepsek.html" },
+    { "source": "/bot-suite", "destination": "/bot-suite.html" },
+    { "source": "/sman6ska", "destination": "/sman6ska.html" },
+    { "source": "/audit", "destination": "/audit_report_printable.html" },
+    { "source": "/tws", "destination": "/tws.html" }
   ]
 }
