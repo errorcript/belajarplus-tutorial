@@ -17,6 +17,19 @@
       ]
     },
     {
+      "source": "/(.*)\\.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
@@ -28,7 +41,10 @@
   ],
   "routes": [
     { "src": "/bot-tools/(.*)", "dest": "/404.html", "status": 404 },
-    { "handle": "filesystem" },
+    { "src": "/master.pdf", "dest": "/master.pdf" },
+    { "src": "/kelas-10.pdf", "dest": "/kelas-10.pdf" },
+    { "src": "/kelas-11.pdf", "dest": "/kelas-11.pdf" },
+    { "src": "/kelas-12.pdf", "dest": "/kelas-12.pdf" },
     { "src": "/bug", "dest": "/bug.html" },
     { "src": "/bug2", "dest": "/bug2.html" },
     { "src": "/changelog", "dest": "/changelog.html" },
@@ -40,10 +56,7 @@
     { "src": "/sman6ska", "dest": "/sman6ska.html" },
     { "src": "/audit", "dest": "/audit_report_printable.html" },
     { "src": "/tws", "dest": "/tws.html" },
-    { "src": "/master.pdf", "dest": "/master.pdf" },
-    { "src": "/kelas-10.pdf", "dest": "/kelas-10.pdf" },
-    { "src": "/kelas-11.pdf", "dest": "/kelas-11.pdf" },
-    { "src": "/kelas-12.pdf", "dest": "/kelas-12.pdf" },
-    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
+    { "handle": "filesystem" },
+    { "src": "/((?!.*\\.(?:pdf|png|jpg|jpeg|svg|css|js|ico|xlsx)).*)", "dest": "/404.html", "status": 404 }
   ]
 }
