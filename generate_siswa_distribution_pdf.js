@@ -43,7 +43,7 @@ async function generateSiswaPdfs() {
   console.log(`Grouped into ${sortedRombelNames.length} rombels:`, sortedRombelNames.join(', '));
 
   function buildHtml(titleScope, rombelListFilter = null) {
-    const activeRombels = rombelListFilter 
+    const activeRombels = rombelListFilter
       ? sortedRombelNames.filter(r => rombelListFilter.includes(r))
       : sortedRombelNames;
 
@@ -425,7 +425,7 @@ async function generateSiswaPdfs() {
   const masterHtml = buildHtml('Master Seluruh Rombel');
   fs.writeFileSync('temp_master_siswa.html', masterHtml);
   await page.setContent(masterHtml, { waitUntil: 'networkidle' });
-  
+
   const masterPdfLocal = '2_Daftar_Akun_Siswa_Per_Rombel_SMAN_1_Tawangsari.pdf';
   await page.pdf({
     path: masterPdfLocal,
@@ -497,3 +497,4 @@ async function generateSiswaPdfs() {
 }
 
 generateSiswaPdfs().catch(console.error);
+
