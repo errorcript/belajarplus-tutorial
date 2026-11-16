@@ -1,0 +1,212 @@
+[
+  {
+    "rombel": "Kelas 10-1",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-2",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-3",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-4",
+    "target": 36,
+    "live": 35,
+    "status": "KURANG (-1)",
+    "note": "Kurang 1 siswa (Moria Calista - pending auth server)"
+  },
+  {
+    "rombel": "Kelas 10-5",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-6",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-7",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-8",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-9",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 10-10",
+    "target": 35,
+    "live": 35,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-1",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-2",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-3",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-4",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-5",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-6",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-7",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-8",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-9",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 11-10",
+    "target": 25,
+    "live": 25,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-1",
+    "target": 36,
+    "live": 34,
+    "status": "KURANG (-2)",
+    "note": "Kurang 2 siswa (Abid Bahtiar & Selviana Auzan - pending auth server)"
+  },
+  {
+    "rombel": "Kelas 12-2",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-3",
+    "target": 35,
+    "live": 35,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-4",
+    "target": 36,
+    "live": 35,
+    "status": "KURANG (-1)",
+    "note": "Kurang 1 siswa (Tyas Aulia - pending auth server)"
+  },
+  {
+    "rombel": "Kelas 12-5",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-6",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-7",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-8",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-9",
+    "target": 36,
+    "live": 36,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  },
+  {
+    "rombel": "Kelas 12-10",
+    "target": 30,
+    "live": 30,
+    "status": "SESUAI (100%)",
+    "note": "Sempurna"
+  }
+]
