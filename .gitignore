@@ -30,6 +30,10 @@ word/
 !package.json
 !package-lock.json
 
+# WhatsApp Media & Dumps
+wa_grup*
+*.zip
+
 # Temporary request/response dumps
 temp_*
 tmp_*

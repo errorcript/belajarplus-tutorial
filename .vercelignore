@@ -1,5 +1,8 @@
 # Vercel Deployment Ignore
 bot-tools/
 scratch/
+wa_grup*
+*.zip
 *.xlsx
 *.pptx
+*.log
