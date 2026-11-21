@@ -11,13 +11,28 @@ scratch/
 *_token.txt
 token.txt
 *_body.json
+*_session.json
+
+# Binary documents & dumps
+*.xlsx
+*.pdf
+*.docx
+*.csv
+*.xml
+_rels/
+docProps/
+word/
+*.txt
+*.log
+
+# Temp JSON dumps (kecuali package.json)
+*.json
+!package.json
+!package-lock.json
 
 # Temporary request/response dumps
 temp_*
 tmp_*
-*_raw.txt
-*_resp*.txt
-*_resp.txt
 roster_members.json
 count_req.json
 grant_req.json
@@ -35,6 +50,3 @@ students_raw.txt
 all_prembun_members*
 roster_*
 test_r_res.txt
-*.csv
-
-
